@@ -18,7 +18,7 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return { title: 'Buggy Not Found' };
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps) {
     title: `${product.name} | ${product.price_display} AUD | The Buggies Express`,
     description: `${product.name} (${product.price_display} AUD). ${product.key_specs}. Yatala QLD depot warranty with enclosed Australia-wide freight.`,
     alternates: {
-      canonical: `https://${SITE.domain}/shop/${product.slug}/`,
+      canonical: `https://${SITE.domain}/shop/${category}/${product.slug}/`,
     },
   };
 }

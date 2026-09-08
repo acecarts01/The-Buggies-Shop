@@ -1,0 +1,17 @@
+import type { Metadata } from 'next';
+import { SITE } from '@/src/config/site';
+
+// The page below is a client component and cannot export metadata itself,
+// so it lives here. Without it the route inherits the root layout's title,
+// description and canonical, which points every page at the homepage.
+export const metadata: Metadata = {
+  title: 'Shop Golf Buggies Australia | All 61 Models | The Buggies Express',
+  description: 'Browse all 61 models: luxury 4-seaters, traditional 2-seaters, lifted 4x4, commercial utility, petrol and walk-behind buggies, plus batteries, chargers and parts. GST-inclusive pricing from Yatala QLD.',
+  alternates: {
+    canonical: `https://${SITE.domain}/shop/`,
+  },
+};
+
+export default function ShopLayout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}

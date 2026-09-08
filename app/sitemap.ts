@@ -52,13 +52,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Product pages
-  const productRoutes: MetadataRoute.Sitemap = PRODUCTS.map((product) => ({
-    url: `${baseUrl}/shop/${product.category}/${product.slug}/`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
+  // Product pages. product.category holds the display name, so map it back to
+  // the category slug the route actually uses (same lookup as generateStaticParams).
+  const productRoutes: MetadataRoute.Sitemap = PRODUCTS.map((product) => {
+    const cat = CATEGORIES.find((c) => c.rawCategory === product.category);
+    return {
+      url: `${baseUrl}/shop/${cat?.slug ?? 'fleet'}/${product.slug}/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    };
+  });
 
   // Blog post pages
   const blogRoutes: MetadataRoute.Sitemap = POSTS.map((post) => ({

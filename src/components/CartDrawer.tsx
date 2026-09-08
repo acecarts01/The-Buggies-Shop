@@ -161,6 +161,10 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
     return encodeURIComponent(text);
   };
 
+  // Full-viewport overlay: render nothing while closed, otherwise the
+  // backdrop sits over the page and swallows every click beneath it.
+  if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
       {/* Backdrop */}
