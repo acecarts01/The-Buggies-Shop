@@ -17,43 +17,52 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setErrorMsg('');
 
     const form = e.currentTarget;
     const thankYouUrl = '/thank-you-contact/';
+    const formData = new FormData(form);
 
-    const keyInput = form.querySelector<HTMLInputElement>('[name="access_key"]');
-    const key = keyInput ? keyInput.value : '';
+    const payload = {
+      formType: 'contact',
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      phone: formData.get('phone')?.toString() || '',
+      state: formData.get('state')?.toString() || '',
+      postcode: formData.get('postcode')?.toString() || '',
+      subject: formData.get('subject')?.toString() || 'General Enquiry',
+      buggyModel: formData.get('buggy_model')?.toString() || '',
+      message: formData.get('message')?.toString() || '',
+    };
 
-    // WebForge Key-pending fallback
-    if (!key || key.startsWith('YOUR-') || key === 'PENDING') {
-      window.location.href = thankYouUrl;
-      return;
-    }
-
-    // Web3Forms CORS exact rule: Accept ONLY, no Content-Type
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: new FormData(form),
-    })
-      .then((r) => r.json().then((d) => ({ status: r.status, data: d })))
-      .then((res) => {
-        if (res.status === 200 && res.data.success) {
-          window.location.href = thankYouUrl;
-        } else {
-          throw new Error((res.data && res.data.message) || 'Submission failed');
-        }
-      })
-      .catch((err) => {
-        setSubmitting(false);
-        setErrorMsg(
-          'Message received. You can also contact us instantly via WhatsApp at 0480 408 189.'
-        );
+    try {
+      await fetch('/api/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
+
+      // Also forward to Web3Forms if a custom access key has been configured
+      const keyInput = form.querySelector<HTMLInputElement>('[name="access_key"]');
+      const key = keyInput ? keyInput.value : '';
+      if (key && !key.startsWith('YOUR-') && key !== 'PENDING') {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: formData,
+        }).catch(() => {});
+      }
+
+      window.location.href = thankYouUrl;
+    } catch {
+      window.location.href = thankYouUrl;
+    }
   };
 
   return (

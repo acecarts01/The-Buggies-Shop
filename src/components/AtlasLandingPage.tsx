@@ -44,6 +44,22 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setQuoteSent(true);
+
+    // Send quote request directly to Yatala Zoho sales desk
+    fetch('/api/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        formType: 'quote',
+        name: quoteForm.name,
+        phone: quoteForm.phone,
+        postcode: quoteForm.postcode,
+        buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
+        subject: 'Tax Invoice & Freight Schedule: Atlas 4-Passenger Lifted Lithium Buggy',
+        message: `Atlas 4-Passenger Lifted Lithium Quotation Request\nDelivery Preference: ${quoteForm.deliveryPreference}\nTimeframe: ${quoteForm.timeframe}`,
+      }),
+    }).catch(() => {});
+
     const text = encodeURIComponent(
       `Hello The Buggies Express team,
 I would like to request an official Tax Invoice Quotation & Freight Schedule for the Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD).

@@ -382,6 +382,22 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart 
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setQuoteSubmitted(true);
+
+    // Send quote request directly to Yatala Zoho sales desk
+    fetch('/api/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        formType: 'quote',
+        name: quoteForm.name,
+        phone: quoteForm.phone,
+        postcode: quoteForm.postcode,
+        buggyModel: quoteProduct?.name,
+        subject: `Official Quote Request: ${quoteProduct?.name || 'Golf Buggy'}`,
+        message: `Quote Request for ${quoteProduct?.name} (${quoteProduct?.price_display} AUD)\nDelivery Preference: ${quoteForm.deliveryType}\nNotes: ${quoteForm.notes || 'None'}`,
+      }),
+    }).catch(() => {});
+
     setTimeout(() => {
       const text = encodeURIComponent(
         `Hello The Buggies Express, I would like an official quote and freight estimation for: ${quoteProduct?.name} (${quoteProduct?.price_display} AUD).

@@ -150,6 +150,22 @@ export default function ProductClient({ product }: ProductClientProps) {
   const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setQuoteSubmitted(true);
+
+    // Send quote request directly to Yatala Zoho sales desk
+    fetch('/api/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        formType: 'quote',
+        name: quoteForm.name,
+        phone: quoteForm.phone,
+        postcode: quoteForm.postcode,
+        buggyModel: product.name,
+        subject: `Official Quote Request: ${product.name}`,
+        message: `Quote Request for ${product.name} (${product.price_display} AUD)\nDelivery Preference: ${quoteForm.deliveryPreference}\nNotes: ${quoteForm.notes || 'None'}`,
+      }),
+    }).catch(() => {});
+
     const text = encodeURIComponent(
       `Hello The Buggies Express team, I would like an official Australian Tax Quote & Freight Logistics estimate for:
 Model: ${product.name} (${product.price_display} AUD)

@@ -20,39 +20,54 @@ export default function WholesalePage() {
   const [submitting, setSubmitting] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
 
-  const handleWholesaleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleWholesaleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
     setStatusMsg('');
 
     const form = e.currentTarget;
     const thankYouUrl = '/thank-you-wholesale/';
+    const formData = new FormData(form);
 
-    const keyInput = form.querySelector<HTMLInputElement>('[name="access_key"]');
-    const key = keyInput ? keyInput.value : '';
+    const payload = {
+      formType: 'wholesale',
+      organization: formData.get('organization')?.toString() || '',
+      name: formData.get('contact_name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      phone: formData.get('phone')?.toString() || '',
+      state: formData.get('state')?.toString() || '',
+      postcode: formData.get('postcode')?.toString() || '',
+      fleetType: formData.get('fleet_type')?.toString() || '',
+      quantity: formData.get('quantity')?.toString() || '',
+      message: formData.get('notes')?.toString() || '',
+      subject: `Commercial Fleet Tender: ${formData.get('organization') || 'Fleet Enquiry'}`,
+    };
 
-    if (!key || key.startsWith('YOUR-') || key === 'PENDING') {
-      window.location.href = thankYouUrl;
-      return;
-    }
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: new FormData(form),
-    })
-      .then((r) => r.json().then((d) => ({ status: r.status, data: d })))
-      .then((res) => {
-        if (res.status === 200 && res.data.success) {
-          window.location.href = thankYouUrl;
-        } else {
-          throw new Error((res.data && res.data.message) || 'Submission failed');
-        }
-      })
-      .catch(() => {
-        setSubmitting(false);
-        setStatusMsg('Wholesale tender request recorded. A fleet engineer will call within 2 business hours.');
+    try {
+      await fetch('/api/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
+
+      // Also forward to Web3Forms if an active custom key exists
+      const keyInput = form.querySelector<HTMLInputElement>('[name="access_key"]');
+      const key = keyInput ? keyInput.value : '';
+      if (key && !key.startsWith('YOUR-') && key !== 'PENDING') {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: formData,
+        }).catch(() => {});
+      }
+
+      window.location.href = thankYouUrl;
+    } catch {
+      window.location.href = thankYouUrl;
+    }
   };
 
   return (

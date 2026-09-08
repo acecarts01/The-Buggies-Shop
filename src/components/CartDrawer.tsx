@@ -35,9 +35,80 @@ export default function CartDrawer({
   const [paymentOption, setPaymentOption] = useState<'standard' | 'finance4' | 'crypto'>('standard');
   const [showFinanceSchedule, setShowFinanceSchedule] = useState(true);
   const [buyerName, setBuyerName] = useState('');
+  const [buyerPhone, setBuyerPhone] = useState('');
+  const [buyerEmail, setBuyerEmail] = useState('');
   const [buyerPostcode, setBuyerPostcode] = useState('');
+  const [submittingOrder, setSubmittingOrder] = useState(false);
+  const [orderError, setOrderError] = useState('');
 
-  if (!isOpen) return null;
+  const sendOrderToSalesDesk = async (method: 'whatsapp' | 'invoice') => {
+    try {
+      await fetch('/api/contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'order',
+          subject: 'NEW ORDER',
+          name: buyerName.trim() || 'Website Customer',
+          phone: buyerPhone.trim() || undefined,
+          email: buyerEmail.trim() || undefined,
+          postcode: buyerPostcode.trim() || 'Pending',
+          paymentOption,
+          total: finalTotal,
+          items: items.map((i) => ({
+            name: i.name,
+            quantity: i.quantity,
+            price: i.price_aud,
+            id: i.id,
+          })),
+          message: `NEW ORDER placed via website manifest (${method === 'invoice' ? 'Direct Tax Invoice' : 'WhatsApp Checkout'}).
+Payment Option: ${paymentOption}
+Subtotal: $${rawSubtotal.toLocaleString()} AUD
+Bundle Discount: -$${accessoryDiscount.toLocaleString()} AUD
+Crypto Discount: -$${cryptoDiscount.toLocaleString()} AUD
+Final Total: $${finalTotal.toLocaleString()} AUD
+Postcode: ${buyerPostcode || 'Not specified'}
+
+Items:
+${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).toLocaleString()} AUD)`).join('\n')}`,
+        }),
+      });
+    } catch (e) {
+      console.error('[CartDrawer] Error notifying sales desk:', e);
+    }
+  };
+
+  const handleInvoiceOrderSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!buyerName.trim()) {
+      setOrderError('Please enter your full name.');
+      return;
+    }
+    if (!buyerPhone.trim() && !buyerEmail.trim()) {
+      setOrderError('Please provide either an email or mobile phone number.');
+      return;
+    }
+
+    setSubmittingOrder(true);
+    setOrderError('');
+
+    try {
+      await sendOrderToSalesDesk('invoice');
+      onClearCart();
+      window.location.href = '/thank-you-order/';
+    } catch {
+      window.location.href = '/thank-you-order/';
+    } finally {
+      setSubmittingOrder(false);
+    }
+  };
+
+  const handleWhatsAppOrderClick = () => {
+    sendOrderToSalesDesk('whatsapp');
+  };
 
   // Determine buggy vs accessory breakdown for the 5% bundle discount
   const hasBuggy = items.some((i) => isBuggyItem(i.category, i.id, i.name));
@@ -401,44 +472,84 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                 </div>
               </div>
 
-              {/* Fast Fields */}
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <input
-                  type="text"
-                  placeholder="Your Full Name"
-                  value={buyerName}
-                  onChange={(e) => setBuyerName(e.target.value)}
-                  className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
-                />
-                <input
-                  type="text"
-                  placeholder="Delivery Postcode (e.g. 4207)"
-                  value={buyerPostcode}
-                  onChange={(e) => setBuyerPostcode(e.target.value)}
-                  className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
-                />
+              {/* Customer Contact Details */}
+              <div className="space-y-2 text-xs">
+                <div className="grid grid-cols-2 gap-2">
+                  <input
+                    type="text"
+                    placeholder="Full Name *"
+                    value={buyerName}
+                    onChange={(e) => setBuyerName(e.target.value)}
+                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Delivery Postcode *"
+                    value={buyerPostcode}
+                    onChange={(e) => setBuyerPostcode(e.target.value)}
+                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <input
+                    type="tel"
+                    placeholder="Phone Number (Mobile)"
+                    value={buyerPhone}
+                    onChange={(e) => setBuyerPhone(e.target.value)}
+                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    value={buyerEmail}
+                    onChange={(e) => setBuyerEmail(e.target.value)}
+                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                  />
+                </div>
               </div>
 
-              {/* Order Confirmation via WhatsApp */}
+              {orderError && (
+                <div className="text-[11px] text-red-600 bg-red-50 border border-red-200 rounded px-2.5 py-1.5 font-medium">
+                  {orderError}
+                </div>
+              )}
+
+              {/* Primary Order Action: Submit Tax Invoice Order */}
+              <button
+                type="button"
+                onClick={handleInvoiceOrderSubmit}
+                disabled={submittingOrder}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-md disabled:opacity-50"
+                id="cart-submit-order-btn"
+              >
+                <CreditCard className="w-4 h-4" />
+                <span>
+                  {submittingOrder
+                    ? 'Submitting Order...'
+                    : paymentOption === 'finance4'
+                    ? 'Place Order with Finance in 4'
+                    : 'Place Order & Request Official Invoice'}
+                </span>
+              </button>
+
+              {/* Secondary Order Action: Confirm Order via WhatsApp */}
               <a
                 href={`https://wa.me/61480408189?text=${generateWhatsAppMessage()}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
+                onClick={handleWhatsAppOrderClick}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
                 id="cart-whatsapp-order-btn"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>
-                  {paymentOption === 'finance4'
-                    ? 'Confirm Order with Finance in 4'
-                    : 'Confirm Order via WhatsApp'}
-                </span>
+                <span>Confirm Order via WhatsApp</span>
               </a>
 
               {/* Direct Yatala Inquiry */}
               <a
                 href={`tel:${CONTACT.phone}`}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-3 border border-[#E2E8F0] text-[#1E293B] bg-white text-xs font-semibold rounded-lg hover:bg-[#F8F9FA] transition-colors shadow-2xs"
+                className="w-full flex items-center justify-center gap-2 py-2 px-3 border border-[#E2E8F0] text-[#1E293B] bg-white text-xs font-semibold rounded-lg hover:bg-[#F8F9FA] transition-colors shadow-2xs"
                 id="cart-call-depot-btn"
               >
                 <span>Call Yatala Sales Desk: 0480 408 189</span>
