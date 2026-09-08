@@ -1,0 +1,6 @@
+{
+  "name": "The Buggies Express",
+  "description": "Australia's most complete golf buggy business by Golf Buggies Express PTY LTD. Sales, service, warranty, parts, and custom builds in Yatala QLD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "name": "The Buggies Express",
+  "url": "https://golfbuggiesexpress.com.au",
+  "description": "Australia's most complete golf buggy business — sales, service, warranty, parts, and custom builds in Yatala QLD.",
+  "skills": [
+    {
+      "name": "search-buggies",
+      "type": "commerce",
+      "description": "Search golf buggies, lithium carts, and parts by model, price, or powertrain across Australia",
+      "url": "https://golfbuggiesexpress.com.au/api/mcp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "browse-catalog",
+      "type": "navigation",
+      "description": "Browse all 61 golf buggies, 4-seaters, utilities, and batteries",
+      "url": "https://golfbuggiesexpress.com.au/shop/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "request-order-quote",
+      "type": "commerce",
+      "description": "Request an official tax invoice quotation and nationwide enclosed freight schedule",
+      "url": "https://golfbuggiesexpress.com.au/shop/",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "order-draft",
+      "type": "commerce",
+      "description": "Draft a prefilled order URL for human confirmation via WhatsApp or Australian checkout",
+      "url": "https://golfbuggiesexpress.com.au/api/mcp",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "verify-abn-entity",
+      "type": "support",
+      "description": "Verify official Australian business registration for Golf Buggies Express PTY LTD (ABN 28 668 598 758)",
+      "url": "https://abr.business.gov.au/ABN/View?id=28668598758",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

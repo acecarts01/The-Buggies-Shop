@@ -1,0 +1,25 @@
+{
+  "issuer": "https://golfbuggiesexpress.com.au",
+  "authorization_endpoint": null,
+  "token_endpoint": null,
+  "jwks_uri": null,
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "scopes_supported": [],
+  "note": "The Buggies Express (Golf Buggies Express PTY LTD) has no protected APIs. All catalog and specifications are publicly accessible.",
+  "public_resources": [
+    "https://golfbuggiesexpress.com.au/shop/",
+    "https://golfbuggiesexpress.com.au/faq/",
+    "https://golfbuggiesexpress.com.au/about/",
+    "https://golfbuggiesexpress.com.au/llms.txt",
+    "https://golfbuggiesexpress.com.au/.well-known/api-catalog",
+    "https://golfbuggiesexpress.com.au/.well-known/agent-skills/index.json",
+    "https://golfbuggiesexpress.com.au/.well-known/mcp/server-card.json"
+  ],
+  "agent_auth": {
+    "register_uri": null,
+    "identity_types_supported": ["none"],
+    "credential_types_supported": ["none"],
+    "notes": "No registration required. All content publicly accessible to agents."
+  }
+}

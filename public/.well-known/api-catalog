@@ -1,0 +1,35 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/",
+      "https://www.iana.org/assignments/link-relations/service-doc": [{ "href": "https://golfbuggiesexpress.com.au/faq/" }],
+      "title": "The Buggies Express — Australia's Most Complete Golf Buggy & Cart Specialists"
+    },
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/shop/",
+      "type": "text/html",
+      "title": "The Buggies Express Complete Catalog"
+    },
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/api/products",
+      "type": "application/json",
+      "title": "The Buggies Express Products API"
+    },
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/api/categories",
+      "type": "application/json",
+      "title": "The Buggies Express Categories API"
+    },
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/api/search",
+      "type": "application/json",
+      "title": "The Buggies Express Live Search API"
+    },
+    {
+      "anchor": "https://golfbuggiesexpress.com.au/api/mcp",
+      "type": "application/json",
+      "https://www.iana.org/assignments/link-relations/service-desc": [{ "href": "https://golfbuggiesexpress.com.au/.well-known/mcp/server-card.json" }],
+      "title": "The Buggies Express Model Context Protocol (MCP) Server"
+    }
+  ]
+}

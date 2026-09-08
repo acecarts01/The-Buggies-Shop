@@ -1,0 +1,10 @@
+{
+  "resource": "https://golfbuggiesexpress.com.au",
+  "resource_name": "The Buggies Express Public Catalog",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://golfbuggiesexpress.com.au/auth.md",
+  "tls_client_certificate_bound_access_tokens": false,
+  "note": "All resources on golfbuggiesexpress.com.au are publicly accessible. No OAuth tokens required."
+}

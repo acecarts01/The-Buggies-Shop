@@ -1,0 +1,53 @@
+{
+  "ucp": "1.0",
+  "protocol_version": "1.0",
+  "spec": "https://ucp.dev/specification/overview/",
+  "schema": "https://ucp.dev/schema/v1.json",
+  "site": "https://golfbuggiesexpress.com.au",
+  "name": "The Buggies Express",
+  "description": "Australia's most complete golf buggy business — sales, service, warranty, parts, and custom builds by Golf Buggies Express PTY LTD.",
+  "services": [
+    {
+      "id": "product-catalog",
+      "type": "catalog",
+      "url": "https://golfbuggiesexpress.com.au/shop/",
+      "description": "Full 61-item golf buggy, cart, battery, and parts catalog"
+    },
+    {
+      "id": "mcp-server",
+      "type": "mcp",
+      "url": "https://golfbuggiesexpress.com.au/api/mcp",
+      "description": "Streamable HTTP MCP Server with catalog tools"
+    },
+    {
+      "id": "order",
+      "type": "commerce",
+      "url": "https://wa.me/61480408189",
+      "description": "Place orders or draft inquiries via WhatsApp"
+    },
+    {
+      "id": "demo-request",
+      "type": "b2b",
+      "url": "https://golfbuggiesexpress.com.au/contact/",
+      "description": "On-farm or golf course vehicle demonstration booking"
+    }
+  ],
+  "capabilities": ["browse", "search", "inquiry", "quote", "demo", "mcp"],
+  "endpoints": {
+    "mcp": "https://golfbuggiesexpress.com.au/api/mcp",
+    "catalog": "https://golfbuggiesexpress.com.au/shop/",
+    "contact": "https://golfbuggiesexpress.com.au/contact/",
+    "agent_skills": "https://golfbuggiesexpress.com.au/.well-known/agent-skills/index.json",
+    "mcp_server_card": "https://golfbuggiesexpress.com.au/.well-known/mcp/server-card.json",
+    "api_catalog": "https://golfbuggiesexpress.com.au/.well-known/api-catalog",
+    "llms_txt": "https://golfbuggiesexpress.com.au/llms.txt"
+  },
+  "currency": "AUD",
+  "minimum_order_usd": 0,
+  "payment_methods": ["PayID", "bank-transfer", "credit-card", "crypto-BTC", "crypto-USDT", "pay-in-4"],
+  "legal": {
+    "age_restriction": "none",
+    "product_type": "Golf Buggies & Utility Vehicles",
+    "compliance": "ABN 28 668 598 758 / ACN 668 598 758, Yatala QLD"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1.json",
+  "serverInfo": {
+    "name": "The Buggies Express",
+    "version": "1.0.0",
+    "description": "Australia's most complete golf buggy business — sales, service, warranty, parts, and custom builds in Yatala QLD by Golf Buggies Express PTY LTD.",
+    "homepage": "https://golfbuggiesexpress.com.au",
+    "contact": {
+      "email": "sales@golfbuggiesexpress.com.au",
+      "whatsapp": "+61480408189"
+    }
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://golfbuggiesexpress.com.au/api/mcp"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "search_products",
+        "description": "Search golf buggies, 4-seaters, utilities, and parts by keyword, category, max_price in AUD, or powertrain",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": { "type": "string" },
+            "category": { "type": "string" },
+            "max_price": { "type": "number" },
+            "fuel_type": { "type": "string" }
+          }
+        }
+      },
+      {
+        "name": "get_product",
+        "description": "Get full technical specifications, pricing, and warranty details by product ID or slug",
+        "inputSchema": {
+          "type": "object",
+          "required": ["slug"],
+          "properties": {
+            "slug": { "type": "string" }
+          }
+        }
+      },
+      {
+        "name": "list_categories",
+        "description": "List all 8 product categories and available vehicle counts",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "get_policies",
+        "description": "Get shipping terms across regional Australia, warranty backing from Yatala depot, and payment methods",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "create_order_draft",
+        "description": "Create prefilled WhatsApp order link and cart summary in AUD. Human completes order; never captures payment directly.",
+        "inputSchema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": { "type": "array" },
+            "notes": { "type": "string" }
+          }
+        }
+      },
+      {
+        "name": "request_demo",
+        "description": "Initiate an on-farm or golf course demonstration booking for high-ticket vehicles over $15,000 AUD",
+        "inputSchema": {
+          "type": "object",
+          "required": ["fullName", "phone", "postcode", "application"],
+          "properties": {
+            "fullName": { "type": "string" },
+            "email": { "type": "string" },
+            "phone": { "type": "string" },
+            "postcode": { "type": "string" },
+            "application": { "type": "string" },
+            "preferredModel": { "type": "string" }
+          }
+        }
+      }
+    ],
+    "resources": [
+      {
+        "name": "catalog",
+        "description": "The Buggies Express full 61 product inventory",
+        "uri": "https://golfbuggiesexpress.com.au/shop/"
+      },
+      {
+        "name": "abn-registration",
+        "description": "ASIC business registry entry for Golf Buggies Express PTY LTD",
+        "uri": "https://abr.business.gov.au/ABN/View?id=28668598758"
+      },
+      {
+        "name": "faq",
+        "description": "Buying guides, lithium maintenance, and freight information",
+        "uri": "https://golfbuggiesexpress.com.au/faq/"
+      }
+    ],
+    "commerce": {
+      "ordering": "human-assisted-whatsapp-or-form",
+      "payment": ["PayID", "bank-transfer", "credit-card", "crypto-BTC", "crypto-USDT", "pay-in-4"],
+      "currency": "AUD",
+      "minimumOrder": 0,
+      "freeShipping": "GST inclusive and shown at checkout"
+    }
+  },
+  "legal": {
+    "ageRestriction": "none",
+    "productType": "Golf Buggies, Electric Vehicles & Parts",
+    "compliance": "Australian Consumer Law (ACL), ASIC ABN 28 668 598 758, Yatala QLD"
+  }
+}

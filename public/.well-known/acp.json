@@ -1,0 +1,27 @@
+{
+  "protocol": { "name": "acp", "version": "0.1.0" },
+  "name": "The Buggies Express",
+  "description": "Australia's most complete golf buggy business — sales, service, warranty, parts, and custom builds in Yatala QLD.",
+  "api_base_url": "https://golfbuggiesexpress.com.au",
+  "homepage": "https://golfbuggiesexpress.com.au",
+  "transports": ["https"],
+  "capabilities": {
+    "services": ["product-catalog", "parts-finder", "on-farm-demo", "faq", "mcp-server"],
+    "ordering": "human-assisted",
+    "payment_methods": ["PayID", "bank-transfer", "credit-card", "crypto-BTC", "crypto-USDT", "pay-in-4"],
+    "currency": "AUD",
+    "minimum_order_usd": 0,
+    "free_shipping_threshold_usd": 500
+  },
+  "contact": {
+    "whatsapp": "https://wa.me/61480408189",
+    "email": "sales@golfbuggiesexpress.com.au"
+  },
+  "legal": {
+    "age_restriction": "none",
+    "region": "Australia",
+    "ships_to": "Australia-Wide (QLD, NSW, VIC, WA, SA, TAS, NT, ACT)",
+    "product_type": "Golf Buggies, Electric Vehicles & Parts",
+    "compliance": "Australian Consumer Law (ACL), ABN 28 668 598 758"
+  }
+}

@@ -1,0 +1,49 @@
+User-agent: *
+Disallow: /thank-you-contact/
+Disallow: /thank-you-order/
+Sitemap: https://golfbuggiesexpress.com.au/sitemap.xml
+
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# AI crawlers — welcome to index golf buggy catalog and guides
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Agent-readable resources
+# llms.txt: https://golfbuggiesexpress.com.au/llms.txt
+# API Catalog: https://golfbuggiesexpress.com.au/.well-known/api-catalog
+# Agent Skills: https://golfbuggiesexpress.com.au/.well-known/agent-skills/index.json
+# MCP Server Card: https://golfbuggiesexpress.com.au/.well-known/mcp/server-card.json
