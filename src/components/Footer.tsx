@@ -146,7 +146,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://golfbuggiesexpress.com.au/llms.txt"
+                href={`https://${SITE.domain}/llms.txt`}
                 target="_blank"
                 className="text-[#2563EB] hover:text-[#1D4ED8] transition-colors"
               >

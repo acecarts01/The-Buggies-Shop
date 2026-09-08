@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /thank-you-contact/
 Disallow: /thank-you-order/
-Sitemap: https://golfbuggiesexpress.com.au/sitemap.xml
+Sitemap: https://www.golfbuggiesexpress.com.au/sitemap.xml
 
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
@@ -43,7 +43,7 @@ User-agent: cohere-ai
 Allow: /
 
 # Agent-readable resources
-# llms.txt: https://golfbuggiesexpress.com.au/llms.txt
-# API Catalog: https://golfbuggiesexpress.com.au/.well-known/api-catalog
-# Agent Skills: https://golfbuggiesexpress.com.au/.well-known/agent-skills/index.json
-# MCP Server Card: https://golfbuggiesexpress.com.au/.well-known/mcp/server-card.json
+# llms.txt: https://www.golfbuggiesexpress.com.au/llms.txt
+# API Catalog: https://www.golfbuggiesexpress.com.au/.well-known/api-catalog
+# Agent Skills: https://www.golfbuggiesexpress.com.au/.well-known/agent-skills/index.json
+# MCP Server Card: https://www.golfbuggiesexpress.com.au/.well-known/mcp/server-card.json

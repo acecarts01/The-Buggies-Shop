@@ -23,7 +23,7 @@ export const SITE = {
   name: 'The Buggies Express',
   legalEntity: 'Golf Buggies Express PTY LTD',
   tagline: "Australia's Most Complete Golf Buggy & Cart Specialists",
-  domain: 'golfbuggiesexpress.com.au',
+  domain: 'www.golfbuggiesexpress.com.au',
   locale: 'en-AU',
   currency: 'AUD',
   currencySymbol: '$',

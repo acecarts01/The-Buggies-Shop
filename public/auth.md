@@ -10,15 +10,15 @@ No authentication required. All catalog resources, pricing in AUD, product speci
 ## Public Resources
 | Resource | URL |
 |---|---|
-| Full Catalog | https://golfbuggiesexpress.com.au/shop/ |
-| Atlas 4-Passenger Landing | https://golfbuggiesexpress.com.au/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/ |
-| About & ABN Verification | https://golfbuggiesexpress.com.au/about/ |
-| FAQ | https://golfbuggiesexpress.com.au/faq/ |
-| Contact & Demo Request | https://golfbuggiesexpress.com.au/contact/ |
-| Products API | https://golfbuggiesexpress.com.au/api/products |
-| Categories API | https://golfbuggiesexpress.com.au/api/categories |
-| Search API | https://golfbuggiesexpress.com.au/api/search |
-| MCP Server | https://golfbuggiesexpress.com.au/api/mcp |
+| Full Catalog | https://www.golfbuggiesexpress.com.au/shop/ |
+| Atlas 4-Passenger Landing | https://www.golfbuggiesexpress.com.au/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/ |
+| About & ABN Verification | https://www.golfbuggiesexpress.com.au/about/ |
+| FAQ | https://www.golfbuggiesexpress.com.au/faq/ |
+| Contact & Demo Request | https://www.golfbuggiesexpress.com.au/contact/ |
+| Products API | https://www.golfbuggiesexpress.com.au/api/products |
+| Categories API | https://www.golfbuggiesexpress.com.au/api/categories |
+| Search API | https://www.golfbuggiesexpress.com.au/api/search |
+| MCP Server | https://www.golfbuggiesexpress.com.au/api/mcp |
 
 ## Authentication
 
