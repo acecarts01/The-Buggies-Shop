@@ -228,7 +228,7 @@ Notes: ${quoteForm.notes || 'None'}`
 
                   {/* BATTERY TECHNOLOGY BADGE */}
                   <div className={`p-4 rounded-xl border text-xs ${battery.badgeBg} space-y-1.5`}>
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-2 font-bold text-sm">
                         {battery.isZeroMaintenance ? (
                           <BatteryCharging className="w-5 h-5 text-[#6B9A76] shrink-0" />
@@ -239,7 +239,7 @@ Notes: ${quoteForm.notes || 'None'}`
                         )}
                         <span>{battery.title}</span>
                       </div>
-                      <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${battery.pillBg}`}>
+                      <span className={`text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded shrink-0 whitespace-nowrap ${battery.pillBg}`}>
                         {battery.isZeroMaintenance ? 'Zero Maintenance' : 'Standard Cycle'}
                       </span>
                     </div>

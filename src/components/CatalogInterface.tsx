@@ -503,7 +503,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   key={category.slug}
                   type="button"
                   onClick={() => setSelectedCategory(category.slug)}
-                  className={`text-xs px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all font-semibold ${
+                  className={`text-xs px-3.5 py-2 rounded-lg border whitespace-nowrap shrink-0 transition-all font-semibold ${
                     active
                       ? 'bg-[#B45A40] border-[#C86D51] text-white shadow-sm'
                       : 'bg-white border-[#E7E5E4] text-[#78716C] hover:text-[#121417] hover:border-[#C86D51]/40'
@@ -529,7 +529,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   key={pt.id}
                   type="button"
                   onClick={() => setSelectedPowertrain(pt.id)}
-                  className={`text-xs px-3 py-1.5 rounded-md border transition-all ${
+                  className={`text-xs px-3 py-1.5 rounded-md border whitespace-nowrap shrink-0 transition-all ${
                     active
                       ? 'bg-[#F7EFEA] border-[#C86D51] text-[#C86D51] font-bold shadow-sm'
                       : 'bg-white border-[#E7E5E4] text-[#78716C] hover:text-[#121417]'

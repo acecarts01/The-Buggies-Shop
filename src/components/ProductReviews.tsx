@@ -231,7 +231,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
         <button
           type="button"
           onClick={() => setSelectedRatingFilter('all')}
-          className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
+          className={`px-3 py-1.5 rounded-lg font-bold whitespace-nowrap shrink-0 transition-all ${
             selectedRatingFilter === 'all'
               ? 'bg-[#5E8C6A] text-white shadow-xs'
               : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#78716C] hover:text-[#121417]'

@@ -142,7 +142,7 @@ export default function BlogClient() {
                     role="tab"
                     aria-selected={selectedCategory === cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`text-xs px-3.5 py-1.5 rounded-full font-medium whitespace-nowrap transition-all border ${
+                    className={`text-xs px-3.5 py-1.5 rounded-full font-medium whitespace-nowrap shrink-0 transition-all border ${
                       selectedCategory === cat
                         ? 'bg-[#E2A17A] text-[#121417] border-[#E2A17A] font-bold shadow-sm'
                         : 'bg-[#1A1D21] text-[#D6D3D1] border-[#2B2F34] hover:border-[#E2A17A]/60 hover:text-[#ffffff]'
