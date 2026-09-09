@@ -63,7 +63,7 @@ export default function ChatHub() {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="flex items-center gap-2 bg-[#25D366] text-white font-bold text-xs py-2.5 px-4 rounded-full shadow-sm hover:bg-[#20bd5a] transition-all border border-white/20"
+          className="flex items-center gap-2 min-h-[44px] bg-[#25D366] text-white font-bold text-xs py-2.5 px-4 rounded-full shadow-sm hover:bg-[#20bd5a] transition-all border border-white/20"
           id="chathub-toggle-btn"
           aria-label="Open support and contact options"
         >

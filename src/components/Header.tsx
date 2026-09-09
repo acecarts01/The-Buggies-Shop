@@ -42,7 +42,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-[#C86D51] inline-flex items-center gap-1 font-semibold text-[#121417] transition-colors"
+                className="underline hover:text-[#C86D51] inline-flex items-center gap-1 font-semibold text-[#121417] transition-colors relative after:absolute after:content-[''] after:inset-x-0 after:top-1/2 after:h-11 after:-translate-y-1/2"
                 title="Tap to verify registered entity on Australian Government ABR portal"
                 id="header-abn-link"
               >
@@ -64,7 +64,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
             </div>
             <a
               href={`tel:${CONTACT.phone}`}
-              className="inline-flex items-center gap-1.5 font-medium hover:text-[#C86D51] transition-colors text-[#121417]"
+              className="inline-flex items-center gap-1.5 font-medium hover:text-[#C86D51] transition-colors text-[#121417] relative after:absolute after:content-[''] after:inset-x-0 after:top-1/2 after:h-11 after:-translate-y-1/2"
               id="header-phone-link"
             >
               <Phone className="w-3.5 h-3.5 text-[#C86D51]" />
