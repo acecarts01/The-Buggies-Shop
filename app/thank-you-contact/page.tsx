@@ -41,10 +41,10 @@ export default function ThankYouContactPage() {
                 className="px-3 py-1.5 bg-[#101935] text-[#ffffff] rounded hover:bg-[#38bdf8]/20 transition-all flex items-center justify-center gap-1.5 font-bold border border-[#1e2d4d]"
               >
                 <Phone className="w-3.5 h-3.5 text-[#fbbf24]" />
-                <span>0480 408 189</span>
+                <span>0480 804 189</span>
               </a>
               <a
-                href={`https://wa.me/61480408189`}
+                href={`https://wa.me/61480804189`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1.5 bg-[#25D366] text-[#0a0f1d] rounded hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-1.5 font-bold"

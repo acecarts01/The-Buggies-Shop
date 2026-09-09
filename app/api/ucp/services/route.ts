@@ -22,7 +22,7 @@ export async function GET() {
         {
           id: 'human-ordering',
           type: 'commerce',
-          url: `https://wa.me/61480408189`,
+          url: `https://wa.me/61480804189`,
           description: 'Draft orders for human sales specialist confirmation',
         },
         {

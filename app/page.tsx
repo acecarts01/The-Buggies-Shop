@@ -274,7 +274,7 @@ export default function HomePage() {
                     className="inline-flex items-center justify-center gap-2 px-4 py-3.5 border border-[#E2E8F0] bg-white text-[#1E293B] text-xs sm:text-sm font-semibold rounded-lg hover:bg-[#F8F9FA] transition-colors shadow-xs"
                   >
                     <Phone className="w-4 h-4 text-[#2563EB]" />
-                    <span>0480 408 189</span>
+                    <span>0480 804 189</span>
                   </a>
                 </FadeUpText>
 
@@ -541,7 +541,7 @@ export default function HomePage() {
                   href={`tel:${CONTACT.phone}`}
                   className="w-full sm:w-auto px-5 py-3.5 border border-[#E2E8F0] bg-white text-[#1E293B] text-xs font-bold rounded-lg hover:bg-[#EFF6FF] transition-colors shadow-xs"
                 >
-                  Call Yatala Operations: 0480 408 189
+                  Call Yatala Operations: 0480 804 189
                 </a>
               </div>
             </FadeUpText>

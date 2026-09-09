@@ -117,7 +117,7 @@ export default function ContactPage() {
                       href={`tel:${CONTACT.phone}`}
                       className="text-[#fbbf24] font-bold text-sm hover:underline"
                     >
-                      0480 408 189
+                      0480 804 189
                     </a>
                     <div className="text-[11px] text-[#94a3b8] mt-0.5">
                       Direct line to our Yatala workshop and fleet managers.
@@ -130,14 +130,14 @@ export default function ContactPage() {
                   <div>
                     <div className="font-bold text-[#ffffff]">Live WhatsApp Specialist</div>
                     <a
-                      href={`https://wa.me/61480408189?text=${encodeURIComponent(
+                      href={`https://wa.me/61480804189?text=${encodeURIComponent(
                         'Hello The Buggies Express, I would like to enquire about a golf buggy.'
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#25D366] font-bold text-xs hover:underline flex items-center gap-1 mt-0.5"
                     >
-                      <span>Chat on WhatsApp (+61 480 408 189)</span>
+                      <span>Chat on WhatsApp (+61 480 804 189)</span>
                     </a>
                   </div>
                 </div>

@@ -75,11 +75,11 @@ export const ABN_INFO = {
 export const CONTACT = {
   email: 'sales&#64;golfbuggiesexpress.com.au',
   emailRaw: 'sales@golfbuggiesexpress.com.au',
-  phone: '+61 480 408 189',
-  phoneDisplay: '0480 408 189',
+  phone: '+61 480 804 189',
+  phoneDisplay: '0480 804 189',
   phoneTollFree: '1300 BUGGY AU',
-  whatsappNumber: '+61480408189',
-  whatsappUrl: 'https://wa.me/61480408189',
+  whatsappNumber: '+61480804189',
+  whatsappUrl: 'https://wa.me/61480804189',
   address: 'Yatala Industrial Hub, Yatala QLD 4207',
   hq: 'Yatala, Queensland, Australia',
   country: 'Australia',
@@ -116,7 +116,7 @@ export const FORMS = {
 };
 
 export const CHAT = {
-  whatsappNumber: '+61480408189',
+  whatsappNumber: '+61480804189',
   tawkPropertyId: 'pending',
 };
 

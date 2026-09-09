@@ -176,7 +176,7 @@ Delivery Preference: ${quoteForm.deliveryPreference}
 Notes: ${quoteForm.notes || 'None'}`
     );
     setTimeout(() => {
-      window.open(`https://wa.me/61480408189?text=${text}`, '_blank');
+      window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
     }, 1200);
   };
 
@@ -394,7 +394,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   </button>
 
                   <a
-                    href={`https://wa.me/61480408189?text=${encodeURIComponent(
+                    href={`https://wa.me/61480804189?text=${encodeURIComponent(
                       `Hello The Buggies Express, I would like to consult with a specialist on: ${product.name} (${product.price_display} AUD).`
                     )}`}
                     target="_blank"
@@ -423,7 +423,7 @@ Notes: ${quoteForm.notes || 'None'}`
                 <Phone className="w-4 h-4 text-[#fbbf24]" />
                 <span>Speak directly with our Yatala sales engineers:</span>
                 <a href={`tel:${CONTACT.phone}`} className="text-[#ffffff] font-bold hover:text-[#fbbf24]">
-                  0480 408 189
+                  0480 804 189
                 </a>
               </div>
             </div>

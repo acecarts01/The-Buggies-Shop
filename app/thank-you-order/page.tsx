@@ -54,7 +54,7 @@ export default function ThankYouOrderPage() {
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <a
-              href={`https://wa.me/61480408189?text=${encodeURIComponent(
+              href={`https://wa.me/61480804189?text=${encodeURIComponent(
                 'Hello The Buggies Express, I have submitted an order manifest online and would like to confirm invoice details.'
               )}`}
               target="_blank"

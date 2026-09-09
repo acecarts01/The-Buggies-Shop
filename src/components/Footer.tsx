@@ -168,7 +168,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-[#64748B]">
             <Phone className="w-4 h-4 text-[#2563EB] shrink-0" />
             <a href={`tel:${CONTACT.phone}`} className="hover:text-[#2563EB] font-semibold text-[#1E293B]">
-              0480 408 189 (Mon - Sat)
+              0480 804 189 (Mon - Sat)
             </a>
           </div>
           <div className="flex items-center gap-2 text-[#64748B]">

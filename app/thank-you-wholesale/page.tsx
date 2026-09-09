@@ -36,7 +36,7 @@ export default function ThankYouWholesalePage() {
           <div className="p-4 bg-[#0a0f1d] rounded-xl border border-[#152037] text-xs text-left space-y-2">
             <div className="text-[#fbbf24] font-extrabold">Priority Tender Line:</div>
             <div className="text-[#e2e8f0] text-[11px] leading-relaxed">
-              If your club or resort has an urgent committee meeting, contact our director directly at <a href={`tel:${CONTACT.phone}`} className="text-[#fbbf24] font-bold hover:underline">0480 408 189</a>.
+              If your club or resort has an urgent committee meeting, contact our director directly at <a href={`tel:${CONTACT.phone}`} className="text-[#fbbf24] font-bold hover:underline">0480 804 189</a>.
             </div>
           </div>
 

@@ -68,7 +68,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
               id="header-phone-link"
             >
               <Phone className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>0480 408 189</span>
+              <span>0480 804 189</span>
             </a>
           </div>
         </div>
@@ -324,7 +324,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 href={`tel:${CONTACT.phone}`}
                 className="w-full text-center py-2 text-xs font-semibold rounded-lg border border-[#E2E8F0] text-[#1E293B] hover:bg-[#F8F9FA]"
               >
-                Call Yatala Workshop: 0480 408 189
+                Call Yatala Workshop: 0480 804 189
               </a>
             </div>
           </div>

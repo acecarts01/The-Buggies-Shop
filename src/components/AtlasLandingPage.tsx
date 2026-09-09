@@ -71,7 +71,7 @@ Delivery Preference: ${quoteForm.deliveryPreference}
 Timeframe: ${quoteForm.timeframe}`
     );
     setTimeout(() => {
-      window.open(`https://wa.me/61480408189?text=${text}`, '_blank');
+      window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
     }, 1200);
   };
 
@@ -140,7 +140,7 @@ Timeframe: ${quoteForm.timeframe}`
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#E2E8F0] bg-white text-[#1E293B] text-sm font-bold rounded-lg hover:bg-[#F8F9FA] hover:border-[#CBD5E1] transition-colors shadow-xs"
               >
                 <Phone className="w-4 h-4 text-[#2563EB]" />
-                <span>Call Specialist: 0480 408 189</span>
+                <span>Call Specialist: 0480 804 189</span>
               </a>
             </FadeUpText>
 
@@ -417,7 +417,7 @@ Timeframe: ${quoteForm.timeframe}`
                 Opening WhatsApp now with our Yatala dispatch desk to finalize freight calculations for postcode <strong className="text-[#2563EB]">{quoteForm.postcode}</strong>.
               </p>
               <div className="pt-2 text-xs text-[#1E293B]">
-                Immediate assistance? Call Yatala Operations: <strong>0480 408 189</strong>
+                Immediate assistance? Call Yatala Operations: <strong>0480 804 189</strong>
               </div>
             </div>
           ) : (
@@ -530,7 +530,7 @@ Timeframe: ${quoteForm.timeframe}`
               Add to Order Manifest ($20,900 AUD)
             </button>
             <a
-              href={`https://wa.me/61480408189?text=${encodeURIComponent(
+              href={`https://wa.me/61480804189?text=${encodeURIComponent(
                 'Hello The Buggies Express, I would like to purchase the Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD). Please issue a formal tax invoice.'
               )}`}
               target="_blank"

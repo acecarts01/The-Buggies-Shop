@@ -407,7 +407,7 @@ Postcode: ${quoteForm.postcode}
 Delivery Preference: ${quoteForm.deliveryType}
 Notes: ${quoteForm.notes || 'None'}`
       );
-      window.open(`https://wa.me/61480408189?text=${text}`, '_blank');
+      window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
     }, 1000);
   };
 

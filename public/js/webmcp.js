@@ -44,7 +44,7 @@
         },
         execute: async ({ message }) => {
           const text = message ? encodeURIComponent(message) : encodeURIComponent('Hello The Buggies Express, I would like to enquire about a golf buggy order.');
-          const url = `https://wa.me/61480408189?text=${text}`;
+          const url = `https://wa.me/61480804189?text=${text}`;
           window.open(url, '_blank');
           return { url };
         }

@@ -240,7 +240,7 @@ export async function POST(request: Request) {
                 type: 'text',
                 text: JSON.stringify({
                   status: 'draft_prepared',
-                  whatsappUrl: `https://wa.me/61480408189?text=${waText}`,
+                  whatsappUrl: `https://wa.me/61480804189?text=${waText}`,
                   checkoutFormUrl: `https://${SITE.domain}/contact/#order`,
                   items,
                   notes,

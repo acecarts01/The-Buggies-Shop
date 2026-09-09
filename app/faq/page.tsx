@@ -130,11 +130,11 @@ export default function FAQPage() {
             </StaggeredParagraph>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
               <a
-                href="tel:0480408189"
+                href="tel:0480804189"
                 className="px-5 py-2.5 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] hover:from-[#fbbf24] hover:to-[#fde047] text-[#0a0f1d] text-xs font-extrabold rounded-lg transition-all flex items-center gap-1.5 shadow-md"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call 0480 408 189</span>
+                <span>Call 0480 804 189</span>
               </a>
               <Link
                 href="/contact/"

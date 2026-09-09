@@ -28,7 +28,7 @@ export default function ChatHub() {
 
           <div className="space-y-2">
             <a
-              href={`https://wa.me/61480408189?text=${encodeURIComponent(
+              href={`https://wa.me/61480804189?text=${encodeURIComponent(
                 'Hello The Buggies Express team, I have an inquiry regarding your golf buggies.'
               )}`}
               target="_blank"
@@ -44,7 +44,7 @@ export default function ChatHub() {
               className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#EFF6FF] border border-[#2563EB]/20 text-[#2563EB] font-bold hover:bg-[#2563EB] hover:text-white transition-all shadow-xs"
             >
               <Phone className="w-4 h-4" />
-              <span>Call Yatala: 0480 408 189</span>
+              <span>Call Yatala: 0480 804 189</span>
             </a>
           </div>
 

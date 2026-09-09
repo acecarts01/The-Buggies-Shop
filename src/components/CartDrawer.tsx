@@ -539,7 +539,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
 
               {/* Secondary Order Action: Confirm Order via WhatsApp */}
               <a
-                href={`https://wa.me/61480408189?text=${generateWhatsAppMessage()}`}
+                href={`https://wa.me/61480804189?text=${generateWhatsAppMessage()}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppOrderClick}
@@ -556,7 +556,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                 className="w-full flex items-center justify-center gap-2 py-2 px-3 border border-[#E2E8F0] text-[#1E293B] bg-white text-xs font-semibold rounded-lg hover:bg-[#F8F9FA] transition-colors shadow-2xs"
                 id="cart-call-depot-btn"
               >
-                <span>Call Yatala Sales Desk: 0480 408 189</span>
+                <span>Call Yatala Sales Desk: 0480 804 189</span>
               </a>
 
               <div className="flex items-center justify-center gap-1 text-[10px] text-[#64748B] pt-1">
