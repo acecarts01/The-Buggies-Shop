@@ -93,3 +93,11 @@ img, video, iframe {
 @media (prefers-reduced-motion: reduce) {
   .surface-card:hover { transform: none; }
 }
+
+/* Off-screen review slides: skip style, layout and paint until they scroll
+   into the carousel viewport. Applied per card rather than per section so
+   section heights stay exact and in-page anchor offsets remain correct. */
+.defer-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 380px;
+}

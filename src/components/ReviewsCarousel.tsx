@@ -485,7 +485,7 @@ export default function ReviewsCarousel() {
                   {filteredReviews.map((review) => (
                     <div
                       key={review.id}
-                      className="shrink-0 flex"
+                      className="shrink-0 flex defer-card"
                       style={{
                         width:
                           cardsPerView === 1
