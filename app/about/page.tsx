@@ -100,35 +100,35 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
-      <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+      <div className="flex flex-col min-h-screen bg-[#121417]">
         <Header />
 
-        <main id="main" className="flex-1 py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-[#e2e8f0] space-y-12">
+        <main id="main" className="flex-1 py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full text-[#E7E5E4] space-y-12">
           {/* Header Section */}
           <div className="text-center space-y-3">
-            <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#fbbf24] font-extrabold">
+            <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#E2A17A] font-extrabold">
               Australian Business Register Verified · ABN 28 668 598 758
             </FadeUpText>
             {/* Exactly One H1 */}
             <StaggeredHeading
               tag="h1"
               text="About The Buggies Express & Our Yatala QLD Operations"
-              className="text-3xl sm:text-5xl font-serif font-bold text-[#ffffff] leading-tight"
+              className="text-3xl sm:text-5xl font-serif font-bold text-[#ffffff] leading-tight tracking-tight"
             />
-            <StaggeredParagraph delay={0.15} className="text-sm sm:text-base text-[#94a3b8] max-w-2xl mx-auto leading-relaxed">
+            <StaggeredParagraph delay={0.15} className="text-sm sm:text-base text-[#A8A29E] max-w-2xl mx-auto leading-relaxed">
               Australia&rsquo;s dedicated electric golf buggy supplier, service center, and lithium retrofit specialist headquartered in Yatala, Queensland.
             </StaggeredParagraph>
           </div>
 
           {/* Corporate Credibility Box */}
-          <AnimatedCard delay={0.1} className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-            <div className="flex items-center gap-3 text-[#fbbf24]">
+          <AnimatedCard delay={0.1} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm metal-brushed-dark">
+            <div className="flex items-center gap-3 text-[#E2A17A]">
               <ShieldCheck className="w-6 h-6 flex-shrink-0" />
               <h2 className="text-lg font-serif font-bold text-[#ffffff]">
                 Corporate Entity &amp; ASIC Accreditation
               </h2>
             </div>
-            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
+            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">
               Golf Buggies Express PTY LTD is an Australian Proprietary Company, Limited By Shares, officially registered with the Australian Securities and Investments Commission (ASIC) on 7 June 2023 under ACN 668 598 758 and Australian Business Number (ABN) 28 668 598 758. Our registered corporate locality and technical depot is located at Yatala QLD 4207, situated in South East Queensland&rsquo;s premier industrial corridor between Brisbane and the Gold Coast.
             </StaggeredParagraph>
             <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold">
@@ -136,21 +136,21 @@ export default function AboutPage() {
                 href={ABN_INFO.abrLookupUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#fbbf24] hover:underline font-bold"
+                className="inline-flex items-center gap-1.5 text-[#E2A17A] hover:underline font-bold"
               >
                 <span>Verify ABN 28 668 598 758 on ABR Government Registry</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
-              <span className="text-[#94a3b8]">Next Review Date: 7/06/2027</span>
+              <span className="text-[#A8A29E]">Next Review Date: 7/06/2027</span>
             </div>
           </AnimatedCard>
 
           {/* The Story & Narrative (>700 words content) */}
-          <div className="space-y-6 text-sm sm:text-base leading-relaxed text-[#d8e6df]">
+          <div className="space-y-6 text-sm sm:text-base leading-relaxed text-[#DFE5DF]">
             <StaggeredHeading
               tag="h2"
               text="Built for the Rigours of the Australian Landscape"
-              className="text-xl sm:text-2xl font-serif font-bold text-[#ffffff]"
+              className="text-xl sm:text-2xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
             <StaggeredParagraph delay={0.1}>
               When Golf Buggies Express PTY LTD was established, Australian golf course managers, acreage homesteaders, and commercial resort operators faced a persistent problem: imported low-grade lead-acid golf carts that deteriorated in coastal humidity, stalled on 20-degree rural gradients, and lacked local spare parts support when a controller or solenoid inevitably burnt out.
@@ -165,49 +165,49 @@ export default function AboutPage() {
 
           {/* 4 Pillars of Differentiation */}
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-3 shadow-md hover:border-[#fbbf24]/50 transition-all">
-              <div className="text-[#fbbf24] flex items-center gap-2 font-bold text-sm">
+            <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs hover:border-[#E2A17A]/50 transition-all metal-brushed-dark">
+              <div className="text-[#E2A17A] flex items-center gap-2 font-bold text-sm">
                 <BatteryCharging className="w-5 h-5" />
                 <span>Commercial-Grade 72V &amp; 48V Lithium Systems</span>
               </div>
-              <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+              <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
                 Zero maintenance, zero battery acid corrosion, and zero memory decay. Our lithium packs are manufactured with Grade-A prismatic LiFePO4 cells paired with intelligent BMS modules engineered to operate flawlessly in ambient temperatures exceeding 42°C. Backed by our Yatala 5-year replacement warranty.
               </StaggeredParagraph>
             </StaggerItem>
 
-            <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-3 shadow-md hover:border-[#fbbf24]/50 transition-all">
-              <div className="text-[#fbbf24] flex items-center gap-2 font-bold text-sm">
+            <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs hover:border-[#E2A17A]/50 transition-all metal-brushed-dark">
+              <div className="text-[#E2A17A] flex items-center gap-2 font-bold text-sm">
                 <Truck className="w-5 h-5" />
                 <span>Australia-Wide Enclosed Freight Network</span>
               </div>
-              <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+              <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
                 We do not ship buggies exposed on open flatbeds. All customer deliveries across Queensland, New South Wales, Victoria, and South Australia travel in enclosed, weather-sealed transporters. Your buggy arrives fully charged, clean, and ready for immediate deployment on the green or around your homestead.
               </StaggeredParagraph>
             </StaggerItem>
 
-            <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-3 shadow-md hover:border-[#38bdf8]/50 transition-all">
-              <div className="text-[#38bdf8] flex items-center gap-2 font-bold text-sm">
+            <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs hover:border-[#AEB4B8]/50 transition-all metal-brushed-dark">
+              <div className="text-[#AEB4B8] flex items-center gap-2 font-bold text-sm">
                 <CheckCircle className="w-5 h-5" />
                 <span>Pre-Delivery Testing &amp; Enclosed Freight</span>
               </div>
-              <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+              <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
                 Buying a premium 4-passenger or lifted 4x4 buggy over $15,000 AUD is a significant investment. Every vehicle undergoes a rigorous multi-point mechanical inspection, full lithium diagnostic cycle, and road test before direct enclosed trailer dispatch to your property or club.
               </StaggeredParagraph>
             </StaggerItem>
 
-            <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-3 shadow-md hover:border-[#fbbf24]/50 transition-all">
-              <div className="text-[#fbbf24] flex items-center gap-2 font-bold text-sm">
+            <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs hover:border-[#E2A17A]/50 transition-all metal-brushed-dark">
+              <div className="text-[#E2A17A] flex items-center gap-2 font-bold text-sm">
                 <Award className="w-5 h-5" />
                 <span>Full Australian Consumer Law Guarantee</span>
               </div>
-              <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+              <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
                 As an accredited Queensland proprietary company, all transactions carry statutory guarantees under Australian Consumer Law. We provide comprehensive repair, replacement, or refund remedies managed directly by our Yatala engineering technicians, not outsourced international call centers.
               </StaggeredParagraph>
             </StaggerItem>
           </StaggerContainer>
 
           {/* Historical Milestones */}
-          <AnimatedCard delay={0.15} className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+          <AnimatedCard delay={0.15} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm metal-brushed-dark">
             <StaggeredHeading
               tag="h2"
               text="Company Milestones & Evolution"
@@ -216,10 +216,10 @@ export default function AboutPage() {
             <div className="space-y-4">
               {BRAND.milestones.map((m, idx) => (
                 <div key={idx} className="flex gap-4 items-start text-xs sm:text-sm">
-                  <span className="font-bold text-[#fbbf24] bg-[#0a0f1d] border border-[#1e2d4d] px-3 py-1 rounded-md shadow-sm">
+                  <span className="font-bold text-[#E2A17A] bg-[#121417] border border-[#2B2F34] px-3 py-1 rounded-md shadow-sm">
                     {m.year}
                   </span>
-                  <div className="text-[#e2e8f0] pt-1">
+                  <div className="text-[#E7E5E4] pt-1">
                     {m.event}
                   </div>
                 </div>
@@ -228,25 +228,25 @@ export default function AboutPage() {
           </AnimatedCard>
 
           {/* Call to action */}
-          <FadeUpText delay={0.2} className="p-8 rounded-2xl bg-gradient-to-r from-[#051e17] via-[#0c1329] to-[#101935] border-2 border-[#fbbf24] text-center space-y-4 shadow-2xl">
+          <FadeUpText delay={0.2} className="p-8 rounded-2xl bg-gradient-to-r from-[#16211C] via-[#16181B] to-[#1A1D21] border-2 border-[#E2A17A] text-center space-y-4 shadow-sm">
             <StaggeredHeading
               tag="h3"
               text="Order Direct with Nationwide Enclosed Freight"
               className="text-xl font-serif font-bold text-[#ffffff]"
             />
-            <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#94a3b8] max-w-lg mx-auto">
+            <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#A8A29E] max-w-lg mx-auto">
               Our engineering workshop and vehicle showroom prepares direct deliveries and welcomes collection in Yatala QLD. Speak directly with an Australian buggy technician.
             </StaggeredParagraph>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Link
                 href="/shop/"
-                className="px-6 py-3 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] hover:from-[#fbbf24] hover:to-[#fde047] text-[#0a0f1d] font-extrabold text-xs rounded-lg transition-all shadow-lg"
+                className="px-6 py-3 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] hover:from-[#E2A17A] hover:to-[#EFC7A6] text-[#121417] font-extrabold text-xs rounded-lg transition-all shadow-xs"
               >
                 Browse All 61 Buggies &amp; Order Now
               </Link>
               <Link
                 href="/contact/"
-                className="px-6 py-3 bg-[#101935] text-[#ffffff] font-bold text-xs rounded-lg hover:bg-[#38bdf8]/20 transition-all border border-[#1e2d4d]"
+                className="px-6 py-3 bg-[#1A1D21] text-[#ffffff] font-bold text-xs rounded-lg hover:bg-[#AEB4B8]/20 transition-all border border-[#2B2F34] metal-brushed-dark"
               >
                 Contact Yatala Depot
               </Link>

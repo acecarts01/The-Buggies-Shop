@@ -136,36 +136,36 @@ export default function ReviewsCarousel() {
   return (
     <section
       id="customer-reviews"
-      className="py-16 bg-[#F8F9FA] border-t border-b border-[#E2E8F0] relative overflow-hidden"
+      className="py-16 bg-[#F7F6F2] border-t border-b border-[#E7E5E4] relative overflow-hidden"
     >
       {/* Background Subtle Accent Gradients */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#00b67a]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#B45A40]/5 rounded-full blur-3xl pointer-events-none hover:-translate-y-px duration-200 transition-all" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#5E8C6A]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
         {/* Trustpilot Top Header & Overall Rating Hero */}
-        <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
+        <div className="bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 shadow-sm space-y-6 surface-card">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 pb-6 border-b border-[#E7E5E4]">
             {/* Trustpilot Score Block */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-5">
               {/* Trustpilot Brand Logo & Star Cluster */}
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-[#00b67a] rounded flex items-center justify-center text-white font-bold text-base shadow-xs">
+                  <div className="w-7 h-7 bg-[#5E8C6A] rounded flex items-center justify-center text-white font-bold text-base shadow-xs">
                     ★
                   </div>
-                  <span className="font-sans font-extrabold text-xl sm:text-2xl text-[#1E293B] tracking-tight">
+                  <span className="font-sans font-extrabold text-xl sm:text-2xl text-[#121417] tracking-tight">
                     Trustpilot
                   </span>
                 </div>
-                <div className="text-xs text-[#64748B] flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-[#00b67a]" />
+                <div className="text-xs text-[#78716C] flex items-center gap-1.5 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-[#5E8C6A]" />
                   <span>Verified Australian Customer Reviews</span>
                 </div>
               </div>
 
               {/* Live Rating Score Box */}
-              <div className="sm:border-l sm:border-[#E2E8F0] sm:pl-5 flex items-center gap-4">
+              <div className="sm:border-l sm:border-[#E7E5E4] sm:pl-5 flex items-center gap-4">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -173,10 +173,10 @@ export default function ReviewsCarousel() {
                         key={star}
                         className={`w-6 h-6 sm:w-7 sm:h-7 rounded flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-2xs ${
                           star <= 4
-                            ? 'bg-[#00b67a]'
+                            ? 'bg-[#5E8C6A]'
                             : star === 5
-                            ? 'bg-[#00b67a]/80'
-                            : 'bg-[#E2E8F0] text-[#64748B]'
+                            ? 'bg-[#5E8C6A]/80'
+                            : 'bg-[#E7E5E4] text-[#78716C]'
                         }`}
                       >
                         ★
@@ -184,17 +184,17 @@ export default function ReviewsCarousel() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-lg sm:text-xl font-bold text-[#1E293B]">
+                    <span className="text-lg sm:text-xl font-bold text-[#121417]">
                       {TRUSTPILOT_STATS.trustScore}
                     </span>
-                    <span className="text-xs text-[#64748B]">out of 5.0</span>
-                    <span className="px-2 py-0.5 bg-[#00b67a]/10 border border-[#00b67a]/30 text-[#00b67a] text-[11px] font-extrabold rounded-full">
+                    <span className="text-xs text-[#78716C]">out of 5.0</span>
+                    <span className="px-2 py-0.5 bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[#5E8C6A] text-[11px] font-extrabold rounded-full">
                       {TRUSTPILOT_STATS.ratingCategory}
                     </span>
                   </div>
                 </div>
-                <div className="text-right sm:text-left text-xs text-[#64748B]">
-                  <div className="font-bold text-[#1E293B] text-sm">
+                <div className="text-right sm:text-left text-xs text-[#78716C]">
+                  <div className="font-bold text-[#121417] text-sm">
                     {TRUSTPILOT_STATS.totalReviews.toLocaleString()}+ reviews
                   </div>
                   <div>90 Verified Australian Orders (Mixed ratings)</div>
@@ -203,61 +203,61 @@ export default function ReviewsCarousel() {
             </div>
 
             {/* Overall Rating Breakdown Gauge Bar */}
-            <div className="flex-1 max-w-sm bg-[#F8F9FA] border border-[#E2E8F0] rounded-xl p-3.5 space-y-1.5">
-              <div className="text-[11px] text-[#64748B] font-semibold flex justify-between">
+            <div className="flex-1 max-w-sm bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-3.5 space-y-1.5 surface-card">
+              <div className="text-[11px] text-[#78716C] font-semibold flex justify-between">
                 <span>Rating Breakdown</span>
-                <span className="text-[#00b67a] font-bold">77% 4 &amp; 5 Stars</span>
+                <span className="text-[#5E8C6A] font-bold">77% 4 &amp; 5 Stars</span>
               </div>
               <div className="space-y-1">
                 {/* 5 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#64748B]">
+                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
                   <span className="w-10 font-medium">5-star</span>
-                  <div className="flex-1 h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#00b67a] rounded-full"
+                      className="h-full bg-[#5E8C6A] rounded-full"
                       style={{ width: `${TRUSTPILOT_STATS.breakdown[5]}%` }}
                     />
                   </div>
-                  <span className="w-7 text-right text-[#1E293B] font-mono font-medium">
+                  <span className="w-7 text-right text-[#121417] font-mono font-medium">
                     {count5}
                   </span>
                 </div>
                 {/* 4 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#64748B]">
+                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
                   <span className="w-10 font-medium">4-star</span>
-                  <div className="flex-1 h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#00b67a]/80 rounded-full"
+                      className="h-full bg-[#5E8C6A]/80 rounded-full"
                       style={{ width: `${TRUSTPILOT_STATS.breakdown[4]}%` }}
                     />
                   </div>
-                  <span className="w-7 text-right text-[#1E293B] font-mono font-medium">
+                  <span className="w-7 text-right text-[#121417] font-mono font-medium">
                     {count4}
                   </span>
                 </div>
                 {/* 3 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#64748B]">
+                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
                   <span className="w-10 font-medium">3-star</span>
-                  <div className="flex-1 h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#d97706] rounded-full"
+                      className="h-full bg-[#9A4C36] rounded-full hover:-translate-y-px duration-200 transition-all"
                       style={{ width: `${TRUSTPILOT_STATS.breakdown[3]}%` }}
                     />
                   </div>
-                  <span className="w-7 text-right text-[#1E293B] font-mono font-medium">
+                  <span className="w-7 text-right text-[#121417] font-mono font-medium">
                     {count3}
                   </span>
                 </div>
                 {/* 2 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#64748B]">
+                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
                   <span className="w-10 font-medium">2-star</span>
-                  <div className="flex-1 h-2 bg-[#E2E8F0] rounded-full overflow-hidden">
+                  <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#ea580c] rounded-full"
+                      className="h-full bg-[#B85C42] rounded-full"
                       style={{ width: `${TRUSTPILOT_STATS.breakdown[2]}%` }}
                     />
                   </div>
-                  <span className="w-7 text-right text-[#1E293B] font-mono font-medium">
+                  <span className="w-7 text-right text-[#121417] font-mono font-medium">
                     {count2}
                   </span>
                 </div>
@@ -274,8 +274,8 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('all')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === 'all'
-                    ? 'bg-[#00b67a] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span>All Reviews</span>
@@ -287,11 +287,11 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('5star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '5star'
-                    ? 'bg-[#00b67a] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#00b67a] bg-[#00b67a]/10 px-1 rounded text-[10px]">5★</span>
+                <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">5★</span>
                 <span>5 Stars ({count5})</span>
               </button>
 
@@ -300,11 +300,11 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('4star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '4star'
-                    ? 'bg-[#00b67a] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#00b67a] bg-[#00b67a]/10 px-1 rounded text-[10px]">4★</span>
+                <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">4★</span>
                 <span>4 Stars ({count4})</span>
               </button>
 
@@ -313,11 +313,11 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('3star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '3star'
-                    ? 'bg-[#d97706] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#9A4C36] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#d97706] bg-amber-50 px-1 rounded text-[10px]">3★</span>
+                <span className="text-[#A85640] bg-[#FBF6F1] px-1 rounded text-[10px]">3★</span>
                 <span>3 Stars ({count3})</span>
               </button>
 
@@ -326,11 +326,11 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('2star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '2star'
-                    ? 'bg-[#ea580c] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#B85C42] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#ea580c] bg-orange-50 px-1 rounded text-[10px]">2★</span>
+                <span className="text-[#B85C42] bg-[#FBF6F1] px-1 rounded text-[10px]">2★</span>
                 <span>2 Stars ({count2})</span>
               </button>
 
@@ -339,8 +339,8 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('buggies')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'buggies'
-                    ? 'bg-[#2563EB] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#B45A40] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Electric Carts
@@ -351,8 +351,8 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('batteries')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'batteries'
-                    ? 'bg-[#2563EB] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#B45A40] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Lithium Batteries
@@ -363,8 +363,8 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('accessories')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'accessories'
-                    ? 'bg-[#2563EB] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#B45A40] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Accessories
@@ -375,8 +375,8 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('service')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'service'
-                    ? 'bg-[#2563EB] text-white shadow-xs'
-                    : 'bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] border border-[#E2E8F0]'
+                    ? 'bg-[#B45A40] text-white shadow-xs'
+                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Freight &amp; Service
@@ -386,24 +386,24 @@ export default function ReviewsCarousel() {
             {/* Search Input & View Mode Switcher */}
             <div className="flex items-center gap-2">
               <div className="relative flex-1 sm:w-60">
-                <Search className="w-3.5 h-3.5 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-[#78716C] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search reviews or location..."
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-[#E2E8F0] rounded-lg text-xs text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-[#E7E5E4] rounded-lg text-xs text-[#121417] placeholder-[#78716C]/60 focus:outline-none focus:border-[#C86D51] surface-card"
                 />
               </div>
 
-              <div className="flex items-center bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg p-0.5">
+              <div className="flex items-center bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-0.5 surface-card">
                 <button
                   type="button"
                   onClick={() => setViewMode('carousel')}
                   className={`p-1.5 rounded text-xs transition-colors ${
                     viewMode === 'carousel'
-                      ? 'bg-white text-[#1E293B] shadow-2xs'
-                      : 'text-[#64748B] hover:text-[#1E293B]'
+                      ? 'bg-white text-[#121417] shadow-2xs'
+                      : 'text-[#78716C] hover:text-[#121417]'
                   }`}
                   aria-label="Carousel view"
                   title="Carousel view"
@@ -415,8 +415,8 @@ export default function ReviewsCarousel() {
                   onClick={() => setViewMode('grid')}
                   className={`p-1.5 rounded text-xs transition-colors ${
                     viewMode === 'grid'
-                      ? 'bg-white text-[#1E293B] shadow-2xs'
-                      : 'text-[#64748B] hover:text-[#1E293B]'
+                      ? 'bg-white text-[#121417] shadow-2xs'
+                      : 'text-[#78716C] hover:text-[#121417]'
                   }`}
                   aria-label="Grid view"
                   title="Grid view"
@@ -435,8 +435,8 @@ export default function ReviewsCarousel() {
           className="space-y-6"
         >
           {filteredReviews.length === 0 ? (
-            <div className="text-center py-16 bg-white border border-[#E2E8F0] rounded-2xl p-8">
-              <p className="text-[#64748B] text-sm">
+            <div className="text-center py-16 bg-white border border-[#E7E5E4] rounded-2xl p-8 surface-card">
+              <p className="text-[#78716C] text-sm">
                 No reviews found matching &quot;{searchQuery}&quot; or this rating filter.
               </p>
               <button
@@ -445,7 +445,7 @@ export default function ReviewsCarousel() {
                   setSearchQuery('');
                   setSelectedFilter('all');
                 }}
-                className="mt-3 px-4 py-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold rounded-lg transition-colors"
+                className="mt-3 px-4 py-2 bg-[#B45A40] hover:bg-[#9A4C36] text-white text-xs font-bold rounded-lg transition-colors hover:-translate-y-px duration-200"
               >
                 Reset All Filters
               </button>
@@ -459,7 +459,7 @@ export default function ReviewsCarousel() {
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
                 aria-label="Previous review slide"
-                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-[#E2E8F0] text-[#1E293B] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all flex items-center justify-center shadow-md disabled:opacity-30 disabled:pointer-events-none"
+                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-[#E7E5E4] text-[#121417] hover:bg-[#B45A40] hover:text-white hover:border-[#C86D51] transition-all flex items-center justify-center shadow-xs disabled:opacity-30 disabled:pointer-events-none hover:-translate-y-px duration-200 surface-card"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -469,7 +469,7 @@ export default function ReviewsCarousel() {
                 onClick={handleNext}
                 disabled={currentIndex >= maxIndex}
                 aria-label="Next review slide"
-                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-[#E2E8F0] text-[#1E293B] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all flex items-center justify-center shadow-md disabled:opacity-30 disabled:pointer-events-none"
+                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-[#E7E5E4] text-[#121417] hover:bg-[#B45A40] hover:text-white hover:border-[#C86D51] transition-all flex items-center justify-center shadow-xs disabled:opacity-30 disabled:pointer-events-none hover:-translate-y-px duration-200 surface-card"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -512,9 +512,9 @@ export default function ReviewsCarousel() {
               </div>
 
               {/* Carousel Indicator & Progress Bar */}
-              <div className="flex items-center justify-between pt-4 text-xs text-[#64748B]">
+              <div className="flex items-center justify-between pt-4 text-xs text-[#78716C]">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[#1E293B] font-bold">
+                  <span className="font-mono text-[#121417] font-bold">
                     {Math.min(filteredReviews.length, currentIndex + 1)}–
                     {Math.min(filteredReviews.length, currentIndex + cardsPerView)}
                   </span>
@@ -533,7 +533,7 @@ export default function ReviewsCarousel() {
                         type="button"
                         onClick={() => setCurrentIndex(idx * cardsPerView)}
                         className={`h-1.5 rounded-full transition-all ${
-                          isActive ? 'w-6 bg-[#00b67a]' : 'w-1.5 bg-[#E2E8F0] hover:bg-[#64748B]'
+                          isActive ? 'w-6 bg-[#5E8C6A]' : 'w-1.5 bg-[#E7E5E4] hover:bg-[#78716C]'
                         }`}
                         aria-label={`Go to slide ${idx + 1}`}
                       />
@@ -564,16 +564,16 @@ export default function ReviewsCarousel() {
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm surface-card">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#EFF6FF] border border-[#2563EB]/20 rounded-xl flex items-center justify-center text-[#2563EB] shrink-0 shadow-2xs">
+            <div className="w-12 h-12 bg-[#F7EFEA] border border-[#C86D51]/20 rounded-xl flex items-center justify-center text-[#C86D51] shrink-0 shadow-2xs">
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-[#1E293B] text-base">
+              <div className="font-bold text-[#121417] text-base">
                 100% Genuine Australian Customer Feedback
               </div>
-              <div className="text-xs text-[#64748B] mt-0.5">
+              <div className="text-xs text-[#78716C] mt-0.5">
                 Transparent feedback from residential, commercial golf resorts, and fleet maintenance clients across Australia.
               </div>
             </div>
@@ -584,7 +584,7 @@ export default function ReviewsCarousel() {
               href="https://www.trustpilot.com/review/drummondgolf.com.au"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-[#00b67a] hover:bg-[#009e6a] text-white font-bold text-xs rounded-lg transition-all flex items-center gap-1.5 shadow-xs"
+              className="px-5 py-2.5 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white font-bold text-xs rounded-lg transition-all flex items-center gap-1.5 shadow-xs"
             >
               <span>View On Trustpilot</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -619,18 +619,18 @@ function ReviewCard({
     isLong && !isExpanded ? `${review.text.slice(0, 180)}...` : review.text;
 
   // Star color configuration based on Trustpilot standards:
-  // 5 & 4: Trustpilot Green (#00b67a)
-  // 3: Trustpilot Amber (#d97706)
-  // 2: Trustpilot Orange (#ea580c)
+  // 5 & 4: Trustpilot Green (#5E8C6A)
+  // 3: Trustpilot Amber (#A85640)
+  // 2: Trustpilot Orange (#B85C42)
   const getStarColor = (starIndex: number, rating: number) => {
-    if (starIndex >= rating) return 'bg-[#E2E8F0] text-[#64748B]';
-    if (rating >= 4) return 'bg-[#00b67a] text-white';
-    if (rating === 3) return 'bg-[#d97706] text-white';
-    return 'bg-[#ea580c] text-white';
+    if (starIndex >= rating) return 'bg-[#E7E5E4] text-[#78716C]';
+    if (rating >= 4) return 'bg-[#5E8C6A] text-white';
+    if (rating === 3) return 'bg-[#9A4C36] text-white';
+    return 'bg-[#B85C42] text-white';
   };
 
   return (
-    <div className="w-full bg-white border border-[#E2E8F0] hover:border-[#2563EB]/40 rounded-xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5">
+    <div className="w-full bg-white border border-[#E7E5E4] hover:border-[#C86D51]/40 rounded-xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shadow-xs hover:shadow-xs hover:-translate-y-0.5 surface-card">
       {/* Top Meta: Stars, Date, Verified Badge */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
@@ -650,22 +650,22 @@ function ReviewCard({
           </div>
 
           {/* Date */}
-          <span className="text-[11px] text-[#64748B] font-mono">{review.date}</span>
+          <span className="text-[11px] text-[#78716C] font-mono">{review.date}</span>
         </div>
 
         {/* Review Title */}
-        <h3 className="font-bold text-[#1E293B] text-sm leading-snug line-clamp-2">
+        <h3 className="font-bold text-[#121417] text-sm leading-snug line-clamp-2">
           &quot;{review.title}&quot;
         </h3>
 
         {/* Review Body */}
-        <div className="text-xs text-[#64748B] leading-relaxed">
+        <div className="text-xs text-[#78716C] leading-relaxed">
           <p>{displayedText}</p>
           {isLong && (
             <button
               type="button"
               onClick={onToggleExpand}
-              className="text-[#2563EB] font-bold text-[11px] hover:underline mt-1 block"
+              className="text-[#C86D51] font-bold text-[11px] hover:underline mt-1 block"
             >
               {isExpanded ? 'Read less' : 'Read full review'}
             </button>
@@ -674,8 +674,8 @@ function ReviewCard({
 
         {/* Product Mentioned Tag */}
         {review.productMentioned && (
-          <div className="pt-2 border-t border-[#E2E8F0]">
-            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#2563EB] bg-[#EFF6FF] border border-[#2563EB]/20 px-2 py-0.5 rounded-md">
+          <div className="pt-2 border-t border-[#E7E5E4]">
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#C86D51] bg-[#F7EFEA] border border-[#C86D51]/20 px-2 py-0.5 rounded-md">
               <CheckCircle2 className="w-3 h-3" />
               <span>{review.productMentioned}</span>
             </span>
@@ -684,18 +684,18 @@ function ReviewCard({
       </div>
 
       {/* Author & Verification Bottom Row */}
-      <div className="pt-4 mt-4 border-t border-[#E2E8F0] flex items-center justify-between gap-3 text-xs">
+      <div className="pt-4 mt-4 border-t border-[#E7E5E4] flex items-center justify-between gap-3 text-xs">
         {/* Author Details */}
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-full bg-[#EFF6FF] border border-[#2563EB]/20 text-[#2563EB] font-extrabold text-[11px] flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 text-[#C86D51] font-extrabold text-[11px] flex items-center justify-center shrink-0">
             {getInitials(review.author)}
           </div>
           <div className="min-w-0">
-            <div className="font-bold text-[#1E293B] text-xs truncate flex items-center gap-1">
+            <div className="font-bold text-[#121417] text-xs truncate flex items-center gap-1">
               <span>{review.author}</span>
             </div>
-            <div className="text-[10px] text-[#64748B] flex items-center gap-1">
-              <MapPin className="w-2.5 h-2.5 text-[#2563EB]" />
+            <div className="text-[10px] text-[#78716C] flex items-center gap-1">
+              <MapPin className="w-2.5 h-2.5 text-[#C86D51]" />
               <span className="truncate">{review.location}</span>
             </div>
           </div>
@@ -708,8 +708,8 @@ function ReviewCard({
           disabled={hasVoted}
           className={`flex items-center gap-1 text-[11px] px-2 py-1 rounded-md transition-colors ${
             hasVoted
-              ? 'bg-[#EFF6FF] text-[#2563EB] font-bold'
-              : 'text-[#64748B] hover:text-[#1E293B] hover:bg-[#F8F9FA]'
+              ? 'bg-[#F7EFEA] text-[#C86D51] font-bold'
+              : 'text-[#78716C] hover:text-[#121417] hover:bg-[#F7F6F2]'
           }`}
           aria-label="Vote review as helpful"
           title="Mark this review as helpful"

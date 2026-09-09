@@ -28,14 +28,18 @@ export const SITE = {
   currency: 'AUD',
   currencySymbol: '$',
   target: 'vercel',
-  primaryColor: '#2563EB',
-  slateCharcoal: '#1E293B',
-  steelGray: '#64748B',
-  oceanBlue: '#2563EB',
-  deepBlue: '#1D4ED8',
-  iceBlue: '#EFF6FF',
-  lightCanvas: '#F8F9FA',
-  borderGray: '#E2E8F0',
+  // Palette: Australian coastal & outback luxury. Warm bone canvas, white
+  // card surfaces, architectural charcoal ink, sun-baked terracotta accent.
+  primaryColor: '#C86D51',   // sun-baked terracotta - primary accent
+  accentPressed: '#A85640',  // terracotta, hover/pressed
+  accentFill: '#B45A40',     // solid CTA fill (clears 4.5:1 with white label)
+  accentTint: '#F7EFEA',     // terracotta wash surface
+  accentOnDark: '#E2A17A',   // ochre sand - highlights on charcoal
+  charcoal: '#121417',       // architectural charcoal - ink and dark sections
+  graphite: '#2B2F34',       // brushed graphite - borders on dark surfaces
+  stoneMuted: '#78716C',     // secondary copy
+  boneCanvas: '#F7F6F2',     // warm bone page canvas
+  hairline: '#E7E5E4',       // 1px architectural border
   gscVerification: 'pending',
   indexNowKey: 'golfbuggiesexpress-idx-2025',
   cartKey: 'buggies-express-cart',

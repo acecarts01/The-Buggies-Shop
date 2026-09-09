@@ -25,9 +25,9 @@ export default function AnnouncementBar({ announcements = defaultAnnouncements }
   }, [announcements.length]);
 
   return (
-    <div className="bg-[#EFF6FF] border-b border-[#E2E8F0] py-2 px-4 text-center text-xs font-semibold text-[#1E293B] overflow-hidden">
+    <div className="bg-[#F7EFEA] border-b border-[#E7E5E4] py-2 px-4 text-center text-xs font-semibold text-[#121417] overflow-hidden">
       <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 min-h-[20px]">
-        <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse shrink-0"></span>
+        <span className="w-2 h-2 rounded-full bg-[#B45A40] animate-pulse shrink-0 hover:-translate-y-px duration-200 transition-all"></span>
         <AnimatePresence mode="wait">
           <motion.span
             key={activeSlide}

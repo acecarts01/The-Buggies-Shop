@@ -54,8 +54,8 @@ function getBatteryInfo(product: ProductItem) {
       title: `${voltage} LiFePO4 Lithium`,
       badgeText: 'Zero-Maintenance Lithium',
       shortDesc: 'No acid spills • Zero water topping • 2-3h fast charge',
-      badgeBg: 'bg-[#EFF6FF] border-[#BFDBFE] text-[#1E293B]',
-      pillBg: 'bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE]',
+      badgeBg: 'bg-[#F7EFEA] border-[#E8D2C6] text-[#121417]',
+      pillBg: 'bg-[#F7EFEA] text-[#C86D51] border border-[#E8D2C6]',
       isZeroMaintenance: true,
     };
   }
@@ -67,8 +67,8 @@ function getBatteryInfo(product: ProductItem) {
       title: `${voltage} Deep-Cycle AGM / Lead-Acid`,
       badgeText: 'Lead-Acid / AGM System',
       shortDesc: 'Traditional cycle • Periodic maintenance required',
-      badgeBg: 'bg-[#F8F9FA] border-[#E2E8F0] text-[#64748B]',
-      pillBg: 'bg-[#E2E8F0] text-[#475569] border border-[#CBD5E1]',
+      badgeBg: 'bg-[#F7F6F2] border-[#E7E5E4] text-[#78716C]',
+      pillBg: 'bg-[#E7E5E4] text-[#57534E] border border-[#D6D3D1]',
       isZeroMaintenance: false,
     };
   }
@@ -78,8 +78,8 @@ function getBatteryInfo(product: ProductItem) {
     title: 'EFI Petrol / Mechanical',
     badgeText: 'Combustion Engine',
     shortDesc: 'Electronic fuel injection • Conventional mechanical drive',
-    badgeBg: 'bg-[#FFFBEB] border-[#FDE68A] text-[#92400E]',
-    pillBg: 'bg-[#FEF3C7] text-[#D97706] border border-[#FDE68A]',
+    badgeBg: 'bg-[#FBF6F1] border-[#F0D2BC] text-[#7A4030]',
+    pillBg: 'bg-[#F5E6DA] text-[#A85640] border border-[#F0D2BC]',
     isZeroMaintenance: false,
   };
 }
@@ -106,27 +106,27 @@ const ProductCard = React.memo(function ProductCard({
 
   return (
     <div
-      className={`content-auto flex flex-col justify-between bg-white border rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg group shadow-sm ${
+      className={`content-auto flex flex-col justify-between bg-white border rounded-xl overflow-hidden transition-all duration-200 hover:shadow-xs group shadow-sm ${
         isFlagship
-          ? 'border-[#2563EB] ring-1 ring-[#2563EB]/30'
-          : 'border-[#E2E8F0] hover:border-[#2563EB]/40'
+          ? 'border-[#C86D51] ring-1 ring-[#C86D51]/30'
+          : 'border-[#E7E5E4] hover:border-[#C86D51]/40'
       }`}
     >
       {/* Card Header & Badges */}
       <div>
-        <div className="p-4 bg-[#F8F9FA] border-b border-[#E2E8F0] flex items-center justify-between gap-2">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-[#64748B]">
+        <div className="p-4 bg-[#F7F6F2] border-b border-[#E7E5E4] flex items-center justify-between gap-2">
+          <span className="text-[10px] uppercase font-bold tracking-wider text-[#78716C]">
             {product.category}
           </span>
 
           {/* Stock / Tier Status Badge */}
           {isHighTicket ? (
-            <span className="inline-flex items-center gap-1 bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] px-2 py-0.5 rounded text-[10px] font-bold">
-              <Sparkles className="w-3 h-3 text-[#2563EB]" />
+            <span className="inline-flex items-center gap-1 bg-[#F7EFEA] border border-[#E8D2C6] text-[#C86D51] px-2 py-0.5 rounded text-[10px] font-bold">
+              <Sparkles className="w-3 h-3 text-[#C86D51]" />
               Tour Fleet Flagship
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 bg-white border border-[#E2E8F0] text-[#64748B] px-2 py-0.5 rounded text-[10px] font-medium">
+            <span className="inline-flex items-center gap-1 bg-white border border-[#E7E5E4] text-[#78716C] px-2 py-0.5 rounded text-[10px] font-medium">
               In Stock Yatala QLD
             </span>
           )}
@@ -137,11 +137,11 @@ const ProductCard = React.memo(function ProductCard({
           <div>
             <Link
               href={productUrl}
-              className="text-base sm:text-lg font-serif font-bold text-[#1E293B] group-hover:text-[#2563EB] transition-colors line-clamp-1"
+              className="text-base sm:text-lg font-serif font-bold text-[#121417] group-hover:text-[#C86D51] transition-colors line-clamp-1"
             >
               {product.name}
             </Link>
-            <div className="text-xs text-[#64748B] mt-0.5 flex items-center gap-2">
+            <div className="text-xs text-[#78716C] mt-0.5 flex items-center gap-2">
               <span className="capitalize">{product.fuel_type}</span>
               <span>•</span>
               <span>{product.target_audience}</span>
@@ -149,44 +149,44 @@ const ProductCard = React.memo(function ProductCard({
           </div>
 
           {/* Product Description */}
-          <div className="bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg p-3 text-xs space-y-1">
-            <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#2563EB] flex items-center justify-between">
+          <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-xs space-y-1 surface-card">
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#C86D51] flex items-center justify-between">
               <span>Description &amp; Highlights</span>
-              <span className="text-[9px] text-[#64748B]">Australian Specs</span>
+              <span className="text-[9px] text-[#78716C]">Australian Specs</span>
             </div>
-            <p className="text-[11px] text-[#475569] leading-relaxed line-clamp-2">
+            <p className="text-[11px] text-[#57534E] leading-relaxed line-clamp-2">
               {product.shortDescription || product.fullDescription}
             </p>
           </div>
 
           {/* Price Point & Payment Options */}
-          <div className="pt-2 border-t border-[#E2E8F0] space-y-1">
+          <div className="pt-2 border-t border-[#E7E5E4] space-y-1">
             <div className="flex items-baseline justify-between gap-2">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-xl sm:text-2xl font-serif font-extrabold text-[#1E293B]">
+                <span className="text-xl sm:text-2xl font-serif font-extrabold text-[#121417] tracking-tight">
                   {product.price_display}
                 </span>
-                <span className="text-[10px] font-medium text-[#64748B]">
+                <span className="text-[10px] font-medium text-[#78716C]">
                   AUD (GST Incl.)
                 </span>
               </div>
-              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]">
+              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-[#F7EFEA] text-[#C86D51] border border-[#E8D2C6]">
                 Yatala Stock
               </span>
             </div>
 
             {/* Installments & 5% Bundle Indicators */}
             <div className="flex items-center justify-between text-[11px] pt-0.5">
-              <div className="text-[#2563EB] font-medium flex items-center gap-1">
-                <BadgePercent className="w-3.5 h-3.5 text-[#2563EB]" />
+              <div className="text-[#C86D51] font-medium flex items-center gap-1">
+                <BadgePercent className="w-3.5 h-3.5 text-[#C86D51]" />
                 <span>or 4x ${Math.round(product.price_aud / 4).toLocaleString()} AUD Pay-in-4 (0% int.)</span>
               </div>
               {isAccessoryItem(product.category, product.id, product.name) ? (
-                <span className="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-[#7A4030] bg-[#FBF6F1] border border-[#F0D2BC] px-1.5 py-0.5 rounded">
                   5% Off w/ Buggy
                 </span>
               ) : (
-                <span className="text-[10px] font-bold text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-1.5 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-[#C86D51] bg-[#F7EFEA] border border-[#E8D2C6] px-1.5 py-0.5 rounded">
                   5% Acc. Bundle
                 </span>
               )}
@@ -198,11 +198,11 @@ const ProductCard = React.memo(function ProductCard({
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5 font-bold">
                 {battery.isZeroMaintenance ? (
-                  <BatteryCharging className="w-4 h-4 text-[#2563EB] shrink-0" />
+                  <BatteryCharging className="w-4 h-4 text-[#C86D51] shrink-0" />
                 ) : battery.tech === 'lead-acid' ? (
-                  <Battery className="w-4 h-4 text-[#64748B] shrink-0" />
+                  <Battery className="w-4 h-4 text-[#78716C] shrink-0" />
                 ) : (
-                  <Zap className="w-4 h-4 text-amber-600 shrink-0" />
+                  <Zap className="w-4 h-4 text-[#B85C42] shrink-0" />
                 )}
                 <span className="text-xs">{battery.title}</span>
               </div>
@@ -219,33 +219,33 @@ const ProductCard = React.memo(function ProductCard({
           </div>
 
           {/* Key Technical Specs Pill Box */}
-          <div className="bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg p-3 text-xs space-y-1.5">
-            <div className="text-[11px] font-bold text-[#1E293B] flex items-center gap-1">
-              <Zap className="w-3 h-3 text-[#2563EB]" />
+          <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-xs space-y-1.5 surface-card">
+            <div className="text-[11px] font-bold text-[#121417] flex items-center gap-1">
+              <Zap className="w-3 h-3 text-[#C86D51]" />
               <span>Engineering Specifications</span>
             </div>
-            <p className="text-[11px] text-[#64748B] leading-relaxed line-clamp-2">
+            <p className="text-[11px] text-[#78716C] leading-relaxed line-clamp-2">
               {product.key_specs}
             </p>
           </div>
 
           {/* Warranty and Support Guarantee */}
-          <div className="text-[11px] text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] rounded p-2 flex items-center gap-1.5 font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
+          <div className="text-[11px] text-[#C86D51] bg-[#F7EFEA] border border-[#E8D2C6] rounded p-2 flex items-center gap-1.5 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#C86D51] shrink-0" />
             <span>Includes Yatala 3-5 Year Australian Factory Warranty</span>
           </div>
         </div>
       </div>
 
       {/* Card Actions Footer */}
-      <div className="p-4 bg-[#F8F9FA] border-t border-[#E2E8F0] space-y-2">
+      <div className="p-4 bg-[#F7F6F2] border-t border-[#E7E5E4] space-y-2">
         <div className="grid grid-cols-2 gap-2">
           <button
             type="button"
             onClick={() => {
               if (onAddToCart) onAddToCart(product);
             }}
-            className="w-full flex items-center justify-center gap-1.5 py-2.5 px-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs rounded-lg transition-all shadow-sm active:scale-95"
+            className="w-full flex items-center justify-center gap-1.5 py-2.5 px-2 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded-lg transition-all shadow-sm active:scale-95 hover:-translate-y-px duration-200"
             id={`add-cart-${product.id}`}
           >
             <ShoppingBag className="w-3.5 h-3.5" />
@@ -255,10 +255,10 @@ const ProductCard = React.memo(function ProductCard({
           <button
             type="button"
             onClick={() => onOpenQuote(product)}
-            className="w-full flex items-center justify-center gap-1 py-2.5 px-2 bg-white hover:bg-[#EFF6FF] border border-[#2563EB] text-[#2563EB] font-bold text-xs rounded-lg transition-all shadow-sm active:scale-95"
+            className="w-full flex items-center justify-center gap-1 py-2.5 px-2 bg-white hover:bg-[#F7EFEA] border border-[#C86D51] text-[#C86D51] font-bold text-xs rounded-lg transition-all shadow-sm active:scale-95"
             id={`quote-btn-${product.id}`}
           >
-            <FileText className="w-3.5 h-3.5 text-[#2563EB]" />
+            <FileText className="w-3.5 h-3.5 text-[#C86D51]" />
             <span>Fast Quote</span>
           </button>
         </div>
@@ -267,13 +267,13 @@ const ProductCard = React.memo(function ProductCard({
           <button
             type="button"
             onClick={() => onInspect(product)}
-            className="w-full py-1.5 px-2 border border-[#E2E8F0] bg-white text-[#64748B] hover:text-[#1E293B] hover:bg-[#F8F9FA] text-[11px] font-semibold rounded text-center transition-colors"
+            className="w-full py-1.5 px-2 border border-[#E7E5E4] bg-white text-[#78716C] hover:text-[#121417] hover:bg-[#F7F6F2] text-[11px] font-semibold rounded text-center transition-colors"
           >
             Technical Specs
           </button>
           <Link
             href={productUrl}
-            className="w-full py-1.5 px-2 bg-white hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#2563EB] text-[#2563EB] text-[11px] font-medium rounded text-center flex items-center justify-center gap-1 transition-colors"
+            className="w-full py-1.5 px-2 bg-white hover:bg-[#F7EFEA] border border-[#E7E5E4] hover:border-[#C86D51] text-[#C86D51] text-[11px] font-medium rounded text-center flex items-center justify-center gap-1 transition-colors"
           >
             <span>Full Details</span>
             <ChevronRight className="w-3 h-3" />
@@ -412,44 +412,44 @@ Notes: ${quoteForm.notes || 'None'}`
   };
 
   return (
-    <section className="w-full bg-[#F8F9FA] py-12 px-4 sm:px-6 lg:px-8 text-[#1E293B]" id="catalog-explorer">
+    <section className="w-full bg-[#F7F6F2] py-12 px-4 sm:px-6 lg:px-8 text-[#121417]" id="catalog-explorer">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Section Header */}
-        <div className="border-b border-[#E2E8F0] pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="border-b border-[#E7E5E4] pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-xs font-bold text-[#2563EB] mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] text-xs font-bold text-[#C86D51] mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#C86D51]" />
               <span>Australian Tour Precision Fleet</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#1E293B] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#121417] tracking-tight">
               Australian Golf Buggies &amp; Utility Vehicles for Sale
             </h2>
-            <p className="text-sm text-[#64748B] mt-1 max-w-2xl">
+            <p className="text-sm text-[#78716C] mt-1 max-w-2xl">
               Featuring advanced LiFePO4 zero-maintenance lithium battery technology and high-torque AC drivetrains. All 61 models certified and supported from our central Yatala QLD engineering center.
             </p>
           </div>
 
           {/* Fast Metric Summary */}
-          <div className="flex items-center gap-4 bg-white border border-[#E2E8F0] shadow-sm p-3 rounded-xl shrink-0">
+          <div className="flex items-center gap-4 bg-white border border-[#E7E5E4] shadow-sm p-3 rounded-xl shrink-0 surface-card">
             <div className="text-center px-2">
-              <div className="text-xl font-serif font-bold text-[#1E293B]">
+              <div className="text-xl font-serif font-bold text-[#121417]">
                 <AnimatedCounter value={filteredProducts.length} />
               </div>
-              <div className="text-[10px] text-[#64748B]">Models Ready</div>
+              <div className="text-[10px] text-[#78716C]">Models Ready</div>
             </div>
-            <div className="w-px h-8 bg-[#E2E8F0]" />
+            <div className="w-px h-8 bg-[#E7E5E4]" />
             <div className="text-center px-2">
-              <div className="text-xl font-serif font-bold text-[#2563EB]">
+              <div className="text-xl font-serif font-bold text-[#C86D51]">
                 <AnimatedCounter value={100} suffix="%" />
               </div>
-              <div className="text-[10px] text-[#64748B]">Enclosed Freight</div>
+              <div className="text-[10px] text-[#78716C]">Enclosed Freight</div>
             </div>
-            <div className="w-px h-8 bg-[#E2E8F0]" />
+            <div className="w-px h-8 bg-[#E7E5E4]" />
             <div className="text-center px-2">
-              <div className="text-xl font-serif font-bold text-emerald-600">
+              <div className="text-xl font-serif font-bold text-[#4F7A5A]">
                 <AnimatedCounter value={10} suffix="%" />
               </div>
-              <div className="text-[10px] text-[#64748B]">Crypto Rebate</div>
+              <div className="text-[10px] text-[#78716C]">Crypto Rebate</div>
             </div>
           </div>
         </div>
@@ -464,14 +464,14 @@ Notes: ${quoteForm.notes || 'None'}`
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by model name, 72V lithium, lifted 4x4, 6-seater, chassis specs..."
-                className="w-full bg-white border border-[#E2E8F0] rounded-xl py-3 px-4 text-xs sm:text-sm text-[#1E293B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB] shadow-sm transition-all"
+                className="w-full bg-white border border-[#E7E5E4] rounded-xl py-3 px-4 text-xs sm:text-sm text-[#121417] placeholder-[#A8A29E] focus:outline-none focus:border-[#C86D51] focus:ring-1 focus:ring-[#C86D51] shadow-sm transition-all surface-card"
                 id="catalog-search-input"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#64748B] hover:text-[#1E293B] bg-[#F8F9FA] px-2 py-1 rounded"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#78716C] hover:text-[#121417] bg-[#F7F6F2] px-2 py-1 rounded"
                 >
                   Clear
                 </button>
@@ -480,11 +480,11 @@ Notes: ${quoteForm.notes || 'None'}`
 
             {/* Price / Relevance Sorting */}
             <div className="flex items-center gap-2 shrink-0">
-              <span className="text-xs text-[#64748B] hidden sm:inline">Sort:</span>
+              <span className="text-xs text-[#78716C] hidden sm:inline">Sort:</span>
               <select
                 value={priceSort}
                 onChange={(e) => setPriceSort(e.target.value as any)}
-                className="bg-white border border-[#E2E8F0] rounded-xl py-3 px-3 text-xs sm:text-sm text-[#1E293B] focus:outline-none focus:border-[#2563EB] shadow-sm"
+                className="bg-white border border-[#E7E5E4] rounded-xl py-3 px-3 text-xs sm:text-sm text-[#121417] focus:outline-none focus:border-[#C86D51] shadow-sm surface-card"
                 id="catalog-sort-select"
               >
                 <option value="featured">Featured / Flagship</option>
@@ -505,8 +505,8 @@ Notes: ${quoteForm.notes || 'None'}`
                   onClick={() => setSelectedCategory(category.slug)}
                   className={`text-xs px-3.5 py-2 rounded-lg border whitespace-nowrap transition-all font-semibold ${
                     active
-                      ? 'bg-[#2563EB] border-[#2563EB] text-white shadow-sm'
-                      : 'bg-white border-[#E2E8F0] text-[#64748B] hover:text-[#1E293B] hover:border-[#2563EB]/40'
+                      ? 'bg-[#B45A40] border-[#C86D51] text-white shadow-sm'
+                      : 'bg-white border-[#E7E5E4] text-[#78716C] hover:text-[#121417] hover:border-[#C86D51]/40'
                   }`}
                   id={`cat-chip-${category.slug}`}
                 >
@@ -518,8 +518,8 @@ Notes: ${quoteForm.notes || 'None'}`
 
           {/* Powertrain / Battery Technology Selector */}
           <div className="flex items-center gap-2 overflow-x-auto pt-1">
-            <span className="text-[11px] font-bold text-[#64748B] uppercase tracking-wider shrink-0 flex items-center gap-1 mr-1">
-              <SlidersHorizontal className="w-3 h-3 text-[#2563EB]" />
+            <span className="text-[11px] font-bold text-[#78716C] uppercase tracking-wider shrink-0 flex items-center gap-1 mr-1">
+              <SlidersHorizontal className="w-3 h-3 text-[#C86D51]" />
               Powertrain:
             </span>
             {POWERTRAINS.map((pt) => {
@@ -531,8 +531,8 @@ Notes: ${quoteForm.notes || 'None'}`
                   onClick={() => setSelectedPowertrain(pt.id)}
                   className={`text-xs px-3 py-1.5 rounded-md border transition-all ${
                     active
-                      ? 'bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] font-bold shadow-sm'
-                      : 'bg-white border-[#E2E8F0] text-[#64748B] hover:text-[#1E293B]'
+                      ? 'bg-[#F7EFEA] border-[#C86D51] text-[#C86D51] font-bold shadow-sm'
+                      : 'bg-white border-[#E7E5E4] text-[#78716C] hover:text-[#121417]'
                   }`}
                 >
                   {pt.label}
@@ -544,10 +544,10 @@ Notes: ${quoteForm.notes || 'None'}`
 
         {/* Catalog Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="bg-white border border-[#E2E8F0] rounded-xl p-12 text-center space-y-4 shadow-sm">
-            <Info className="w-10 h-10 text-[#2563EB] mx-auto" />
-            <h3 className="text-lg font-bold text-[#1E293B]">No models match your current filter parameters</h3>
-            <p className="text-xs text-[#64748B] max-w-md mx-auto">
+          <div className="bg-white border border-[#E7E5E4] rounded-xl p-12 text-center space-y-4 shadow-sm surface-card">
+            <Info className="w-10 h-10 text-[#C86D51] mx-auto" />
+            <h3 className="text-lg font-bold text-[#121417]">No models match your current filter parameters</h3>
+            <p className="text-xs text-[#78716C] max-w-md mx-auto">
               Try adjusting your battery technology selection or clearing your search term. You can also consult directly with our Yatala engineers regarding custom lithium conversions.
             </p>
             <button
@@ -557,7 +557,7 @@ Notes: ${quoteForm.notes || 'None'}`
                 setSelectedPowertrain('all');
                 setSearchQuery('');
               }}
-              className="px-4 py-2 bg-[#2563EB] text-white text-xs font-bold rounded hover:bg-[#1D4ED8] transition-all shadow-sm"
+              className="px-4 py-2 bg-[#B45A40] text-white text-xs font-bold rounded hover:bg-[#9A4C36] transition-all shadow-sm hover:-translate-y-px duration-200"
             >
               Reset All Filters
             </button>
@@ -579,11 +579,11 @@ Notes: ${quoteForm.notes || 'None'}`
 
             {/* Progressive Loading Controls */}
             {filteredProducts.length > visibleCount && (
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-white border border-[#E2E8F0] shadow-sm rounded-xl">
-                <div className="text-xs text-[#64748B] text-center sm:text-left">
-                  Showing <span className="font-bold text-[#1E293B]">{displayedProducts.length}</span> of{' '}
-                  <span className="font-bold text-[#1E293B]">{filteredProducts.length}</span> vehicles
-                  <span className="ml-2 text-[10px] text-[#2563EB] font-medium">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-white border border-[#E7E5E4] shadow-sm rounded-xl surface-card">
+                <div className="text-xs text-[#78716C] text-center sm:text-left">
+                  Showing <span className="font-bold text-[#121417]">{displayedProducts.length}</span> of{' '}
+                  <span className="font-bold text-[#121417]">{filteredProducts.length}</span> vehicles
+                  <span className="ml-2 text-[10px] text-[#C86D51] font-medium">
                     ({filteredProducts.length - displayedProducts.length} additional models available)
                   </span>
                 </div>
@@ -591,7 +591,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   <button
                     type="button"
                     onClick={() => setVisibleCount((prev) => Math.min(prev + 12, filteredProducts.length))}
-                    className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs rounded-lg transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95"
+                    className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded-lg transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95 hover:-translate-y-px duration-200"
                   >
                     <span>Load Next 12 Models</span>
                     <span className="text-[10px] bg-white/20 px-1.5 py-0.5 rounded font-bold">
@@ -601,7 +601,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   <button
                     type="button"
                     onClick={() => setVisibleCount(filteredProducts.length)}
-                    className="flex-1 sm:flex-initial px-5 py-2.5 bg-white hover:bg-[#F8F9FA] border border-[#E2E8F0] hover:border-[#2563EB] text-[#2563EB] font-bold text-xs rounded-lg transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm"
+                    className="flex-1 sm:flex-initial px-5 py-2.5 bg-white hover:bg-[#F7F6F2] border border-[#E7E5E4] hover:border-[#C86D51] text-[#C86D51] font-bold text-xs rounded-lg transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm surface-card"
                   >
                     <span>View All ({filteredProducts.length})</span>
                   </button>
@@ -613,98 +613,98 @@ Notes: ${quoteForm.notes || 'None'}`
 
         {/* Technical Specification Inspector Modal */}
         {inspectProduct && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white border border-[#E2E8F0] rounded-xl max-w-2xl w-full p-6 text-[#1E293B] shadow-2xl relative animate-in fade-in zoom-in-95">
+          <div className="fixed inset-0 z-50 overflow-y-auto bg-[#121417]/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="bg-white border border-[#E7E5E4] rounded-xl max-w-2xl w-full p-6 text-[#121417] shadow-sm relative animate-in fade-in zoom-in-95 surface-card">
               <button
                 type="button"
                 onClick={() => setInspectProduct(null)}
-                className="absolute top-4 right-4 text-[#64748B] hover:text-[#1E293B] p-1 rounded"
+                className="absolute top-4 right-4 text-[#78716C] hover:text-[#121417] p-1 rounded"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="space-y-4">
-                <div className="border-b border-[#E2E8F0] pb-3 pr-8">
-                  <span className="text-[10px] uppercase font-bold text-[#2563EB] tracking-wider">
+                <div className="border-b border-[#E7E5E4] pb-3 pr-8">
+                  <span className="text-[10px] uppercase font-bold text-[#C86D51] tracking-wider">
                     Official Yatala Workshop Specification Sheet
                   </span>
-                  <h3 className="text-xl font-serif font-bold text-[#1E293B] mt-1">
+                  <h3 className="text-xl font-serif font-bold text-[#121417] mt-1">
                     {inspectProduct.name}
                   </h3>
-                  <div className="text-xs text-[#64748B] mt-0.5">
+                  <div className="text-xs text-[#78716C] mt-0.5">
                     Category: {inspectProduct.category} • Target Application: {inspectProduct.target_audience}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F8F9FA] p-3 rounded-lg border border-[#E2E8F0] text-center">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F7F6F2] p-3 rounded-lg border border-[#E7E5E4] text-center surface-card">
                   <div>
-                    <div className="text-[10px] text-[#64748B]">Drive Type</div>
-                    <div className="text-xs font-bold text-[#1E293B] capitalize">{inspectProduct.fuel_type}</div>
+                    <div className="text-[10px] text-[#78716C]">Drive Type</div>
+                    <div className="text-xs font-bold text-[#121417] capitalize">{inspectProduct.fuel_type}</div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#64748B]">Standard Price</div>
-                    <div className="text-xs font-bold text-[#2563EB]">{inspectProduct.price_display} AUD</div>
+                    <div className="text-[10px] text-[#78716C]">Standard Price</div>
+                    <div className="text-xs font-bold text-[#C86D51]">{inspectProduct.price_display} AUD</div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#64748B]">Crypto Settlement</div>
-                    <div className="text-xs font-bold text-emerald-600">
+                    <div className="text-[10px] text-[#78716C]">Crypto Settlement</div>
+                    <div className="text-xs font-bold text-[#4F7A5A]">
                       ${Math.round(inspectProduct.price_aud * 0.9).toLocaleString()} AUD
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#64748B]">Warranty Center</div>
-                    <div className="text-xs font-bold text-[#1E293B]">Yatala QLD 4207</div>
+                    <div className="text-[10px] text-[#78716C]">Warranty Center</div>
+                    <div className="text-xs font-bold text-[#121417]">Yatala QLD 4207</div>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold text-[#1E293B] uppercase tracking-wider mb-1">
+                  <h4 className="text-xs font-bold text-[#121417] uppercase tracking-wider mb-1">
                     Full Engineering &amp; Powertrain Configuration
                   </h4>
-                  <div className="bg-[#F8F9FA] border border-[#E2E8F0] rounded p-3 text-xs text-[#64748B] leading-relaxed">
+                  <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded p-3 text-xs text-[#78716C] leading-relaxed">
                     {inspectProduct.key_specs}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="text-xs font-bold text-[#2563EB] uppercase tracking-wider">
+                  <h4 className="text-xs font-bold text-[#C86D51] uppercase tracking-wider">
                     Factory Certified Inclusions
                   </h4>
-                  <ul className="text-xs space-y-1.5 text-[#64748B]">
+                  <ul className="text-xs space-y-1.5 text-[#78716C]">
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C86D51]" />
                       <span>Zero-Maintenance LiFePO4 or heavy-duty cycle deep discharge power pack</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C86D51]" />
                       <span>On-board smart high-frequency delta-Q or waterproof 240V AC charger</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C86D51]" />
                       <span>High-tensile corrosion resistant chassis built for coastal Australian climates</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C86D51]" />
                       <span>Regenerative electronic motor braking with automatic electromagnetic park brake</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between gap-3">
+                <div className="pt-4 border-t border-[#E7E5E4] flex items-center justify-between gap-3">
                   <button
                     type="button"
                     onClick={() => {
                       setInspectProduct(null);
                       setQuoteProduct(inspectProduct);
                     }}
-                    className="flex-1 py-2.5 px-4 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs rounded transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    className="flex-1 py-2.5 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded transition-all flex items-center justify-center gap-1.5 shadow-sm hover:-translate-y-px duration-200"
                   >
                     <FileText className="w-3.5 h-3.5" />
                     <span>Request Quotation for this Model</span>
                   </button>
                   <Link
                     href={`/shop/${inspectProduct.slug}/`}
-                    className="py-2.5 px-4 bg-white border border-[#E2E8F0] hover:border-[#2563EB] text-[#2563EB] text-xs font-bold rounded text-center transition-colors"
+                    className="py-2.5 px-4 bg-white border border-[#E7E5E4] hover:border-[#C86D51] text-[#C86D51] text-xs font-bold rounded text-center transition-colors"
                   >
                     View Product Page
                   </Link>
@@ -716,49 +716,49 @@ Notes: ${quoteForm.notes || 'None'}`
 
         {/* Official Quotation & Logistics Request Modal */}
         {quoteProduct && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white border border-[#E2E8F0] rounded-xl max-w-lg w-full p-6 text-[#1E293B] shadow-2xl relative animate-in fade-in zoom-in-95">
+          <div className="fixed inset-0 z-50 overflow-y-auto bg-[#121417]/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="bg-white border border-[#E7E5E4] rounded-xl max-w-lg w-full p-6 text-[#121417] shadow-sm relative animate-in fade-in zoom-in-95 surface-card">
               <button
                 type="button"
                 onClick={() => setQuoteProduct(null)}
-                className="absolute top-4 right-4 text-[#64748B] hover:text-[#1E293B] p-1 rounded"
+                className="absolute top-4 right-4 text-[#78716C] hover:text-[#121417] p-1 rounded"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="space-y-4">
-                <div className="border-b border-[#E2E8F0] pb-3 pr-8">
-                  <div className="inline-flex items-center gap-1 text-[10px] font-bold text-[#2563EB] uppercase tracking-wider">
+                <div className="border-b border-[#E7E5E4] pb-3 pr-8">
+                  <div className="inline-flex items-center gap-1 text-[10px] font-bold text-[#C86D51] uppercase tracking-wider">
                     <FileText className="w-3 h-3" />
                     <span>Official Quotation &amp; Freight Schedule</span>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-[#1E293B] mt-1">
+                  <h3 className="text-xl font-serif font-bold text-[#121417] mt-1">
                     {quoteProduct.name}
                   </h3>
-                  <div className="text-xs text-[#64748B] mt-0.5">
-                    Vehicle Price: <span className="text-[#1E293B] font-bold">{quoteProduct.price_display} AUD</span> (GST Incl.)
+                  <div className="text-xs text-[#78716C] mt-0.5">
+                    Vehicle Price: <span className="text-[#121417] font-bold">{quoteProduct.price_display} AUD</span> (GST Incl.)
                   </div>
                 </div>
 
                 {quoteSubmitted ? (
-                  <div className="bg-[#F8F9FA] border border-emerald-500/40 rounded-xl p-6 text-center space-y-3 animate-in fade-in">
-                    <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
-                    <h4 className="text-base font-bold text-[#1E293B]">Tax Quotation Request Prepared!</h4>
-                    <p className="text-xs text-[#64748B] max-w-xs mx-auto">
+                  <div className="bg-[#F7F6F2] border border-[#6B9A76]/40 rounded-xl p-6 text-center space-y-3 animate-in fade-in">
+                    <CheckCircle2 className="w-10 h-10 text-[#4F7A5A] mx-auto" />
+                    <h4 className="text-base font-bold text-[#121417]">Tax Quotation Request Prepared!</h4>
+                    <p className="text-xs text-[#78716C] max-w-xs mx-auto">
                       Connecting you to our Yatala commercial dispatch desk via WhatsApp to transmit your itemized invoice and regional freight rates.
                     </p>
                     <button
                       type="button"
                       onClick={() => setQuoteProduct(null)}
-                      className="px-4 py-2 bg-white border border-[#E2E8F0] text-xs font-bold rounded text-[#1E293B] hover:bg-[#F8F9FA] shadow-sm"
+                      className="px-4 py-2 bg-white border border-[#E7E5E4] text-xs font-bold rounded text-[#121417] hover:bg-[#F7F6F2] shadow-sm"
                     >
                       Close Window
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleQuoteSubmit} className="space-y-3 text-xs">
-                    <div className="bg-[#F8F9FA] border border-[#E2E8F0] p-3 rounded text-[11px] text-[#64748B] space-y-1">
-                      <div className="flex items-center gap-1.5 text-[#2563EB] font-bold">
+                    <div className="bg-[#F7F6F2] border border-[#E7E5E4] p-3 rounded text-[11px] text-[#78716C] space-y-1">
+                      <div className="flex items-center gap-1.5 text-[#C86D51] font-bold">
                         <ShieldCheck className="w-3.5 h-3.5" />
                         <span>Direct Fulfillment from Yatala QLD 4207</span>
                       </div>
@@ -769,47 +769,47 @@ Notes: ${quoteForm.notes || 'None'}`
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block font-semibold text-[#64748B] mb-1">Full Name / Trading Entity</label>
+                        <label className="block font-semibold text-[#78716C] mb-1">Full Name / Trading Entity</label>
                         <input
                           type="text"
                           required
                           value={quoteForm.name}
                           onChange={(e) => setQuoteForm({ ...quoteForm, name: e.target.value })}
                           placeholder="e.g. John Miller / Oak Valley Golf"
-                          className="w-full bg-white border border-[#E2E8F0] rounded p-2 text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                          className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                         />
                       </div>
                       <div>
-                        <label className="block font-semibold text-[#64748B] mb-1">Contact Phone</label>
+                        <label className="block font-semibold text-[#78716C] mb-1">Contact Phone</label>
                         <input
                           type="tel"
                           required
                           value={quoteForm.phone}
                           onChange={(e) => setQuoteForm({ ...quoteForm, phone: e.target.value })}
                           placeholder="0400 000 000"
-                          className="w-full bg-white border border-[#E2E8F0] rounded p-2 text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                          className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block font-semibold text-[#64748B] mb-1">Destination Postcode &amp; Suburb</label>
+                      <label className="block font-semibold text-[#78716C] mb-1">Destination Postcode &amp; Suburb</label>
                       <input
                         type="text"
                         required
                         value={quoteForm.postcode}
                         onChange={(e) => setQuoteForm({ ...quoteForm, postcode: e.target.value })}
                         placeholder="e.g. 4207 Yatala, 2480 Lismore, 3000 Melbourne"
-                        className="w-full bg-white border border-[#E2E8F0] rounded p-2 text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                        className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-semibold text-[#64748B] mb-1">Delivery Preference (We Only Deliver Australia-Wide)</label>
+                      <label className="block font-semibold text-[#78716C] mb-1">Delivery Preference (We Only Deliver Australia-Wide)</label>
                       <select
                         value={quoteForm.deliveryType}
                         onChange={(e) => setQuoteForm({ ...quoteForm, deliveryType: e.target.value })}
-                        className="w-full bg-white border border-[#E2E8F0] rounded p-2 text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                        className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                       >
                         <option value="Door-to-Door Enclosed Freight">Door-to-Door Enclosed Transport (Australia-Wide Direct)</option>
                         <option value="Commercial Depot Delivery">Delivery to Nearest Regional Freight Depot</option>
@@ -817,25 +817,25 @@ Notes: ${quoteForm.notes || 'None'}`
                     </div>
 
                     <div>
-                      <label className="block font-semibold text-[#64748B] mb-1">Additional Options / Accessories (Optional)</label>
+                      <label className="block font-semibold text-[#78716C] mb-1">Additional Options / Accessories (Optional)</label>
                       <input
                         type="text"
                         value={quoteForm.notes}
                         onChange={(e) => setQuoteForm({ ...quoteForm, notes: e.target.value })}
                         placeholder="e.g. Weather enclosure, tow ball, high-speed gear package"
-                        className="w-full bg-white border border-[#E2E8F0] rounded p-2 text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                        className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-xs rounded transition-all shadow-sm mt-2 flex items-center justify-center gap-1.5 active:scale-95"
+                      className="w-full py-3 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded transition-all shadow-sm mt-2 flex items-center justify-center gap-1.5 active:scale-95 hover:-translate-y-px duration-200"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
                       <span>Request Tax Quote via WhatsApp / Sales Desk</span>
                     </button>
 
-                    <div className="text-[10px] text-[#64748B] text-center">
+                    <div className="text-[10px] text-[#78716C] text-center">
                       Official ABN 28 668 598 758 tax invoice provided with every quotation.
                     </div>
                   </form>

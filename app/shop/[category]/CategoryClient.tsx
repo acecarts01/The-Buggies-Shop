@@ -129,7 +129,7 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
-      <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+      <div className="flex flex-col min-h-screen bg-[#121417]">
         <Header
           cartCount={cartItems.reduce((sum, i) => sum + i.quantity, 0)}
           onOpenCart={() => setCartOpen(true)}
@@ -140,9 +140,9 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
             <StaggeredHeading
               tag="h1"
               text={`${categoryName} Buggies for Sale in Australia`}
-              className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff]"
+              className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
-            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#94a3b8] mt-1 max-w-2xl leading-relaxed">
+            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-1 max-w-2xl leading-relaxed">
               Australian tested specifications, verified nationwide enclosed delivery, and factory warranty backup from our Yatala QLD engineering workshop.
             </StaggeredParagraph>
           </div>

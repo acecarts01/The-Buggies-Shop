@@ -71,118 +71,118 @@ export default function WholesalePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+    <div className="flex flex-col min-h-screen bg-[#121417]">
       <Header />
 
       <main id="main" className="flex-1 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Exactly One H1 */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#fbbf24] font-extrabold">
+          <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#E2A17A] font-extrabold">
             B2B Commercial Fleet Procurement · Yatala QLD Depot
           </FadeUpText>
           <StaggeredHeading
             tag="h1"
             text="Commercial Fleet & Wholesale Golf Buggy Procurement"
-            className="text-3xl sm:text-5xl font-serif font-bold text-[#ffffff] mt-2"
+            className="text-3xl sm:text-5xl font-serif font-bold text-[#ffffff] mt-2 tracking-tight"
           />
-          <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#94a3b8] mt-3 leading-relaxed">
+          <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-3 leading-relaxed">
             Supplying Australian PGA golf clubs, 5-star island resorts, council parks, gated communities, and mining industrial facilities with bulk lithium buggy fleets.
           </StaggeredParagraph>
         </div>
 
         {/* 3 Fleet Tiers */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-all shadow-md">
+          <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-4 hover:border-[#E2A17A] transition-all shadow-xs metal-brushed-dark">
             <div className="flex justify-between items-start">
-              <span className="text-xs font-bold text-[#fbbf24] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#E2A17A] uppercase tracking-wider">
                 Tier 1 Fleet
               </span>
-              <span className="bg-[#0a0f1d] border border-[#1e2d4d] text-[#ffffff] text-xs font-bold px-2.5 py-1 rounded">
+              <span className="bg-[#121417] border border-[#2B2F34] text-[#ffffff] text-xs font-bold px-2.5 py-1 rounded">
                 5 – 9 Units
               </span>
             </div>
-            <div className="text-2xl font-serif font-bold text-[#ffffff]">
+            <div className="text-2xl font-serif font-bold text-[#ffffff] tracking-tight">
               12% Volume Discount
             </div>
-            <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+            <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
               Ideal for boutique 9-hole golf courses, retirement estate shuttle loops, and regional agricultural teams. Includes consolidated freight delivery.
             </StaggeredParagraph>
-            <ul className="text-xs text-[#e2e8f0] space-y-2 border-t border-[#152037] pt-4">
+            <ul className="text-xs text-[#E7E5E4] space-y-2 border-t border-[#1F2226] pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Commercial LiFePO4 battery warranties</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Custom course branding options</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Priority Yatala replacement parts dispatch</span>
               </li>
             </ul>
           </StaggerItem>
 
-          <StaggerItem className="bg-[#101935] border-2 border-[#fbbf24] rounded-2xl p-6 space-y-4 shadow-2xl relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] text-[#0a0f1d] text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase shadow">
+          <StaggerItem className="bg-[#1A1D21] border-2 border-[#E2A17A] rounded-2xl p-6 space-y-4 shadow-sm relative metal-brushed-dark">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] text-[#121417] text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase shadow">
               Most Popular Course Tier
             </div>
             <div className="flex justify-between items-start pt-1">
-              <span className="text-xs font-bold text-[#fbbf24] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#E2A17A] uppercase tracking-wider">
                 Tier 2 Fleet
               </span>
-              <span className="bg-[#fbbf24] text-[#0a0f1d] text-xs font-extrabold px-2.5 py-1 rounded">
+              <span className="bg-[#E2A17A] text-[#121417] text-xs font-extrabold px-2.5 py-1 rounded">
                 10 – 19 Units
               </span>
             </div>
-            <div className="text-2xl font-serif font-bold text-[#ffffff]">
+            <div className="text-2xl font-serif font-bold text-[#ffffff] tracking-tight">
               18% Volume Discount
             </div>
-            <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+            <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
               Designed for 18-hole championship courses and major resort complexes upgrading entire legacy lead-acid fleets to zero-maintenance lithium.
             </StaggeredParagraph>
-            <ul className="text-xs text-[#e2e8f0] space-y-2 border-t border-[#152037] pt-4">
+            <ul className="text-xs text-[#E7E5E4] space-y-2 border-t border-[#1F2226] pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Complimentary on-site staff training</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Fleet GPS geofencing integration</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Scheduled 12-month preventive service checks</span>
               </li>
             </ul>
           </StaggerItem>
 
-          <StaggerItem className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 space-y-4 hover:border-[#fbbf24] transition-all shadow-md">
+          <StaggerItem className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-4 hover:border-[#E2A17A] transition-all shadow-xs metal-brushed-dark">
             <div className="flex justify-between items-start">
-              <span className="text-xs font-bold text-[#fbbf24] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#E2A17A] uppercase tracking-wider">
                 Tier 3 Enterprise
               </span>
-              <span className="bg-[#0a0f1d] border border-[#1e2d4d] text-[#ffffff] text-xs font-bold px-2.5 py-1 rounded">
+              <span className="bg-[#121417] border border-[#2B2F34] text-[#ffffff] text-xs font-bold px-2.5 py-1 rounded">
                 20+ Units
               </span>
             </div>
-            <div className="text-2xl font-serif font-bold text-[#ffffff]">
+            <div className="text-2xl font-serif font-bold text-[#ffffff] tracking-tight">
               Custom Tender Pricing
             </div>
-            <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] leading-relaxed">
+            <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
               Full enterprise contract for multi-course operations, university campuses, and municipal councils. Includes dedicated Yatala technician SLA.
             </StaggeredParagraph>
-            <ul className="text-xs text-[#e2e8f0] space-y-2 border-t border-[#152037] pt-4">
+            <ul className="text-xs text-[#E7E5E4] space-y-2 border-t border-[#1F2226] pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Dedicated mobile service technician SLA</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Custom utility conversions &amp; medical beds</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 <span>Direct trade-in credit for decommissioned carts</span>
               </li>
             </ul>
@@ -190,13 +190,13 @@ export default function WholesalePage() {
         </StaggerContainer>
 
         {/* Wholesale Inquiry Form */}
-        <AnimatedCard delay={0.15} className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-8 max-w-3xl mx-auto shadow-2xl">
+        <AnimatedCard delay={0.15} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-8 max-w-3xl mx-auto shadow-sm metal-brushed-dark">
           <StaggeredHeading
             tag="h2"
             text="Request Commercial Fleet Specification & Tender Proposal"
             className="text-xl font-serif font-bold text-[#ffffff] mb-2"
           />
-          <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] mb-6">
+          <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] mb-6">
             Our Yatala engineering directors will review your requirement, calculate terrain power demands, and provide an itemized Australian Tax Invoice breakdown.
           </StaggeredParagraph>
 
@@ -217,7 +217,7 @@ export default function WholesalePage() {
                   name="organization"
                   required
                   placeholder="e.g. Sanctuary Cove Golf Club"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 />
               </div>
 
@@ -230,7 +230,7 @@ export default function WholesalePage() {
                   id="w-abn"
                   name="abn"
                   placeholder="Australian Business Number"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 />
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function WholesalePage() {
                   name="name"
                   required
                   placeholder="Full Name"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export default function WholesalePage() {
                   name="email"
                   required
                   placeholder="fleet@domain.com.au"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 />
               </div>
 
@@ -274,7 +274,7 @@ export default function WholesalePage() {
                   name="phone"
                   required
                   placeholder="0400 000 000"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 />
               </div>
             </div>
@@ -287,7 +287,7 @@ export default function WholesalePage() {
                 <select
                   id="w-units"
                   name="quantity"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 >
                   <option value="5-9">5 – 9 Units (Tier 1 Discount)</option>
                   <option value="10-19">10 – 19 Units (Tier 2 Discount)</option>
@@ -303,7 +303,7 @@ export default function WholesalePage() {
                 <select
                   id="w-type"
                   name="vehicle_type"
-                  className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                  className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                 >
                   <option value="2-seater-golf">2-Passenger Course Buggies (48V Lithium)</option>
                   <option value="4-seater-guest">4-Passenger Guest Shuttles</option>
@@ -323,12 +323,12 @@ export default function WholesalePage() {
                 name="details"
                 rows={3}
                 placeholder="Mention delivery location, desired rollout timeframe, trade-in carts to evaluate, or specific charger voltage..."
-                className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
               ></textarea>
             </div>
 
             {statusMsg && (
-              <div className="p-3 bg-[#0a0f1d] border border-[#fbbf24] text-[#ffffff] rounded-lg text-xs">
+              <div className="p-3 bg-[#121417] border border-[#E2A17A] text-[#ffffff] rounded-lg text-xs">
                 {statusMsg}
               </div>
             )}
@@ -336,7 +336,7 @@ export default function WholesalePage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-3.5 px-4 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] hover:from-[#fbbf24] hover:to-[#fde047] text-[#0a0f1d] font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3.5 px-4 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] hover:from-[#E2A17A] hover:to-[#EFC7A6] text-[#121417] font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center gap-2 disabled:opacity-50"
             >
               <Building2 className="w-4 h-4" />
               <span>{submitting ? 'Transmitting Tender...' : 'Submit Commercial Fleet Enquiry'}</span>

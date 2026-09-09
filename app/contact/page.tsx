@@ -66,21 +66,21 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+    <div className="flex flex-col min-h-screen bg-[#121417]">
       <Header />
 
       <main id="main" className="flex-1 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         {/* Exactly One H1 */}
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#fbbf24] font-extrabold">
+          <FadeUpText delay={0.05} className="text-xs uppercase tracking-widest text-[#E2A17A] font-extrabold">
             Direct Queensland Engineering &amp; Sales Support
           </FadeUpText>
           <StaggeredHeading
             tag="h1"
             text="Contact The Buggies Express Yatala QLD Depot"
-            className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] mt-1"
+            className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] mt-1 tracking-tight"
           />
-          <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#94a3b8] mt-2">
+          <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-2">
             Speak directly with qualified technicians and commercial vehicle specialists. We answer enquiries seven days a week.
           </StaggeredParagraph>
         </div>
@@ -88,38 +88,38 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Direct Depot Details */}
           <div className="lg:col-span-5 space-y-6">
-            <AnimatedCard delay={0.1} className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+            <AnimatedCard delay={0.1} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm metal-brushed-dark">
               <StaggeredHeading
                 tag="h2"
                 text="Headquarters & Depot"
-                className="text-lg font-serif font-bold text-[#ffffff] border-b border-[#152037] pb-3"
+                className="text-lg font-serif font-bold text-[#ffffff] border-b border-[#1F2226] pb-3"
               />
 
-              <div className="space-y-4 text-xs sm:text-sm text-[#e2e8f0]">
+              <div className="space-y-4 text-xs sm:text-sm text-[#E7E5E4]">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#fbbf24] flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#E2A17A] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-[#ffffff]">Yatala Operations Facility</div>
-                    <div className="text-xs text-[#94a3b8] mt-0.5">
+                    <div className="text-xs text-[#A8A29E] mt-0.5">
                       Yatala Light Industrial Precinct, Yatala QLD 4207
                     </div>
-                    <div className="text-[11px] text-[#94a3b8]/80 mt-0.5">
+                    <div className="text-[11px] text-[#A8A29E]/80 mt-0.5">
                       Conveniently located off the Pacific Motorway (M1) between Brisbane and Gold Coast.
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-[#fbbf24] flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-[#E2A17A] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-[#ffffff]">National Phone Enquiries</div>
                     <a
                       href={`tel:${CONTACT.phone}`}
-                      className="text-[#fbbf24] font-bold text-sm hover:underline"
+                      className="text-[#E2A17A] font-bold text-sm hover:underline"
                     >
                       0480 804 189
                     </a>
-                    <div className="text-[11px] text-[#94a3b8] mt-0.5">
+                    <div className="text-[11px] text-[#A8A29E] mt-0.5">
                       Direct line to our Yatala workshop and fleet managers.
                     </div>
                   </div>
@@ -143,12 +143,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#fbbf24] flex-shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-[#E2A17A] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-[#ffffff]">Official Email</div>
                     <a
                       href="mailto:info@golfbuggiesexpress.com.au"
-                      className="text-[#e2e8f0] hover:text-[#fbbf24] text-xs font-mono"
+                      className="text-[#E7E5E4] hover:text-[#E2A17A] text-xs font-mono"
                     >
                       info&#64;golfbuggiesexpress.com.au
                     </a>
@@ -156,10 +156,10 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#fbbf24] flex-shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-[#E2A17A] flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-[#ffffff]">Depot Hours</div>
-                    <div className="text-xs text-[#94a3b8]">
+                    <div className="text-xs text-[#A8A29E]">
                       Monday – Friday: 7:30 AM – 5:30 PM AEST<br />
                       Saturday: 8:30 AM – 3:00 PM AEST (By Appointment)<br />
                       Sunday: Enquiries monitored via WhatsApp
@@ -168,8 +168,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#152037] text-xs text-[#94a3b8] flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#38bdf8]" />
+              <div className="pt-4 border-t border-[#1F2226] text-xs text-[#A8A29E] flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#AEB4B8]" />
                 <span>ASIC Registered Company: ACN 668 598 758</span>
               </div>
             </AnimatedCard>
@@ -177,13 +177,13 @@ export default function ContactPage() {
 
           {/* Web3Forms Contact Form */}
           <div className="lg:col-span-7">
-            <AnimatedCard delay={0.2} className="bg-[#101935] border border-[#1e2d4d] rounded-2xl p-6 sm:p-8 shadow-xl">
+            <AnimatedCard delay={0.2} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-sm metal-brushed-dark">
               <StaggeredHeading
                 tag="h2"
                 text="Send an Enquiry to Yatala Depot"
                 className="text-lg font-serif font-bold text-[#ffffff] mb-2"
               />
-              <StaggeredParagraph delay={0.1} className="text-xs text-[#94a3b8] mb-6">
+              <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] mb-6">
                 Receive pricing breakdowns, freight schedules, trade-in valuations, or lithium upgrade consultations.
               </StaggeredParagraph>
 
@@ -226,7 +226,7 @@ export default function ContactPage() {
                       name="name"
                       required
                       placeholder="e.g. John Mitchell"
-                      className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                      className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                     />
                   </div>
 
@@ -243,7 +243,7 @@ export default function ContactPage() {
                       name="phone"
                       required
                       placeholder="0400 000 000"
-                      className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                      className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                     />
                   </div>
                 </div>
@@ -262,7 +262,7 @@ export default function ContactPage() {
                       name="email"
                       required
                       placeholder="john@example.com.au"
-                      className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                      className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                     />
                   </div>
 
@@ -278,7 +278,7 @@ export default function ContactPage() {
                       id="contact-postcode"
                       name="postcode"
                       placeholder="e.g. 4217 QLD or 2000 NSW"
-                      className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                      className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                     />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                   <select
                     id="contact-interest"
                     name="interest"
-                    className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                    className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                   >
                     <option value="buy-buggy">Buying a New Golf Buggy (2, 4, or 6 Seater)</option>
                     <option value="atlas-order">Atlas 4-Passenger Tax Invoice &amp; Freight Quotation</option>
@@ -316,12 +316,12 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     placeholder="Tell us about your property terrain, intended golf club, or custom accessory requirements..."
-                    className="w-full px-3.5 py-2.5 bg-[#0a0f1d] border border-[#1e2d4d] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#fbbf24]"
+                    className="w-full px-3.5 py-2.5 bg-[#121417] border border-[#2B2F34] rounded-lg text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                   ></textarea>
                 </div>
 
                 {errorMsg && (
-                  <div className="p-3 bg-[#0a0f1d] border border-[#fbbf24] text-[#ffffff] rounded-lg text-xs">
+                  <div className="p-3 bg-[#121417] border border-[#E2A17A] text-[#ffffff] rounded-lg text-xs">
                     {errorMsg}
                   </div>
                 )}
@@ -329,7 +329,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3.5 px-4 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] hover:from-[#fbbf24] hover:to-[#fde047] text-[#0a0f1d] font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-3.5 px-4 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] hover:from-[#E2A17A] hover:to-[#EFC7A6] text-[#121417] font-extrabold text-xs uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center gap-2 disabled:opacity-50"
                   id="contact-submit-button"
                 >
                   <CheckCircle2 className="w-4 h-4" />

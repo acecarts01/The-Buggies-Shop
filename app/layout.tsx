@@ -7,7 +7,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#F8F9FA',
+  themeColor: '#F7F6F2',
 };
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-AU">
-      <body suppressHydrationWarning className="bg-[#F8F9FA] text-[#1E293B] antialiased min-h-screen">
+      <body suppressHydrationWarning className="bg-[#F7F6F2] text-[#121417] antialiased min-h-screen">
         {children}
         <Script src="/js/webmcp.js" strategy="afterInteractive" />
       </body>

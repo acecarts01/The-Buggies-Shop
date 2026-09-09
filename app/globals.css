@@ -41,17 +41,24 @@ img, video, iframe {
   }
 }
 
-/* Custom design accents - Coastal Slate & Off-White (Automotive Inspired) */
+/* Design tokens - Australian coastal & outback luxury.
+   Warm bone canvas, white card surfaces, architectural charcoal ink,
+   sun-baked terracotta accent, brushed-metal neutrals. */
 :root {
-  --canvas-bg: #F8F9FA;
-  --text-primary: #1E293B;
-  --text-muted: #64748B;
-  --accent-primary: #2563EB;
-  --accent-hover: #1D4ED8;
-  --accent-subtle: #EFF6FF;
+  --canvas-bg: #F7F6F2;
+  --text-primary: #121417;
+  --text-muted: #78716C;
+  --accent-primary: #C86D51;
+  --accent-hover: #A85640;
+  --accent-subtle: #F7EFEA;
   --card-bg: #FFFFFF;
-  --border-subtle: #E2E8F0;
-  --trustpilot-green: #00b67a;
+  --border-subtle: #E7E5E4;
+  --accent-fill: #B45A40;       /* solid CTA fill, 4.5:1 with white */
+  --accent-on-dark: #E2A17A;    /* ochre sand highlight on charcoal */
+  --surface-dark: #121417;      /* architectural charcoal sections */
+  --surface-dark-raised: #1A1D21;
+  --border-graphite: #2B2F34;   /* brushed graphite hairline on dark */
+  --verified: #5E8C6A;          /* muted eucalyptus, verification marks */
 }
 
 /* Custom scrollbar - Clean Light Theme */
@@ -60,12 +67,29 @@ img, video, iframe {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #EFEDE6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #D6D3D1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #A8A29E;
+}
+
+/* Tactile interaction primitives ------------------------------------- */
+
+/* Architectural card: no drop shadow, just a 1px border that warms on hover. */
+.surface-card {
+  transition: border-color 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.surface-card:hover { border-color: rgba(200, 109, 81, 0.45); }
+
+/* Brushed-graphite wash for raised hardware panels on dark surfaces. */
+.metal-brushed-dark {
+  background-image: linear-gradient(135deg, #1A1D21 0%, #24282D 48%, #16181B 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card:hover { transform: none; }
 }

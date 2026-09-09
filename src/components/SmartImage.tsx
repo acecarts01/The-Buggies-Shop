@@ -30,10 +30,10 @@ export default function SmartImage({
   if (hasError || !src) {
     return (
       <div
-        className={`bg-[#101935] border border-[#1e2d4d] flex flex-col items-center justify-center text-center p-4 text-xs text-[#94a3b8] ${className}`}
+        className={`bg-[#1A1D21] border border-[#2B2F34] flex flex-col items-center justify-center text-center p-4 text-xs text-[#A8A29E] ${className}`}
         style={!fill && width && height ? { width, height } : undefined}
       >
-        <span className="font-extrabold text-[#fbbf24] uppercase tracking-wider mb-1">
+        <span className="font-extrabold text-[#E2A17A] uppercase tracking-wider mb-1">
           Tour Precision
         </span>
         <span className="line-clamp-1">{alt}</span>

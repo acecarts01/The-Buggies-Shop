@@ -144,7 +144,7 @@ export default function AtlasProductPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+      <div className="flex flex-col min-h-screen bg-[#121417]">
         <Header
           cartCount={cartItems.reduce((sum, i) => sum + i.quantity, 0)}
           onOpenCart={() => setCartOpen(true)}

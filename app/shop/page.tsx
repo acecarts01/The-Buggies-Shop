@@ -118,7 +118,7 @@ export default function ShopPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
-      <div className="flex flex-col min-h-screen bg-[#0a0f1d]">
+      <div className="flex flex-col min-h-screen bg-[#121417]">
         <Header
           cartCount={cartItems.reduce((sum, i) => sum + i.quantity, 0)}
           onOpenCart={() => setCartOpen(true)}
@@ -129,9 +129,9 @@ export default function ShopPage() {
             <StaggeredHeading
               tag="h1"
               text="Australian Golf Buggies Fleet — All 61 Models for Sale"
-              className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff]"
+              className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
-            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#94a3b8] mt-1 max-w-2xl leading-relaxed">
+            <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-1 max-w-2xl leading-relaxed">
               Inspect our comprehensive lineup of 48V/72V lithium passenger buggies, lifted acreage 4x4 carts, commercial utilities, and motorized walk-behind buggies. Tested in Yatala QLD.
             </StaggeredParagraph>
           </div>

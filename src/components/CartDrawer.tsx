@@ -174,26 +174,26 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white border-l border-[#E2E8F0] text-[#1E293B] shadow-2xl flex flex-col">
+        <div className="w-screen max-w-md bg-white border-l border-[#E7E5E4] text-[#121417] shadow-sm flex flex-col">
           {/* Header */}
-          <div className="p-4 sm:p-5 border-b border-[#E2E8F0] flex items-center justify-between bg-[#F8F9FA]">
+          <div className="p-4 sm:p-5 border-b border-[#E7E5E4] flex items-center justify-between bg-[#F7F6F2]">
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base sm:text-lg font-serif font-bold text-[#1E293B]" id="slide-over-title">
+                <h2 className="text-base sm:text-lg font-serif font-bold text-[#121417]" id="slide-over-title">
                   Your Order Manifest
                 </h2>
-                <span className="bg-[#EFF6FF] text-[#2563EB] border border-[#2563EB]/20 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <span className="bg-[#F7EFEA] text-[#C86D51] border border-[#C86D51]/20 text-[10px] font-bold px-2 py-0.5 rounded-full">
                   DIRECT DISPATCH
                 </span>
               </div>
-              <div className="text-xs text-[#64748B]">
+              <div className="text-xs text-[#78716C]">
                 {items.length} {items.length === 1 ? 'item' : 'items'} in order draft • Yatala Central Depot
               </div>
             </div>
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-[#E2E8F0] text-[#64748B] hover:text-[#1E293B] transition-colors"
+              className="p-1.5 rounded-lg hover:bg-[#E7E5E4] text-[#78716C] hover:text-[#121417] transition-colors"
               aria-label="Close cart drawer"
             >
               <X className="w-5 h-5" />
@@ -202,24 +202,24 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
 
           {/* Special Bundle Notification Bar */}
           {items.length > 0 && isBundleEligible && (
-            <div className="bg-[#EFF6FF] border-b border-[#2563EB]/20 px-4 py-2.5 flex items-center gap-2 text-xs">
-              <Sparkles className="w-4 h-4 text-[#2563EB] shrink-0 animate-pulse" />
-              <div className="text-[#1E293B] leading-tight">
-                <span className="font-bold text-[#2563EB]">5% Bundle Discount Active!</span> You unlocked 5% off all accessories purchased alongside your buggy.
+            <div className="bg-[#F7EFEA] border-b border-[#C86D51]/20 px-4 py-2.5 flex items-center gap-2 text-xs">
+              <Sparkles className="w-4 h-4 text-[#C86D51] shrink-0 animate-pulse" />
+              <div className="text-[#121417] leading-tight">
+                <span className="font-bold text-[#C86D51]">5% Bundle Discount Active!</span> You unlocked 5% off all accessories purchased alongside your buggy.
               </div>
             </div>
           )}
 
           {/* Cart Upsell / Recommendation Bar */}
           {items.length > 0 && hasAccessory && !hasBuggy && (
-            <div className="bg-[#EFF6FF] border-b border-[#2563EB]/20 px-4 py-2 text-xs flex items-center justify-between gap-2">
-              <div className="text-[#1E293B]">
-                💡 <span className="font-semibold text-[#2563EB]">Pro Tip:</span> Add any Golf Buggy to get <span className="font-bold underline">5% OFF all accessories</span>!
+            <div className="bg-[#F7EFEA] border-b border-[#C86D51]/20 px-4 py-2 text-xs flex items-center justify-between gap-2">
+              <div className="text-[#121417]">
+                💡 <span className="font-semibold text-[#C86D51]">Pro Tip:</span> Add any Golf Buggy to get <span className="font-bold underline">5% OFF all accessories</span>!
               </div>
               <button
                 type="button"
                 onClick={onClose}
-                className="text-[11px] font-bold text-[#2563EB] hover:underline shrink-0"
+                className="text-[11px] font-bold text-[#C86D51] hover:underline shrink-0"
               >
                 Browse Buggies &rarr;
               </button>
@@ -227,14 +227,14 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
           )}
 
           {items.length > 0 && hasBuggy && !hasAccessory && (
-            <div className="bg-[#EFF6FF] border-b border-[#2563EB]/20 px-4 py-2 text-xs flex items-center justify-between gap-2">
-              <div className="text-[#1E293B]">
-                ✨ <span className="font-semibold text-[#2563EB]">Bundle Deal:</span> Add an all-weather cover, high-amp charger, or battery to save <span className="font-bold text-[#2563EB]">5% automatically</span>!
+            <div className="bg-[#F7EFEA] border-b border-[#C86D51]/20 px-4 py-2 text-xs flex items-center justify-between gap-2">
+              <div className="text-[#121417]">
+                ✨ <span className="font-semibold text-[#C86D51]">Bundle Deal:</span> Add an all-weather cover, high-amp charger, or battery to save <span className="font-bold text-[#C86D51]">5% automatically</span>!
               </div>
               <button
                 type="button"
                 onClick={onClose}
-                className="text-[11px] font-bold text-[#2563EB] hover:underline shrink-0"
+                className="text-[11px] font-bold text-[#C86D51] hover:underline shrink-0"
               >
                 Add Parts &rarr;
               </button>
@@ -242,14 +242,14 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
           )}
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 divide-y divide-[#E2E8F0]">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 divide-y divide-[#E7E5E4]">
             {items.length === 0 ? (
               <div className="py-12 text-center space-y-3">
-                <div className="w-14 h-14 mx-auto rounded-full bg-[#EFF6FF] border border-[#2563EB]/20 flex items-center justify-center text-[#2563EB] shadow-inner">
+                <div className="w-14 h-14 mx-auto rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 flex items-center justify-center text-[#C86D51] shadow-inner">
                   <Zap className="w-7 h-7" />
                 </div>
-                <div className="text-base font-bold text-[#1E293B]">Your order manifest is currently empty</div>
-                <p className="text-xs text-[#64748B] max-w-xs mx-auto leading-relaxed">
+                <div className="text-base font-bold text-[#121417]">Your order manifest is currently empty</div>
+                <p className="text-xs text-[#78716C] max-w-xs mx-auto leading-relaxed">
                   Browse our 61 Australian models including luxury 4-seaters, lifted 4x4 acreage buggies, and golf course carts.
                 </p>
               </div>
@@ -262,51 +262,51 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                   <div key={item.id} className="pt-3 first:pt-0 flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="text-xs font-bold text-[#1E293B] line-clamp-2">
+                        <span className="text-xs font-bold text-[#121417] line-clamp-2">
                           {item.name}
                         </span>
                         {isAcc ? (
-                          <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]">
+                          <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#EFEDE6] text-[#78716C] border border-[#E7E5E4]">
                             Part / Accessory
                           </span>
                         ) : (
-                          <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#EFF6FF] text-[#2563EB] border border-[#2563EB]/20">
+                          <span className="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#F7EFEA] text-[#C86D51] border border-[#C86D51]/20">
                             Buggy
                           </span>
                         )}
                       </div>
 
-                      <div className="text-xs text-[#2563EB] font-semibold mt-0.5 flex items-center gap-2 flex-wrap">
+                      <div className="text-xs text-[#C86D51] font-semibold mt-0.5 flex items-center gap-2 flex-wrap">
                         <span>${item.price_aud.toLocaleString()} AUD</span>
-                        <span className="text-[10px] text-[#64748B]">(GST Included)</span>
+                        <span className="text-[10px] text-[#78716C]">(GST Included)</span>
                       </div>
 
                       {/* 5% Bundle Discount applied tag */}
                       {isBundleEligible && isAcc && (
-                        <div className="mt-1 inline-flex items-center gap-1 text-[11px] font-bold text-[#2563EB] bg-[#EFF6FF] px-2 py-0.5 rounded border border-[#2563EB]/20">
-                          <Sparkles className="w-3 h-3 text-[#2563EB]" />
+                        <div className="mt-1 inline-flex items-center gap-1 text-[11px] font-bold text-[#C86D51] bg-[#F7EFEA] px-2 py-0.5 rounded border border-[#C86D51]/20">
+                          <Sparkles className="w-3 h-3 text-[#C86D51]" />
                           <span>5% Bundle Savings: -${itemSavings.toLocaleString()} AUD</span>
                         </div>
                       )}
 
                       {/* Quantity Controls */}
                       <div className="flex items-center gap-2 mt-2">
-                        <div className="flex items-center border border-[#E2E8F0] rounded-lg bg-[#F8F9FA]">
+                        <div className="flex items-center border border-[#E7E5E4] rounded-lg bg-[#F7F6F2] surface-card">
                           <button
                             type="button"
                             onClick={() => onUpdateQty(item.id, -1)}
-                            className="px-2 py-1 text-xs text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] rounded-l"
+                            className="px-2 py-1 text-xs text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] rounded-l"
                             aria-label="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="px-2.5 text-xs font-bold text-[#1E293B]">
+                          <span className="px-2.5 text-xs font-bold text-[#121417]">
                             {item.quantity}
                           </span>
                           <button
                             type="button"
                             onClick={() => onUpdateQty(item.id, 1)}
-                            className="px-2 py-1 text-xs text-[#64748B] hover:text-[#1E293B] hover:bg-[#EFF6FF] rounded-r"
+                            className="px-2 py-1 text-xs text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] rounded-r"
                             aria-label="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
@@ -325,7 +325,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                       </div>
                     </div>
 
-                    <div className="text-xs font-bold text-[#1E293B] text-right shrink-0">
+                    <div className="text-xs font-bold text-[#121417] text-right shrink-0">
                       ${(item.price_aud * item.quantity).toLocaleString()} AUD
                     </div>
                   </div>
@@ -336,12 +336,12 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
 
           {/* Checkout & WhatsApp Order Summary Footer */}
           {items.length > 0 && (
-            <div className="p-4 sm:p-5 border-t border-[#E2E8F0] bg-[#F8F9FA] space-y-3">
+            <div className="p-4 sm:p-5 border-t border-[#E7E5E4] bg-[#F7F6F2] space-y-3">
               {/* Payment Method Selector (Pay-in-4, Standard, Crypto) */}
               <div className="space-y-1.5">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-[#1E293B] flex items-center justify-between">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#121417] flex items-center justify-between">
                   <span>Select Payment Option</span>
-                  <span className="text-[10px] text-[#64748B] font-normal">All receive 5% accessory discount</span>
+                  <span className="text-[10px] text-[#78716C] font-normal">All receive 5% accessory discount</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-1.5 text-xs">
@@ -351,12 +351,12 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     onClick={() => setPaymentOption('standard')}
                     className={`p-2 rounded-lg border text-left flex flex-col justify-between transition-all ${
                       paymentOption === 'standard'
-                        ? 'bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] ring-1 ring-[#2563EB]'
-                        : 'bg-white border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB]/40'
+                        ? 'bg-[#F7EFEA] border-[#C86D51] text-[#C86D51] ring-1 ring-[#C86D51]'
+                        : 'bg-white border-[#E7E5E4] text-[#78716C] hover:border-[#C86D51]/40'
                     }`}
                   >
-                    <div className="font-bold text-[11px] leading-tight text-[#1E293B]">Standard</div>
-                    <div className="text-[9px] text-[#64748B] mt-0.5">PayID / EFT</div>
+                    <div className="font-bold text-[11px] leading-tight text-[#121417]">Standard</div>
+                    <div className="text-[9px] text-[#78716C] mt-0.5">PayID / EFT</div>
                   </button>
 
                   {/* Option 2: Finance in 4 */}
@@ -365,12 +365,12 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     onClick={() => setPaymentOption('finance4')}
                     className={`p-2 rounded-lg border text-left flex flex-col justify-between transition-all relative ${
                       paymentOption === 'finance4'
-                        ? 'bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] ring-1 ring-[#2563EB]'
-                        : 'bg-white border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB]/40'
+                        ? 'bg-[#F7EFEA] border-[#C86D51] text-[#C86D51] ring-1 ring-[#C86D51]'
+                        : 'bg-white border-[#E7E5E4] text-[#78716C] hover:border-[#C86D51]/40'
                     }`}
                   >
-                    <div className="font-bold text-[11px] text-[#2563EB] leading-tight">Finance in 4</div>
-                    <div className="text-[9px] text-[#64748B] mt-0.5">0% Interest</div>
+                    <div className="font-bold text-[11px] text-[#C86D51] leading-tight">Finance in 4</div>
+                    <div className="text-[9px] text-[#78716C] mt-0.5">0% Interest</div>
                   </button>
 
                   {/* Option 3: Crypto 10% Off */}
@@ -379,71 +379,71 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     onClick={() => setPaymentOption('crypto')}
                     className={`p-2 rounded-lg border text-left flex flex-col justify-between transition-all ${
                       paymentOption === 'crypto'
-                        ? 'bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] ring-1 ring-[#2563EB]'
-                        : 'bg-white border-[#E2E8F0] text-[#64748B] hover:border-[#2563EB]/40'
+                        ? 'bg-[#F7EFEA] border-[#C86D51] text-[#C86D51] ring-1 ring-[#C86D51]'
+                        : 'bg-white border-[#E7E5E4] text-[#78716C] hover:border-[#C86D51]/40'
                     }`}
                   >
-                    <div className="font-bold text-[11px] text-[#2563EB] leading-tight">Crypto</div>
-                    <div className="text-[9px] text-emerald-600 font-bold mt-0.5">SAVE 10%</div>
+                    <div className="font-bold text-[11px] text-[#C86D51] leading-tight">Crypto</div>
+                    <div className="text-[9px] text-[#4F7A5A] font-bold mt-0.5">SAVE 10%</div>
                   </button>
                 </div>
               </div>
 
               {/* Finance in 4 Schedule Breakdown Card */}
               {paymentOption === 'finance4' && (
-                <div className="bg-white border border-[#2563EB]/30 rounded-xl p-3 text-xs space-y-2 shadow-2xs">
+                <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 text-xs space-y-2 shadow-2xs">
                   <div className="flex items-center justify-between">
-                    <div className="font-bold text-[#2563EB] flex items-center gap-1.5">
-                      <CreditCard className="w-4 h-4 text-[#2563EB]" />
+                    <div className="font-bold text-[#C86D51] flex items-center gap-1.5">
+                      <CreditCard className="w-4 h-4 text-[#C86D51]" />
                       <span>Finance in 4: 4x ${installmentAmount.toLocaleString()} AUD</span>
                     </div>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#EFF6FF] text-[#2563EB] border border-[#2563EB]/20">
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F7EFEA] text-[#C86D51] border border-[#C86D51]/20">
                       0% Interest
                     </span>
                   </div>
 
                   <div className="grid grid-cols-4 gap-1.5 text-center text-[10px] pt-1">
-                    <div className="p-1.5 rounded bg-[#F8F9FA] border border-[#E2E8F0]">
-                      <div className="text-[#64748B]">Payment 1</div>
-                      <div className="font-bold text-[#1E293B]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#2563EB] font-medium">Today</div>
+                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
+                      <div className="text-[#78716C]">Payment 1</div>
+                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
+                      <div className="text-[9px] text-[#C86D51] font-medium">Today</div>
                     </div>
-                    <div className="p-1.5 rounded bg-[#F8F9FA] border border-[#E2E8F0]">
-                      <div className="text-[#64748B]">Payment 2</div>
-                      <div className="font-bold text-[#1E293B]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#64748B]">2 Weeks</div>
+                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
+                      <div className="text-[#78716C]">Payment 2</div>
+                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
+                      <div className="text-[9px] text-[#78716C]">2 Weeks</div>
                     </div>
-                    <div className="p-1.5 rounded bg-[#F8F9FA] border border-[#E2E8F0]">
-                      <div className="text-[#64748B]">Payment 3</div>
-                      <div className="font-bold text-[#1E293B]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#64748B]">4 Weeks</div>
+                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
+                      <div className="text-[#78716C]">Payment 3</div>
+                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
+                      <div className="text-[9px] text-[#78716C]">4 Weeks</div>
                     </div>
-                    <div className="p-1.5 rounded bg-[#F8F9FA] border border-[#E2E8F0]">
-                      <div className="text-[#64748B]">Payment 4</div>
-                      <div className="font-bold text-[#1E293B]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#64748B]">6 Weeks</div>
+                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
+                      <div className="text-[#78716C]">Payment 4</div>
+                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
+                      <div className="text-[9px] text-[#78716C]">6 Weeks</div>
                     </div>
                   </div>
 
-                  <div className="text-[10px] text-[#64748B] flex items-center gap-1 pt-0.5">
-                    <CheckCircle2 className="w-3 h-3 text-[#2563EB] shrink-0" />
+                  <div className="text-[10px] text-[#78716C] flex items-center gap-1 pt-0.5">
+                    <CheckCircle2 className="w-3 h-3 text-[#C86D51] shrink-0" />
                     <span>No hidden fees • Instant approval on invoice via Yatala finance team.</span>
                   </div>
                 </div>
               )}
 
               {/* Price Calculation */}
-              <div className="space-y-1.5 text-xs text-[#1E293B]">
+              <div className="space-y-1.5 text-xs text-[#121417]">
                 <div className="flex justify-between">
-                  <span className="text-[#64748B]">Subtotal (AUD):</span>
+                  <span className="text-[#78716C]">Subtotal (AUD):</span>
                   <span className="font-semibold">${rawSubtotal.toLocaleString()}</span>
                 </div>
 
                 {/* 5% Accessory Bundle Discount row */}
                 {isBundleEligible && accessoryDiscount > 0 && (
-                  <div className="flex justify-between text-[#2563EB] font-bold bg-[#EFF6FF] px-2 py-1 rounded border border-[#2563EB]/20">
+                  <div className="flex justify-between text-[#C86D51] font-bold bg-[#F7EFEA] px-2 py-1 rounded border border-[#C86D51]/20">
                     <span className="flex items-center gap-1">
-                      <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
+                      <Sparkles className="w-3.5 h-3.5 text-[#C86D51]" />
                       <span>Buggy + Accessory 5% Bundle Discount:</span>
                     </span>
                     <span>-${accessoryDiscount.toLocaleString()} AUD</span>
@@ -452,23 +452,23 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
 
                 {/* Crypto Discount row */}
                 {paymentOption === 'crypto' && (
-                  <div className="flex justify-between text-emerald-700 font-semibold bg-emerald-50 px-2 py-1 rounded border border-emerald-200">
+                  <div className="flex justify-between text-[#4F7A5A] font-semibold bg-[#DFE5DF] px-2 py-1 rounded border border-[#A9C6B0]">
                     <span>10% Crypto Settlement Incentive:</span>
                     <span>-${cryptoDiscount.toLocaleString()} AUD</span>
                   </div>
                 )}
 
-                <div className="flex justify-between text-[11px] text-[#64748B]">
+                <div className="flex justify-between text-[11px] text-[#78716C]">
                   <span>GST:</span>
                   <span>Included in prices (Official Tax Invoice provided)</span>
                 </div>
 
-                <div className="flex justify-between text-base font-serif font-bold text-[#1E293B] pt-2 border-t border-[#E2E8F0]">
+                <div className="flex justify-between text-base font-serif font-bold text-[#121417] pt-2 border-t border-[#E7E5E4]">
                   <span>Estimated Total:</span>
                   <div className="text-right">
-                    <div className="text-[#2563EB] font-sans font-bold">${finalTotal.toLocaleString()} AUD</div>
+                    <div className="text-[#C86D51] font-sans font-bold">${finalTotal.toLocaleString()} AUD</div>
                     {paymentOption === 'finance4' && (
-                      <div className="text-[11px] font-sans font-medium text-[#64748B]">
+                      <div className="text-[11px] font-sans font-medium text-[#78716C]">
                         or 4 payments of ${installmentAmount.toLocaleString()} AUD
                       </div>
                     )}
@@ -484,7 +484,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     placeholder="Full Name *"
                     value={buyerName}
                     onChange={(e) => setBuyerName(e.target.value)}
-                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                    className="bg-white border border-[#E7E5E4] rounded-lg px-2.5 py-2 text-[#121417] placeholder-[#78716C]/60 focus:outline-none focus:border-[#C86D51] surface-card"
                     required
                   />
                   <input
@@ -492,7 +492,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     placeholder="Delivery Postcode *"
                     value={buyerPostcode}
                     onChange={(e) => setBuyerPostcode(e.target.value)}
-                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                    className="bg-white border border-[#E7E5E4] rounded-lg px-2.5 py-2 text-[#121417] placeholder-[#78716C]/60 focus:outline-none focus:border-[#C86D51] surface-card"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-2">
@@ -501,14 +501,14 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                     placeholder="Phone Number (Mobile)"
                     value={buyerPhone}
                     onChange={(e) => setBuyerPhone(e.target.value)}
-                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                    className="bg-white border border-[#E7E5E4] rounded-lg px-2.5 py-2 text-[#121417] placeholder-[#78716C]/60 focus:outline-none focus:border-[#C86D51] surface-card"
                   />
                   <input
                     type="email"
                     placeholder="Email Address"
                     value={buyerEmail}
                     onChange={(e) => setBuyerEmail(e.target.value)}
-                    className="bg-white border border-[#E2E8F0] rounded-lg px-2.5 py-2 text-[#1E293B] placeholder-[#64748B]/60 focus:outline-none focus:border-[#2563EB]"
+                    className="bg-white border border-[#E7E5E4] rounded-lg px-2.5 py-2 text-[#121417] placeholder-[#78716C]/60 focus:outline-none focus:border-[#C86D51] surface-card"
                   />
                 </div>
               </div>
@@ -524,7 +524,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                 type="button"
                 onClick={handleInvoiceOrderSubmit}
                 disabled={submittingOrder}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-md disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-xs disabled:opacity-50 hover:-translate-y-px duration-200"
                 id="cart-submit-order-btn"
               >
                 <CreditCard className="w-4 h-4" />
@@ -553,14 +553,14 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
               {/* Direct Yatala Inquiry */}
               <a
                 href={`tel:${CONTACT.phone}`}
-                className="w-full flex items-center justify-center gap-2 py-2 px-3 border border-[#E2E8F0] text-[#1E293B] bg-white text-xs font-semibold rounded-lg hover:bg-[#F8F9FA] transition-colors shadow-2xs"
+                className="w-full flex items-center justify-center gap-2 py-2 px-3 border border-[#E7E5E4] text-[#121417] bg-white text-xs font-semibold rounded-lg hover:bg-[#F7F6F2] transition-colors shadow-2xs surface-card"
                 id="cart-call-depot-btn"
               >
                 <span>Call Yatala Sales Desk: 0480 804 189</span>
               </a>
 
-              <div className="flex items-center justify-center gap-1 text-[10px] text-[#64748B] pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2563EB]" />
+              <div className="flex items-center justify-center gap-1 text-[10px] text-[#78716C] pt-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C86D51]" />
                 <span>ASIC Registered • ABN 28 668 598 758 • Full ACL Warranty</span>
               </div>
             </div>

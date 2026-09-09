@@ -136,19 +136,19 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
   const twoStarCount = reviews.filter(r => r.rating === 2).length;
 
   return (
-    <section className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 space-y-8 shadow-xs" id="product-reviews-section">
+    <section className="bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-8 shadow-xs surface-card" id="product-reviews-section">
       {/* Header & Overall Product TrustScore */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E7E5E4]">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00b67a]/10 border border-[#00b67a]/30 text-xs font-bold text-[#00b67a]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-xs font-bold text-[#5E8C6A]">
             <Award className="w-3.5 h-3.5" />
             <span>Verified Australian Owner Reviews</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1E293B]">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight">
             Customer Reviews &amp; Field Reports
           </h2>
-          <p className="text-xs sm:text-sm text-[#64748B]">
-            Authentic feedback from Australian property owners, golf clubs, and acreage managers for <strong className="text-[#2563EB]">{product.name}</strong>.
+          <p className="text-xs sm:text-sm text-[#78716C]">
+            Authentic feedback from Australian property owners, golf clubs, and acreage managers for <strong className="text-[#C86D51]">{product.name}</strong>.
           </p>
         </div>
 
@@ -157,7 +157,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           <button
             type="button"
             onClick={() => setIsWriteModalOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#00b67a] hover:bg-[#009e6a] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs active:scale-95"
           >
             <MessageSquarePlus className="w-4 h-4" />
             <span>Write a Review</span>
@@ -166,24 +166,24 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
       </div>
 
       {/* TrustScore Summary Card */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 bg-[#F8F9FA] border border-[#E2E8F0] rounded-xl p-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-6 surface-card">
         {/* Big Score Box */}
-        <div className="md:col-span-4 flex flex-col items-center justify-center text-center p-4 border-b md:border-b-0 md:border-r border-[#E2E8F0] space-y-2">
-          <div className="text-4xl sm:text-5xl font-serif font-extrabold text-[#1E293B]">
+        <div className="md:col-span-4 flex flex-col items-center justify-center text-center p-4 border-b md:border-b-0 md:border-r border-[#E7E5E4] space-y-2">
+          <div className="text-4xl sm:text-5xl font-serif font-extrabold text-[#121417] tracking-tight">
             {avgScore}
-            <span className="text-lg text-[#64748B] font-normal"> / 5.0</span>
+            <span className="text-lg text-[#78716C] font-normal"> / 5.0</span>
           </div>
-          <div className="flex items-center gap-1 text-[#00b67a]">
+          <div className="flex items-center gap-1 text-[#5E8C6A]">
             {[1, 2, 3, 4, 5].map((star) => (
-              <div key={star} className="w-6 h-6 bg-[#00b67a] text-white flex items-center justify-center rounded-sm">
+              <div key={star} className="w-6 h-6 bg-[#5E8C6A] text-white flex items-center justify-center rounded-sm">
                 <Star className="w-4 h-4 fill-white text-white" />
               </div>
             ))}
           </div>
-          <div className="text-xs text-[#64748B] font-medium pt-1">
+          <div className="text-xs text-[#78716C] font-medium pt-1">
             Based on {reviews.length} verified Australian reviews
           </div>
-          <div className="inline-flex items-center gap-1.5 text-[11px] text-[#00b67a] font-semibold">
+          <div className="inline-flex items-center gap-1.5 text-[11px] text-[#5E8C6A] font-semibold">
             <CheckCircle className="w-3.5 h-3.5" />
             <span>98% Recommended by Buyers</span>
           </div>
@@ -204,18 +204,18 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                 type="button"
                 onClick={() => setSelectedRatingFilter(selectedRatingFilter === item.stars ? 'all' : item.stars)}
                 className={`w-full flex items-center gap-3 p-1.5 rounded-lg transition-colors text-left ${
-                  selectedRatingFilter === item.stars ? 'bg-white ring-1 ring-[#00b67a] shadow-xs' : 'hover:bg-white/60'
+                  selectedRatingFilter === item.stars ? 'bg-white ring-1 ring-[#5E8C6A] shadow-xs' : 'hover:bg-white/60'
                 }`}
               >
-                <span className="w-14 text-xs font-semibold text-[#64748B]">{item.label}</span>
-                <div className="flex-1 bg-[#E2E8F0] h-2.5 rounded-full overflow-hidden">
+                <span className="w-14 text-xs font-semibold text-[#78716C]">{item.label}</span>
+                <div className="flex-1 bg-[#E7E5E4] h-2.5 rounded-full overflow-hidden">
                   <div 
-                    className="bg-[#00b67a] h-full rounded-full transition-all duration-500"
+                    className="bg-[#5E8C6A] h-full rounded-full transition-all duration-500"
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-                <span className="w-10 text-right text-xs font-bold text-[#1E293B]">{pct}%</span>
-                <span className="text-[10px] text-[#64748B]">({item.count})</span>
+                <span className="w-10 text-right text-xs font-bold text-[#121417]">{pct}%</span>
+                <span className="text-[10px] text-[#78716C]">({item.count})</span>
               </button>
             );
           })}
@@ -224,8 +224,8 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
 
       {/* Filter Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs">
-        <span className="text-[#64748B] flex items-center gap-1 font-semibold pr-2">
-          <Filter className="w-3.5 h-3.5 text-[#2563EB]" />
+        <span className="text-[#78716C] flex items-center gap-1 font-semibold pr-2">
+          <Filter className="w-3.5 h-3.5 text-[#C86D51]" />
           <span>Filter:</span>
         </span>
         <button
@@ -233,8 +233,8 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           onClick={() => setSelectedRatingFilter('all')}
           className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
             selectedRatingFilter === 'all'
-              ? 'bg-[#00b67a] text-white shadow-xs'
-              : 'bg-[#F8F9FA] border border-[#E2E8F0] text-[#64748B] hover:text-[#1E293B]'
+              ? 'bg-[#5E8C6A] text-white shadow-xs'
+              : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#78716C] hover:text-[#121417]'
           }`}
         >
           All ({reviews.length})
@@ -249,8 +249,8 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
               onClick={() => setSelectedRatingFilter(stars)}
               className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1 ${
                 selectedRatingFilter === stars
-                  ? 'bg-[#00b67a] text-white shadow-xs'
-                  : 'bg-[#F8F9FA] border border-[#E2E8F0] text-[#64748B] hover:text-[#1E293B]'
+                  ? 'bg-[#5E8C6A] text-white shadow-xs'
+                  : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#78716C] hover:text-[#121417]'
               }`}
             >
               <span>{stars}★</span>
@@ -263,7 +263,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
       {/* Reviews List */}
       <div className="space-y-4">
         {filteredReviews.length === 0 ? (
-          <div className="p-8 text-center bg-[#F8F9FA] border border-[#E2E8F0] rounded-xl text-xs text-[#64748B]">
+          <div className="p-8 text-center bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl text-xs text-[#78716C] surface-card">
             No reviews match the selected filter. Click &ldquo;All&rdquo; to view all customer reviews.
           </div>
         ) : (
@@ -274,10 +274,10 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
             return (
               <div 
                 key={rev.id} 
-                className="bg-[#F8F9FA] border border-[#E2E8F0] rounded-xl p-5 sm:p-6 space-y-4 hover:border-[#2563EB]/40 transition-colors"
+                className="bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-5 sm:p-6 space-y-4 hover:border-[#C86D51]/40 transition-colors surface-card"
               >
                 {/* Review Header: Rating + Date */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E2E8F0] pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E7E5E4] pb-3">
                   <div className="flex items-center gap-3">
                     {/* Trustpilot-style Green Star Box */}
                     <div className="flex items-center gap-0.5">
@@ -285,61 +285,61 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                         <div 
                           key={s} 
                           className={`w-5 h-5 flex items-center justify-center rounded-xs ${
-                            s <= rev.rating ? 'bg-[#00b67a] text-white' : 'bg-[#E2E8F0] text-gray-400'
+                            s <= rev.rating ? 'bg-[#5E8C6A] text-white' : 'bg-[#E7E5E4] text-[#A8A29E]'
                           }`}
                         >
-                          <Star className={`w-3.5 h-3.5 ${s <= rev.rating ? 'fill-white text-white' : 'text-gray-400'}`} />
+                          <Star className={`w-3.5 h-3.5 ${s <= rev.rating ? 'fill-white text-white' : 'text-[#A8A29E]'}`} />
                         </div>
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center gap-1 text-[11px] text-[#00b67a] font-bold bg-[#00b67a]/10 px-2 py-0.5 rounded">
+                    <div className="inline-flex items-center gap-1 text-[11px] text-[#5E8C6A] font-bold bg-[#5E8C6A]/10 px-2 py-0.5 rounded">
                       <CheckCircle className="w-3 h-3" />
                       <span>Verified Australian Buyer</span>
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-[#64748B]">
+                  <div className="text-[11px] text-[#78716C]">
                     {rev.date}
                   </div>
                 </div>
 
                 {/* Review Content */}
                 <div className="space-y-2">
-                  <h3 className="text-base font-bold text-[#1E293B]">
+                  <h3 className="text-base font-bold text-[#121417]">
                     {rev.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#78716C] leading-relaxed">
                     {rev.text}
                   </p>
                 </div>
 
                 {/* Product Mentioned Pill */}
                 {rev.productMentioned && (
-                  <div className="text-[11px] text-[#64748B] flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-[#E2E8F0] w-fit">
-                    <span className="text-[#2563EB] font-semibold">Product/Vehicle:</span>
-                    <span className="text-[#1E293B] font-medium">{rev.productMentioned}</span>
+                  <div className="text-[11px] text-[#78716C] flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-[#E7E5E4] w-fit surface-card">
+                    <span className="text-[#C86D51] font-semibold">Product/Vehicle:</span>
+                    <span className="text-[#121417] font-medium">{rev.productMentioned}</span>
                   </div>
                 )}
 
                 {/* Review Footer: Author + Location + Helpful Vote */}
-                <div className="flex items-center justify-between pt-2 text-xs text-[#64748B] border-t border-[#E2E8F0]">
+                <div className="flex items-center justify-between pt-2 text-xs text-[#78716C] border-t border-[#E7E5E4]">
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-full bg-[#EFF6FF] border border-[#2563EB]/20 text-[#2563EB] font-bold text-xs flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 text-[#C86D51] font-bold text-xs flex items-center justify-center">
                       {rev.author.charAt(0)}
                     </div>
                     <div>
-                      <div className="font-bold text-[#1E293B]">{rev.author}</div>
-                      <div className="text-[10px] text-[#64748B]">{rev.location}</div>
+                      <div className="font-bold text-[#121417]">{rev.author}</div>
+                      <div className="text-[10px] text-[#78716C]">{rev.location}</div>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => handleHelpfulClick(rev.id)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white hover:bg-[#EFF6FF] text-[#64748B] hover:text-[#2563EB] text-xs font-semibold border border-[#E2E8F0] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white hover:bg-[#F7EFEA] text-[#78716C] hover:text-[#C86D51] text-xs font-semibold border border-[#E7E5E4] transition-colors surface-card"
                   >
-                    <ThumbsUp className="w-3.5 h-3.5 text-[#00b67a]" />
+                    <ThumbsUp className="w-3.5 h-3.5 text-[#5E8C6A]" />
                     <span>Helpful ({totalHelpful})</span>
                   </button>
                 </div>
@@ -352,11 +352,11 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
       {/* Write a Review Modal */}
       {isWriteModalOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-[#E2E8F0] rounded-2xl max-w-lg w-full p-6 text-[#1E293B] shadow-2xl relative animate-in fade-in zoom-in-95">
+          <div className="bg-white border border-[#E7E5E4] rounded-2xl max-w-lg w-full p-6 text-[#121417] shadow-sm relative animate-in fade-in zoom-in-95 surface-card">
             <button
               type="button"
               onClick={() => setIsWriteModalOpen(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-md hover:bg-[#F8F9FA] text-[#64748B] hover:text-[#1E293B]"
+              className="absolute top-4 right-4 p-1.5 rounded-md hover:bg-[#F7F6F2] text-[#78716C] hover:text-[#121417]"
               aria-label="Close write review modal"
             >
               <X className="w-5 h-5" />
@@ -364,34 +364,34 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
 
             {submittedSuccess ? (
               <div className="py-12 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-[#00b67a]/10 border border-[#00b67a] text-[#00b67a] flex items-center justify-center mx-auto">
+                <div className="w-14 h-14 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A] text-[#5E8C6A] flex items-center justify-center mx-auto">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#1E293B]">
+                <h3 className="text-xl font-serif font-bold text-[#121417]">
                   Thank You For Your Review!
                 </h3>
-                <p className="text-xs text-[#64748B] max-w-sm mx-auto">
-                  Your review for <strong className="text-[#2563EB]">{product.name}</strong> has been successfully published to the Australian verified feedback registry.
+                <p className="text-xs text-[#78716C] max-w-sm mx-auto">
+                  Your review for <strong className="text-[#C86D51]">{product.name}</strong> has been successfully published to the Australian verified feedback registry.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleReviewSubmit} className="space-y-4">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#00b67a]/10 border border-[#00b67a]/30 text-[10px] font-extrabold text-[#00b67a]">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[10px] font-extrabold text-[#5E8C6A]">
                     <Sparkles className="w-3 h-3" />
                     <span>Verified Feedback</span>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-[#1E293B] mt-1">
+                  <h3 className="text-xl font-serif font-bold text-[#121417] mt-1">
                     Review {product.name}
                   </h3>
-                  <div className="text-xs text-[#64748B]">
+                  <div className="text-xs text-[#78716C]">
                     Share your experience with battery range, hill climbing, suspension, or Yatala depot service.
                   </div>
                 </div>
 
                 {/* Rating Picker */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-[#1E293B] block">
+                  <label className="text-xs font-bold text-[#121417] block">
                     Overall Rating (1 to 5 Stars):
                   </label>
                   <div className="flex items-center gap-2">
@@ -402,14 +402,14 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                         onClick={() => setNewReview({ ...newReview, rating: star })}
                         className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                           star <= newReview.rating
-                            ? 'bg-[#00b67a] text-white scale-105 shadow-xs'
-                            : 'bg-[#F8F9FA] border border-[#E2E8F0] text-gray-400 hover:border-[#00b67a]'
+                            ? 'bg-[#5E8C6A] text-white scale-105 shadow-xs'
+                            : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#A8A29E] hover:border-[#5E8C6A]'
                         }`}
                       >
-                        <Star className={`w-5 h-5 ${star <= newReview.rating ? 'fill-white text-white' : 'text-gray-400'}`} />
+                        <Star className={`w-5 h-5 ${star <= newReview.rating ? 'fill-white text-white' : 'text-[#A8A29E]'}`} />
                       </button>
                     ))}
-                    <span className="text-xs font-extrabold text-[#00b67a] ml-2">
+                    <span className="text-xs font-extrabold text-[#5E8C6A] ml-2">
                       {newReview.rating} Star{newReview.rating > 1 ? 's' : ''}
                     </span>
                   </div>
@@ -418,7 +418,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                 {/* Name & Location */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-xs font-bold text-[#1E293B] block mb-1">
+                    <label className="text-xs font-bold text-[#121417] block mb-1">
                       Your Name *
                     </label>
                     <input
@@ -427,11 +427,11 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                       placeholder="e.g., Robert Sterling"
                       value={newReview.author}
                       onChange={(e) => setNewReview({ ...newReview, author: e.target.value })}
-                      className="w-full px-3 py-2 bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg text-xs text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                      className="w-full px-3 py-2 bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs text-[#121417] focus:outline-none focus:border-[#C86D51] surface-card"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-bold text-[#1E293B] block mb-1">
+                    <label className="text-xs font-bold text-[#121417] block mb-1">
                       Australian Location *
                     </label>
                     <input
@@ -440,14 +440,14 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                       placeholder="e.g., Gold Coast, QLD"
                       value={newReview.location}
                       onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
-                      className="w-full px-3 py-2 bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg text-xs text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                      className="w-full px-3 py-2 bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs text-[#121417] focus:outline-none focus:border-[#C86D51] surface-card"
                     />
                   </div>
                 </div>
 
                 {/* Title */}
                 <div>
-                  <label className="text-xs font-bold text-[#1E293B] block mb-1">
+                  <label className="text-xs font-bold text-[#121417] block mb-1">
                     Review Headline *
                   </label>
                   <input
@@ -456,13 +456,13 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                     placeholder="e.g., Excellent lithium power and smooth suspension"
                     value={newReview.title}
                     onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg text-xs text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                    className="w-full px-3 py-2 bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs text-[#121417] focus:outline-none focus:border-[#C86D51] surface-card"
                   />
                 </div>
 
                 {/* Text */}
                 <div>
-                  <label className="text-xs font-bold text-[#1E293B] block mb-1">
+                  <label className="text-xs font-bold text-[#121417] block mb-1">
                     Detailed Review &amp; Field Experience *
                   </label>
                   <textarea
@@ -471,14 +471,14 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                     placeholder="Describe how the buggy performs on your acreage, golf course, or property..."
                     value={newReview.text}
                     onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#F8F9FA] border border-[#E2E8F0] rounded-lg text-xs text-[#1E293B] focus:outline-none focus:border-[#2563EB]"
+                    className="w-full px-3 py-2 bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs text-[#121417] focus:outline-none focus:border-[#C86D51] surface-card"
                   />
                 </div>
 
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#00b67a] hover:bg-[#009e6a] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Verified Review</span>
