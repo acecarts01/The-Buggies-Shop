@@ -170,7 +170,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Engineered specifically for Australian acreage estates and elite gated communities (Sanctuary Cove, Hope Island), the Atlas 4-Passenger combines whisper-quiet lithium power with genuine heavy-duty rough terrain capability.',
     badge: 'Flagship Model',
     featured: true,
-    images: ['/images/atlas-4-passenger.webp'],
+    images: ['/images/atlas-4-passenger-lifted-lithium-buggy.webp'],
     inStock: true,
   },
   {
@@ -188,7 +188,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The Evolution D5 Ranger 4+2 delivers effortless family transport across expansive private properties and championship fairways, complete with forward-facing seating and high-output headlights.',
     badge: 'Popular Family',
     featured: true,
-    images: ['/images/evolution-d5-ranger.webp'],
+    images: ['/images/evolution-d5-ranger-4-plus-2.webp'],
     inStock: true,
   },
   {
@@ -206,7 +206,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Unmatched Club Car build quality with zero chassis corrosion, whisper-quiet lithium powertrain, and unmatched resale value across Australian golf communities.',
     badge: 'Heritage Elite',
     featured: true,
-    images: ['/images/club-car-onward-4.webp'],
+    images: ['/images/club-car-onward-4-passenger-lithium.webp'],
     inStock: true,
   },
   {
@@ -224,7 +224,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Delivers high ground clearance and dual-purpose passenger-to-cargo conversion for semi-rural lifestyle properties without the luxury price tag.',
     badge: 'Value Pick',
     featured: false,
-    images: ['/images/tara-roadster-2-2.webp'],
+    images: ['/images/tara-roadster-2-plus-2-lifted.webp'],
     inStock: true,
   },
   {
@@ -242,7 +242,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Designed for VIP guest shuttling, resort hospitality, and expansive rural family estates requiring zero-fume passenger carrying capacity.',
     badge: '6-Seater Transporter',
     featured: true,
-    images: ['/images/ezgo-express-l6.webp'],
+    images: ['/images/ezgo-express-l6-lithium.webp'],
     inStock: true,
   },
   {
@@ -260,7 +260,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Proven workhorse across Australian caravan parks and holiday resorts, delivering low maintenance costs and dependable all-day lithium battery life.',
     badge: 'Resort Fleet',
     featured: false,
-    images: ['/images/lvtong-4-seater.webp'],
+    images: ['/images/lvtong-4-seater-resort-cruiser.webp'],
     inStock: true,
   },
   {
@@ -278,7 +278,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Built for the serious club golfer who demands smooth hill-climbing acceleration, digital battery metrics, and golf bag caddy security.',
     badge: '2025 Model',
     featured: true,
-    images: ['/images/club-car-tempo-lithium.webp'],
+    images: ['/images/club-car-tempo-lithium-2025.webp'],
     inStock: true,
   },
   {
@@ -296,7 +296,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The RXV ELiTE stops automatically whenever you step off the throttle, providing maximum safety on steep fairway slopes and village driveways.',
     badge: 'Auto-Park Brake',
     featured: true,
-    images: ['/images/ezgo-rxv-elite.webp'],
+    images: ['/images/ezgo-rxv-elite-lithium.webp', '/images/ezgo-rxv-elite-lithium-2.webp'],
     inStock: true,
   },
   {
@@ -314,7 +314,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Smooths out rough turf and unsealed tracks effortlessly, making it the most comfortable 2-seater private buggy on Australian courses.',
     badge: 'Ultra-Comfort',
     featured: false,
-    images: ['/images/yamaha-drive2-ac.webp'],
+    images: ['/images/yamaha-drive2-ac-lithium.webp'],
     inStock: true,
   },
   {
@@ -332,7 +332,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Combines modern styling with dependable lithium range, ideal for private golfers looking to step away from aging lead-acid buggies.',
     badge: 'Great Value',
     featured: false,
-    images: ['/images/tara-spirit-pro.webp'],
+    images: ['/images/tara-spirit-pro-2-seater.webp', '/images/tara-spirit-pro-2-seater-2.webp'],
     inStock: true,
   },
   {
@@ -350,7 +350,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Everything you need to roll straight onto your local course with zero hidden extra costs. Compact, agile, and energy efficient.',
     badge: 'Course Ready',
     featured: false,
-    images: ['/images/lvtong-2-passenger.webp'],
+    images: ['/images/lvtong-2-passenger-golf-buggy.webp'],
     inStock: true,
   },
   {
@@ -368,7 +368,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Provides automotive-level safety instrumentation, reverse camera compatibility, and whisper-quiet lithium power for estate and fairway driving.',
     badge: 'Tech Spec',
     featured: false,
-    images: ['/images/evolution-classic-2.webp'],
+    images: ['/images/evolution-classic-2-plus.webp'],
     inStock: true,
   },
   {
@@ -386,7 +386,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Conquers steep gradients, mud tracks, and rocky farm trails where standard buggies stall. Features heavy-duty suspension and aggressive all-terrain tread.',
     badge: 'High-Torque 350A',
     featured: true,
-    images: ['/images/atlas-hd-lifted.webp'],
+    images: ['/images/atlas-4-seater-heavy-duty-lifted-350a.webp'],
     inStock: true,
   },
   {
@@ -404,7 +404,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The ultimate trail conqueror for large acreage stations, hunters, and rural caretakers needing automotive grade off-road capability.',
     badge: 'Trail Edition',
     featured: true,
-    images: ['/images/evolution-dmax-gt4.webp'],
+    images: ['/images/evolution-d-max-gt4-off-road.webp'],
     inStock: true,
   },
   {
@@ -422,7 +422,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Seamlessly transforms from a 4-passenger weekend cruiser into an open cargo flatbed for hauling feed, firewood, and estate tools.',
     badge: 'Dual Purpose',
     featured: false,
-    images: ['/images/ezgo-express-s4.webp'],
+    images: ['/images/ezgo-express-s4-lifted-high-torque.webp'],
     inStock: true,
   },
   {
@@ -440,7 +440,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Cost-effective rough-terrain transport for orchards, equestrian paddocks, and bush blocks needing reliable daily property transit.',
     badge: 'Farm Ready',
     featured: false,
-    images: ['/images/lvtong-rough-terrain.webp'],
+    images: ['/images/lvtong-rough-terrain-lifted-buggy.webp'],
     inStock: true,
   },
   {
@@ -458,7 +458,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Equipped with Kohler 14HP Closed-Loop EFI petrol engine. Starts instantly in winter frosts and delivers days of remote pastoral transport on a single tank.',
     badge: 'Petrol Range',
     featured: false,
-    images: ['/images/club-car-onward-petrol.webp'],
+    images: ['/images/club-car-onward-lifted-efi-petrol.webp'],
     inStock: true,
   },
   {
@@ -476,7 +476,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Tackles rutted paddocks and steep hill tracks with ease, offering robust steel side step rails and modular cargo options.',
     badge: 'Hill Climber',
     featured: false,
-    images: ['/images/tara-roadster-4.webp'],
+    images: ['/images/tara-roadster-4-off-road.webp'],
     inStock: true,
   },
   {
@@ -494,7 +494,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The undisputed king of commercial maintenance. Aircraft-grade aluminum flatbed resists rust and chemical fertilizers, backed by high-capacity rear leaf springs.',
     badge: '680kg Payload',
     featured: true,
-    images: ['/images/club-car-carryall-700.webp'],
+    images: [],
     inStock: true,
   },
   {
@@ -512,7 +512,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Whisper quiet 72V lithium powertrain suitable for sensitive school campuses, botanical gardens, and sports stadium grounds maintenance.',
     badge: '72V Commercial',
     featured: true,
-    images: ['/images/cushman-hauler-pro.webp'],
+    images: ['/images/ezgo-cushman-hauler-pro-lithium.webp'],
     inStock: true,
   },
   {
@@ -530,7 +530,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Rugged utility buggy built for grueling cattle station and farm duties. Generous ground clearance and easy one-hand tailgate latching.',
     badge: 'Heavy Farm Spec',
     featured: false,
-    images: ['/images/yamaha-umax-rally.webp'],
+    images: ['/images/yamaha-umax-rally-efi-petrol.webp'],
     inStock: true,
   },
   {
@@ -548,7 +548,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Drop-down aluminum tray gates allow forklift pallet loading from both sides and rear, streamlining warehouse and nursery operations.',
     badge: 'Drop-Side Tray',
     featured: false,
-    images: ['/images/evolution-700-utility.webp'],
+    images: ['/images/evolution-700-heavy-commercial-utility.webp', '/images/evolution-700-heavy-commercial-utility-2.webp'],
     inStock: true,
   },
   {
@@ -566,7 +566,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Ergonomic low-entry deck makes loading heavy toolboxes and landscaping supplies easy on operators backs during long shifts.',
     badge: 'Low Loader Deck',
     featured: false,
-    images: ['/images/lvtong-flatbed.webp'],
+    images: ['/images/lvtong-commercial-flatbed-cargo-buggy.webp'],
     inStock: true,
   },
   {
@@ -584,7 +584,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The gold standard for VIP transport in airports, mine accommodation villages, and five-star Queensland golf resorts.',
     badge: '6-Passenger VIP',
     featured: true,
-    images: ['/images/club-car-transporter-6.webp'],
+    images: ['/images/club-car-transporter-6-commercial.webp'],
     inStock: true,
   },
   {
@@ -602,7 +602,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Produces just 60.5 decibels—quieter than an average conversation. Delivers exceptional fuel economy up to 45 MPG without charging stations.',
     badge: 'Quietest Petrol',
     featured: true,
-    images: ['/images/yamaha-quiettech.webp'],
+    images: ['/images/yamaha-drive2-quiettech-efi-petrol.webp'],
     inStock: true,
   },
   {
@@ -620,7 +620,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Rustproof aluminum frame paired with reliable electronic fuel injection. Zero spark plug fowling and exceptional cold-start reliability.',
     badge: '25.4L Fuel Tank',
     featured: false,
-    images: ['/images/club-car-tempo-petrol.webp'],
+    images: ['/images/club-car-tempo-efi-petrol.webp'],
     inStock: true,
   },
   {
@@ -638,7 +638,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'High thermal efficiency engine provides smooth power delivery and significant fuel savings over conventional carbureted engines.',
     badge: 'Low Maintenance Gas',
     featured: false,
-    images: ['/images/ezgo-freedom-gas.webp'],
+    images: ['/images/ezgo-freedom-rxv-gas.webp'],
     inStock: true,
   },
   {
@@ -656,7 +656,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Renowned for agricultural reliability across regional Australia. Easily handles gravel, hay bales, and fencing equipment.',
     badge: 'Kawasaki Powered',
     featured: false,
-    images: ['/images/cushman-hauler-1200.webp'],
+    images: ['/images/cushman-hauler-1200-gas-utility.webp'],
     inStock: true,
   },
   {
@@ -674,7 +674,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Fits through narrow orchard gates and tight stable doors while maintaining genuine farm-duty hauling capability.',
     badge: 'Compact Utility',
     featured: false,
-    images: ['/images/yamaha-umax-one.webp'],
+    images: ['/images/yamaha-umax-one-efi-utility.webp'],
     inStock: true,
   },
   {
@@ -692,7 +692,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Navigates tight pedestrian walkways and campus corridors effortlessly, built with durable rust-free aluminum structure.',
     badge: 'Tight Radius Work',
     featured: false,
-    images: ['/images/club-car-carryall-300.webp'],
+    images: ['/images/club-car-carryall-300-petrol.webp'],
     inStock: true,
   },
   {
@@ -710,7 +710,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Walk the course completely unburdened. Full directional handheld remote control with automatic terrain leveling gyroscope technology.',
     badge: 'Australia #1 Seller',
     featured: true,
-    images: ['/images/mgi-ai-navigator.webp'],
+    images: ['/images/mgi-ai-navigator-gps-remote-buggy.webp'],
     inStock: true,
   },
   {
@@ -728,7 +728,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Tackles undulating links courses and wet morning fairways with absolute grip. Powered by a rapid-charging 24V 380Wh lithium battery.',
     badge: 'Twin 230W Motors',
     featured: true,
-    images: ['/images/mgi-zip-navigator.webp'],
+    images: ['/images/mgi-zip-navigator-all-terrain.webp'],
     inStock: true,
   },
   {
@@ -746,7 +746,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Set your preferred walking speed once and let the electronic motor braking maintain consistent speed regardless of hill incline.',
     badge: 'Downhill Speed Control',
     featured: false,
-    images: ['/images/mgi-zip-x5.webp'],
+    images: ['/images/mgi-2024-zip-x5-36-hole-lithium.webp'],
     inStock: true,
   },
   {
@@ -764,7 +764,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'High-power 30V Plug n Play lithium battery is the thinnest, lightest, and most powerful in its class with auto-disconnect.',
     badge: '3.5" GPS Screen',
     featured: false,
-    images: ['/images/powakaddy-fx7.webp'],
+    images: ['/images/powakaddy-fx7-gps-lithium.webp'],
     inStock: true,
   },
   {
@@ -782,7 +782,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Experience the ultimate hands-free walk. Dual tracking sensors match your pace and stop automatically when you reach your ball.',
     badge: 'Smart Follow Mode',
     featured: true,
-    images: ['/images/robera-pro-follow.webp'],
+    images: ['/images/robera-pro-follow-remote-golf-buggy.webp'],
     inStock: true,
   },
   {
@@ -800,7 +800,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Folds down into a tiny footprint that fits inside even compact car boots with room to spare. Reliable 24V lithium technology.',
     badge: 'Best Entry Electric',
     featured: false,
-    images: ['/images/mgi-zip-x1.webp'],
+    images: ['/images/mgi-zip-x1-lithium-buggy.webp'],
     inStock: true,
   },
   // 25 Batteries, Chargers & Parts
@@ -819,7 +819,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Everything required to convert your Club Car, EZGO, or Yamaha into a modern lithium machine. Delivers 70+ km range per charge.',
     badge: 'Complete Kit',
     featured: true,
-    images: ['/images/eco-battery-48v.webp'],
+    images: ['/images/eco-battery-48v-105ah-lithium-conversion-kit.webp'],
     inStock: true,
   },
   {
@@ -837,7 +837,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Drop-in replacement for standard golf cart battery bays with zero maintenance, zero water topping, and rapid 2.5 hour charging.',
     badge: 'LiFePO4 Grade',
     featured: false,
-    images: ['/images/roypow-48v.webp'],
+    images: ['/images/roypow-48v-105ah-lithium-battery-pack.webp'],
     inStock: true,
   },
   {
@@ -855,7 +855,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Features built-in Bluetooth connectivity to check individual cell voltage, state-of-charge, and cycle count on your smartphone.',
     badge: 'Bluetooth BMS',
     featured: false,
-    images: ['/images/invicta-48v.webp'],
+    images: ['/images/invicta-48v-50ah-lithium-drop-in-module.webp'],
     inStock: true,
   },
   {
@@ -873,7 +873,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The industry benchmark lead-acid replacement battery for 48-volt golf carts using 6x 8-volt configurations.',
     badge: 'Genuine Trojan',
     featured: false,
-    images: ['/images/trojan-t875.webp'],
+    images: ['/images/trojan-t-875-8v-deep-cycle-lead-acid-battery.webp'],
     inStock: true,
   },
   {
@@ -891,7 +891,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Built with rugged aluminum housing resistant to vibration, water spray, and dust. Works on both lead-acid and lithium profiles.',
     badge: 'IP66 Sealed',
     featured: false,
-    images: ['/images/delta-q-quiq.webp'],
+    images: ['/images/delta-q-quiq-48v-smart-on-board-charger.webp'],
     inStock: true,
   },
   {
@@ -909,7 +909,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Official Club Car ERIC smart charging system that communicates with cart OBC to optimize charging cycles and conserve power.',
     badge: 'OEM Club Car',
     featured: false,
-    images: ['/images/club-car-eric.webp'],
+    images: ['/images/club-car-eric-48v-high-frequency-charger.webp'],
     inStock: true,
   },
   {
@@ -927,7 +927,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Features Click & Go slot-in design without loose cables. Genuine Australian MGI replacement with 2-year factory warranty.',
     badge: 'Genuine MGI Part',
     featured: false,
-    images: ['/images/mgi-24v-battery.webp'],
+    images: ['/images/mgi-24v-lithium-battery-36-hole.webp'],
     inStock: true,
   },
   {
@@ -945,7 +945,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Boosts torque on steep inclines and unlocks higher sustained top speeds while controlling regenerative motor braking.',
     badge: '400A Peak',
     featured: false,
-    images: ['/images/curtis-1268.webp'],
+    images: ['/images/curtis-1268-400a-programmable-motor-controller.webp'],
     inStock: true,
   },
   {
@@ -963,7 +963,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Connects via Bluetooth to calibrate speed, regenerative braking, and acceleration curves directly from your smartphone.',
     badge: '600A High Power',
     featured: true,
-    images: ['/images/navitas-600a.webp'],
+    images: ['/images/navitas-600a-ac-controller-upgrade-kit.webp'],
     inStock: true,
   },
   {
@@ -981,7 +981,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Prevents uneven battery draw by tapping the full 48V pack instead of draining individual 8V or 12V batteries.',
     badge: 'Essential Upgrade',
     featured: false,
-    images: ['/images/voltage-reducer.webp'],
+    images: ['/images/universal-48v-to-12v-30a-voltage-reducer.webp'],
     inStock: true,
   },
   {
@@ -999,7 +999,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Provides total compliance for private road and twilight driving across residential estates with self-cancelling indicators.',
     badge: 'Street Legal Spec',
     featured: false,
-    images: ['/images/madjax-light-kit.webp'],
+    images: ['/images/madjax-alpha-lux-street-legal-led-light-kit.webp'],
     inStock: true,
   },
   {
@@ -1017,7 +1017,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Stops fast lifted buggies carrying heavy loads in half the distance, preventing terrifying brake fade on steep downhill descents.',
     badge: '4-Wheel Hydraulic',
     featured: false,
-    images: ['/images/hydraulic-brake-kit.webp'],
+    images: ['/images/heavy-duty-4-wheel-hydraulic-disc-brake-kit.webp'],
     inStock: true,
   },
   {
@@ -1035,7 +1035,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Play 18 holes in comfort regardless of Queensland storms or southern winter chills with fast zippered side doors.',
     badge: 'All-Weather',
     featured: false,
-    images: ['/images/pvc-enclosure.webp'],
+    images: ['/images/all-weather-heavy-duty-pvc-enclosure.webp'],
     inStock: true,
   },
   {
@@ -1053,7 +1053,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Transforms cart appearance while delivering extreme traction through muddy pastures, sand traps, and gravel paths.',
     badge: 'Set of 4 Rims & Tyres',
     featured: true,
-    images: ['/images/wheel-tyre-combo.webp'],
+    images: ['/images/all-terrain-23x10-5-12-wheel-tyre-combo.webp'],
     inStock: true,
   },
   {
@@ -1071,7 +1071,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'High-clarity impact acrylic with anti-rattle rubber seals to eliminate dashboard vibration noise while driving.',
     badge: 'UV Tinted',
     featured: false,
-    images: ['/images/acrylic-windshield.webp'],
+    images: ['/images/foldable-tinted-acrylic-windshield-system.webp'],
     inStock: true,
   },
   {
@@ -1089,7 +1089,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Prevents melted contact points and unreliable intermittent starting on high-torque modified and lifted carts.',
     badge: 'Continuous Duty',
     featured: false,
-    images: ['/images/solenoid-48v.webp'],
+    images: ['/images/heavy-duty-solenoid-albright-48vdc-200a.webp'],
     inStock: true,
   },
   {
@@ -1107,7 +1107,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Fast 10-second pairing with your existing buggy, featuring USB-C rechargeable internal lithium cell and lanyard.',
     badge: 'Official MGI Remote',
     featured: false,
-    images: ['/images/mgi-remote.webp'],
+    images: ['/images/replacement-mgi-ai-zip-remote-controller.webp'],
     inStock: true,
   },
   {
@@ -1125,7 +1125,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Essential rear visibility upgrade for estate roads, ensuring motorists and other golfers can see your turning intentions.',
     badge: 'LED Turn Mirror',
     featured: false,
-    images: ['/images/side-mirrors.webp'],
+    images: ['/images/golf-cart-side-mirrors-integrated-led-indicators.webp'],
     inStock: true,
   },
   {
@@ -1143,7 +1143,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Reinforced powder-coated steel frame with industrial composite diamond plate flatbed surface when folded open.',
     badge: '2-in-1 Conversion',
     featured: true,
-    images: ['/images/rear-flip-seat.webp'],
+    images: ['/images/heavy-duty-rear-flip-seat-kit-2-to-4.webp'],
     inStock: true,
   },
   {
@@ -1161,7 +1161,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Bolts securely to rear chassis crossmember, giving your cart practical farm utility towing capability.',
     badge: '50mm Tow Ball',
     featured: false,
-    images: ['/images/tow-hitch.webp'],
+    images: ['/images/heavy-duty-tow-hitch-ball-assembly.webp'],
     inStock: true,
   },
   {
@@ -1179,7 +1179,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Includes smart MPPT controller to continuously replenish 36V or 48V battery banks while parked out on the farm or golf course.',
     badge: 'Solar Range Extender',
     featured: true,
-    images: ['/images/solar-panel-kit.webp'],
+    images: ['/images/golf-cart-solar-charging-panel-expansion-kit.webp'],
     inStock: true,
   },
   {
@@ -1197,7 +1197,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Clamps directly to 1.75 to 2-inch roll bars. Completely submersible IP67 waterproof design with glove-friendly controls.',
     badge: 'IP67 Marine Audio',
     featured: false,
-    images: ['/images/bluetooth-soundbar.webp'],
+    images: ['/images/waterproof-marine-grade-bluetooth-soundbar.webp'],
     inStock: true,
   },
   {
@@ -1215,7 +1215,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Provides crucial occupant safety for children and estate transport, meeting private gated community safety bylaws.',
     badge: 'Safety Certified',
     featured: false,
-    images: ['/images/seatbelt-system.webp'],
+    images: ['/images/retractable-seatbelt-system-set.webp'],
     inStock: true,
   },
   {
@@ -1233,7 +1233,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Custom-molded to replace factory open dashboard slots, keeping wallets, rangefinders, and valuables safe when unattended.',
     badge: 'Lockable Security',
     featured: false,
-    images: ['/images/lockable-dash.webp'],
+    images: ['/images/lockable-dash-glove-box-storage-system.webp'],
     inStock: true,
   },
   {
@@ -1251,7 +1251,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'Course mandatory divot repair bottles built with UV-stabilized heavy duty polyethylene that will not crack in Australian sun.',
     badge: 'Course Essential',
     featured: false,
-    images: ['/images/sand-bottle.webp'],
+    images: ['/images/heavy-duty-sand-bottle-assembly-dual-set.webp'],
     inStock: true,
   },
 ];

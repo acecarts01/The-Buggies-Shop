@@ -25,13 +25,15 @@ import {
   StaggerItem, 
   AnimatedBadge 
 } from '@/src/components/AnimatedText';
-import { ABN_INFO, CONTACT } from '@/src/config/site';
+import { ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import SmartImage from '@/src/components/SmartImage';
 
 interface AtlasLandingPageProps {
   onAddToCart?: () => void;
 }
 
 export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps) {
+  const atlasProduct = PRODUCTS.find((p) => p.slug === 'atlas-4-passenger-lifted-lithium-buggy');
   const [quoteSent, setQuoteSent] = useState(false);
   const [quoteForm, setQuoteForm] = useState({
     name: '',
@@ -162,6 +164,18 @@ Timeframe: ${quoteForm.timeframe}`
 
           {/* Hero Visual Card / Engineering Brief with Elevation */}
           <FadeUpText delay={0.2} duration={0.6} className="lg:col-span-5 bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs relative transition-all duration-300 hover:shadow-sm surface-card">
+            {/* Flagship product imagery — white 4:3 frame, matches the
+                catalog card treatment. */}
+            <div className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#E7E5E4]">
+              <SmartImage
+                src={atlasProduct?.images?.[0] || ''}
+                alt="Atlas 4-Passenger Lifted Lithium Buggy"
+                fill
+                priority
+                className="object-contain p-3"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
             <div className="border-b border-[#E7E5E4] pb-4">
               <div className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
                 Factory Build Specifications

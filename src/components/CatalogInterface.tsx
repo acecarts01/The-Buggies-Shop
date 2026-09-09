@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useDeferredValue, useCallback } from 'react';
 import Link from 'next/link';
+import SmartImage from '@/src/components/SmartImage';
 import {
   Sparkles,
   ShoppingBag,
@@ -132,6 +133,16 @@ const ProductCard = React.memo(function ProductCard({
           )}
         </div>
 
+        {/* Product Image — white 4:3 frame so mixed sources sit uniformly */}
+        <Link href={productUrl} aria-label={product.name} className="block relative aspect-[4/3] bg-white overflow-hidden">
+          <SmartImage
+            src={product.images?.[0] || ''}
+            alt={product.name}
+            fill
+            className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </Link>
         {/* Product Presentation Canvas */}
         <div className="p-5 space-y-3">
           <div>

@@ -9,3 +9,5 @@ coverage/
 # Local-only working files
 Keyword Export/
 .claude/
+# Source photography (originals). Only the processed public/images/ ships.
+Buggies Express Product Images/

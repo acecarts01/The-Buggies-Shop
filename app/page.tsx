@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
+import SmartImage from '@/src/components/SmartImage';
 import { 
   ShieldCheck, 
   Truck, 
@@ -218,8 +219,26 @@ export default function HomePage() {
         {/* Main Content Landmark */}
         <main id="main-content" className="flex-1">
           {/* Hero Section with Exactly One H1 */}
-          <section className="relative overflow-hidden bg-gradient-to-b from-[#F7F6F2] via-white to-[#F7EFEA]/60 border-b border-[#E7E5E4] py-14 lg:py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <section className="relative overflow-hidden bg-[#F7F6F2] border-b border-[#E7E5E4] py-14 lg:py-20 lg:min-h-[70vh] lg:flex lg:items-center px-4 sm:px-6 lg:px-8">
+            {/* Hero photograph. object-position keeps the buggy clear of the
+                copy; the scrim is near-opaque where text sits and thins out
+                to the right so the vehicle still reads. */}
+            <div className="absolute inset-x-0 top-0 h-[430px] lg:inset-0 lg:h-auto">
+              <SmartImage
+                src="/images/hero-1920.webp"
+                alt="Six-seater lifted lithium golf buggy on an Australian fairway"
+                fill
+                priority
+                className="object-cover object-[58%_center] lg:object-[72%_center]"
+                sizes="100vw"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,246,242,0.70)_0%,rgba(247,246,242,0.72)_38%,rgba(247,246,242,0.93)_78%,#F7F6F2_100%)] lg:bg-[linear-gradient(100deg,#F7F6F2_0%,#F7F6F2_32%,rgba(247,246,242,0.86)_50%,rgba(247,246,242,0.4)_70%,rgba(247,246,242,0.12)_100%)]"
+              />
+            </div>
+
+            <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 space-y-6">
                 <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E7E5E4] text-xs font-bold text-[#C86D51] shadow-xs surface-card">
                   <ShieldCheck className="w-3.5 h-3.5" />

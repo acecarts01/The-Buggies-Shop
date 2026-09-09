@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import SmartImage from '@/src/components/SmartImage';
 import { 
   ShieldCheck, 
   Truck, 
@@ -51,6 +52,7 @@ export default function ProductClient({ product }: ProductClientProps) {
     }
     return [];
   });
+  const [activeImage, setActiveImage] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
@@ -215,8 +217,48 @@ Notes: ${quoteForm.notes || 'None'}`
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-6 bg-[#121417] border border-[#2B2F34] rounded-xl flex items-center justify-center text-center">
-                    <div>
+                  {/* Product imagery — white 4:3 frame reads as a hardware
+                      photo tile against the graphite panel. */}
+                  <div className="space-y-3">
+                    <div className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#2B2F34]">
+                      <SmartImage
+                        src={product.images?.[activeImage] || product.images?.[0] || ''}
+                        alt={`${product.name} — ${product.fuel_type} golf buggy`}
+                        fill
+                        priority
+                        className="object-contain p-4"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+
+                    {product.images && product.images.length > 1 && (
+                      <div className="flex gap-2" role="group" aria-label="Product images">
+                        {product.images.map((img, i) => (
+                          <button
+                            key={img}
+                            type="button"
+                            onClick={() => setActiveImage(i)}
+                            aria-label={`Show image ${i + 1} of ${product.images.length}`}
+                            aria-current={activeImage === i}
+                            className={`relative w-20 aspect-[4/3] rounded-lg overflow-hidden bg-white border transition-colors ${
+                              activeImage === i
+                                ? 'border-[#E2A17A]'
+                                : 'border-[#2B2F34] hover:border-[#E2A17A]/60'
+                            }`}
+                          >
+                            <SmartImage
+                              src={img}
+                              alt={`${product.name} view ${i + 1}`}
+                              fill
+                              className="object-contain p-1"
+                              sizes="80px"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl text-center">
                       <div className="font-serif text-xl font-bold text-[#E2A17A]">
                         {product.name}
                       </div>
