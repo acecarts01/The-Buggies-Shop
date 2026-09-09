@@ -25,7 +25,7 @@ import {
   StaggerItem, 
   AnimatedBadge 
 } from '@/src/components/AnimatedText';
-import { ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import { ABN_INFO, CONTACT, PRODUCTS, VEHICLE_COLORS } from '@/src/config/site';
 import SmartImage from '@/src/components/SmartImage';
 
 interface AtlasLandingPageProps {
@@ -34,6 +34,7 @@ interface AtlasLandingPageProps {
 
 export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps) {
   const atlasProduct = PRODUCTS.find((p) => p.slug === 'atlas-4-passenger-lifted-lithium-buggy');
+  const [finish, setFinish] = useState(0);
   const [quoteSent, setQuoteSent] = useState(false);
   const [quoteForm, setQuoteForm] = useState({
     name: '',
@@ -166,7 +167,10 @@ Timeframe: ${quoteForm.timeframe}`
           <FadeUpText delay={0.2} duration={0.6} className="lg:col-span-5 bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs relative transition-all duration-300 hover:shadow-sm surface-card">
             {/* Flagship product imagery — white 4:3 frame, matches the
                 catalog card treatment. */}
-            <div className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#E7E5E4]">
+            <div
+              className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#E7E5E4]"
+              style={{ filter: VEHICLE_COLORS[finish].filter }}
+            >
               <SmartImage
                 src={atlasProduct?.images?.[0] || ''}
                 alt="Atlas 4-Passenger Lifted Lithium Buggy"
@@ -175,6 +179,39 @@ Timeframe: ${quoteForm.timeframe}`
                 className="object-contain p-3"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
+            </div>
+
+            {/* Factory finish preview — filter over the supplied photograph,
+                labelled indicative so nobody orders off a tinted render. */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-[#78716C]">
+                  Factory Finish
+                </span>
+                <span className="text-[11px] text-[#C86D51] font-medium">
+                  {VEHICLE_COLORS[finish].name}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Choose factory finish">
+                {VEHICLE_COLORS.map((c, i) => (
+                  <button
+                    key={c.id}
+                    type="button"
+                    onClick={() => setFinish(i)}
+                    aria-label={c.name}
+                    aria-pressed={finish === i}
+                    title={c.name}
+                    className={`w-9 h-9 rounded-lg border-2 transition-transform hover:scale-105 motion-reduce:transform-none ${
+                      finish === i ? 'border-[#C86D51]' : 'border-[#E7E5E4]'
+                    }`}
+                    style={{ backgroundColor: c.swatch }}
+                  />
+                ))}
+              </div>
+              <p className="text-[11px] text-[#78716C]">
+                Finish preview is indicative. Confirm the exact factory colour with the Yatala depot
+                before ordering.
+              </p>
             </div>
             <div className="border-b border-[#E7E5E4] pb-4">
               <div className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
@@ -431,7 +468,7 @@ Timeframe: ${quoteForm.timeframe}`
                 Opening WhatsApp now with our Yatala dispatch desk to finalize freight calculations for postcode <strong className="text-[#C86D51]">{quoteForm.postcode}</strong>.
               </p>
               <div className="pt-2 text-xs text-[#121417]">
-                Immediate assistance? Call Yatala Operations: <strong>0480 804 189</strong>
+                Immediate assistance? Message Yatala Operations: <strong>0480 804 189</strong>
               </div>
             </div>
           ) : (

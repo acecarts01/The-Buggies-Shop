@@ -143,6 +143,29 @@ export const BRAND = {
   awards: [],
 };
 
+// Factory finishes offered across the fleet. The swatch applies a CSS filter
+// to the product photograph so the buyer can preview a finish; the render is
+// indicative only, which the UI states plainly next to the swatches.
+// Brands carried, with the model count each. Counts are derived from PRODUCTS
+// at build time in the nav, so this list only names the brand and its query.
+export const BRANDS = [
+  { name: 'Club Car', q: 'Club Car' },
+  { name: 'E-Z-GO', q: 'E-Z-GO' },
+  { name: 'Yamaha', q: 'Yamaha' },
+  { name: 'Evolution', q: 'Evolution' },
+  { name: 'LVTONG', q: 'LVTONG' },
+  { name: 'Tara', q: 'Tara' },
+  { name: 'MGI', q: 'MGI' },
+  { name: 'Atlas', q: 'Atlas' },
+] as const;
+
+export const VEHICLE_COLORS = [
+  { id: 'factory', name: 'Factory Finish', swatch: '#E7E5E4', filter: 'none' },
+  { id: 'coastal-teal', name: 'Coastal Teal', swatch: '#2E8B87', filter: 'hue-rotate(150deg) saturate(1.25)' },
+  { id: 'outback-ochre', name: 'Outback Ochre', swatch: '#C86D51', filter: 'hue-rotate(330deg) saturate(1.3)' },
+  { id: 'graphite', name: 'Graphite Black', swatch: '#2B2F34', filter: 'saturate(0.25) brightness(0.82) contrast(1.1)' },
+] as const;
+
 export const CATEGORIES = [
   { slug: 'all', name: 'All Vehicles & Parts', count: 61 },
   { slug: 'luxury-4-seater', name: 'Luxury 4-Seater', rawCategory: 'Luxury & High-Demand 4-Seaters', count: 6 },
@@ -494,7 +517,7 @@ export const PRODUCTS: ProductItem[] = [
     fullDescription: 'The undisputed king of commercial maintenance. Aircraft-grade aluminum flatbed resists rust and chemical fertilizers, backed by high-capacity rear leaf springs.',
     badge: '680kg Payload',
     featured: true,
-    images: [],
+    images: ['/images/club-car-carryall-700-electric-utility.webp'],
     inStock: true,
   },
   {

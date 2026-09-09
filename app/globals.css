@@ -101,3 +101,18 @@ img, video, iframe {
   content-visibility: auto;
   contain-intrinsic-size: auto 380px;
 }
+
+/* Hero photograph: a slow, almost-imperceptible drift so the scene feels
+   alive without pulling attention off the headline. */
+@keyframes heroDrift {
+  0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.12) translate3d(-1.2%, -0.8%, 0); }
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+}
+.hero-drift {
+  animation: heroDrift 28s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-drift { animation: none; transform: none; }
+}

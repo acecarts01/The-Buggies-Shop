@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useDeferredValue, useCallback } from 'react';
+import React, { useState, useMemo, useDeferredValue, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import SmartImage from '@/src/components/SmartImage';
 import {
@@ -25,6 +25,9 @@ import { AnimatedCounter, FadeUpText } from '@/src/components/AnimatedText';
 interface CatalogInterfaceProps {
   initialCategory?: string;
   onAddToCart?: (product: ProductItem) => void;
+  /** Homepage showcase: 6 models (4 on mobile) and a link to the full shop
+      instead of the filter rail and progressive loading. */
+  showcase?: boolean;
 }
 
 // Powertrain options with focus on modern battery technology
@@ -159,16 +162,20 @@ const ProductCard = React.memo(function ProductCard({
             </div>
           </div>
 
-          {/* Product Description */}
-          <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-xs space-y-1 surface-card">
-            <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#C86D51] flex items-center justify-between">
+          {/* Description collapsed by default so the grid stays compact.
+              <details> keeps it keyboard-operable with no JS. */}
+          <details className="group/desc bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs surface-card">
+            <summary className="cursor-pointer list-none p-2.5 flex items-center justify-between gap-2 text-[10px] font-extrabold uppercase tracking-wider text-[#C86D51]">
               <span>Description &amp; Highlights</span>
-              <span className="text-[9px] text-[#78716C]">Australian Specs</span>
+              <ChevronRight className="w-3.5 h-3.5 shrink-0 transition-transform group-open/desc:rotate-90 motion-reduce:transition-none" />
+            </summary>
+            <div className="px-2.5 pb-2.5 space-y-1">
+              <p className="text-[11px] text-[#57534E] leading-relaxed">
+                {product.shortDescription || product.fullDescription}
+              </p>
+              <div className="text-[9px] text-[#78716C] uppercase tracking-wider">Australian Specs</div>
             </div>
-            <p className="text-[11px] text-[#57534E] leading-relaxed line-clamp-2">
-              {product.shortDescription || product.fullDescription}
-            </p>
-          </div>
+          </details>
 
           {/* Price Point & Payment Options */}
           <div className="pt-2 border-t border-[#E7E5E4] space-y-1">
@@ -295,7 +302,7 @@ const ProductCard = React.memo(function ProductCard({
   );
 });
 
-export default function CatalogInterface({ initialCategory = 'all', onAddToCart }: CatalogInterfaceProps) {
+export default function CatalogInterface({ initialCategory = 'all', onAddToCart, showcase = false }: CatalogInterfaceProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedPowertrain, setSelectedPowertrain] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -305,6 +312,17 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart 
 
   // Progressive rendering state: renders 12 items initially for instant paint and silky-smooth INP
   const [visibleCount, setVisibleCount] = useState<number>(12);
+
+  // Brand links arrive as /shop/?q=Club%20Car. Read it after mount so the
+  // page stays statically rendered.
+  useEffect(() => {
+    const v = new URLSearchParams(window.location.search).get('q');
+    if (!v) return;
+    // Applied on the next frame rather than synchronously, so a deep link
+    // never triggers a cascading render during hydration.
+    const id = requestAnimationFrame(() => setSearchQuery(v));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   // Defer search term to keep keystrokes running at 120 FPS without thread blocking
   const deferredSearch = useDeferredValue(searchQuery);
@@ -378,8 +396,8 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart 
 
   // Display slice
   const displayedProducts = useMemo(() => {
-    return filteredProducts.slice(0, visibleCount);
-  }, [filteredProducts, visibleCount]);
+    return filteredProducts.slice(0, showcase ? 6 : visibleCount);
+  }, [filteredProducts, visibleCount, showcase]);
 
   const handleOpenQuote = useCallback((product: ProductItem) => {
     setQuoteProduct(product);
@@ -575,8 +593,19 @@ Notes: ${quoteForm.notes || 'None'}`
           </div>
         ) : (
           <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {displayedProducts.map((product) => (
+            <div
+              className={
+                showcase
+                  ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'
+                  : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+              }
+            >
+              {displayedProducts.map((product, i) => (
+                <div
+                  key={product.id}
+                  /* showcase shows 4 on mobile, all 6 from sm up */
+                  className={showcase && i >= 4 ? 'hidden sm:block' : undefined}
+                >
                 <ProductCard
                   key={product.id}
                   product={product}
@@ -585,11 +614,24 @@ Notes: ${quoteForm.notes || 'None'}`
                   onOpenQuote={handleOpenQuote}
                   onInspect={handleInspect}
                 />
+                </div>
               ))}
             </div>
 
             {/* Progressive Loading Controls */}
-            {filteredProducts.length > visibleCount && (
+            {showcase && (
+              <div className="flex justify-center">
+                <Link
+                  href="/shop/"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-extrabold text-xs rounded-lg transition-all hover:-translate-y-px duration-200"
+                >
+                  View all {PRODUCTS.length} models
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            )}
+
+            {!showcase && filteredProducts.length > visibleCount && (
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-white border border-[#E7E5E4] shadow-sm rounded-xl surface-card">
                 <div className="text-xs text-[#78716C] text-center sm:text-left">
                   Showing <span className="font-bold text-[#121417]">{displayedProducts.length}</span> of{' '}

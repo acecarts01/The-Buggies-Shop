@@ -189,6 +189,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div>
             &copy; {new Date().getFullYear()} GOLF BUGGIES EXPRESS PTY LTD (ABN 28 668 598 758). All rights reserved.
+            <div className="text-[11px] text-[#78716C] mt-1">
+              Product imagery supplied under manufacturer licence.
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[#C86D51]">Australian Tour Precision</span>

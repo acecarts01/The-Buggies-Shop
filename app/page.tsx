@@ -223,23 +223,23 @@ export default function HomePage() {
             {/* Hero photograph. object-position keeps the buggy clear of the
                 copy; the scrim is near-opaque where text sits and thins out
                 to the right so the vehicle still reads. */}
-            <div className="absolute inset-x-0 top-0 h-[430px] lg:inset-0 lg:h-auto">
+            <div className="absolute inset-x-0 top-0 h-[480px] lg:inset-0 lg:h-auto">
               <SmartImage
                 src="/images/hero-1920.webp"
                 alt="Six-seater lifted lithium golf buggy on an Australian fairway"
                 fill
                 priority
-                className="object-cover object-[58%_center] lg:object-[72%_center]"
+                className="object-cover object-[58%_center] lg:object-[68%_center] hero-drift"
                 sizes="100vw"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,246,242,0.70)_0%,rgba(247,246,242,0.72)_38%,rgba(247,246,242,0.93)_78%,#F7F6F2_100%)] lg:bg-[linear-gradient(100deg,#F7F6F2_0%,#F7F6F2_32%,rgba(247,246,242,0.86)_50%,rgba(247,246,242,0.4)_70%,rgba(247,246,242,0.12)_100%)]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,246,242,0.62)_0%,rgba(247,246,242,0.58)_40%,rgba(247,246,242,0.88)_82%,#F7F6F2_100%)] lg:bg-[linear-gradient(96deg,#F7F6F2_0%,rgba(247,246,242,0.97)_26%,rgba(247,246,242,0.72)_42%,rgba(247,246,242,0.28)_58%,rgba(247,246,242,0.04)_74%,transparent_100%)]"
               />
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-6 space-y-6">
                 <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E7E5E4] text-xs font-bold text-[#C86D51] shadow-xs surface-card">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Yatala QLD Depot • ABN 28 668 598 758</span>
@@ -315,64 +315,6 @@ export default function HomePage() {
                 </FadeUpText>
               </div>
 
-              {/* Hero Feature Showcase Card with Smooth Hover Elevation */}
-              <FadeUpText delay={0.2} duration={0.6} className="lg:col-span-5 bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-5 shadow-xs relative transition-all duration-300 hover:shadow-sm surface-card">
-                <div className="flex items-center justify-between border-b border-[#E7E5E4] pb-3">
-                  <span className="text-[10px] uppercase font-extrabold tracking-wider text-[#C86D51]">
-                    Featured Tour Flagship
-                  </span>
-                  <span className="text-xs font-bold text-[#C86D51] bg-[#F7EFEA] px-2 py-0.5 rounded border border-[#E8D2C6]">
-                    Yatala In-Stock
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-serif font-bold text-[#121417]">
-                    Atlas 4-Passenger Lifted Lithium Buggy
-                  </h3>
-                  <div className="text-2xl font-serif font-extrabold text-[#C86D51] mt-1 tracking-tight">
-                    $20,900 AUD <span className="text-xs text-[#78716C] font-sans font-normal">(GST Incl.)</span>
-                  </div>
-                  <StaggeredParagraph delay={0.15} className="text-xs text-[#78716C] mt-2 leading-relaxed">
-                    Designed for Australian acreage homesteads with 5.0kW AC brushless power, 72V commercial lithium bank, 3-inch suspension lift, and diamond-bolstered seating.
-                  </StaggeredParagraph>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 text-[11px] bg-[#F7F6F2] p-3 rounded-lg border border-[#E7E5E4] surface-card">
-                  <div>
-                    <span className="text-[#78716C]">Powertrain:</span>
-                    <div className="font-semibold text-[#121417]">72V Lithium (Zero Acid)</div>
-                  </div>
-                  <div>
-                    <span className="text-[#78716C]">Cruising Range:</span>
-                    <div className="font-semibold text-[#121417]">Up to 80 km per charge</div>
-                  </div>
-                  <div>
-                    <span className="text-[#78716C]">Braking:</span>
-                    <div className="font-semibold text-[#121417]">4-Wheel Hydraulic Discs</div>
-                  </div>
-                  <div>
-                    <span className="text-[#78716C]">Dispatch Status:</span>
-                    <div className="font-bold text-[#C86D51]">Ready for Immediate Delivery</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 pt-1">
-                  <Link
-                    href="/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/"
-                    className="flex-1 py-3 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white text-xs font-extrabold rounded-lg transition-all text-center shadow-sm active:scale-95 hover:-translate-y-px duration-200"
-                  >
-                    View Atlas Full Landing Page
-                  </Link>
-                  <Link
-                    href="/shop/"
-                    className="py-3 px-4 border border-[#E7E5E4] bg-[#F7F6F2] text-[#121417] hover:text-[#C86D51] hover:bg-white text-xs font-bold rounded-lg text-center transition-colors surface-card"
-                    id="hero-order-now-btn"
-                  >
-                    Order Now
-                  </Link>
-                </div>
-              </FadeUpText>
             </div>
           </section>
 
@@ -422,7 +364,7 @@ export default function HomePage() {
           </section>
 
           {/* The Complete 61-Product Catalog Component with High-Ticket Rules */}
-          <CatalogInterface onAddToCart={handleAddToCart} />
+          <CatalogInterface onAddToCart={handleAddToCart} showcase />
 
           {/* Trustpilot Standard Customer Reviews Sliding Carousel */}
           <ReviewsCarousel />
@@ -560,7 +502,7 @@ export default function HomePage() {
                   href={`tel:${CONTACT.phone}`}
                   className="w-full sm:w-auto px-5 py-3.5 border border-[#E7E5E4] bg-white text-[#121417] text-xs font-bold rounded-lg hover:bg-[#F7EFEA] transition-colors shadow-xs surface-card"
                 >
-                  Call Yatala Operations: 0480 804 189
+                  Message Yatala Operations: 0480 804 189
                 </a>
               </div>
             </FadeUpText>

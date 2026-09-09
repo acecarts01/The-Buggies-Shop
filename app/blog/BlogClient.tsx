@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Calendar, 
@@ -32,6 +32,16 @@ import {
 
 export default function BlogClient() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  // Resources menu links in as /blog/?category=Buyer%20Guides.
+  useEffect(() => {
+    const v = new URLSearchParams(window.location.search).get('category');
+    if (!v) return;
+    // Applied on the next frame rather than synchronously, so a deep link
+    // never triggers a cascading render during hydration.
+    const id = requestAnimationFrame(() => setSelectedCategory(v));
+    return () => cancelAnimationFrame(id);
+  }, []);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -46,14 +56,26 @@ export default function BlogClient() {
     return [];
   });
 
-  const categories = useMemo(() => {
-    const set = new Set(POSTS.map((p) => p.category));
-    return ['All', ...Array.from(set)];
-  }, []);
+  // Three groups a visitor actually chooses between, rather than all
+  // sixteen raw post categories. The value is what the filter matches on;
+  // the label is what the pill shows.
+  const categories = useMemo(
+    () => [
+      { value: 'All', label: 'All' },
+      { value: 'Blog Articles', label: 'Blog Articles' },
+      { value: 'Buyer Guides', label: "Buyer's Guides" },
+    ],
+    []
+  );
 
   const filteredPosts = useMemo(() => {
     return POSTS.filter((post) => {
-      const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === 'All'
+          ? true
+          : selectedCategory === 'Buyer Guides'
+            ? post.category === 'Buyer Guides'
+            : post.category !== 'Buyer Guides';
       const query = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !query ||
@@ -137,18 +159,18 @@ export default function BlogClient() {
                 </span>
                 {categories.map((cat) => (
                   <button
-                    key={cat}
+                    key={cat.value}
                     type="button"
                     role="tab"
-                    aria-selected={selectedCategory === cat}
-                    onClick={() => setSelectedCategory(cat)}
+                    aria-selected={selectedCategory === cat.value}
+                    onClick={() => setSelectedCategory(cat.value)}
                     className={`text-xs px-3.5 py-1.5 rounded-full font-medium whitespace-nowrap shrink-0 transition-all border ${
-                      selectedCategory === cat
+                      selectedCategory === cat.value
                         ? 'bg-[#E2A17A] text-[#121417] border-[#E2A17A] font-bold shadow-sm'
                         : 'bg-[#1A1D21] text-[#D6D3D1] border-[#2B2F34] hover:border-[#E2A17A]/60 hover:text-[#ffffff]'
                     }`}
                   >
-                    {cat}
+                    {cat.label}
                   </button>
                 ))}
               </div>

@@ -26,7 +26,7 @@ import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
-import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem } from '@/src/config/site';
+import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, VEHICLE_COLORS } from '@/src/config/site';
 import {
   StaggeredHeading,
   StaggeredParagraph,
@@ -53,6 +53,7 @@ export default function ProductClient({ product }: ProductClientProps) {
     return [];
   });
   const [activeImage, setActiveImage] = useState(0);
+  const [finish, setFinish] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
@@ -220,13 +221,16 @@ Notes: ${quoteForm.notes || 'None'}`
                   {/* Product imagery — white 4:3 frame reads as a hardware
                       photo tile against the graphite panel. */}
                   <div className="space-y-3">
-                    <div className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#2B2F34]">
+                    <div
+                      className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#2B2F34]"
+                      style={{ filter: VEHICLE_COLORS[finish].filter }}
+                    >
                       <SmartImage
                         src={product.images?.[activeImage] || product.images?.[0] || ''}
                         alt={`${product.name} — ${product.fuel_type} golf buggy`}
                         fill
                         priority
-                        className="object-contain p-4"
+                        className="object-contain p-4 transition-[filter] duration-300"
                         sizes="(max-width: 1024px) 100vw, 50vw"
                       />
                     </div>
@@ -258,6 +262,38 @@ Notes: ${quoteForm.notes || 'None'}`
                       </div>
                     )}
 
+                    {/* Factory finish selector. The preview is a filter over
+                        the supplied photograph, so it is labelled indicative. */}
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-[#A8A29E]">
+                          Factory Finish
+                        </span>
+                        <span className="text-[11px] text-[#E2A17A] font-medium">
+                          {VEHICLE_COLORS[finish].name}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-2" role="group" aria-label="Choose factory finish">
+                        {VEHICLE_COLORS.map((c, i) => (
+                          <button
+                            key={c.id}
+                            type="button"
+                            onClick={() => setFinish(i)}
+                            aria-label={c.name}
+                            aria-pressed={finish === i}
+                            title={c.name}
+                            className={`w-9 h-9 rounded-lg border-2 transition-transform hover:scale-105 motion-reduce:transform-none ${
+                              finish === i ? 'border-[#E2A17A]' : 'border-[#2B2F34]'
+                            }`}
+                            style={{ backgroundColor: c.swatch }}
+                          />
+                        ))}
+                      </div>
+                      <p className="text-[11px] text-[#A8A29E]">
+                        Finish preview is indicative. Confirm the exact factory colour with the Yatala
+                        depot before ordering.
+                      </p>
+                    </div>
                     <div className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl text-center">
                       <div className="font-serif text-xl font-bold text-[#E2A17A]">
                         {product.name}

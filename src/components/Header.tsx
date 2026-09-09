@@ -15,7 +15,7 @@ import {
   MapPin,
   ChevronDown
 } from 'lucide-react';
-import { ABN_INFO, CONTACT, CATEGORIES } from '@/src/config/site';
+import { ABN_INFO, CONTACT, CATEGORIES, BRANDS } from '@/src/config/site';
 
 interface HeaderProps {
   cartCount?: number;
@@ -26,6 +26,7 @@ interface HeaderProps {
 export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -49,6 +50,10 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 {ABN_INFO.abn}
                 <ExternalLink className="w-3 h-3 text-[#C86D51]" />
               </a>
+              {/* Registered entity name, for transparency alongside the ABN */}
+              <span className="hidden sm:inline text-[10px] text-[#78716C] font-normal border-l border-[#E7E5E4] pl-2 ml-0.5">
+                {ABN_INFO.companyName}
+              </span>
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 text-[#78716C]">
               <MapPin className="w-3 h-3 text-[#C86D51]" />
@@ -113,6 +118,20 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
             {shopDropdownOpen && (
               <div className="absolute top-full left-0 w-72 bg-white border border-[#E7E5E4] rounded-xl shadow-sm py-2 z-50 animate-in fade-in slide-in-from-top-1 surface-card">
                 <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#C86D51] border-b border-[#E7E5E4]">
+                  Featured
+                </div>
+                <Link href="/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/" onClick={() => setShopDropdownOpen(false)} className="flex items-center gap-2 px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B45A40]" />
+                  Atlas 4-Passenger
+                </Link>
+                <Link href="/shop/off-road-4x4/" onClick={() => setShopDropdownOpen(false)} className="block px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] transition-colors">
+                  Lifted 4x4
+                </Link>
+                <Link href="/shop/commercial-utility/" onClick={() => setShopDropdownOpen(false)} className="block px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] transition-colors">
+                  Commercial Utility
+                </Link>
+
+                <div className="px-3 py-1.5 mt-1 text-[10px] font-bold uppercase tracking-wider text-[#C86D51] border-y border-[#E7E5E4] mb-1">
                   Buggy Categories (61 Models)
                 </div>
                 {CATEGORIES.map((cat) => (
@@ -125,31 +144,28 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                     {cat.name}
                   </Link>
                 ))}
+
+                <div className="px-3 py-1.5 mt-1 text-[10px] font-bold uppercase tracking-wider text-[#C86D51] border-y border-[#E7E5E4] mb-1">
+                  Shop by Brand
+                </div>
+                <div className="grid grid-cols-2 gap-x-1 px-1">
+                  {BRANDS.map((b) => (
+                    <Link
+                      key={b.name}
+                      href={`/shop/?q=${encodeURIComponent(b.q)}`}
+                      onClick={() => setShopDropdownOpen(false)}
+                      className="block px-2 py-1.5 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] rounded transition-colors"
+                    >
+                      {b.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          <Link
-            href="/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/"
-            className="text-[#121417] hover:text-[#C86D51] transition-colors flex items-center gap-1.5"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#B45A40] animate-pulse hover:-translate-y-px duration-200 transition-all"></span>
-            Atlas 4-Passenger
-          </Link>
 
-          <Link
-            href="/shop/off-road-4x4/"
-            className="text-[#121417] hover:text-[#C86D51] transition-colors"
-          >
-            Lifted 4x4
-          </Link>
 
-          <Link
-            href="/shop/commercial-utility/"
-            className="text-[#121417] hover:text-[#C86D51] transition-colors"
-          >
-            Commercial Utility
-          </Link>
 
           <Link
             href="/#customer-reviews"
@@ -160,13 +176,30 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
             <span>Reviews</span>
           </Link>
 
-          <Link
-            href="/blog/"
-            className="text-[#121417] hover:text-[#C86D51] transition-colors flex items-center gap-1"
-            id="header-nav-blog"
-          >
-            Blog &amp; Guides
-          </Link>
+          {/* Resources: blog plus the buyer-guide cut of it */}
+          <div className="relative" onMouseLeave={() => setResourcesOpen(false)}>
+            <button
+              type="button"
+              onClick={() => setResourcesOpen(!resourcesOpen)}
+              onMouseEnter={() => setResourcesOpen(true)}
+              aria-expanded={resourcesOpen}
+              id="header-nav-resources"
+              className="text-[#121417] hover:text-[#C86D51] transition-colors flex items-center gap-1"
+            >
+              <span>Resources</span>
+              <ChevronDown className="w-4 h-4 text-[#78716C]" />
+            </button>
+            {resourcesOpen && (
+              <div className="absolute top-full left-0 w-56 bg-white border border-[#E7E5E4] rounded-xl shadow-sm py-2 z-50">
+                <Link href="/blog/" onClick={() => setResourcesOpen(false)} className="block px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] transition-colors">
+                  Blog Articles
+                </Link>
+                <Link href="/blog/?category=Buyer%20Guides" onClick={() => setResourcesOpen(false)} className="block px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#C86D51] transition-colors">
+                  Buyer&apos;s Guides
+                </Link>
+              </div>
+            )}
+          </div>
 
           <Link
             href="/about/"
