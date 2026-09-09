@@ -98,9 +98,9 @@ ${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).
     try {
       await sendOrderToSalesDesk('invoice');
       onClearCart();
-      window.location.href = '/thank-you-order/';
+      window.location.assign('/thank-you-order/');
     } catch {
-      window.location.href = '/thank-you-order/';
+      window.location.assign('/thank-you-order/');
     } finally {
       setSubmittingOrder(false);
     }
