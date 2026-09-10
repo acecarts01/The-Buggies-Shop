@@ -158,7 +158,7 @@ export default function ReviewsCarousel() {
                     Trustpilot
                   </span>
                 </div>
-                <div className="text-xs text-[#78716C] flex items-center gap-1.5 font-medium">
+                <div className="text-xs text-[#6B645E] flex items-center gap-1.5 font-medium">
                   <ShieldCheck className="w-4 h-4 text-[#5E8C6A]" />
                   <span>Verified Australian Customer Reviews</span>
                 </div>
@@ -176,7 +176,7 @@ export default function ReviewsCarousel() {
                             ? 'bg-[#5E8C6A]'
                             : star === 5
                             ? 'bg-[#5E8C6A]/80'
-                            : 'bg-[#E7E5E4] text-[#78716C]'
+                            : 'bg-[#E7E5E4] text-[#6B645E]'
                         }`}
                       >
                         ★
@@ -187,13 +187,13 @@ export default function ReviewsCarousel() {
                     <span className="text-lg sm:text-xl font-bold text-[#121417]">
                       {TRUSTPILOT_STATS.trustScore}
                     </span>
-                    <span className="text-xs text-[#78716C]">out of 5.0</span>
+                    <span className="text-xs text-[#6B645E]">out of 5.0</span>
                     <span className="px-2 py-0.5 bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[#5E8C6A] text-[11px] font-extrabold rounded-full">
                       {TRUSTPILOT_STATS.ratingCategory}
                     </span>
                   </div>
                 </div>
-                <div className="text-right sm:text-left text-xs text-[#78716C]">
+                <div className="text-right sm:text-left text-xs text-[#6B645E]">
                   <div className="font-bold text-[#121417] text-sm">
                     {TRUSTPILOT_STATS.totalReviews.toLocaleString()}+ reviews
                   </div>
@@ -204,13 +204,13 @@ export default function ReviewsCarousel() {
 
             {/* Overall Rating Breakdown Gauge Bar */}
             <div className="flex-1 max-w-sm bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-3.5 space-y-1.5 surface-card">
-              <div className="text-[11px] text-[#78716C] font-semibold flex justify-between">
+              <div className="text-[11px] text-[#6B645E] font-semibold flex justify-between">
                 <span>Rating Breakdown</span>
                 <span className="text-[#5E8C6A] font-bold">77% 4 &amp; 5 Stars</span>
               </div>
               <div className="space-y-1">
                 {/* 5 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
+                <div className="flex items-center gap-2 text-[10px] text-[#6B645E]">
                   <span className="w-10 font-medium">5-star</span>
                   <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
@@ -223,7 +223,7 @@ export default function ReviewsCarousel() {
                   </span>
                 </div>
                 {/* 4 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
+                <div className="flex items-center gap-2 text-[10px] text-[#6B645E]">
                   <span className="w-10 font-medium">4-star</span>
                   <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
@@ -236,7 +236,7 @@ export default function ReviewsCarousel() {
                   </span>
                 </div>
                 {/* 3 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
+                <div className="flex items-center gap-2 text-[10px] text-[#6B645E]">
                   <span className="w-10 font-medium">3-star</span>
                   <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
@@ -249,7 +249,7 @@ export default function ReviewsCarousel() {
                   </span>
                 </div>
                 {/* 2 Star */}
-                <div className="flex items-center gap-2 text-[10px] text-[#78716C]">
+                <div className="flex items-center gap-2 text-[10px] text-[#6B645E]">
                   <span className="w-10 font-medium">2-star</span>
                   <div className="flex-1 h-2 bg-[#E7E5E4] rounded-full overflow-hidden">
                     <div
@@ -275,7 +275,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === 'all'
                     ? 'bg-[#5E8C6A] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span>All Reviews</span>
@@ -288,7 +288,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '5star'
                     ? 'bg-[#5E8C6A] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">5★</span>
@@ -301,7 +301,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '4star'
                     ? 'bg-[#5E8C6A] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">4★</span>
@@ -314,7 +314,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '3star'
                     ? 'bg-[#9A4C36] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span className="text-[#A85640] bg-[#FBF6F1] px-1 rounded text-[10px]">3★</span>
@@ -327,7 +327,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '2star'
                     ? 'bg-[#B85C42] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span className="text-[#B85C42] bg-[#FBF6F1] px-1 rounded text-[10px]">2★</span>
@@ -340,7 +340,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'buggies'
                     ? 'bg-[#B45A40] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Electric Carts
@@ -352,7 +352,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'batteries'
                     ? 'bg-[#B45A40] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Lithium Batteries
@@ -364,7 +364,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'accessories'
                     ? 'bg-[#B45A40] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Accessories
@@ -376,7 +376,7 @@ export default function ReviewsCarousel() {
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   selectedFilter === 'service'
                     ? 'bg-[#B45A40] text-white shadow-xs'
-                    : 'bg-[#F7F6F2] text-[#78716C] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
+                    : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 Freight &amp; Service
@@ -386,7 +386,7 @@ export default function ReviewsCarousel() {
             {/* Search Input & View Mode Switcher */}
             <div className="flex items-center gap-2">
               <div className="relative flex-1 sm:w-60">
-                <Search className="w-3.5 h-3.5 text-[#78716C] absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-[#6B645E] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search reviews or location..."
@@ -403,7 +403,7 @@ export default function ReviewsCarousel() {
                   className={`p-1.5 rounded text-xs transition-colors ${
                     viewMode === 'carousel'
                       ? 'bg-white text-[#121417] shadow-2xs'
-                      : 'text-[#78716C] hover:text-[#121417]'
+                      : 'text-[#6B645E] hover:text-[#121417]'
                   }`}
                   aria-label="Carousel view"
                   title="Carousel view"
@@ -416,7 +416,7 @@ export default function ReviewsCarousel() {
                   className={`p-1.5 rounded text-xs transition-colors ${
                     viewMode === 'grid'
                       ? 'bg-white text-[#121417] shadow-2xs'
-                      : 'text-[#78716C] hover:text-[#121417]'
+                      : 'text-[#6B645E] hover:text-[#121417]'
                   }`}
                   aria-label="Grid view"
                   title="Grid view"
@@ -436,7 +436,7 @@ export default function ReviewsCarousel() {
         >
           {filteredReviews.length === 0 ? (
             <div className="text-center py-16 bg-white border border-[#E7E5E4] rounded-2xl p-8 surface-card">
-              <p className="text-[#78716C] text-sm">
+              <p className="text-[#6B645E] text-sm">
                 No reviews found matching &quot;{searchQuery}&quot; or this rating filter.
               </p>
               <button
@@ -512,7 +512,7 @@ export default function ReviewsCarousel() {
               </div>
 
               {/* Carousel Indicator & Progress Bar */}
-              <div className="flex items-center justify-between pt-4 text-xs text-[#78716C]">
+              <div className="flex items-center justify-between pt-4 text-xs text-[#6B645E]">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-[#121417] font-bold">
                     {Math.min(filteredReviews.length, currentIndex + 1)}–
@@ -532,11 +532,17 @@ export default function ReviewsCarousel() {
                         key={idx}
                         type="button"
                         onClick={() => setCurrentIndex(idx * cardsPerView)}
-                        className={`h-1.5 rounded-full transition-all ${
-                          isActive ? 'w-6 bg-[#5E8C6A]' : 'w-1.5 bg-[#E7E5E4] hover:bg-[#78716C]'
-                        }`}
+                        className="h-6 w-6 flex items-center justify-center group/dot"
                         aria-label={`Go to slide ${idx + 1}`}
-                      />
+                        aria-current={isActive}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className={`block h-1.5 rounded-full transition-all ${
+                            isActive ? 'w-6 bg-[#5E8C6A]' : 'w-1.5 bg-[#D6D3D1] group-hover/dot:bg-[#6B645E]'
+                          }`}
+                        />
+                      </button>
                     );
                   })}
                 </div>
@@ -566,14 +572,14 @@ export default function ReviewsCarousel() {
         {/* Bottom Guarantee Banner */}
         <div className="bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm surface-card">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#F7EFEA] border border-[#C86D51]/20 rounded-xl flex items-center justify-center text-[#C86D51] shrink-0 shadow-2xs">
+            <div className="w-12 h-12 bg-[#F7EFEA] border border-[#C86D51]/20 rounded-xl flex items-center justify-center text-[#A85640] shrink-0 shadow-2xs">
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
               <div className="font-bold text-[#121417] text-base">
                 100% Genuine Australian Customer Feedback
               </div>
-              <div className="text-xs text-[#78716C] mt-0.5">
+              <div className="text-xs text-[#6B645E] mt-0.5">
                 Transparent feedback from residential, commercial golf resorts, and fleet maintenance clients across Australia.
               </div>
             </div>
@@ -623,7 +629,7 @@ function ReviewCard({
   // 3: Trustpilot Amber (#A85640)
   // 2: Trustpilot Orange (#B85C42)
   const getStarColor = (starIndex: number, rating: number) => {
-    if (starIndex >= rating) return 'bg-[#E7E5E4] text-[#78716C]';
+    if (starIndex >= rating) return 'bg-[#E7E5E4] text-[#6B645E]';
     if (rating >= 4) return 'bg-[#5E8C6A] text-white';
     if (rating === 3) return 'bg-[#9A4C36] text-white';
     return 'bg-[#B85C42] text-white';
@@ -650,7 +656,7 @@ function ReviewCard({
           </div>
 
           {/* Date */}
-          <span className="text-[11px] text-[#78716C] font-mono">{review.date}</span>
+          <span className="text-[11px] text-[#6B645E] font-mono">{review.date}</span>
         </div>
 
         {/* Review Title */}
@@ -659,13 +665,13 @@ function ReviewCard({
         </h3>
 
         {/* Review Body */}
-        <div className="text-xs text-[#78716C] leading-relaxed">
+        <div className="text-xs text-[#6B645E] leading-relaxed">
           <p>{displayedText}</p>
           {isLong && (
             <button
               type="button"
               onClick={onToggleExpand}
-              className="text-[#C86D51] font-bold text-[11px] hover:underline mt-1 block"
+              className="text-[#A85640] font-bold text-[11px] hover:underline mt-1 block"
             >
               {isExpanded ? 'Read less' : 'Read full review'}
             </button>
@@ -675,7 +681,7 @@ function ReviewCard({
         {/* Product Mentioned Tag */}
         {review.productMentioned && (
           <div className="pt-2 border-t border-[#E7E5E4]">
-            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#C86D51] bg-[#F7EFEA] border border-[#C86D51]/20 px-2 py-0.5 rounded-md">
+            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#A85640] bg-[#F7EFEA] border border-[#C86D51]/20 px-2 py-0.5 rounded-md">
               <CheckCircle2 className="w-3 h-3" />
               <span>{review.productMentioned}</span>
             </span>
@@ -687,15 +693,15 @@ function ReviewCard({
       <div className="pt-4 mt-4 border-t border-[#E7E5E4] flex items-center justify-between gap-3 text-xs">
         {/* Author Details */}
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 text-[#C86D51] font-extrabold text-[11px] flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 text-[#A85640] font-extrabold text-[11px] flex items-center justify-center shrink-0">
             {getInitials(review.author)}
           </div>
           <div className="min-w-0">
             <div className="font-bold text-[#121417] text-xs truncate flex items-center gap-1">
               <span>{review.author}</span>
             </div>
-            <div className="text-[10px] text-[#78716C] flex items-center gap-1">
-              <MapPin className="w-2.5 h-2.5 text-[#C86D51]" />
+            <div className="text-[10px] text-[#6B645E] flex items-center gap-1">
+              <MapPin className="w-2.5 h-2.5 text-[#A85640]" />
               <span className="truncate">{review.location}</span>
             </div>
           </div>
@@ -708,8 +714,8 @@ function ReviewCard({
           disabled={hasVoted}
           className={`flex items-center gap-1 text-[11px] px-2 py-1 rounded-md transition-colors ${
             hasVoted
-              ? 'bg-[#F7EFEA] text-[#C86D51] font-bold'
-              : 'text-[#78716C] hover:text-[#121417] hover:bg-[#F7F6F2]'
+              ? 'bg-[#F7EFEA] text-[#A85640] font-bold'
+              : 'text-[#6B645E] hover:text-[#121417] hover:bg-[#F7F6F2]'
           }`}
           aria-label="Vote review as helpful"
           title="Mark this review as helpful"

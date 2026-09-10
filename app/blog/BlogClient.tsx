@@ -383,7 +383,7 @@ export default function BlogClient() {
                     <div className="mt-6 pt-4 border-t border-[#1F2226] flex items-center justify-between">
                       <div className="text-[11px] text-[#A8A29E]">
                         <span className="block font-medium text-[#E7E5E4]">{post.author.name}</span>
-                        <span className="text-[10px] text-[#78716C]">{post.date}</span>
+                        <span className="text-[10px] text-[#6B645E]">{post.date}</span>
                       </div>
                       <Link
                         href={`/blog/${post.slug}/`}

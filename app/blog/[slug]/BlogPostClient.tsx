@@ -276,7 +276,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-[#1F2226] flex items-center justify-between text-[11px]">
-                    <span className="text-[#78716C]">{rPost.readTime}</span>
+                    <span className="text-[#6B645E]">{rPost.readTime}</span>
                     <Link
                       href={`/blog/${rPost.slug}/`}
                       className="text-[#E2A17A] font-bold hover:underline inline-flex items-center gap-1"

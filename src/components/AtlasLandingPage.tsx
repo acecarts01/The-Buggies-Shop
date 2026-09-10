@@ -85,8 +85,8 @@ Timeframe: ${quoteForm.timeframe}`
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Hero Copy */}
           <div className="lg:col-span-7 space-y-6">
-            <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#C86D51]/20 text-xs font-bold text-[#C86D51] shadow-xs">
-              <Award className="w-3.5 h-3.5 text-[#C86D51]" />
+            <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#C86D51]/20 text-xs font-bold text-[#A85640] shadow-xs">
+              <Award className="w-3.5 h-3.5 text-[#A85640]" />
               <span>Australian Tour Flagship • Luxury 4-Passenger Edition</span>
             </AnimatedBadge>
 
@@ -97,7 +97,7 @@ Timeframe: ${quoteForm.timeframe}`
               className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#121417] tracking-tight leading-tight"
             />
 
-            <FadeUpText delay={0.15} className="text-lg sm:text-xl text-[#C86D51] font-serif font-medium leading-snug flex flex-wrap items-center gap-1.5">
+            <FadeUpText delay={0.15} className="text-lg sm:text-xl text-[#A85640] font-serif font-medium leading-snug flex flex-wrap items-center gap-1.5">
               <span>Engineered for</span>
               <RotatingWords
                 words={[
@@ -109,7 +109,7 @@ Timeframe: ${quoteForm.timeframe}`
               />
             </FadeUpText>
 
-            <FadeUpText delay={0.25} className="text-sm sm:text-base text-[#78716C] leading-relaxed max-w-2xl">
+            <FadeUpText delay={0.25} className="text-sm sm:text-base text-[#6B645E] leading-relaxed max-w-2xl">
               Constructed without compromise for discerning property owners, rural estate managers, and private golf communities across Queensland, New South Wales, and Victoria. High-output lithium architecture, 3-inch factory suspension clearance, and marine-grade diamond seating come standard.
             </FadeUpText>
 
@@ -118,7 +118,7 @@ Timeframe: ${quoteForm.timeframe}`
               <span className="text-3xl sm:text-4xl font-serif font-extrabold text-[#121417] tracking-tight">
                 $20,900 AUD
               </span>
-              <span className="text-xs text-[#78716C]">
+              <span className="text-xs text-[#6B645E]">
                 GST Included • Australian Tax Invoice Provided
               </span>
               <div className="w-full text-xs text-[#121417] pt-1 flex items-center gap-2 font-medium">
@@ -142,20 +142,20 @@ Timeframe: ${quoteForm.timeframe}`
                 href={`tel:${CONTACT.phone}`}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#E7E5E4] bg-white text-[#121417] text-sm font-bold rounded-lg hover:bg-[#F7F6F2] hover:border-[#D6D3D1] transition-colors shadow-xs surface-card"
               >
-                <Phone className="w-4 h-4 text-[#C86D51]" />
+                <Phone className="w-4 h-4 text-[#A85640]" />
                 <span>Call Specialist: 0480 804 189</span>
               </a>
             </FadeUpText>
 
             {/* ABN Trust Verification Stamp */}
-            <FadeUpText delay={0.45} className="pt-2 flex items-center gap-2 text-xs text-[#78716C]">
+            <FadeUpText delay={0.45} className="pt-2 flex items-center gap-2 text-xs text-[#6B645E]">
               <ShieldCheck className="w-4 h-4 text-[#5E8C6A]" />
               <span>Official Australian Entity:</span>
               <a
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-[#C86D51] font-bold text-[#121417] inline-flex items-center gap-1"
+                className="underline hover:text-[#A85640] font-bold text-[#121417] inline-flex items-center gap-1"
               >
                 {ABN_INFO.companyName} (ABN {ABN_INFO.abn})
                 <ExternalLink className="w-3 h-3" />
@@ -185,10 +185,10 @@ Timeframe: ${quoteForm.timeframe}`
                 labelled indicative so nobody orders off a tinted render. */}
             <div className="space-y-2">
               <div className="flex items-center justify-between gap-2">
-                <span className="text-[10px] uppercase tracking-widest font-bold text-[#78716C]">
+                <span className="text-[10px] uppercase tracking-widest font-bold text-[#6B645E]">
                   Factory Finish
                 </span>
-                <span className="text-[11px] text-[#C86D51] font-medium">
+                <span className="text-[11px] text-[#A85640] font-medium">
                   {VEHICLE_COLORS[finish].name}
                 </span>
               </div>
@@ -208,13 +208,13 @@ Timeframe: ${quoteForm.timeframe}`
                   />
                 ))}
               </div>
-              <p className="text-[11px] text-[#78716C]">
+              <p className="text-[11px] text-[#6B645E]">
                 Finish preview is indicative. Confirm the exact factory colour with the Yatala depot
                 before ordering.
               </p>
             </div>
             <div className="border-b border-[#E7E5E4] pb-4">
-              <div className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
+              <div className="text-xs uppercase font-extrabold tracking-wider text-[#A85640]">
                 Factory Build Specifications
               </div>
               <div className="text-lg font-serif font-bold text-[#121417] mt-1">
@@ -224,40 +224,40 @@ Timeframe: ${quoteForm.timeframe}`
 
             <div className="space-y-4 text-xs">
               <div className="flex items-start gap-3">
-                <Zap className="w-5 h-5 text-[#C86D51] shrink-0 mt-0.5" />
+                <Zap className="w-5 h-5 text-[#A85640] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#121417]">5.0 kW AC High-Torque Motor</div>
-                  <div className="text-[#78716C] mt-0.5">
+                  <div className="text-[#6B645E] mt-0.5">
                     Brushless, regenerative braking system with silent hill climbing power up to 30% gradients.
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Gauge className="w-5 h-5 text-[#C86D51] shrink-0 mt-0.5" />
+                <Gauge className="w-5 h-5 text-[#A85640] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#121417]">Automotive-Grade Lithium Power</div>
-                  <div className="text-[#78716C] mt-0.5">
+                  <div className="text-[#6B645E] mt-0.5">
                     Integrated BMS, rapid 3.5-hour recharge cycle, and zero maintenance acid-free operation.
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Compass className="w-5 h-5 text-[#C86D51] shrink-0 mt-0.5" />
+                <Compass className="w-5 h-5 text-[#A85640] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#121417]">3-Inch Heavy-Duty Lift Kit &amp; 23&quot; AT Tyres</div>
-                  <div className="text-[#78716C] mt-0.5">
+                  <div className="text-[#6B645E] mt-0.5">
                     Generous ground clearance across paddock creek-beds, gravel driveways, and undulated turf.
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Layers className="w-5 h-5 text-[#C86D51] shrink-0 mt-0.5" />
+                <Layers className="w-5 h-5 text-[#A85640] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#121417]">4-Passenger Fold-Down Rear Cargo Bed</div>
-                  <div className="text-[#78716C] mt-0.5">
+                  <div className="text-[#6B645E] mt-0.5">
                     Flips instantly from 4 luxury bolstered passenger seats to an insulated composite flat cargo deck.
                   </div>
                 </div>
@@ -277,7 +277,7 @@ Timeframe: ${quoteForm.timeframe}`
       {/* 5 Engineering Pillars */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
+          <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#A85640]">
             Built For Australian Living
           </FadeUpText>
           
@@ -287,7 +287,7 @@ Timeframe: ${quoteForm.timeframe}`
             className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#121417] tracking-tight"
           />
 
-          <FadeUpText delay={0.1} className="text-xs sm:text-sm text-[#78716C]">
+          <FadeUpText delay={0.1} className="text-xs sm:text-sm text-[#6B645E]">
             Standard golf club carts were designed for flat resort fairways. The Atlas was engineered from the ground up for the demands of Australian private properties.
           </FadeUpText>
         </div>
@@ -295,78 +295,78 @@ Timeframe: ${quoteForm.timeframe}`
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Pillar 1 */}
           <StaggerItem className="bg-white border border-[#E7E5E4] rounded-xl p-6 space-y-3 shadow-xs hover:border-[#C86D51]/50 transition-all surface-card">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <Zap className="w-5 h-5" />
             </div>
             <h3 className="text-base font-serif font-bold text-[#121417]">
               1. Commercial-Grade Lithium Performance
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Forget heavy lead-acid batteries that corrode terminals and fail within 24 months. The Atlas features an advanced lithium battery pack delivering consistent power from 100% down to 1% charge. Enjoy up to 80 km of real-world cruising on a single 3.5-hour standard 240V Australian wall outlet charge.
             </p>
           </StaggerItem>
 
           {/* Pillar 2 */}
           <StaggerItem className="bg-white border border-[#E7E5E4] rounded-xl p-6 space-y-3 shadow-xs hover:border-[#C86D51]/50 transition-all surface-card">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <Compass className="w-5 h-5" />
             </div>
             <h3 className="text-base font-serif font-bold text-[#121417]">
               2. True 3-Inch Ground Clearance
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Equipped with independent double-A-arm front suspension and 23-inch rugged all-terrain tyres mounted on 14-inch custom aluminium rims. Traverses washed-out rural driveways, paddock ruts, and steep homestead approaches without bottoming out or scuffing undercarriage components.
             </p>
           </StaggerItem>
 
           {/* Pillar 3 */}
           <StaggerItem className="bg-white border border-[#E7E5E4] rounded-xl p-6 space-y-3 shadow-xs hover:border-[#C86D51]/50 transition-all surface-card">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <Award className="w-5 h-5" />
             </div>
             <h3 className="text-base font-serif font-bold text-[#121417]">
               3. Bespoke Diamond-Stitched Marine Seating
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Treated with UV-inhibiting agents engineered to withstand Queensland sun and coastal humidity without cracking or fading. Contoured bolster cushions keep passengers secure across uneven ground, while integrated rear fold-down armrests and cup holders ensure resort-level comfort.
             </p>
           </StaggerItem>
 
           {/* Pillar 4 */}
           <StaggerItem className="bg-white border border-[#E7E5E4] rounded-xl p-6 space-y-3 shadow-xs hover:border-[#C86D51]/50 transition-all surface-card">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-serif font-bold text-[#121417]">
               4. Electronic Auto-Park &amp; 4-Wheel Hydraulic Disc Brakes
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Unlike cable drum brakes that slip on wet slopes, the Atlas utilizes hydraulic disc brakes on all four wheels. When you bring the buggy to a stop on any gradient, the electronic motor brake engages automatically—no manual parking brake levers to forget.
             </p>
           </StaggerItem>
 
           {/* Pillar 5 */}
           <StaggerItem className="bg-white border border-[#E7E5E4] rounded-xl p-6 space-y-3 shadow-xs hover:border-[#C86D51]/50 transition-all surface-card">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <Truck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-serif font-bold text-[#121417]">
               5. Yatala QLD Engineering &amp; Enclosed VIP Delivery
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Every Atlas is pre-delivery inspected, dyno-tested, and road-calibrated inside our Yatala engineering depot. Delivered straight to your property on an enclosed specialist car trailer so your buggy arrives spotless and ready to drive immediately.
             </p>
           </StaggerItem>
 
           {/* Crypto Incentive Pillar */}
           <StaggerItem className="bg-white border-2 border-[#C86D51] rounded-xl p-6 space-y-3 shadow-xs">
-            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51]">
+            <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640]">
               <Sparkles className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-serif font-bold text-[#C86D51]">
+            <h3 className="text-base font-serif font-bold text-[#A85640]">
               Exclusive 10% Crypto Incentive
             </h3>
-            <p className="text-xs text-[#78716C] leading-relaxed">
+            <p className="text-xs text-[#6B645E] leading-relaxed">
               Settle your vehicle order via Bitcoin (BTC) or USDT to receive an instant 10% discount on the vehicle purchase price—saving <strong className="text-[#121417]">$2,090 AUD</strong>. Instant settlement, no bank clearing delays, and zero merchant surcharges.
             </p>
           </StaggerItem>
@@ -380,7 +380,7 @@ Timeframe: ${quoteForm.timeframe}`
             <h2 className="text-2xl font-serif font-bold text-[#121417] tracking-tight">
               Atlas 4-Passenger Technical Data Sheet
             </h2>
-            <p className="text-xs text-[#78716C]">
+            <p className="text-xs text-[#6B645E]">
               Full factory specifications verified by Golf Buggies Express PTY LTD.
             </p>
           </div>
@@ -396,43 +396,43 @@ Timeframe: ${quoteForm.timeframe}`
               <tbody className="divide-y divide-[#E7E5E4] text-[#121417]">
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Electric Motor</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">5.0 kW AC High-Torque Brushless Induction Motor</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">5.0 kW AC High-Torque Brushless Induction Motor</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Battery Bank</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">Deep-Cycle Lithium Iron Phosphate (LiFePO4) 48V / 72V Architecture</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">Deep-Cycle Lithium Iron Phosphate (LiFePO4) 48V / 72V Architecture</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Estimated Range</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">70 – 85 Kilometres per single charge (terrain dependent)</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">70 – 85 Kilometres per single charge (terrain dependent)</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Charging Duration</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">3.5 – 4.5 Hours with on-board smart delta-Q intelligent charger</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">3.5 – 4.5 Hours with on-board smart delta-Q intelligent charger</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Chassis &amp; Suspension</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">Electro-coated rustproof aluminium frame with 3-inch factory lift</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">Electro-coated rustproof aluminium frame with 3-inch factory lift</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Braking Architecture</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">Four-wheel hydraulic discs with electromagnetic automatic parking hold</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">Four-wheel hydraulic discs with electromagnetic automatic parking hold</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Wheels &amp; Tyres</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">14-inch Machined Alloy Wheels on 23x10-14 All-Terrain Radial Tyres</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">14-inch Machined Alloy Wheels on 23x10-14 All-Terrain Radial Tyres</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Lighting System</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">Automotive LED High/Low Beam, Daytime Running Lights, Horn, Indicators</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">Automotive LED High/Low Beam, Daytime Running Lights, Horn, Indicators</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Cockpit Instrumentation</td>
-                  <td className="p-3 sm:p-4 text-[#78716C]">9-inch HD Digital Display with Speedometer, Battery State-of-Charge, Odometer</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">9-inch HD Digital Display with Speedometer, Battery State-of-Charge, Odometer</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Warranty Coverage</td>
-                  <td className="p-3 sm:p-4 text-[#C86D51] font-bold">5-Year Lithium Battery Warranty • 3-Year Factory Chassis Warranty</td>
+                  <td className="p-3 sm:p-4 text-[#A85640] font-bold">5-Year Lithium Battery Warranty • 3-Year Factory Chassis Warranty</td>
                 </tr>
               </tbody>
             </table>
@@ -444,28 +444,28 @@ Timeframe: ${quoteForm.timeframe}`
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" id="quote-form-section">
         <div className="bg-white border-2 border-[#C86D51] rounded-2xl p-6 sm:p-10 shadow-xs space-y-6">
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] text-xs font-extrabold text-[#C86D51]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] text-xs font-extrabold text-[#A85640]">
               <Zap className="w-3.5 h-3.5" />
               <span>Official Australian Tax Quotation</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight">
               Request Tax Invoice &amp; Freight Schedule
             </h2>
-            <p className="text-xs sm:text-sm text-[#78716C] max-w-xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#6B645E] max-w-xl mx-auto leading-relaxed">
               Receive a formal itemized tax invoice including verified enclosed transport rates directly to your property or nearest regional depot across Australia.
             </p>
           </div>
 
           {quoteSent ? (
             <div className="bg-[#F7F6F2] border border-[#E7E5E4] p-8 rounded-xl text-center space-y-3 surface-card">
-              <div className="w-12 h-12 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center mx-auto text-[#C86D51]">
+              <div className="w-12 h-12 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center mx-auto text-[#A85640]">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-serif font-bold text-[#121417]">
                 Quotation Request Prepared
               </h3>
-              <p className="text-xs text-[#78716C] max-w-md mx-auto">
-                Opening WhatsApp now with our Yatala dispatch desk to finalize freight calculations for postcode <strong className="text-[#C86D51]">{quoteForm.postcode}</strong>.
+              <p className="text-xs text-[#6B645E] max-w-md mx-auto">
+                Opening WhatsApp now with our Yatala dispatch desk to finalize freight calculations for postcode <strong className="text-[#A85640]">{quoteForm.postcode}</strong>.
               </p>
               <div className="pt-2 text-xs text-[#121417]">
                 Immediate assistance? Message Yatala Operations: <strong>0480 804 189</strong>
@@ -544,13 +544,13 @@ Timeframe: ${quoteForm.timeframe}`
                 <span>Submit Formal Quote &amp; Freight Schedule Request</span>
               </button>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-[11px] text-[#78716C]">
+              <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-[11px] text-[#6B645E]">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#5E8C6A]" />
                   Includes official ABN Tax Invoice
                 </span>
                 <span className="flex items-center gap-1">
-                  <Truck className="w-3.5 h-3.5 text-[#C86D51]" />
+                  <Truck className="w-3.5 h-3.5 text-[#A85640]" />
                   Enclosed transport options
                 </span>
                 <span className="flex items-center gap-1">
@@ -569,14 +569,14 @@ Timeframe: ${quoteForm.timeframe}`
           <h3 className="text-lg font-serif font-bold text-[#121417]">
             Ready for Immediate Acquisition?
           </h3>
-          <p className="text-xs text-[#78716C]">
+          <p className="text-xs text-[#6B645E]">
             Secure an in-stock Atlas from our current Yatala shipment. Settle via PayID, direct bank transfer, or crypto (BTC/USDT 10% discount).
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               type="button"
               onClick={onAddToCart}
-              className="w-full sm:w-auto px-6 py-3 bg-[#F7F6F2] hover:bg-[#F7EFEA] text-[#121417] hover:text-[#C86D51] text-xs font-bold rounded-lg border border-[#E7E5E4] hover:border-[#E8D2C6] transition-all surface-card"
+              className="w-full sm:w-auto px-6 py-3 bg-[#F7F6F2] hover:bg-[#F7EFEA] text-[#121417] hover:text-[#A85640] text-xs font-bold rounded-lg border border-[#E7E5E4] hover:border-[#E8D2C6] transition-all surface-card"
             >
               Add to Order Manifest ($20,900 AUD)
             </button>

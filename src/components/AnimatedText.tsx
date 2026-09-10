@@ -244,7 +244,7 @@ export function RotatingWords({
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
           exit={{ opacity: 0, y: -20, filter: 'blur(6px)', scale: 0.95 }}
           transition={{ duration: 0.45, ease: CUBIC_BEZIER }}
-          className="inline-block font-bold text-[#C86D51]"
+          className="inline-block font-bold text-[#A85640]"
         >
           {words[index]}
         </motion.span>

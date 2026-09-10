@@ -240,7 +240,7 @@ export default function HomePage() {
 
             <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
-                <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E7E5E4] text-xs font-bold text-[#C86D51] shadow-xs surface-card">
+                <AnimatedBadge className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E7E5E4] text-xs font-bold text-[#A85640] shadow-xs surface-card">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Yatala QLD Depot • ABN 28 668 598 758</span>
                 </AnimatedBadge>
@@ -252,7 +252,7 @@ export default function HomePage() {
                   className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#121417] tracking-tight leading-tight"
                 />
 
-                <FadeUpText delay={0.15} className="text-base sm:text-lg text-[#C86D51] font-serif font-medium leading-snug flex flex-wrap items-center gap-1.5">
+                <FadeUpText delay={0.15} className="text-base sm:text-lg text-[#A85640] font-serif font-medium leading-snug flex flex-wrap items-center gap-1.5">
                   <span>Precision engineered for</span>
                   <RotatingWords
                     words={[
@@ -265,7 +265,7 @@ export default function HomePage() {
                   <span>nationwide.</span>
                 </FadeUpText>
 
-                <StaggeredParagraph delay={0.2} className="text-xs sm:text-sm text-[#78716C] leading-relaxed max-w-2xl">
+                <StaggeredParagraph delay={0.2} className="text-xs sm:text-sm text-[#6B645E] leading-relaxed max-w-2xl">
                   {BRAND.description} Headquartered in our central Yatala QLD engineering center with 61+ models in stock—from 72V lithium 4-passenger buggies to lifted 4x4 acreage transports and walk-behind MGI motorized units.
                 </StaggeredParagraph>
 
@@ -282,7 +282,7 @@ export default function HomePage() {
 
                   <Link
                     href="/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#C86D51] bg-white text-[#C86D51] text-xs sm:text-sm font-bold rounded-lg hover:bg-[#F7EFEA] transition-colors shadow-xs active:scale-95"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#C86D51] bg-white text-[#A85640] text-xs sm:text-sm font-bold rounded-lg hover:bg-[#F7EFEA] transition-colors shadow-xs active:scale-95"
                   >
                     <span>View Atlas 4-Passenger ($20,900)</span>
                     <ArrowRight className="w-4 h-4" />
@@ -292,22 +292,22 @@ export default function HomePage() {
                     href={`tel:${CONTACT.phone}`}
                     className="inline-flex items-center justify-center gap-2 px-4 py-3.5 border border-[#E7E5E4] bg-white text-[#121417] text-xs sm:text-sm font-semibold rounded-lg hover:bg-[#F7F6F2] transition-colors shadow-xs surface-card"
                   >
-                    <Phone className="w-4 h-4 text-[#C86D51]" />
+                    <Phone className="w-4 h-4 text-[#A85640]" />
                     <span>0480 804 189</span>
                   </a>
                 </FadeUpText>
 
                 {/* Live ABN Verification Callout */}
-                <FadeUpText delay={0.45} className="p-3.5 bg-white border border-[#E7E5E4] rounded-xl text-xs text-[#78716C] flex flex-wrap items-center justify-between gap-2 shadow-xs surface-card">
+                <FadeUpText delay={0.45} className="p-3.5 bg-white border border-[#E7E5E4] rounded-xl text-xs text-[#6B645E] flex flex-wrap items-center justify-between gap-2 shadow-xs surface-card">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#C86D51]" />
+                    <ShieldCheck className="w-4 h-4 text-[#A85640]" />
                     <span>Official ABN Registry: <strong className="text-[#121417]">{ABN_INFO.abn}</strong> ({ABN_INFO.companyName})</span>
                   </div>
                   <a
                     href={ABN_INFO.officialAbrLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#C86D51] underline font-bold inline-flex items-center gap-1 hover:text-[#A85640]"
+                    className="text-[#A85640] underline font-bold inline-flex items-center gap-1 hover:text-[#A85640]"
                   >
                     Verify on abr.business.gov.au
                     <ExternalLink className="w-3 h-3" />
@@ -322,42 +322,42 @@ export default function HomePage() {
           <section className="bg-white border-b border-[#E7E5E4] py-6 px-4">
             <StaggerContainer className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-xs">
               <StaggerItem className="flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-[#F7F6F2]">
-                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51] shrink-0 shadow-xs">
+                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640] shrink-0 shadow-xs">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-extrabold text-[#121417]">ASIC ABN Verified</div>
-                  <div className="text-[11px] text-[#78716C]">ABN 28 668 598 758</div>
+                  <div className="text-[11px] text-[#6B645E]">ABN 28 668 598 758</div>
                 </div>
               </StaggerItem>
 
               <StaggerItem className="flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-[#F7F6F2]">
-                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51] shrink-0 shadow-xs">
+                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640] shrink-0 shadow-xs">
                   <Truck className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-extrabold text-[#121417]">Enclosed Nationwide Freight</div>
-                  <div className="text-[11px] text-[#78716C]">Direct to homestead or club</div>
+                  <div className="text-[11px] text-[#6B645E]">Direct to homestead or club</div>
                 </div>
               </StaggerItem>
 
               <StaggerItem className="flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-[#F7F6F2]">
-                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51] shrink-0 shadow-xs">
+                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640] shrink-0 shadow-xs">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-extrabold text-[#121417]">Direct Orders &amp; Dispatch</div>
-                  <div className="text-[11px] text-[#78716C]">Direct delivery Australia-wide</div>
+                  <div className="text-[11px] text-[#6B645E]">Direct delivery Australia-wide</div>
                 </div>
               </StaggerItem>
 
               <StaggerItem className="flex items-center gap-3 p-2 rounded-lg transition-all hover:bg-[#F7F6F2]">
-                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#C86D51] shrink-0 shadow-xs">
+                <div className="w-9 h-9 rounded-lg bg-[#F7EFEA] border border-[#E8D2C6] flex items-center justify-center text-[#A85640] shrink-0 shadow-xs">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-extrabold text-[#121417]">10% Crypto Incentive</div>
-                  <div className="text-[11px] text-[#78716C]">Save on BTC &amp; USDT payments</div>
+                  <div className="text-[11px] text-[#6B645E]">Save on BTC &amp; USDT payments</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -373,7 +373,7 @@ export default function HomePage() {
           <section className="py-16 bg-[#F7F6F2] border-t border-[#E7E5E4] px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 space-y-5">
-                <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
+                <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#A85640]">
                   Operational Facility &amp; Australian Heritage
                 </FadeUpText>
                 
@@ -383,27 +383,27 @@ export default function HomePage() {
                   className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#121417] tracking-tight"
                 />
 
-                <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#78716C] leading-relaxed">
+                <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#6B645E] leading-relaxed">
                   Founded and registered in 2023 under Australian Securities and Investments Commission (ASIC) oversight, Golf Buggies Express PTY LTD operates from the Yatala Industrial Corridor in South East Queensland. We established our central distribution depot to solve a chronic problem in the Australian market: lack of genuine spare parts backup, poor after-sales warranty support, and fragile carts unfit for rural acreage.
                 </StaggeredParagraph>
 
                 <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-2">
                   <StaggerItem className="p-3.5 bg-white border border-[#E7E5E4] rounded-xl space-y-1 shadow-xs hover:border-[#C86D51]/40 transition-colors surface-card">
                     <div className="font-bold text-[#121417] flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#C86D51]" />
+                      <CheckCircle2 className="w-4 h-4 text-[#A85640]" />
                       <span>In-House Engineering Depot</span>
                     </div>
-                    <p className="text-[#78716C]">
+                    <p className="text-[#6B645E]">
                       Every vehicle undergoes strict pre-delivery inspection, brake dynamometer testing, and lithium cell balancing in Yatala.
                     </p>
                   </StaggerItem>
 
                   <StaggerItem className="p-3.5 bg-white border border-[#E7E5E4] rounded-xl space-y-1 shadow-xs hover:border-[#C86D51]/40 transition-colors surface-card">
                     <div className="font-bold text-[#121417] flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-[#C86D51]" />
+                      <CheckCircle2 className="w-4 h-4 text-[#A85640]" />
                       <span>True One-Stop Australian Shop</span>
                     </div>
-                    <p className="text-[#78716C]">
+                    <p className="text-[#6B645E]">
                       New vehicles, fleet sales, custom lift kits, lithium retrofits, and spare parts under one roof.
                     </p>
                   </StaggerItem>
@@ -412,7 +412,7 @@ export default function HomePage() {
                 <FadeUpText delay={0.2} className="pt-2 flex flex-wrap items-center gap-4 text-xs">
                   <Link
                     href="/about/"
-                    className="inline-flex items-center gap-1.5 text-[#C86D51] font-bold hover:underline group"
+                    className="inline-flex items-center gap-1.5 text-[#A85640] font-bold hover:underline group"
                   >
                     <span>Read our full company story and Yatala workshop details</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -422,50 +422,50 @@ export default function HomePage() {
 
               {/* Entity Facts Grid (AI Visibility & Authority) */}
               <FadeUpText delay={0.15} className="lg:col-span-5 bg-white border border-[#E7E5E4] rounded-2xl p-6 space-y-4 text-xs shadow-xs surface-card">
-                <div className="text-xs font-extrabold uppercase tracking-wider text-[#C86D51] border-b border-[#E7E5E4] pb-2">
+                <div className="text-xs font-extrabold uppercase tracking-wider text-[#A85640] border-b border-[#E7E5E4] pb-2">
                   Australian Business Register Verification
                 </div>
 
                 <div className="space-y-2.5 text-[#121417]">
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Legal Entity Name:</span>
+                    <span className="text-[#6B645E]">Legal Entity Name:</span>
                     <span className="font-bold text-[#121417]">{ABN_INFO.companyName}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Australian Company Number (ACN):</span>
+                    <span className="text-[#6B645E]">Australian Company Number (ACN):</span>
                     <span className="font-mono">{ABN_INFO.acn}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-[#78716C]">Australian Business Number (ABN):</span>
+                    <span className="text-[#6B645E]">Australian Business Number (ABN):</span>
                     <a
                       href={ABN_INFO.officialAbrLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono font-bold text-[#C86D51] underline inline-flex items-center gap-1"
+                      className="font-mono font-bold text-[#A85640] underline inline-flex items-center gap-1"
                     >
                       {ABN_INFO.abn}
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Registration Date:</span>
+                    <span className="text-[#6B645E]">Registration Date:</span>
                     <span>{ABN_INFO.registrationDate}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Entity Status:</span>
-                    <span className="text-[#C86D51] font-bold">{ABN_INFO.status}</span>
+                    <span className="text-[#6B645E]">Entity Status:</span>
+                    <span className="text-[#A85640] font-bold">{ABN_INFO.status}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Registered Office Locality:</span>
+                    <span className="text-[#6B645E]">Registered Office Locality:</span>
                     <span>{ABN_INFO.locality}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#78716C]">Governing Regulator:</span>
+                    <span className="text-[#6B645E]">Governing Regulator:</span>
                     <span>{ABN_INFO.regulator}</span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-[#E7E5E4] text-[11px] text-[#78716C]">
+                <div className="pt-2 border-t border-[#E7E5E4] text-[11px] text-[#6B645E]">
                   Verification records are publicly accessible via the Australian Government Business Register.
                 </div>
               </FadeUpText>
@@ -475,7 +475,7 @@ export default function HomePage() {
           {/* Direct Order & Freight Dispatch Section with Animated Callout */}
           <section className="py-16 bg-white px-4 sm:px-6 lg:px-8 border-t border-[#E7E5E4]" id="order-section">
             <FadeUpText className="max-w-4xl mx-auto bg-[#F7F6F2] border-2 border-[#C86D51] rounded-2xl p-6 sm:p-10 text-center space-y-6 shadow-xs">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] text-xs font-bold text-[#C86D51]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#E8D2C6] text-xs font-bold text-[#A85640]">
                 <Zap className="w-3.5 h-3.5" />
                 <span>Ready for Direct Dispatch</span>
               </div>
@@ -486,7 +486,7 @@ export default function HomePage() {
                 className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight"
               />
 
-              <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#78716C] max-w-xl mx-auto leading-relaxed">
+              <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#6B645E] max-w-xl mx-auto leading-relaxed">
                 Choose your buggy, battery architecture, and tailored accessories. We coordinate door-to-door enclosed trailer delivery directly to your property or course across regional Queensland, New South Wales, Victoria, and nationwide.
               </StaggeredParagraph>
 
@@ -513,8 +513,8 @@ export default function HomePage() {
             <div className="max-w-7xl mx-auto space-y-10">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
-                  <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51] flex items-center gap-1.5 mb-2">
-                    <BookOpen className="w-4 h-4 text-[#C86D51]" />
+                  <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#A85640] flex items-center gap-1.5 mb-2">
+                    <BookOpen className="w-4 h-4 text-[#A85640]" />
                     <span>Australian Buyer &amp; Technical Guides</span>
                   </FadeUpText>
                   
@@ -524,17 +524,17 @@ export default function HomePage() {
                     className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight"
                   />
 
-                  <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#78716C] mt-1 max-w-2xl">
+                  <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#6B645E] mt-1 max-w-2xl">
                     In-depth articles from our Yatala QLD technicians covering 48V LiFePO4 battery performance, conditional road registration, and farm acreage specs.
                   </StaggeredParagraph>
                 </div>
 
                 <Link
                   href="/blog/"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-[#E7E5E4] hover:border-[#C86D51] text-xs font-bold text-[#121417] hover:text-[#C86D51] transition-all shrink-0 shadow-xs group surface-card"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-[#E7E5E4] hover:border-[#C86D51] text-xs font-bold text-[#121417] hover:text-[#A85640] transition-all shrink-0 shadow-xs group surface-card"
                 >
                   <span>View All Guides ({POSTS.length})</span>
-                  <ArrowRight className="w-4 h-4 text-[#C86D51] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#A85640] group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
@@ -546,31 +546,31 @@ export default function HomePage() {
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 text-[11px] mb-3">
-                        <span className="px-2.5 py-0.5 rounded bg-[#F7EFEA] border border-[#E8D2C6] text-[#C86D51] font-semibold">
+                        <span className="px-2.5 py-0.5 rounded bg-[#F7EFEA] border border-[#E8D2C6] text-[#A85640] font-semibold">
                           {post.category}
                         </span>
-                        <span className="flex items-center gap-1 text-[#78716C]">
-                          <Clock className="w-3 h-3 text-[#C86D51]" />
+                        <span className="flex items-center gap-1 text-[#6B645E]">
+                          <Clock className="w-3 h-3 text-[#A85640]" />
                           {post.readTime}
                         </span>
                       </div>
 
-                      <h3 className="text-base font-serif font-bold text-[#121417] group-hover:text-[#C86D51] transition-colors leading-snug line-clamp-2">
+                      <h3 className="text-base font-serif font-bold text-[#121417] group-hover:text-[#A85640] transition-colors leading-snug line-clamp-2">
                         <Link href={`/blog/${post.slug}/`}>
                           {post.title}
                         </Link>
                       </h3>
 
-                      <p className="mt-2 text-xs text-[#78716C] leading-relaxed line-clamp-3">
+                      <p className="mt-2 text-xs text-[#6B645E] leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
                     </div>
 
                     <div className="mt-6 pt-4 border-t border-[#E7E5E4] flex items-center justify-between">
-                      <span className="text-[11px] text-[#78716C]">{post.author.name}</span>
+                      <span className="text-[11px] text-[#6B645E]">{post.author.name}</span>
                       <Link
                         href={`/blog/${post.slug}/`}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#C86D51] group-hover:text-[#A85640] transition-colors"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#A85640] group-hover:text-[#A85640] transition-colors"
                       >
                         <span>Read Guide</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -586,7 +586,7 @@ export default function HomePage() {
           <section className="py-16 bg-white border-t border-[#E7E5E4] px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-8">
               <div className="text-center space-y-2">
-                <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#C86D51]">
+                <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#A85640]">
                   Clear Answers for Australian Buyers
                 </FadeUpText>
                 
@@ -596,7 +596,7 @@ export default function HomePage() {
                   className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight"
                 />
 
-                <StaggeredParagraph delay={0.1} className="text-xs text-[#78716C]">
+                <StaggeredParagraph delay={0.1} className="text-xs text-[#6B645E]">
                   Essential guidance on lithium maintenance, enclosed freight delivery, and ABN invoicing.
                 </StaggeredParagraph>
               </div>
@@ -607,13 +607,13 @@ export default function HomePage() {
                     <details
                       className="group bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-4 sm:p-5 [&_summary::-webkit-details-marker]:hidden transition-all hover:border-[#C86D51]/40 surface-card"
                     >
-                      <summary className="flex items-center justify-between gap-3 cursor-pointer text-sm font-semibold text-[#121417] group-open:text-[#C86D51]">
+                      <summary className="flex items-center justify-between gap-3 cursor-pointer text-sm font-semibold text-[#121417] group-open:text-[#A85640]">
                         <span>{faq.question}</span>
-                        <span className="text-[#C86D51] shrink-0 text-lg font-bold group-open:rotate-45 transition-transform">
+                        <span className="text-[#A85640] shrink-0 text-lg font-bold group-open:rotate-45 transition-transform">
                           +
                         </span>
                       </summary>
-                      <p className="text-xs text-[#78716C] mt-3 leading-relaxed pt-2 border-t border-[#E7E5E4]">
+                      <p className="text-xs text-[#6B645E] mt-3 leading-relaxed pt-2 border-t border-[#E7E5E4]">
                         {faq.answer}
                       </p>
                     </details>
