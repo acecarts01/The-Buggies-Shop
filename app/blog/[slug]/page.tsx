@@ -2,6 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { POSTS, SITE, ABN_INFO } from '@/src/config/site';
+import { buildTitle, clampDescription } from '@/lib/seo';
 import BlogPostClient from './BlogPostClient';
 
 export async function generateStaticParams() {
@@ -23,8 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const title = `${post.title} | The Buggies Express`;
-  const description = post.excerpt.length > 155 ? `${post.excerpt.slice(0, 152)}...` : post.excerpt;
+  // post.title is the H1 and runs long by design; seoTitle is the short form
+  // for the <title> tag. buildTitle adds the brand only when it still fits.
+  const title = buildTitle(post.seoTitle ?? post.title);
+  const description = clampDescription(post.excerpt);
 
   return {
     title,

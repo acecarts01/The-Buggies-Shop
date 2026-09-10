@@ -7,7 +7,7 @@ import { SITE, CRYPTO, CONTACT } from '@/src/config/site';
 
 export const metadata: Metadata = {
   title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
-  description: `Settle your golf buggy in BTC or USDT and take ${CRYPTO.discountPercent}% off the vehicle price. Work out what to buy, choose a verified exchange, and keep control of your funds until you release payment.`,
+  description: `Settle your golf buggy in BTC or USDT and take ${CRYPTO.discountPercent}% off the vehicle price. Pick a verified exchange and keep control of funds until you release.`,
   alternates: {
     canonical: `https://${SITE.domain}/crypto-payment/`,
   },

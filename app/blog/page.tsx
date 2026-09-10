@@ -4,7 +4,7 @@ import { SITE, POSTS } from '@/src/config/site';
 import BlogClient from './BlogClient';
 
 export const metadata: Metadata = {
-  title: 'Golf Buggy Guides & Technical Advice Australia | The Buggies Express',
+  title: 'Golf Buggy Guides & Technical Advice | Buggies Express',
   description:
     'Authoritative Australian golf buggy guides, lithium battery comparisons, road registration laws, and maintenance tips from Yatala QLD technicians.',
   alternates: {
@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: SITE.name,
-    title: 'Golf Buggy Guides & Technical Advice Australia | The Buggies Express',
+    title: 'Golf Buggy Guides & Technical Advice | Buggies Express',
     description:
       'Expert advice on 48V LiFePO4 battery upgrades, road registration, lifted 4x4 acreage performance, and commercial maintenance from Yatala QLD.',
     url: `https://${SITE.domain}/blog/`,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Golf Buggy Guides & Technical Advice Australia | The Buggies Express',
+    title: 'Golf Buggy Guides & Technical Advice | Buggies Express',
     description:
       'Authoritative Australian golf buggy guides, lithium battery comparisons, and maintenance tips from Yatala QLD technicians.',
   },

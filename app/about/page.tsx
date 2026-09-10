@@ -15,16 +15,16 @@ import {
 } from '@/src/components/AnimatedText';
 
 export const metadata = {
-  title: 'About The Buggies Express | Yatala QLD Australian Engineering Hub',
+  title: 'About The Buggies Express | Yatala QLD Depot',
   description:
-    'Learn about Golf Buggies Express PTY LTD (ABN 28 668 598 758) in Yatala QLD. Sales, custom lithium builds, spare parts, and nationwide enclosed freight delivery Australia-wide.',
+    'Golf Buggies Express PTY LTD, ABN 28 668 598 758, based in Yatala QLD. Sales, custom lithium builds, spare parts and nationwide enclosed freight.',
   alternates: {
     canonical: `https://${SITE.domain}/about/`,
   },
   openGraph: {
     type: 'website',
     siteName: SITE.name,
-    title: 'About The Buggies Express | Yatala QLD Australian Engineering Hub',
+    title: 'About The Buggies Express | Yatala QLD Depot',
     description:
       'Australian owned golf buggy specialist in Yatala QLD. 61 buggy models, 5-year commercial lithium warranties, and nationwide delivery.',
     url: `https://${SITE.domain}/about/`,

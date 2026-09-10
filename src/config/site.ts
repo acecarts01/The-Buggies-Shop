@@ -1487,7 +1487,11 @@ export const FAQ = [
 
 export interface BlogPost {
   slug: string;
+  /** Full headline, used as the on-page H1. Free to be long and descriptive. */
   title: string;
+  /** Short form for the <title> tag, kept under 60 chars so Google does not
+   *  truncate it. The H1 above stays long; these are different jobs. */
+  seoTitle?: string;
   excerpt: string;
   category: string;
   date: string;
@@ -1512,6 +1516,7 @@ export interface BlogPost {
 export const POSTS: BlogPost[] = [
   {
     slug: 'lithium-vs-lead-acid-golf-buggy-batteries-australia',
+    seoTitle: "Lithium vs Lead-Acid Golf Buggy Batteries Australia",
     title: 'Lithium vs Lead-Acid Golf Buggy Batteries: The Complete Australian Buyer Guide',
     excerpt: 'Comparing real-world driving range, 8-year lifespan savings, hill climb torque, and maintenance differences for Australian golf courses and acreage estates.',
     category: 'Battery & Tech',
@@ -1566,6 +1571,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'buying-a-4-seater-golf-buggy-in-australia-rules-and-guide',
+    seoTitle: "4 Seater Golf Buggy Australia: Rules & Buying Guide",
     title: 'Buying a 4-Seater Golf Buggy in Australia: Road Rules, Acreage & Resort Access',
     excerpt: 'Everything you need to know before buying a 4-passenger golf buggy in QLD, NSW, and VIC — conditional registration, community estate bylaws, and safety specs.',
     category: 'Buyer Guides',
@@ -1621,6 +1627,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'lifted-4x4-golf-carts-acreage-and-farm-performance',
+    seoTitle: "Lifted 4x4 Golf Buggies for Australian Acreage",
     title: 'Lifted 4x4 Off-Road Golf Buggies: Acreage, Farm & Muddy Incline Performance',
     excerpt: 'How 400A AC motors, heavy-duty coilover suspension, hydraulic disc brakes, and all-terrain tyres tackle steep paddocks and rugged rural terrain.',
     category: 'Off-Road & Farm',
@@ -1669,6 +1676,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'golf-buggy-maintenance-checklist-australian-climates',
+    seoTitle: "Golf Buggy Maintenance Checklist Australia",
     title: 'Essential Golf Buggy Maintenance: Protecting Your Cart in Australian Heat & Coastal Salt',
     excerpt: 'A preventative maintenance routine covering tyre pressures, brake fluid flushes, lithium BMS health checks, and chassis rust protection.',
     category: 'Maintenance',
@@ -1723,6 +1731,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'golf-cart-finance-options-pay-in-4-vs-crypto-discounts',
+    seoTitle: "Golf Buggy Finance Australia: Pay in 4 vs Crypto",
     title: 'How to Finance a Golf Cart in Australia: Finance in 4 vs 10% Crypto Discounts',
     excerpt: 'Explore flexible payment avenues for new and pre-owned golf buggies, including 0% interest Finance in 4 installment plans and direct BTC/USDT savings.',
     category: 'Finance & Buying',
@@ -1771,6 +1780,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'commercial-utility-golf-buggies-resorts-and-industrial-parks',
+    seoTitle: "Commercial Utility Buggies for Australian Resorts",
     title: 'Commercial Utility Buggies for Australian Resorts, Vineyards & Worksites',
     excerpt: 'Cargo bed capacities, aluminum versus steel frames, towing limits, and commercial warranty support for high-duty Australian operations.',
     category: 'Commercial Fleet',
@@ -1819,6 +1829,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'remote-control-golf-buggy-australia-buyers-guide',
+    seoTitle: "Remote Control Golf Buggy Australia: Buyers Guide",
     title: 'Remote Control Golf Buggies in Australia: The Ultimate Buyer & Feature Guide',
     excerpt: 'Explore how gyroscopic straight-tracking, twin 230W motors, downhill speed braking, and lithium range make remote golf buggies the top choice for Aussie golfers.',
     category: 'Remote Buggies',
@@ -1881,6 +1892,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review',
+    seoTitle: "Best Push Golf Buggy Australia: 3 vs 4 Wheel",
     title: 'Best Push Golf Buggy in Australia: 3-Wheel vs 4-Wheel Stability & Performance Review',
     excerpt: 'Comparing 3-wheel swivel agility against 4-wheel slope stability. Discover the best push golf buggies for Australian golfers seeking durability and boot portability.',
     category: 'Push Buggies',
@@ -1939,6 +1951,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight',
+    seoTitle: "Foldable Golf Buggy Guide: Boot Space & Weight",
     title: 'Foldable Golf Buggy Buying Guide: Boot Space Dimensions, Weight & Folding Mechanisms',
     excerpt: 'A practical guide to folding golf buggies in Australia. Compact boot-space measurements, one-step fold mechanisms, quick-release wheels, and travel cases.',
     category: 'Push Buggies',
@@ -1997,6 +2010,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'motorised-vs-push-golf-buggy-health-stamina-benefits',
+    seoTitle: "Motorised vs Push Golf Buggy: Health Benefits",
     title: 'Motorised vs Push Golf Buggies: Which Improves Stamina, Heart Rate & Your Handicap?',
     excerpt: 'Sports science insights into how motorized golf buggies reduce shoulder fatigue, preserve back health, and save 2–3 shots per round on back-nine greens.',
     category: 'Electric Trolleys',
@@ -2055,6 +2069,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'must-have-golf-buggy-accessories-and-spares-australia',
+    seoTitle: "Golf Buggy Accessories & Spare Parts Australia",
     title: 'Must-Have Golf Buggy Accessories & Spare Parts in Australia: From Umbrella Mounts to Sand Buckets',
     excerpt: 'The top 10 essential golf buggy accessories and replacement spares for Australian courses. Sun protection, sand buckets, drink coolers, and spare wheels.',
     category: 'Accessories & Spares',
@@ -2118,6 +2133,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'buying-second-hand-golf-carts-in-australia-checklist',
+    seoTitle: "Second Hand Golf Buggy Australia: Buyers Checklist",
     title: 'Buying a Second Hand Golf Cart in Australia: 15-Point Pre-Purchase Inspection Checklist',
     excerpt: 'Avoid costly pitfalls when buying used golf carts. How to test battery cell health, detect chassis aluminum corrosion, check motor controllers, and verify serial numbers.',
     category: 'Buyer Guides',
@@ -2180,6 +2196,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'heavy-duty-off-road-golf-buggy-rural-acreage-guide',
+    seoTitle: "Heavy Duty Off-Road Golf Buggies Rural Australia",
     title: 'Heavy Duty Off-Road Golf Buggies for Rural Australia: Mud, Slopes & Acreage Fencing',
     excerpt: 'How heavy-duty lifted golf buggies handle steep gullies, cattle paddocks, and muddy tracks across Australian farms with high-torque AC motors and 23-inch tyres.',
     category: 'Off-Road & Farm',
@@ -2238,6 +2255,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'electric-utility-buggy-price-guide-australia',
+    seoTitle: "Electric Utility Buggy Price Guide Australia",
     title: 'Electric Utility Buggy Pricing in Australia: Purchase Costs, Battery Life & Running Economics',
     excerpt: 'Transparent 2025 pricing analysis for electric utility buggies in Australia. Comparison of acquisition costs, 240V charging electricity, and maintenance savings.',
     category: 'Commercial Fleet',
@@ -2296,6 +2314,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'electric-golf-buggy-troubleshooting-and-replacement-parts',
+    seoTitle: "Electric Golf Buggy Troubleshooting & Parts",
     title: 'Electric Golf Buggy Troubleshooting Guide: Diagnosing Motor, Controller & Solenoid Faults',
     excerpt: 'Step-by-step diagnostic guide for common electric golf buggy problems. Learn how to test solenoids, identify controller LED error codes, and source spare parts.',
     category: 'Maintenance & DIY',
@@ -2354,6 +2373,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'how-to-choose-the-right-electric-golf-buggy-in-australia',
+    seoTitle: "How to Choose an Electric Golf Buggy in Australia",
     title: 'How to Choose the Right Electric Golf Buggy in Australia: Walk-Behind vs Ride-On Comparison',
     excerpt: 'A definitive guide comparing walk-behind electric caddies, traditional 2-seaters, 4-passenger estate cruisers, and off-road 4x4 carts for Australian lifestyle and terrain.',
     category: 'Buyer Guides',
@@ -2416,6 +2436,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'golf-buggy-registration-australia-conditional-road-access',
+    seoTitle: "Golf Buggy Registration Australia: Road Access",
     title: 'Golf Buggy Registration in Australia: State-by-State Guide to Conditional Road & Community Access',
     excerpt: 'Navigating conditional road registration across QLD, NSW, VIC, and WA. Essential lighting, seatbelts, speed limits, and permits for golf estates and private acreage.',
     category: 'Regulations & Legal',
@@ -2490,6 +2511,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'lithium-battery-conversion-guide-cost-australia',
+    seoTitle: "Lithium Battery Conversion Cost Guide Australia",
     title: 'Lithium vs Lead-Acid Golf Buggy Batteries: 10-Year Total Cost & Heat Performance in Australia',
     excerpt: 'Comparing LiFePO4 lithium against flooded lead-acid and AGM packs in harsh Australian heat. Weight savings, cycle life, charging times, and true 10-year total cost of ownership.',
     category: 'Battery & Power',
@@ -2553,6 +2575,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'electric-golf-buggy-maintenance-schedule-australia',
+    seoTitle: "Electric Golf Buggy Maintenance Schedule",
     title: 'Electric Golf Buggy Maintenance Schedule: Monthly, Quarterly & Annual Checks for Longevity',
     excerpt: 'A preventive maintenance guide for Australian electric golf buggies and utility carts. Brake fluid flushes, differential oil, tyre rotations, and electrical contact care.',
     category: 'Maintenance & DIY',
@@ -2615,6 +2638,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'electric-golf-buggy-range-test-one-charge-australia',
+    seoTitle: "Electric Golf Buggy Range: How Far on One Charge",
     title: 'How Far Can an Electric Golf Buggy Go on One Charge? Real-World Australian Range Testing',
     excerpt: 'Data-backed range testing across 18-hole courses, gated communities, and hilly rural acreage. How lithium capacity (Ah), payload, terrain, and speed affect total kilometers.',
     category: 'Buyer Guides',
@@ -2678,6 +2702,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'best-golf-trolley-australia-push-motorized-remote-comparison',
+    seoTitle: "Best Golf Trolley Australia: Push vs Motorised",
     title: 'Best Golf Trolley in Australia: Push vs Motorized vs Remote Control Comprehensive Evaluation',
     excerpt: 'Find your ideal walking companion on Australian fairways. Detailed comparison of manual push trolleys, motorized walkers, and hands-free remote caddies.',
     category: 'Electric Trolleys',
@@ -2750,6 +2775,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'transporting-towing-golf-buggy-australia-trailers-tie-downs',
+    seoTitle: "Transporting & Towing a Golf Buggy in Australia",
     title: 'How to Safely Transport & Tow a Golf Buggy in Australia: Trailers, Ramps & Tie-Down Best Practices',
     excerpt: 'Everything you need to know about trailering golf carts on Australian highways. ATM weight calculations, 4-point strap anchor angles, windscreen protection, and enclosed trailers.',
     category: 'Owner Advice',
@@ -2813,6 +2839,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'golf-buggy-winter-storage-battery-care-australia',
+    seoTitle: "Golf Buggy Winter Storage & Battery Care",
     title: 'Golf Buggy Winter Storage & Long-Term Care: Preventing Deep Discharge & Electronic Faults',
     excerpt: 'Proven off-season care tips for electric golf buggies across southern Australia. State of charge optimization, moisture mitigation, tyre preservation, and rodent deterrence.',
     category: 'Maintenance & DIY',
@@ -2874,6 +2901,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'ac-vs-dc-golf-buggy-motors-torque-efficiency-australia',
+    seoTitle: "AC vs DC Golf Buggy Motors: Torque & Efficiency",
     title: 'AC vs DC Motors in Modern Golf Buggies: Torque Curves, Hill Climbing & Maintenance Compared',
     excerpt: 'Technical breakdown of brushless Alternating Current (AC) versus traditional Direct Current (DC) golf buggy motors. Why modern AC drivetrains dominate Australian hills and acreage.',
     category: 'Technical Engineering',
@@ -2936,6 +2964,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'mgi-golf-buggy-accessories-guide-australia',
+    seoTitle: "MGI Golf Buggy Accessories Guide Australia",
     title: 'MGI Golf Buggy Accessories Guide: Top 10 Must-Have Add-Ons for Australian Courses',
     excerpt: 'Explore the essential accessory attachments for MGI Zip and Ai Navigator electric buggies. From sun umbrella extenders and padded seats to sand bucket loops and wheel covers.',
     category: 'Accessories & Spares',
@@ -3002,6 +3031,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'solar-panels-on-golf-buggies-australia-feasibility-guide',
+    seoTitle: "Solar Panels on Golf Buggies in Australia",
     title: 'Solar Panels on Golf Buggies: Does Roof Solar Recharging Actually Work in Australia?',
     excerpt: 'An engineering analysis of flexible monocrystalline solar roofs on golf buggies and farm carts. Daily kilowatt-hour harvest, MPPT charge controllers, and battery cycle extension.',
     category: 'Renewable Tech',

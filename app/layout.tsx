@@ -11,14 +11,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "The Buggies Express | Australia's Most Complete Golf Buggy & Cart Specialists",
+  title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
   description: "Sales, service, warranty, parts, and custom builds. 61+ models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.",
   metadataBase: new URL(`https://${SITE.domain}`),
   alternates: {
     canonical: `https://${SITE.domain}/`,
   },
   openGraph: {
-    title: "The Buggies Express | Australia's Most Complete Golf Buggy & Cart Specialists",
+    title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
     description: "Sales, service, warranty, parts, and custom builds. 61+ models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.",
     type: 'website',
     locale: 'en_AU',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "The Buggies Express | Australia's Most Complete Golf Buggy & Cart Specialists",
+    title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
     description: "Sales, service, warranty, parts, and custom builds. 61+ models in stock at Yatala QLD depot.",
   },
   robots: {

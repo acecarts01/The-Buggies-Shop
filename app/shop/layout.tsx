@@ -5,8 +5,8 @@ import { SITE } from '@/src/config/site';
 // so it lives here. Without it the route inherits the root layout's title,
 // description and canonical, which points every page at the homepage.
 export const metadata: Metadata = {
-  title: 'Shop Golf Buggies Australia | All 61 Models | The Buggies Express',
-  description: 'Browse all 61 models: luxury 4-seaters, traditional 2-seaters, lifted 4x4, commercial utility, petrol and walk-behind buggies, plus batteries, chargers and parts. GST-inclusive pricing from Yatala QLD.',
+  title: 'Shop Golf Buggies Australia | All 61 Models',
+  description: 'Browse all 61 models: luxury 4-seaters, 2-seaters, lifted 4x4, commercial utility, petrol and walk-behind buggies, plus batteries and parts.',
   alternates: {
     canonical: `https://${SITE.domain}/shop/`,
   },
