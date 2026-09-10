@@ -21,6 +21,7 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import { POSTS, BlogPost, SITE, ABN_INFO, CONTACT } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
   StaggeredParagraph,
@@ -44,17 +45,7 @@ export default function BlogClient() {
   }, []);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [cartOpen, setCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
 
   // Three groups a visitor actually chooses between, rather than all
   // sixteen raw post categories. The value is what the filter matches on;
@@ -439,16 +430,13 @@ export default function BlogClient() {
             .map((i) => (i.id === id ? { ...i, quantity: i.quantity + delta } : i))
             .filter((i) => i.quantity > 0);
           setCartItems(updated);
-          localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
         }}
         onRemoveItem={(id) => {
           const updated = cartItems.filter((i) => i.id !== id);
           setCartItems(updated);
-          localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
         }}
         onClearCart={() => {
           setCartItems([]);
-          localStorage.removeItem(SITE.cartKey);
         }}
       />
     </div>

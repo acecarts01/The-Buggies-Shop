@@ -7,28 +7,14 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import AtlasLandingPage from '@/src/components/AtlasLandingPage';
 import { SITE, PRODUCTS } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 
 export default function AtlasProductPage() {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
 
   const saveCart = (newItems: CartItem[]) => {
     setCartItems(newItems);
-    try {
-      localStorage.setItem(SITE.cartKey, JSON.stringify(newItems));
-    } catch {
-      // ignore
-    }
   };
 
   const handleAddAtlasToCart = () => {

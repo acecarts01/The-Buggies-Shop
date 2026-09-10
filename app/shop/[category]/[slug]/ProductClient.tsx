@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SmartImage from '@/src/components/SmartImage';
 import { 
@@ -27,6 +27,7 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, VEHICLE_COLORS } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
   StaggeredParagraph,
@@ -41,17 +42,7 @@ interface ProductClientProps {
 }
 
 export default function ProductClient({ product }: ProductClientProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
@@ -67,11 +58,6 @@ export default function ProductClient({ product }: ProductClientProps) {
 
   const saveCart = (newItems: CartItem[]) => {
     setCartItems(newItems);
-    try {
-      localStorage.setItem(SITE.cartKey, JSON.stringify(newItems));
-    } catch {
-      // ignore
-    }
   };
 
   const handleAddToCart = () => {
@@ -201,7 +187,10 @@ Notes: ${quoteForm.notes || 'None'}`
           </div>
         </div>
 
-        <Header onOpenCart={() => setCartOpen(true)} />
+        <Header
+          cartCount={cartItems.reduce((sum, i) => sum + i.quantity, 0)}
+          onOpenCart={() => setCartOpen(true)}
+        />
 
         <main id="main" className="flex-1 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">

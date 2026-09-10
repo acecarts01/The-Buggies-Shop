@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import { SITE, ProductItem } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
   StaggeredParagraph
@@ -18,27 +19,12 @@ interface CategoryClientProps {
 }
 
 export default function CategoryClient({ categorySlug, categoryName }: CategoryClientProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
 
   const saveCart = useCallback((newItems: CartItem[]) => {
     setCartItems(newItems);
-    try {
-      localStorage.setItem(SITE.cartKey, JSON.stringify(newItems));
-    } catch {
-      // ignore
-    }
-  }, []);
+  }, [setCartItems]);
 
   const handleAddToCart = useCallback((product: ProductItem) => {
     setCartItems((prev) => {
@@ -61,41 +47,26 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
           },
         ];
       }
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
     setCartOpen(true);
-  }, []);
+  }, [setCartItems]);
 
   const handleUpdateQty = useCallback((id: string, delta: number) => {
     setCartItems((prev) => {
       const updated = prev
         .map((i) => (i.id === id ? { ...i, quantity: i.quantity + delta } : i))
         .filter((i) => i.quantity > 0);
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
-  }, []);
+  }, [setCartItems]);
 
   const handleRemoveItem = useCallback((id: string) => {
     setCartItems((prev) => {
       const updated = prev.filter((i) => i.id !== id);
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
-  }, []);
+  }, [setCartItems]);
 
   const breadcrumbs = {
     '@context': 'https://schema.org',

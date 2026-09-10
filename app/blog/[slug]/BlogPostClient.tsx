@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   Calendar, 
@@ -23,6 +23,7 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import { BlogPost, POSTS, SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 
 interface BlogPostClientProps {
   post: BlogPost;
@@ -31,17 +32,7 @@ interface BlogPostClientProps {
 export default function BlogPostClient({ post }: BlogPostClientProps) {
   const [cartOpen, setCartOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
 
   const relatedPosts = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
   const relatedProduct = post.relatedProductSlug
@@ -303,16 +294,13 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
             .map((i) => (i.id === id ? { ...i, quantity: i.quantity + delta } : i))
             .filter((i) => i.quantity > 0);
           setCartItems(updated);
-          localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
         }}
         onRemoveItem={(id) => {
           const updated = cartItems.filter((i) => i.id !== id);
           setCartItems(updated);
-          localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
         }}
         onClearCart={() => {
           setCartItems([]);
-          localStorage.removeItem(SITE.cartKey);
         }}
       />
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import SmartImage from '@/src/components/SmartImage';
 import { 
@@ -41,30 +41,16 @@ import {
 } from '@/src/components/AnimatedText';
 import { motion } from 'motion/react';
 import { ABN_INFO, CONTACT, SITE, SHOP, FAQ, BRAND, ProductItem, POSTS } from '@/src/config/site';
+import { useCart } from '@/hooks/use-cart';
 
 export default function HomePage() {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem(SITE.cartKey);
-        if (saved) return JSON.parse(saved);
-      } catch {
-        // ignore
-      }
-    }
-    return [];
-  });
+  const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
 
   // Save cart to localStorage with useCallback
   const saveCart = useCallback((newItems: CartItem[]) => {
     setCartItems(newItems);
-    try {
-      localStorage.setItem(SITE.cartKey, JSON.stringify(newItems));
-    } catch {
-      // ignore
-    }
-  }, []);
+  }, [setCartItems]);
 
   const handleAddToCart = useCallback((product: ProductItem) => {
     setCartItems((prev) => {
@@ -87,50 +73,30 @@ export default function HomePage() {
           },
         ];
       }
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
     setCartOpen(true);
-  }, []);
+  }, [setCartItems]);
 
   const handleUpdateQty = useCallback((id: string, delta: number) => {
     setCartItems((prev) => {
       const updated = prev
         .map((i) => (i.id === id ? { ...i, quantity: i.quantity + delta } : i))
         .filter((i) => i.quantity > 0);
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
-  }, []);
+  }, [setCartItems]);
 
   const handleRemoveItem = useCallback((id: string) => {
     setCartItems((prev) => {
       const updated = prev.filter((i) => i.id !== id);
-      try {
-        localStorage.setItem(SITE.cartKey, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
       return updated;
     });
-  }, []);
+  }, [setCartItems]);
 
   const handleClearCart = useCallback(() => {
     setCartItems([]);
-    try {
-      localStorage.setItem(SITE.cartKey, JSON.stringify([]));
-    } catch {
-      // ignore
-    }
-  }, []);
+  }, [setCartItems]);
 
   // Schema LD
   const jsonLdStore = {
