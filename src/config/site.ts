@@ -91,22 +91,15 @@ export const CONTACT = {
 };
 
 // Order rules. This block is the ONLY source of truth for them - CLAUDE.md
-// deliberately no longer restates the numbers.
+// deliberately no longer restates the numbers, so they cannot drift again.
 //
-// minOrder and freeShippingThreshold are BOTH unconfirmed and neither is read
-// anywhere yet. Nothing publishes them, and nothing should until the owner
-// confirms the real commercial terms, because the candidate values are all
-// implausible against the actual catalogue:
-//   - a $1,000 minimum would block 21 of the 25 parts (cheapest is $75),
-//     making the largest category unsellable on its own;
-//   - a $25,000 free-freight threshold clears only 2 of 61 items;
-//   - a $500 threshold clears 47 of 61, i.e. near-free enclosed vehicle
-//     freight Australia-wide, and contradicts shippingNote below.
-// Until then the honest position is the one the site already takes: no
-// minimum enforced, no free-freight offer, freight quoted per order.
+// Confirmed by the owner 2026-09-10: there is NO minimum order, and NO
+// free-freight threshold. Freight is always quoted against the delivery
+// postcode at checkout. The earlier $1,000 / $25,000 / $500 figures were
+// stale and are gone - do not reintroduce any of them.
 export const SHOP = {
-  minOrder: 0,                     // no minimum in effect
-  freeShippingThreshold: null,     // no free-freight offer in effect
+  minOrder: 0,                     // confirmed: no minimum order
+  freeShippingThreshold: null,     // confirmed: no free-freight offer; always quoted
   shippingNote: 'Calculated according to location/distance & pallet freight requirements',
   cryptoDiscount: 10, // 10% on BTC / USDT
   accessoryBundleDiscount: 5, // 5% discount on all accessories when purchased alongside any buggy

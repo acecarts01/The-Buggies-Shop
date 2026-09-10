@@ -70,7 +70,8 @@ Payment Option: ${paymentOption}
 Subtotal: $${rawSubtotal.toLocaleString()} AUD
 Bundle Discount: -$${accessoryDiscount.toLocaleString()} AUD
 Crypto Discount: -$${cryptoDiscount.toLocaleString()} AUD
-Final Total: $${finalTotal.toLocaleString()} AUD
+Final Total: $${finalTotal.toLocaleString()} AUD (excludes freight)
+Freight: to be quoted against the delivery postcode
 Postcode: ${buyerPostcode || 'Not specified'}
 
 Items:
@@ -158,7 +159,7 @@ Payment Method Preference: ${paymentLabel}
 Customer: ${buyerName || 'Australian Buyer'}
 Delivery Postcode: ${buyerPostcode || 'Pending'}
 
-Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
+The total above excludes freight. Please confirm stock availability at the Yatala QLD depot, dispatch timing, and the freight quote for my postcode.`;
     return encodeURIComponent(text);
   };
 
@@ -475,8 +476,22 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                   <span>Included in prices (Official Tax Invoice provided)</span>
                 </div>
 
+                {/* There is no free-freight threshold and no minimum order.
+                    Freight is always quoted against the delivery postcode, so
+                    the cart says so rather than leaving the buyer to read the
+                    total as a delivered price. */}
+                <div className="flex justify-between text-[11px] text-[#6B645E]">
+                  <span>Freight:</span>
+                  <span className="text-right">Quoted separately by delivery postcode</span>
+                </div>
+
                 <div className="flex justify-between text-base font-serif font-bold text-[#121417] pt-2 border-t border-[#E7E5E4]">
-                  <span>Estimated Total:</span>
+                  <span>
+                    Estimated Total:
+                    <span className="block text-[10px] font-sans font-medium text-[#6B645E]">
+                      Excludes freight
+                    </span>
+                  </span>
                   <div className="text-right">
                     <div className="text-[#A85640] font-sans font-bold">${finalTotal.toLocaleString()} AUD</div>
                     {paymentOption === 'finance4' && (
