@@ -26,6 +26,8 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Registered: 7/06/2023 with ASIC (Next review: 7/06/2027).
 - Registered Locality: Yatala QLD 4207.
 - All prices include 10% Australian GST.
-- Min order: $1,000 AUD. Free freight threshold: $25,000 AUD.
+- Order rules live in `SHOP` (src/config/site.ts) — never restate the numbers here, or they drift.
+- Min order and free-freight threshold are UNCONFIRMED: do not publish either in customer-facing
+  copy until the owner confirms them. Freight is "quoted per order" (`SHOP.shippingNote`).
 - Crypto incentive: 10% discount on vehicle price for Bitcoin (BTC) or Tether (USDT).
 - High-ticket rule: complimentary on-farm trial demonstration for vehicles ≥ $15,000 AUD.
