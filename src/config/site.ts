@@ -40,7 +40,7 @@ export const SITE = {
   stoneMuted: '#78716C',     // secondary copy
   boneCanvas: '#F7F6F2',     // warm bone page canvas
   hairline: '#E7E5E4',       // 1px architectural border
-  gscVerification: 'pending',
+  gscVerification: 'YLFDcqDbIz_dbHOuybcq5WeIGDVOwfipnN71Efql9dM',
   indexNowKey: 'golfbuggiesexpress-idx-2025',
   cartKey: 'buggies-express-cart',
 };
@@ -108,6 +108,76 @@ export const SHOP = {
     'Direct Bank Transfer (EFT)',
     'Finance in 4 (4 Equal Interest-Free Payments)',
     'Crypto (BTC / USDT - 10% Off)',
+  ],
+};
+
+// Crypto settlement. Buyers paying in BTC or USDT take SHOP.cryptoDiscount off
+// the vehicle price; freight and accessories are charged at full rate on top.
+//
+// The seller addresses below are intentionally empty. They must be pasted in by
+// the business owner and checked character by character - a mistyped address
+// sends funds somewhere unrecoverable, and there is no reversal on a settled
+// chain transaction. While an address is blank the portal hides the
+// "pay the seller directly" route rather than showing a placeholder.
+export const CRYPTO = {
+  discountPercent: SHOP.cryptoDiscount,
+  wallets: [
+    {
+      key: 'btc',
+      asset: 'BTC',
+      assetName: 'Bitcoin',
+      network: 'Bitcoin mainnet',
+      addressHint: 'starts with bc1, 1 or 3',
+      address: 'bc1qe3mfevg3ud3jukp9ad37wszcfrwev7zxxex5u5',
+    },
+    {
+      key: 'usdt-trc20',
+      asset: 'USDT',
+      assetName: 'Tether',
+      network: 'Tron (TRC-20)',
+      addressHint: 'starts with T',
+      address: 'TVQGzSJKcHXTwX6Fn8CPb6A5PmAkoCFZRh',
+    },
+    {
+      key: 'usdt-erc20',
+      asset: 'USDT',
+      assetName: 'Tether',
+      network: 'Ethereum (ERC-20)',
+      addressHint: 'starts with 0x',
+      address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
+    },
+  ],
+  // Independent third-party exchanges. The Buggies Express has no commercial
+  // relationship with any of them and earns nothing from these links.
+  portals: [
+    {
+      name: 'CoinSpot',
+      url: 'https://www.coinspot.com.au/',
+      basedIn: 'Australia',
+      rails: 'PayID, Osko, bank transfer, debit and credit card',
+      note: 'AUSTRAC-registered Australian exchange. AUD deposits settle without a currency conversion spread.',
+    },
+    {
+      name: 'Coinbase',
+      url: 'https://www.coinbase.com/',
+      basedIn: 'United States',
+      rails: 'Debit and credit card, bank transfer',
+      note: 'Publicly listed and the most widely used exchange worldwide. Straightforward for a first-time buyer.',
+    },
+    {
+      name: 'Binance',
+      url: 'https://www.binance.com/en-AU/crypto/buy',
+      basedIn: 'Global',
+      rails: 'Debit and credit card, bank transfer',
+      note: 'Largest exchange by trading volume, with deep BTC and USDT liquidity. AUD bank rails have been intermittent for Australian users.',
+    },
+    {
+      name: 'MoonPay',
+      url: 'https://www.moonpay.com/buy',
+      basedIn: 'Global',
+      rails: 'Debit and credit card, Apple Pay, Google Pay',
+      note: 'Card-first on-ramp with no exchange account to open. Convenience fees are higher than an exchange.',
+    },
   ],
 };
 

@@ -33,7 +33,7 @@ export default function ChatHub() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#25D366] text-white font-bold hover:bg-[#20bd5a] transition-all shadow-xs"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-[#188741] text-white font-bold hover:bg-[#147136] transition-all shadow-xs"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Chat via WhatsApp (Live)</span>
@@ -63,7 +63,7 @@ export default function ChatHub() {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="flex items-center gap-2 min-h-[44px] bg-[#25D366] text-white font-bold text-xs py-2.5 px-4 rounded-full shadow-sm hover:bg-[#20bd5a] transition-all border border-white/20"
+          className="flex items-center gap-2 min-h-[44px] bg-[#188741] text-white font-bold text-xs py-2.5 px-4 rounded-full shadow-sm hover:bg-[#147136] transition-all border border-white/20"
           id="chathub-toggle-btn"
           aria-label="Chat with the Yatala sales desk"
         >

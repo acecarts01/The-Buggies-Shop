@@ -157,7 +157,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           <button
             type="button"
             onClick={() => setIsWriteModalOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs active:scale-95"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#567F60] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs active:scale-95"
           >
             <MessageSquarePlus className="w-4 h-4" />
             <span>Write a Review</span>
@@ -175,7 +175,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           </div>
           <div className="flex items-center gap-1 text-[#487053]">
             {[1, 2, 3, 4, 5].map((star) => (
-              <div key={star} className="w-6 h-6 bg-[#5E8C6A] text-white flex items-center justify-center rounded-sm">
+              <div key={star} className="w-6 h-6 bg-[#567F60] text-white flex items-center justify-center rounded-sm">
                 <Star className="w-4 h-4 fill-white text-white" />
               </div>
             ))}
@@ -233,7 +233,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           onClick={() => setSelectedRatingFilter('all')}
           className={`px-3 py-1.5 rounded-lg font-bold whitespace-nowrap shrink-0 transition-all ${
             selectedRatingFilter === 'all'
-              ? 'bg-[#5E8C6A] text-white shadow-xs'
+              ? 'bg-[#567F60] text-white shadow-xs'
               : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#6B645E] hover:text-[#121417]'
           }`}
         >
@@ -249,12 +249,12 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
               onClick={() => setSelectedRatingFilter(stars)}
               className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1 ${
                 selectedRatingFilter === stars
-                  ? 'bg-[#5E8C6A] text-white shadow-xs'
+                  ? 'bg-[#567F60] text-white shadow-xs'
                   : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#6B645E] hover:text-[#121417]'
               }`}
             >
               <span>{stars}★</span>
-              <span className="text-[10px] opacity-80">({count})</span>
+              <span className="text-[10px]">({count})</span>
             </button>
           );
         })}
@@ -285,7 +285,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                         <div 
                           key={s} 
                           className={`w-5 h-5 flex items-center justify-center rounded-xs ${
-                            s <= rev.rating ? 'bg-[#5E8C6A] text-white' : 'bg-[#E7E5E4] text-[#A8A29E]'
+                            s <= rev.rating ? 'bg-[#567F60] text-white' : 'bg-[#E7E5E4] text-[#A8A29E]'
                           }`}
                         >
                           <Star className={`w-3.5 h-3.5 ${s <= rev.rating ? 'fill-white text-white' : 'text-[#A8A29E]'}`} />
@@ -402,7 +402,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                         onClick={() => setNewReview({ ...newReview, rating: star })}
                         className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
                           star <= newReview.rating
-                            ? 'bg-[#5E8C6A] text-white scale-105 shadow-xs'
+                            ? 'bg-[#567F60] text-white scale-105 shadow-xs'
                             : 'bg-[#F7F6F2] border border-[#E7E5E4] text-[#A8A29E] hover:border-[#5E8C6A]'
                         }`}
                       >
@@ -478,7 +478,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#567F60] hover:bg-[#4F7A5A] text-white text-xs sm:text-sm font-bold rounded-lg transition-all shadow-xs flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Verified Review</span>

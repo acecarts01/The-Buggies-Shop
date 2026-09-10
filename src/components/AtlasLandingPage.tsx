@@ -586,7 +586,7 @@ Timeframe: ${quoteForm.timeframe}`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3 bg-[#25D366] text-white text-xs font-extrabold rounded-lg hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-1.5 shadow-sm"
+              className="w-full sm:w-auto px-6 py-3 bg-[#188741] text-white text-xs font-extrabold rounded-lg hover:bg-[#147136] transition-all flex items-center justify-center gap-1.5 shadow-sm"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Direct WhatsApp Purchase</span>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight } from 'lucide-react';
 import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem } from '@/src/config/site';
 
@@ -389,6 +390,17 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                 </div>
               </div>
 
+              {/* Crypto: send them somewhere that actually explains how to pay */}
+              {paymentOption === 'crypto' && (
+                <Link
+                  href="/crypto-payment/"
+                  className="block bg-white border border-[#C86D51]/30 rounded-xl p-3 hover:border-[#C86D51] transition-all shadow-2xs"
+                >
+                  <div className="font-bold text-[11px] text-[#A85640] mb-0.5">How to pay in BTC or USDT →</div>
+                  <div className="text-[10px] text-[#6B645E] leading-relaxed">Work out what to buy, pick a verified exchange, and keep control of your funds until you release payment.</div>
+                </Link>
+              )}
+
               {/* Finance in 4 Schedule Breakdown Card */}
               {paymentOption === 'finance4' && (
                 <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 text-xs space-y-2 shadow-2xs">
@@ -543,7 +555,7 @@ Please confirm stock availability at the Yatala QLD depot and dispatch timing.`;
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppOrderClick}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#188741] hover:bg-[#147136] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
                 id="cart-whatsapp-order-btn"
               >
                 <MessageSquare className="w-4 h-4" />

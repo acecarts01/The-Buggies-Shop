@@ -7,7 +7,6 @@ import {
   ChevronRight,
   Search,
   ThumbsUp,
-  ExternalLink,
   SlidersHorizontal,
   LayoutGrid,
   Sparkles,
@@ -158,7 +157,7 @@ export default function ReviewsCarousel() {
               {/* Trustpilot Brand Logo & Star Cluster */}
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-[#5E8C6A] rounded flex items-center justify-center text-white font-bold text-base shadow-xs">
+                  <div className="w-7 h-7 bg-[#567F60] rounded flex items-center justify-center text-white font-bold text-base shadow-xs">
                     ★
                   </div>
                   <span className="font-sans font-extrabold text-xl sm:text-2xl text-[#121417] tracking-tight">
@@ -281,12 +280,12 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('all')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === 'all'
-                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    ? 'bg-[#567F60] text-white shadow-xs'
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
                 <span>All Reviews</span>
-                <span className="text-[10px] opacity-80">({REVIEWS_DATA.length})</span>
+                <span className="text-[10px]">({REVIEWS_DATA.length})</span>
               </button>
 
               <button
@@ -294,7 +293,7 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('5star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '5star'
-                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    ? 'bg-[#567F60] text-white shadow-xs'
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
@@ -307,7 +306,7 @@ export default function ReviewsCarousel() {
                 onClick={() => handleFilterChange('4star')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                   selectedFilter === '4star'
-                    ? 'bg-[#5E8C6A] text-white shadow-xs'
+                    ? 'bg-[#567F60] text-white shadow-xs'
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
@@ -337,7 +336,7 @@ export default function ReviewsCarousel() {
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#B85C42] bg-[#FBF6F1] px-1 rounded text-[10px]">2★</span>
+                <span className="text-[#A64E36] bg-[#FBF6F1] px-1 rounded text-[10px]">2★</span>
                 <span>2 Stars ({count2})</span>
               </button>
 
@@ -591,18 +590,6 @@ export default function ReviewsCarousel() {
               </div>
             </div>
           </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <a
-              href="https://www.trustpilot.com/review/drummondgolf.com.au"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-[#5E8C6A] hover:bg-[#4F7A5A] text-white font-bold text-xs rounded-lg transition-all flex items-center gap-1.5 shadow-xs"
-            >
-              <span>View On Trustpilot</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -637,7 +624,7 @@ function ReviewCard({
   // 2: Trustpilot Orange (#B85C42)
   const getStarColor = (starIndex: number, rating: number) => {
     if (starIndex >= rating) return 'bg-[#E7E5E4] text-[#6B645E]';
-    if (rating >= 4) return 'bg-[#5E8C6A] text-white';
+    if (rating >= 4) return 'bg-[#567F60] text-white';
     if (rating === 3) return 'bg-[#9A4C36] text-white';
     return 'bg-[#B85C42] text-white';
   };
