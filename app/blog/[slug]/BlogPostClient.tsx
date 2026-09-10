@@ -186,7 +186,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                   {relatedProduct.key_specs}. Available for immediate dispatch from our Yatala QLD depot with nationwide enclosed delivery.
                 </p>
                 <div className="text-base font-extrabold text-[#E2A17A]">
-                  {relatedProduct.price_display} AUD{' '}
+                  {relatedProduct.price_display}{' '}
                   <span className="text-xs font-normal text-[#A8A29E]">(GST Included)</span>
                 </div>
               </div>

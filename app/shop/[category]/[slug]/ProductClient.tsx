@@ -151,13 +151,13 @@ export default function ProductClient({ product }: ProductClientProps) {
         postcode: quoteForm.postcode,
         buggyModel: product.name,
         subject: `Official Quote Request: ${product.name}`,
-        message: `Quote Request for ${product.name} (${product.price_display} AUD)\nDelivery Preference: ${quoteForm.deliveryPreference}\nNotes: ${quoteForm.notes || 'None'}`,
+        message: `Quote Request for ${product.name} (${product.price_display})\nDelivery Preference: ${quoteForm.deliveryPreference}\nNotes: ${quoteForm.notes || 'None'}`,
       }),
     }).catch(() => {});
 
     const text = encodeURIComponent(
       `Hello The Buggies Express team, I would like an official Australian Tax Quote & Freight Logistics estimate for:
-Model: ${product.name} (${product.price_display} AUD)
+Model: ${product.name} (${product.price_display})
 Customer: ${quoteForm.name}
 Phone: ${quoteForm.phone}
 Postcode: ${quoteForm.postcode}
@@ -462,7 +462,7 @@ Notes: ${quoteForm.notes || 'None'}`
 
                   <a
                     href={`https://wa.me/61480804189?text=${encodeURIComponent(
-                      `Hello The Buggies Express, I would like to consult with a specialist on: ${product.name} (${product.price_display} AUD).`
+                      `Hello The Buggies Express, I would like to consult with a specialist on: ${product.name} (${product.price_display}).`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -686,7 +686,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     Request Tax Quotation
                   </h3>
                   <div className="text-xs text-[#A8A29E]">
-                    Selected Model: <strong className="text-[#E2A17A]">{product.name}</strong> ({product.price_display} AUD)
+                    Selected Model: <strong className="text-[#E2A17A]">{product.name}</strong> ({product.price_display})
                   </div>
                 </div>
 

@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps) {
   if (!product) return { title: 'Buggy Not Found' };
 
   return {
-    title: `${product.name} | ${product.price_display} AUD | The Buggies Express`,
-    description: `${product.name} (${product.price_display} AUD). ${product.key_specs}. Yatala QLD depot warranty with enclosed Australia-wide freight.`,
+    title: `${product.name} | ${product.price_display} | The Buggies Express`,
+    description: `${product.name} (${product.price_display}). ${product.key_specs}. Yatala QLD depot warranty with enclosed Australia-wide freight.`,
     alternates: {
       canonical: `https://${SITE.domain}/shop/${category}/${product.slug}/`,
     },

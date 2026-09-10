@@ -6,20 +6,16 @@ import SmartImage from '@/src/components/SmartImage';
 import {
   Sparkles,
   ShoppingBag,
-  Zap,
   ShieldCheck,
   ChevronRight,
   Info,
   CheckCircle2,
   FileText,
-  BadgePercent,
-  Battery,
-  BatteryCharging,
   SlidersHorizontal,
   X,
   MessageSquare
 } from 'lucide-react';
-import { PRODUCTS, CATEGORIES, ProductItem, ABN_INFO, CONTACT, SHOP, isAccessoryItem } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, ProductItem } from '@/src/config/site';
 import { AnimatedCounter, FadeUpText } from '@/src/components/AnimatedText';
 
 interface CatalogInterfaceProps {
@@ -93,7 +89,6 @@ interface ProductCardProps {
   battery: ReturnType<typeof getBatteryInfo>;
   onAddToCart?: (product: ProductItem) => void;
   onOpenQuote: (product: ProductItem) => void;
-  onInspect: (product: ProductItem) => void;
 }
 
 const ProductCard = React.memo(function ProductCard({
@@ -101,7 +96,6 @@ const ProductCard = React.memo(function ProductCard({
   battery,
   onAddToCart,
   onOpenQuote,
-  onInspect,
 }: ProductCardProps) {
   const isHighTicket = product.price_aud >= 15000;
   const isFlagship = product.slug.includes('atlas');
@@ -116,147 +110,54 @@ const ProductCard = React.memo(function ProductCard({
           : 'border-[#E7E5E4] hover:border-[#C86D51]/40'
       }`}
     >
-      {/* Card Header & Badges */}
-      <div>
-        <div className="p-4 bg-[#F7F6F2] border-b border-[#E7E5E4] flex items-center justify-between gap-2">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-[#6B645E]">
+      {/* Product image. Both this and the title link through to the product
+          page, so the card needs no separate 'Full Details' button. */}
+      <Link href={productUrl} aria-label={product.name} className="block relative aspect-[4/3] bg-white overflow-hidden">
+        <SmartImage
+          src={product.images?.[0] || ''}
+          alt={product.name}
+          fill
+          className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        {isHighTicket && (
+          <span className="absolute top-2 left-2 inline-flex items-center gap-1 bg-[#F7EFEA] border border-[#E8D2C6] text-[#A85640] px-2 py-0.5 rounded text-[10px] font-bold">
+            <Sparkles className="w-3 h-3 text-[#A85640]" />
+            Tour Fleet Flagship
+          </span>
+        )}
+      </Link>
+
+      {/* The box directly below the image carries the specs and the order
+          details, and nothing else. The full description, battery detail,
+          warranty, target application and freight terms all live on the
+          product page - browsing pages stay short enough to scan. */}
+      <div className="p-4 space-y-2.5">
+        <div className="space-y-0.5">
+          <span className="block text-[10px] uppercase font-bold tracking-wider text-[#6B645E] line-clamp-1">
             {product.category}
           </span>
-
-          {/* Stock / Tier Status Badge */}
-          {isHighTicket ? (
-            <span className="inline-flex items-center gap-1 bg-[#F7EFEA] border border-[#E8D2C6] text-[#A85640] px-2 py-0.5 rounded text-[10px] font-bold">
-              <Sparkles className="w-3 h-3 text-[#A85640]" />
-              Tour Fleet Flagship
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 bg-white border border-[#E7E5E4] text-[#6B645E] px-2 py-0.5 rounded text-[10px] font-medium">
-              In Stock Yatala QLD
-            </span>
-          )}
+          <Link
+            href={productUrl}
+            className="block text-sm sm:text-base font-serif font-bold text-[#121417] group-hover:text-[#A85640] transition-colors line-clamp-2"
+          >
+            {product.name}
+          </Link>
         </div>
 
-        {/* Product Image — white 4:3 frame so mixed sources sit uniformly */}
-        <Link href={productUrl} aria-label={product.name} className="block relative aspect-[4/3] bg-white overflow-hidden">
-          <SmartImage
-            src={product.images?.[0] || ''}
-            alt={product.name}
-            fill
-            className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        </Link>
-        {/* Product Presentation Canvas */}
-        <div className="p-5 space-y-3">
-          <div>
-            <Link
-              href={productUrl}
-              className="text-base sm:text-lg font-serif font-bold text-[#121417] group-hover:text-[#A85640] transition-colors line-clamp-1"
-            >
-              {product.name}
-            </Link>
-            <div className="text-xs text-[#6B645E] mt-0.5 flex items-center gap-2">
-              <span className="capitalize">{product.fuel_type}</span>
-              <span>•</span>
-              <span>{product.target_audience}</span>
-            </div>
-          </div>
+        <p className="text-[11px] text-[#6B645E] leading-relaxed line-clamp-2">
+          <span className="font-semibold text-[#121417]">{battery.title}</span>
+          {' — '}
+          {product.key_specs}
+        </p>
 
-          {/* Description collapsed by default so the grid stays compact.
-              <details> keeps it keyboard-operable with no JS. */}
-          <details className="group/desc bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg text-xs surface-card">
-            <summary className="cursor-pointer list-none p-2.5 flex items-center justify-between gap-2 text-[10px] font-extrabold uppercase tracking-wider text-[#A85640]">
-              <span>Description &amp; Highlights</span>
-              <ChevronRight className="w-3.5 h-3.5 shrink-0 transition-transform group-open/desc:rotate-90 motion-reduce:transition-none" />
-            </summary>
-            <div className="px-2.5 pb-2.5 space-y-1">
-              <p className="text-[11px] text-[#57534E] leading-relaxed">
-                {product.shortDescription || product.fullDescription}
-              </p>
-              <div className="text-[9px] text-[#6B645E] uppercase tracking-wider">Australian Specs</div>
-            </div>
-          </details>
-
-          {/* Price Point & Payment Options */}
-          <div className="pt-2 border-t border-[#E7E5E4] space-y-1">
-            <div className="flex items-baseline justify-between gap-2">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xl sm:text-2xl font-serif font-extrabold text-[#121417] tracking-tight">
-                  {product.price_display}
-                </span>
-                <span className="text-[10px] font-medium text-[#6B645E]">
-                  AUD (GST Incl.)
-                </span>
-              </div>
-              <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-[#F7EFEA] text-[#A85640] border border-[#E8D2C6]">
-                Yatala Stock
-              </span>
-            </div>
-
-            {/* Installments & 5% Bundle Indicators */}
-            <div className="flex items-center justify-between text-[11px] pt-0.5">
-              <div className="text-[#A85640] font-medium flex items-center gap-1">
-                <BadgePercent className="w-3.5 h-3.5 text-[#A85640]" />
-                <span>or 4x ${Math.round(product.price_aud / 4).toLocaleString()} AUD Pay-in-4 (0% int.)</span>
-              </div>
-              {isAccessoryItem(product.category, product.id, product.name) ? (
-                <span className="text-[10px] font-bold text-[#7A4030] bg-[#FBF6F1] border border-[#F0D2BC] px-1.5 py-0.5 rounded">
-                  5% Off w/ Buggy
-                </span>
-              ) : (
-                <span className="text-[10px] font-bold text-[#A85640] bg-[#F7EFEA] border border-[#E8D2C6] px-1.5 py-0.5 rounded">
-                  5% Acc. Bundle
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* BATTERY TECHNOLOGY BADGE: Lithium vs Lead-Acid Focus */}
-          <div className={`p-2.5 rounded-lg border text-xs ${battery.badgeBg} space-y-1`}>
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-1.5 font-bold">
-                {battery.isZeroMaintenance ? (
-                  <BatteryCharging className="w-4 h-4 text-[#A85640] shrink-0" />
-                ) : battery.tech === 'lead-acid' ? (
-                  <Battery className="w-4 h-4 text-[#6B645E] shrink-0" />
-                ) : (
-                  <Zap className="w-4 h-4 text-[#B85C42] shrink-0" />
-                )}
-                <span className="text-xs">{battery.title}</span>
-              </div>
-
-              {/* Zero-Maintenance Status Pill */}
-              <span className={`text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded shrink-0 ${battery.pillBg}`}>
-                {battery.isZeroMaintenance ? 'Zero Maint' : 'Standard'}
-              </span>
-            </div>
-
-            <div className="text-[10px] opacity-90 leading-tight">
-              {battery.shortDesc}
-            </div>
-          </div>
-
-          {/* Key Technical Specs Pill Box */}
-          <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-xs space-y-1.5 surface-card">
-            <div className="text-[11px] font-bold text-[#121417] flex items-center gap-1">
-              <Zap className="w-3 h-3 text-[#A85640]" />
-              <span>Engineering Specifications</span>
-            </div>
-            <p className="text-[11px] text-[#6B645E] leading-relaxed line-clamp-2">
-              {product.key_specs}
-            </p>
-          </div>
-
-          {/* Warranty and Support Guarantee */}
-          <div className="text-[11px] text-[#A85640] bg-[#F7EFEA] border border-[#E8D2C6] rounded p-2 flex items-center gap-1.5 font-medium">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#A85640] shrink-0" />
-            <span>Includes Yatala 3-5 Year Australian Factory Warranty</span>
-          </div>
+        <div className="pt-2 border-t border-[#E7E5E4] flex items-baseline justify-between gap-2">
+          <span className="text-lg sm:text-xl font-serif font-extrabold text-[#121417] tracking-tight">
+            {product.price_display}
+          </span>
+          <span className="text-[10px] font-medium text-[#6B645E] whitespace-nowrap">GST incl.</span>
         </div>
-      </div>
 
-      {/* Card Actions Footer */}
-      <div className="p-4 bg-[#F7F6F2] border-t border-[#E7E5E4] space-y-2">
         <div className="grid grid-cols-2 gap-2">
           <button
             type="button"
@@ -280,23 +181,6 @@ const ProductCard = React.memo(function ProductCard({
             <span>Fast Quote</span>
           </button>
         </div>
-
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => onInspect(product)}
-            className="w-full py-1.5 px-2 border border-[#E7E5E4] bg-white text-[#6B645E] hover:text-[#121417] hover:bg-[#F7F6F2] text-[11px] font-semibold rounded text-center transition-colors"
-          >
-            Technical Specs
-          </button>
-          <Link
-            href={productUrl}
-            className="w-full py-1.5 px-2 bg-white hover:bg-[#F7EFEA] border border-[#E7E5E4] hover:border-[#C86D51] text-[#A85640] text-[11px] font-medium rounded text-center flex items-center justify-center gap-1 transition-colors"
-          >
-            <span>Full Details</span>
-            <ChevronRight className="w-3 h-3" />
-          </Link>
-        </div>
       </div>
     </div>
   );
@@ -307,7 +191,6 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart,
   const [selectedPowertrain, setSelectedPowertrain] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [priceSort, setPriceSort] = useState<'featured' | 'low-high' | 'high-low'>('featured');
-  const [inspectProduct, setInspectProduct] = useState<ProductItem | null>(null);
   const [quoteProduct, setQuoteProduct] = useState<ProductItem | null>(null);
 
   // Progressive rendering state: renders 12 items initially for instant paint and silky-smooth INP
@@ -402,10 +285,6 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart,
   const handleOpenQuote = useCallback((product: ProductItem) => {
     setQuoteProduct(product);
     setQuoteSubmitted(false);
-  }, []);
-
-  const handleInspect = useCallback((product: ProductItem) => {
-    setInspectProduct(product);
   }, []);
 
   const handleQuoteSubmit = (e: React.FormEvent) => {
@@ -616,7 +495,6 @@ Notes: ${quoteForm.notes || 'None'}`
                   battery={batteryInfoMap.get(product.id) || getBatteryInfo(product)}
                   onAddToCart={onAddToCart}
                   onOpenQuote={handleOpenQuote}
-                  onInspect={handleInspect}
                 />
                 </div>
               ))}
@@ -665,109 +543,6 @@ Notes: ${quoteForm.notes || 'None'}`
                 </div>
               </div>
             )}
-          </div>
-        )}
-
-        {/* Technical Specification Inspector Modal */}
-        {inspectProduct && (
-          <div className="fixed inset-0 z-50 overflow-y-auto bg-[#121417]/60 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white border border-[#E7E5E4] rounded-xl max-w-2xl w-full p-6 text-[#121417] shadow-sm relative animate-in fade-in zoom-in-95 surface-card">
-              <button
-                type="button"
-                onClick={() => setInspectProduct(null)}
-                className="absolute top-4 right-4 text-[#6B645E] hover:text-[#121417] p-1 rounded"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="space-y-4">
-                <div className="border-b border-[#E7E5E4] pb-3 pr-8">
-                  <span className="text-[10px] uppercase font-bold text-[#A85640] tracking-wider">
-                    Official Yatala Workshop Specification Sheet
-                  </span>
-                  <h3 className="text-xl font-serif font-bold text-[#121417] mt-1">
-                    {inspectProduct.name}
-                  </h3>
-                  <div className="text-xs text-[#6B645E] mt-0.5">
-                    Category: {inspectProduct.category} • Target Application: {inspectProduct.target_audience}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F7F6F2] p-3 rounded-lg border border-[#E7E5E4] text-center surface-card">
-                  <div>
-                    <div className="text-[10px] text-[#6B645E]">Drive Type</div>
-                    <div className="text-xs font-bold text-[#121417] capitalize">{inspectProduct.fuel_type}</div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#6B645E]">Standard Price</div>
-                    <div className="text-xs font-bold text-[#A85640]">{inspectProduct.price_display} AUD</div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#6B645E]">Crypto Settlement</div>
-                    <div className="text-xs font-bold text-[#4F7A5A]">
-                      ${Math.round(inspectProduct.price_aud * 0.9).toLocaleString()} AUD
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[#6B645E]">Warranty Center</div>
-                    <div className="text-xs font-bold text-[#121417]">Yatala QLD 4207</div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-bold text-[#121417] uppercase tracking-wider mb-1">
-                    Full Engineering &amp; Powertrain Configuration
-                  </h4>
-                  <div className="bg-[#F7F6F2] border border-[#E7E5E4] rounded p-3 text-xs text-[#6B645E] leading-relaxed">
-                    {inspectProduct.key_specs}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <h4 className="text-xs font-bold text-[#A85640] uppercase tracking-wider">
-                    Factory Certified Inclusions
-                  </h4>
-                  <ul className="text-xs space-y-1.5 text-[#6B645E]">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#A85640]" />
-                      <span>Zero-Maintenance LiFePO4 or heavy-duty cycle deep discharge power pack</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#A85640]" />
-                      <span>On-board smart high-frequency delta-Q or waterproof 240V AC charger</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#A85640]" />
-                      <span>High-tensile corrosion resistant chassis built for coastal Australian climates</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#A85640]" />
-                      <span>Regenerative electronic motor braking with automatic electromagnetic park brake</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-[#E7E5E4] flex items-center justify-between gap-3">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setInspectProduct(null);
-                      setQuoteProduct(inspectProduct);
-                    }}
-                    className="flex-1 py-2.5 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded transition-all flex items-center justify-center gap-1.5 shadow-sm hover:-translate-y-px duration-200"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>Request Quotation for this Model</span>
-                  </button>
-                  <Link
-                    href={`/shop/${inspectProduct.slug}/`}
-                    className="py-2.5 px-4 bg-white border border-[#E7E5E4] hover:border-[#C86D51] text-[#A85640] text-xs font-bold rounded text-center transition-colors"
-                  >
-                    View Product Page
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         )}
 
