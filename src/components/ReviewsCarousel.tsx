@@ -159,7 +159,7 @@ export default function ReviewsCarousel() {
                   </span>
                 </div>
                 <div className="text-xs text-[#6B645E] flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-[#5E8C6A]" />
+                  <ShieldCheck className="w-4 h-4 text-[#487053]" />
                   <span>Verified Australian Customer Reviews</span>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function ReviewsCarousel() {
                       {TRUSTPILOT_STATS.trustScore}
                     </span>
                     <span className="text-xs text-[#6B645E]">out of 5.0</span>
-                    <span className="px-2 py-0.5 bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[#5E8C6A] text-[11px] font-extrabold rounded-full">
+                    <span className="px-2 py-0.5 bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[#487053] text-[11px] font-extrabold rounded-full">
                       {TRUSTPILOT_STATS.ratingCategory}
                     </span>
                   </div>
@@ -206,7 +206,7 @@ export default function ReviewsCarousel() {
             <div className="flex-1 max-w-sm bg-[#F7F6F2] border border-[#E7E5E4] rounded-xl p-3.5 space-y-1.5 surface-card">
               <div className="text-[11px] text-[#6B645E] font-semibold flex justify-between">
                 <span>Rating Breakdown</span>
-                <span className="text-[#5E8C6A] font-bold">77% 4 &amp; 5 Stars</span>
+                <span className="text-[#487053] font-bold">77% 4 &amp; 5 Stars</span>
               </div>
               <div className="space-y-1">
                 {/* 5 Star */}
@@ -291,7 +291,7 @@ export default function ReviewsCarousel() {
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">5★</span>
+                <span className="text-[#487053] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">5★</span>
                 <span>5 Stars ({count5})</span>
               </button>
 
@@ -304,7 +304,7 @@ export default function ReviewsCarousel() {
                     : 'bg-[#F7F6F2] text-[#6B645E] hover:text-[#121417] hover:bg-[#F7EFEA] border border-[#E7E5E4]'
                 }`}
               >
-                <span className="text-[#5E8C6A] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">4★</span>
+                <span className="text-[#487053] bg-[#5E8C6A]/10 px-1 rounded text-[10px]">4★</span>
                 <span>4 Stars ({count4})</span>
               </button>
 
@@ -717,7 +717,7 @@ function ReviewCard({
               ? 'bg-[#F7EFEA] text-[#A85640] font-bold'
               : 'text-[#6B645E] hover:text-[#121417] hover:bg-[#F7F6F2]'
           }`}
-          aria-label="Vote review as helpful"
+          aria-label={`Mark as helpful (${helpfulCount})`}
           title="Mark this review as helpful"
         >
           <ThumbsUp className="w-3 h-3" />

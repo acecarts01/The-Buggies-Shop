@@ -149,7 +149,7 @@ Timeframe: ${quoteForm.timeframe}`
 
             {/* ABN Trust Verification Stamp */}
             <FadeUpText delay={0.45} className="pt-2 flex items-center gap-2 text-xs text-[#6B645E]">
-              <ShieldCheck className="w-4 h-4 text-[#5E8C6A]" />
+              <ShieldCheck className="w-4 h-4 text-[#487053]" />
               <span>Official Australian Entity:</span>
               <a
                 href={ABN_INFO.officialAbrLink}
@@ -546,7 +546,7 @@ Timeframe: ${quoteForm.timeframe}`
 
               <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-[11px] text-[#6B645E]">
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#5E8C6A]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#487053]" />
                   Includes official ABN Tax Invoice
                 </span>
                 <span className="flex items-center gap-1">
@@ -554,7 +554,7 @@ Timeframe: ${quoteForm.timeframe}`
                   Enclosed transport options
                 </span>
                 <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#5E8C6A]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#487053]" />
                   Direct Yatala QLD engineering center
                 </span>
               </div>

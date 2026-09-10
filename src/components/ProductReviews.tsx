@@ -140,7 +140,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
       {/* Header & Overall Product TrustScore */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#E7E5E4]">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-xs font-bold text-[#5E8C6A]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-xs font-bold text-[#487053]">
             <Award className="w-3.5 h-3.5" />
             <span>Verified Australian Owner Reviews</span>
           </div>
@@ -173,7 +173,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
             {avgScore}
             <span className="text-lg text-[#6B645E] font-normal"> / 5.0</span>
           </div>
-          <div className="flex items-center gap-1 text-[#5E8C6A]">
+          <div className="flex items-center gap-1 text-[#487053]">
             {[1, 2, 3, 4, 5].map((star) => (
               <div key={star} className="w-6 h-6 bg-[#5E8C6A] text-white flex items-center justify-center rounded-sm">
                 <Star className="w-4 h-4 fill-white text-white" />
@@ -183,7 +183,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
           <div className="text-xs text-[#6B645E] font-medium pt-1">
             Based on {reviews.length} verified Australian reviews
           </div>
-          <div className="inline-flex items-center gap-1.5 text-[11px] text-[#5E8C6A] font-semibold">
+          <div className="inline-flex items-center gap-1.5 text-[11px] text-[#487053] font-semibold">
             <CheckCircle className="w-3.5 h-3.5" />
             <span>98% Recommended by Buyers</span>
           </div>
@@ -293,7 +293,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                       ))}
                     </div>
 
-                    <div className="inline-flex items-center gap-1 text-[11px] text-[#5E8C6A] font-bold bg-[#5E8C6A]/10 px-2 py-0.5 rounded">
+                    <div className="inline-flex items-center gap-1 text-[11px] text-[#487053] font-bold bg-[#5E8C6A]/10 px-2 py-0.5 rounded">
                       <CheckCircle className="w-3 h-3" />
                       <span>Verified Australian Buyer</span>
                     </div>
@@ -339,7 +339,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                     onClick={() => handleHelpfulClick(rev.id)}
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white hover:bg-[#F7EFEA] text-[#6B645E] hover:text-[#A85640] text-xs font-semibold border border-[#E7E5E4] transition-colors surface-card"
                   >
-                    <ThumbsUp className="w-3.5 h-3.5 text-[#5E8C6A]" />
+                    <ThumbsUp className="w-3.5 h-3.5 text-[#487053]" />
                     <span>Helpful ({totalHelpful})</span>
                   </button>
                 </div>
@@ -364,7 +364,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
 
             {submittedSuccess ? (
               <div className="py-12 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A] text-[#5E8C6A] flex items-center justify-center mx-auto">
+                <div className="w-14 h-14 rounded-full bg-[#5E8C6A]/10 border border-[#5E8C6A] text-[#487053] flex items-center justify-center mx-auto">
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-serif font-bold text-[#121417]">
@@ -377,7 +377,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
             ) : (
               <form onSubmit={handleReviewSubmit} className="space-y-4">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[10px] font-extrabold text-[#5E8C6A]">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#5E8C6A]/10 border border-[#5E8C6A]/30 text-[10px] font-extrabold text-[#487053]">
                     <Sparkles className="w-3 h-3" />
                     <span>Verified Feedback</span>
                   </div>
@@ -409,7 +409,7 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
                         <Star className={`w-5 h-5 ${star <= newReview.rating ? 'fill-white text-white' : 'text-[#A8A29E]'}`} />
                       </button>
                     ))}
-                    <span className="text-xs font-extrabold text-[#5E8C6A] ml-2">
+                    <span className="text-xs font-extrabold text-[#487053] ml-2">
                       {newReview.rating} Star{newReview.rating > 1 ? 's' : ''}
                     </span>
                   </div>

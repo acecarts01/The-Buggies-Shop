@@ -169,10 +169,10 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
 
           <Link
             href="/#customer-reviews"
-            className="text-[#121417] hover:text-[#5E8C6A] transition-colors flex items-center gap-1.5"
+            className="text-[#121417] hover:text-[#487053] transition-colors flex items-center gap-1.5"
             id="header-nav-reviews"
           >
-            <span className="text-[#5E8C6A] font-bold text-xs bg-[#5E8C6A]/10 px-1.5 py-0.5 rounded border border-[#5E8C6A]/30">★ 4.5</span>
+            <span className="text-[#487053] font-bold text-xs bg-[#5E8C6A]/10 px-1.5 py-0.5 rounded border border-[#5E8C6A]/30">★ 4.5</span>
             <span>Reviews</span>
           </Link>
 
@@ -298,12 +298,12 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
 
             <Link
               href="/#customer-reviews"
-              className="text-sm text-[#6B645E] py-1.5 hover:text-[#5E8C6A] flex items-center justify-between"
+              className="text-sm text-[#6B645E] py-1.5 hover:text-[#487053] flex items-center justify-between"
               onClick={() => setMobileMenuOpen(false)}
               id="mobile-nav-reviews"
             >
               <span>Customer Reviews</span>
-              <span className="text-[10px] font-bold text-[#5E8C6A] bg-[#5E8C6A]/10 px-2 py-0.5 rounded border border-[#5E8C6A]/30">
+              <span className="text-[10px] font-bold text-[#487053] bg-[#5E8C6A]/10 px-2 py-0.5 rounded border border-[#5E8C6A]/30">
                 ★ 4.5 TrustScore
               </span>
             </Link>
