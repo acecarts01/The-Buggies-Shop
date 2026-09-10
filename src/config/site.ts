@@ -302,6 +302,40 @@ export const CATEGORIES = [
     metaTitle: 'Golf Trolleys & Motorised Golf Buggies | Buggies Express',
     metaDescription:
       'Motorised, remote control and foldable golf buggies for sale in Australia. MGI, PowaKaddy and Robera electric golf trolleys shipped from Yatala QLD.',
+    // Body copy for the largest winnable keyword cluster in docs/keyword-map.md
+    // (~3,050/mo, mostly KD < 20). Every claim below is checked against the six
+    // products actually in this category. Note: the range is entirely MOTORISED
+    // - there are no manual push trolleys in stock, so push buggies are only
+    // ever discussed editorially and linked to the guides, never implied to be
+    // for sale. Do not add "junior golf buggy" copy either: real demand, no
+    // matching product.
+    intro:
+      'Electric golf trolleys and motorised walk-behind buggies for Australian golfers who prefer to walk the course. Six lithium models from $1,299 to $2,849 AUD, including full remote control and hands-free follow, tested and dispatched from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Electric Golf Trolleys vs Push Buggies',
+        body: 'A golf push buggy is moved by hand; a motorised golf buggy drives itself under lithium power while you walk beside it. Everything in this category is motorised — we do not stock manual push trolleys. If you are still weighing a push golf buggy against an electric golf trolley, or comparing three-wheel and four-wheel frames, the guides below cover both decisions before you commit to a model.',
+      },
+      {
+        heading: 'Remote Control Golf Buggies',
+        body: 'Two models in the range ship with a golf buggy remote. The MGI Ai Navigator adds full directional remote control with an integrated touchscreen GPS and a gyroscope straight tracker, and the Robera Pro offers dual-mode remote plus smart follow — a tracking tag clips to your belt so the buggy follows your footsteps hands-free. Both remote control golf buggies are stocked in Australia with local warranty support rather than parallel imported.',
+      },
+      {
+        heading: 'Foldable and Compact Models',
+        body: 'Boot space decides more purchases than any spec sheet. The MGI Zip X1 is the entry point at $1,299 AUD with a compact fold mechanism and a simple variable speed dial, and folding is standard across the range. Check the folded dimensions against your boot before ordering — the foldable buyers guide below walks through measuring it properly.',
+      },
+      {
+        heading: 'Lithium Battery Range and Course Conditions',
+        body: 'Every buggy here runs lithium rather than lead-acid. The Zip X5 carries a 36-hole extended lithium battery with downhill speed control and an electronic park brake, while the Zip Navigator pairs twin 230W motors with a rear fold-out fifth wheel for steeper fairway contours. The PowaKaddy FX7 runs a 30V plug-and-play lithium system behind a 3.5-inch colour touchscreen preloaded with over 40,000 courses worldwide.',
+      },
+    ],
+    guides: [
+      { slug: 'best-golf-trolley-australia-push-motorized-remote-comparison', label: 'Best golf trolley in Australia: push vs motorised vs remote' },
+      { slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review', label: 'Push golf buggies compared: three-wheel vs four-wheel' },
+      { slug: 'remote-control-golf-buggy-australia-buyers-guide', label: 'Remote control golf buggy buyers guide' },
+      { slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight', label: 'Foldable golf buggy guide: boot space and weight' },
+      { slug: 'motorised-vs-push-golf-buggy-health-stamina-benefits', label: 'Motorised vs push: what it changes for your round' },
+    ],
   },
   {
     slug: 'batteries-chargers-parts',
