@@ -400,7 +400,7 @@ Timeframe: ${quoteForm.timeframe}`
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Battery Bank</td>
-                  <td className="p-3 sm:p-4 text-[#6B645E]">Deep-Cycle Lithium Iron Phosphate (LiFePO4) 48V / 72V Architecture</td>
+                  <td className="p-3 sm:p-4 text-[#6B645E]">Deep-Cycle Lithium Iron Phosphate (LiFePO4) 48V Architecture</td>
                 </tr>
                 <tr className="hover:bg-[#F7F6F2]">
                   <td className="p-3 sm:p-4 font-bold text-[#121417]">Estimated Range</td>

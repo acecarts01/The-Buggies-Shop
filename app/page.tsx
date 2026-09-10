@@ -221,7 +221,7 @@ export default function HomePage() {
                 </FadeUpText>
 
                 <StaggeredParagraph delay={0.2} className="text-xs sm:text-sm text-[#6B645E] leading-relaxed max-w-2xl">
-                  {BRAND.description} Headquartered in our central Yatala QLD engineering center with 61+ models in stock—from 72V lithium 4-passenger buggies to lifted 4x4 acreage transports and walk-behind MGI motorized units.
+                  {BRAND.description} Headquartered in our central Yatala QLD engineering center with 61+ models in stock—from 48V lithium 4-passenger buggies to lifted 4x4 acreage transports and walk-behind MGI motorized units.
                 </StaggeredParagraph>
 
                 {/* Hero CTAs */}

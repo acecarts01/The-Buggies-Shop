@@ -68,9 +68,9 @@ export default function AtlasProductPage() {
     '@type': 'Product',
     name: 'Atlas 4-Passenger Lifted Lithium Buggy',
     description:
-      'Luxury 4-passenger lifted electric golf buggy with 72V commercial lithium battery bank, 5kW AC brushless induction motor, 3-inch suspension lift, and diamond-quilted seating. Designed for Australian acreage homesteads and golf estates.',
+      'Luxury 4-passenger lifted electric golf buggy with a 48V lithium battery bank, 3-inch factory suspension lift, custom leather seating, touchscreen display and 14-inch alloy wheels. Designed for Australian acreage homesteads and golf estates.',
     sku: 'BE-ATLAS-4P-LIFT',
-    mpn: 'ATLAS-4P-72V-AU',
+    mpn: 'ATLAS-4P-48V-AU',
     brand: {
       '@type': 'Brand',
       name: 'The Buggies Express',

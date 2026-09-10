@@ -159,7 +159,7 @@ export default function AboutPage() {
               We established our Yatala operations depot with a singular charter: engineer, assemble, and deliver high-torque, lithium-powered golf buggies specifically calibrated for Australian soil, coastal salt spray, and extreme summer thermal cycles. Every chassis we supply features reinforced tubular steel framing, automotive e-coat corrosion dip treatment, and sealed electronic controllers rated to IP65 or higher.
             </StaggeredParagraph>
             <StaggeredParagraph delay={0.2}>
-              Unlike traditional distributors who operate purely as drop-shippers with zero physical stock in the country, Golf Buggies Express maintains over $1.2M in vehicle stock across 61 models and a dedicated inventory of over 7,200 genuine replacement parts right here in Yatala QLD. Whether you need an Atlas 72V 105Ah replacement battery pack, a Club Car heavy-duty leaf spring assembly, or an EZGO Curtis controller, our dispatch bays ship the same day across the country.
+              Unlike traditional distributors who operate purely as drop-shippers with zero physical stock in the country, Golf Buggies Express maintains over $1.2M in vehicle stock across 61 models and a dedicated inventory of over 7,200 genuine replacement parts right here in Yatala QLD. Whether you need an Atlas 48V replacement battery pack, a Club Car heavy-duty leaf spring assembly, or an EZGO Curtis controller, our dispatch bays ship the same day across the country.
             </StaggeredParagraph>
           </div>
 

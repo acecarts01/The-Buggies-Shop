@@ -4926,7 +4926,7 @@ export const POSTS: BlogPost[] = [
         bulletPoints: [
           'Entry-Level Commercial Flatbeds ($15,900 – $18,500 AUD): 300kg payload, composite cargo beds, 48V AGM or entry lithium packs, ideal for nursery and resort maintenance.',
           'Mid-Range Heavy Duty Utilities ($19,500 – $22,900 AUD): 500kg payload, aluminum hydraulic dump boxes, high-capacity 105Ah LiFePO4 battery, four-wheel hydraulic disc brakes.',
-          'Commercial Crew & Multi-Row Haulers ($23,000 – $26,400 AUD): 6-passenger configurations with rear luggage decks, 72V powertrains, integrated telematics, and heavy towing capability.',
+          'Commercial Crew & Multi-Row Haulers ($23,000 – $26,400 AUD): 6-passenger forward-facing configurations with rear luggage decks, reinforced commercial axles, dent-resistant bodywork and heavy towing capability.',
         ],
       },
       {
@@ -5487,7 +5487,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: 'Upgrading Battery Capacity for Commercial Demands',
-        body: 'For commercial resorts, security patrols, and industrial worksites requiring 12+ hours of continuous daily operation, Golf Buggies Express offers extended-range 150Ah and 200Ah 48V/72V lithium options, pushing total single-charge range past 120 kilometers.',
+        body: 'For commercial resorts, security patrols and industrial worksites running long daily hours, the answer is usually more capacity rather than a different vehicle. Our stocked lithium upgrades run to 48V 105Ah, and where a duty cycle genuinely needs more than that we will quote it against your actual usage rather than sell you a pack sized by guesswork. Tell us the hours, the terrain and the load and we will work out what the shift really requires.',
       },
         {
       heading: "The Variables That Move Real Range Most",
