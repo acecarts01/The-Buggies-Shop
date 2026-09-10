@@ -68,14 +68,18 @@ export function StaggeredHeading({
       viewport={{ once: true, margin: '-40px' }}
       className={className}
     >
+      {/* The space between words is a real text node, not a margin. An
+          inline-block span separated only by mr-[…] renders correctly but
+          concatenates in textContent/innerText, so crawlers and text
+          extractors read the H1 as one unbroken string and no keyword
+          phrase in it can be matched. */}
       {words.map((word, i) => (
-        <motion.span
-          key={i}
-          variants={wordVariants}
-          className="inline-block mr-[0.28em] last:mr-0"
-        >
-          {word}
-        </motion.span>
+        <React.Fragment key={i}>
+          <motion.span variants={wordVariants} className="inline-block">
+            {word}
+          </motion.span>
+          {i < words.length - 1 ? ' ' : ''}
+        </React.Fragment>
       ))}
     </Component>
   );
@@ -148,14 +152,15 @@ export function StaggeredParagraph({
       viewport={{ once: true, margin: '-30px' }}
       className={className}
     >
+      {/* Real space text node between words - see the note in
+          StaggeredHeading for why a margin is not enough. */}
       {words.map((word, i) => (
-        <motion.span
-          key={i}
-          variants={wordVariants}
-          className="inline-block mr-[0.25em] last:mr-0"
-        >
-          {word}
-        </motion.span>
+        <React.Fragment key={i}>
+          <motion.span variants={wordVariants} className="inline-block">
+            {word}
+          </motion.span>
+          {i < words.length - 1 ? ' ' : ''}
+        </React.Fragment>
       ))}
     </Component>
   );

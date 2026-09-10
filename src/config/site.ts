@@ -236,15 +236,75 @@ export const VEHICLE_COLORS = [
   { id: 'graphite', name: 'Graphite Black', swatch: '#2B2F34', filter: 'saturate(0.25) brightness(0.82) contrast(1.1)' },
 ] as const;
 
+// metaTitle / metaDescription carry each category's own keyword cluster
+// (see docs/keyword-map.md). Without them every category inherits one
+// templated description, which reads as near-duplicate content and wastes
+// seven chances to place cluster terms. Titles <=60 chars, descriptions ~150.
 export const CATEGORIES = [
   { slug: 'all', name: 'All Vehicles & Parts', count: 61 },
-  { slug: 'luxury-4-seater', name: 'Luxury 4-Seater', rawCategory: 'Luxury & High-Demand 4-Seaters', count: 6 },
-  { slug: 'traditional-2-seater', name: 'Traditional 2-Seater', rawCategory: 'Traditional 2-Seater Electric Golf Buggies', count: 6 },
-  { slug: 'off-road-4x4', name: 'Off-Road 4x4', rawCategory: 'Off-Road, Lifted & 4x4 Buggies', count: 6 },
-  { slug: 'commercial-utility', name: 'Commercial Utility', rawCategory: 'Commercial & Farm Utility Buggies', count: 6 },
-  { slug: 'mechanical-petrol', name: 'Mechanical Petrol', rawCategory: 'Mechanical & Petrol Buggies', count: 6 },
-  { slug: 'walk-behind-buggies', name: 'Walk-Behind Buggies', rawCategory: 'Motorised Walk-Behind Golf Buggies', count: 6 },
-  { slug: 'batteries-chargers-parts', name: 'Batteries, Chargers & Parts', rawCategory: 'Batteries, Chargers & Parts', count: 25 },
+  {
+    slug: 'luxury-4-seater',
+    name: 'Luxury 4-Seater',
+    rawCategory: 'Luxury & High-Demand 4-Seaters',
+    count: 6,
+    metaTitle: '4 Seater Golf Buggies for Sale Australia | Buggies Express',
+    metaDescription:
+      'Six luxury 4-seater golf buggies for sale in Australia, including 4+2 six-passenger cruisers. Lithium models tested at our Yatala QLD depot.',
+  },
+  {
+    slug: 'traditional-2-seater',
+    name: 'Traditional 2-Seater',
+    rawCategory: 'Traditional 2-Seater Electric Golf Buggies',
+    count: 6,
+    metaTitle: '2 Seater Electric Golf Buggies for Sale | Buggies Express',
+    metaDescription:
+      'Traditional 2-person golf carts and electric buggies for sale in Australia. Club Car, E-Z-GO and Yamaha lithium models, priced with GST included.',
+  },
+  {
+    slug: 'off-road-4x4',
+    name: 'Off-Road 4x4',
+    rawCategory: 'Off-Road, Lifted & 4x4 Buggies',
+    count: 6,
+    metaTitle: 'Lifted 4x4 Off-Road Golf Buggies Australia | Buggies Express',
+    metaDescription:
+      'Lifted 4x4 golf buggies built for Australian acreage and rough terrain. High ground clearance, heavy-duty brakes and all-terrain tyres from Yatala QLD.',
+  },
+  {
+    slug: 'commercial-utility',
+    name: 'Commercial Utility',
+    rawCategory: 'Commercial & Farm Utility Buggies',
+    count: 6,
+    metaTitle: 'Commercial Utility Buggies Australia | Buggies Express',
+    metaDescription:
+      'Electric utility buggies for farms, resorts and industrial parks across Australia. Flatbed, cargo and 6-passenger transporters with enclosed freight.',
+  },
+  {
+    slug: 'mechanical-petrol',
+    name: 'Mechanical Petrol',
+    rawCategory: 'Mechanical & Petrol Buggies',
+    count: 6,
+    metaTitle: 'Petrol Golf Buggies & EFI Carts for Sale | Buggies Express',
+    metaDescription:
+      'Petrol and EFI golf buggies for sale in Australia. Club Car, Yamaha and E-Z-GO mechanical models for properties without charging infrastructure.',
+  },
+  {
+    slug: 'walk-behind-buggies',
+    name: 'Walk-Behind Buggies',
+    rawCategory: 'Motorised Walk-Behind Golf Buggies',
+    count: 6,
+    metaTitle: 'Golf Trolleys & Motorised Golf Buggies | Buggies Express',
+    metaDescription:
+      'Motorised, remote control and foldable golf buggies for sale in Australia. MGI, PowaKaddy and Robera electric golf trolleys shipped from Yatala QLD.',
+  },
+  {
+    slug: 'batteries-chargers-parts',
+    name: 'Batteries, Chargers & Parts',
+    rawCategory: 'Batteries, Chargers & Parts',
+    count: 25,
+    metaTitle: 'Golf Buggy Spare Parts & Accessories | Buggies Express',
+    metaDescription:
+      'Golf buggy spare parts, accessories, lithium batteries and chargers in Australia. 25 items covering controllers, brakes, lighting and conversion kits.',
+  },
 ];
 
 export const PRODUCTS: ProductItem[] = [
