@@ -40,7 +40,7 @@ export const SITE = {
   stoneMuted: '#78716C',     // secondary copy
   boneCanvas: '#F7F6F2',     // warm bone page canvas
   hairline: '#E7E5E4',       // 1px architectural border
-  gscVerification: 'YLFDcqDbIz_dbHOuybcq5WeIGDVOwfipnN71Efql9dM',
+  gscVerification: 'c84GqyF8sZHI_WHs_IfgbUi3R4vSlC2sR_zklWfWSI8',
   indexNowKey: 'golfbuggiesexpress-idx-2025',
   cartKey: 'buggies-express-cart',
 };
