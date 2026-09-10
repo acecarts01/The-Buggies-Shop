@@ -11,7 +11,7 @@ React/Next.js ecommerce site, Vercel deployment, Australian golf buggy specialis
 - If a request requires breaking any of the above, stop and say so rather than complying.
 
 ## Architecture
-`src/config/site.js` is the single source of truth for all 61 buggy models, categories, pricing, contact details, and agent metadata.
+`src/config/site.ts` is the single source of truth for all 61 buggy models, categories, pricing, contact details, and agent metadata.
 Never hand-write product pages. All routes, metadata, and JSON-LD derive from this configuration.
 
 ## Rules
