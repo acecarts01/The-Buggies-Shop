@@ -77,7 +77,14 @@ export default function ReviewsCarousel() {
   }, []);
 
   // Max index for sliding
-  const maxIndex = Math.max(0, filteredReviews.length - cardsPerView);
+  // Only a window of reviews is mounted for the carousel. Every review is
+  // still reachable through the grid view, which renders the full list.
+  const CAROUSEL_WINDOW = 12;
+  const carouselReviews = useMemo(
+    () => filteredReviews.slice(0, CAROUSEL_WINDOW),
+    [filteredReviews]
+  );
+  const maxIndex = Math.max(0, carouselReviews.length - cardsPerView);
 
   // Auto-play sliding
   useEffect(() => {
@@ -482,7 +489,7 @@ export default function ReviewsCarousel() {
                     transform: `translateX(-${currentIndex * (100 / cardsPerView + (cardsPerView > 1 ? 1.5 : 0))}%)`,
                   }}
                 >
-                  {filteredReviews.map((review) => (
+                  {carouselReviews.map((review) => (
                     <div
                       key={review.id}
                       className="shrink-0 flex defer-card"

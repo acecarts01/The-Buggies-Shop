@@ -484,6 +484,7 @@ Notes: ${quoteForm.notes || 'None'}`
         </div>
 
         {/* Filter Controls Bar */}
+        {!showcase && (
         <div className="space-y-4">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search Input Box */}
@@ -571,6 +572,8 @@ Notes: ${quoteForm.notes || 'None'}`
             })}
           </div>
         </div>
+
+        )}
 
         {/* Catalog Grid */}
         {filteredProducts.length === 0 ? (
