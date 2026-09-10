@@ -67,6 +67,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
+    // Assigned terms declared where machines read them, rather than worked
+    // into the prose. See docs/keyword-map.md for the one-keyword-one-page rule.
+    ...(post.primaryKeyword
+      ? { keywords: [post.primaryKeyword, ...(post.supportingKeywords || []), ...(post.tags || [])].join(', ') }
+      : { keywords: (post.tags || []).join(', ') }),
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: {

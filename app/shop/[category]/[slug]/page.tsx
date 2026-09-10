@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { PRODUCTS, CATEGORIES, SITE } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, SITE, ABN_INFO, BRAND_PAGES } from '@/src/config/site';
 import ProductClient from './ProductClient';
 import { buildTitle, buildDescription } from '@/lib/seo';
 
@@ -43,9 +43,87 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  return <ProductClient product={product} />;
+  const url = `https://${SITE.domain}/shop/${category}/${product.slug}/`;
+  const brand = BRAND_PAGES.find((b) =>
+    product.name.toLowerCase().includes(b.match.toLowerCase())
+  );
+
+  // Product + Offer. No aggregateRating is emitted: rating markup is only
+  // valid for genuine, attributable reviews, and inventing one to win a star
+  // in the results page is exactly the kind of claim this site does not make.
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.fullDescription || product.shortDescription,
+    sku: product.id,
+    category: product.category,
+    // The terms this page is assigned in docs/keyword-map.md, declared where
+    // machines read them rather than repeated through the copy. Schema.org
+    // supports `keywords` as a comma-separated list, so the assignment does
+    // real work without any of it being stuffed into sentences.
+    ...(product.primaryKeyword
+      ? { keywords: [product.primaryKeyword, ...(product.supportingKeywords || [])].join(', ') }
+      : {}),
+    image: (product.images || []).map((img) => `https://${SITE.domain}${img}`),
+    ...(brand ? { brand: { '@type': 'Brand', name: brand.name } } : {}),
+    offers: {
+      '@type': 'Offer',
+      url,
+      priceCurrency: SITE.currency,
+      price: product.price_aud,
+      // Prices on site include GST; stated so aggregators do not add it again.
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: product.price_aud,
+        priceCurrency: SITE.currency,
+        valueAddedTaxIncluded: true,
+      },
+      availability:
+        product.inStock === false
+          ? 'https://schema.org/OutOfStock'
+          : 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@type': 'Organization',
+        name: ABN_INFO.companyName,
+        taxID: ABN_INFO.abn,
+      },
+      areaServed: 'AU',
+    },
+  };
+
+  const breadcrumbs = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `https://${SITE.domain}/` },
+      { '@type': 'ListItem', position: 2, name: 'Shop', item: `https://${SITE.domain}/shop/` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: product.category,
+        item: `https://${SITE.domain}/shop/${category}/`,
+      },
+      { '@type': 'ListItem', position: 4, name: product.name, item: url },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <ProductClient product={product} />
+    </>
+  );
 }

@@ -26,6 +26,7 @@ import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
+import FaqSection from '@/src/components/FaqSection';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, VEHICLE_COLORS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 import {
@@ -576,6 +577,18 @@ Notes: ${quoteForm.notes || 'None'}`
 
             {/* Product Reviews & Field Reports Component */}
             <ProductReviews product={product} />
+
+            {/* Six model-specific questions, each answered from this product's
+                own data. Also emits the page's FAQPage schema. */}
+            {product.faqs && product.faqs.length > 0 && (
+              <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-sm metal-brushed-dark">
+                <FaqSection
+                  items={product.faqs}
+                  heading={`${product.name} — Questions Buyers Ask`}
+                  tone="dark"
+                />
+              </div>
+            )}
 
             {/* Related Products in this Category */}
             <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm metal-brushed-dark">

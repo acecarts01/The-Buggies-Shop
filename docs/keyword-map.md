@@ -1,5 +1,20 @@
 # Keyword Map — The Buggies Express
 
+> **Superseded in part, 2026-09-10.** A full Semrush export (59 files,
+> 1,147,454 rows) has since been analysed. The page-by-page assignments below
+> still hold, but the authoritative pool is now:
+>
+> - **`docs/keyword-reserve.md`** — the 11,565 targetable keywords not yet
+>   assigned to any page, grouped by intent then cluster. Draw from here.
+> - **`src/config/site.ts`** — every assigned keyword now lives on the page
+>   that owns it, as `primaryKeyword` and `supportingKeywords`.
+>
+> Headline numbers from that analysis: 118,875 unique keywords de-duplicated,
+> 12,102 survived the relevance filter (299,150/mo), and 537 are assigned
+> across products, brands and articles. The largest single cut was 28,821
+> keywords that were not about the vehicle at all — the export dragged in the
+> whole golf retail category, including "golf clearance outlet" at 40,500/mo.
+
 **Source:** Semrush AU exports (2026-09-06) → `docs/keyword-research/`
 **Dataset:** 72 keywords · 30,160 combined AU monthly searches
 **Split:** 38 commercial (19,440) · 30 transactional (10,000) · 4 mixed/informational (720)

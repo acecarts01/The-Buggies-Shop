@@ -17,6 +17,13 @@ export interface ProductItem {
   featured?: boolean;
   images: string[];
   inStock?: boolean;
+  /** The single term this page is meant to win. See docs/keyword-map.md. */
+  primaryKeyword?: string;
+  /** Six secondary terms. Each keyword in the catalogue is assigned to exactly
+   *  one product so pages never compete with each other for the same query. */
+  supportingKeywords?: string[];
+  /** Six question/answer pairs, rendered on the page and as FAQPage JSON-LD. */
+  faqs?: { q: string; a: string }[];
 }
 
 export const SITE = {
@@ -236,6 +243,139 @@ export const BRANDS = [
   { name: 'Atlas', q: 'Atlas' },
 ] as const;
 
+/**
+ * Shop-by-brand pages. `match` is tested case-insensitively against a
+ * product name to build each brand's range, so adding a product to PRODUCTS
+ * automatically lands it on the right brand page.
+ *
+ * Only brands we actually stock appear here. Rival brands are discussed in
+ * blog comparisons and never given a shop page, because a shop page implies
+ * stock we do not hold.
+ */
+export interface BrandPage {
+  slug: string;
+  name: string;
+  match: string;
+  origin: string;
+  primaryKeyword: string;
+  supportingKeywords: string[];
+  intro: string;
+  body: string;
+}
+
+export const BRAND_PAGES: BrandPage[] = [
+  {
+    slug: 'club-car',
+    name: 'Club Car',
+    match: 'club car',
+    origin: 'United States',
+    primaryKeyword: 'club car golf carts',
+    supportingKeywords: ['club car golf buggy australia', 'clubcar golf carts for sale', 'club car golf cart parts', 'club car onward australia', 'club car tempo australia', 'club car utility vehicle'],
+    intro: 'Club Car golf buggies for sale in Australia, stocked and serviced from our Yatala QLD depot with genuine parts held locally.',
+    body: 'Club Car is the brand buyers choose when resale value matters as much as the drive. The aircraft-grade aluminium frame is the reason: aluminium does not rust, so coastal salt air and irrigated fairways cannot eat the chassis out from under the bodywork the way they do with steel-framed imports. That single material decision is why a well-kept Club Car holds its price years after a cheaper buggy has become a liability. We carry the Onward, Tempo, Carryall and Transporter lines, spanning private golf, estate driving, grounds work and passenger shuttling, in both lithium and EFI petrol. Parts are held in Australia rather than ordered in when something fails.',
+  },
+  {
+    slug: 'mgi',
+    name: 'MGI',
+    match: 'mgi',
+    origin: 'Australia',
+    primaryKeyword: 'mgi golf buggy',
+    supportingKeywords: ['mgi golf cart', 'mgi golf buggies', 'mgi golf buggy australia', 'mgi buggy', 'mgi golf carts', 'mgi zip navigator'],
+    intro: 'MGI motorised and remote control golf buggies, the Australian-designed walk-behind range, in stock at Yatala QLD.',
+    body: 'MGI is an Australian company and it shows in how the buggies are set up for local courses. The Zip and Ai Navigator ranges cover the whole walk-behind spectrum, from a simple speed dial for a first motorised buggy through to full directional remote control with gyroscope straight-tracking that holds a line across cambered fairways. Australian conditions were the design brief rather than an afterthought, which matters on kikuyu and couch turf and through a wet season. Genuine MGI batteries, remotes and accessories are held in Australian stock, so a worn consumable does not mean replacing an otherwise healthy buggy.',
+  },
+  {
+    slug: 'e-z-go',
+    name: 'E-Z-GO',
+    match: 'e-z-go',
+    origin: 'United States',
+    primaryKeyword: 'ezgo golf buggy',
+    supportingKeywords: ['ezgo golf cart parts australia', 'ez go golf carts', 'ezgo golf carts for sale', 'ezgo golf buggy parts', 'e-z-go golf cart', 'ezgo rxv australia'],
+    intro: 'E-Z-GO golf buggies and utility vehicles for sale in Australia, with ELiTE lithium models and EFI petrol, supported from Yatala QLD.',
+    body: 'E-Z-GO builds around safety and serviceability rather than headline specifications. The RXV ELiTE is the clearest example: its automatic electromagnetic brake holds the buggy the instant you lift off the throttle, so it will not creep on a steep fairway or a sloped village driveway. For retirement village residents and anyone parking on an incline, that behaviour is worth more than any number on a spec sheet. The range runs from two-seat golf models through the six-seat Express L6 to the Cushman Hauler commercial line. ELiTE lithium uses Samsung SDI cells, and parts are stocked in Australia.',
+  },
+  {
+    slug: 'yamaha',
+    name: 'Yamaha',
+    match: 'yamaha',
+    origin: 'Japan',
+    primaryKeyword: 'yamaha golf carts',
+    supportingKeywords: ['yamaha golf cart parts', 'yamaha golf buggy parts', 'yamaha golf carts australia', 'yamaha golf cart for sale', 'yamaha golf car parts', 'yamaha drive2 australia'],
+    intro: 'Yamaha golf buggies and UMAX utility vehicles for sale in Australia, including the QuietTech EFI petrol range, from our Yatala QLD depot.',
+    body: 'Yamaha brings its engine and chassis engineering to a category where most competitors buy both in. Two things stand out. Independent front and rear suspension on the Drive2 is rare at this level and it is why the buggy absorbs rough turf and unsealed tracks as a muted movement rather than a jolt through the seat frame. And QuietTech petrol answers the one real objection to combustion: it brings a petrol buggy close enough to electric in sound that conversation at speed stays comfortable, while keeping unlimited range and one-minute refuelling. The UMAX line covers livestock properties and large regional venues.',
+  },
+  {
+    slug: 'evolution',
+    name: 'Evolution',
+    match: 'evolution',
+    origin: 'United States',
+    primaryKeyword: 'evolution golf carts australia',
+    supportingKeywords: ['evolution d5 golf cart', 'evolution golf cart price', 'evolution electric golf cart', 'evolution d5 ranger', 'evolution golf buggy', 'evolution classic golf cart'],
+    intro: 'Evolution electric golf buggies for sale in Australia, from the six-passenger D5 Ranger to the Classic 2 Plus, in stock at Yatala QLD.',
+    body: 'Evolution builds the most screen-forward buggies we stock, and for buyers coming across from a modern car that familiarity matters. The D5 Ranger 4+2 carries six passengers with forward-facing seating in both rows, a nine-inch touchscreen and a 110Ah lithium pack, which makes it the largest-capacity model in our luxury range. The Classic 2 Plus brings automotive-level instrumentation to a two-seat buggy: a 6.3-inch LCD, side mirrors with integrated turn signals and reverse camera compatibility, which is what buyers on shared estate roads actually ask for. The 700 heavy commercial utility covers facility and patrol work.',
+  },
+  {
+    slug: 'lvtong',
+    name: 'LVTONG',
+    match: 'lvtong',
+    origin: 'China',
+    primaryKeyword: 'lvtong golf cart australia',
+    supportingKeywords: ['lvtong golf buggy', 'lvtong electric golf cart', 'lvtong resort cruiser', 'commercial golf buggy australia', 'holiday park golf buggy', 'caravan park golf cart'],
+    intro: 'LVTONG electric golf buggies for Australian resorts, caravan parks and commercial operators, supplied and supported from Yatala QLD.',
+    body: 'LVTONG is specified by operators who count running cost per year rather than features per brochure, and it has become a proven workhorse across Australian caravan parks and holiday resorts. The Resort Cruiser pairs a 4kW AC motor with a maintenance-free lithium pack and an on-board charger, so any standard outlet becomes a charging point without new infrastructure. Heavy-duty bumpers take the knocks that shared-use vehicles collect from bollards and gateposts. The commercial flatbed adds a low steel mesh deck that drains, turning awkward lifts into slides for nursery and grounds work.',
+  },
+  {
+    slug: 'tara',
+    name: 'Tara',
+    match: 'tara',
+    origin: 'Australia',
+    primaryKeyword: 'tara golf buggy australia',
+    supportingKeywords: ['tara roadster golf cart', 'affordable golf buggy australia', 'value golf cart australia', 'lifted golf buggy value', 'budget 4 seater golf cart', 'tara spirit golf buggy'],
+    intro: 'Tara golf buggies for sale in Australia, the value end of the lifted and two-seat lithium range, from our Yatala QLD depot.',
+    body: 'Tara is where the range earns its value position with hardware rather than trim. The Roadster 2+2 Lifted is the clearest case: hydraulic disc brakes on a lifted chassis give genuine stopping control on sloped semi-rural driveways where drum brakes fade and feel vague under load, and the rear flip seat converts from passenger bench to flat cargo deck in seconds. The Roadster 4 Off-Road uses a high-torque gear reduction chosen specifically for sustained climbing rather than flat-ground speed. The Spirit Pro is a straightforward lithium two-seater for golfers stepping away from an ageing lead-acid buggy.',
+  },
+  {
+    slug: 'atlas',
+    name: 'Atlas',
+    match: 'atlas',
+    origin: 'United States',
+    primaryKeyword: 'atlas golf carts',
+    supportingKeywords: ['atlas golf carts australia', 'atlas golf carts for sale', 'atlas golf cart accessories', 'atlas golf cars', 'atlas lifted golf cart', 'atlas 4 passenger buggy'],
+    intro: 'Atlas lifted lithium golf buggies for Australian estates and acreage, including the 350A heavy-duty model, in stock at Yatala QLD.',
+    body: 'Atlas is the range we point acreage owners at when a standard-height buggy has already disappointed them. Both models are built around ground clearance and hill capability rather than fairway manners. The 4-Passenger Lifted pairs a three-inch factory lift and 14-inch alloys with custom leather seating, so it clears rutted estate driveways without giving up cabin comfort. The Heavy-Duty Lifted 350A goes further, with a 350-amp controller and four-wheel hydraulic disc brakes: controller amperage is what decides whether a laden four-seater walks up a steep farm track or bogs down halfway, and the brakes are what get it back down.',
+  },
+  {
+    slug: 'cushman',
+    name: 'Cushman',
+    match: 'cushman',
+    origin: 'United States',
+    primaryKeyword: 'cushman utility vehicle australia',
+    supportingKeywords: ['cushman hauler australia', 'cushman golf cart parts', 'cushman hauler 1200', 'commercial utility buggy australia', 'turf utility vehicle australia', 'grounds maintenance buggy'],
+    intro: 'Cushman Hauler utility vehicles for Australian turf, grounds and agricultural work, supplied from our Yatala QLD depot.',
+    body: 'Cushman is a work brand, and the specification reflects it. The Hauler PRO runs a 72V AC drive rather than the 48V systems common elsewhere in the range, and higher system voltage lets it move heavy loads at lower current, running cooler and holding performance through a full shift. Its optional electric dump bed turns tipping a load of sand or mulch into a button rather than a shovel. The petrol Hauler 1200 takes the opposite approach: a 13.5HP Kawasaki engine and a manual dump bed, with fewer systems to fail a long way from the shed. Both carry substantial rated loads.',
+  },
+  {
+    slug: 'powakaddy',
+    name: 'PowaKaddy',
+    match: 'powakaddy',
+    origin: 'United Kingdom',
+    primaryKeyword: 'powakaddy golf buggy',
+    supportingKeywords: ['powakaddy australia', 'powakaddy electric golf buggies', 'powakaddy golf trolleys', 'powakaddy buggy', 'powakaddy fx7 australia', 'uk electric golf trolley australia'],
+    intro: 'PowaKaddy electric golf trolleys in Australia, including the FX7 GPS lithium, stocked and warranty-supported from Yatala QLD.',
+    body: 'PowaKaddy brings UK engineering and the most readable screen in the walk-behind category. The FX7 carries a 3.5-inch OCA full-colour touchscreen preloaded with over 40,000 courses worldwide, so it works on your home course and on holiday without hunting for a download before every round. OCA bonding is the reason it stays legible in Australian sunlight where cheaper laminated screens wash out. The 30V Plug and Play lithium system fits and removes without tools, which matters when the buggy lives in a car boot between rounds and the battery comes inside to charge.',
+  },
+  {
+    slug: 'robera',
+    name: 'Robera',
+    match: 'robera',
+    origin: 'International',
+    primaryKeyword: 'robera golf buggy australia',
+    supportingKeywords: ['follow me golf buggy australia', 'hands free golf trolley', 'smart follow golf caddy', 'robera pro golf buggy', 'ai golf buggy australia', 'self following golf buggy'],
+    intro: 'Robera hands-free follow golf buggies in Australia, the smart-tracking walk-behind option, stocked at our Yatala QLD depot.',
+    body: 'Robera is the only buggy in our range that needs no input at all once you start walking. A smart tracking tag clips to your belt and the buggy follows your footsteps at a safe distance, so there is no remote to hold, no dial to adjust and nothing to think about between shots. Dual-mode remote control is still there when you want to send it ahead. All-terrain dual motors supply the independent drive that follow-mode needs to hold a line across slopes and around obstacles rather than cutting corners. For buyers who decided the point of walking is to walk unencumbered, this is the step up.',
+  },
+];
+
 export const VEHICLE_COLORS = [
   { id: 'factory', name: 'Factory Finish', swatch: '#E7E5E4', filter: 'none' },
   { id: 'coastal-teal', name: 'Coastal Teal', swatch: '#2E8B87', filter: 'hue-rotate(150deg) saturate(1.25)' },
@@ -366,6 +506,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/atlas-4-passenger-lifted-lithium-buggy.webp'],
     inStock: true,
+    primaryKeyword: "atlas golf carts",
+    supportingKeywords: [
+      "atlas golf carts price",
+      "atlas golf cart accessories",
+      "atlas golf cars",
+      "atlas golf carts for sale",
+      "atlas golf carts reviews",
+      "atlas golf carts australia",
+    ],
+    faqs: [
+      {
+        q: "How much does the Atlas 4-Passenger Lifted Lithium Buggy cost in Australia?",
+        a: "The Atlas 4-Passenger Lifted Lithium Buggy is $20,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the Atlas 4-Passenger Lifted Lithium Buggy use?",
+        a: "The Atlas 4-Passenger Lifted Lithium Buggy runs lithium rather than lead-acid, specified as 48V Lithium. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the Atlas 4-Passenger Lifted Lithium Buggy?",
+        a: "The Atlas 4-Passenger Lifted Lithium Buggy is supplied with 48V Lithium, 3-inch Factory Lift, Custom Leather Seats, Touchscreen Display and 14-inch alloy wheels. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Atlas 4-Passenger Lifted Lithium Buggy best suited to?",
+        a: "We specify the Atlas 4-Passenger Lifted Lithium Buggy for gated estates, luxury property owners, resort operators. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Atlas 4-Passenger Lifted Lithium Buggy before I buy it?",
+        a: "Yes. Because the Atlas 4-Passenger Lifted Lithium Buggy is priced at $20,900 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $20,900 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Atlas 4-Passenger Lifted Lithium Buggy road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Atlas 4-Passenger Lifted Lithium Buggy is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-002',
@@ -384,6 +559,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/evolution-d5-ranger-4-plus-2.webp'],
     inStock: true,
+    primaryKeyword: "evolution 6 seater golf cart",
+    supportingKeywords: [
+      "evolution d5 golf carts",
+      "evolution d5 golf cart",
+      "evolution d5 golf cart price",
+      "evolution 4 seater golf cart",
+      "evolution golf carts",
+      "evolution golf carts australia",
+    ],
+    faqs: [
+      {
+        q: "How much does the Evolution D5 Ranger 4+2 Plus cost in Australia?",
+        a: "The Evolution D5 Ranger 4+2 Plus is $22,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the Evolution D5 Ranger 4+2 Plus use?",
+        a: "The Evolution D5 Ranger 4+2 Plus runs lithium rather than lead-acid, specified as 110Ah Lithium. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the Evolution D5 Ranger 4+2 Plus?",
+        a: "The Evolution D5 Ranger 4+2 Plus is supplied with 110Ah Lithium, Soundbar with Bluetooth, 9-inch Touchscreen, Foldable Windshield and forward facing seats. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Evolution D5 Ranger 4+2 Plus best suited to?",
+        a: "We specify the Evolution D5 Ranger 4+2 Plus for high net-worth families, lifestyle acreage owners. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Evolution D5 Ranger 4+2 Plus before I buy it?",
+        a: "Yes. Because the Evolution D5 Ranger 4+2 Plus is priced at $22,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $22,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Evolution D5 Ranger 4+2 Plus road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Evolution D5 Ranger 4+2 Plus is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-003',
@@ -402,6 +612,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/club-car-onward-4-passenger-lithium.webp'],
     inStock: true,
+    primaryKeyword: "6 seater club car golf cart",
+    supportingKeywords: [
+      "club car 6 seater golf cart",
+      "club car onward golf cart",
+      "club car golf cart onward",
+      "4 seater club car golf cart",
+      "club car 4 seater golf cart",
+      "club car golf cart 4 seater",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Onward 4-Passenger Lithium cost in Australia?",
+        a: "The Club Car Onward 4-Passenger Lithium is $24,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Onward 4-Passenger Lithium?",
+        a: "The Club Car Onward 4-Passenger Lithium is supplied with AC Drive Motor, Custom Metallic Paint, Premium Canopy Top, Ergonomic Seating and aircraft-grade aluminum frame. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Onward 4-Passenger Lithium best suited to?",
+        a: "We specify the Club Car Onward 4-Passenger Lithium for club car brand loyalists, premium golf village residents. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Onward 4-Passenger Lithium before I buy it?",
+        a: "Yes. Because the Club Car Onward 4-Passenger Lithium is priced at $24,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $24,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Onward 4-Passenger Lithium road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Onward 4-Passenger Lithium is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Onward 4-Passenger Lithium anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Onward 4-Passenger Lithium travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-004',
@@ -420,6 +665,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/tara-roadster-2-plus-2-lifted.webp'],
     inStock: true,
+    primaryKeyword: "tara roadster 2 golf cart",
+    supportingKeywords: [
+      "tara roadster 2 golf cart reviews",
+      "tara golf carts price",
+      "tara electric golf cart",
+      "tara ev golf cart",
+      "who makes tara golf carts",
+      "tara golf cart accessories",
+    ],
+    faqs: [
+      {
+        q: "How much does the Tara Roadster 2+2 Lifted cost in Australia?",
+        a: "The Tara Roadster 2+2 Lifted is $18,990 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the Tara Roadster 2+2 Lifted use?",
+        a: "The Tara Roadster 2+2 Lifted runs lithium rather than lead-acid, specified as Lithium Battery. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the Tara Roadster 2+2 Lifted?",
+        a: "The Tara Roadster 2+2 Lifted is supplied with Lithium Battery, Lifted Chassis, Hydraulic Disc Brakes, LED Light Package and rear flip seat. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Tara Roadster 2+2 Lifted best suited to?",
+        a: "We specify the Tara Roadster 2+2 Lifted for budget-luxury buyers, semi-rural properties. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Tara Roadster 2+2 Lifted before I buy it?",
+        a: "Yes. Because the Tara Roadster 2+2 Lifted is priced at $18,990 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $18,990 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Tara Roadster 2+2 Lifted road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Tara Roadster 2+2 Lifted is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-005',
@@ -438,6 +718,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/ezgo-express-l6-lithium.webp'],
     inStock: true,
+    primaryKeyword: "ezgo 6 seater golf cart",
+    supportingKeywords: [
+      "ezgo golf cart 6 seater",
+      "ez go golf cart 4 seater",
+      "ezgo 4 seater golf cart",
+      "ezgo golf cart 4 seater",
+      "ezgo 4 seater golf cart for sale",
+      "ezgo golf buggies",
+    ],
+    faqs: [
+      {
+        q: "How much does the E-Z-GO Express L6 Lithium cost in Australia?",
+        a: "The E-Z-GO Express L6 Lithium is $27,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the E-Z-GO Express L6 Lithium use?",
+        a: "The E-Z-GO Express L6 Lithium runs lithium rather than lead-acid, specified as ELiTE Lithium Technology. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the E-Z-GO Express L6 Lithium?",
+        a: "The E-Z-GO Express L6 Lithium is supplied with ELiTE Lithium Technology, 6-Passenger Seating, High Ground Clearance and heavy duty suspension. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the E-Z-GO Express L6 Lithium best suited to?",
+        a: "We specify the E-Z-GO Express L6 Lithium for resort transport, large family estates, commercial venues. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the E-Z-GO Express L6 Lithium before I buy it?",
+        a: "Yes. Because the E-Z-GO Express L6 Lithium is priced at $27,900 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $27,900 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the E-Z-GO Express L6 Lithium road registrable in Australia?",
+        a: "Conditional registration for a buggy like the E-Z-GO Express L6 Lithium is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-006',
@@ -456,6 +771,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/lvtong-4-seater-resort-cruiser.webp'],
     inStock: true,
+    primaryKeyword: "6 seater electric golf cart",
+    supportingKeywords: [
+      "electric 6 seater golf cart",
+      "6 seater golf buggy",
+      "6 seater golf buggy for sale",
+      "6 seater golf carts for sale",
+      "golf buggy 6 seater",
+      "golf carts 6 seater for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the LVTONG 4-Seater Resort Cruiser cost in Australia?",
+        a: "The LVTONG 4-Seater Resort Cruiser is $16,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the LVTONG 4-Seater Resort Cruiser use?",
+        a: "The LVTONG 4-Seater Resort Cruiser runs lithium rather than lead-acid, specified as 4kW AC Motor. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the LVTONG 4-Seater Resort Cruiser?",
+        a: "The LVTONG 4-Seater Resort Cruiser is supplied with 4kW AC Motor, Maintenance-Free Lithium, On-Board Charger and heavy duty bumper. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the LVTONG 4-Seater Resort Cruiser best suited to?",
+        a: "We specify the LVTONG 4-Seater Resort Cruiser for hotels, holiday parks, community centers. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the LVTONG 4-Seater Resort Cruiser before I buy it?",
+        a: "Yes. Because the LVTONG 4-Seater Resort Cruiser is priced at $16,800 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $16,800 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the LVTONG 4-Seater Resort Cruiser road registrable in Australia?",
+        a: "Conditional registration for a buggy like the LVTONG 4-Seater Resort Cruiser is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-007',
@@ -474,6 +824,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/club-car-tempo-lithium-2025.webp'],
     inStock: true,
+    primaryKeyword: "club car tempo golf cart accessories",
+    supportingKeywords: [
+      "club car tempo golf buggy",
+      "2025 club car golf cart",
+      "club car tempo golf cart",
+      "club car golf cart tempo",
+      "club car tempo electric golf cart",
+      "club car tempo golf cart for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Tempo Lithium (2025 Model) cost in Australia?",
+        a: "The Club Car Tempo Lithium (2025 Model) is $16,990 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Tempo Lithium (2025 Model)?",
+        a: "The Club Car Tempo Lithium (2025 Model) is supplied with Monaco Drive System, Rust-Proof Aluminum Frame and automotive-style dashboard. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Tempo Lithium (2025 Model) best suited to?",
+        a: "We specify the Club Car Tempo Lithium (2025 Model) for avid golfers, private course members. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Tempo Lithium (2025 Model) before I buy it?",
+        a: "Yes. Because the Club Car Tempo Lithium (2025 Model) is priced at $16,990 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $16,990 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Tempo Lithium (2025 Model) road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Tempo Lithium (2025 Model) is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Tempo Lithium (2025 Model) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Tempo Lithium (2025 Model) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-008',
@@ -492,6 +877,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/ezgo-rxv-elite-lithium.webp', '/images/ezgo-rxv-elite-lithium-2.webp'],
     inStock: true,
+    primaryKeyword: "ezgo rxv elite golf cart",
+    supportingKeywords: [
+      "ez go rxv elite golf cart",
+      "ezgo rxv golf cart",
+      "ezgo elite golf cart accessories",
+      "ezgo rxv golf cart accessories",
+      "ez go elite golf cart",
+      "ezgo elite golf cart",
+    ],
+    faqs: [
+      {
+        q: "How much does the E-Z-GO RXV ELiTE Lithium cost in Australia?",
+        a: "The E-Z-GO RXV ELiTE Lithium is $15,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the E-Z-GO RXV ELiTE Lithium use?",
+        a: "The E-Z-GO RXV ELiTE Lithium runs lithium rather than lead-acid, specified as Samsung SDI Lithium Batteries. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the E-Z-GO RXV ELiTE Lithium?",
+        a: "The E-Z-GO RXV ELiTE Lithium is supplied with Samsung SDI Lithium Batteries, Automatic Electromagnetic Brake and high-efficiency ac drive. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the E-Z-GO RXV ELiTE Lithium best suited to?",
+        a: "We specify the E-Z-GO RXV ELiTE Lithium for golfers, fleet buyers, retirement village residents. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the E-Z-GO RXV ELiTE Lithium before I buy it?",
+        a: "Yes. Because the E-Z-GO RXV ELiTE Lithium is priced at $15,800 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $15,800 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the E-Z-GO RXV ELiTE Lithium road registrable in Australia?",
+        a: "Conditional registration for a buggy like the E-Z-GO RXV ELiTE Lithium is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-009',
@@ -510,6 +930,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/yamaha-drive2-ac-lithium.webp'],
     inStock: true,
+    primaryKeyword: "yamaha drive2 golf cart for sale",
+    supportingKeywords: [
+      "yamaha 2 seater golf cart",
+      "yamaha golf cart covers 2 passenger",
+      "yamaha golf cart",
+      "yamaha golf carts for sale",
+      "yamaha golf carts brisbane",
+      "yamaha golf cart accessories",
+    ],
+    faqs: [
+      {
+        q: "How much does the Yamaha Drive2 AC Lithium cost in Australia?",
+        a: "The Yamaha Drive2 AC Lithium is $16,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Yamaha Drive2 AC Lithium?",
+        a: "The Yamaha Drive2 AC Lithium is supplied with Independent Front & Rear Suspension, Ultra-Comfort Seats and wide dash storage. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Yamaha Drive2 AC Lithium best suited to?",
+        a: "We specify the Yamaha Drive2 AC Lithium for golfers wanting smooth ride comfort, course fleets. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Yamaha Drive2 AC Lithium before I buy it?",
+        a: "Yes. Because the Yamaha Drive2 AC Lithium is priced at $16,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $16,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Yamaha Drive2 AC Lithium road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Yamaha Drive2 AC Lithium is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Yamaha Drive2 AC Lithium anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Yamaha Drive2 AC Lithium travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-010',
@@ -528,6 +983,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/tara-spirit-pro-2-seater.webp', '/images/tara-spirit-pro-2-seater-2.webp'],
     inStock: true,
+    primaryKeyword: "2 seater electric golf carts",
+    supportingKeywords: [
+      "2 seater golf cart price",
+      "2 seater golf cart",
+      "two seater golf cart",
+      "2 seater electric golf cart",
+      "two seater electric golf cart",
+      "12 seater golf cart for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the Tara Spirit Pro 2-Seater cost in Australia?",
+        a: "The Tara Spirit Pro 2-Seater is $13,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Tara Spirit Pro 2-Seater?",
+        a: "The Tara Spirit Pro 2-Seater is supplied with Lightweight Frame, Rapid Charger, Digital Speedometer and sweater basket. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Tara Spirit Pro 2-Seater best suited to?",
+        a: "We specify the Tara Spirit Pro 2-Seater for cost-conscious private golfers. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the Tara Spirit Pro 2-Seater road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Tara Spirit Pro 2-Seater is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Tara Spirit Pro 2-Seater anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Tara Spirit Pro 2-Seater travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Do you sell a used version of the Tara Spirit Pro 2-Seater?",
+        a: "We do carry reconditioned buggies alongside new stock, and availability changes as trade-ins come through. A reconditioned unit is checked, charge-cycled and road tested at Yatala the same way a new one is. Ask us what is on the floor — if a used equivalent of the Tara Spirit Pro 2-Seater is available, we will tell you what it is and what it has done.",
+      },
+    ],
   },
   {
     id: 'BUG-011',
@@ -546,6 +1036,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/lvtong-2-passenger-golf-buggy.webp'],
     inStock: true,
+    primaryKeyword: "2 seater golf buggy",
+    supportingKeywords: [
+      "2 seater golf buggy for sale",
+      "golf buggy 2 seater",
+      "electric golf buggy 2 seater",
+      "two seater golf buggy",
+      "golf buggy phone holder",
+      "golf buggy umbrella holder",
+    ],
+    faqs: [
+      {
+        q: "How much does the LVTONG 2-Passenger Golf Buggy cost in Australia?",
+        a: "The LVTONG 2-Passenger Golf Buggy is $11,990 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the LVTONG 2-Passenger Golf Buggy?",
+        a: "The LVTONG 2-Passenger Golf Buggy is supplied with 48V System, Split Foldable Windshield, Dual Sand Bottles and caddy bag holder. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the LVTONG 2-Passenger Golf Buggy best suited to?",
+        a: "We specify the LVTONG 2-Passenger Golf Buggy for budget private buyers, local golf clubs. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the LVTONG 2-Passenger Golf Buggy road registrable in Australia?",
+        a: "Conditional registration for a buggy like the LVTONG 2-Passenger Golf Buggy is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the LVTONG 2-Passenger Golf Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The LVTONG 2-Passenger Golf Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Do you sell a used version of the LVTONG 2-Passenger Golf Buggy?",
+        a: "We do carry reconditioned buggies alongside new stock, and availability changes as trade-ins come through. A reconditioned unit is checked, charge-cycled and road tested at Yatala the same way a new one is. Ask us what is on the floor — if a used equivalent of the LVTONG 2-Passenger Golf Buggy is available, we will tell you what it is and what it has done.",
+      },
+    ],
   },
   {
     id: 'BUG-012',
@@ -564,6 +1089,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/evolution-classic-2-plus.webp'],
     inStock: true,
+    primaryKeyword: "evolution 2 seater golf carts",
+    supportingKeywords: [
+      "evolution golf cart reviews",
+      "evolution golf cart price",
+      "evolution golf carts for sale",
+      "evolution golf carts near me",
+      "hdk evolution golf cart",
+      "where are evolution golf carts made",
+    ],
+    faqs: [
+      {
+        q: "How much does the Evolution Classic 2 Plus cost in Australia?",
+        a: "The Evolution Classic 2 Plus is $14,200 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the Evolution Classic 2 Plus use?",
+        a: "The Evolution Classic 2 Plus runs lithium rather than lead-acid, specified as 6.3-inch LCD Screen. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the Evolution Classic 2 Plus?",
+        a: "The Evolution Classic 2 Plus is supplied with 6.3-inch LCD Screen, Lithium-Ion Battery, Two-Tone Seats and side mirrors with turn signals. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Evolution Classic 2 Plus best suited to?",
+        a: "We specify the Evolution Classic 2 Plus for modern tech-focused golfers. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the Evolution Classic 2 Plus road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Evolution Classic 2 Plus is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Evolution Classic 2 Plus anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Evolution Classic 2 Plus travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-013',
@@ -582,6 +1142,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/atlas-4-seater-heavy-duty-lifted-350a.webp'],
     inStock: true,
+    primaryKeyword: "atlas golf cart",
+    supportingKeywords: [
+      "atlas golf cart for sale",
+      "atlas golf cart reviews",
+      "atlas golf carts near me",
+      "lifted 4x4 golf cart",
+      "lifted golf carts",
+      "custom lifted golf cart",
+    ],
+    faqs: [
+      {
+        q: "How much does the Atlas 4-Seater Heavy Duty Lifted (350A) cost in Australia?",
+        a: "The Atlas 4-Seater Heavy Duty Lifted (350A) is $21,990 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Atlas 4-Seater Heavy Duty Lifted (350A)?",
+        a: "The Atlas 4-Seater Heavy Duty Lifted (350A) is supplied with 350A Controller, 4-wheel Hydraulic Brakes, Rugged All-Terrain Tires and brush guard. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Atlas 4-Seater Heavy Duty Lifted (350A) best suited to?",
+        a: "We specify the Atlas 4-Seater Heavy Duty Lifted (350A) for acreage owners, hilly farm tracks, rural properties. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Atlas 4-Seater Heavy Duty Lifted (350A) before I buy it?",
+        a: "Yes. Because the Atlas 4-Seater Heavy Duty Lifted (350A) is priced at $21,990 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $21,990 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Atlas 4-Seater Heavy Duty Lifted (350A) road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Atlas 4-Seater Heavy Duty Lifted (350A) is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Atlas 4-Seater Heavy Duty Lifted (350A) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Atlas 4-Seater Heavy Duty Lifted (350A) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-014',
@@ -600,6 +1195,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/evolution-d-max-gt4-off-road.webp'],
     inStock: true,
+    primaryKeyword: "evolution electric golf cart",
+    supportingKeywords: [
+      "evolution ev golf cart",
+      "evolution golf cart",
+      "evolution golf cart review",
+      "evolution golf.cart",
+      "evolution golf cars near me",
+      "evolution golf cart dealers",
+    ],
+    faqs: [
+      {
+        q: "How much does the Evolution D-MAX GT4 Off-Road cost in Australia?",
+        a: "The Evolution D-MAX GT4 Off-Road is $23,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Evolution D-MAX GT4 Off-Road?",
+        a: "The Evolution D-MAX GT4 Off-Road is supplied with Heavy Duty Roll Cage, Independent Off-Road Suspension, Integrated Winch and high-power ac engine. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Evolution D-MAX GT4 Off-Road best suited to?",
+        a: "We specify the Evolution D-MAX GT4 Off-Road for hunters, large property managers, trail enthusiasts. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Evolution D-MAX GT4 Off-Road before I buy it?",
+        a: "Yes. Because the Evolution D-MAX GT4 Off-Road is priced at $23,800 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $23,800 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Evolution D-MAX GT4 Off-Road road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Evolution D-MAX GT4 Off-Road is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Evolution D-MAX GT4 Off-Road anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Evolution D-MAX GT4 Off-Road travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-015',
@@ -618,6 +1248,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/ezgo-express-s4-lifted-high-torque.webp'],
     inStock: true,
+    primaryKeyword: "ezgo golf cart lifted",
+    supportingKeywords: [
+      "lifted ez go golf cart",
+      "lifted ezgo golf cart",
+      "ez go golf cart lift kit",
+      "ezgo golf cart lift kit",
+      "lift kit for golf cart for ez go",
+      "lift kit golf cart ezgo",
+    ],
+    faqs: [
+      {
+        q: "How much does the E-Z-GO Express S4 Lifted High-Torque cost in Australia?",
+        a: "The E-Z-GO Express S4 Lifted High-Torque is $20,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the E-Z-GO Express S4 Lifted High-Torque?",
+        a: "The E-Z-GO Express S4 Lifted High-Torque is supplied with 4-inch Lift Kit, Desert Eagle All-Terrain Tires and convertible rear seat to cargo bed. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the E-Z-GO Express S4 Lifted High-Torque best suited to?",
+        a: "We specify the E-Z-GO Express S4 Lifted High-Torque for rural families, farm transport. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the E-Z-GO Express S4 Lifted High-Torque before I buy it?",
+        a: "Yes. Because the E-Z-GO Express S4 Lifted High-Torque is priced at $20,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $20,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the E-Z-GO Express S4 Lifted High-Torque road registrable in Australia?",
+        a: "Conditional registration for a buggy like the E-Z-GO Express S4 Lifted High-Torque is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the E-Z-GO Express S4 Lifted High-Torque anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The E-Z-GO Express S4 Lifted High-Torque travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-016',
@@ -636,6 +1301,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/lvtong-rough-terrain-lifted-buggy.webp'],
     inStock: true,
+    primaryKeyword: "all terrain golf buggy",
+    supportingKeywords: [
+      "electric farm buggy for sale australia",
+      "4x4 golf buggy",
+      "electric farm buggy australia",
+      "farm buggy for sale australia",
+      "farm buggy for sale qld",
+      "farm buggy for sale victoria",
+    ],
+    faqs: [
+      {
+        q: "How much does the LVTONG Rough-Terrain Lifted Buggy cost in Australia?",
+        a: "The LVTONG Rough-Terrain Lifted Buggy is $17,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the LVTONG Rough-Terrain Lifted Buggy?",
+        a: "The LVTONG Rough-Terrain Lifted Buggy is supplied with High Ground Clearance, Reinforced Steel Subframe and front led light bar. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the LVTONG Rough-Terrain Lifted Buggy best suited to?",
+        a: "We specify the LVTONG Rough-Terrain Lifted Buggy for farmers, orchard owners, bush properties. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the LVTONG Rough-Terrain Lifted Buggy before I buy it?",
+        a: "Yes. Because the LVTONG Rough-Terrain Lifted Buggy is priced at $17,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $17,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the LVTONG Rough-Terrain Lifted Buggy road registrable in Australia?",
+        a: "Conditional registration for a buggy like the LVTONG Rough-Terrain Lifted Buggy is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the LVTONG Rough-Terrain Lifted Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The LVTONG Rough-Terrain Lifted Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-017',
@@ -654,6 +1354,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/club-car-onward-lifted-efi-petrol.webp'],
     inStock: true,
+    primaryKeyword: "club car lifted golf carts",
+    supportingKeywords: [
+      "lifted club car golf carts",
+      "club car golf carts",
+      "club car golf carts for sale",
+      "club car golf buggy for sale",
+      "lift kit for a club car golf cart",
+      "club car golf cart",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Onward Lifted EFI Petrol cost in Australia?",
+        a: "The Club Car Onward Lifted EFI Petrol is $19,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Onward Lifted EFI Petrol?",
+        a: "The Club Car Onward Lifted EFI Petrol is supplied with Kohler 14HP EFI Petrol Engine, Lifted Suspension and all-terrain tread. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Onward Lifted EFI Petrol best suited to?",
+        a: "We specify the Club Car Onward Lifted EFI Petrol for buyers without grid power access, long-distance farm users. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Onward Lifted EFI Petrol before I buy it?",
+        a: "Yes. Because the Club Car Onward Lifted EFI Petrol is priced at $19,800 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $19,800 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Onward Lifted EFI Petrol road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Onward Lifted EFI Petrol is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Onward Lifted EFI Petrol anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Onward Lifted EFI Petrol travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-018',
@@ -672,6 +1407,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/tara-roadster-4-off-road.webp'],
     inStock: true,
+    primaryKeyword: "off road golf cart",
+    supportingKeywords: [
+      "off road golf buggy",
+      "electric golf carts off road",
+      "electric off road golf cart",
+      "off road electric golf cart",
+      "off road golf cart electric",
+      "off road golf cart for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the Tara Roadster 4 Off-Road cost in Australia?",
+        a: "The Tara Roadster 4 Off-Road is $19,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Tara Roadster 4 Off-Road?",
+        a: "The Tara Roadster 4 Off-Road is supplied with High-Torque Gear Ratio, 12-inch Off-Road Rims and rear cargo tray option. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Tara Roadster 4 Off-Road best suited to?",
+        a: "We specify the Tara Roadster 4 Off-Road for property owners needing steep incline power. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Tara Roadster 4 Off-Road before I buy it?",
+        a: "Yes. Because the Tara Roadster 4 Off-Road is priced at $19,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $19,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Tara Roadster 4 Off-Road road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Tara Roadster 4 Off-Road is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Tara Roadster 4 Off-Road anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Tara Roadster 4 Off-Road travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-019',
@@ -690,6 +1460,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/club-car-carryall-700-electric-utility.webp'],
     inStock: true,
+    primaryKeyword: "club car utility golf cart",
+    supportingKeywords: [
+      "club car electric golf cart",
+      "club car golf carts electric",
+      "electric golf cart club car",
+      "club car electric golf buggy",
+      "club car golf cart electric",
+      "golf cart motors electric club car",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Carryall 700 Electric Utility cost in Australia?",
+        a: "The Club Car Carryall 700 Electric Utility is $22,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Carryall 700 Electric Utility?",
+        a: "The Club Car Carryall 700 Electric Utility is supplied with 6-Foot Aluminum Cargo Box, 680kg Payload Capacity and heavy-duty tow hitch. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Carryall 700 Electric Utility best suited to?",
+        a: "We specify the Club Car Carryall 700 Electric Utility for councils, maintenance teams, commercial farms. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Carryall 700 Electric Utility before I buy it?",
+        a: "Yes. Because the Club Car Carryall 700 Electric Utility is priced at $22,900 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $22,900 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Carryall 700 Electric Utility road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Carryall 700 Electric Utility is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Carryall 700 Electric Utility anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Carryall 700 Electric Utility travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-020',
@@ -708,6 +1513,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/ezgo-cushman-hauler-pro-lithium.webp'],
     inStock: true,
+    primaryKeyword: "ezgo golf carts australia",
+    supportingKeywords: [
+      "ezgo golf cart for sale",
+      "ezgo golf buggy for sale",
+      "ez go golf cart",
+      "ezgo golf cart accessories",
+      "ezgo golf cart",
+      "ezgo golf carts",
+    ],
+    faqs: [
+      {
+        q: "How much does the E-Z-GO Cushman Hauler PRO Lithium cost in Australia?",
+        a: "The E-Z-GO Cushman Hauler PRO Lithium is $21,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the E-Z-GO Cushman Hauler PRO Lithium?",
+        a: "The E-Z-GO Cushman Hauler PRO Lithium is supplied with 72V AC Drive, Electric Cargo Bed Dump Option and 544kg towing capacity. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the E-Z-GO Cushman Hauler PRO Lithium best suited to?",
+        a: "We specify the E-Z-GO Cushman Hauler PRO Lithium for turf managers, schools, university campuses. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the E-Z-GO Cushman Hauler PRO Lithium before I buy it?",
+        a: "Yes. Because the E-Z-GO Cushman Hauler PRO Lithium is priced at $21,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $21,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the E-Z-GO Cushman Hauler PRO Lithium road registrable in Australia?",
+        a: "Conditional registration for a buggy like the E-Z-GO Cushman Hauler PRO Lithium is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the E-Z-GO Cushman Hauler PRO Lithium anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The E-Z-GO Cushman Hauler PRO Lithium travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-021',
@@ -726,6 +1566,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/yamaha-umax-rally-efi-petrol.webp'],
     inStock: true,
+    primaryKeyword: "yamaha fleet golf carts",
+    supportingKeywords: [
+      "yamaha petrol golf carts for sale",
+      "yamaha petrol golf buggy for sale",
+      "yamaha g29 petrol golf cart",
+      "yamaha petrol golf buggy",
+      "yamaha petrol golf carts for sale qld",
+      "yamaha petrol golf carts for sale victoria",
+    ],
+    faqs: [
+      {
+        q: "How much does the Yamaha UMAX Rally EFI Petrol cost in Australia?",
+        a: "The Yamaha UMAX Rally EFI Petrol is $18,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Yamaha UMAX Rally EFI Petrol?",
+        a: "The Yamaha UMAX Rally EFI Petrol is supplied with 402cc Yamaha EFI Engine, Side-Filling Fuel Tank, Bucket Seats and under-hood storage. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Yamaha UMAX Rally EFI Petrol best suited to?",
+        a: "We specify the Yamaha UMAX Rally EFI Petrol for livestock properties, large regional venues. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Yamaha UMAX Rally EFI Petrol before I buy it?",
+        a: "Yes. Because the Yamaha UMAX Rally EFI Petrol is priced at $18,900 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $18,900 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Yamaha UMAX Rally EFI Petrol road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Yamaha UMAX Rally EFI Petrol is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Yamaha UMAX Rally EFI Petrol anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Yamaha UMAX Rally EFI Petrol travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-022',
@@ -744,6 +1619,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/evolution-700-heavy-commercial-utility.webp', '/images/evolution-700-heavy-commercial-utility-2.webp'],
     inStock: true,
+    primaryKeyword: "evolution golf cart dealers near me",
+    supportingKeywords: [
+      "evolution golf cart for sale",
+      "price evolution golf carts",
+      "evolution golf carts dealer near me",
+      "evolution golf carts dealers near me",
+      "evolution golf cart accessories",
+      "golf carts evolution",
+    ],
+    faqs: [
+      {
+        q: "How much does the Evolution 700 Heavy Commercial Utility cost in Australia?",
+        a: "The Evolution 700 Heavy Commercial Utility is $19,200 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the Evolution 700 Heavy Commercial Utility use?",
+        a: "The Evolution 700 Heavy Commercial Utility runs lithium rather than lead-acid, specified as Drop-Side Flatbed Tray. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "What is included with the Evolution 700 Heavy Commercial Utility?",
+        a: "The Evolution 700 Heavy Commercial Utility is supplied with Drop-Side Flatbed Tray, Lithium-Ion, High-Output Headlights and tow bar. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Evolution 700 Heavy Commercial Utility best suited to?",
+        a: "We specify the Evolution 700 Heavy Commercial Utility for facility management, security patrols. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Evolution 700 Heavy Commercial Utility before I buy it?",
+        a: "Yes. Because the Evolution 700 Heavy Commercial Utility is priced at $19,200 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $19,200 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Evolution 700 Heavy Commercial Utility road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Evolution 700 Heavy Commercial Utility is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+    ],
   },
   {
     id: 'BUG-023',
@@ -762,6 +1672,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/lvtong-commercial-flatbed-cargo-buggy.webp'],
     inStock: true,
+    primaryKeyword: "flatbed golf cart",
+    supportingKeywords: [
+      "cargo golf cart",
+      "commercial golf carts",
+      "golf cart cargo",
+      "golf cart commercial",
+      "golf cart with cargo bed",
+      "electric golf carts for commercial use",
+    ],
+    faqs: [
+      {
+        q: "How much does the LVTONG Commercial Flatbed / Cargo Buggy cost in Australia?",
+        a: "The LVTONG Commercial Flatbed / Cargo Buggy is $15,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the LVTONG Commercial Flatbed / Cargo Buggy?",
+        a: "The LVTONG Commercial Flatbed / Cargo Buggy is supplied with Steel Mesh Flatbed, Low Loader Height and regenerative braking. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the LVTONG Commercial Flatbed / Cargo Buggy best suited to?",
+        a: "We specify the LVTONG Commercial Flatbed / Cargo Buggy for warehouses, nurseries, eco-resort groundskeepers. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the LVTONG Commercial Flatbed / Cargo Buggy before I buy it?",
+        a: "Yes. Because the LVTONG Commercial Flatbed / Cargo Buggy is priced at $15,900 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $15,900 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the LVTONG Commercial Flatbed / Cargo Buggy road registrable in Australia?",
+        a: "Conditional registration for a buggy like the LVTONG Commercial Flatbed / Cargo Buggy is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the LVTONG Commercial Flatbed / Cargo Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The LVTONG Commercial Flatbed / Cargo Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-024',
@@ -780,6 +1725,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/club-car-transporter-6-commercial.webp'],
     inStock: true,
+    primaryKeyword: "club car golf buggy",
+    supportingKeywords: [
+      "how heavy is a club car golf cart",
+      "body kit for club car golf cart",
+      "club car golf cart body kits",
+      "club car golf cart won't go forward or reverse",
+      "golf cart body kits club car",
+      "club car golf car",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Transporter 6 Commercial cost in Australia?",
+        a: "The Club Car Transporter 6 Commercial is $26,400 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Transporter 6 Commercial?",
+        a: "The Club Car Transporter 6 Commercial is supplied with 6-Passenger Forward-Facing Seating, Armor-Flex Body and heavy-duty axles. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Transporter 6 Commercial best suited to?",
+        a: "We specify the Club Car Transporter 6 Commercial for airports, mines, large resort guest shuttles. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Transporter 6 Commercial before I buy it?",
+        a: "Yes. Because the Club Car Transporter 6 Commercial is priced at $26,400 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $26,400 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Transporter 6 Commercial road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Transporter 6 Commercial is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Transporter 6 Commercial anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Transporter 6 Commercial travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-025',
@@ -798,6 +1778,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/yamaha-drive2-quiettech-efi-petrol.webp'],
     inStock: true,
+    primaryKeyword: "yamaha golf cart petrol engine",
+    supportingKeywords: [
+      "petrol yamaha golf cart",
+      "yamaha petrol golf cart",
+      "yamaha petrol golf cart price",
+      "yamaha petrol golf carts for sale nsw",
+      "yamaha petrol golf carts",
+      "yamaha petrol golf cart for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the Yamaha Drive2 QuietTech EFI Petrol cost in Australia?",
+        a: "The Yamaha Drive2 QuietTech EFI Petrol is $14,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Yamaha Drive2 QuietTech EFI Petrol?",
+        a: "The Yamaha Drive2 QuietTech EFI Petrol is supplied with Quietest Petrol Engine on the Market, Fully Independent Rear Suspension and high mpg. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Yamaha Drive2 QuietTech EFI Petrol best suited to?",
+        a: "We specify the Yamaha Drive2 QuietTech EFI Petrol for golfers and property owners wanting petrol range without noise. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the Yamaha Drive2 QuietTech EFI Petrol road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Yamaha Drive2 QuietTech EFI Petrol is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Yamaha Drive2 QuietTech EFI Petrol anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Yamaha Drive2 QuietTech EFI Petrol travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Do you sell a used version of the Yamaha Drive2 QuietTech EFI Petrol?",
+        a: "We do carry reconditioned buggies alongside new stock, and availability changes as trade-ins come through. A reconditioned unit is checked, charge-cycled and road tested at Yatala the same way a new one is. Ask us what is on the floor — if a used equivalent of the Yamaha Drive2 QuietTech EFI Petrol is available, we will tell you what it is and what it has done.",
+      },
+    ],
   },
   {
     id: 'BUG-026',
@@ -816,6 +1831,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/club-car-tempo-efi-petrol.webp'],
     inStock: true,
+    primaryKeyword: "club car petrol golf buggy",
+    supportingKeywords: [
+      "club car petrol golf cart",
+      "club car golf cart engine",
+      "club car golf cart engine swap",
+      "club car tempo golf cart price",
+      "tempo club car golf cart",
+      "club car golf carts engines",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Tempo EFI Petrol cost in Australia?",
+        a: "The Club Car Tempo EFI Petrol is $14,250 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Tempo EFI Petrol?",
+        a: "The Club Car Tempo EFI Petrol is supplied with 14HP Single Cylinder Engine, Overhead Cam and tank capacity 25.4l. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Tempo EFI Petrol best suited to?",
+        a: "We specify the Club Car Tempo EFI Petrol for traditional rural users, remote property caretakers. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the Club Car Tempo EFI Petrol road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Tempo EFI Petrol is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Tempo EFI Petrol anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Tempo EFI Petrol travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Do you sell a used version of the Club Car Tempo EFI Petrol?",
+        a: "We do carry reconditioned buggies alongside new stock, and availability changes as trade-ins come through. A reconditioned unit is checked, charge-cycled and road tested at Yatala the same way a new one is. Ask us what is on the floor — if a used equivalent of the Club Car Tempo EFI Petrol is available, we will tell you what it is and what it has done.",
+      },
+    ],
   },
   {
     id: 'BUG-027',
@@ -834,6 +1884,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/ezgo-freedom-rxv-gas.webp'],
     inStock: true,
+    primaryKeyword: "ezgo golf cart gas engine",
+    supportingKeywords: [
+      "ezgo rxv gas golf cart",
+      "ez go gas golf cart",
+      "ez go gas golf carts",
+      "ez go golf cart gas",
+      "ezgo gas golf cart",
+      "ezgo gas golf cart for sale",
+    ],
+    faqs: [
+      {
+        q: "How much does the E-Z-GO Freedom RXV Gas cost in Australia?",
+        a: "The E-Z-GO Freedom RXV Gas is $13,900 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the E-Z-GO Freedom RXV Gas?",
+        a: "The E-Z-GO Freedom RXV Gas is supplied with EX1 Closed-Loop EFI Petrol Engine, Low Maintenance and energy efficient. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the E-Z-GO Freedom RXV Gas best suited to?",
+        a: "We specify the E-Z-GO Freedom RXV Gas for farmers, acreage owners. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Is the E-Z-GO Freedom RXV Gas road registrable in Australia?",
+        a: "Conditional registration for a buggy like the E-Z-GO Freedom RXV Gas is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the E-Z-GO Freedom RXV Gas anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The E-Z-GO Freedom RXV Gas travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Do you sell a used version of the E-Z-GO Freedom RXV Gas?",
+        a: "We do carry reconditioned buggies alongside new stock, and availability changes as trade-ins come through. A reconditioned unit is checked, charge-cycled and road tested at Yatala the same way a new one is. Ask us what is on the floor — if a used equivalent of the E-Z-GO Freedom RXV Gas is available, we will tell you what it is and what it has done.",
+      },
+    ],
   },
   {
     id: 'BUG-028',
@@ -852,6 +1937,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/cushman-hauler-1200-gas-utility.webp'],
     inStock: true,
+    primaryKeyword: "cushman golf buggy",
+    supportingKeywords: [
+      "cushman golf cart for sale",
+      "cushman golf cart",
+      "cushman golf carts for sale",
+      "vintage cushman golf cart for sale",
+      "cushman electric golf cart",
+      "cushman buggies",
+    ],
+    faqs: [
+      {
+        q: "How much does the Cushman Hauler 1200 Gas Utility cost in Australia?",
+        a: "The Cushman Hauler 1200 Gas Utility is $16,800 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Cushman Hauler 1200 Gas Utility?",
+        a: "The Cushman Hauler 1200 Gas Utility is supplied with 13.5HP Kawasaki Engine, Manual Dump Bed and 544kg total load capacity. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Cushman Hauler 1200 Gas Utility best suited to?",
+        a: "We specify the Cushman Hauler 1200 Gas Utility for heavy agricultural property work. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Cushman Hauler 1200 Gas Utility before I buy it?",
+        a: "Yes. Because the Cushman Hauler 1200 Gas Utility is priced at $16,800 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $16,800 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Cushman Hauler 1200 Gas Utility road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Cushman Hauler 1200 Gas Utility is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Cushman Hauler 1200 Gas Utility anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Cushman Hauler 1200 Gas Utility travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-029',
@@ -870,6 +1990,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/yamaha-umax-one-efi-utility.webp'],
     inStock: true,
+    primaryKeyword: "efi yamaha golf cart",
+    supportingKeywords: [
+      "yamaha efi golf cart",
+      "yamaha efi golf cart for sale",
+      "yamaha efi golf cart price",
+      "yamaha golf cart efi",
+      "engine for yamaha golf cart",
+      "fuel filter yamaha golf cart",
+    ],
+    faqs: [
+      {
+        q: "How much does the Yamaha UMAX One EFI Utility cost in Australia?",
+        a: "The Yamaha UMAX One EFI Utility is $15,500 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Yamaha UMAX One EFI Utility?",
+        a: "The Yamaha UMAX One EFI Utility is supplied with Compact Utility Bed, One-Hand Latch System and high comfort bucket seats. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Yamaha UMAX One EFI Utility best suited to?",
+        a: "We specify the Yamaha UMAX One EFI Utility for small farms, lifestyle blocks, sport venues. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Yamaha UMAX One EFI Utility before I buy it?",
+        a: "Yes. Because the Yamaha UMAX One EFI Utility is priced at $15,500 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $15,500 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Yamaha UMAX One EFI Utility road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Yamaha UMAX One EFI Utility is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Yamaha UMAX One EFI Utility anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Yamaha UMAX One EFI Utility travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-030',
@@ -888,6 +2043,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/club-car-carryall-300-petrol.webp'],
     inStock: true,
+    primaryKeyword: "club car golf carts australia",
+    supportingKeywords: [
+      "club car golf cart for sale",
+      "club car golf cart sales",
+      "club car golf cart wrap",
+      "club car buggy",
+      "club car golf cars australia",
+      "club car golf cart accessories",
+    ],
+    faqs: [
+      {
+        q: "How much does the Club Car Carryall 300 Petrol cost in Australia?",
+        a: "The Club Car Carryall 300 Petrol is $16,200 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What is included with the Club Car Carryall 300 Petrol?",
+        a: "The Club Car Carryall 300 Petrol is supplied with Rustproof Aircraft Grade Aluminum Frame, 14HP Engine and compact turning radius. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Who is the Club Car Carryall 300 Petrol best suited to?",
+        a: "We specify the Club Car Carryall 300 Petrol for light commercial, school groundskeeping. If your situation is different — a steeper property, more passengers, longer daily distances or a commercial duty cycle — call the Yatala desk on 0480 804 189 and we will point you at the right model in the range rather than selling you this one.",
+      },
+      {
+        q: "Can I try the Club Car Carryall 300 Petrol before I buy it?",
+        a: "Yes. Because the Club Car Carryall 300 Petrol is priced at $16,200 AUD, it qualifies for a complimentary on-farm or on-course trial demonstration. Spending $16,200 AUD on a vehicle you have only seen in photographs is a large leap, so we would rather you drove it on your own ground first. Contact us with your location to arrange it.",
+      },
+      {
+        q: "Is the Club Car Carryall 300 Petrol road registrable in Australia?",
+        a: "Conditional registration for a buggy like the Club Car Carryall 300 Petrol is decided by your state road authority, and often your local council as well, so requirements differ by address and change over time. Check with them before buying or fitting a road package. We can supply the vehicle and the compliance details; the approval itself is theirs to give.",
+      },
+      {
+        q: "Can you deliver the Club Car Carryall 300 Petrol anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car Carryall 300 Petrol travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-031',
@@ -906,6 +2096,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/mgi-ai-navigator-gps-remote-buggy.webp'],
     inStock: true,
+    primaryKeyword: "mgi ai navigator gps+ remote golf buggy",
+    supportingKeywords: [
+      "mgi ai navigator gps+ motorised buggy",
+      "mgi remote golf buggy",
+      "mgi electric golf buggy with remote",
+      "mgi golf buggy remote control",
+      "mgi buggy remote",
+      "mgi buggy with remote",
+    ],
+    faqs: [
+      {
+        q: "How much does the MGI Ai Navigator GPS Remote Buggy cost in Australia?",
+        a: "The MGI Ai Navigator GPS Remote Buggy is $2,849 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "Will the MGI Ai Navigator GPS Remote Buggy fit in my car boot?",
+        a: "The MGI Ai Navigator GPS Remote Buggy folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the MGI Ai Navigator GPS Remote Buggy?",
+        a: "The MGI Ai Navigator GPS Remote Buggy is supplied with Full Directional Remote, Integrated Touchscreen GPS and gyroscope straight tracker. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the MGI Ai Navigator GPS Remote Buggy come with an Australian warranty?",
+        a: "Yes. The MGI Ai Navigator GPS Remote Buggy carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the MGI Ai Navigator GPS Remote Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MGI Ai Navigator GPS Remote Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Is the MGI Ai Navigator GPS Remote Buggy in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the MGI Ai Navigator GPS Remote Buggy is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'BUG-032',
@@ -924,6 +2149,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/mgi-zip-navigator-all-terrain.webp'],
     inStock: true,
+    primaryKeyword: "mgi zip navigator all terrain motorised golf buggy",
+    supportingKeywords: [
+      "mgi zip navigator at all terrain electric golf caddy",
+      "mgi golf zip navigator electric caddy",
+      "mgi zip navigator at electric golf caddy",
+      "mgi zip navigator motorised golf buggy",
+      "mgi zip navigator electric golf caddy",
+      "mgi zip navigator electric golf caddy accessories",
+    ],
+    faqs: [
+      {
+        q: "How much does the MGI Zip Navigator All-Terrain cost in Australia?",
+        a: "The MGI Zip Navigator All-Terrain is $2,209 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the MGI Zip Navigator All-Terrain use?",
+        a: "The MGI Zip Navigator All-Terrain runs lithium rather than lead-acid, specified as Twin 230W Motors. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "Will the MGI Zip Navigator All-Terrain fit in my car boot?",
+        a: "The MGI Zip Navigator All-Terrain folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the MGI Zip Navigator All-Terrain?",
+        a: "The MGI Zip Navigator All-Terrain is supplied with Twin 230W Motors, 24V 380Wh Lithium Battery and rear anti-tip 5th wheel. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the MGI Zip Navigator All-Terrain come with an Australian warranty?",
+        a: "Yes. The MGI Zip Navigator All-Terrain carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the MGI Zip Navigator All-Terrain anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MGI Zip Navigator All-Terrain travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-033',
@@ -942,6 +2202,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/mgi-2024-zip-x5-36-hole-lithium.webp'],
     inStock: true,
+    primaryKeyword: "mgi zip x5 motorised golf buggy",
+    supportingKeywords: [
+      "mgi zip x5 electric golf caddy",
+      "mgi zip golf trolley",
+      "mgi zip electric golf caddy",
+      "mgi electric golf caddy",
+      "mgi electric golf trolley",
+      "mgi golf caddy",
+    ],
+    faqs: [
+      {
+        q: "How much does the MGI 2024 Zip X5 36-Hole Lithium cost in Australia?",
+        a: "The MGI 2024 Zip X5 36-Hole Lithium is $1,875 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "Will the MGI 2024 Zip X5 36-Hole Lithium fit in my car boot?",
+        a: "The MGI 2024 Zip X5 36-Hole Lithium folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the MGI 2024 Zip X5 36-Hole Lithium?",
+        a: "The MGI 2024 Zip X5 36-Hole Lithium is supplied with Downhill Speed Control, Electronic Park Brake and distance control function. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the MGI 2024 Zip X5 36-Hole Lithium come with an Australian warranty?",
+        a: "Yes. The MGI 2024 Zip X5 36-Hole Lithium carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the MGI 2024 Zip X5 36-Hole Lithium anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MGI 2024 Zip X5 36-Hole Lithium travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Is the MGI 2024 Zip X5 36-Hole Lithium in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the MGI 2024 Zip X5 36-Hole Lithium is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'BUG-034',
@@ -960,6 +2255,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/powakaddy-fx7-gps-lithium.webp'],
     inStock: true,
+    primaryKeyword: "powakaddy fx7 gps electric golf trolley",
+    supportingKeywords: [
+      "powakaddy ct8 gps electric golf trolley",
+      "powakaddy micra golf push trolley",
+      "powakaddy micra push golf trolley",
+      "electric golf trolley powakaddy",
+      "powakaddy electric golf trolley",
+      "powakaddy golf trolley",
+    ],
+    faqs: [
+      {
+        q: "How much does the PowaKaddy FX7 GPS Lithium cost in Australia?",
+        a: "The PowaKaddy FX7 GPS Lithium is $2,099 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the PowaKaddy FX7 GPS Lithium use?",
+        a: "The PowaKaddy FX7 GPS Lithium runs lithium rather than lead-acid, specified as 3.5-inch OCA Full Color Touch Screen. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "Will the PowaKaddy FX7 GPS Lithium fit in my car boot?",
+        a: "The PowaKaddy FX7 GPS Lithium folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the PowaKaddy FX7 GPS Lithium?",
+        a: "The PowaKaddy FX7 GPS Lithium is supplied with 3.5-inch OCA Full Color Touch Screen and high-power 30v plug n play lithium. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the PowaKaddy FX7 GPS Lithium come with an Australian warranty?",
+        a: "Yes. The PowaKaddy FX7 GPS Lithium carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the PowaKaddy FX7 GPS Lithium anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The PowaKaddy FX7 GPS Lithium travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   {
     id: 'BUG-035',
@@ -978,6 +2308,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/robera-pro-follow-remote-golf-buggy.webp'],
     inStock: true,
+    primaryKeyword: "follow me remote control golf trolley",
+    supportingKeywords: [
+      "remote control motorised golf buggy",
+      "remote control golf buggy",
+      "remote control golf caddy that follows you",
+      "motorised golf buggy with remote",
+      "remote control electric golf buggy",
+      "golf buggy remote control",
+    ],
+    faqs: [
+      {
+        q: "How much does the Robera Pro Follow Remote Golf Buggy cost in Australia?",
+        a: "The Robera Pro Follow Remote Golf Buggy is $2,799 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "Will the Robera Pro Follow Remote Golf Buggy fit in my car boot?",
+        a: "The Robera Pro Follow Remote Golf Buggy folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the Robera Pro Follow Remote Golf Buggy?",
+        a: "The Robera Pro Follow Remote Golf Buggy is supplied with Smart Follow Tracking Tag, Remote Control Dual-Mode and all-terrain dual motors. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the Robera Pro Follow Remote Golf Buggy come with an Australian warranty?",
+        a: "Yes. The Robera Pro Follow Remote Golf Buggy carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the Robera Pro Follow Remote Golf Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Robera Pro Follow Remote Golf Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Is the Robera Pro Follow Remote Golf Buggy in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Robera Pro Follow Remote Golf Buggy is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'BUG-036',
@@ -996,6 +2361,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/mgi-zip-x1-lithium-buggy.webp'],
     inStock: true,
+    primaryKeyword: "mgi zip x1 motorised golf buggy",
+    supportingKeywords: [
+      "mgi motorised golf buggy",
+      "mgi x1 electric golf trolley",
+      "mgi zip x1 lithium electric golf trolley",
+      "mgi electric buggy",
+      "mgi ai 500 electric buggy",
+      "mgi golf push cart",
+    ],
+    faqs: [
+      {
+        q: "How much does the MGI Zip X1 Lithium Buggy cost in Australia?",
+        a: "The MGI Zip X1 Lithium Buggy is $1,299 AUD including GST. That is the vehicle price only — freight is quoted separately against your delivery postcode rather than averaged into the advertised figure. You can split it into four interest-free payments with Finance in 4, or take 10% off the vehicle price by settling in Bitcoin or Tether.",
+      },
+      {
+        q: "What battery does the MGI Zip X1 Lithium Buggy use?",
+        a: "The MGI Zip X1 Lithium Buggy runs lithium rather than lead-acid, specified as Simple Speed Dial. Lithium removes the acid spills, terminal corrosion and fortnightly water topping that lead-acid demands, and it holds voltage more consistently through the discharge instead of fading toward the end of a round or a job.",
+      },
+      {
+        q: "Will the MGI Zip X1 Lithium Buggy fit in my car boot?",
+        a: "The MGI Zip X1 Lithium Buggy folds for transport, but measure before ordering rather than after. Check the usable space — width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate — and load a golf bag alongside during the check. Boot litre ratings are a poor guide, and hatchbacks and sedans differ far more than the numbers imply.",
+      },
+      {
+        q: "What is included with the MGI Zip X1 Lithium Buggy?",
+        a: "The MGI Zip X1 Lithium Buggy is supplied with Simple Speed Dial, Click & Go Lithium System and compact fold mechanism. It is inspected, charge-cycled and road tested at our Yatala QLD depot before dispatch, so nothing goes onto a transporter untested. Accessories and spares can be added to the same order, and buying them alongside a buggy earns the 5% bundle discount.",
+      },
+      {
+        q: "Does the MGI Zip X1 Lithium Buggy come with an Australian warranty?",
+        a: "Yes. The MGI Zip X1 Lithium Buggy carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can you deliver the MGI Zip X1 Lithium Buggy anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MGI Zip X1 Lithium Buggy travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+    ],
   },
   // 25 Batteries, Chargers & Parts
   {
@@ -1015,6 +2415,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/eco-battery-48v-105ah-lithium-conversion-kit.webp'],
     inStock: true,
+    primaryKeyword: "eb eco battery golf cart",
+    supportingKeywords: [
+      "golf buggy battery lithium",
+      "buggy spare parts",
+      "electric golf trolley battery charger",
+      "golf buggy battery charger",
+      "golf trolley battery charger",
+      "battery charger for golf buggy",
+    ],
+    faqs: [
+      {
+        q: "How much is the Eco Battery 48V 105Ah Lithium Conversion Kit?",
+        a: "The Eco Battery 48V 105Ah Lithium Conversion Kit is $3,850 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Eco Battery 48V 105Ah Lithium Conversion Kit fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Eco Battery 48V 105Ah Lithium Conversion Kit is specified as Includes CAN-bus Charger. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Eco Battery 48V 105Ah Lithium Conversion Kit myself?",
+        a: "Many owners fit the Eco Battery 48V 105Ah Lithium Conversion Kit at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Eco Battery 48V 105Ah Lithium Conversion Kit anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Eco Battery 48V 105Ah Lithium Conversion Kit travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Eco Battery 48V 105Ah Lithium Conversion Kit come with an Australian warranty?",
+        a: "Yes. The Eco Battery 48V 105Ah Lithium Conversion Kit carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Eco Battery 48V 105Ah Lithium Conversion Kit in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Eco Battery 48V 105Ah Lithium Conversion Kit is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-002',
@@ -1033,6 +2468,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/roypow-48v-105ah-lithium-battery-pack.webp'],
     inStock: true,
+    primaryKeyword: "golf cart battery charger not working",
+    supportingKeywords: [
+      "how to check golf cart battery charger",
+      "lithium battery charger for golf trolley",
+      "golf cart parts and accessories",
+      "golf cart spare parts",
+      "golf cart parts and accessories near me",
+      "golf cart spare parts australia",
+    ],
+    faqs: [
+      {
+        q: "How much is the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack?",
+        a: "The RoyPow 48V 105Ah Golf Cart Lithium Battery Pack is $3,600 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The RoyPow 48V 105Ah Golf Cart Lithium Battery Pack is specified as Drop-In Replacement. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack myself?",
+        a: "Many owners fit the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The RoyPow 48V 105Ah Golf Cart Lithium Battery Pack travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack come with an Australian warranty?",
+        a: "Yes. The RoyPow 48V 105Ah Golf Cart Lithium Battery Pack carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-003',
@@ -1051,6 +2521,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/invicta-48v-50ah-lithium-drop-in-module.webp'],
     inStock: true,
+    primaryKeyword: "golf buggy spare parts",
+    supportingKeywords: [
+      "golf trolley spare parts",
+      "im4 golf buggy spare parts",
+      "pilgrim golf buggy spare parts",
+      "thomson golf buggy spare parts",
+      "walkinshaw golf buggy spare parts",
+      "walkinshaw golf buggy spare parts online",
+    ],
+    faqs: [
+      {
+        q: "How much is the Invicta 48V 50Ah Lithium Drop-in Module?",
+        a: "The Invicta 48V 50Ah Lithium Drop-in Module is $1,850 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Invicta 48V 50Ah Lithium Drop-in Module fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Invicta 48V 50Ah Lithium Drop-in Module is specified as Parallel Expansion Capable. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Invicta 48V 50Ah Lithium Drop-in Module myself?",
+        a: "Many owners fit the Invicta 48V 50Ah Lithium Drop-in Module at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Invicta 48V 50Ah Lithium Drop-in Module anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Invicta 48V 50Ah Lithium Drop-in Module travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Invicta 48V 50Ah Lithium Drop-in Module come with an Australian warranty?",
+        a: "Yes. The Invicta 48V 50Ah Lithium Drop-in Module carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Invicta 48V 50Ah Lithium Drop-in Module in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Invicta 48V 50Ah Lithium Drop-in Module is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-004',
@@ -1069,6 +2574,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/trojan-t-875-8v-deep-cycle-lead-acid-battery.webp'],
     inStock: true,
+    primaryKeyword: "lead acid battery for golf trolley",
+    supportingKeywords: [
+      "albatross golf buggy spare parts",
+      "golf trolley battery chargers",
+      "parmaker golf buggy spare parts",
+      "golf buggy spare parts australia",
+      "grasshopper golf buggy spare parts",
+      "grasshopper golf buggy spare parts online",
+    ],
+    faqs: [
+      {
+        q: "How much is the Trojan T-875 8V Deep Cycle Lead Acid Battery?",
+        a: "The Trojan T-875 8V Deep Cycle Lead Acid Battery is $340 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Trojan T-875 8V Deep Cycle Lead Acid Battery fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Trojan T-875 8V Deep Cycle Lead Acid Battery is specified as 8V Deep Cycle. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Trojan T-875 8V Deep Cycle Lead Acid Battery myself?",
+        a: "Many owners fit the Trojan T-875 8V Deep Cycle Lead Acid Battery at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Trojan T-875 8V Deep Cycle Lead Acid Battery anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Trojan T-875 8V Deep Cycle Lead Acid Battery travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Trojan T-875 8V Deep Cycle Lead Acid Battery come with an Australian warranty?",
+        a: "Yes. The Trojan T-875 8V Deep Cycle Lead Acid Battery carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Trojan T-875 8V Deep Cycle Lead Acid Battery in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Trojan T-875 8V Deep Cycle Lead Acid Battery is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-005',
@@ -1087,6 +2627,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/delta-q-quiq-48v-smart-on-board-charger.webp'],
     inStock: true,
+    primaryKeyword: "on board golf cart charger",
+    supportingKeywords: [
+      "smart golf cart charger",
+      "golf carts parts and accessories",
+      "golf cart charger",
+      "golf buggy parts",
+      "golf buggy parts australia",
+      "golf buggy charger",
+    ],
+    faqs: [
+      {
+        q: "How much is the Delta-Q QuiQ 48V Smart On-Board Charger?",
+        a: "The Delta-Q QuiQ 48V Smart On-Board Charger is $680 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Delta-Q QuiQ 48V Smart On-Board Charger fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Delta-Q QuiQ 48V Smart On-Board Charger is specified as Multi-Profile Charging Algorithms. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Delta-Q QuiQ 48V Smart On-Board Charger myself?",
+        a: "Many owners fit the Delta-Q QuiQ 48V Smart On-Board Charger at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Delta-Q QuiQ 48V Smart On-Board Charger anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Delta-Q QuiQ 48V Smart On-Board Charger travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Delta-Q QuiQ 48V Smart On-Board Charger come with an Australian warranty?",
+        a: "Yes. The Delta-Q QuiQ 48V Smart On-Board Charger carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Delta-Q QuiQ 48V Smart On-Board Charger in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Delta-Q QuiQ 48V Smart On-Board Charger is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-006',
@@ -1105,6 +2680,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/club-car-eric-48v-high-frequency-charger.webp'],
     inStock: true,
+    primaryKeyword: "club car golf cart battery charger",
+    supportingKeywords: [
+      "battery charger for a club car golf cart",
+      "club car golf cart parts and accessories",
+      "golf cart parts club car accessories",
+      "club car golf cart parts",
+      "club car golf buggy parts",
+      "club car buggy parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Club Car ERIC 48V High-Frequency Charger?",
+        a: "The Club Car ERIC 48V High-Frequency Charger is $590 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Club Car ERIC 48V High-Frequency Charger fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Club Car ERIC 48V High-Frequency Charger is specified as Automatic Voltage Compensation. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Club Car ERIC 48V High-Frequency Charger myself?",
+        a: "Many owners fit the Club Car ERIC 48V High-Frequency Charger at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Club Car ERIC 48V High-Frequency Charger anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Club Car ERIC 48V High-Frequency Charger travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Club Car ERIC 48V High-Frequency Charger come with an Australian warranty?",
+        a: "Yes. The Club Car ERIC 48V High-Frequency Charger carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Club Car ERIC 48V High-Frequency Charger in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Club Car ERIC 48V High-Frequency Charger is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-007',
@@ -1123,6 +2733,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/mgi-24v-lithium-battery-36-hole.webp'],
     inStock: true,
+    primaryKeyword: "mgi golf buggy lithium battery",
+    supportingKeywords: [
+      "mgi golf buggy battery charger",
+      "mgi golf buggy spare parts australia",
+      "mgi golf buggy spare parts",
+      "mgi golf buggy spare parts australia price list",
+      "mgi golf buggy spare parts australia online",
+      "mgi golf buggy battery",
+    ],
+    faqs: [
+      {
+        q: "How much is the MGI 24V Lithium Battery (24-Spindle / 36 Hole)?",
+        a: "The MGI 24V Lithium Battery (24-Spindle / 36 Hole) is $450 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the MGI 24V Lithium Battery (24-Spindle / 36 Hole) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The MGI 24V Lithium Battery (24-Spindle / 36 Hole) is specified as 24V 380Wh Capacity. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the MGI 24V Lithium Battery (24-Spindle / 36 Hole) myself?",
+        a: "Many owners fit the MGI 24V Lithium Battery (24-Spindle / 36 Hole) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the MGI 24V Lithium Battery (24-Spindle / 36 Hole) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MGI 24V Lithium Battery (24-Spindle / 36 Hole) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the MGI 24V Lithium Battery (24-Spindle / 36 Hole) come with an Australian warranty?",
+        a: "Yes. The MGI 24V Lithium Battery (24-Spindle / 36 Hole) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the MGI 24V Lithium Battery (24-Spindle / 36 Hole) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the MGI 24V Lithium Battery (24-Spindle / 36 Hole) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-008',
@@ -1141,6 +2786,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/curtis-1268-400a-programmable-motor-controller.webp'],
     inStock: true,
+    primaryKeyword: "curtis controller golf cart",
+    supportingKeywords: [
+      "curtis golf cart controller",
+      "golf cart curtis controller",
+      "curtis controller for golf cart",
+      "curtis controllers for golf carts",
+      "curtis golf cart controllers",
+      "curtis golf cart programmer",
+    ],
+    faqs: [
+      {
+        q: "How much is the Curtis 1268 400A Programmable Motor Controller?",
+        a: "The Curtis 1268 400A Programmable Motor Controller is $890 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Curtis 1268 400A Programmable Motor Controller fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Curtis 1268 400A Programmable Motor Controller is specified as 400 Amp Peak Output. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Curtis 1268 400A Programmable Motor Controller myself?",
+        a: "Many owners fit the Curtis 1268 400A Programmable Motor Controller at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Curtis 1268 400A Programmable Motor Controller anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Curtis 1268 400A Programmable Motor Controller travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Curtis 1268 400A Programmable Motor Controller come with an Australian warranty?",
+        a: "Yes. The Curtis 1268 400A Programmable Motor Controller carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Curtis 1268 400A Programmable Motor Controller in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Curtis 1268 400A Programmable Motor Controller is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-009',
@@ -1159,6 +2839,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/navitas-600a-ac-controller-upgrade-kit.webp'],
     inStock: true,
+    primaryKeyword: "navitas golf cart controller",
+    supportingKeywords: [
+      "navitas golf cart parts",
+      "navitas golf cart kit",
+      "navitas golf cart controllers",
+      "navitas golf cart motors",
+      "navitas golf cart for sale",
+      "golf cart controller upgrade",
+    ],
+    faqs: [
+      {
+        q: "How much is the Navitas 600A AC Controller Upgrade Kit?",
+        a: "The Navitas 600A AC Controller Upgrade Kit is $1,450 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Navitas 600A AC Controller Upgrade Kit fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Navitas 600A AC Controller Upgrade Kit is specified as Bluetooth On-the-Fly Lockout Control. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Navitas 600A AC Controller Upgrade Kit myself?",
+        a: "Many owners fit the Navitas 600A AC Controller Upgrade Kit at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Navitas 600A AC Controller Upgrade Kit anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Navitas 600A AC Controller Upgrade Kit travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Navitas 600A AC Controller Upgrade Kit come with an Australian warranty?",
+        a: "Yes. The Navitas 600A AC Controller Upgrade Kit carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Navitas 600A AC Controller Upgrade Kit in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Navitas 600A AC Controller Upgrade Kit is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-010',
@@ -1177,6 +2892,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/universal-48v-to-12v-30a-voltage-reducer.webp'],
     inStock: true,
+    primaryKeyword: "golf carts and parts",
+    supportingKeywords: [
+      "buggies parts",
+      "buggy parts near me",
+      "chinese buggy parts",
+      "condor golf buggy parts",
+      "electric buggy parts",
+      "electric golf buggy parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Universal 48V/36V to 12V 30A Voltage Reducer?",
+        a: "The Universal 48V/36V to 12V 30A Voltage Reducer is $85 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Universal 48V/36V to 12V 30A Voltage Reducer fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Universal 48V/36V to 12V 30A Voltage Reducer is specified as Key-Switch Triggered. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Universal 48V/36V to 12V 30A Voltage Reducer myself?",
+        a: "Many owners fit the Universal 48V/36V to 12V 30A Voltage Reducer at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Universal 48V/36V to 12V 30A Voltage Reducer anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Universal 48V/36V to 12V 30A Voltage Reducer travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Universal 48V/36V to 12V 30A Voltage Reducer come with an Australian warranty?",
+        a: "Yes. The Universal 48V/36V to 12V 30A Voltage Reducer carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Universal 48V/36V to 12V 30A Voltage Reducer in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Universal 48V/36V to 12V 30A Voltage Reducer is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-011',
@@ -1195,6 +2945,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/madjax-alpha-lux-street-legal-led-light-kit.webp'],
     inStock: true,
+    primaryKeyword: "madjax golf cart parts",
+    supportingKeywords: [
+      "madjax golf cart accessories",
+      "madjax golf cart",
+      "madjax golf carts",
+      "flashing battery light on golf cart",
+      "electric golf trolley parts",
+      "golf trolley parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the MadJax Alpha Lux Street Legal LED Light Kit?",
+        a: "The MadJax Alpha Lux Street Legal LED Light Kit is $320 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the MadJax Alpha Lux Street Legal LED Light Kit fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The MadJax Alpha Lux Street Legal LED Light Kit is specified as Automotive Turn Signals. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the MadJax Alpha Lux Street Legal LED Light Kit myself?",
+        a: "Many owners fit the MadJax Alpha Lux Street Legal LED Light Kit at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the MadJax Alpha Lux Street Legal LED Light Kit anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The MadJax Alpha Lux Street Legal LED Light Kit travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the MadJax Alpha Lux Street Legal LED Light Kit come with an Australian warranty?",
+        a: "Yes. The MadJax Alpha Lux Street Legal LED Light Kit carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the MadJax Alpha Lux Street Legal LED Light Kit in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the MadJax Alpha Lux Street Legal LED Light Kit is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-012',
@@ -1213,6 +2998,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/heavy-duty-4-wheel-hydraulic-disc-brake-kit.webp'],
     inStock: true,
+    primaryKeyword: "golf cart brake parts",
+    supportingKeywords: [
+      "4 wheel drive golf cart kit",
+      "3 wheel golf buggy",
+      "three wheel golf buggy",
+      "three wheel golf cart",
+      "3 wheel golf cart",
+      "golf buggy 3 wheel",
+    ],
+    faqs: [
+      {
+        q: "How much is the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit?",
+        a: "The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit is $750 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit is specified as Dual-Piston Calipers. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit myself?",
+        a: "Many owners fit the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit come with an Australian warranty?",
+        a: "Yes. The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Heavy Duty 4-Wheel Hydraulic Disc Brake Kit is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-013',
@@ -1231,6 +3051,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/all-weather-heavy-duty-pvc-enclosure.webp'],
     inStock: true,
+    primaryKeyword: "proline golf buggy parts",
+    supportingKeywords: [
+      "prosimmon golf buggy parts",
+      "rail buggy parts",
+      "walkinshaw golf buggy parts",
+      "golf carts parts",
+      "cart golf parts",
+      "golf cart golf cart parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the All-Weather Heavy-Duty PVC Enclosure?",
+        a: "The All-Weather Heavy-Duty PVC Enclosure is $290 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the All-Weather Heavy-Duty PVC Enclosure fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The All-Weather Heavy-Duty PVC Enclosure is specified as Roll-Up Clear Vinyl Windows. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the All-Weather Heavy-Duty PVC Enclosure myself?",
+        a: "Many owners fit the All-Weather Heavy-Duty PVC Enclosure at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the All-Weather Heavy-Duty PVC Enclosure anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The All-Weather Heavy-Duty PVC Enclosure travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the All-Weather Heavy-Duty PVC Enclosure come with an Australian warranty?",
+        a: "Yes. The All-Weather Heavy-Duty PVC Enclosure carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the All-Weather Heavy-Duty PVC Enclosure in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the All-Weather Heavy-Duty PVC Enclosure is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-014',
@@ -1249,6 +3104,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/all-terrain-23x10-5-12-wheel-tyre-combo.webp'],
     inStock: true,
+    primaryKeyword: "all wheel drive golf cart",
+    supportingKeywords: [
+      "10 golf cart wheel and tire combo",
+      "golf cart wheel and tire combo",
+      "golf cart wheel set",
+      "golf cart wheel tire combo",
+      "golf three wheel trolley",
+      "4 wheel golf buggy",
+    ],
+    faqs: [
+      {
+        q: "How much is the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4)?",
+        a: "The All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) is $850 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) is specified as 12-inch Machined Alloy Rims. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) myself?",
+        a: "Many owners fit the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) come with an Australian warranty?",
+        a: "Yes. The All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the All-Terrain 23x10.5-12 Wheel & Tyre Combo (Set of 4) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-015',
@@ -1267,6 +3157,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/foldable-tinted-acrylic-windshield-system.webp'],
     inStock: true,
+    primaryKeyword: "golf cart windshield parts",
+    supportingKeywords: [
+      "golf cart windshield clips",
+      "golf cart windshield rubber clips",
+      "windshield hinge for golf cart",
+      "golf trolley batteries and chargers",
+      "golf buggy parts brisbane",
+      "rail buggy parts catalog",
+    ],
+    faqs: [
+      {
+        q: "How much is the Foldable Tinted Acrylic Windshield System?",
+        a: "The Foldable Tinted Acrylic Windshield System is $160 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Foldable Tinted Acrylic Windshield System fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Foldable Tinted Acrylic Windshield System is specified as High-Impact Acrylic. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Foldable Tinted Acrylic Windshield System myself?",
+        a: "Many owners fit the Foldable Tinted Acrylic Windshield System at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Foldable Tinted Acrylic Windshield System anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Foldable Tinted Acrylic Windshield System travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Foldable Tinted Acrylic Windshield System come with an Australian warranty?",
+        a: "Yes. The Foldable Tinted Acrylic Windshield System carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Foldable Tinted Acrylic Windshield System in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Foldable Tinted Acrylic Windshield System is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-016',
@@ -1285,6 +3210,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/heavy-duty-solenoid-albright-48vdc-200a.webp'],
     inStock: true,
+    primaryKeyword: "heavy duty solenoid for golf cart",
+    supportingKeywords: [
+      "36 volt golf cart solenoid",
+      "48 volt golf cart solenoid",
+      "electric golf cart bad solenoid symptoms",
+      "golf cart solenoid location",
+      "how does a golf cart solenoid work",
+      "solenoid for golf cart",
+    ],
+    faqs: [
+      {
+        q: "How much is the Heavy Duty Solenoid Albright 48VDC 200A?",
+        a: "The Heavy Duty Solenoid Albright 48VDC 200A is $120 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Heavy Duty Solenoid Albright 48VDC 200A fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Heavy Duty Solenoid Albright 48VDC 200A is specified as Continuous Duty Rating. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Heavy Duty Solenoid Albright 48VDC 200A myself?",
+        a: "Many owners fit the Heavy Duty Solenoid Albright 48VDC 200A at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Heavy Duty Solenoid Albright 48VDC 200A anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Heavy Duty Solenoid Albright 48VDC 200A travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Heavy Duty Solenoid Albright 48VDC 200A come with an Australian warranty?",
+        a: "Yes. The Heavy Duty Solenoid Albright 48VDC 200A carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Heavy Duty Solenoid Albright 48VDC 200A in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Heavy Duty Solenoid Albright 48VDC 200A is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-017',
@@ -1303,6 +3263,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/replacement-mgi-ai-zip-remote-controller.webp'],
     inStock: true,
+    primaryKeyword: "mgi golf cart replacement parts",
+    supportingKeywords: [
+      "mgi golf cart battery replacement",
+      "mgi buggy parts",
+      "mgi golf buggy parts",
+      "mgi golf buggy parts online",
+      "mgi golf cart parts",
+      "mgi golf buggy spares",
+    ],
+    faqs: [
+      {
+        q: "How much is the Replacement MGI Ai & Zip Remote Controller Unit?",
+        a: "The Replacement MGI Ai & Zip Remote Controller Unit is $190 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Replacement MGI Ai & Zip Remote Controller Unit fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Replacement MGI Ai & Zip Remote Controller Unit is specified as Pre-programmed Pairing Capability. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Replacement MGI Ai & Zip Remote Controller Unit myself?",
+        a: "Many owners fit the Replacement MGI Ai & Zip Remote Controller Unit at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Replacement MGI Ai & Zip Remote Controller Unit anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Replacement MGI Ai & Zip Remote Controller Unit travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Replacement MGI Ai & Zip Remote Controller Unit come with an Australian warranty?",
+        a: "Yes. The Replacement MGI Ai & Zip Remote Controller Unit carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Replacement MGI Ai & Zip Remote Controller Unit in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Replacement MGI Ai & Zip Remote Controller Unit is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-018',
@@ -1321,6 +3316,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/golf-cart-side-mirrors-integrated-led-indicators.webp'],
     inStock: true,
+    primaryKeyword: "golf cart charger parts",
+    supportingKeywords: [
+      "golf cart parts accessories",
+      "golf cart parts australia",
+      "regar golf cart parts",
+      "spare parts for golf trolleys",
+      "golf cart for parts",
+      "how to move a golf cart with dead batteries",
+    ],
+    faqs: [
+      {
+        q: "How much is the Golf Cart Side Mirrors with Integrated LED Indicators?",
+        a: "The Golf Cart Side Mirrors with Integrated LED Indicators is $95 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Golf Cart Side Mirrors with Integrated LED Indicators fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Golf Cart Side Mirrors with Integrated LED Indicators is specified as Convex Glass for Wide Angle View. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Golf Cart Side Mirrors with Integrated LED Indicators myself?",
+        a: "Many owners fit the Golf Cart Side Mirrors with Integrated LED Indicators at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Golf Cart Side Mirrors with Integrated LED Indicators anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Golf Cart Side Mirrors with Integrated LED Indicators travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Golf Cart Side Mirrors with Integrated LED Indicators come with an Australian warranty?",
+        a: "Yes. The Golf Cart Side Mirrors with Integrated LED Indicators carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Golf Cart Side Mirrors with Integrated LED Indicators in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Golf Cart Side Mirrors with Integrated LED Indicators is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-019',
@@ -1339,6 +3369,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/heavy-duty-rear-flip-seat-kit-2-to-4.webp'],
     inStock: true,
+    primaryKeyword: "golf cart rear flip seat",
+    supportingKeywords: [
+      "golf cart rear seat kit",
+      "rear flip seat for golf cart",
+      "rear golf cart seat kit",
+      "rear seat golf cart kit",
+      "golf cart rear seat cover",
+      "golf cart rear seat covers",
+    ],
+    faqs: [
+      {
+        q: "How much is the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater)?",
+        a: "The Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) is $650 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) is specified as Folds Flat into Flatbed Cargo Tray. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) myself?",
+        a: "Many owners fit the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) come with an Australian warranty?",
+        a: "Yes. The Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-020',
@@ -1357,6 +3422,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/heavy-duty-tow-hitch-ball-assembly.webp'],
     inStock: true,
+    primaryKeyword: "thomson golf buggy parts",
+    supportingKeywords: [
+      "parmaker golf buggy parts",
+      "1010 golf cart parts",
+      "10l0l golf cart parts",
+      "10lol golf cart parts",
+      "1olol golf cart parts",
+      "aftermarket golf cart parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Heavy Duty Tow Hitch & Ball Assembly?",
+        a: "The Heavy Duty Tow Hitch & Ball Assembly is $110 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Heavy Duty Tow Hitch & Ball Assembly fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Heavy Duty Tow Hitch & Ball Assembly is specified as 2-inch Receiver. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Heavy Duty Tow Hitch & Ball Assembly myself?",
+        a: "Many owners fit the Heavy Duty Tow Hitch & Ball Assembly at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Heavy Duty Tow Hitch & Ball Assembly anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Heavy Duty Tow Hitch & Ball Assembly travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Heavy Duty Tow Hitch & Ball Assembly come with an Australian warranty?",
+        a: "Yes. The Heavy Duty Tow Hitch & Ball Assembly carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Heavy Duty Tow Hitch & Ball Assembly in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Heavy Duty Tow Hitch & Ball Assembly is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-021',
@@ -1375,6 +3475,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: true,
     images: ['/images/golf-cart-solar-charging-panel-expansion-kit.webp'],
     inStock: true,
+    primaryKeyword: "solar charging golf cart",
+    supportingKeywords: [
+      "golf cart parts",
+      "brosnan golf buggy spare parts",
+      "condor golf buggy spare parts",
+      "electric golf buggy spare parts",
+      "electric golf trolley spare parts",
+      "elk golf buggy spare parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Golf Cart Solar Charging Panel Expansion Kit (175W)?",
+        a: "The Golf Cart Solar Charging Panel Expansion Kit (175W) is $520 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Golf Cart Solar Charging Panel Expansion Kit (175W) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Golf Cart Solar Charging Panel Expansion Kit (175W) is specified as Flexible Rooftop Panel. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Golf Cart Solar Charging Panel Expansion Kit (175W) myself?",
+        a: "Many owners fit the Golf Cart Solar Charging Panel Expansion Kit (175W) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Golf Cart Solar Charging Panel Expansion Kit (175W) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Golf Cart Solar Charging Panel Expansion Kit (175W) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Golf Cart Solar Charging Panel Expansion Kit (175W) come with an Australian warranty?",
+        a: "Yes. The Golf Cart Solar Charging Panel Expansion Kit (175W) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Golf Cart Solar Charging Panel Expansion Kit (175W) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Golf Cart Solar Charging Panel Expansion Kit (175W) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-022',
@@ -1393,6 +3528,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/waterproof-marine-grade-bluetooth-soundbar.webp'],
     inStock: true,
+    primaryKeyword: "golf cart parts direct",
+    supportingKeywords: [
+      "amazon golf cart parts",
+      "buggy parts australia",
+      "carts and parts golf carts",
+      "cheap golf cart parts",
+      "chinese buggy parts australia",
+      "condor golf cart parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Waterproof Marine Grade Bluetooth Soundbar (26-inch)?",
+        a: "The Waterproof Marine Grade Bluetooth Soundbar (26-inch) is $420 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Waterproof Marine Grade Bluetooth Soundbar (26-inch) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Waterproof Marine Grade Bluetooth Soundbar (26-inch) is specified as IP67 Waterproof. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Waterproof Marine Grade Bluetooth Soundbar (26-inch) myself?",
+        a: "Many owners fit the Waterproof Marine Grade Bluetooth Soundbar (26-inch) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Waterproof Marine Grade Bluetooth Soundbar (26-inch) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Waterproof Marine Grade Bluetooth Soundbar (26-inch) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Waterproof Marine Grade Bluetooth Soundbar (26-inch) come with an Australian warranty?",
+        a: "Yes. The Waterproof Marine Grade Bluetooth Soundbar (26-inch) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Waterproof Marine Grade Bluetooth Soundbar (26-inch) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Waterproof Marine Grade Bluetooth Soundbar (26-inch) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-023',
@@ -1411,6 +3581,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/retractable-seatbelt-system-set.webp'],
     inStock: true,
+    primaryKeyword: "golf cart front end parts",
+    supportingKeywords: [
+      "golf cart front suspension parts",
+      "golf cart rear bag cover",
+      "ds golf cart parts",
+      "eagle golf cart parts",
+      "ebay golf cart parts",
+      "ez golf cart parts",
+    ],
+    faqs: [
+      {
+        q: "How much is the Retractable Seatbelt System Set (Front & Rear)?",
+        a: "The Retractable Seatbelt System Set (Front & Rear) is $145 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Retractable Seatbelt System Set (Front & Rear) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Retractable Seatbelt System Set (Front & Rear) is specified as 3-Point Lap & Shoulder Harness. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Retractable Seatbelt System Set (Front & Rear) myself?",
+        a: "Many owners fit the Retractable Seatbelt System Set (Front & Rear) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Retractable Seatbelt System Set (Front & Rear) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Retractable Seatbelt System Set (Front & Rear) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Retractable Seatbelt System Set (Front & Rear) come with an Australian warranty?",
+        a: "Yes. The Retractable Seatbelt System Set (Front & Rear) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Retractable Seatbelt System Set (Front & Rear) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Retractable Seatbelt System Set (Front & Rear) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-024',
@@ -1429,6 +3634,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/lockable-dash-glove-box-storage-system.webp'],
     inStock: true,
+    primaryKeyword: "spare parts for golf buggies",
+    supportingKeywords: [
+      "spare parts for golf carts",
+      "custom parts for golf carts",
+      "parts for a golf cart",
+      "custom golf cart parts",
+      "golf cart parts for sale",
+      "electric golf cart parts for sale",
+    ],
+    faqs: [
+      {
+        q: "How much is the Lockable Dash Glove Box Storage System?",
+        a: "The Lockable Dash Glove Box Storage System is $185 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Lockable Dash Glove Box Storage System fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Lockable Dash Glove Box Storage System is specified as Carbon Fiber Finish. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Lockable Dash Glove Box Storage System myself?",
+        a: "Many owners fit the Lockable Dash Glove Box Storage System at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Lockable Dash Glove Box Storage System anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Lockable Dash Glove Box Storage System travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Lockable Dash Glove Box Storage System come with an Australian warranty?",
+        a: "Yes. The Lockable Dash Glove Box Storage System carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Lockable Dash Glove Box Storage System in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Lockable Dash Glove Box Storage System is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
   {
     id: 'PART-025',
@@ -1447,6 +3687,41 @@ export const PRODUCTS: ProductItem[] = [
     featured: false,
     images: ['/images/heavy-duty-sand-bottle-assembly-dual-set.webp'],
     inStock: true,
+    primaryKeyword: "easy go golf cart parts",
+    supportingKeywords: [
+      "easy go golf carts parts",
+      "fairplay golf cart parts",
+      "g16 golf cart parts",
+      "g22 golf cart parts",
+      "g29 golf cart parts",
+      "golf buggy parts online",
+    ],
+    faqs: [
+      {
+        q: "How much is the Heavy Duty Sand Bottle Assembly (Dual Set)?",
+        a: "The Heavy Duty Sand Bottle Assembly (Dual Set) is $75 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the Heavy Duty Sand Bottle Assembly (Dual Set) fit my golf buggy?",
+        a: "Tell us the make, model and year of your buggy before ordering and we will confirm fitment from Yatala. The Heavy Duty Sand Bottle Assembly (Dual Set) is specified as Rattle-Free Bracket Mounts. Fitment varies more between models than most buyers expect, and a part that almost fits is a part you send back, so the two-minute check is worth it.",
+      },
+      {
+        q: "Can I fit the Heavy Duty Sand Bottle Assembly (Dual Set) myself?",
+        a: "Many owners fit the Heavy Duty Sand Bottle Assembly (Dual Set) at home, but the boundary matters. Anything involving opening a lithium pack, or replacing and programming a controller, belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can advise or carry out the work.",
+      },
+      {
+        q: "Can you deliver the Heavy Duty Sand Bottle Assembly (Dual Set) anywhere in Australia?",
+        a: "Yes. We deliver nationwide to every state and territory from our Yatala QLD 4207 depot, including regional addresses. The Heavy Duty Sand Bottle Assembly (Dual Set) travels in an enclosed, weather-sealed transporter rather than exposed on an open flatbed. Send us your delivery postcode and the freight cost is quoted with the vehicle rather than added later.",
+      },
+      {
+        q: "Does the Heavy Duty Sand Bottle Assembly (Dual Set) come with an Australian warranty?",
+        a: "Yes. The Heavy Duty Sand Bottle Assembly (Dual Set) carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally rather than becoming a shipping exercise. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Is the Heavy Duty Sand Bottle Assembly (Dual Set) in stock at your Yatala depot?",
+        a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the Heavy Duty Sand Bottle Assembly (Dual Set) is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
   },
 ];
 
@@ -1511,6 +3786,12 @@ export interface BlogPost {
   }[];
   relatedProductCategory?: string;
   relatedProductSlug?: string;
+  /** The single term this article is written to win. */
+  primaryKeyword?: string;
+  /** Six secondary terms, assigned to this post and no other page. */
+  supportingKeywords?: string[];
+  /** Six question/answer pairs, rendered on the page and as FAQPage JSON-LD. */
+  faqs?: { q: string; a: string }[];
 }
 
 export const POSTS: BlogPost[] = [
@@ -1534,6 +3815,32 @@ export const POSTS: BlogPost[] = [
       'A quality 48V 105Ah lithium pack achieves 65km–90km per charge compared to 25km–35km from aged lead-acid banks.',
       'Zero maintenance: no acid topping, no terminal corrosion, and 3,500+ charge cycles (8–10 years life) versus 2–3 years for wet lead batteries.',
       'Recharges from 20% to 100% in 2.5 to 3.5 hours on standard Australian 240V 10A wall outlets.',
+    ],
+    faqs: [
+      {
+        q: "Is lithium worth the extra cost over lead-acid?",
+        a: "For most Australian buyers yes. Lithium uses far more of its rated capacity, weighs substantially less so the motor is not hauling dead mass, and removes acid spills and water topping entirely. Lead-acid is cheaper to buy and more expensive to own over the life of the pack.",
+      },
+      {
+        q: "How long does a lithium golf buggy battery last?",
+        a: "Considerably longer than lead-acid in cycle terms, but heat shortens life faster than cycles do in Australian conditions. Charge in shade or a ventilated shed rather than immediately after a hot afternoon run, and avoid storing the buggy in full sun where you can.",
+      },
+      {
+        q: "Can I convert my lead-acid buggy to lithium?",
+        a: "Usually yes, with a drop-in conversion kit that includes a matched charger. That charger matters: a lead-acid charger is not suitable for a lithium pack and using one is a genuine safety and longevity risk rather than a minor mismatch.",
+      },
+      {
+        q: "Does lithium perform better on hills?",
+        a: "It helps, mainly because removing around 140kg of lead-acid weight means the motor moves less dead mass. But controller amperage is what actually decides sustained hill performance, so a lithium conversion alone will not fix a buggy that was always underpowered on climbs.",
+      },
+      {
+        q: "What happens to lithium batteries in cold weather?",
+        a: "Cold temporarily reduces the capacity a pack will deliver without causing damage, and it recovers as things warm. Quality packs also include thermal protection that limits charging in freezing conditions, which matters for alpine and inland properties more than coastal ones.",
+      },
+      {
+        q: "Do lithium batteries need any maintenance?",
+        a: "Almost none. There are no cells to water and no acid to spill, so routine care is keeping terminals and connectors clean and dry and avoiding heat extremes. That is the practical difference from a lead-acid bank, which needs regular topping up and equalising.",
+      },
     ],
     content: [
       {
@@ -1590,6 +3897,32 @@ export const POSTS: BlogPost[] = [
       'Essential road compliance features include seatbelts on all seats, LED headlights, daytime running lights, turn signals, horn, and dual side mirrors.',
       'Lifted chassis models provide 6 inches of ground clearance, ideal for acreage ditches, farm tracks, and undulating fairways.',
     ],
+    faqs: [
+      {
+        q: "How much is a 4 seater golf buggy in Australia?",
+        a: "Four-seaters in our range run from around $18,990 for a value lifted model to over $27,000 for a luxury or six-passenger configuration, all including GST. Freight is quoted separately against your delivery postcode rather than averaged into the advertised price.",
+      },
+      {
+        q: "What is the difference between forward-facing and 2+2 seating?",
+        a: "Forward-facing means both rows face the direction of travel, which is more comfortable over distance and better with luggage. A 2+2 flip seat has the rear pair facing backwards and folding flat into a cargo tray, which is more versatile but less comfortable on long runs.",
+      },
+      {
+        q: "Do I need bigger batteries for four adults?",
+        a: "You need to plan for it. Four adults is roughly 300kg the buggy was not carrying empty, which reduces range and hill performance and increases stopping distance. Size battery capacity against your loaded use rather than the two-seater figures.",
+      },
+      {
+        q: "Can a 4 seater golf buggy be registered for road use?",
+        a: "Conditional registration is decided by your state road authority and often your local council, and requirements differ by address and change over time. Confirm in writing with both before buying or fitting a road package rather than assuming a package makes a buggy road legal.",
+      },
+      {
+        q: "Are four-seater buggies harder to store?",
+        a: "They are noticeably longer than two-seaters, and lifted models are taller than some roller door clearances. Measure the space where it will live before ordering, including door height, because this is the constraint buyers most often discover after delivery rather than before.",
+      },
+      {
+        q: "Do you deliver four-seater buggies Australia-wide?",
+        a: "Yes, in enclosed weather-sealed transporters from our Yatala QLD depot to every state and territory. Four-seaters at or above $15,000 AUD also qualify for a complimentary on-farm or on-course trial demonstration before you commit.",
+      },
+    ],
     content: [
       {
         heading: 'Understanding 4-Passenger Buggy Configurations (Forward-Facing vs 2+2 Flip Seat)',
@@ -1645,6 +3978,32 @@ export const POSTS: BlogPost[] = [
       'Four-wheel hydraulic disc brakes provide positive, fade-free stopping power when descending steep gravel driveways or towing trailers.',
       'Automotive-grade e-coat rust protection shields the tubular steel chassis from paddock mud and acidic cattle manure.',
     ],
+    faqs: [
+      {
+        q: "What makes a golf buggy suitable for acreage?",
+        a: "Ground clearance first, then braking, then controller amperage. A standard-height buggy grounds out on rutted driveways, factory drum brakes fade on long descents, and a modest controller throttles the motor on sustained climbs regardless of how large that motor is.",
+      },
+      {
+        q: "Are lifted golf buggies less stable?",
+        a: "A lift raises the centre of gravity, so cornering behaviour changes and side-slopes deserve more respect. Factory lift kits are engineered with the geometry, braking and warranty together, which is why they behave better than an aftermarket lift bolted onto a standard chassis.",
+      },
+      {
+        q: "Can a lifted buggy replace a quad bike on a property?",
+        a: "For transport, fencing runs and carrying tools, frequently yes, and it does so with no fumes and far less noise around livestock. A quad still wins on very narrow tracks and extreme terrain, so be honest about the ground you actually cross daily.",
+      },
+      {
+        q: "What tyres suit Australian farm ground?",
+        a: "Ply rating governs puncture resistance, and standard turf tyres pick up stubble and stone damage quickly on a working property. A six-ply carcass resists it. Choose tread pattern by ground: aggressive mud patterns chew turf and ride noisily near the house.",
+      },
+      {
+        q: "Do lifted buggies need upgraded brakes?",
+        a: "Usually yes if they will carry loads or tow. Larger tyres effectively raise the gearing and increase the mass being stopped, and factory drums fade when hot and hold water after wet grass. Four-wheel hydraulic discs are the sensible pairing with a lift.",
+      },
+      {
+        q: "How steep a hill can a lifted golf buggy climb?",
+        a: "It depends far more on controller amperage and gearing than on the lift itself, and on how heavily the buggy is loaded. Rather than quoting a gradient we cannot verify for your ground, tell us the property and we will recommend a specification that suits it.",
+      },
+    ],
     content: [
       {
         heading: 'Why Acreage Owners Are Replacing Quad Bikes with Lifted Electric Buggies',
@@ -1693,6 +4052,32 @@ export const POSTS: BlogPost[] = [
       'Flush brake fluid every 24 months to prevent moisture condensation and brake line corrosion in humid coastal regions.',
       'Wash the undercarriage with fresh water after beach or coastal resort driving to eliminate salt encrustation.',
       'Store lithium buggies at 40%–80% charge if leaving unattended for extended holiday periods.',
+    ],
+    faqs: [
+      {
+        q: "How often should I service a golf buggy in Australia?",
+        a: "Monthly owner checks on tyres, brakes and terminals, with a fuller inspection quarterly. Coastal and irrigated properties should shorten those intervals, because salt and fertiliser accelerate corrosion in exactly the places you cannot easily see.",
+      },
+      {
+        q: "What is the most neglected maintenance item?",
+        a: "Tyre pressure. It is a ten-second check that directly affects range, because an under-inflated tyre increases rolling resistance and draws more current from the pack. Check pressures cold, before the buggy has been driven, since heat from use hides a soft tyre.",
+      },
+      {
+        q: "Does coastal salt really damage a golf buggy?",
+        a: "Yes, and it starts where you cannot see it: inside box sections, at weld seams and behind bolt heads. By the time it shows on the surface the structural work is already done. Aluminium-framed models sidestep the problem entirely.",
+      },
+      {
+        q: "How do I stop brake problems after wet rounds?",
+        a: "Wet grass, irrigation runoff and course sand form an abrasive paste that wears pads and shoes far faster than low speeds suggest, and moisture held inside a drum starts internal corrosion. Treat a pedal that travels further or a pull to one side as immediate.",
+      },
+      {
+        q: "Should I wash my golf buggy after use?",
+        a: "After muddy or fertiliser-heavy work, absolutely, and it is the single highest-value habit available. Pay attention to the underside, brake assemblies and exposed connectors, since water sitting in a connector causes intermittent faults that are maddening to diagnose later.",
+      },
+      {
+        q: "Can you service my buggy at Yatala?",
+        a: "Yes, our workshop handles service and warranty work, and because parts are held in Australian stock a repair is usually measured in days rather than weeks waiting on an international order. Bring the model and year and we will confirm parts before you travel.",
+      },
     ],
     content: [
       {
@@ -1749,6 +4134,32 @@ export const POSTS: BlogPost[] = [
       'Instant GST Tax Invoices are issued for all purchases under ABN 28 668 598 758, ideal for primary producer or business write-offs.',
       'Combining any buggy with accessories unlocks an additional 5% bundle discount automatically.',
     ],
+    faqs: [
+      {
+        q: "How does Finance in 4 work on a golf buggy?",
+        a: "It splits the purchase into four equal interest-free instalments at 0% interest, available across our range on vehicles, parts and accessories. It changes cash flow rather than total cost, which is what makes a better-specified buggy reachable without paying interest.",
+      },
+      {
+        q: "How much do I save paying in cryptocurrency?",
+        a: "Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure. Freight and accessories are charged at the full rate on top, and you still receive a proper Australian tax invoice.",
+      },
+      {
+        q: "What payment methods do you accept?",
+        a: "PayID and Osko, direct bank transfer, Finance in 4, and Bitcoin or Tether with the 10% vehicle discount. There is no minimum order and no card surcharge on bank settlement. Larger orders sometimes hit bank daily transfer limits, so check yours beforehand.",
+      },
+      {
+        q: "Is there a minimum order?",
+        a: "No. There is no minimum order and no free-freight threshold. Freight is always quoted against your delivery postcode rather than averaged into prices or waived above a spend, so you pay for the leg you actually use.",
+      },
+      {
+        q: "Can a business claim GST on a golf buggy?",
+        a: "Every sale is issued with a proper Australian tax invoice showing GST separately and our ABN, which is what a registered business needs to claim the input tax credit. Whether it can be written off immediately or must be depreciated is a question for your accountant.",
+      },
+      {
+        q: "Do you offer finance on reconditioned buggies?",
+        a: "Finance in 4 applies across our range including reconditioned stock, and the 10% cryptocurrency discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
+      },
+    ],
     content: [
       {
         heading: 'Flexible Financing Tailored to Australian Buyers',
@@ -1797,6 +4208,32 @@ export const POSTS: BlogPost[] = [
       'Corrosion-resistant aircraft aluminum frames provide lifelong durability in coastal salt environments and humid nurseries.',
       'Integrated tow hitches allow pulling light utility trailers, aerators, and turf sprayers.',
       'Fleet telematics and custom corporate vinyl wraps available directly from our Yatala facility.',
+    ],
+    faqs: [
+      {
+        q: "What payload can a commercial utility buggy carry?",
+        a: "It varies by model, from compact utility beds up to 680kg on the Club Car Carryall 700, with towing capacities on top of that. Tell us what you actually carry and how often, because payload rating and usable tray dimensions are different constraints.",
+      },
+      {
+        q: "Why choose electric over petrol for a resort fleet?",
+        a: "No fuel handling or storage, no engine servicing, no exhaust around guests and no idling noise, which removes both a cost line and a compliance obligation. The offsetting cost is eventual battery replacement, which is a single planned expense rather than a gradual decline.",
+      },
+      {
+        q: "How many charging points does a small fleet need?",
+        a: "Enough circuits to charge simultaneously without tripping a breaker, which is the constraint sites most underestimate. Most operations avoid the problem by sizing capacity so a full shift never needs a mid-day top-up rather than fast-charging between runs.",
+      },
+      {
+        q: "Are commercial buggies covered by warranty?",
+        a: "Yes, with Australian factory warranty supported from our Yatala QLD depot and parts held locally. For fleets we also discuss standardised parts holding, because a fleet of one model is materially cheaper to run than a fleet of four.",
+      },
+      {
+        q: "Can you supply a fleet in stages?",
+        a: "Yes. Phased delivery is common because replacing an entire fleet in one week is impractical for most clubs, resorts and councils. Freight on multiple units is quoted as one job against your site postcode rather than per vehicle.",
+      },
+      {
+        q: "What safety measures apply to shared work buggies?",
+        a: "Speed limiting in pedestrian areas, seatbelts on anything crossing sloped ground, and a clear maximum passenger rule so people stop riding on trays. Some controller upgrades allow a restricted profile for general staff and full output for trained operators.",
+      },
     ],
     content: [
       {
@@ -1847,6 +4284,32 @@ export const POSTS: BlogPost[] = [
       'Calibrated twin 230W motors provide low-end climbing torque on wet morning kikuyu grass without wheel spin or motor whine.',
       'High-capacity 24V or 29V lithium batteries deliver 36+ holes of continuous remote play on a single 3-hour charge.',
       'Integrated rear fold-out 5th anti-tip wheels prevent backward flips when ascending steep 20+ degree fairway undulations.',
+    ],
+    faqs: [
+      {
+        q: "How does gyroscope straight tracking work?",
+        a: "It detects the buggy drifting downhill across a cambered fairway and feathers the motors to hold the heading you chose. Without it, any motorised trolley wanders toward the low side and you spend the walk correcting it, which is the most common complaint about cheaper models.",
+      },
+      {
+        q: "What is the range of a remote control golf buggy?",
+        a: "Packs are rated in holes rather than kilometres, and remote operation draws more power than simple forward drive because of constant steering corrections. On hilly courses assume less than the headline figure and specify capacity beyond your usual round.",
+      },
+      {
+        q: "Can I replace the remote handset if it breaks?",
+        a: "Yes, and it is worth checking before buying any remote buggy. We hold official MGI replacement remotes in Australian stock with pre-programmed pairing, so a cracked case or dead handset does not mean replacing an otherwise healthy buggy.",
+      },
+      {
+        q: "Do remote buggies work on wet slopes?",
+        a: "Twin independently driven motors are what give footing on wet slopes and cambered lies where a single-motor buggy scrabbles sideways. A rear anti-tip wheel matters too, since it prevents tipping backwards when climbing with a full bag mounted high.",
+      },
+      {
+        q: "Is remote control better than follow mode?",
+        a: "They solve different problems. Remote means you direct the buggy actively with a handset, which works predictably in any layout. Follow mode uses a belt tag so there is nothing to hold, but it wants clearer line of sight and can be confused by dense obstacles.",
+      },
+      {
+        q: "Are remote golf buggies allowed at Australian clubs?",
+        a: "Policies vary more than most golfers assume. Some clubs restrict motorised trolleys during wet periods to protect turf, and a few have conditions on remote-operated buggies specifically. A quick conversation with the pro shop before buying is faster than discovering a restriction on the first tee.",
+      },
     ],
     content: [
       {
@@ -1911,6 +4374,32 @@ export const POSTS: BlogPost[] = [
       'Maintenance-free EVA airless foam tyres eliminate fairway punctures and roll effortlessly over wet turf.',
       'Ergonomic multi-position push handles reduce wrist fatigue compared to traditional two-wheel pull carts.',
     ],
+    faqs: [
+      {
+        q: "Is a three-wheel or four-wheel push buggy better?",
+        a: "Three wheels turn more tightly and manoeuvre better on tight fairway layouts. Four wheels give a wider wheelbase and more stability on steep side-slopes. Consider which describes your home course rather than the general recommendation, because the answer genuinely differs by terrain.",
+      },
+      {
+        q: "What should I look for in a push buggy?",
+        a: "Bearings above everything. Sealed bearings roll freely and keep out the sand, clippings and irrigation water a course throws at them, and they survive being hosed down. Cheap bushings feel fine in the shop and drag within a season.",
+      },
+      {
+        q: "Are airless tyres better than pneumatic?",
+        a: "Airless never go flat and never need pumping, which is a real convenience. Pneumatic tyres deform around bumps and ride noticeably better on firm inland or links-style ground. On soft, well-watered coastal turf the difference is minor and convenience usually wins.",
+      },
+      {
+        q: "Do you stock manual push buggies?",
+        a: "Our walk-behind range is motorised rather than manual, so if a manual push buggy is what you want we will tell you that plainly rather than selling around it. The guides here cover the decision either way.",
+      },
+      {
+        q: "How much should I spend on a push buggy?",
+        a: "Enough to get sealed bearings and a fold mechanism that is quick and predictable, because those two determine whether it gets used. Beyond that, extra spend mostly buys console features that do not change how the buggy rolls.",
+      },
+      {
+        q: "Should I switch from push to electric?",
+        a: "The clearest signal is a back nine consistently worse than your front nine, since accumulated fatigue from pushing a loaded frame shows in late-round swing quality. An existing back, shoulder or knee issue is the second signal, and a hilly course the third.",
+      },
+    ],
     content: [
       {
         heading: 'The Case for the Manual Push Buggy in 2025',
@@ -1969,6 +4458,32 @@ export const POSTS: BlogPost[] = [
       'One-motion folding latches allow opening and packing down the cart in under 5 seconds without loose pins or knobs.',
       'Quick-release rear and front wheels reduce overall width by 15cm for compact storage in airline travel bags.',
       'Aircraft-grade hydroformed aluminum provides structural rigidity under 7.5kg total weight.',
+    ],
+    faqs: [
+      {
+        q: "How do I know a folding buggy will fit my boot?",
+        a: "Measure usable space rather than trusting the litre rating: width between the wheel arches at their narrowest, height under a closed boot lid, and depth to the tailgate. Load a golf bag alongside during the check, since a buggy that fits an empty boot exactly is one you cannot take to the course.",
+      },
+      {
+        q: "Does total weight or lifting weight matter more?",
+        a: "Lifting weight, by a wide margin. A buggy with a removable battery may weigh more overall while being far easier to load, because the heaviest single component travels in your hand rather than in the frame. That difference compounds every round.",
+      },
+      {
+        q: "Are one-step folds better than multi-latch?",
+        a: "Generally yes, because a fold that is quick and predictable gets used while one that fights you ends up left in the shed. Test the fold with the battery fitted rather than off, since that is how you will actually do it in a car park.",
+      },
+      {
+        q: "Do folding mechanisms wear out?",
+        a: "The latches and pivots are the wear points, particularly on buggies that live in a boot and get folded twice a round. Rinse sand and grit out of the mechanism rather than letting it grind, and check latch security periodically rather than after a failure.",
+      },
+      {
+        q: "Will a folded buggy scratch my car?",
+        a: "It can, particularly at the wheels and frame ends. Quick-release wheels remove the widest contact points and make the folded package easier to place, and a cheap boot liner or old blanket solves the rest more effectively than careful lifting does.",
+      },
+      {
+        q: "Which folding buggies do you stock?",
+        a: "Folding is standard across our walk-behind range, including the entry-level MGI Zip X1 with its compact fold mechanism. Send us your boot dimensions and we will tell you honestly which models fit rather than which we would prefer to sell.",
+      },
     ],
     content: [
       {
@@ -2029,6 +4544,32 @@ export const POSTS: BlogPost[] = [
       'Motorized buggies reduce lumbar spinal compression and rotator cuff strain, preventing post-round soreness.',
       'Studies indicate golfers using motorized walking buggies average 1.8 to 2.4 fewer strokes on the back nine due to preserved mental focus.',
     ],
+    faqs: [
+      {
+        q: "Do I still get exercise with a motorised buggy?",
+        a: "Yes, nearly all of it. You walk the full distance of the round, which is where the great majority of the cardiovascular and step-count benefit comes from. What disappears is the carried and pushed load, the part most associated with back and shoulder strain.",
+      },
+      {
+        q: "Will a motorised trolley improve my scoring?",
+        a: "Many owners report their back nine improving, because accumulated fatigue from pushing a loaded frame over several kilometres shows up in late-round swing quality. If your front nine is consistently better than your back nine, that gap is the thing to address.",
+      },
+      {
+        q: "Is a motorised buggy suitable with a back injury?",
+        a: "That is a question for your physiotherapist or doctor rather than an article. What we can say is the mechanics: pushing involves sustained forward force through shoulders and lower back across several kilometres, and a motorised trolley removes that force entirely while preserving the walking.",
+      },
+      {
+        q: "What is downhill speed control?",
+        a: "It holds the trolley to a steady walking pace on descents rather than letting it run away and force a jog. On hilly courses it is one of the features that most affects whether the buggy is pleasant or irritating to walk beside.",
+      },
+      {
+        q: "Can older golfers manage an electric trolley?",
+        a: "That is much of the point. Controls on entry models are a single variable speed dial with nothing to learn, and lifting is the main consideration rather than operation. A removable battery means the heaviest component travels separately, which matters at boot height.",
+      },
+      {
+        q: "How fast do motorised golf buggies go?",
+        a: "They are set to walking pace and adjustable with a speed dial, because the trolley is meant to accompany you rather than outpace you. Set conservatively at first and increase as you get used to walking alongside it.",
+      },
+    ],
     content: [
       {
         heading: 'The Physical Toll of Pushing 15kg of Clubs Over 10,000 Steps',
@@ -2087,6 +4628,32 @@ export const POSTS: BlogPost[] = [
       'Course-compliant sand bucket loops and seed bottles ensure instant divot repair on sensitive bentgrass and couch greens.',
       'Padded buggy seat attachments with internal dry-storage offer comfortable rests during slow fairway delays.',
       'Keeping critical spares like drive clutches, charger fuses, and tyre tread wraps in your boot prevents ruined weekends.',
+    ],
+    faqs: [
+      {
+        q: "What accessories should I buy first?",
+        a: "Sun and weather protection before anything cosmetic, because Australian UV destroys upholstery and dashboards faster than use does. After that, whatever makes the buggy fit your actual job: a tow hitch, a light kit, seatbelts or an enclosure.",
+      },
+      {
+        q: "Do accessories void a golf buggy warranty?",
+        a: "Correctly fitted bolt-on accessories generally do not, but anything altering the electrical system or controller programming can. Ask us before fitting rather than after, particularly with lighting kits, voltage reducers and controller upgrades.",
+      },
+      {
+        q: "Is there a discount for buying accessories with a buggy?",
+        a: "Yes. Buying accessories alongside a buggy rather than afterwards earns the 5% accessory bundle discount. It applies across the parts and accessories range and is worth planning for rather than adding items in a second order later.",
+      },
+      {
+        q: "How do I power accessories on a golf buggy?",
+        a: "Through a voltage reducer that steps pack voltage down to a regulated 12V supply. Tapping a single battery in a series bank is the shortcut people take and it unbalances the pack, shortening the life of every cell in it.",
+      },
+      {
+        q: "Which spares are worth keeping on hand?",
+        a: "A spare solenoid is the highest-value item, since it is a common failure, cheap, and its symptom of clicking without movement is unmistakable. Add a tyre plug kit and pump on rural property, plus terminal protectant and a wire brush.",
+      },
+      {
+        q: "Do you stock accessories for all buggy brands?",
+        a: "We stock a broad universal range plus brand-specific parts for the models we carry. Send the make, model and year before ordering, because fitment varies more between models than buyers expect and a part that almost fits is a part you return.",
+      },
     ],
     content: [
       {
@@ -2152,6 +4719,32 @@ export const POSTS: BlogPost[] = [
       'Conduct a 10-minute hill-climb test drive to verify whether the motor controller experiences voltage cutoff or thermal throttling.',
       'Verify serial numbers and ensure the vehicle is not encumbered by outstanding finance or stolen property listings.',
     ],
+    faqs: [
+      {
+        q: "What is the biggest risk buying a used golf cart?",
+        a: "The battery, because it is the expensive unknown and there is no odometer telling you its story. Ask for the battery purchase date rather than the vehicle year, since they are frequently several years apart on the same machine.",
+      },
+      {
+        q: "How do I test a used buggy battery?",
+        a: "Under load rather than at rest, and from cold rather than after it has been charging all morning. A failing pack can show acceptable resting voltage and collapse the moment current is drawn, which is why a yard test can mislead completely.",
+      },
+      {
+        q: "Should I worry about frame rust?",
+        a: "On steel frames, yes, and it starts where you cannot see it: inside box sections, at weld seams and behind bolt heads. Get underneath with a torch and inspect the seams rather than the paint. Aluminium frames avoid the problem entirely.",
+      },
+      {
+        q: "Are hire-fleet buggies a bad buy?",
+        a: "Not automatically, but they have done vastly more hours than a private buggy of the same age and should be priced as such. Worn pedal rubbers, scuffed panels, sagging seat foam and kerb-damaged wheels all point to high-volume use.",
+      },
+      {
+        q: "Do you sell reconditioned golf buggies?",
+        a: "Yes, alongside new stock at our Yatala QLD depot. Each one is inspected, charge-cycled, brake and steering checked and road tested before listing, and we record and tell you the battery purchase date rather than leaving you to guess.",
+      },
+      {
+        q: "How much should I budget beyond the purchase price?",
+        a: "Assume a battery unless you have seen a recent purchase date, tyres if the sidewalls have perished from outdoor storage, and brake work on anything neglected. Add freight from the seller's location, which is real money on an interstate private sale.",
+      },
+    ],
     content: [
       {
         heading: 'The Second-Hand Golf Cart Market in Australia: Bargains vs Money Pits',
@@ -2215,6 +4808,32 @@ export const POSTS: BlogPost[] = [
       'Four-wheel hydraulic disc brakes provide positive, fade-free descent control when carrying fencing supplies or towing equipment.',
       'Quiet electric operation allows inspecting horses and livestock without causing panic or spooking animals.',
     ],
+    faqs: [
+      {
+        q: "Can a golf buggy handle real farm work?",
+        a: "A heavy-duty lifted model can, within limits. Ground clearance, four-wheel hydraulic brakes and controller amperage are what separate a genuine working vehicle from a lifted golf cart, and payload and towing ratings tell you where the limits actually sit.",
+      },
+      {
+        q: "What recovery gear should I carry?",
+        a: "Rated recovery points bolted to the chassis are the starting requirement, because attaching a strap to a tow ball or axle turns a stuck vehicle into a projectile hazard. Add a snatch strap, rated shackles and something to use as an anchor.",
+      },
+      {
+        q: "How do I stop mud damaging the buggy?",
+        a: "Hose it down after muddy or fertiliser-heavy work. Cattle mud and irrigation water hold moisture and salts against steel long after the job, and corrosion starts where you cannot see it. Pay attention to the underside, brakes and connectors.",
+      },
+      {
+        q: "Is a winch worth fitting?",
+        a: "On a property where the nearest help is a phone call and a long wait, yes. It turns most recoveries into a solo job. On soft ground, dropping tyre pressures temporarily to widen the contact patch often does the job without any gear at all.",
+      },
+      {
+        q: "What tyre pressure suits rough ground?",
+        a: "Lower than sealed-surface pressure for traction and ride, but not so low that the sidewall can unseat on a hard turn, which is a genuine risk on larger all-terrain tyres. Check pressures cold and adjust seasonally, since Australian temperature swings move them noticeably.",
+      },
+      {
+        q: "Will an off-road buggy damage my lawn?",
+        a: "Aggressive mud tread will, and it also rides noisily on hard surfaces. Properties mixing paddock work with lawn near the house usually land on a milder all-terrain pattern, because tearing up the ground you live on gets old quickly.",
+      },
+    ],
     content: [
       {
         heading: 'The Rural Transition: Replacing Petrol Quad Bikes with Lifted Electric Buggies',
@@ -2273,6 +4892,32 @@ export const POSTS: BlogPost[] = [
       'Recharging costs are under $1.20 AUD per 50km on standard Australian 240V tariffs, compared to $12+ AUD in diesel fuel for a traditional ute.',
       'Zero engine oil changes, spark plugs, drive belts, or exhaust filters save Australian businesses over $1,800 AUD per vehicle annually in servicing.',
       'Eligible businesses and primary producers can claim immediate tax deductions and GST credits under ABN 28 668 598 758.',
+    ],
+    faqs: [
+      {
+        q: "What does an electric utility buggy cost in Australia?",
+        a: "Utility models sit toward the upper end of the range, with price driven mainly by battery capacity, frame material, payload rating and whether a dump bed or tow package is fitted. All our prices include GST with freight quoted separately by postcode.",
+      },
+      {
+        q: "Is electric cheaper to run than a diesel ute?",
+        a: "For short-haul site work, substantially. There is no fuel, oil, filters or plugs, and no fuel storage compliance. The offsetting cost is eventual battery replacement, which is a single planned expense rather than a gradual decline in condition.",
+      },
+      {
+        q: "What payload do I actually need?",
+        a: "Work from what you carry on your heaviest regular day rather than your average one, and remember that tray dimensions can be the real constraint rather than the weight rating. Tell us both and we will match a model to it.",
+      },
+      {
+        q: "Can I claim a utility buggy as a business asset?",
+        a: "Every sale comes with a proper Australian tax invoice showing GST separately and our ABN, which is what your accountant needs. Whether it is written off immediately or depreciated depends on current thresholds and how the asset is used, which is their call.",
+      },
+      {
+        q: "How long do commercial buggy batteries last?",
+        a: "Longer than most operators expect if charging is sensible, but heat and deep discharge cycles shorten life more than hours do. Budget the replacement from year one as a planned fleet expense and the long-term economics stay predictable.",
+      },
+      {
+        q: "Do you offer fleet pricing on utility buggies?",
+        a: "Yes, through our wholesale and fleet desk, including phased delivery and standardised parts holding. Freight on multiple units is quoted as one job against your site postcode rather than per vehicle, which is usually more economical.",
+      },
     ],
     content: [
       {
@@ -2333,6 +4978,32 @@ export const POSTS: BlogPost[] = [
       'Motor controller diagnostic LED flash codes provide direct error readouts for throttle sensor faults, low-voltage cutoffs, or thermal shutdowns.',
       'Using genuine OEM replacement parts ensures correct resistance matching and prevents expensive controller burnouts.',
     ],
+    faqs: [
+      {
+        q: "My buggy clicks but will not move. What is wrong?",
+        a: "That symptom points most often at the solenoid, the high-current switch between pack and motor. Its contacts pit and weld under repeated starting current until it sticks or stops passing current. It is a common, cheap and readily replaced part.",
+      },
+      {
+        q: "Why has my range dropped gradually?",
+        a: "Rule out the cheap causes before assuming the battery. Under-inflated tyres increase rolling resistance measurably, dragging brakes consume energy constantly, and permanently carried cargo adds mass. Once those are eliminated, test the pack under load rather than at rest.",
+      },
+      {
+        q: "Is it safe to work on a 48V golf buggy?",
+        a: "Some of it. Tyres, terminals, lights and bolt-on accessories are fine with insulated tools. Anything inside a lithium pack or involving controller programming is not, because the stored energy is substantial and an incorrect controller parameter can damage the motor.",
+      },
+      {
+        q: "What do controller LED error codes mean?",
+        a: "They differ by manufacturer, so read them against the documentation for your specific controller rather than a generic list. Photograph the flash sequence and tell us what you were doing when it appeared; that detail shortens diagnosis considerably.",
+      },
+      {
+        q: "When should I stop and call a technician?",
+        a: "Immediately for any burning smell, a swollen or leaking battery, discoloured or melted connectors, or a component too hot to touch comfortably. Those are not faults to work through, and continuing risks both the vehicle and you.",
+      },
+      {
+        q: "Do you stock replacement parts in Australia?",
+        a: "Yes, at our Yatala QLD depot rather than ordering in on demand, covering solenoids, controllers, chargers, brakes and batteries. Send the make, model and year, and a photograph of the part in place, and we will confirm fitment before it ships.",
+      },
+    ],
     content: [
       {
         heading: 'Safety First: Working with High-Amperage 48V Golf Buggy Systems',
@@ -2391,6 +5062,32 @@ export const POSTS: BlogPost[] = [
       'Choose traditional 2-seater sit-down buggies for effortless course transportation with weather tops and dedicated golf bag holders.',
       'Choose 4-passenger luxury cruisers for gated community lifestyle, resort access, and social family outings.',
       'Choose lifted off-road 4x4 carts if your property includes steep paddocks, dams, rutted trails, or heavy towing duties.',
+    ],
+    faqs: [
+      {
+        q: "How do I choose between a trolley and a ride-on?",
+        a: "Start with what is being carried. A golf bag while you walk points at a walk-behind trolley. People point at a ride-on. Loads on a property point at a utility vehicle. The category falls out immediately and everything after it is detail.",
+      },
+      {
+        q: "What should I consider before buying?",
+        a: "Where it will be stored and charged, before the model. Measure the space, remembering four-seaters are longer and lifted models taller than some roller doors, and confirm a power outlet reaches where it parks. These unglamorous constraints decide more purchases than features.",
+      },
+      {
+        q: "How many seats do I actually need?",
+        a: "Buy for the daily case rather than the occasional one. Someone driving a flat estate road five days a week and carrying four people twice a year does not need a four-seater, and will live with a longer, heavier vehicle the rest of the time.",
+      },
+      {
+        q: "Does brand matter when choosing?",
+        a: "Less than matching the buggy to your ground, but Australian parts availability matters a great deal over five years. A buggy you cannot get parts for locally becomes disposable at the first failure regardless of how well it was built.",
+      },
+      {
+        q: "Should I buy new or reconditioned?",
+        a: "A reconditioned buggy with a documented recent battery and a clean frame is excellent value. The same buggy with an unknown pack is a different proposition at the same price. Total the purchase plus likely immediate spend before comparing against new.",
+      },
+      {
+        q: "Can you recommend a model for my property?",
+        a: "Tell us the terrain, how many people you carry, the daily distance and where it will be stored. We will recommend from there, including saying when a cheaper model in the range is the right answer rather than the one we would rather sell.",
+      },
     ],
     content: [
       {
@@ -2454,6 +5151,32 @@ export const POSTS: BlogPost[] = [
       'Essential equipment mandates across all states include forward headlights, rear brake lights, turn indicators, rearview mirrors, a horn, and an amber hazard beacon.',
       'Vehicles must be speed-governed to a maximum speed of 20km/h or 25km/h depending on state jurisdiction (QLD vs NSW vs VIC).',
       'Drivers must hold a valid Class C Australian driver license or learner permit accompanied by a fully licensed driver.',
+    ],
+    faqs: [
+      {
+        q: "Can I drive a golf buggy on the road in Australia?",
+        a: "Only under a conditional registration scheme, and only where your state road authority and usually your local council approve it for the specific roads. Requirements differ by state and by address, and they change, so confirm in writing before assuming.",
+      },
+      {
+        q: "What should I do before buying a road package?",
+        a: "Contact your state road authority and your council first, describe exactly what you intend to do and where, and get the requirements in writing. The most common and expensive mistake is fitting a package and then discovering approval was never going to be granted.",
+      },
+      {
+        q: "Does a light kit make a buggy road legal?",
+        a: "No. Lighting and signalling equipment is usually part of what is required, but it does not confer road legality by itself. The approval comes from your road authority, and a kit is one component of meeting whatever conditions they set.",
+      },
+      {
+        q: "Do I need insurance for a golf buggy?",
+        a: "Speak to your insurer specifically about the vehicle, how and where it is used and who drives it. Golf buggies are frequently excluded from both home contents and standard motor policies, and owners discover that gap only after an incident.",
+      },
+      {
+        q: "Do the rules differ between states?",
+        a: "Yes, meaningfully. Queensland, New South Wales, Victoria and Western Australia each administer conditional registration differently, and local council involvement varies too. Treat anything published online, including this article, as background rather than the current rule for your address.",
+      },
+      {
+        q: "What about private estate and gated community roads?",
+        a: "Private roads may sit outside the registration scheme but the liability if a pedestrian is injured is entirely real. Many gated communities also set their own internal rules, so check with the body corporate as well as the council.",
+      },
     ],
     content: [
       {
@@ -2530,6 +5253,32 @@ export const POSTS: BlogPost[] = [
       'Zero acid topping, zero terminal corrosion, and zero explosive off-gassing during charging in home garages.',
       'Full recharge completed in 2.5 to 3.5 hours on standard Australian 240V 10A power outlets, saving over 30% in charging electricity.',
     ],
+    faqs: [
+      {
+        q: "Is my buggy worth converting to lithium?",
+        a: "Assess the vehicle underneath first. A buggy in good mechanical order with a tired battery is an excellent candidate and will feel close to new afterwards. One with a corroding frame or multiple deferred repairs is usually better replaced.",
+      },
+      {
+        q: "Can I use my existing charger after converting?",
+        a: "Generally no, and this is the detail most often overlooked. Lead-acid chargers apply absorption and float stages that lithium neither needs nor tolerates well, and may not communicate with the pack's management system at all. A proper kit includes a matched charger.",
+      },
+      {
+        q: "How much weight does a lithium conversion save?",
+        a: "Around 140kg on a typical 48V conversion, which the motor stops hauling as dead mass. That shows up immediately in acceleration, hill climbing and usable range rather than only on paper.",
+      },
+      {
+        q: "Do I need a technician to fit a conversion kit?",
+        a: "Complete drop-in kits are designed to be straightforward, but anything involving opening the pack or programming a controller belongs with a qualified technician. Our Yatala workshop can carry out the conversion or advise on a self-fit.",
+      },
+      {
+        q: "What is included in a conversion kit?",
+        a: "A complete kit includes the pack, a matched CAN-bus charger, a digital gauge, mounting bracket and universal harness, so there is no parts-chasing partway through the job. Buying components separately is where compatibility problems usually start.",
+      },
+      {
+        q: "How long before a conversion pays for itself?",
+        a: "It depends on how often you were replacing lead-acid and what your time is worth, so we will not quote a payback figure we cannot stand behind. What is measurable is the end of water topping, acid spills and terminal corrosion.",
+      },
+    ],
     content: [
       {
         heading: 'The Technological Shift in Australian Golf Buggy Power',
@@ -2594,6 +5343,32 @@ export const POSTS: BlogPost[] = [
       'Annual rear differential gear oil changes (typically SAE 80W-90) prevent expensive ring-and-pinion wear under heavy acreage towing.',
       'Hydraulic brake lines should be inspected every 6 months for moisture contamination and pedal sponginess.',
     ],
+    faqs: [
+      {
+        q: "What should I check monthly?",
+        a: "Tyre pressures cold, brake feel and travel, and battery terminals for corrosion. Those three take ten minutes and catch the majority of problems before they become workshop visits, particularly on buggies used in wet grass or dusty conditions.",
+      },
+      {
+        q: "How often do golf buggy brakes need attention?",
+        a: "More often than the low speeds suggest, because wet grass, irrigation runoff and course sand form an abrasive paste. Buggies carrying four passengers, towing or running a lift kit place more demand on the same brakes and deserve shorter intervals.",
+      },
+      {
+        q: "Do I need to grease suspension components?",
+        a: "On models with grease points, yes, and quarterly is a sensible interval for a buggy in regular use. Dust and grit accelerate wear in pivots, so properties in drier regions should treat it as maintenance rather than an optional extra.",
+      },
+      {
+        q: "Does keeping service records matter?",
+        a: "It is worth real money at resale and costs nothing but discipline. Buyers of used electric buggies are rightly wary because battery condition is the expensive unknown, and a record of dates and receipts consistently separates a confident sale from a haggled one.",
+      },
+      {
+        q: "What tools do I need for basic maintenance?",
+        a: "A tyre gauge and a pump that reaches low pressures accurately, a multimeter, insulated spanners for anything near terminals, a wire brush and terminal protectant, and a torque wrench for wheel nuts. That set covers most owner-level work safely.",
+      },
+      {
+        q: "Can you service my buggy if I bought it elsewhere?",
+        a: "Yes. Our Yatala workshop services buggies regardless of where they were purchased, and because parts are held in Australian stock a repair is usually days rather than weeks. Bring the make, model and year so we can confirm parts first.",
+      },
+    ],
     content: [
       {
         heading: 'Why Scheduled Preventative Maintenance Saves Thousands',
@@ -2656,6 +5431,32 @@ export const POSTS: BlogPost[] = [
       'On undulating 20-acre acreage with 4 adult passengers and all-terrain knobby tyres, expect 45km to 60km of continuous driving per charge.',
       'Regenerative AC braking systems recover between 8% and 14% of energy on hilly golf courses, noticeably extending range.',
       'Ambient temperatures exceeding 35°C slightly lower internal resistance but require smart thermal BMS throttling to preserve battery health.',
+    ],
+    faqs: [
+      {
+        q: "How far will an electric golf buggy go on one charge?",
+        a: "Further than most owners need, but the honest planning figure is below the advertised one. Total weight, terrain, tyre pressure and temperature account for most of the gap, so estimate from your own worst realistic case rather than the best case.",
+      },
+      {
+        q: "Why is my range lower than advertised?",
+        a: "Published figures assume conditions that rarely match a real property. Passengers and cargo, sustained climbing, under-inflated tyres and temperature extremes each reduce range, and together they can account for a substantial shortfall against a brochure number.",
+      },
+      {
+        q: "Does driving style affect range?",
+        a: "More than most owners realise. Smooth progressive acceleration draws far less peak current than repeatedly flooring it, anticipating stops preserves momentum, and on regenerative systems letting the drivetrain slow the buggy on descents returns energy instead of turning it into brake heat.",
+      },
+      {
+        q: "What is regenerative braking worth?",
+        a: "It recovers energy on descents and adds engine-braking feel, which reduces brake wear as well as extending range. It is an AC drivetrain characteristic, so a DC buggy will not gain it through any controller upgrade.",
+      },
+      {
+        q: "Should I buy more battery capacity than I need?",
+        a: "Some margin is sensible, particularly if you carry passengers, climb regularly or play thirty-six holes. Beyond that, extra capacity adds weight and cost. Size against your loaded worst case rather than your empty best case.",
+      },
+      {
+        q: "Does cold weather reduce range?",
+        a: "Temporarily, yes, without causing damage, and it recovers as things warm. It matters most for winter competition mornings in the southern states, where a pack rated comfortably for your usual round can fall short on a cold start.",
+      },
     ],
     content: [
       {
@@ -2720,6 +5521,32 @@ export const POSTS: BlogPost[] = [
       'Motorized walking buggies ($1,200–$1,900 AUD) eliminate hill strain with variable speed dials and automated downhill braking.',
       'Remote control buggies ($2,400–$3,200 AUD) provide ultimate hands-free freedom, allowing you to walk unrestricted like a tour professional with a caddie.',
       'Gyroscopic straight-line correction is essential for remote buggies to counter severe side-slopes on undulating Australian golf courses.',
+    ],
+    faqs: [
+      {
+        q: "Which type of golf trolley should I buy?",
+        a: "Manual if you play occasionally on flat ground and enjoy the walk as it is. Motorised if fatigue affects your late-round scoring or your course has hills. Remote or follow if you want your hands free between shots entirely.",
+      },
+      {
+        q: "How much do the three categories cost?",
+        a: "Manual push trolleys are the entry point with effectively no running cost. Motorised walk-behind models sit substantially higher, driven mostly by battery capacity and control sophistication. Remote and follow-capable models occupy the top of the range.",
+      },
+      {
+        q: "Do golf clubs restrict motorised trolleys?",
+        a: "Policies vary more than most golfers assume. Some restrict them during wet periods to protect turf, others set margins around tees and greens, and a few have conditions on remote-operated buggies. Ask the pro shop before buying rather than after.",
+      },
+      {
+        q: "What suits kikuyu and couch turf?",
+        a: "Both handle motorised trolleys well when dry. In wet conditions, twin independently driven motors find footing where a single motor scrabbles, and wider tyres reduce marking on soft turf, which is what clubs care about most.",
+      },
+      {
+        q: "Is a remote trolley worth the extra over motorised?",
+        a: "If the appeal is having your hands and attention free between shots, yes, and owners rarely go back. If you are content walking beside a trolley with a hand on the handle, the extra buys convenience rather than capability.",
+      },
+      {
+        q: "Which brands do you stock?",
+        a: "MGI, PowaKaddy and Robera, covering entry-level speed-dial models through GPS touchscreen trolleys to hands-free follow technology. All are held at Yatala with Australian warranty support and genuine replacement batteries and remotes.",
+      },
     ],
     content: [
       {
@@ -2794,6 +5621,32 @@ export const POSTS: BlogPost[] = [
       'Switch the vehicle Tow/Run toggle switch to "TOW" to unlock the electromagnetic parking brake and prevent motor controller feedback damage.',
       'Enclosed trailer delivery direct from our Yatala distribution center eliminates all transport risks and delivers turn-key ready vehicles.',
     ],
+    faqs: [
+      {
+        q: "What trailer do I need for a golf buggy?",
+        a: "One rated for the combined mass and long enough that the ramp angle does not ground the buggy on loading. Four-seaters and lifted models need meaningfully more deck than a two-seater, so measure rather than assume a standard box trailer fits.",
+      },
+      {
+        q: "How should I strap down a golf buggy?",
+        a: "Four independent rated ratchet straps to chassis or suspension lower control arms, never over seats, roof supports or bodywork. Loads must be restrained against movement in every direction including under emergency braking, so check strap condition before each trip.",
+      },
+      {
+        q: "Do I need to do anything electrically before towing?",
+        a: "Yes. Set the tow or run switch to tow so the motor cannot be back-driven by the turning wheels, which is the mistake that damages controllers on long trips. Isolating the main battery removes remaining parasitic draw as well.",
+      },
+      {
+        q: "Is my golf buggy insured while on a trailer?",
+        a: "Check with your insurer specifically, because golf buggies are frequently excluded from both vehicle and home contents policies while in transit. Get the answer in writing rather than assuming, since requirements also differ between states.",
+      },
+      {
+        q: "Can you deliver instead of me towing?",
+        a: "Yes, and for most buyers it works out better. We deliver Australia-wide in enclosed weather-sealed transporters from Yatala QLD, with freight quoted against your delivery postcode. That removes the trailer, the straps and the legal load requirements entirely.",
+      },
+      {
+        q: "Does heat affect a buggy on a trailer?",
+        a: "Yes. A trailer sitting in full summer sun on a service station forecourt reaches temperatures well above ambient, and while quality lithium packs include thermal protection, minimising exposure is sensible. Check pack charge before departure rather than on arrival.",
+      },
+    ],
     content: [
       {
         heading: 'Highway Trailering Challenges for Modern Golf Carts',
@@ -2858,6 +5711,32 @@ export const POSTS: BlogPost[] = [
       'Inflate tyres to maximum sidewall rating (or place the chassis on axle stands) to prevent flat-spotting on cold concrete shed floors.',
       'Spray exposed electrical terminals and throttle pedal linkages with lanolin or dielectric corrosion inhibitor spray.',
     ],
+    faqs: [
+      {
+        q: "How should I store a golf buggy battery?",
+        a: "It differs by chemistry, and applying the wrong rule causes the damage you were avoiding. Lead-acid should be stored fully charged and topped up periodically. Lithium prefers a partial state of charge, commonly around half, rather than sitting full for months.",
+      },
+      {
+        q: "What is a parasitic draw?",
+        a: "Current drawn continuously by GPS units, USB ports, soundbars and dash electronics even with the key off. Over months it flattens an apparently healthy pack, which is why an isolator or master disconnect is the single most useful storage step.",
+      },
+      {
+        q: "Will tyres flat-spot in storage?",
+        a: "They can under static load over long periods. Raising pressures slightly before storage helps, and moving the buggy occasionally helps more. Check and reset pressures when recommissioning rather than driving off on whatever they have dropped to.",
+      },
+      {
+        q: "How do I protect against rodents?",
+        a: "It is a genuine and expensive risk in rural sheds, and a chewed wiring loom is dangerous if energised without inspection. Before reconnecting after storage, look over the wiring rather than assuming, and store the buggy somewhere you can see it.",
+      },
+      {
+        q: "What should I check when bringing it back?",
+        a: "Inspect wiring for damage before reconnecting, check and reset tyre pressures, then charge fully and watch the cycle rather than walking away. A pack damaged in storage often reveals itself by charging abnormally fast or refusing to complete.",
+      },
+      {
+        q: "Do brakes suffer during storage?",
+        a: "Drums in particular hold surface corrosion after a damp storage period and will feel poor until it wears off. Test at walking pace in a clear area before driving anywhere, rather than discovering it on the first descent.",
+      },
+    ],
     content: [
       {
         heading: 'Why Extended Storage Can Silently Damage Electric Carts',
@@ -2919,6 +5798,32 @@ export const POSTS: BlogPost[] = [
       'AC motors produce peak torque at 0 RPM, allowing effortless hill starts on 30% incline fairways and muddy paddocks without burning out.',
       'Smart AC motor controllers enable programmable acceleration curves, electronic automatic park braking, and high-efficiency regenerative descent braking.',
       'AC drivetrains are up to 18% more energy-efficient than older series-wound DC motors, yielding more kilometers per kilowatt-hour.',
+    ],
+    faqs: [
+      {
+        q: "How do I tell if my buggy has an AC or DC motor?",
+        a: "Look at the controller: AC systems typically run three thick motor cables, DC systems two. The motor casing often carries a specification plate. DC series motors also roll freely when pushed, while AC systems commonly resist and hold on a slope.",
+      },
+      {
+        q: "Is AC better than DC for hills?",
+        a: "Generally yes, because AC delivers smoother torque and pairs with regenerative braking and hill-hold behaviour. But controller amperage still sets the ceiling on sustained climbing, so a well-specified DC system can outperform a modest AC one.",
+      },
+      {
+        q: "Can I convert a DC buggy to AC?",
+        a: "Technically yes, economically rarely. It replaces the motor, controller and much of the wiring at once, approaching the value of the vehicle. A higher-amperage programmable DC controller is usually the sensible upgrade path instead.",
+      },
+      {
+        q: "What is hill-hold and why does it matter?",
+        a: "It prevents the buggy creeping or rolling when stopped on a slope. On sloped driveways and steep fairways it is a genuine safety feature rather than a convenience, and it is an AC drivetrain characteristic that no DC upgrade will provide.",
+      },
+      {
+        q: "Do AC motors need less maintenance?",
+        a: "Yes. Brushed DC motors have carbon brushes and commutators that wear and eventually need replacing. AC motors have neither, which removes a scheduled wear item entirely and is a significant part of their appeal for fleet operators.",
+      },
+      {
+        q: "Which motors do the buggies you stock use?",
+        a: "Most of our electric range uses AC drive systems, with specification varying by model. Tell us which model you are considering and we will confirm the drivetrain rather than generalising, since it does differ across the range.",
+      },
     ],
     content: [
       {
@@ -2982,6 +5887,32 @@ export const POSTS: BlogPost[] = [
       'Spring-loaded quick-attach padded seats provide comfortable rests on congested tee boxes while doubling as waterproof scorecard/ball storage.',
       'Standard sand bucket loops allow carrying official golf club divot sand bottles to comply with fairway etiquette.',
       'Fitted nylon wheel covers prevent mud, grass clippings, and wet sand from soiling your car boot upholstery during pack-down.',
+    ],
+    faqs: [
+      {
+        q: "Where can I buy genuine MGI accessories in Australia?",
+        a: "We hold genuine MGI accessories, batteries and replacement remotes in Australian stock at our Yatala QLD depot. Buying genuine matters most for anything electrical, since batteries and handsets depend on matched management and pairing behaviour.",
+      },
+      {
+        q: "Can I replace an MGI remote handset?",
+        a: "Yes. The official replacement handset has pre-programmed pairing capability so it links to your buggy without a service visit, and it charges over USB-C. A cracked case or dead handset should never mean replacing an otherwise healthy buggy.",
+      },
+      {
+        q: "How long do MGI batteries last?",
+        a: "They are consumables and will eventually need replacing, with heat shortening life faster than cycles do. Bring the battery inside rather than leaving it in a car boot in summer, and store at a partial charge if not playing for several weeks.",
+      },
+      {
+        q: "Are generic MGI accessories worth buying?",
+        a: "For wheels, covers, brackets, holders and bags a well-made generic is usually fine. For batteries and remotes, insist on genuine, because those participate in the electrical system and an unbranded pack with a different management system can charge incorrectly.",
+      },
+      {
+        q: "Which MGI accessories are most useful?",
+        a: "Sun and weather protection first given Australian UV, then whatever suits how you play: umbrella extenders, a padded seat with dry storage, sand bottle loops for course etiquette, and a device cradle if you use GPS or a rangefinder.",
+      },
+      {
+        q: "Do MGI accessories fit all their models?",
+        a: "Many are shared across the Zip and Ai ranges but not all, and fitment varies by model year. Send us the exact model and year before ordering and we will confirm rather than guess, which saves a return.",
+      },
     ],
     content: [
       {
@@ -3050,6 +5981,32 @@ export const POSTS: BlogPost[] = [
       'A dedicated MPPT (Maximum Power Point Tracking) boost charge controller is essential to step up 20V–36V solar panel voltage to 54V+ for 48V battery banks.',
       'Continuous trickle charging under sunlight prevents deep discharge degradation and keeps remote farm vehicles operational off-grid.',
     ],
+    faqs: [
+      {
+        q: "Do solar panels on golf buggies actually work?",
+        a: "They work best as maintenance charging rather than as a fuel replacement. A rooftop panel trickles charge during idle hours, which suits vehicles that sit outdoors between short trips. A buggy stored in a shed sees no light and gains nothing.",
+      },
+      {
+        q: "How much range does a solar roof add?",
+        a: "Modest amounts on a typical rooftop panel, and shading reduces output disproportionately rather than proportionally. Treat the honest benefit as keeping the pack topped up during idle hours rather than as adding a meaningful number of kilometres per day.",
+      },
+      {
+        q: "What is an MPPT controller and why does it matter?",
+        a: "It continuously finds the panel's maximum power point rather than passing raw output through, which is what allows a modest rooftop panel to contribute usefully instead of marginally. It is the component that makes the difference between a gimmick and a benefit.",
+      },
+      {
+        q: "Does solar extend battery life?",
+        a: "That is the more durable argument for it. Battery life is governed heavily by depth of discharge, and a panel topping the pack up during idle hours keeps it in a shallower band. That contributes to longevity in a way daily range figures do not show.",
+      },
+      {
+        q: "Will a solar panel fit any golf buggy?",
+        a: "Flexible panels follow the roof contour and add negligible weight, but the buggy needs a roof and the controller must match your system voltage. Tell us the model and pack voltage and we will confirm compatibility before you order.",
+      },
+      {
+        q: "Is solar worth it for a fleet?",
+        a: "It suits fleets that park outdoors between short runs better than any other use case, because that is exactly the idle-in-sun pattern solar rewards. For fleets that charge overnight in a shed, the infrastructure spend is better directed elsewhere.",
+      },
+    ],
     content: [
       {
         heading: 'Solar Power for Electric Carts: Practical Engineering vs Hype',
@@ -3091,6 +6048,1989 @@ export const POSTS: BlogPost[] = [
   ],
     relatedProductCategory: 'commercial-utility',
     relatedProductSlug: 'club-car-carryall-700-electric-utility',
+  },
+  {
+    slug: "used-golf-carts-for-sale-australia-what-we-check",
+    seoTitle: "Used Golf Carts for Sale Australia: What We Check",
+    title: "Used Golf Carts for Sale in Australia: The 12 Checks Before a Buggy Goes on Our Floor",
+    excerpt: "What a reconditioned golf buggy is actually inspected for at our Yatala QLD depot, and the checks worth making yourself on any private sale.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "7 min read",
+    author: {
+      name: "Nathan Campbell",
+      role: "Head of Technical Services, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/usedgolfcartcheck/800/600",
+    tags: ["Used Buggies", "Reconditioned", "Pre-Purchase Inspection", "Buying Guide"],
+    primaryKeyword: "used golf carts for sale",
+    supportingKeywords: [
+      "used golf carts",
+      "used golf cart",
+      "2nd hand golf carts for sale",
+      "used golf carts on sale",
+      "for sale used golf carts",
+      "cart golf used",
+    ],
+    keyTakeaways: [
+      "Battery age is the single biggest hidden cost in any used golf buggy, and it is rarely on the advertisement.",
+      "A pack that has been on charge all morning hides weakness a cold start reveals immediately.",
+      "Steel frames rot from the inside at weld seams and box sections; aluminium frames sidestep the problem.",
+      "Every reconditioned buggy we sell is inspected, charge-cycled and road tested at Yatala before it is listed.",
+    ],
+    content: [
+      {
+        heading: "Why Used Golf Buggies Are a Genuine Option Again",
+        body: "The second-hand market has changed. Ten years ago a used golf buggy usually meant a tired lead-acid machine near the end of its life. Today a large share of the buggies coming through are lithium, and a lithium pack that has been treated reasonably has a great deal of life left when the rest of the vehicle is barely worn. That shifts the economics: you can buy a well-kept buggy several years old and still expect years of service from it. The risk has not disappeared, it has just moved. It now sits almost entirely in the battery and the frame, which is why our inspection concentrates there rather than on cosmetics.",
+      },
+      {
+        heading: "Battery Health: The Check That Decides the Price",
+        body: "The pack is the expensive unknown and there is no odometer to tell you the story. Ask for the battery purchase date rather than the buggy's age, because they are frequently years apart. Test under load rather than at rest: a failing battery can show acceptable resting voltage and collapse the moment current is drawn, which is why a buggy that feels fine in the yard can struggle on the first hill. On lead-acid banks, look at the individual cells rather than the total, since one weak battery drags the whole set down and will keep doing so after replacement of the others.",
+      },
+      {
+        heading: "Frame and Chassis: Where Corrosion Actually Starts",
+        body: "Corrosion rarely begins where you can see it. On steel-framed buggies it starts inside box sections, at weld seams and behind bolt heads, which is exactly where irrigation water, fertiliser and coastal salt sit undisturbed. Get underneath with a torch and look at the seams rather than the paint. Aluminium-framed models, notably Club Car, avoid this class of problem entirely, which is a large part of why they hold value. Surface rust on brackets is normal and cheap; structural rust in a subframe is the point at which a cheap buggy becomes an expensive mistake.",
+      },
+      {
+        heading: "Brakes, Steering and the Test Drive That Matters",
+        body: "Drive it cold and drive it on a slope. Brakes on a neglected buggy hold surface corrosion that feels acceptable in a flat yard and alarming on a descent. Note whether the pedal travels a long way before it bites, whether the buggy pulls to one side, and whether there is any grinding. Check steering for free play at the wheel before the wheels respond. On a lifted buggy, all of this matters more, because the extra mass and higher centre of gravity ask more of components that were sized for a standard machine.",
+      },
+      {
+        heading: "What Reconditioned Means at Our Yatala Depot",
+        body: "A reconditioned buggy on our floor has been through the same pre-delivery process as a new one: multi-point mechanical inspection, a full charge cycle on the battery, brake and steering check, and a road test before it is listed. We record the battery purchase date and tell you what it is rather than leaving you to guess. Availability moves as trade-ins come through, so the honest answer to what is available is a phone call rather than a permanent list. Ask us what is on the floor and we will tell you what it is, what it has done and what we replaced.",
+      },
+      {
+        heading: "Budgeting Beyond the Purchase Price",
+        body: "The bargain buggy is rarely cheapest once it is on your property. Budget for a battery replacement unless you have seen a recent purchase date, tyres if the sidewalls have perished from sitting outdoors, and brake work on anything neglected. Add freight from wherever the seller is, which is a real cost on a private interstate sale. Total the purchase plus the likely immediate spend, then set that figure against a reconditioned buggy with a warranty. Sometimes the private sale still wins. Often the comparison is clarifying.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you sell used golf carts in Australia?",
+        a: "Yes. We carry reconditioned buggies alongside new stock at our Yatala QLD depot, and availability changes as trade-ins come through. Every reconditioned unit is inspected, charge-cycled and road tested the same way a new one is before it goes on the floor. Call 0480 804 189 and we will tell you what is available now.",
+      },
+      {
+        q: "How old is too old for a used golf buggy?",
+        a: "Age matters far less than battery date and frame condition. A ten-year-old aluminium-framed buggy with a two-year-old lithium pack is a better buy than a four-year-old steel-framed machine with an original lead-acid bank. Ask for the battery purchase date rather than the vehicle year, because they are usually different.",
+      },
+      {
+        q: "What should I check on a private used golf cart sale?",
+        a: "Battery purchase date, a cold start rather than one that has been charging all morning, frame seams and box sections underneath with a torch, brake feel on a slope, and steering free play. Ask whether it was private or hire-fleet use, because a hire vehicle has done vastly more hours than a private one of the same age.",
+      },
+      {
+        q: "Is a used golf buggy cheaper than a new one overall?",
+        a: "Sometimes, but total the purchase price plus the likely immediate spend before deciding. A tired lead-acid bank is frequently a significant fraction of the purchase price, and tyres and brakes are common on neglected vehicles. Compare that total against a reconditioned buggy with a warranty rather than against the new sticker price.",
+      },
+      {
+        q: "Do used golf buggies come with a warranty?",
+        a: "Reconditioned buggies from our Yatala depot carry warranty terms we will state clearly before purchase, which differ from a new vehicle's factory warranty. A private sale carries none at all. That difference is worth pricing into any comparison between a private bargain and a reconditioned unit from a dealer.",
+      },
+      {
+        q: "Can you deliver a used golf buggy Australia-wide?",
+        a: "Yes. Reconditioned buggies travel the same way new ones do, in enclosed weather-sealed transporters from Yatala QLD to any state or territory. Freight is quoted against your delivery postcode rather than averaged into the price, so you pay for the leg you actually use.",
+      },
+    ],
+    relatedProductCategory: "Traditional 2-Seater Electric Golf Buggies",
+  },
+  {
+    slug: "second-hand-golf-buggy-value-guide-australia",
+    seoTitle: "Second Hand Golf Buggies for Sale: Value Guide",
+    title: "Second Hand Golf Buggies for Sale in Australia: What They Are Actually Worth",
+    excerpt: "How to value a second hand golf buggy in Australia, what depreciates fastest, and which models hold their price years after purchase.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "David Ross",
+      role: "Sales Manager, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/secondhandbuggyvalue/800/600",
+    tags: ["Second Hand", "Resale Value", "Depreciation", "Buying Guide"],
+    primaryKeyword: "second hand golf buggies for sale",
+    supportingKeywords: [
+      "second hand golf carts",
+      "2nd hand golf carts",
+      "second hand golf buggy",
+      "used golf buggies",
+      "golf buggy for sale used",
+      "used golf buggy for sale",
+    ],
+    keyTakeaways: [
+      "Frame material drives resale more than any feature: aluminium does not corrode, steel eventually does.",
+      "A buggy with a documented battery replacement date sells faster and higher than one without.",
+      "Hire-fleet vehicles have done far more hours than private ones of the same age.",
+      "Depreciation is steepest in the first two years, which is what makes a three to five year old buggy the value sweet spot.",
+    ],
+    content: [
+      {
+        heading: "What Actually Holds Value in an Australian Golf Buggy",
+        body: "Three things drive resale here, and features are not among them. Frame material comes first: an aluminium chassis cannot rust, so a Club Car that has lived near the coast is structurally the same vehicle at ten years that it was at two, while a steel-framed equivalent may not be. Battery age comes second, because it is the largest single future cost a buyer is taking on. Parts availability comes third: a brand supported with Australian stock is repairable, and a brand that is not becomes disposable the first time something fails. Colour, trim and screens barely move the number.",
+      },
+      {
+        heading: "The Depreciation Curve and Where the Value Sits",
+        body: "Golf buggies follow the same shape as most vehicles: the steepest drop is in the first couple of years, then the curve flattens considerably. That is what makes a three to five year old buggy the sweet spot for a buyer, because the first owner has absorbed the sharpest depreciation while the vehicle still has most of its service life ahead of it. Beyond about eight years the calculation changes again, since you are usually buying a machine that will need a battery in the near term. Price accordingly rather than assuming age alone sets the figure.",
+      },
+      {
+        heading: "Private Use Versus Hire Fleet Hours",
+        body: "Two buggies of the same year can be separated by an enormous gap in actual use. A private buggy on an estate might do a few kilometres a week; a hire-fleet or resort vehicle can do that before lunch, day after day, often driven by people with no stake in looking after it. There is no odometer to settle the question, so ask directly and look for the evidence: worn pedal rubbers, scuffed body panels, sagging seat foam and kerb-struck wheels all suggest volume use. A hire vehicle is not automatically a bad buy, but it should be priced as what it is.",
+      },
+      {
+        heading: "Documentation Is Worth Real Money",
+        body: "A folder of dates and receipts consistently separates a confident sale from a haggled one, and it costs nothing but discipline to keep. The single most valuable item is proof of when the battery was bought, because that is the question every cautious buyer is really asking. Service records, any parts replaced, and the original tax invoice all help. If you are buying, ask for them; if you are selling, assemble them before you list. A dated photograph of the battery label takes seconds and settles arguments years later when the label has faded.",
+      },
+      {
+        heading: "Trading In Against a New or Reconditioned Buggy",
+        body: "If you are upgrading, a trade-in is usually simpler than a private sale and the gap is smaller than people expect once you account for the effort, the tyre-kickers and the freight on an interstate private deal. We take trade-ins at Yatala against both new and reconditioned stock. Tell us the model, the year, the battery date and what it has been used for, and we will give you a straight figure rather than an optimistic one that gets revised when the vehicle arrives.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does a second hand golf buggy cost in Australia?",
+        a: "It depends far more on battery age and frame condition than on the model year. A buggy needing a battery in the near term should be priced well below one with a documented recent replacement, because that pack is a substantial future cost the buyer is absorbing. Ask for the battery date before discussing price at all.",
+      },
+      {
+        q: "Which golf buggy brands hold their value best?",
+        a: "Aluminium-framed brands hold value best in Australian conditions because the chassis cannot corrode, which is a large part of Club Car's resale reputation here. Beyond frame material, brands with parts genuinely stocked in Australia hold value better, because a repairable buggy stays worth something and an unsupported one does not.",
+      },
+      {
+        q: "Should I buy a second hand golf buggy or a new one?",
+        a: "A three to five year old buggy is usually the value sweet spot, since the first owner absorbed the steepest depreciation while most of the service life remains. Buy new when you want a full factory warranty and a known battery date. Total the used purchase plus likely immediate spend before comparing.",
+      },
+      {
+        q: "Do you take trade-ins on golf buggies?",
+        a: "Yes. We take trade-ins at our Yatala QLD depot against both new and reconditioned stock. Give us the model, year, battery purchase date and what the buggy has been used for and we will give you a straight figure rather than one that gets revised when the vehicle actually arrives.",
+      },
+      {
+        q: "How can I tell if a used buggy was a hire vehicle?",
+        a: "Ask directly, then look for the evidence. Worn pedal rubbers, scuffed panels, sagging seat foam and kerb-damaged wheels all point to high-volume use. A hire vehicle of a given age has typically done many times the hours of a private one, so it should be priced as what it is rather than by year alone.",
+      },
+      {
+        q: "Is it worth replacing the battery before selling a golf buggy?",
+        a: "Often yes, because the battery is the buyer's biggest unknown and removing that doubt lifts both price and speed of sale. At minimum, document the existing pack's purchase date. A buyer who can see when the battery was bought will pay more than one being asked to gamble on it.",
+      },
+    ],
+    relatedProductCategory: "Luxury & High-Demand 4-Seaters",
+  },
+  {
+    slug: "used-petrol-golf-buggy-prices-australia",
+    seoTitle: "Used Petrol Golf Buggy Prices in Australia",
+    title: "Used Petrol Golf Buggy Prices in Australia: What Drives the Number",
+    excerpt: "What a used petrol golf buggy is worth in Australia, why EFI models command more than carburettor ones, and the running costs to price in.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/usedpetrolbuggy/800/600",
+    tags: ["Petrol Buggies", "Used Buggies", "EFI", "Pricing"],
+    primaryKeyword: "used gas golf cart prices",
+    supportingKeywords: [
+      "used gas golf cart",
+      "used petrol golf cart",
+      "petrol golf cart for sale",
+      "gas golf cart for sale",
+      "second hand petrol golf buggy",
+      "used golf cart petrol",
+    ],
+    keyTakeaways: [
+      "EFI models are worth meaningfully more used than carburettor ones, and are far easier to live with.",
+      "Petrol buggies do not carry the battery risk that dominates used electric pricing.",
+      "Engine hours, where recorded, tell you more than the model year does.",
+      "Petrol remains the honest answer for properties without reliable grid power.",
+    ],
+    content: [
+      {
+        heading: "Why Used Petrol Buggies Are Priced Differently",
+        body: "The used electric market is dominated by one unknown: how much life is left in the battery. Petrol buggies simply do not carry that risk, which changes how they are valued. What replaces it is engine condition, and unlike a battery an engine gives you plenty of warning and is repairable by any competent small-engine mechanic. That makes a used petrol buggy a more predictable purchase in some ways, and it is why buyers on remote properties often prefer them despite the noise and the servicing. The number turns on the engine, the fuel system and the frame rather than on a pack you cannot see inside.",
+      },
+      {
+        heading: "EFI Versus Carburettor: The Biggest Price Divider",
+        body: "Electronic fuel injection is the single largest factor separating two otherwise similar used petrol buggies. EFI meters fuel accurately across temperature swings and altitude, starts cleanly cold, and removes the seasonal carburettor tuning older buggies demanded every year. Closed-loop systems go further, adjusting continuously from live exhaust readings, which keeps combustion clean and lengthens oil-change intervals. A carburettor buggy is not a bad machine, but it asks more of you and it will sell for less. If you are comparing two at similar money, establishing which is EFI settles most of the question.",
+      },
+      {
+        heading: "What to Inspect on a Used Petrol Golf Buggy",
+        body: "Start it cold rather than warmed up, because a hard cold start is the symptom sellers most like to hide. Listen for smoothness at idle and under load, and watch the exhaust on start-up. Check the oil condition and ask when it was last changed. Look for fuel weeping at lines and connections, which is both a running problem and a genuine hazard. Then treat the rest as you would any buggy: frame seams underneath with a torch, brake feel on a slope, steering free play, and tyre sidewalls for perishing if it has lived outdoors.",
+      },
+      {
+        heading: "Running Costs to Price Into the Decision",
+        body: "A petrol buggy costs more to run per hour than an electric one and needs servicing an electric drivetrain does not: oil, filters, plugs and the fuel itself. Set against that, it has no battery replacement looming, which is the largest single future cost on the electric side. For low weekly use the electric buggy usually wins on running cost. For long daily distances on a property without convenient charging, petrol frequently wins on practicality regardless. Be honest about which pattern is yours rather than choosing on principle.",
+      },
+      {
+        heading: "When Petrol Is Still the Right Answer",
+        body: "Grid power is the deciding factor. If the buggy lives where charging is inconvenient, unreliable or simply too far from where the work happens, refuelling in a minute beats charging overnight every time. Long daily distances point the same way, because range is limited by the jerry can rather than the pack. We stock EFI petrol across Club Car, Yamaha, E-Z-GO and Cushman for exactly these buyers, and we will say plainly when electric is the better fit for a property rather than selling against the grain.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much is a used petrol golf cart in Australia?",
+        a: "Price turns on whether it is EFI or carburettor, engine condition and frame state rather than model year alone. EFI models command meaningfully more because they start cleanly cold and need no seasonal carburettor tuning. Unlike used electric buggies, there is no battery pack risk to discount for.",
+      },
+      {
+        q: "Is a petrol golf buggy cheaper to run than electric?",
+        a: "No, generally the opposite per hour, since petrol needs fuel, oil, filters and plugs while an electric drivetrain needs almost none of that. What petrol avoids is the eventual battery replacement, which is the largest single future cost on an electric buggy. Which wins depends on your usage pattern rather than principle.",
+      },
+      {
+        q: "What is the difference between EFI and carburettor golf buggies?",
+        a: "EFI meters fuel electronically, so it starts cleanly cold, adapts automatically to temperature and altitude, and removes the annual carburettor tuning older petrol buggies needed. Closed-loop EFI adjusts continuously from exhaust readings, keeping combustion clean and lengthening oil-change intervals. It is worth paying for, new or used.",
+      },
+      {
+        q: "Do you sell petrol golf buggies in Australia?",
+        a: "Yes. We stock EFI petrol models from Club Car, Yamaha, E-Z-GO and Cushman at our Yatala QLD depot, covering golf, estate and heavy agricultural work. They suit properties without reliable grid power or with daily distances too long to plan around a charge cycle.",
+      },
+      {
+        q: "How do I check a used petrol buggy engine?",
+        a: "Start it cold rather than warmed up, because a hard cold start is what sellers most like to hide. Listen at idle and under load, watch the exhaust on start-up, check oil condition and ask when it was last changed, and look for fuel weeping at lines, which is both a running fault and a hazard.",
+      },
+      {
+        q: "Are petrol golf buggies noisy?",
+        a: "Traditionally yes, and it is the main objection buyers raise. Yamaha's QuietTech engineering addresses it directly, bringing the Drive2 close enough to electric in sound that conversation at speed stays comfortable while keeping unlimited range and one-minute refuelling. If noise ruled petrol out for you before, that model is worth hearing.",
+      },
+    ],
+    relatedProductCategory: "Mechanical & Petrol Buggies",
+  },
+  {
+    slug: "reconditioned-vs-new-golf-buggy-cost-comparison",
+    seoTitle: "Reconditioned vs New Golf Buggy: Cost Compared",
+    title: "Reconditioned vs New Golf Buggy in Australia: The Honest Cost Comparison",
+    excerpt: "A used golf buggy for sale looks cheaper until you total the immediate spend. Here is how reconditioned and new actually compare over five years.",
+    category: "Finance & Buying",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Finance & Accounts Team",
+      role: "Golf Buggies Express PTY LTD",
+    },
+    image: "https://picsum.photos/seed/reconditionedvsnew/800/600",
+    tags: ["Reconditioned", "New Buggies", "Cost Comparison", "Buying Guide"],
+    primaryKeyword: "used golf buggy for sale",
+    supportingKeywords: [
+      "golf buggy for sale used",
+      "used golf carts for sale australia",
+      "reconditioned golf buggy",
+      "refurbished golf cart australia",
+      "second hand electric golf buggy",
+      "used electric golf cart for sale",
+    ],
+    keyTakeaways: [
+      "Compare the total five-year cost, not the two sticker prices.",
+      "A battery replacement is the item that most often closes the gap between used and new.",
+      "Warranty coverage is a real financial difference, not a marketing line.",
+      "Finance in 4 and the 10% crypto discount apply to new stock and change the comparison.",
+    ],
+    content: [
+      {
+        heading: "The Comparison Most Buyers Get Wrong",
+        body: "Almost everyone compares two purchase prices and stops there, which is exactly the comparison that misleads. The right question is what each option costs over the years you intend to keep it. A reconditioned buggy with a healthy recent battery and a clean frame can be outstanding value. The same buggy with an original pack nearing the end of its life is a different proposition entirely, even at the same price. Until you know the battery date, you do not actually have the information needed to compare anything.",
+      },
+      {
+        heading: "What a Reconditioned Buggy Costs Over Five Years",
+        body: "Start with the purchase price, then add what the vehicle will need. If the battery date is unknown or old, assume a replacement inside the period and price it in, because it is the largest single line. Add tyres if the sidewalls have perished from outdoor storage, and brake work on anything neglected. Then add freight from the seller's location. Reconditioned stock from a depot removes much of this guesswork, because the inspection has already happened and we tell you the battery date rather than leaving you to gamble on it.",
+      },
+      {
+        heading: "What a New Buggy Costs Over the Same Period",
+        body: "A new buggy starts higher and then stays quiet. The battery is new with a known date, the factory warranty covers the early years, and nothing has been deferred by a previous owner. Servicing on a lithium electric drivetrain is minimal, largely tyres, brakes and keeping connectors clean. Set against the used option, the new buggy's higher entry price buys certainty rather than features. For buyers who dislike surprises, or who need the vehicle to simply work every day without becoming a project, that certainty is the product.",
+      },
+      {
+        heading: "Payment Terms Change the Maths",
+        body: "Finance in 4 splits any purchase into four interest-free instalments, which materially changes how a new buggy sits against a cheaper used one paid in a lump. Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure and can close much of the gap on its own. Freight is quoted separately against your delivery postcode either way, so compare like with like: vehicle plus freight plus expected spend, not sticker against sticker.",
+      },
+      {
+        heading: "How to Decide in One Conversation",
+        body: "Tell us the terrain, how many people you carry, the daily distance and what you want to spend. If a reconditioned buggy on the floor fits, we will say so and tell you exactly what it is, what it has done and what we replaced. If nothing suitable is in stock, we will say that too rather than pushing you toward whatever happens to be available. The comparison is easier with real vehicles and real battery dates in front of you than with two advertisements.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is a used golf buggy actually cheaper than a new one?",
+        a: "Sometimes, but only once you total the purchase plus the likely immediate spend. A battery replacement is the item that most often closes the gap, and tyres and brakes are common on neglected vehicles. Compare five-year totals including freight rather than two sticker prices.",
+      },
+      {
+        q: "What is the difference between used and reconditioned?",
+        a: "Used describes any second-hand buggy, including private sales with no checks at all. Reconditioned means it has been through inspection, a full charge cycle, brake and steering checks and a road test before being listed. At our Yatala depot that is the same pre-delivery process a new buggy goes through.",
+      },
+      {
+        q: "Do you offer finance on reconditioned golf buggies?",
+        a: "Finance in 4 splits a purchase into four interest-free instalments and is available across our range. The 10% Bitcoin and Tether discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
+      },
+      {
+        q: "How long should a golf buggy last?",
+        a: "The frame usually outlasts everything else, particularly aluminium ones that cannot corrode. The battery is the consumable and will need replacing at some point regardless of chemistry. Plan for that replacement as a known future cost rather than an unexpected one and the long-term economics stay predictable.",
+      },
+      {
+        q: "Can I see a reconditioned buggy before buying?",
+        a: "Yes, and we encourage it. Our depot is at Yatala QLD 4207 in the Brisbane–Gold Coast corridor. For higher-value vehicles at or above $15,000 AUD we also offer a complimentary on-farm or on-course trial demonstration, because spending that much on something seen only in photographs is a large leap.",
+      },
+      {
+        q: "What warranty comes with a reconditioned golf buggy?",
+        a: "Reconditioned buggies carry warranty terms we state clearly before purchase, and they differ from a new vehicle's factory warranty. A private sale carries none. That difference is a real financial distinction worth pricing into any comparison rather than treating as a formality.",
+      },
+    ],
+    relatedProductCategory: "Traditional 2-Seater Electric Golf Buggies",
+  },
+  {
+    slug: "golf-caddy-australia-buyers-guide",
+    seoTitle: "Golf Caddy Australia: Electric & Push Buyers Guide",
+    title: "Golf Caddy Buyers Guide Australia: Electric, Remote and Push Options Compared",
+    excerpt: "What Australians mean by a golf caddy, how electric and push models differ, and which suits your course, your boot and your back.",
+    category: "Electric Trolleys",
+    date: "2026-09-10",
+    readTime: "7 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/golfcaddyguide/800/600",
+    tags: ["Golf Caddy", "Electric Trolley", "Walk-Behind", "Buying Guide"],
+    primaryKeyword: "golf caddy",
+    supportingKeywords: [
+      "electric golf caddy",
+      "golf caddy australia",
+      "electric caddy golf",
+      "golf caddie trolley",
+      "motorised golf caddy",
+      "golf caddy for sale",
+    ],
+    keyTakeaways: [
+      "In Australia a golf caddy usually means the trolley, not a person carrying your bag.",
+      "Electric caddies remove the pushing load while keeping the full walking distance.",
+      "Follow-mode and remote control solve different problems and suit different golfers.",
+      "Boot dimensions and lifting weight decide more purchases than any specification.",
+    ],
+    content: [
+      {
+        heading: "What a Golf Caddy Means in Australia",
+        body: "The word carries two meanings and the search results mix them constantly. Overseas, a caddie is the person carrying your bag and reading your lines. In Australian usage, and in almost every product listing you will find here, a golf caddy is the trolley itself: the wheeled frame that carries the bag around the course. That is the sense used throughout this guide. The category spans everything from a simple manual push frame through motorised walk-behind buggies to remote-controlled and follow-mode machines that need no hands at all.",
+      },
+      {
+        heading: "Push Caddies: Simple, Light and Cheap to Own",
+        body: "A manual push caddy has no battery, no electronics and almost nothing to fail. Bought well it lasts many seasons at close to zero running cost, and it is the entry point to the category by a wide margin. The trade-off is that you are supplying the effort, which across several kilometres and a loaded bag is a sustained load through the shoulders and lower back. Quality shows in the bearings rather than the frame: sealed bearings keep sand, clippings and irrigation water out and keep rolling sweetly, while cheap bushings feel fine in the shop and drag within a season.",
+      },
+      {
+        heading: "Electric Caddies: The Middle Ground Most Golfers Land On",
+        body: "A motorised caddy drives itself under lithium power while you walk beside it. You still cover the full distance of the round, which is where the great majority of the health benefit comes from, but the pushing load disappears. For anyone managing a back, shoulder or knee that objects to sustained forward force, that is the entire point. Controls range from a single variable speed dial, which is all most first-time buyers want, up to downhill speed control and electronic park brakes that hold the caddy on a slope while you play your shot.",
+      },
+      {
+        heading: "Remote and Follow: Two Different Solutions",
+        body: "At the top of the range, remote control lets you send the caddy ahead to the next tee or steer it around a bunker while you play, which suits golfers who like the control and do not mind holding a handset. Follow mode does the opposite: a tag clips to your belt and the caddy tracks your footsteps at a safe distance, so there is nothing to hold and nothing to think about. Follow generally wants clearer line of sight, while remote works predictably in any layout. Buggies offering both let you switch by hole.",
+      },
+      {
+        heading: "The Practical Checks That Decide It",
+        body: "Two unglamorous things settle most purchases. First, boot fit: measure the usable space in your car, width between the wheel arches at their narrowest, height under a closed lid, depth to the tailgate, and load a bag alongside during the check. Second, lifting weight, which matters more than total weight. A caddy with a removable battery may weigh more overall while being far easier to load, because the heaviest single component travels in your hand rather than in the frame. That difference compounds every single round.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is a golf caddy in Australia?",
+        a: "In Australian usage a golf caddy almost always means the trolley that carries your bag rather than a person carrying it for you. The category runs from manual push frames through motorised walk-behind buggies to remote-controlled and follow-mode models that require no hands at all.",
+      },
+      {
+        q: "Is an electric golf caddy worth it?",
+        a: "If you walk regularly and find the back nine harder than the front, usually yes. You still walk the full distance, so the exercise benefit stays, but the sustained pushing load through shoulders and lower back disappears. For anyone managing an existing injury, that distinction is the whole argument.",
+      },
+      {
+        q: "What is the difference between remote control and follow mode?",
+        a: "Remote control means you direct the caddy actively with a handset, which suits golfers who like the control. Follow mode uses a tag clipped to your belt so the caddy tracks your footsteps automatically with nothing to hold. Follow wants clearer line of sight; remote works predictably in any layout.",
+      },
+      {
+        q: "Will a golf caddy fit in my car boot?",
+        a: "Most fold, but measure before ordering rather than after. Check width between the wheel arches at their narrowest, height under a closed boot lid and depth to the tailgate, and load a golf bag alongside during the check. Boot litre ratings are a poor guide to actual usable shape.",
+      },
+      {
+        q: "How long does an electric golf caddy battery last on a round?",
+        a: "Packs are rated in holes rather than kilometres, and hilly courses and remote or follow operation both draw more power than flat ground and simple forward drive. If you regularly play thirty-six holes, specify a battery well beyond your usual round or carry a second pack rather than relying on the headline figure.",
+      },
+      {
+        q: "Which golf caddy brands do you stock in Australia?",
+        a: "We hold MGI, PowaKaddy and Robera at our Yatala QLD depot, covering entry-level speed-dial models, GPS touchscreen trolleys and hands-free follow technology. All three are stocked with Australian warranty support and genuine replacement batteries and remotes rather than parallel imported.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "golf-carts-for-sale-brisbane-buyers-guide",
+    seoTitle: "Golf Carts for Sale Brisbane: Local Buyers Guide",
+    title: "Golf Carts for Sale in Brisbane: Delivery, Registration and What Suits South East Queensland",
+    excerpt: "Buying a golf buggy in Brisbane, from our Yatala depot 40 minutes south. Local delivery, QLD conditional registration and humidity considerations.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "David Ross",
+      role: "Sales Manager, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/brisbanegolfcart/800/600",
+    tags: ["Brisbane", "Queensland", "Local Delivery", "Buying Guide"],
+    primaryKeyword: "golf carts for sale brisbane",
+    supportingKeywords: [
+      "golf buggy for sale brisbane",
+      "golf buggies brisbane",
+      "golf carts brisbane",
+      "electric golf cart brisbane",
+      "golf buggy brisbane",
+      "buggies for sale brisbane",
+    ],
+    keyTakeaways: [
+      "Our depot at Yatala QLD 4207 sits on the M1 between Brisbane and the Gold Coast, so Brisbane is a same-corridor delivery.",
+      "Queensland humidity and coastal air make frame material a bigger decision here than in dry inland states.",
+      "Conditional registration in Queensland is administered by TMR and often needs council support for the roads you intend to use.",
+      "Lithium removes the water-topping routine that becomes a genuine chore in a Brisbane summer.",
+    ],
+    content: [
+      {
+        heading: "Buying Locally: Why Yatala Matters for Brisbane Buyers",
+        body: "Our depot is at Yatala QLD 4207, directly on the M1 roughly forty minutes south of the Brisbane CBD. For Brisbane buyers that makes this a same-corridor delivery rather than an interstate freight job, and it means you can come and look at a vehicle on the floor before committing rather than buying from photographs. You are also dealing with the people who stored, tested and dispatched the buggy rather than a reseller placing an order elsewhere. When something needs attention later, the workshop holding your warranty is down the road, not in another state.",
+      },
+      {
+        heading: "What Brisbane Conditions Do to a Golf Buggy",
+        body: "South East Queensland is humid, it rains hard in summer, and much of the population sits close enough to the coast for salt to matter. All three attack a buggy in the same place: the frame, at weld seams, inside box sections and behind bolt heads where moisture sits undisturbed. This is why frame material deserves more weight here than it would in a dry inland climate. Aluminium-framed models cannot corrode and simply sidestep the problem. On a steel frame, a hose-down after wet use and a look underneath twice a year is the difference between a long life and a short one.",
+      },
+      {
+        heading: "Lithium Versus Lead-Acid in a Brisbane Summer",
+        body: "Heat is the variable that quietly shortens battery life here more than any other. Lead-acid loses water faster through evaporation in summer, which turns the fortnightly top-up from a manageable routine in July into a genuine chore in January, and neglected cells fail in exactly those hottest months. Lithium removes the routine entirely. It still dislikes being charged while very hot, so charge in shade or a ventilated shed rather than immediately after a hot afternoon run, and avoid parking the buggy in full sun where you can.",
+      },
+      {
+        heading: "Queensland Conditional Registration and Estate Roads",
+        body: "If you intend to use the buggy on public roads rather than purely on private property, conditional registration in Queensland is administered by the Department of Transport and Main Roads, and local council support for the specific roads is frequently part of it. Requirements differ by address and change over time. Contact TMR and your council with exactly what you plan to do and where, and get the answer in writing before spending anything on a road package. Many gated estates around Brisbane have their own internal rules as well, which are worth checking with the body corporate.",
+      },
+      {
+        heading: "Which Models Brisbane Buyers Usually Land On",
+        body: "It splits by property. Flat gated estates and golf village driveways suit a standard-height two or four-seater, where ride comfort and quiet matter more than clearance. Acreage on the western and northern fringes points at a lifted model with real ground clearance and hydraulic brakes for sloped driveways. Golfers walking their home course usually want a walk-behind trolley rather than a ride-on at all. Tell us the terrain, how many people you carry and the daily distance, and we will narrow it down rather than pushing whatever is on the floor.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Where can I buy a golf cart in Brisbane?",
+        a: "Our depot is at Yatala QLD 4207, on the M1 about forty minutes south of the Brisbane CBD, which makes Brisbane a same-corridor delivery rather than an interstate freight job. You can inspect a buggy on the floor before committing. Call 0480 804 189 to check what is in stock.",
+      },
+      {
+        q: "How much does golf cart delivery to Brisbane cost?",
+        a: "Freight is quoted against your delivery postcode rather than averaged into the advertised price, and Brisbane is one of our shortest legs from Yatala. Give us the postcode with your enquiry and the freight figure comes back alongside the vehicle quote rather than appearing later in the process.",
+      },
+      {
+        q: "Do I need to register a golf buggy in Brisbane?",
+        a: "Only if you intend to use it on public roads rather than purely on private property. Conditional registration in Queensland is administered by TMR and often requires local council support for the specific roads. Requirements differ by address and change, so confirm in writing before buying a road package.",
+      },
+      {
+        q: "Which golf buggy suits Brisbane humidity best?",
+        a: "Frame material matters more here than in dry climates because humidity and coastal salt attack weld seams and box sections. Aluminium-framed models cannot corrode and sidestep the problem entirely. On steel frames, a hose-down after wet use and a look underneath twice a year makes the difference.",
+      },
+      {
+        q: "Can I see the buggy before buying in Brisbane?",
+        a: "Yes, and we encourage it. The Yatala depot is an easy drive from Brisbane. For vehicles at or above $15,000 AUD we also offer a complimentary on-farm or on-course trial demonstration, because committing that much to something seen only in photographs is a large leap.",
+      },
+      {
+        q: "Do you service golf buggies in Brisbane?",
+        a: "Warranty and service work is handled from our Yatala QLD workshop, which is local to Brisbane rather than interstate. Because we hold parts in Australia, a repair is measured in days rather than weeks waiting on an international order. Bring us the model and year and we will confirm parts before you travel.",
+      },
+    ],
+    relatedProductCategory: "Luxury & High-Demand 4-Seaters",
+  },
+  {
+    slug: "golf-carts-for-sale-melbourne-buyers-guide",
+    seoTitle: "Golf Carts for Sale Melbourne: Buyers Guide",
+    title: "Golf Carts and Buggies for Sale in Melbourne: Delivery, Cold Starts and Victorian Rules",
+    excerpt: "Buying a golf buggy in Melbourne, including MGI walk-behind trolleys, enclosed delivery from Yatala QLD, and what Victorian winters do to batteries.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "David Ross",
+      role: "Sales Manager, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/melbournegolfcart/800/600",
+    tags: ["Melbourne", "Victoria", "MGI", "Buying Guide"],
+    primaryKeyword: "golf carts for sale melbourne",
+    supportingKeywords: [
+      "mgi golf buggies melbourne",
+      "golf buggies melbourne",
+      "golf buggy melbourne",
+      "golf carts melbourne",
+      "electric golf buggy melbourne",
+      "golf trolley melbourne",
+    ],
+    keyTakeaways: [
+      "Melbourne is a standard interstate enclosed freight leg from our Yatala QLD depot, quoted by postcode.",
+      "Cold mornings temporarily reduce available battery capacity, which matters for winter competition rounds.",
+      "MGI walk-behind trolleys are the most searched buggy type in Melbourne by a wide margin.",
+      "Victorian conditional registration is administered by VicRoads and differs from Queensland's scheme.",
+    ],
+    content: [
+      {
+        heading: "Getting a Buggy to Melbourne from Yatala",
+        body: "Melbourne is a standard interstate leg for us. Buggies travel in enclosed, weather-sealed transporters rather than exposed on open flatbeds, which matters over that distance and through whatever weather the trip runs into. Freight is quoted against your delivery postcode rather than averaged into the price, so a metropolitan Melbourne address and a regional Victorian one are priced as the different jobs they are. Give us the postcode when you enquire and the freight figure comes back with the vehicle quote rather than appearing at the end.",
+      },
+      {
+        heading: "Why Melbourne Searches Skew to Walk-Behind Trolleys",
+        body: "Melbourne generates more searches for MGI and walk-behind trolleys than almost anywhere else in the country, and the reason is the golf culture rather than anything about the vehicles. It is a walking-golf city with a dense concentration of clubs, so the equipment question for most buyers is which trolley rather than which ride-on. That points at the MGI Zip and Ai Navigator ranges, PowaKaddy's GPS models and hands-free follow options. All three are stocked with Australian warranty support and genuine replacement batteries.",
+      },
+      {
+        heading: "Cold Mornings and Battery Behaviour",
+        body: "Victorian winters do something to batteries that Queensland buyers never think about: cold temporarily reduces the capacity a pack will deliver. It is not damage and it recovers as things warm, but it does mean a battery rated comfortably for your usual round can fall short on a cold morning competition. If you regularly play winter mornings, specify capacity with margin rather than to the exact number of holes, or keep a second pack for walk-behind buggies. Storing the battery indoors between rounds rather than in a car boot also helps.",
+      },
+      {
+        heading: "Victorian Road Access Rules",
+        body: "Conditional registration in Victoria is administered by VicRoads and the requirements are not the same as Queensland's or New South Wales'. If you intend to use a buggy on public roads rather than purely on private property, contact VicRoads and your local council with exactly what you plan to do and where, and get the requirements in writing before spending anything on a road package. Rules change over time, so treat anything published online, including this article, as background rather than the current rule for your address.",
+      },
+      {
+        heading: "Choosing Between a Trolley and a Ride-On",
+        body: "The honest question is whether you are buying for golf or for a property. If it is golf and you walk, a motorised or remote trolley gives you the full walking distance without the sustained pushing load, which is the whole benefit. If it is a lifestyle block, a vineyard or a large garden on Melbourne's fringe, a ride-on with real ground clearance is the right tool and a trolley will not do the job. Buyers occasionally buy the wrong one because they compared prices rather than uses.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you deliver golf buggies to Melbourne?",
+        a: "Yes. Melbourne is a standard interstate enclosed freight leg from our Yatala QLD depot, and we deliver to both metropolitan and regional Victorian addresses. Freight is quoted against your specific delivery postcode rather than averaged, so you pay for the leg you actually use.",
+      },
+      {
+        q: "Where can I buy MGI golf buggies in Melbourne?",
+        a: "We stock the MGI range at our Yatala QLD depot and freight to Melbourne addresses, including the Zip and Ai Navigator models. Genuine MGI batteries, remotes and accessories are held in Australian stock, so a worn consumable does not mean replacing an otherwise healthy buggy.",
+      },
+      {
+        q: "Do cold Melbourne mornings affect golf buggy batteries?",
+        a: "Yes, temporarily. Cold reduces the capacity a pack will deliver on the day without causing damage, and it recovers as things warm. If you play winter competition mornings, specify capacity with margin rather than to the exact number of holes, or carry a second pack on a walk-behind buggy.",
+      },
+      {
+        q: "Do I need registration for a golf buggy in Victoria?",
+        a: "Only for public road use rather than purely private property. Conditional registration in Victoria is administered by VicRoads and the requirements differ from Queensland's and New South Wales' schemes. Contact VicRoads and your council and get the requirements in writing before buying a road package.",
+      },
+      {
+        q: "Should I buy a golf trolley or a ride-on buggy in Melbourne?",
+        a: "It depends whether you are buying for golf or for a property. If you walk your course, a motorised or remote trolley gives the full walking distance without the pushing load. For a lifestyle block or large garden on the city fringe, a ride-on with ground clearance is the right tool.",
+      },
+      {
+        q: "How long does delivery to Melbourne take?",
+        a: "It depends on the freight schedule and whether the address is metropolitan or regional, so we give you a realistic window with the quote rather than a promise we cannot control. What we do commit to is that the buggy is inspected, charge-cycled and road tested at Yatala before it goes on the transporter.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "golf-carts-for-sale-perth-wa-buyers-guide",
+    seoTitle: "Golf Carts for Sale Perth: WA Buyers Guide",
+    title: "Golf Carts for Sale in Perth: Cross-Country Freight, Heat and Sandy Ground",
+    excerpt: "Buying a golf buggy in Perth and WA from our Yatala QLD depot. Cross-country enclosed freight, extreme heat on batteries, and sand-country tyres.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/perthgolfcart/800/600",
+    tags: ["Perth", "Western Australia", "Freight", "Buying Guide"],
+    primaryKeyword: "golf carts for sale perth",
+    supportingKeywords: [
+      "golf buggy perth",
+      "golf buggies for sale perth",
+      "golf carts perth",
+      "electric golf cart perth",
+      "golf buggy for sale wa",
+      "golf carts for sale wa",
+    ],
+    keyTakeaways: [
+      "Perth is our longest freight leg, which is exactly why we quote it by postcode rather than averaging it.",
+      "WA heat is the harshest battery environment in the country and shapes both chemistry and charging habits.",
+      "Sandy ground rewards tyre choice more than power.",
+      "Buying sight-unseen is normal at this distance, so ask for photographs and the battery date in writing.",
+    ],
+    content: [
+      {
+        heading: "Freight to Perth: Priced Honestly Rather Than Averaged",
+        body: "Perth is the longest leg we run, and it is the clearest argument for quoting freight per order rather than building an average into every advertised price. Averaging means a Gold Coast buyer subsidises a Perth one, or a Perth buyer is quietly overcharged to keep the headline tidy. We quote against your actual delivery postcode so you pay for the leg you use. The buggy travels enclosed rather than on an open flatbed, which over that distance is not a luxury. Give us the postcode with your enquiry and the number comes back alongside the vehicle.",
+      },
+      {
+        heading: "Heat: The Hardest Thing WA Does to a Battery",
+        body: "Western Australian summers are the most demanding battery environment in the country, and temperature is the variable that shortens pack life faster than cycles do. Lead-acid loses water through evaporation quickly enough that the top-up interval becomes a real commitment. Lithium tolerates heat better in use but dislikes being charged while very hot, and quality packs will pause or limit charging until cells come down to a safe range. The practical habit is the same either way: charge in shade or a ventilated shed, never immediately after a hot afternoon run, and never store the buggy in full sun.",
+      },
+      {
+        heading: "Sand Country and Why Tyres Matter More Than Power",
+        body: "Much of the ground around Perth is sandy, and sand rewards a different setup than mud or hardpack does. Flotation matters more than aggressive tread: a wider tyre at lower pressure spreads the load and keeps you on top of the surface, while a narrow aggressive tyre digs in and finds the bottom. Ply rating still matters for puncture resistance on stubble and stone. If your ground is genuinely soft, the tyre and wheel package will change the vehicle's behaviour more than any controller or motor upgrade will.",
+      },
+      {
+        heading: "Buying at Distance Without Being Surprised",
+        body: "At this distance most buyers commit before seeing the vehicle, which is normal but worth doing carefully. Ask for photographs of the actual unit rather than catalogue images, and ask for the battery purchase date in writing if you are considering reconditioned stock. Confirm what is included, because the accessories that make a buggy fit your job are frequently not in the base specification. Get the freight figure and the vehicle price as one total before deciding, since comparing a local sticker price against ours without freight is not comparing the same thing.",
+      },
+      {
+        heading: "What We Recommend for WA Properties",
+        body: "Lithium is the default recommendation for WA, principally because the maintenance routine lead-acid demands is least appealing in that heat. Beyond that it splits by ground. Sandy lifestyle blocks want flotation and clearance. Coastal properties want aluminium framing wherever possible, because salt air is unforgiving of steel. Golfers walking Perth courses are usually better served by a walk-behind trolley than a ride-on. Tell us the ground, the load and the daily distance and we will recommend accordingly, including saying when a cheaper model is the right call.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you deliver golf buggies to Perth?",
+        a: "Yes. We deliver to Western Australia, metropolitan and regional, in enclosed weather-sealed transporters from our Yatala QLD depot. Perth is our longest leg, which is exactly why freight is quoted against your delivery postcode rather than averaged into the advertised price.",
+      },
+      {
+        q: "How much is freight to Perth for a golf cart?",
+        a: "It is quoted per order against your specific postcode, because distance, whether the address is metropolitan or regional, and whether the vehicle travels crated or ready to drive all move the number. Send the postcode with your enquiry and the freight comes back with the vehicle quote.",
+      },
+      {
+        q: "Which battery suits Perth heat best?",
+        a: "Lithium, principally because the water-topping routine lead-acid demands is least appealing in that heat and neglected cells fail fastest in the hottest months. Lithium still dislikes charging while very hot, so charge in shade or a ventilated shed rather than straight after a hot afternoon run.",
+      },
+      {
+        q: "What tyres work best on sandy WA ground?",
+        a: "Flotation beats aggression on sand. A wider tyre at lower pressure spreads the load and keeps you on top, while a narrow aggressive tread digs in and finds the bottom. Keep the ply rating up for puncture resistance on stubble and stone, and expect tyres to change behaviour more than a power upgrade would.",
+      },
+      {
+        q: "Can I buy a golf buggy in Perth without seeing it?",
+        a: "Most WA buyers do, and it works when you ask the right things. Request photographs of the actual unit rather than catalogue images, get the battery purchase date in writing on reconditioned stock, and confirm exactly what is included. Get vehicle plus freight as one total before deciding.",
+      },
+      {
+        q: "Do you have parts support in Western Australia?",
+        a: "Parts are held in Australian stock at Yatala and freighted to WA, which is the practical difference between a repair measured in days and one waiting on an international order. Tell us the model and year and we will confirm the right part before it ships rather than after.",
+      },
+    ],
+    relatedProductCategory: "Off-Road, Lifted & 4x4 Buggies",
+  },
+  {
+    slug: "golf-carts-for-sale-sydney-nsw-buyers-guide",
+    seoTitle: "Golf Carts for Sale Sydney & NSW: Buyers Guide",
+    title: "Golf Carts for Sale in Sydney and NSW: Delivery, Coastal Salt and Access Rules",
+    excerpt: "Buying a golf buggy in Sydney or regional NSW from our Yatala QLD depot, with enclosed freight, coastal corrosion advice and NSW road access rules.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "David Ross",
+      role: "Sales Manager, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/sydneygolfcart/800/600",
+    tags: ["Sydney", "New South Wales", "Coastal", "Buying Guide"],
+    primaryKeyword: "golf carts for sale nsw",
+    supportingKeywords: [
+      "golf carts for sale sydney",
+      "golf buggy sydney",
+      "golf buggies for sale nsw",
+      "golf carts sydney",
+      "golf buggy for sale nsw",
+      "electric golf cart sydney",
+    ],
+    keyTakeaways: [
+      "NSW is a routine interstate leg from Yatala, quoted by postcode for metropolitan and regional addresses alike.",
+      "Coastal Sydney and the NSW coast make aluminium framing worth paying for.",
+      "Conditional road access in NSW is administered by Transport for NSW and differs from other states.",
+      "Hunter and Southern Highlands acreage buyers usually need clearance a standard buggy does not have.",
+    ],
+    content: [
+      {
+        heading: "Delivery Into Sydney and Regional New South Wales",
+        body: "New South Wales is one of our routine legs. Buggies travel enclosed rather than on open flatbeds, and freight is quoted against your delivery postcode, which matters more in NSW than most states because the gap between a metropolitan Sydney delivery and a far-western or far-southern regional one is substantial. We deliver to both. Send the postcode with your enquiry and the freight figure returns alongside the vehicle quote rather than materialising later, which is the part of the process buyers most often find is handled badly elsewhere.",
+      },
+      {
+        heading: "Coastal Salt and Why Frame Material Earns Its Premium",
+        body: "A large share of the NSW population lives close enough to the coast for airborne salt to be a genuine factor, and salt is unforgiving of steel. Corrosion begins where you cannot see it, inside box sections, at weld seams and behind bolt heads, and by the time it shows on the surface the structural work is already done. Aluminium-framed models cannot corrode, which is why they hold their value so well in coastal Australia and why the premium is worth paying if the buggy will live anywhere near the water.",
+      },
+      {
+        heading: "NSW Conditional Road Access",
+        body: "If the buggy will be used on public roads rather than purely on private property, conditional registration in New South Wales is administered by Transport for NSW, and the requirements are not the same as Queensland's or Victoria's. Local council support for the specific roads is frequently part of the process. Contact both with exactly what you intend to do and where, and get the answer in writing before spending on a road package. Gated communities also commonly have their own internal rules worth checking with the body corporate.",
+      },
+      {
+        heading: "Hunter, Southern Highlands and Acreage Buyers",
+        body: "The acreage belts around Sydney behave differently from the suburbs. Properties in the Hunter, the Southern Highlands and the Blue Mountains fringe combine slope, unsealed tracks and distance, which is exactly where a standard-height buggy disappoints. Ground clearance is the first requirement, hydraulic disc brakes the second, because a laden buggy on a long descent asks far more of its brakes than a flat estate ever will. Controller amperage is what decides whether it climbs the hill at a steady pace or struggles.",
+      },
+      {
+        heading: "Golf Clubs Versus Property Use in NSW",
+        body: "Sydney has both a dense club scene and a large acreage population, and the right buggy for each is completely different. If you walk your course, a motorised or remote walk-behind trolley delivers the benefit most golfers are actually after: the full walking distance without the sustained pushing load. If the vehicle is for a property, none of the trolley range will do the work. Buyers sometimes compare across the two categories on price and end up with the wrong tool, so start with the job rather than the budget.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you deliver golf buggies to Sydney and NSW?",
+        a: "Yes. New South Wales is a routine leg from our Yatala QLD depot and we deliver to both metropolitan Sydney and regional NSW addresses in enclosed weather-sealed transporters. Freight is quoted against your specific postcode, which matters in NSW where the regional gap is large.",
+      },
+      {
+        q: "Which golf buggy is best for coastal NSW?",
+        a: "An aluminium-framed model wherever the budget allows, because coastal salt attacks steel from inside box sections and weld seams where you cannot see it. Aluminium cannot corrode, which is why it holds value so well in coastal Australia and why the premium is worth paying near the water.",
+      },
+      {
+        q: "Do I need registration for a golf cart in NSW?",
+        a: "Only for public road use rather than purely private property. Conditional registration in New South Wales is administered by Transport for NSW and often needs council support for the specific roads. Requirements differ from other states and change, so get the answer in writing before buying a road package.",
+      },
+      {
+        q: "What suits Hunter Valley and Southern Highlands acreage?",
+        a: "Ground clearance first, then hydraulic disc brakes, then controller amperage. Slope, unsealed tracks and distance are exactly where a standard-height buggy disappoints, and a laden buggy on a long descent asks far more of its brakes than a flat estate ever will.",
+      },
+      {
+        q: "How much is delivery to Sydney for a golf buggy?",
+        a: "Quoted per order against your delivery postcode rather than averaged into the advertised price, so a metropolitan Sydney address and a far-western regional one are priced as the different jobs they are. Send the postcode and the freight figure returns with the vehicle quote.",
+      },
+      {
+        q: "Should I buy a trolley or a ride-on buggy in Sydney?",
+        a: "Start with the job rather than the budget. If you walk your course, a motorised or remote trolley gives the full walking distance without the pushing load. If it is for a property, no trolley in the range will do that work, and comparing the two on price leads to the wrong tool.",
+      },
+    ],
+    relatedProductCategory: "Off-Road, Lifted & 4x4 Buggies",
+  },
+  {
+    slug: "golf-carts-for-sale-adelaide-sa-buyers-guide",
+    seoTitle: "Golf Carts for Sale Adelaide: SA Buyers Guide",
+    title: "Golf Carts for Sale in Adelaide: Dry Heat, Vineyard Blocks and Delivery to South Australia",
+    excerpt: "Buying a golf buggy in Adelaide and South Australia from our Yatala QLD depot, with enclosed freight, dry-heat battery advice and vineyard use.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/adelaidegolfcart/800/600",
+    tags: ["Adelaide", "South Australia", "Vineyards", "Buying Guide"],
+    primaryKeyword: "golf carts for sale adelaide",
+    supportingKeywords: [
+      "golf buggy adelaide",
+      "golf buggies for sale adelaide",
+      "golf carts adelaide",
+      "golf cart for sale sa",
+      "electric golf buggy adelaide",
+      "golf buggies south australia",
+    ],
+    keyTakeaways: [
+      "South Australia is a routine interstate leg, quoted by postcode from our Yatala QLD depot.",
+      "Dry heat is easier on frames than coastal humidity but just as hard on batteries.",
+      "Vineyard and orchard rows reward a narrow, quiet, high-clearance buggy rather than a wide one.",
+      "Dust is the maintenance issue South Australian owners most consistently underestimate.",
+    ],
+    content: [
+      {
+        heading: "Delivery to Adelaide and South Australia",
+        body: "South Australia is a routine interstate leg for us. Buggies travel in enclosed, weather-sealed transporters, and freight is quoted against your delivery postcode rather than averaged into the advertised price, so a metropolitan Adelaide address and a Riverland or Limestone Coast one are priced as the different jobs they are. Send the postcode with your enquiry and the freight figure comes back alongside the vehicle quote. Every buggy is inspected, charge-cycled and road tested at Yatala before it goes on the transporter.",
+      },
+      {
+        heading: "Dry Heat: Easier on Frames, Just as Hard on Batteries",
+        body: "South Australia's climate is kinder to a buggy's frame than the humid, salt-laden coastal air of Queensland and New South Wales, which means steel-framed models fare better here than they would further east. Batteries get no such reprieve. Sustained high temperatures shorten pack life regardless of humidity, and the charging habits that protect a battery are identical: charge in shade or a ventilated shed, avoid charging immediately after a hot afternoon run, and never leave the buggy parked in full sun where you can avoid it.",
+      },
+      {
+        heading: "Vineyard and Orchard Rows Change the Specification",
+        body: "South Australia has a concentration of vineyard and orchard properties, and row work asks for a different buggy than open paddock does. Width becomes a constraint rather than an afterthought, since a vehicle that cannot pass down a row comfortably is the wrong vehicle regardless of its other virtues. Ground clearance still matters for irrigation lines and rutted headlands. Electric drivetrains earn their place here for a reason most buyers do not anticipate: they are quiet, which matters around livestock, pickers and neighbours far more than it does on a fairway.",
+      },
+      {
+        heading: "Dust Is the Underestimated Maintenance Issue",
+        body: "Owners in drier regions consistently underestimate what dust does. It works into bearings, brake assemblies and electrical connectors, and an intermittent electrical fault caused by a dusty connector is one of the more maddening things to diagnose after the fact. The habit that prevents most of it is simple: blow out or wipe down connectors and brake areas periodically rather than waiting for a symptom, and keep the buggy covered when it is parked outdoors for long periods. It is ten minutes that saves a workshop visit.",
+      },
+      {
+        heading: "Matching the Buggy to South Australian Ground",
+        body: "Flat suburban and gated-estate use suits a standard two or four-seater, where comfort and quiet matter more than clearance. Vineyard, orchard and lifestyle blocks want clearance and a manageable width, often with a cargo tray rather than rear seats. Larger agricultural properties point at a utility model with genuine payload and a tow hitch. Golfers walking Adelaide courses are almost always better served by a walk-behind trolley. Tell us the ground, the load and the width constraint and we will match it.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you deliver golf buggies to Adelaide?",
+        a: "Yes. South Australia is a routine interstate leg from our Yatala QLD depot, and we deliver to metropolitan Adelaide and regional SA addresses in enclosed weather-sealed transporters. Freight is quoted against your delivery postcode rather than averaged into the advertised price.",
+      },
+      {
+        q: "Is dry heat easier on a golf buggy than coastal humidity?",
+        a: "On the frame, yes. Dry air is far kinder than humid, salt-laden coastal air, so steel-framed models fare better in South Australia than they would further east. Batteries get no reprieve though, since sustained high temperatures shorten pack life regardless of humidity.",
+      },
+      {
+        q: "Which golf buggy suits vineyard rows?",
+        a: "Width becomes the first constraint, because a vehicle that cannot pass comfortably down a row is the wrong vehicle whatever else it offers. After that, ground clearance for irrigation lines and rutted headlands, and an electric drivetrain for quiet operation around pickers, livestock and neighbours.",
+      },
+      {
+        q: "How do I stop dust damaging my golf buggy?",
+        a: "Blow out or wipe down electrical connectors and brake assemblies periodically rather than waiting for a symptom, and keep the buggy covered when parked outdoors for long stretches. Dust in a connector causes intermittent electrical faults that are genuinely difficult to diagnose later.",
+      },
+      {
+        q: "What does freight to South Australia cost?",
+        a: "It is quoted per order against your specific postcode, because distance and whether the address is metropolitan or regional both move the number substantially. Send the postcode with your enquiry and the freight figure comes back alongside the vehicle quote rather than later.",
+      },
+      {
+        q: "Do I need to register a golf buggy in South Australia?",
+        a: "Only if you intend to use it on public roads rather than purely on private property. Conditional registration is administered by the South Australian road authority and often involves local council as well. Confirm the requirements in writing with both before spending on a road package.",
+      },
+    ],
+    relatedProductCategory: "Commercial & Farm Utility Buggies",
+  },
+  {
+    slug: "electric-buggy-australia-what-it-means",
+    seoTitle: "Electric Buggy Australia: What the Term Covers",
+    title: "Electric Buggy in Australia: What the Term Actually Covers and Which One You Need",
+    excerpt: "Electric buggy means three very different vehicles in Australia. Here is what each one does, what they cost, and how to work out which you are shopping for.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/electricbuggyau/800/600",
+    tags: ["Electric Buggy", "Terminology", "Buying Guide", "Lithium"],
+    primaryKeyword: "electric buggy",
+    supportingKeywords: [
+      "electric buggy australia",
+      "electric buggies",
+      "electric golf buggy price",
+      "electric buggy for sale",
+      "what is an electric buggy",
+      "electric buggy prices",
+    ],
+    keyTakeaways: [
+      "Electric buggy covers walk-behind trolleys, ride-on golf buggies and utility vehicles, which are wildly different purchases.",
+      "The price gap between the three categories runs from roughly $1,300 to over $27,000.",
+      "Almost everything now sold as electric is lithium rather than lead-acid, and that changes ownership entirely.",
+      "Start with what the vehicle must carry and where, not with the budget.",
+    ],
+    content: [
+      {
+        heading: "One Phrase, Three Very Different Vehicles",
+        body: "Electric buggy is one of the least precise phrases in Australian retail, and it costs buyers money. It is used for a walk-behind trolley that carries a golf bag while you walk, for a ride-on golf buggy that carries people, and for a commercial utility vehicle that carries loads. Those are not variations on a theme; they are separate products with separate jobs and prices that differ by a factor of twenty. Getting the category right is the entire decision. Everything after it is detail.",
+      },
+      {
+        heading: "Category One: Walk-Behind Electric Trolleys",
+        body: "The smallest and cheapest sense of the term. A lithium-powered frame drives itself along while you walk beside it carrying nothing, replacing the sustained forward push through your shoulders and lower back. Entry models use a single variable speed dial and start around $1,300. Higher up you get downhill speed control, electronic park brakes, GPS touchscreens, full directional remote control and hands-free follow that tracks a tag on your belt. If you are buying for golf and you walk your course, this is almost certainly your category.",
+      },
+      {
+        heading: "Category Two: Ride-On Electric Golf Buggies",
+        body: "The vehicle most people picture. Two, four or six seats, lithium powered, used on courses, in gated estates, around large properties and at resorts. Prices run from roughly $8,000 for a straightforward two-seater to over $27,000 for a lifted luxury four-seater. Within the category the meaningful variables are seat count, ground clearance and braking, in that order. A flat estate and a steep acreage block point at very different specifications even at the same price, which is why the question we ask first is about your ground rather than your budget.",
+      },
+      {
+        heading: "Category Three: Electric Utility Vehicles",
+        body: "Built to carry loads rather than passengers, with cargo trays, tow hitches and payload ratings measured in hundreds of kilograms. Councils, resorts, turf teams, nurseries and commercial farms buy these. The electric argument here is unusually strong: no fuel handling or storage, no engine servicing, no exhaust around staff and guests, and no idling. What replaces those costs is a battery replacement at some future point, which is a single planned expense rather than a gradual decline. Budget for it from year one and the economics stay predictable.",
+      },
+      {
+        heading: "Working Out Which You Are Actually Shopping For",
+        body: "Three questions settle it. What is being carried, a golf bag, people, or a load? Where does it happen, a manicured course, an estate road, or rough ground? And how far, a round of golf or a working day? Answer those and the category falls out immediately, usually with an obvious model or two inside it. Buyers who start from a price instead frequently end up with a vehicle that technically works but is the wrong tool, which is a more expensive mistake than paying a little more for the right one.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is an electric buggy?",
+        a: "In Australia the phrase covers three different vehicles: a walk-behind trolley that carries your golf bag while you walk, a ride-on golf buggy that carries people, and a commercial utility vehicle that carries loads. They differ in price by a factor of twenty, so identifying the category is the whole decision.",
+      },
+      {
+        q: "How much does an electric buggy cost in Australia?",
+        a: "Walk-behind trolleys start around $1,300, ride-on golf buggies run from roughly $8,000 to over $27,000 depending on seats and specification, and commercial utility vehicles sit toward the upper end. All our prices include GST, with freight quoted separately against your delivery postcode.",
+      },
+      {
+        q: "Are electric buggies better than petrol?",
+        a: "For most uses yes, because there is no fuel handling, no engine servicing and no exhaust, and lithium removes the acid and water-topping routine entirely. Petrol still wins where grid power is unreliable or daily distances are too long to plan around a charge cycle.",
+      },
+      {
+        q: "How long do electric buggy batteries last?",
+        a: "Lithium packs substantially outlast lead-acid ones and are the consumable in any electric buggy, so plan for eventual replacement as a known cost rather than a surprise. Heat shortens life faster than cycles do, so charge in shade and avoid storing the buggy in full sun.",
+      },
+      {
+        q: "Do electric buggies need much maintenance?",
+        a: "Far less than petrol. There is no oil, no filters and no plugs, and a lithium pack has no cells to water and no acid to spill. Routine care is mostly tyre pressures, brake condition and keeping connectors clean and dry, particularly in dusty or coastal conditions.",
+      },
+      {
+        q: "Which electric buggy should I buy?",
+        a: "Answer three questions first: what is being carried, where, and how far. A golf bag on a course points at a walk-behind trolley; people on an estate point at a ride-on; loads on a property point at a utility vehicle. The category falls out immediately once those are answered.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "golf-push-cart-vs-electric-trolley-australia",
+    seoTitle: "Golf Push Cart vs Electric Trolley Australia",
+    title: "Golf Push Cart or Electric Trolley? Choosing Between Them in Australia",
+    excerpt: "A golf push cart costs less and never needs charging. An electric trolley removes the load entirely. Here is how to decide which fits your game.",
+    category: "Push Buggies",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/pushcartvselectric/800/600",
+    tags: ["Push Cart", "Electric Trolley", "Comparison", "Walking Golf"],
+    primaryKeyword: "golf push cart",
+    supportingKeywords: [
+      "golf push carts",
+      "push cart golf",
+      "golf buggy push",
+      "push golf cart australia",
+      "golf push trolley",
+      "manual golf trolley",
+    ],
+    keyTakeaways: [
+      "A push cart is cheaper to buy and effectively free to own, but you supply the effort.",
+      "Bearings, not frame material, separate a good push cart from a poor one.",
+      "An electric trolley keeps the full walking distance and removes the sustained pushing load.",
+      "If your back nine is consistently worse than your front nine, that is the argument for electric.",
+    ],
+    content: [
+      {
+        heading: "What Each One Actually Gives You",
+        body: "A push cart is a wheeled frame you push. It has no battery, no electronics and almost nothing to fail, so a good one lasts many seasons at effectively zero running cost. An electric trolley drives itself under lithium power while you walk beside it, so you cover exactly the same distance on foot while carrying and pushing nothing. The exercise most golfers care about is the walking, and that is unchanged. What disappears is the load, which is the component most associated with lower back and shoulder strain.",
+      },
+      {
+        heading: "The Case for Staying Manual",
+        body: "Cost is the obvious one, both at purchase and forever after. There is no battery to replace in five years, no charging to remember before a round, and nothing to go flat on the fourteenth. A push cart is also lighter to lift into a boot, which matters more than buyers expect if you have a shoulder that objects. If you play occasionally, walk comfortably and want equipment that simply works whenever you pick it up, a well-made push cart is a genuinely good answer rather than a compromise.",
+      },
+      {
+        heading: "Where Quality Shows in a Push Cart",
+        body: "Bearings decide whether a push cart rolls sweetly or feels like work, and they are what separates two models at similar prices. Sealed bearings spin freely and keep out the sand, clippings and irrigation water a course throws at them constantly, and they survive being hosed down, which is the only realistic way to clean one after a wet round. Cheap bushings feel acceptable in the shop and drag within a season. Spinning each wheel by hand and seeing how long it keeps turning tells you more than the specification sheet does.",
+      },
+      {
+        heading: "When Electric Earns Its Price",
+        body: "The clearest signal is a back nine that is consistently worse than your front nine. Fatigue accumulated over several kilometres of pushing a loaded frame shows up in swing quality late in the round, and removing it is what buyers report noticing first. The second signal is any existing back, shoulder, hip or knee problem, where sustained forward force is precisely the thing to avoid. The third is hilly courses, where pushing uphill and restraining downhill are both real work that a motor with downhill speed control handles for you.",
+      },
+      {
+        heading: "Boot Space and the Practical Test",
+        body: "Whichever way you lean, measure your boot before ordering. Check the usable space rather than the advertised capacity: width between the wheel arches at their narrowest, height under a closed boot lid, depth to the tailgate, and load a golf bag alongside during the check. On electric models, look at lifting weight rather than total weight, since a removable battery means the heaviest single component travels in your hand instead of in the frame. That difference compounds over every round you play.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Is a golf push cart or electric trolley better?",
+        a: "Neither is better outright. A push cart is cheaper to buy and own with nothing to charge or replace. An electric trolley keeps the same walking distance while removing the sustained pushing load, which matters most if your back nine suffers or you are managing an existing injury.",
+      },
+      {
+        q: "How much does a golf push cart cost in Australia?",
+        a: "Manual push carts are the entry point to the walking-golf category and cost a fraction of a motorised trolley, with effectively no running cost afterwards. Our stocked range is motorised rather than manual, so if you want a push cart we will tell you that plainly rather than selling around it.",
+      },
+      {
+        q: "Do I lose exercise using an electric golf trolley?",
+        a: "Very little. You still walk the full distance of the round, which is where the great majority of the cardiovascular and step-count benefit comes from. What disappears is the load carried and pushed, which is the component most associated with lower back and shoulder strain rather than fitness gains.",
+      },
+      {
+        q: "What should I look for in a push cart?",
+        a: "Bearings above everything else. Sealed bearings roll freely, keep out sand, clippings and irrigation water, and survive being hosed down. Cheap bushings feel fine in the shop and drag within a season. Spin each wheel by hand and see how long it keeps turning.",
+      },
+      {
+        q: "Are three-wheel or four-wheel trolleys better?",
+        a: "Three wheels turn more tightly and manoeuvre better around tight fairway layouts. Four wheels give a wider wheelbase and more stability on steep side-slopes. Consider which describes your home course rather than the general recommendation, because the answer genuinely differs by terrain.",
+      },
+      {
+        q: "Can I convert a push cart to electric?",
+        a: "Conversion kits exist but rarely make economic sense, because you end up paying most of the price of a purpose-built electric trolley for a frame that was not designed around a motor and battery. Buying a motorised trolley outright is usually the better value and far more reliable.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "golf-cart-with-remote-control-australia-guide",
+    seoTitle: "Golf Cart with Remote Control: Australia Guide",
+    title: "Golf Cart with Remote Control in Australia: How It Works and What to Look For",
+    excerpt: "How remote control golf buggies work, why gyroscope tracking matters on side-slopes, and what separates a good handset from a frustrating one.",
+    category: "Remote Buggies",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/remotegolfcartau/800/600",
+    tags: ["Remote Control", "Gyroscope", "Walk-Behind", "Buying Guide"],
+    primaryKeyword: "golf cart with remote",
+    supportingKeywords: [
+      "electric golf buggy with remote",
+      "golf buggy with remote control",
+      "remote golf buggy",
+      "golf buggy remote control",
+      "remote control motorised golf buggy",
+      "electric golf trolley with remote",
+    ],
+    keyTakeaways: [
+      "Gyroscope straight-tracking is what stops a remote buggy drifting downhill on a cambered fairway.",
+      "Remote and follow mode solve different problems and suit different golfers.",
+      "Remote operation draws more power than simple forward drive, so plan range accordingly.",
+      "A replaceable handset matters, because remotes lead a hard life clipped to a bag.",
+    ],
+    content: [
+      {
+        heading: "What Remote Control Actually Does",
+        body: "A remote control golf buggy is a walk-behind trolley you direct with a handset instead of a handle. You can send it ahead to the next tee while you finish a hole, steer it around a bunker rather than over it, and stop it exactly where you want to play from. The appeal is not laziness, since you still walk every metre of the course. It is that your hands and your attention are free between shots, which for a lot of golfers changes how the round feels more than any other piece of equipment.",
+      },
+      {
+        heading: "Gyroscope Tracking: The Feature That Decides Everything",
+        body: "Without straight-line correction, any motorised buggy drifts downhill on a cambered fairway, and you spend the walk constantly correcting it. A gyroscope straight-tracker detects that drift and feathers the motors to hold the heading you chose, so the buggy tracks where you pointed it across a side-slope instead of wandering toward the low side. This single feature separates a remote buggy that is a pleasure to use from one that becomes an irritation by the fourth hole. If you are comparing models, establish which have it.",
+      },
+      {
+        heading: "Remote Control Versus Follow Mode",
+        body: "These are genuinely different experiences. Remote means you direct the buggy actively, which suits golfers who like the control and do not mind holding a handset. Follow mode means a tag clips to your belt and the buggy tracks your footsteps automatically, so there is nothing to hold and nothing to think about. Follow generally needs clearer line of sight and can be confused by dense obstacles, while remote works predictably in any layout. Buggies offering both let you switch depending on the hole, which is the most flexible arrangement.",
+      },
+      {
+        heading: "Motors, Terrain and Realistic Range",
+        body: "Twin independently driven motors are what let a remote buggy hold a line across slopes rather than scrabbling sideways, and they matter more as the ground gets less flat. Range deserves honest planning: remote and follow operation draw more power than simple forward drive, because the buggy makes constant small steering corrections, and hills raise consumption further. A pack rated for thirty-six holes on flat ground may not comfortably cover thirty-six on genuinely undulating terrain with a full bag. Specify beyond your usual round rather than to it.",
+      },
+      {
+        heading: "The Handset Is a Consumable",
+        body: "Remotes lead a hard life clipped to a bag or a belt through every round, and a cracked case, a failed button or a dead internal battery should not mean replacing an otherwise healthy buggy. Before buying, check that a genuine replacement handset is available in Australia and that it pairs without a service visit. We hold official MGI replacement remotes in Australian stock for exactly this reason. Using the official unit rather than a generic substitute also preserves correct pairing behaviour and directional response.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How does a remote control golf buggy work?",
+        a: "It is a walk-behind trolley you direct with a handset rather than a handle, so you can send it ahead to the next tee or steer it around a bunker while you play. You still walk the full course; what changes is that your hands and attention are free between shots.",
+      },
+      {
+        q: "What is gyroscope straight tracking?",
+        a: "It detects the buggy drifting downhill on a cambered fairway and feathers the motors to hold your chosen heading. Without it, any motorised buggy wanders toward the low side of a slope and you spend the walk correcting it. It is the single feature that most affects how usable a remote buggy is.",
+      },
+      {
+        q: "Is remote control or follow mode better?",
+        a: "They solve different problems. Remote suits golfers who like actively directing the buggy and do not mind holding a handset. Follow mode uses a belt tag so there is nothing to hold at all, but it wants clearer line of sight. Models offering both let you switch by hole.",
+      },
+      {
+        q: "How far will a remote golf buggy go on one charge?",
+        a: "Less than the headline figure suggests on hilly ground, because remote and follow operation draw more power than simple forward drive through constant steering corrections. If you regularly play thirty-six holes on undulating terrain, specify a battery beyond your usual round or carry a second pack.",
+      },
+      {
+        q: "Can I replace a lost or broken remote handset?",
+        a: "Yes, and you should check this before buying any remote buggy. We hold official MGI replacement remotes in Australian stock with pre-programmed pairing, so a damaged handset does not mean replacing the buggy. Using the genuine unit preserves correct pairing and directional response.",
+      },
+      {
+        q: "Do remote golf buggies work on wet or steep courses?",
+        a: "Twin independently driven motors are what give footing on wet slopes and cambered lies where a single-motor buggy slides sideways. On genuinely undulating courses, look for that plus a rear anti-tip wheel, which prevents the buggy tipping backwards when climbing with a full bag mounted high.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "electric-golf-buggy-australia-complete-guide",
+    seoTitle: "Electric Golf Buggy Australia: Complete Guide",
+    title: "Electric Golf Buggy Australia: The Complete Guide to Choosing, Charging and Owning One",
+    excerpt: "Everything Australian buyers need on electric golf buggies: lithium versus lead-acid, seat counts, charging at home, heat, and what they actually cost.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "8 min read",
+    author: {
+      name: "Nathan Campbell",
+      role: "Head of Technical Services, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/electricgolfbuggyguide/800/600",
+    tags: ["Electric Golf Buggy", "Lithium", "Charging", "Complete Guide"],
+    primaryKeyword: "electric golf buggy",
+    supportingKeywords: [
+      "electric golf buggies",
+      "electric golf buggy australia",
+      "electric golf cart australia",
+      "electric golf buggies australia",
+      "buy electric golf buggy",
+      "electric golf buggy for sale australia",
+    ],
+    keyTakeaways: [
+      "Lithium has effectively replaced lead-acid on new stock, and the ownership difference is larger than the price difference.",
+      "Charging infrastructure decides more fleet purchases than range does.",
+      "Australian heat shortens battery life faster than cycle count does.",
+      "Controller amperage, not motor size, is what determines hill performance.",
+    ],
+    content: [
+      {
+        heading: "Why Electric Has Taken Over the Australian Market",
+        body: "A decade ago the electric versus petrol question was genuinely open. It is much less so now, and lithium is the reason. An electric buggy has no oil, no filters, no plugs, no fuel to store and no exhaust, which removes both a running cost and, for commercial sites, a compliance obligation. Lithium then removed the one real drawback electric had, which was the acid, the water topping and the shortening range of a tired lead-acid bank. What remains is a vehicle that plugs in overnight and asks almost nothing else of you.",
+      },
+      {
+        heading: "Lithium Versus Lead-Acid in Practical Terms",
+        body: "Comparing packs is harder than it looks because the headline numbers describe different things. Usable capacity matters more than rated capacity: lead-acid should not be discharged far below half without shortening its life, while lithium can use much more of its rating, so a lithium pack of the same nominal size delivers considerably more real range. Lithium is also lighter, which means the motor is not hauling the battery around as dead mass, and that shows up directly in acceleration and hill climbing. Lead-acid remains cheaper to buy and more expensive to own.",
+      },
+      {
+        heading: "Charging at Home and on a Property",
+        body: "Almost all electric buggies charge from a standard household outlet, which for a single private buggy makes charging a non-issue: park it, plug it in, forget it. The complication arrives with multiple vehicles. A small fleet sharing a maintenance shed needs enough circuits to charge simultaneously without tripping a breaker, and somewhere sensible to park while they do. Most operations solve this by sizing capacity so a full shift never needs a mid-day top-up, rather than trying to fast-charge between runs.",
+      },
+      {
+        heading: "Heat, Australian Summers and Battery Life",
+        body: "Temperature shortens battery life here faster than cycles do, and it is the variable owners most often overlook. Lithium tolerates heat reasonably in use but dislikes being charged while very hot; quality packs will pause or limit charging until the cells come down to a safe range. The practical habits are simple and they matter: charge in shade or a ventilated shed rather than immediately after a hot afternoon run, avoid parking in full sun, and on trailers remember that a vehicle sitting on a summer forecourt gets far hotter than the ambient temperature suggests.",
+      },
+      {
+        heading: "Hill Performance Comes Down to the Controller",
+        body: "Buyers comparing electric buggies tend to focus on motor size, but on steep ground the controller is usually the real limit. It governs how much current can flow from the pack to the motor, so a large motor behind a modest controller is throttled well below its capability on a sustained climb. That is why two buggies with similar motors perform completely differently on the same hill. If the buggy will live on genuinely steep acreage, controller amperage deserves as much attention as the lift height or the tyres.",
+      },
+      {
+        heading: "What They Cost and How People Pay",
+        body: "Ride-on electric buggies run from roughly $8,000 for a straightforward two-seater to over $27,000 for a lifted luxury four-seater, with walk-behind trolleys well below that. Every price we publish includes GST, and freight is quoted separately against your delivery postcode rather than averaged into the figure. Finance in 4 splits any purchase into four interest-free instalments, and settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial number.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much is an electric golf buggy in Australia?",
+        a: "Ride-on models run from roughly $8,000 for a straightforward two-seater to over $27,000 for a lifted luxury four-seater, with walk-behind trolleys starting around $1,300. All prices include GST, and freight is quoted separately against your delivery postcode rather than averaged in.",
+      },
+      {
+        q: "Is lithium worth it over lead-acid?",
+        a: "For most buyers yes, and the ownership difference is larger than the price difference. Lithium uses far more of its rated capacity, weighs less so the motor is not hauling dead mass, and removes acid spills and water topping entirely. Lead-acid is cheaper to buy and more expensive to own.",
+      },
+      {
+        q: "Can I charge an electric golf buggy at home?",
+        a: "Yes. Almost all charge from a standard household outlet, so for a single private buggy it is simply park, plug in and forget. Multiple vehicles need enough circuits to charge simultaneously without tripping a breaker, which is a fleet planning question rather than a home one.",
+      },
+      {
+        q: "How does Australian heat affect an electric buggy?",
+        a: "Heat shortens battery life faster than cycle count does. Lithium tolerates it reasonably in use but dislikes charging while very hot, and quality packs pause or limit charging until cells cool. Charge in shade, avoid parking in full sun, and never charge straight after a hot afternoon run.",
+      },
+      {
+        q: "What makes an electric buggy good on hills?",
+        a: "Controller amperage more than motor size. The controller governs how much current reaches the motor, so a large motor behind a modest controller is throttled well below capability on a sustained climb. That is why two buggies with similar motors behave completely differently on the same hill.",
+      },
+      {
+        q: "How long do electric golf buggies last?",
+        a: "The frame usually outlasts everything else, particularly aluminium ones that cannot corrode. The battery is the consumable and will need replacing at some point regardless of chemistry. Budget for that replacement from year one and the long-term economics stay predictable rather than surprising.",
+      },
+    ],
+    relatedProductCategory: "Traditional 2-Seater Electric Golf Buggies",
+  },
+  {
+    slug: "golf-car-vs-golf-buggy-vs-golf-cart-australia",
+    seoTitle: "Golf Car vs Golf Buggy vs Golf Cart Explained",
+    title: "Golf Car, Golf Buggy or Golf Cart? What Australians Actually Call Them and Why It Matters",
+    excerpt: "Golf car, golf buggy and golf cart mean the same vehicle in Australia but signal different things. Here is the terminology and why it affects your search.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "5 min read",
+    author: {
+      name: "David Ross",
+      role: "Sales Manager, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/golfcarterminology/800/600",
+    tags: ["Terminology", "Golf Car", "Australian English", "Buying Guide"],
+    primaryKeyword: "golf car",
+    supportingKeywords: [
+      "golf cars",
+      "golf cars & carts",
+      "golf cars for sale",
+      "golf car australia",
+      "golf car company",
+      "what is a golf car",
+    ],
+    keyTakeaways: [
+      "Buggy is the standard Australian term; cart is American and car is the manufacturers' own word.",
+      "Manufacturers use golf car because the vehicle is legally a low-speed vehicle, not a cart.",
+      "Searching all three terms surfaces different sellers and different prices.",
+      "The words describe the same machine, so do not let terminology narrow your search.",
+    ],
+    content: [
+      {
+        heading: "Three Words, One Vehicle",
+        body: "Golf buggy, golf cart and golf car all describe the same thing in Australia: a small low-speed vehicle for carrying people and equipment around a course, an estate or a property. There is no technical distinction between them in ordinary usage, which is worth knowing because sellers use different words and you will see different results depending on which you type. Buyers regularly assume a golf car is something other than a golf buggy and miss half the market as a result.",
+      },
+      {
+        heading: "Why Australians Say Buggy",
+        body: "Buggy is the standard Australian and British term, and it is what you will hear at almost any club in the country. It carries no American connotation and it is the word we use throughout our own range for that reason. If you are speaking to an Australian seller, a club professional or a groundskeeper, buggy is the word that will be understood without a second thought. It also disambiguates helpfully from a shopping trolley, which the word cart does not always do.",
+      },
+      {
+        heading: "Why Manufacturers Say Golf Car",
+        body: "The manufacturers themselves, particularly the American ones, most often say golf car rather than golf cart, and the reason is regulatory rather than stylistic. In their home market these vehicles fall into a low-speed vehicle classification that treats them as cars with a restricted top speed rather than as carts. Yamaha's own division is called the Yamaha Golf-Car Company. When you see golf car in a specification sheet or a parts catalogue, it is the manufacturer's formal term rather than a different product.",
+      },
+      {
+        heading: "Why the Word You Search Changes What You Find",
+        body: "Search engines treat these as related but distinct terms, so the sellers ranking for golf cart are not always the ones ranking for golf buggy, and specialist listings often sit under golf car. Buyers who search only one phrase see only one slice of the market, which can mean missing both a better price and a better-suited model. If you are shopping seriously, run all three. It takes a minute and it regularly surfaces stock that the first search did not.",
+      },
+      {
+        heading: "What We Call Them and Why",
+        body: "We use buggy throughout, because we are an Australian business selling to Australian buyers and it is the word our customers use. We do say cart and car where a manufacturer's own model name or documentation uses it, since renaming someone else's product would be more confusing than helpful. If you arrived here searching golf car or golf cart, you are in the right place: the vehicle is the same, and the range is the same 61 models either way.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between a golf car and a golf buggy?",
+        a: "There is no difference in Australia; they describe the same vehicle. Buggy is the standard Australian and British term, cart is American, and golf car is the manufacturers' own formal word because in their home market these fall into a low-speed vehicle classification rather than being carts.",
+      },
+      {
+        q: "Why do manufacturers say golf car instead of golf cart?",
+        a: "It is regulatory rather than stylistic. In the United States these vehicles fall into a low-speed vehicle classification that treats them as cars with a restricted top speed. Yamaha's own division is called the Yamaha Golf-Car Company, so the term appears throughout specification sheets and parts catalogues.",
+      },
+      {
+        q: "Should I search golf buggy or golf cart in Australia?",
+        a: "Search all three, including golf car. Search engines treat them as related but distinct, so the sellers ranking for one are not always the ones ranking for another, and specialist listings often sit under golf car. Running all three regularly surfaces stock the first search missed.",
+      },
+      {
+        q: "Is a golf buggy the same as a golf trolley?",
+        a: "No, and this is the distinction that does matter. A golf buggy or cart is a ride-on vehicle carrying people. A golf trolley or caddy is a walk-behind frame carrying your bag while you walk. They are different products at very different prices, so getting this one right matters.",
+      },
+      {
+        q: "What do Australian golf clubs call them?",
+        a: "Almost universally buggies. If you ring a club professional or a groundskeeper anywhere in the country and say buggy, you will be understood immediately. Cart is understood too but reads as American, and car will usually be taken to mean an actual motor vehicle.",
+      },
+      {
+        q: "Does the terminology affect the price?",
+        a: "Not directly, but it affects what you find. Different sellers optimise for different words, so searching only one phrase shows you only one slice of the market. Buyers who run all three terms frequently find both a better price and a better-suited model than the first search returned.",
+      },
+    ],
+    relatedProductCategory: "Traditional 2-Seater Electric Golf Buggies",
+  },
+  {
+    slug: "mgi-vs-motocaddy-electric-golf-trolley-australia",
+    seoTitle: "MGI vs Motocaddy: Electric Trolleys Compared",
+    title: "MGI vs Motocaddy: Comparing Electric Golf Trolleys in Australia",
+    excerpt: "An honest comparison of MGI and Motocaddy electric golf trolleys for Australian golfers, covering tracking, batteries, parts support and local service.",
+    category: "Electric Trolleys",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/mgivsmotocaddy/800/600",
+    tags: ["MGI", "Motocaddy", "Comparison", "Electric Trolleys"],
+    primaryKeyword: "mgi vs motocaddy",
+    supportingKeywords: [
+      "motocaddy vs mgi",
+      "best electric golf trolley australia",
+      "mgi electric golf trolley",
+      "electric golf trolley comparison",
+      "motocaddy australia",
+      "which electric golf trolley to buy",
+    ],
+    keyTakeaways: [
+      "We stock MGI and do not stock Motocaddy, so treat this as an informed comparison rather than a neutral one.",
+      "MGI is Australian-designed, which shows in how the buggies handle local turf and conditions.",
+      "Parts and battery availability in Australia matters more over five years than any spec-sheet difference.",
+      "Both are capable; the deciding factor is usually support rather than features.",
+    ],
+    content: [
+      {
+        heading: "Being Upfront About Where We Stand",
+        body: "We stock MGI at our Yatala depot and we do not stock Motocaddy. That is worth stating plainly at the top rather than presenting this as a disinterested review, because you should weight what follows accordingly. What we can offer that a general review cannot is what we see coming back through an Australian workshop: which parts fail, how easily they are replaced here, and what owners actually complain about after three years rather than in the first week. Both brands make genuinely capable trolleys.",
+      },
+      {
+        heading: "Design Origin and Why It Shows",
+        body: "MGI is an Australian company and the products are developed with Australian courses as the design brief rather than an export consideration. That shows in unglamorous ways: behaviour on kikuyu and couch turf, handling through a wet season, and tolerance of the heat a trolley left in a car boot experiences here. Motocaddy is British, developed primarily for UK conditions, which are wetter, cooler and generally softer underfoot. Neither origin makes a trolley good or bad, but the tuning reflects where it was intended to be used.",
+      },
+      {
+        heading: "Straight Tracking and Slope Behaviour",
+        body: "The feature that most affects daily use on undulating Australian courses is straight-line correction. Without it, any motorised trolley drifts downhill across a cambered fairway and you spend the walk correcting it. MGI's gyroscope straight-tracker addresses this directly, holding the heading you chose across a side-slope. When comparing any two trolleys, establish which offers genuine gyroscopic correction rather than simply twin motors, because twin motors alone do not prevent drift. This matters more on a hilly course than almost any other specification.",
+      },
+      {
+        heading: "Batteries, Remotes and the Five-Year View",
+        body: "Over a five-year ownership, the questions that matter are whether you can buy a replacement battery, whether a broken remote can be replaced without replacing the trolley, and whether either is held in Australia. Batteries are consumables in this category, and a trolley you cannot re-battery locally becomes disposable at exactly the point it should be entering its second life. We hold genuine MGI batteries and replacement remotes in Australian stock. For any brand you are considering, ask that question specifically before buying.",
+      },
+      {
+        heading: "How to Choose Between Them",
+        body: "If you value Australian design tuning, local parts availability and a workshop you can ring, MGI is the straightforward choice and it is the one we support. If you have used Motocaddy before, prefer their control layout and have a supplier you trust for parts, that is a perfectly reasonable decision and we would not argue you out of it. What we would push back on is choosing either purely on a feature list, because the difference that shows up after three years is almost always support rather than specification.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you sell Motocaddy in Australia?",
+        a: "No. We stock MGI, PowaKaddy and Robera walk-behind trolleys at our Yatala QLD depot and do not carry Motocaddy. We have written this comparison because buyers ask, but we will not pretend to stock something we do not.",
+      },
+      {
+        q: "Is MGI better than Motocaddy?",
+        a: "Both make capable trolleys, so the honest answer is that it depends on what you weight. MGI is Australian-designed and tuned for local turf and heat, and we hold parts here. Motocaddy is British and developed for wetter, cooler conditions. Support availability usually matters more than features over five years.",
+      },
+      {
+        q: "What is gyroscope straight tracking and does it matter?",
+        a: "It corrects the downhill drift every motorised trolley suffers on a cambered fairway, holding the heading you chose. On undulating Australian courses it affects daily use more than almost any other feature. Twin motors alone do not achieve it, so check for genuine gyroscopic correction specifically.",
+      },
+      {
+        q: "Can I get replacement batteries for either brand in Australia?",
+        a: "We hold genuine MGI batteries and replacement remotes in Australian stock. For any brand you are considering, ask that question directly before buying, because a trolley you cannot re-battery locally becomes disposable at exactly the point it should be entering its second life.",
+      },
+      {
+        q: "Which electric trolley suits hilly Australian courses?",
+        a: "Look for gyroscopic straight tracking, twin independently driven motors for footing on wet slopes, downhill speed control so the trolley does not run away from you, and a rear anti-tip wheel. Those four together matter far more on undulating ground than screen size or app features.",
+      },
+      {
+        q: "How long should an electric golf trolley last?",
+        a: "The frame and motors typically outlast several batteries. The battery is the consumable, so budget for replacement as a known cost. That is precisely why local parts availability determines real-world lifespan more than build quality does, since an unsupported trolley is scrap the day its battery dies.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "clicgear-vs-mgi-push-buggy-comparison-australia",
+    seoTitle: "Clicgear vs MGI: Push and Electric Compared",
+    title: "Clicgear vs MGI in Australia: Manual Push Buggy or Motorised Trolley?",
+    excerpt: "Clicgear built its reputation on manual push buggies and MGI on motorised ones. Here is how the two approaches compare for Australian golfers.",
+    category: "Push Buggies",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/clicgearvsmgi/800/600",
+    tags: ["Clicgear", "MGI", "Push Buggies", "Comparison"],
+    primaryKeyword: "clicgear buggy",
+    supportingKeywords: [
+      "clicgear golf buggy",
+      "clicgear golf cart",
+      "golf buggy clicgear",
+      "clicgear vs mgi",
+      "clicgear australia",
+      "manual vs electric golf buggy",
+    ],
+    keyTakeaways: [
+      "We stock MGI and do not stock Clicgear, so read this as an informed rather than neutral comparison.",
+      "The real comparison is manual versus motorised, not one brand against another.",
+      "Clicgear's reputation rests on fold quality and build; MGI's on motorised assistance and tracking.",
+      "If your back nine is consistently worse than your front nine, that points at motorised.",
+    ],
+    content: [
+      {
+        heading: "What This Comparison Is Really About",
+        body: "Clicgear is best known for manual push buggies with a distinctive compact fold, and MGI for motorised and remote-controlled trolleys. So while buyers frame this as a brand question, it is mostly a category question: do you want to push, or do you want the trolley to drive itself? That decision has far more effect on your rounds than which badge is on the frame. We stock MGI and not Clicgear, which you should factor into how you read what follows.",
+      },
+      {
+        heading: "The Case for a Well-Built Manual Push Buggy",
+        body: "A manual buggy has no battery, no electronics and almost nothing to fail. Bought well it lasts many seasons at effectively zero running cost, there is nothing to charge before a round, and nothing to go flat on the fourteenth. It is lighter to lift into a boot, which matters if you have a shoulder that objects. Clicgear's reputation is built on fold mechanism quality and frame rigidity, and those are the right things to judge a manual buggy on. If you walk comfortably and play occasionally, this is a genuinely good answer.",
+      },
+      {
+        heading: "The Case for Motorised Assistance",
+        body: "A motorised trolley keeps the walking, which is where the health benefit lives, and removes the sustained forward push through your shoulders and lower back. The clearest signal that you want one is a back nine that is consistently worse than your front nine, because accumulated fatigue over several kilometres shows up in swing quality late in a round. The second signal is any existing back, shoulder or knee issue. The third is a hilly course, where pushing up and restraining down are both real work.",
+      },
+      {
+        heading: "Fold, Boot Fit and Weight",
+        body: "Both categories live or die on whether they fit your car conveniently, and this is where buyers most often get caught. Measure the usable boot space rather than trusting the litre rating: width between the wheel arches at their narrowest, height under a closed lid, depth to the tailgate, and load a golf bag alongside during the check. On motorised models, look at lifting weight rather than total weight, since a removable battery means the heaviest component travels in your hand rather than in the frame.",
+      },
+      {
+        heading: "Making the Decision",
+        body: "Be honest about how you actually play rather than how you would like to. If you play a few times a month on flat ground and enjoy the walk exactly as it is, a quality manual buggy is the right purchase and spending more would be waste. If you play weekly, your course has hills, or fatigue is affecting your scoring, motorised assistance changes the round in a way that is difficult to appreciate until you try it. We stock MGI across that whole motorised spectrum, from a simple speed dial upward.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you sell Clicgear buggies in Australia?",
+        a: "No. We stock MGI, PowaKaddy and Robera walk-behind trolleys at our Yatala QLD depot and do not carry Clicgear. We have written this comparison because buyers ask about it, but we will not imply we hold stock we do not.",
+      },
+      {
+        q: "Is a manual push buggy or a motorised trolley better?",
+        a: "Neither outright. A manual buggy is cheaper to buy and own with nothing to charge or replace. A motorised trolley keeps the same walking distance while removing the pushing load, which matters most if your back nine suffers or you are managing an existing injury.",
+      },
+      {
+        q: "What makes a good manual push buggy?",
+        a: "Bearings and fold quality above everything. Sealed bearings roll freely and keep out sand, clippings and irrigation water; cheap bushings drag within a season. A fold that is quick and predictable gets used, and one that fights you every time ends up left in the shed.",
+      },
+      {
+        q: "Will I lose fitness moving to a motorised trolley?",
+        a: "Very little. You still walk the full distance of the round, which is where most of the cardiovascular and step-count benefit comes from. What disappears is the carried and pushed load, which is the part most associated with lower back and shoulder strain rather than fitness gains.",
+      },
+      {
+        q: "Which fits a small car boot better?",
+        a: "It depends far more on the specific model's folded shape than on the category. Measure your usable boot space and compare all three dimensions, then load a golf bag alongside during the check. Hatchbacks and sedans differ far more than their litre ratings suggest.",
+      },
+      {
+        q: "Is a motorised trolley worth the extra money?",
+        a: "If you play weekly, your course has hills, or fatigue is affecting your late-round scoring, most owners say yes within a few rounds. If you play occasionally on flat ground and enjoy the walk as it is, a quality manual buggy is the right purchase and the extra spend is waste.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "powakaddy-vs-mgi-electric-golf-trolley-australia",
+    seoTitle: "PowaKaddy vs MGI: Which Trolley for Australia?",
+    title: "PowaKaddy vs MGI: Choosing Between Two Stocked Electric Trolley Brands",
+    excerpt: "We stock both PowaKaddy and MGI. Here is an honest comparison of screens, batteries, tracking and which Australian golfer each one suits.",
+    category: "Electric Trolleys",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/powakaddyvsmgi/800/600",
+    tags: ["PowaKaddy", "MGI", "Comparison", "GPS"],
+    primaryKeyword: "powakaddy golf buggy",
+    supportingKeywords: [
+      "powakaddy australia",
+      "powakaddy electric golf buggies",
+      "powakaddy golf trolleys",
+      "powakaddy buggy",
+      "powakaddy vs mgi",
+      "powakaddy fx7 australia",
+    ],
+    keyTakeaways: [
+      "We stock both brands, so this comparison has no thumb on the scale.",
+      "PowaKaddy leads on screen quality; MGI leads on tracking and remote control.",
+      "OCA screen bonding is why the FX7 stays readable in Australian sunlight.",
+      "Both offer tool-free battery removal, which matters for boot storage.",
+    ],
+    content: [
+      {
+        heading: "Two Brands We Both Stock",
+        body: "Unlike most brand comparisons you will read, we carry both of these at our Yatala depot, which means we have no reason to steer you toward one. What follows is what we tell buyers on the phone. Both are quality electric trolleys with Australian warranty support and genuine parts held locally. They lead in different areas, and the right answer depends on whether you want the best screen or the best hands-free control, because that is genuinely where the two diverge.",
+      },
+      {
+        heading: "Screens and GPS: PowaKaddy's Strength",
+        body: "The PowaKaddy FX7 carries a 3.5-inch OCA full-colour touchscreen preloaded with over 40,000 courses worldwide. Two things matter there. The course library means it works on your home course and on holiday without hunting for a download before every round, with no subscription chase. And OCA bonding, which laminates the screen layers optically, is why it stays readable in bright Australian sunlight where cheaper laminated displays wash out to a grey smear exactly when you need a distance.",
+      },
+      {
+        heading: "Tracking and Remote: MGI's Strength",
+        body: "MGI's advantage is in how the trolley moves rather than what it displays. The gyroscope straight-tracker holds a chosen heading across cambered fairways instead of drifting downhill, which on undulating courses affects the walk more than any screen does. The Ai Navigator adds full directional remote control, letting you send the trolley to the next tee while you finish a hole. If your priority is that the trolley requires no attention rather than that it shows you numbers, MGI is the stronger pick.",
+      },
+      {
+        heading: "Batteries and Everyday Practicality",
+        body: "Both use tool-free removable lithium systems, PowaKaddy with a 30V Plug and Play arrangement and MGI with Click and Go. That shared design decision matters more than it sounds: it means the battery comes inside to charge while the frame stays in the boot, which is how most people actually live with these. Both have genuine replacement batteries available in Australia, which is the question that determines whether a trolley has a second life or becomes scrap when the original pack tires.",
+      },
+      {
+        heading: "Who Each One Suits",
+        body: "Choose PowaKaddy if you want course data on the trolley rather than on your wrist or phone, play a variety of courses including overseas, and value screen legibility in harsh light. Choose MGI if your course is genuinely undulating, you want remote or hands-free operation, or you simply want the trolley to track straight and be ignored. Both will serve you for years. If you are undecided after that, ring the Yatala desk and describe your home course; the terrain usually settles it.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you stock both PowaKaddy and MGI?",
+        a: "Yes, both are held at our Yatala QLD depot with Australian warranty support and genuine parts available locally. That means this comparison has no thumb on the scale; we are equally happy to sell you either and would rather you got the right one.",
+      },
+      {
+        q: "Which has the better screen, PowaKaddy or MGI?",
+        a: "PowaKaddy. The FX7's 3.5-inch OCA full-colour touchscreen is preloaded with over 40,000 courses, and OCA optical bonding is why it stays readable in bright Australian sunlight where cheaper laminated displays wash out just when you need a distance.",
+      },
+      {
+        q: "Which is better for hilly courses?",
+        a: "MGI, because of the gyroscope straight-tracker that holds your chosen heading across cambered fairways rather than drifting downhill. On genuinely undulating ground that affects the walk more than any screen feature does, and the Navigator adds a rear anti-tip wheel for steep climbs.",
+      },
+      {
+        q: "Can I remove the battery on both brands?",
+        a: "Yes. PowaKaddy uses a 30V Plug and Play system and MGI uses Click and Go, both tool-free. That matters more than it sounds, because it lets the battery come inside to charge while the frame stays in the car boot, which is how most owners actually live with these.",
+      },
+      {
+        q: "Are replacement batteries available in Australia for both?",
+        a: "Yes, we hold genuine replacement batteries for the models we stock. This is the question that determines whether a trolley gets a second life or becomes scrap when the original pack tires, so it is worth asking about any brand you are considering, not just these two.",
+      },
+      {
+        q: "Which should I buy if I am still undecided?",
+        a: "Describe your home course to us. If it is undulating and you want the trolley to need no attention, MGI. If it is reasonably flat and you want course data on the trolley itself, PowaKaddy. Terrain settles it more often than any feature list does.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "best-electric-golf-trolley-brands-australia",
+    seoTitle: "Best Electric Golf Trolley Brands in Australia",
+    title: "Best Electric Golf Trolley in Australia: How to Judge the Brands Properly",
+    excerpt: "What actually separates electric golf trolley brands in Australia, the four features worth paying for, and the support question most buyers forget.",
+    category: "Electric Trolleys",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/bestelectrictrolley/800/600",
+    tags: ["Electric Trolleys", "Buying Guide", "Comparison", "Brands"],
+    primaryKeyword: "best electric golf trolley",
+    supportingKeywords: [
+      "best electric golf buggy australia",
+      "what is the best electric golf buggy australia",
+      "best golf trolley australia",
+      "electric golf trolley australia",
+      "top electric golf buggy",
+      "best motorised golf buggy",
+    ],
+    keyTakeaways: [
+      "Four features do most of the work: straight tracking, downhill control, removable battery and a replaceable remote.",
+      "Australian parts availability determines real lifespan more than build quality does.",
+      "Screen features are the easiest thing to oversell and the least likely to affect your round.",
+      "The best trolley is the one that matches your course terrain, not the one with the longest spec list.",
+    ],
+    content: [
+      {
+        heading: "Why Best Is the Wrong Question",
+        body: "There is no single best electric golf trolley, and anyone answering that question without asking about your course is guessing. What exists is a short list of features that genuinely change how a trolley performs, and a much longer list of features that look impressive and rarely matter. Sorting one from the other is the useful exercise. Below are the four that consistently show up in what owners praise and complain about after a few seasons, rather than in the first week.",
+      },
+      {
+        heading: "Feature One and Two: Tracking and Downhill Control",
+        body: "Straight-line tracking is first. Without gyroscopic correction, any motorised trolley drifts downhill on a cambered fairway and you spend the round correcting it, which is the single most common complaint about cheaper models. Downhill speed control is second: on a hilly course, a trolley that runs away from you on descents forces a jog, while one that holds a steady walking pace automatically does not. Together these two determine whether the trolley is a pleasure or an irritation on anything but flat ground.",
+      },
+      {
+        heading: "Feature Three and Four: Battery and Remote Serviceability",
+        body: "A tool-free removable battery means the pack comes inside to charge while the frame stays in the boot, which is how most people actually live with a trolley. More importantly, both the battery and the handset must be replaceable in Australia. Batteries are consumables and remotes lead a hard life clipped to a bag; if neither can be replaced locally, the trolley becomes scrap at exactly the point it should be starting its second life. Ask this before buying, about any brand.",
+      },
+      {
+        heading: "What Is Usually Oversold",
+        body: "Screen size and app connectivity are the easiest things to market and the least likely to change your round. A good screen is genuinely useful if it is readable in harsh sunlight, which is a question of optical bonding rather than resolution, but a large dim screen is worse than a small clear one. Bluetooth speakers, colour options and app dashboards are pleasant and irrelevant. Judge a trolley on how it moves across sloped ground, not on what it displays while doing it.",
+      },
+      {
+        heading: "Matching the Trolley to Your Course",
+        body: "Flat parkland courses are forgiving and almost any competent trolley performs well. Undulating courses expose everything: tracking, downhill control, motor pairing and anti-tip protection all start to matter. Wet-season conditions reward twin independently driven motors that find footing where a single motor scrabbles. Start from an honest description of where you play most, not where you played once. We stock MGI, PowaKaddy and Robera across that range, and we will tell you when a cheaper model in the range is the right answer.",
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the best electric golf buggy in Australia?",
+        a: "There is no single best; it depends on your course. The four features that consistently matter are gyroscopic straight tracking, downhill speed control, a tool-free removable battery and a replaceable remote handset. Match those to your terrain rather than chasing the longest specification list.",
+      },
+      {
+        q: "Which electric golf trolley brands do you stock?",
+        a: "MGI, PowaKaddy and Robera, all at our Yatala QLD depot with Australian warranty support and genuine replacement batteries and remotes held locally. We do not stock Motocaddy, Clicgear or several other brands buyers ask about, and we say so rather than implying otherwise.",
+      },
+      {
+        q: "How much should I spend on an electric golf trolley?",
+        a: "Enough to get straight tracking and downhill control if your course has any real slope, because those two features determine whether you enjoy using it. On flat parkland, a simpler model with a speed dial does the job well and spending more buys features you will not use.",
+      },
+      {
+        q: "Are expensive golf trolleys worth it?",
+        a: "Up to a point. The jump from a basic model to one with proper tracking and downhill control is worth paying for on undulating courses. The jump from there to the largest screen and app connectivity mostly buys features that do not change how the trolley moves.",
+      },
+      {
+        q: "What is the most important feature in an electric trolley?",
+        a: "Gyroscopic straight tracking, if your course has any camber at all. Without it the trolley drifts downhill and you spend the walk correcting it, which is the most common complaint owners have about cheaper models after the novelty wears off.",
+      },
+      {
+        q: "How do I know a brand will still be supported in five years?",
+        a: "Ask one specific question before buying: can I buy a replacement battery and a replacement remote for this model in Australia today? If the answer is unclear, the trolley has a short life regardless of build quality, because both are consumables that will need replacing within that window.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "junior-golf-buggy-australia-guide",
+    seoTitle: "Junior Golf Buggy Australia: What to Look For",
+    title: "Junior Golf Buggies in Australia: Sizing, Safety and What to Look For",
+    excerpt: "What makes a golf buggy suitable for a junior golfer in Australia, how to size one properly, and the safety points parents should insist on.",
+    category: "Buyer Guides",
+    date: "2026-09-10",
+    readTime: "5 min read",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Walk-Behind Specialist, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/juniorgolfbuggy/800/600",
+    tags: ["Junior Golf", "Youth", "Buying Guide", "Safety"],
+    primaryKeyword: "junior golf buggy",
+    supportingKeywords: [
+      "junior golf buggies",
+      "kids golf buggy",
+      "youth golf trolley",
+      "junior golf trolley australia",
+      "golf buggy for juniors",
+      "small golf buggy australia",
+    ],
+    keyTakeaways: [
+      "Handle height, not overall size, is what makes a trolley usable for a junior.",
+      "A junior bag is lighter, so a smaller battery is genuinely sufficient rather than a compromise.",
+      "Weight matters twice over: the junior may be loading it into a car themselves.",
+      "We do not currently stock a dedicated junior model, and we will say so rather than sell around it.",
+    ],
+    content: [
+      {
+        heading: "What Makes a Buggy Junior-Suitable",
+        body: "The instinct is to look for a smaller buggy, but the dimension that actually matters is handle height and its adjustment range. A trolley whose handle sits too high forces a junior to push with raised shoulders, which is both uncomfortable and poor for developing posture. Frame length and wheelbase matter far less. Before buying anything, check the adjustment range against your junior's height, and check it still works when the bag is loaded, since a full bag changes the balance and how the handle sits.",
+      },
+      {
+        heading: "Weight, Because They May Be Lifting It",
+        body: "Weight matters twice for a junior. The obvious one is pushing effort, which a motorised trolley removes entirely. The less obvious one is loading: if the junior is expected to get the trolley into and out of a car themselves, the single heaviest lift is the number that decides whether it gets used. A model with a removable battery is easier to handle than a lighter fixed-battery one, because the heaviest component travels separately. Consider who is actually doing the lifting on a typical Saturday.",
+      },
+      {
+        heading: "Battery Sizing for a Junior Bag",
+        body: "A junior bag with fewer, shorter clubs is meaningfully lighter than an adult setup, which means a smaller battery is genuinely sufficient rather than a compromise. This is one of the few places where buying less capacity is the correct decision rather than a saving. A smaller pack is also lighter to lift and cheaper to replace when it eventually tires. If the junior is likely to move to a full adult bag within a season or two, factor that in, but do not over-buy for a future that may not arrive.",
+      },
+      {
+        heading: "Safety Points Worth Insisting On",
+        body: "For any motorised trolley used by a junior, two features matter more than they do for an adult. A parking brake that actually holds on a slope prevents the trolley rolling away while they play a shot, which is the most common incident with young users. And a variable speed control set conservatively, rather than a fixed speed, lets them build confidence without the trolley outpacing them. On ride-on buggies, the age and licensing rules are set by your state authority and vary, so confirm before letting a junior drive anywhere but private land.",
+      },
+      {
+        heading: "What We Currently Stock",
+        body: "We do not currently hold a dedicated junior model, and we would rather say that plainly than sell you an adult trolley described as suitable. What we can do is check the handle adjustment range on the models we do stock against your junior's height, since the entry-level MGI Zip X1 with its simple speed dial and light battery suits some older juniors well. We are expanding the range, so if a junior-specific model is what you need, tell us and we will let you know when it lands.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you sell junior golf buggies in Australia?",
+        a: "We do not currently hold a dedicated junior model and we would rather say so than sell an adult trolley described as suitable. We are expanding the range. Meanwhile we can check the handle adjustment on stocked models against your junior's height, since some suit older juniors well.",
+      },
+      {
+        q: "What size golf buggy does a junior need?",
+        a: "Handle height and its adjustment range matter far more than overall buggy size. A handle sitting too high forces a junior to push with raised shoulders, which is uncomfortable and poor for posture. Check the adjustment with a loaded bag, since that changes the balance.",
+      },
+      {
+        q: "Should a junior have a motorised or push trolley?",
+        a: "A motorised trolley removes the pushing effort entirely, which matters if the junior is small relative to the bag. A push trolley is lighter to lift into a car. Consider who does the lifting on a typical Saturday, because that often decides whether the trolley gets used at all.",
+      },
+      {
+        q: "What battery size suits a junior golfer?",
+        a: "A smaller one is genuinely sufficient rather than a compromise, because a junior bag with fewer, shorter clubs is meaningfully lighter than an adult setup. A smaller pack is also easier to lift and cheaper to replace. Do not over-buy capacity for a future bag that may not arrive.",
+      },
+      {
+        q: "Can a junior drive a ride-on golf buggy in Australia?",
+        a: "Age and licensing rules for driving on any public or shared road are set by your state road authority and differ between states. On private land the rules are different again. Confirm with your state authority and, on a course, with the club before letting a junior drive.",
+      },
+      {
+        q: "What safety features matter most for junior users?",
+        a: "A parking brake that genuinely holds on a slope, because a trolley rolling away while they play a shot is the most common incident with young users. And a variable speed control set conservatively rather than a fixed speed, so they build confidence without the trolley outpacing them.",
+      },
+    ],
+    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+  },
+  {
+    slug: "how-much-does-a-golf-cart-cost-australia",
+    seoTitle: "How Much Does a Golf Cart Cost in Australia?",
+    title: "How Much Does a Golf Cart Cost in Australia? Real Price Bands for 2026",
+    excerpt: "What golf buggies actually cost in Australia by category, what drives the price differences, and the costs buyers routinely forget to budget for.",
+    category: "Finance & Buying",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Finance & Accounts Team",
+      role: "Golf Buggies Express PTY LTD",
+    },
+    image: "https://picsum.photos/seed/golfcartcostau/800/600",
+    tags: ["Pricing", "Budget", "Buying Guide", "Costs"],
+    primaryKeyword: "how much is a golf cart",
+    supportingKeywords: [
+      "how much are golf carts",
+      "golf cart cost",
+      "golf buggy price australia",
+      "cost of golf cart",
+      "golf cart prices australia",
+      "how much does a golf buggy cost",
+    ],
+    keyTakeaways: [
+      "Walk-behind trolleys start around $1,300; ride-on buggies run roughly $8,000 to over $27,000.",
+      "Battery chemistry and frame material account for most of the gap between similar-looking models.",
+      "Freight is a real cost and should be quoted by postcode rather than averaged into a sticker price.",
+      "Accessories that make a buggy fit your job are routinely left out of the initial budget.",
+    ],
+    content: [
+      {
+        heading: "The Honest Price Bands",
+        body: "Golf buggy is a phrase covering products that differ in price by a factor of twenty, so a single answer is meaningless without the category. Walk-behind motorised trolleys start around $1,300 and run to roughly $2,900 for remote and follow-capable models. Ride-on golf buggies begin around $8,000 for a straightforward two-seater and reach beyond $27,000 for a lifted luxury four-seater. Commercial utility vehicles sit toward the upper end of that. Every figure we publish includes GST, which is worth checking when comparing against sellers who quote excluding it.",
+      },
+      {
+        heading: "What Drives the Gap Between Similar Buggies",
+        body: "Two buggies that look alike can sit thousands apart, and the difference is usually in two components. Battery chemistry and capacity is the largest single contributor, since a quality lithium pack represents a substantial share of the vehicle cost while a lead-acid bank is cheap to fit and expensive to own. Frame material is next: aluminium costs more to build and does not rust, which is why aluminium-framed models command a premium and hold their resale value. After those, controller amperage, brake specification and suspension design account for most of the rest.",
+      },
+      {
+        heading: "The Costs Buyers Forget",
+        body: "Three things routinely fall outside the initial budget. Freight is the first, and it is a genuine cost that varies enormously between a Gold Coast delivery and a regional Western Australian one, which is exactly why we quote it per postcode rather than averaging it into every advertised price. Accessories are the second, because the tow hitch, light kit, enclosure or seatbelts that make the buggy fit your actual job are rarely in the base specification. The third is the eventual battery replacement, which is a known future cost rather than an unexpected one.",
+      },
+      {
+        heading: "Ways to Reduce What You Actually Pay",
+        body: "Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure. Finance in 4 splits the purchase into four interest-free instalments, which changes cash flow rather than total cost but makes a better-specified buggy reachable. Buying accessories alongside a buggy rather than afterwards earns the 5% bundle discount. And reconditioned stock, where a suitable unit is on the floor, can deliver most of the vehicle for meaningfully less, provided you know the battery date.",
+      },
+      {
+        heading: "Getting a Number That Means Something",
+        body: "Ask for vehicle plus freight as one total, quoted against your actual delivery postcode, with GST shown separately. That is the only figure that can be compared honestly against another seller's, and it is what we provide. Comparing an advertised sticker price against ours without freight is not comparing the same thing, and it is the most common way buyers end up surprised. Give us the postcode, the model you are considering and what you need fitted, and the number comes back complete.",
+      },
+    ],
+    faqs: [
+      {
+        q: "How much is a golf cart in Australia?",
+        a: "Walk-behind motorised trolleys start around $1,300, ride-on golf buggies run from roughly $8,000 for a two-seater to over $27,000 for a lifted luxury four-seater, and commercial utility vehicles sit toward the upper end. All our prices include GST.",
+      },
+      {
+        q: "Why are some golf buggies so much more expensive?",
+        a: "Battery chemistry and capacity is the largest single contributor, since a quality lithium pack is a substantial share of vehicle cost. Frame material is next, because aluminium costs more to build, does not rust, and holds resale value. Controller, brakes and suspension account for most of the rest.",
+      },
+      {
+        q: "Is freight included in golf buggy prices?",
+        a: "No, and deliberately so. Freight to a Gold Coast address and to regional Western Australia are genuinely different jobs, and averaging them means one customer subsidises another. We quote against your actual delivery postcode so you pay for the leg you use.",
+      },
+      {
+        q: "Can I pay for a golf buggy in instalments?",
+        a: "Yes. Finance in 4 splits any purchase into four equal interest-free instalments. That changes cash flow rather than total cost, but it does make a better-specified buggy reachable. We also accept PayID, Osko, direct bank transfer and cryptocurrency.",
+      },
+      {
+        q: "Is there a discount for paying in cryptocurrency?",
+        a: "Yes, settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure. Freight and accessories are charged at the full rate on top, and every order is still issued with a proper Australian tax invoice.",
+      },
+      {
+        q: "What else should I budget for beyond the buggy?",
+        a: "Freight quoted by postcode, the accessories that make the buggy fit your actual job since they are rarely in the base specification, and the eventual battery replacement. Treating that last one as a known future cost from year one keeps the long-term economics predictable.",
+      },
+    ],
+    relatedProductCategory: "Traditional 2-Seater Electric Golf Buggies",
+  },
+  {
+    slug: "golf-buggy-parts-and-spares-australia-guide",
+    seoTitle: "Golf Buggy Parts & Spares Australia: Guide",
+    title: "Golf Buggy Parts and Spares in Australia: What to Stock and What to Source",
+    excerpt: "Which golf buggy parts are worth keeping on hand, which need a technician, and why Australian parts availability decides a buggy's real lifespan.",
+    category: "Accessories & Spares",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/buggypartsguide/800/600",
+    tags: ["Parts", "Spares", "Maintenance", "Workshop"],
+    primaryKeyword: "golf buggy parts",
+    supportingKeywords: [
+      "golf buggy spare parts",
+      "buggy spare parts",
+      "golf cart parts australia",
+      "golf buggy parts australia",
+      "electric golf buggy parts",
+      "golf buggy spares australia",
+    ],
+    keyTakeaways: [
+      "Parts availability in Australia determines a buggy's real lifespan more than build quality does.",
+      "Solenoids, tyres and connectors are the failures worth keeping ahead of.",
+      "Anything inside a lithium pack or involving controller programming belongs with a technician.",
+      "Give us the make, model and year before ordering, because fitment varies more than buyers expect.",
+    ],
+    content: [
+      {
+        heading: "Why Local Parts Decide a Buggy's Real Lifespan",
+        body: "A buggy is repairable for as long as parts can be got. That sounds obvious and it is routinely ignored at purchase, when a cheaper imported model looks like good value. The failure mode is not dramatic: a solenoid fails, the part is available only from overseas, the freight and wait cost more than the buggy is worth, and an otherwise sound vehicle becomes scrap. This is the single strongest argument for buying a brand with genuine Australian parts support, and it is why we hold stock at Yatala rather than ordering in on demand.",
+      },
+      {
+        heading: "The Parts Worth Keeping On Hand",
+        body: "A short list covers most roadside annoyances. A spare solenoid is the highest-value item, because it is a common failure, it is cheap, and its symptom, a click with no movement, is unmistakable. A tyre plug kit and a decent pump handle the punctures that stubble and stone cause on rural property. Terminal protectant and a wire brush deal with corrosion before it becomes an intermittent fault. On walk-behind trolleys, a spare remote handset is worth having if the buggy is central to your weekly golf.",
+      },
+      {
+        heading: "Wear Items and When to Replace Them",
+        body: "Tyres, brake pads or shoes, and battery terminals are the genuine consumables. Tyres deserve attention beyond tread depth: sidewalls perish under Australian UV even when the tread looks new, so a buggy stored outdoors may need tyres long before it has worn any out. Brakes on a buggy used in wet grass and course sand wear far faster than the low speeds suggest, because that combination forms an abrasive paste. Terminals corrode wherever moisture and vibration meet, which is everywhere.",
+      },
+      {
+        heading: "Where the Line Sits on DIY",
+        body: "Plenty is genuinely owner-serviceable: tyres, terminals, lights, mirrors, seat kits, hitches and most bolt-on accessories. Two categories are not. Anything involving opening a lithium battery pack belongs with a qualified technician without exception, because the stored energy is substantial and the packs are not designed to be user-serviced. Controller replacement and programming is the second, since an incorrect parameter can damage the motor. Stop immediately for any burning smell, swollen or leaking battery, discoloured connectors, or a component too hot to touch.",
+      },
+      {
+        heading: "Ordering Parts Without Getting the Wrong Ones",
+        body: "Fitment varies between models far more than buyers expect, and a part that almost fits is a part you send back. Before ordering, have the make, model and year, and where possible the part number from the component itself or a photograph of it in place. Photographs settle more questions than descriptions do, particularly with connectors and brackets. Send those to the Yatala desk and we will confirm the right part before it ships rather than after, which is a two-minute conversation that saves a return.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Where can I buy golf buggy parts in Australia?",
+        a: "We hold parts in Australian stock at our Yatala QLD depot rather than ordering them in on demand, covering batteries, chargers, controllers, brakes, lighting, wheels and conversion kits. Send the make, model and year and we will confirm the right part before it ships.",
+      },
+      {
+        q: "Which golf buggy spare parts should I keep on hand?",
+        a: "A spare solenoid is the highest-value item, since it is a common failure, cheap, and its symptom of clicking without movement is unmistakable. Add a tyre plug kit and pump for rural property, plus terminal protectant and a wire brush for corrosion before it becomes an intermittent fault.",
+      },
+      {
+        q: "Can I fit golf buggy parts myself?",
+        a: "Much of it, yes: tyres, terminals, lights, mirrors, seat kits, hitches and bolt-on accessories. Not lithium pack internals or controller programming, both of which belong with a qualified technician. Stop immediately for burning smells, swollen batteries, discoloured connectors or components too hot to touch.",
+      },
+      {
+        q: "How do I know which part fits my buggy?",
+        a: "Fitment varies far more between models than buyers expect. Have the make, model and year ready, plus the part number from the component or a photograph of it in place. Photographs settle more questions than descriptions, particularly with connectors and brackets.",
+      },
+      {
+        q: "Why do golf buggy tyres need replacing if the tread looks fine?",
+        a: "Sidewalls perish under Australian UV even when tread depth is good, so a buggy stored outdoors frequently needs tyres long before it has worn any out. Check the sidewalls for fine cracking rather than judging by tread alone, particularly on a vehicle that sits between uses.",
+      },
+      {
+        q: "Are genuine parts worth it over generic?",
+        a: "For anything that participates in the electrical system, yes. Batteries and remote handsets in particular depend on matched management and pairing behaviour. For wheels, covers, brackets and holders a well-made generic is usually fine. The distinction is electrical involvement rather than price.",
+      },
+    ],
+    relatedProductCategory: "Batteries, Chargers & Parts",
+  },
+  {
+    slug: "golf-buggy-seat-covers-and-upholstery-australia",
+    seoTitle: "Golf Buggy Seat Covers Australia: UV & Wear",
+    title: "Golf Buggy Seat Covers in Australia: Protecting Upholstery From Sun and Wet",
+    excerpt: "Why golf buggy seats fail in Australian conditions, what seat covers actually protect against, and how to choose material that lasts more than a season.",
+    category: "Accessories & Spares",
+    date: "2026-09-10",
+    readTime: "5 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/buggyseatcovers/800/600",
+    tags: ["Seat Covers", "UV Protection", "Upholstery", "Accessories"],
+    primaryKeyword: "golf buggy seat covers",
+    supportingKeywords: [
+      "golf cart seat covers",
+      "golf buggy seat",
+      "golf cart seat covers australia",
+      "buggy seat protection",
+      "golf cart upholstery",
+      "golf buggy seat replacement",
+    ],
+    keyTakeaways: [
+      "UV, not wear, is what destroys most golf buggy upholstery in Australia.",
+      "Trapped moisture under a cover causes more damage than leaving seats bare.",
+      "Marine-grade material is the standard worth specifying; ordinary vinyl fails within a season or two.",
+      "A cover is far cheaper than reupholstering, and reupholstering is far cheaper than a new buggy.",
+    ],
+    content: [
+      {
+        heading: "What Actually Destroys Buggy Upholstery Here",
+        body: "Australian buggy seats rarely wear out from use. They fail from ultraviolet exposure, which breaks down the plasticisers in vinyl until the surface goes chalky, then hard, then splits. Once the surface cracks, water gets into the foam and the failure accelerates from cosmetic to structural. A buggy that lives outdoors will show this within a few seasons regardless of how gently it is used. That is why protection is about sun far more than it is about abrasion, which is the opposite of how most people think about seat covers.",
+      },
+      {
+        heading: "The Trapped Moisture Problem",
+        body: "The mistake that undoes good intentions is fitting a cover over wet seats and leaving it. A cover over damp upholstery creates a humid, dark, still environment, which is close to ideal for mildew, and the damage under the cover can end up worse than leaving the seats exposed. The habit that prevents it is simple: let seats dry before covering, and lift or vent the cover after wet use rather than sealing it down immediately. This applies equally to full weather enclosures on the whole buggy.",
+      },
+      {
+        heading: "Choosing Material That Lasts",
+        body: "Marine-grade vinyl is the standard worth specifying, and the difference is not marketing. It is formulated with UV inhibitors and mildew resistance because it is designed to live outdoors on boats, which is a harsher environment than a golf course. Ordinary automotive or craft vinyl yellows, stiffens and cracks under Australian sun within a season or two, at which point it is doing nothing useful. Check stitching too, since thread degrades under UV faster than the panel material and a cover usually fails at the seams first.",
+      },
+      {
+        heading: "Covers Versus Reupholstering",
+        body: "The economics run one way. A seat cover costs a fraction of reupholstering, and reupholstering costs a fraction of replacing the buggy over damage that started as a cracked seat surface. If your seats are still sound, covering them is straightforwardly the cheapest decision you can make. If they have already split and the foam is wet, a cover will hide the problem rather than solve it, and reupholstering or replacing the seat assembly is the honest answer. We can advise which stage yours is at from photographs.",
+      },
+      {
+        heading: "Fitment and What to Send Us",
+        body: "Seat dimensions vary between models and between model years within a brand, so universal covers fit some buggies well and others poorly. Before ordering, send the make, model and year, and a photograph of the seat with a tape measure across the base. That takes a minute and it is the difference between a cover that stays put and one that creeps and bunches every time someone sits down. Our parts range covers protection and replacement across the models we stock.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do golf buggy seat covers actually help?",
+        a: "Yes, because the main enemy is ultraviolet exposure rather than wear. UV breaks down vinyl plasticisers until the surface goes chalky, hardens and splits, after which water reaches the foam. A cover blocks that, which is why protection is about sun far more than abrasion.",
+      },
+      {
+        q: "What material should golf cart seat covers be?",
+        a: "Marine-grade vinyl, formulated with UV inhibitors and mildew resistance because it is designed to live outdoors on boats. Ordinary automotive or craft vinyl yellows, stiffens and cracks under Australian sun within a season or two. Check the stitching too, since covers usually fail at the seams first.",
+      },
+      {
+        q: "Can seat covers cause damage?",
+        a: "Yes, if fitted over wet seats and left. A cover over damp upholstery creates a humid, dark, still environment close to ideal for mildew, and the damage underneath can end up worse than leaving seats exposed. Let seats dry first and vent the cover after wet use.",
+      },
+      {
+        q: "Is it cheaper to cover or reupholster golf buggy seats?",
+        a: "Covering, by a wide margin, provided the seats are still sound. If they have already split and the foam is wet, a cover hides the problem rather than solving it and reupholstering or replacing the seat assembly is the honest answer. Send photographs and we will tell you which stage yours is at.",
+      },
+      {
+        q: "Will universal seat covers fit my buggy?",
+        a: "Sometimes well and sometimes poorly, because seat dimensions vary between models and between model years within a brand. Send the make, model and year plus a photograph of the seat with a tape measure across the base, and we will confirm rather than guess.",
+      },
+      {
+        q: "How do I clean golf buggy seats without damaging them?",
+        a: "Mild soap and water rather than solvent-based cleaners, which strip plasticisers and accelerate exactly the UV damage you are trying to prevent. Dry them properly before covering. Avoid leaving wet towels or covers on the surface, since trapped moisture causes mildew in the seams.",
+      },
+    ],
+    relatedProductCategory: "Batteries, Chargers & Parts",
+  },
+  {
+    slug: "golf-buggy-with-seat-options-explained-australia",
+    seoTitle: "Golf Buggy With Seat: Options Explained",
+    title: "Golf Buggy With a Seat: Rear Seat Kits, Flip Seats and Adding Capacity",
+    excerpt: "How to add seating to a golf buggy in Australia with flip seat kits, what it means for brakes and safety, and when to buy a four-seater instead.",
+    category: "Accessories & Spares",
+    date: "2026-09-10",
+    readTime: "5 min read",
+    author: {
+      name: "Markus Bauer",
+      role: "Workshop Foreman, Yatala Depot",
+    },
+    image: "https://picsum.photos/seed/buggyseatoptions/800/600",
+    tags: ["Seat Kits", "Flip Seat", "Capacity", "Accessories"],
+    primaryKeyword: "golf buggy with seat",
+    supportingKeywords: [
+      "golf buggy seat kit",
+      "rear flip seat golf cart",
+      "golf cart rear seat",
+      "2 to 4 seater conversion",
+      "golf buggy extra seat",
+      "golf cart seat kit australia",
+    ],
+    keyTakeaways: [
+      "A rear flip seat kit converts a two-seater to four and back to a cargo tray in seconds.",
+      "Added passengers mean added mass to stop, so brakes deserve review before capacity does.",
+      "Seatbelts matter more on rear-facing seats, not less.",
+      "Beyond a certain point, buying a purpose-built four-seater is the better decision.",
+    ],
+    content: [
+      {
+        heading: "The Cheapest Way to Add Capacity",
+        body: "If you already own a sound two-seater, a rear flip seat kit is by far the most cost-effective way to carry more people. It bolts to the rear of the chassis and gives you two rear-facing seats that fold flat into a cargo tray when you need to carry rather than seat. That dual purpose is why it suits property owners as much as families: the same vehicle handles the school gate in the morning and the feed run in the afternoon without any tools or reconfiguration between the two.",
+      },
+      {
+        heading: "What Extra Passengers Do to the Vehicle",
+        body: "Two additional adults is perhaps 160 kilograms the buggy was not carrying before, and it changes three things. Range falls, because the motor draws more current to move more mass. Hill performance falls for the same reason, which is where controller amperage starts to matter. Most importantly, stopping distance grows, and it grows most on the descents where you least want it. Adding seats to a buggy with marginal factory drum brakes is the sequence that most often ends badly, so review the brakes first.",
+      },
+      {
+        heading: "Seatbelts and Rear-Facing Seats",
+        body: "Rear-facing occupants have no structure ahead of them, which means restraint matters more there rather than less. A three-point lap and shoulder harness restrains the torso as well as the hips and prevents the forward pitch that causes most buggy injuries in a sudden stop. Look for E-Mark certification rather than something that merely resembles a seatbelt, since certification means it has been tested against a recognised standard. Establish the rule that the buggy does not move until everyone is belted from day one.",
+      },
+      {
+        heading: "Frame and Fitment Considerations",
+        body: "A seat kit transfers load into the rear of the chassis through its mounting points, so it needs to attach to structural frame members rather than bodywork. Powder-coated steel frames resist the corrosion that would otherwise start at every weld and bolt hole, which matters in coastal or irrigated conditions where the rear of a working vehicle stays wet. Fitment varies between models, so send us the make, model and year before ordering and we will confirm the kit matches your chassis rather than nearly matching it.",
+      },
+      {
+        heading: "When to Buy a Four-Seater Instead",
+        body: "There is a point where converting stops making sense. If you will carry four people regularly rather than occasionally, a purpose-built four-seater has the wheelbase, suspension, braking and often the controller specified for that load from the factory, rather than a two-seater asked to do more than it was designed for. Forward-facing rear seating is also more comfortable over distance. If the extra capacity is occasional, convert. If it is the main use case, buy the vehicle built for it.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I add a rear seat to a two-seater golf buggy?",
+        a: "Yes. A rear flip seat kit bolts to the chassis and gives two rear-facing seats that fold flat into a cargo tray when you need to carry rather than seat. It is by far the most cost-effective way to add capacity to a buggy you already own.",
+      },
+      {
+        q: "Do I need better brakes after adding seats?",
+        a: "Review them before adding capacity rather than after. Two extra adults is roughly 160 kilograms the buggy was not carrying, and stopping distance grows most on descents. Adding seats to a buggy with marginal factory drum brakes is the sequence that most often ends badly.",
+      },
+      {
+        q: "Are seatbelts necessary on rear flip seats?",
+        a: "They matter more there than on front seats, not less, because rear-facing occupants have no structure ahead of them. Look for an E-Mark certified three-point lap and shoulder harness rather than something that merely resembles a seatbelt, since certification means tested to a recognised standard.",
+      },
+      {
+        q: "Will a seat kit fit my golf buggy?",
+        a: "Fitment varies between models and model years, and the kit must attach to structural frame members rather than bodywork. Send us the make, model and year before ordering and we will confirm the kit matches your chassis rather than nearly matching it.",
+      },
+      {
+        q: "Does adding seats reduce range?",
+        a: "Yes. The motor draws more current to move more mass, so range and hill performance both fall with a full load. If you regularly carry four people, factor that into battery capacity rather than assuming the two-seater figures still apply with everyone aboard.",
+      },
+      {
+        q: "Should I convert or buy a four-seater?",
+        a: "Convert if the extra capacity is occasional. Buy a purpose-built four-seater if carrying four is the main use case, because it has the wheelbase, suspension, braking and controller specified for that load from the factory, and forward-facing rear seating is more comfortable over distance.",
+      },
+    ],
+    relatedProductCategory: "Batteries, Chargers & Parts",
+  },
+  {
+    slug: "golf-buggy-fleet-purchase-guide-australia",
+    seoTitle: "Golf Buggy Fleet Purchase Guide Australia",
+    title: "Buying a Golf Buggy Fleet in Australia: Specification, Charging and Total Cost",
+    excerpt: "How Australian clubs, resorts and councils should specify a golf buggy fleet, from charging infrastructure to standardising models and budgeting batteries.",
+    category: "Commercial Fleet",
+    date: "2026-09-10",
+    readTime: "6 min read",
+    author: {
+      name: "Commercial Fleet Division",
+      role: "Golf Buggies Express PTY LTD",
+    },
+    image: "https://picsum.photos/seed/buggyfleetpurchase/800/600",
+    tags: ["Fleet", "Commercial", "Clubs", "Resorts"],
+    primaryKeyword: "golf buggy fleet australia",
+    supportingKeywords: [
+      "golf cart fleet",
+      "commercial golf buggies australia",
+      "golf club buggy fleet",
+      "resort golf buggies",
+      "bulk golf cart purchase",
+      "wholesale golf buggies australia",
+    ],
+    keyTakeaways: [
+      "Charging infrastructure decides more fleet purchases than vehicle range does.",
+      "Standardising on one model cuts parts holding and training cost substantially.",
+      "Battery replacement should be budgeted from year one as a planned fleet expense.",
+      "Speed limiting and seatbelts are duty-of-care considerations, not optional extras.",
+    ],
+    content: [
+      {
+        heading: "Start With Charging, Not With Vehicles",
+        body: "The question that decides whether an electric fleet works is not range but charging logistics. One buggy charges overnight from a standard outlet without any thought. Six sharing a maintenance shed need enough circuits to charge simultaneously without tripping a breaker, and somewhere sensible to park while they do. Sites running two shifts need to think harder again, because a vehicle charging is a vehicle not working. Most operations solve this by sizing capacity so a full shift never needs a mid-day top-up rather than trying to fast-charge between runs.",
+      },
+      {
+        heading: "Standardise the Fleet Where You Can",
+        body: "A fleet of one model is materially cheaper to run than a fleet of four. You hold one set of spare parts rather than four, your staff learn one vehicle, your chargers are interchangeable, and a battery pulled from a vehicle out of service fits any of the others. The temptation is to buy whatever is discounted in a given year, and it costs more over time than the saving. Where mixed duty genuinely requires different vehicles, standardise within each duty type rather than across the whole fleet.",
+      },
+      {
+        heading: "Budget the Battery Replacement From Year One",
+        body: "Across a fleet the recurring costs are servicing labour, consumables, downtime and eventual battery replacement, and electric changes the shape of all four. There is no oil, no filters, no plugs, and no fuel handling or storage, which removes both a cost line and a compliance obligation. Downtime shifts too: fewer wearing parts, but when a pack reaches end of life it is a single planned expense rather than a gradual decline. Budgeting for that from the first year is what makes the long-term economics work.",
+      },
+      {
+        heading: "Safety and Duty of Care on Shared Vehicles",
+        body: "A buggy shared between staff or hired to guests is a workplace vehicle and carries obligations a private one does not. Practical controls matter more than policy documents: speed limiting so inexperienced operators cannot travel too fast in pedestrian areas, seatbelts fitted and actually used on anything crossing sloped ground, and a clear maximum passenger rule so people stop riding on trays. Some controller upgrades allow a restricted profile selectable from the dashboard, which lets one vehicle run limited for general staff and unrestricted for trained operators.",
+      },
+      {
+        heading: "How We Handle Fleet Enquiries",
+        body: "Tell us the number of vehicles, the duty, the terrain and your charging situation, and we will specify against that rather than quoting a list price times a quantity. Fleet pricing, delivery scheduling and a standardised parts holding are all part of the conversation. Freight on multiple units is quoted as one job against your site postcode. For clubs, resorts, councils and commercial operators, our wholesale desk handles tender documentation and phased delivery where a full replacement in one week is impractical.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you supply golf buggy fleets in Australia?",
+        a: "Yes. Our wholesale and fleet desk handles clubs, resorts, councils and commercial operators, including tender documentation and phased delivery where replacing everything in one week is impractical. Tell us vehicle numbers, duty, terrain and charging situation and we will specify against that.",
+      },
+      {
+        q: "How many charging points does a golf buggy fleet need?",
+        a: "Enough circuits to charge simultaneously without tripping a breaker, which is the constraint most sites underestimate. Most operations avoid the problem by sizing battery capacity so a full shift never needs a mid-day top-up, rather than trying to fast-charge vehicles between runs.",
+      },
+      {
+        q: "Should a fleet standardise on one model?",
+        a: "Wherever possible, yes. One model means one set of spare parts rather than four, staff learn one vehicle, chargers are interchangeable, and a pack pulled from a vehicle out of service fits any other. Where mixed duty requires different vehicles, standardise within each duty type.",
+      },
+      {
+        q: "What are the running costs of an electric fleet?",
+        a: "No oil, filters, plugs, fuel handling or storage, which removes both a cost line and a compliance obligation. The offsetting cost is eventual battery replacement, which is a single planned expense rather than a gradual decline. Budget it from year one and the economics stay predictable.",
+      },
+      {
+        q: "What safety measures apply to shared golf buggies?",
+        a: "Speed limiting so inexperienced operators cannot travel too fast in pedestrian areas, seatbelts fitted and used on anything crossing sloped ground, and a clear maximum passenger rule. Some controller upgrades allow a restricted profile for general staff and full output for trained operators.",
+      },
+      {
+        q: "Can you deliver a fleet in stages?",
+        a: "Yes. Phased delivery is common because replacing an entire fleet in one week is impractical for most clubs and resorts. Freight on multiple units is quoted as a single job against your site postcode rather than per vehicle, which is usually the more economical arrangement.",
+      },
+    ],
+    relatedProductCategory: "Commercial & Farm Utility Buggies",
   },
 ];
 

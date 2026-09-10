@@ -15,7 +15,7 @@ import {
   MapPin,
   ChevronDown
 } from 'lucide-react';
-import { ABN_INFO, CONTACT, CATEGORIES, BRANDS } from '@/src/config/site';
+import { ABN_INFO, CONTACT, CATEGORIES, BRAND_PAGES } from '@/src/config/site';
 
 interface HeaderProps {
   cartCount?: number;
@@ -145,14 +145,20 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                   </Link>
                 ))}
 
-                <div className="px-3 py-1.5 mt-1 text-[10px] font-bold uppercase tracking-wider text-[#A85640] border-y border-[#E7E5E4] mb-1">
+                {/* Real crawlable brand pages rather than a search query, so
+                    each brand has a URL Google and AI assistants can index. */}
+                <Link
+                  href="/shop/brand/"
+                  onClick={() => setShopDropdownOpen(false)}
+                  className="block px-3 py-1.5 mt-1 text-[10px] font-bold uppercase tracking-wider text-[#A85640] border-y border-[#E7E5E4] mb-1 hover:bg-[#F7EFEA]"
+                >
                   Shop by Brand
-                </div>
+                </Link>
                 <div className="grid grid-cols-2 gap-x-1 px-1">
-                  {BRANDS.map((b) => (
+                  {BRAND_PAGES.map((b) => (
                     <Link
-                      key={b.name}
-                      href={`/shop/?q=${encodeURIComponent(b.q)}`}
+                      key={b.slug}
+                      href={`/shop/brand/${b.slug}/`}
                       onClick={() => setShopDropdownOpen(false)}
                       className="block px-2 py-1.5 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#A85640] rounded transition-colors"
                     >

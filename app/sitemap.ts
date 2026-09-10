@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SITE, PRODUCTS, POSTS, CATEGORIES } from '@/src/config/site';
+import { SITE, PRODUCTS, POSTS, CATEGORIES, BRAND_PAGES } from '@/src/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${SITE.domain}`;
@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/shop/brand/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/contact/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -84,5 +90,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  // Shop-by-brand pages
+  const brandRoutes: MetadataRoute.Sitemap = BRAND_PAGES.map((b) => ({
+    url: `${baseUrl}/shop/brand/${b.slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...categoryRoutes, ...brandRoutes, ...productRoutes, ...blogRoutes];
 }

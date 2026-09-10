@@ -6,10 +6,12 @@ import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import AtlasLandingPage from '@/src/components/AtlasLandingPage';
+import FaqSection from '@/src/components/FaqSection';
 import { SITE, PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 
 export default function AtlasProductPage() {
+  const atlasProduct = PRODUCTS.find((p) => p.slug === 'atlas-4-passenger-lifted-lithium-buggy');
   const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -140,6 +142,20 @@ export default function AtlasProductPage() {
           <AtlasLandingPage
             onAddToCart={handleAddAtlasToCart}
           />
+
+          {/* This flagship has a bespoke layout rather than the shared
+              ProductClient, so its FAQs are pulled in explicitly. */}
+          {atlasProduct?.faqs && atlasProduct.faqs.length > 0 && (
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+              <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-sm metal-brushed-dark">
+                <FaqSection
+                  items={atlasProduct.faqs}
+                  heading={`${atlasProduct.name} — Questions Buyers Ask`}
+                  tone="dark"
+                />
+              </div>
+            </div>
+          )}
         </main>
 
         <Footer />

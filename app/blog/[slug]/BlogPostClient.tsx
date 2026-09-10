@@ -22,6 +22,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
+import FaqSection from '@/src/components/FaqSection';
 import { BlogPost, POSTS, SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 
@@ -171,6 +172,14 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
               </section>
             ))}
           </div>
+
+          {/* Six questions this article is asked most, answered inline.
+              Also emits the page's FAQPage schema. */}
+          {post.faqs && post.faqs.length > 0 && (
+            <div className="my-10">
+              <FaqSection items={post.faqs} tone="dark" />
+            </div>
+          )}
 
           {/* Relevant Product Recommendation Callout Box */}
           {relatedProduct && (

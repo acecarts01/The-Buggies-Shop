@@ -139,18 +139,11 @@ export default function HomePage() {
     },
   };
 
-  const jsonLdFaq = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQ.slice(0, 5).map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer,
-      },
-    })),
-  };
+  // No FAQPage schema here on purpose. The homepage shows the first five
+  // FAQ entries, but /faq/ carries the same questions in full and owns the
+  // FAQPage markup. Emitting it from both URLs had two pages claiming an
+  // identical question set, which is a duplicate signal rather than twice
+  // the coverage. The visible FAQ below is unchanged.
 
   return (
     <>
@@ -158,10 +151,6 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdStore) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
 
       {/* Skip to Main Content for Accessibility */}
