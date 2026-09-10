@@ -1,21 +1,35 @@
 import { NextResponse } from 'next/server';
 
+// Markdown negotiation for agents. The matcher carries a `has` condition on
+// the Accept header, so this function is only invoked for requests that even
+// mention text/markdown. Ordinary browser traffic never enters middleware and
+// is served straight from the edge cache — previously every page view paid a
+// function invocation for a feature only agents use.
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|images|fonts|js).*)'],
+  matcher: [
+    {
+      source: '/((?!api|_next/static|_next/image|favicon.ico|images|fonts|js).*)',
+      has: [{ type: 'header', key: 'accept', value: '.*text/markdown.*' }],
+    },
+  ],
 };
+
+const MARKDOWN_ROUTES = new Set(['/', '/shop/', '/about/', '/faq/', '/wholesale/']);
 
 export default function middleware(request) {
   const accept = request.headers.get('accept') || '';
   if (prefersMarkdownOverHtml(accept)) {
-    // If agent explicitly prefers markdown over html
     const url = new URL(request.url);
-    if (url.pathname === '/' || url.pathname === '/shop/' || url.pathname === '/about/' || url.pathname === '/faq/' || url.pathname === '/wholesale/') {
+    if (MARKDOWN_ROUTES.has(url.pathname)) {
       return NextResponse.rewrite(new URL('/llms.txt', request.url));
     }
   }
   return NextResponse.next();
 }
 
+// Never a substring check: a crawler sending `text/html, text/markdown;q=0.9`
+// accepts markdown but prefers HTML, and handing it the stripped extract would
+// cost it the JSON-LD and most of the page.
 function prefersMarkdownOverHtml(accept) {
   let mdQ = -1;
   let htmlQ = -1;
