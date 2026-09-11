@@ -27,7 +27,7 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
-import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, VEHICLE_COLORS } from '@/src/config/site';
+import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, isBuggyItem, VEHICLE_COLORS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -86,6 +86,9 @@ export default function ProductClient({ product }: ProductClientProps) {
   };
 
   const isHighTicket = product.price_aud >= 15000;
+  // Parts and accessories are not vehicles: no colour finishes, and the
+  // powertrain line below reads as nonsense on a charger or a tow hitch.
+  const isVehicle = isBuggyItem(product.category, product.id, product.name);
 
   // Battery Technology Details
   const getBatteryDetails = () => {
@@ -213,11 +216,15 @@ Notes: ${quoteForm.notes || 'None'}`
                   <div className="space-y-3">
                     <div
                       className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#2B2F34]"
-                      style={{ filter: VEHICLE_COLORS[finish].filter }}
+                      style={isVehicle ? { filter: VEHICLE_COLORS[finish].filter } : undefined}
                     >
                       <SmartImage
                         src={product.images?.[activeImage] || product.images?.[0] || ''}
-                        alt={`${product.name} — ${product.fuel_type} golf buggy`}
+                        alt={
+                          isVehicle
+                            ? `${product.name} — ${product.fuel_type} golf buggy`
+                            : `${product.name} — golf buggy ${product.category.toLowerCase()}`
+                        }
                         fill
                         priority
                         className="object-contain p-4 transition-[filter] duration-300"
@@ -253,7 +260,11 @@ Notes: ${quoteForm.notes || 'None'}`
                     )}
 
                     {/* Factory finish selector. The preview is a filter over
-                        the supplied photograph, so it is labelled indicative. */}
+                        the supplied photograph, so it is labelled indicative.
+                        Vehicles only - a battery pack, charger or tow hitch
+                        does not come in Outback Ochre, and offering the choice
+                        on one was just confusing. */}
+                    {isVehicle && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] uppercase tracking-widest font-bold text-[#A8A29E]">
@@ -284,12 +295,15 @@ Notes: ${quoteForm.notes || 'None'}`
                         depot before ordering.
                       </p>
                     </div>
+                    )}
                     <div className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl text-center">
                       <div className="font-serif text-xl font-bold text-[#E2A17A]">
                         {product.name}
                       </div>
                       <div className="text-xs text-[#A8A29E] mt-1 capitalize">
-                        Powertrain Architecture: {product.fuel_type}
+                        {isVehicle
+                          ? `Powertrain Architecture: ${product.fuel_type}`
+                          : product.category}
                       </div>
                     </div>
                   </div>
