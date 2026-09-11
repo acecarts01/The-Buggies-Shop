@@ -166,38 +166,8 @@ export const CRYPTO = {
       address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
     },
   ],
-  // Independent third-party exchanges. The Buggies Express has no commercial
-  // relationship with any of them and earns nothing from these links.
-  portals: [
-    {
-      name: 'CoinSpot',
-      url: 'https://www.coinspot.com.au/',
-      basedIn: 'Australia',
-      rails: 'PayID, Osko, bank transfer, debit and credit card',
-      note: 'AUSTRAC-registered Australian exchange. AUD deposits settle without a currency conversion spread.',
-    },
-    {
-      name: 'Coinbase',
-      url: 'https://www.coinbase.com/',
-      basedIn: 'United States',
-      rails: 'Debit and credit card, bank transfer',
-      note: 'Publicly listed and the most widely used exchange worldwide. Straightforward for a first-time buyer.',
-    },
-    {
-      name: 'Binance',
-      url: 'https://www.binance.com/en-AU/crypto/buy',
-      basedIn: 'Global',
-      rails: 'Debit and credit card, bank transfer',
-      note: 'Largest exchange by trading volume, with deep BTC and USDT liquidity. AUD bank rails have been intermittent for Australian users.',
-    },
-    {
-      name: 'MoonPay',
-      url: 'https://www.moonpay.com/buy',
-      basedIn: 'Global',
-      rails: 'Debit and credit card, Apple Pay, Google Pay',
-      note: 'Card-first on-ramp with no exchange account to open. Convenience fees are higher than an exchange.',
-    },
-  ],
+  // Payment is taken on-site (CryptoCheckout): the three addresses above,
+  // a QR code and a WhatsApp receipt step. No exchange is linked or recommended.
 };
 
 export const FORMS = {

@@ -2,8 +2,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight, Bitcoin, ArrowLeft } from 'lucide-react';
 import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem, PRODUCTS } from '@/src/config/site';
+import CryptoCheckout from './CryptoCheckout';
+
+/** Order reference shown on the crypto invoice and quoted back on WhatsApp. */
+function newOrderRef(): string {
+  const d = new Date();
+  const stamp = `${d.getFullYear().toString().slice(2)}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+  return `BE-${stamp}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+}
 
 export interface CartItem {
   id: string;
@@ -41,8 +49,12 @@ export default function CartDrawer({
   const [buyerPostcode, setBuyerPostcode] = useState('');
   const [submittingOrder, setSubmittingOrder] = useState(false);
   const [orderError, setOrderError] = useState('');
+  // Crypto: after "Pay" the drawer shows the on-site invoice (addresses, QR,
+  // WhatsApp receipt step) instead of leaving the site.
+  const [cryptoStage, setCryptoStage] = useState<'form' | 'pay'>('form');
+  const [orderRef, setOrderRef] = useState('');
 
-  const sendOrderToSalesDesk = async (method: 'whatsapp' | 'invoice') => {
+  const sendOrderToSalesDesk = async (method: 'whatsapp' | 'invoice' | 'crypto', ref?: string) => {
     try {
       await fetch('/api/contact/', {
         method: 'POST',
@@ -65,8 +77,11 @@ export default function CartDrawer({
             price: i.price_aud,
             id: i.id,
           })),
-          message: `NEW ORDER placed via website manifest (${method === 'invoice' ? 'Direct Tax Invoice' : 'WhatsApp Checkout'}).
-Payment Option: ${paymentOption}
+          message: `NEW ORDER placed via website manifest (${
+            method === 'invoice' ? 'Direct Tax Invoice' : method === 'crypto' ? 'On-site Crypto Invoice' : 'WhatsApp Checkout'
+          }).${ref ? `
+Order Ref: ${ref}` : ''}
+Payment Option: ${paymentOption}${method === 'crypto' ? ' (BTC / USDT - buyer confirms with receipt on WhatsApp)' : ''}
 Subtotal: $${rawSubtotal.toLocaleString()} AUD
 Bundle Discount: -$${accessoryDiscount.toLocaleString()} AUD
 Crypto Discount: -$${cryptoDiscount.toLocaleString()} AUD
@@ -105,6 +120,29 @@ ${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).
       window.location.assign('/thank-you-order/');
     } finally {
       setSubmittingOrder(false);
+    }
+  };
+
+  // Crypto "Pay": record the order with the sales desk, then show the invoice.
+  const handleCryptoPay = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!buyerName.trim()) {
+      setOrderError('Please enter your full name.');
+      return;
+    }
+    if (!buyerPhone.trim() && !buyerEmail.trim()) {
+      setOrderError('Please provide either an email or mobile phone number.');
+      return;
+    }
+    setSubmittingOrder(true);
+    setOrderError('');
+    const ref = newOrderRef();
+    setOrderRef(ref);
+    try {
+      await sendOrderToSalesDesk('crypto', ref);
+    } finally {
+      setSubmittingOrder(false);
+      setCryptoStage('pay');
     }
   };
 
@@ -336,8 +374,30 @@ The total above excludes freight. Please confirm stock availability at the Yatal
             )}
           </div>
 
+          {/* Crypto invoice stage: addresses, QR and the WhatsApp receipt step */}
+          {items.length > 0 && paymentOption === 'crypto' && cryptoStage === 'pay' && (
+            <div className="p-4 sm:p-5 border-t border-[#E7E5E4] bg-[#F7F6F2] space-y-3">
+              <button
+                type="button"
+                onClick={() => setCryptoStage('form')}
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#6B645E] hover:text-[#A85640]"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+                Back to order details
+              </button>
+              <CryptoCheckout
+                compact
+                amountAud={finalTotal}
+                orderRef={orderRef}
+                buyerName={buyerName.trim() || undefined}
+                itemLines={items.map((i) => `• ${i.name} x${i.quantity}`)}
+                onConfirm={onClearCart}
+              />
+            </div>
+          )}
+
           {/* Checkout & WhatsApp Order Summary Footer */}
-          {items.length > 0 && (
+          {items.length > 0 && !(paymentOption === 'crypto' && cryptoStage === 'pay') && (
             <div className="p-4 sm:p-5 border-t border-[#E7E5E4] bg-[#F7F6F2] space-y-3">
               {/* Payment Method Selector (Pay-in-4, Standard, Crypto) */}
               <div className="space-y-1.5">
@@ -391,15 +451,19 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 </div>
               </div>
 
-              {/* Crypto: send them somewhere that actually explains how to pay */}
+              {/* Crypto: paid on this page. The addresses and QR appear after Pay. */}
               {paymentOption === 'crypto' && (
-                <Link
-                  href="/crypto-payment/"
-                  className="block bg-white border border-[#C86D51]/30 rounded-xl p-3 hover:border-[#C86D51] transition-all shadow-2xs"
-                >
-                  <div className="font-bold text-[11px] text-[#A85640] mb-0.5">How to pay in BTC or USDT →</div>
-                  <div className="text-[10px] text-[#6B645E] leading-relaxed">Work out what to buy, pick a verified exchange, and keep control of your funds until you release payment.</div>
-                </Link>
+                <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 shadow-2xs">
+                  <div className="font-bold text-[11px] text-[#A85640] mb-0.5 flex items-center gap-1.5">
+                    <Bitcoin className="w-3.5 h-3.5" aria-hidden="true" />
+                    Pay in BTC or USDT on this page
+                  </div>
+                  <div className="text-[10px] text-[#6B645E] leading-relaxed">
+                    Tap <strong>Pay with BTC / USDT</strong> below: you get our Bitcoin, USDT (TRC-20) or USDT (ERC-20) address and
+                    QR code, send from any wallet or exchange, then confirm with the receipt on WhatsApp.{' '}
+                    <Link href="/crypto-payment/" className="underline hover:text-[#A85640]">How it works</Link>
+                  </div>
+                </div>
               )}
 
               {/* Finance in 4 Schedule Breakdown Card */}
@@ -546,23 +610,29 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 </div>
               )}
 
-              {/* Primary Order Action: Submit Tax Invoice Order */}
+              {/* Primary Order Action: invoice order, or the on-site crypto invoice */}
               <button
                 type="button"
-                onClick={handleInvoiceOrderSubmit}
+                onClick={paymentOption === 'crypto' ? handleCryptoPay : handleInvoiceOrderSubmit}
                 disabled={submittingOrder}
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-xs disabled:opacity-50 hover:-translate-y-px duration-200"
                 id="cart-submit-order-btn"
               >
-                <CreditCard className="w-4 h-4" />
+                {paymentOption === 'crypto' ? <Bitcoin className="w-4 h-4" /> : <CreditCard className="w-4 h-4" />}
                 <span>
                   {submittingOrder
                     ? 'Submitting Order...'
+                    : paymentOption === 'crypto'
+                    ? 'Pay with BTC / USDT'
                     : paymentOption === 'finance4'
                     ? 'Place Order with Finance in 4'
                     : 'Place Order & Request Official Invoice'}
                 </span>
               </button>
+              <p className="text-[10px] text-[#6B645E] leading-relaxed text-center">
+                After paying by any method, confirm your order by sending the payment receipt or a screenshot of it to us on
+                WhatsApp.
+              </p>
 
               {/* Secondary Order Action: Confirm Order via WhatsApp */}
               <a

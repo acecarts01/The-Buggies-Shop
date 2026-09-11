@@ -22,6 +22,9 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - JSON-LD builders live in `lib/schema.ts` (one Organization `@id`, referenced everywhere). Serialise with `jsonLd()`.
 - Route metadata goes through `pageMetadata()` / `socialImages()` in `lib/seo.ts` so og:url and og:image are never inherited.
 - `llms.txt` and the sitemap index are routes generated from the config; there is no static file to edit.
+- Metro delivery pages (`/delivery/<city>/`) derive from `src/config/delivery.ts`: delivery-only copy, one depot, no transit promises.
+- Crypto is paid on-site (`CryptoCheckout`: the three `CRYPTO.wallets` addresses, QR, WhatsApp receipt step). Never link out to an
+  exchange. Every payment method ends with the buyer sending the receipt or a screenshot on WhatsApp.
 
 ## Rules
 - Mobile-first responsive layout (380px viewport tested, zero horizontal overflow).

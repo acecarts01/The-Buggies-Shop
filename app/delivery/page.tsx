@@ -3,6 +3,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import { SITE, BRAND, ABN_INFO, CONTACT, SHOP, PRODUCTS } from '@/src/config/site';
+import { DELIVERY_METROS } from '@/src/config/delivery';
 import { socialImages } from '@/lib/seo';
 import { jsonLd, organizationSchema, ORG_ID } from '@/lib/schema';
 import { MapPin, Truck, Globe2, ClipboardCheck, PackageCheck, Route } from 'lucide-react';
@@ -16,9 +17,11 @@ import {
   StaggerItem
 } from '@/src/components/AnimatedText';
 
-const TITLE = 'Golf Carts Gold Coast | Australia-Wide Buggy Delivery';
+// National hub. Each metro has its own page under /delivery/<city>/ that owns
+// the city keywords (e.g. "golf carts gold coast" lives on /delivery/gold-coast/).
+const TITLE = 'Golf Buggy Delivery Australia-Wide | Yatala QLD Depot';
 const DESCRIPTION =
-  'Golf buggies and carts delivered Australia-wide from our Yatala QLD depot in the Brisbane-Gold Coast corridor. Enclosed freight, quoted by location.';
+  'Golf buggies and carts delivered to every Australian state from our Yatala QLD depot. Enclosed freight quoted by postcode, from the Gold Coast to Perth.';
 
 export const metadata = {
   title: TITLE,
@@ -45,16 +48,15 @@ export const metadata = {
   },
 };
 
-// Delivery destinations we genuinely freight to. Sourced from
-// CONTACT.serviceFootprint - do not add a city here that is not in it.
+// Delivery destinations we genuinely freight to. The metros with their own
+// page come from DELIVERY_METROS; Cairns is listed as a destination only.
 const METRO_ROUTES = [
-  { city: 'Gold Coast', note: 'Same-corridor delivery from the Yatala depot.' },
-  { city: 'Brisbane', note: 'Same-corridor delivery from the Yatala depot.' },
-  { city: 'Sydney', note: 'Enclosed interstate freight into NSW.' },
-  { city: 'Melbourne', note: 'Enclosed interstate freight into VIC.' },
-  { city: 'Adelaide', note: 'Enclosed interstate freight into SA.' },
-  { city: 'Perth', note: 'Enclosed cross-country freight into WA.' },
-  { city: 'Cairns', note: 'Regional far-north Queensland freight.' },
+  ...DELIVERY_METROS.map((m) => ({
+    city: m.city,
+    href: `/delivery/${m.slug}/`,
+    note: m.freightMode === 'same-corridor' ? 'Same-corridor delivery from the Yatala depot.' : `Enclosed interstate freight into ${m.stateCode}.`,
+  })),
+  { city: 'Cairns', href: undefined as string | undefined, note: 'Regional far-north Queensland freight.' },
 ];
 
 export default function DeliveryPage() {
@@ -121,7 +123,7 @@ export default function DeliveryPage() {
             {/* Exactly One H1 */}
             <StaggeredHeading
               tag="h1"
-              text="Golf Carts Gold Coast & Australia-Wide Buggy Delivery"
+              text="Golf Buggy Delivery Australia-Wide from Yatala QLD"
               className="text-3xl sm:text-5xl font-serif font-bold text-[#ffffff] leading-tight tracking-tight"
             />
             <StaggeredParagraph delay={0.15} className="text-sm sm:text-base text-[#A8A29E] max-w-2xl mx-auto leading-relaxed">
@@ -141,7 +143,7 @@ export default function DeliveryPage() {
               Yatala sits directly on the M1 between Brisbane and the Gold Coast, which makes South East Queensland our home corridor rather than a freight destination. Gold Coast and Brisbane buyers deal with the same depot that stores, tests, and dispatches the vehicle &mdash; there is no third-party reseller in between, and no interstate transporter leg.
             </StaggeredParagraph>
             <StaggeredParagraph delay={0.2} className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">
-              If you are searching for golf carts on the Gold Coast and want to talk to the people who actually hold the stock, call {CONTACT.phoneDisplay} or use the chat hub. We hold {ABN_INFO.companyName} ABN {ABN_INFO.abnFormatted}, registered at {ABN_INFO.locality}.
+              Gold Coast and Brisbane buyers each have a page of their own: <Link href="/delivery/gold-coast/" className="text-[#E2A17A] underline hover:text-[#EFC7A6]">golf carts for the Gold Coast</Link> and <Link href="/delivery/brisbane/" className="text-[#E2A17A] underline hover:text-[#EFC7A6]">golf carts for sale in QLD and Brisbane</Link>. To talk to the people who hold the stock, call {CONTACT.phoneDisplay} or use the chat hub. We hold {ABN_INFO.companyName} ABN {ABN_INFO.abnFormatted}, registered at {ABN_INFO.locality}.
             </StaggeredParagraph>
           </AnimatedCard>
 
@@ -164,7 +166,13 @@ export default function DeliveryPage() {
                 >
                   <div className="text-[#E2A17A] flex items-center gap-2 font-bold text-sm">
                     <Route className="w-4 h-4 flex-shrink-0" />
-                    <span>{route.city}</span>
+                    {route.href ? (
+                      <Link href={route.href} className="hover:underline">
+                        {route.city} delivery
+                      </Link>
+                    ) : (
+                      <span>{route.city}</span>
+                    )}
                   </div>
                   <p className="text-xs text-[#A8A29E] leading-relaxed">{route.note}</p>
                 </StaggerItem>

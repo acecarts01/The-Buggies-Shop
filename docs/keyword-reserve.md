@@ -67,30 +67,17 @@ Two pages chasing the same term compete with each other and both lose.
 
 | Keyword | Vol | KD |
 |---|---:|---:|
-| golf carts for sale qld | 210 | 5 |
 | golf cart near me for sale | 170 | 7 |
 | golf carts for sale near me | 170 | 7 |
-| golf buggies for sale qld | 110 | 12 |
-| golf buggy for sale qld | 110 | 8 |
-| golf carts for sale gold coast | 110 | 5 |
-| golf buggy for sale sydney | 90 | 2 |
-| golf buggy for sale perth | 90 | 0 |
-| golf buggy for sale gold coast | 90 | 5 |
 | golf cart for sale near me | 90 | 7 |
 | golf carts near me | 90 | 46 |
 | golf cart repairs near me | 90 | 5 |
-| golf buggies for sale sydney | 70 | 12 |
-| golf buggies for sale brisbane | 70 | 7 |
 | golf buggy repairs near me | 70 | 4 |
 | golf cart sales near me | 70 | 19 |
 | golf cart for sale qld | 50 | 4 |
 | golf buggies for sale near me | 50 | 10 |
 | mgi golf buggy repairs near me | 50 | 12 |
-| electric golf buggy for sale perth | 50 | 7 |
-| golf cart for sale melbourne | 50 | 5 |
 | golf cart tyres near me | 50 | — |
-| golf buggies for sale melbourne | 40 | 14 |
-| golf buggy for sale melbourne | 40 | 11 |
 | golf cart for sale brisbane | 40 | 13 |
 | *…and 237 more* | | |
 
@@ -237,13 +224,11 @@ Two pages chasing the same term compete with each other and both lose.
 | petrol golf buggy for sale near me | 20 | — |
 | petrol golf buggy for sale queensland | 20 | — |
 | petrol golf cart for sale qld | 20 | — |
-| petrol golf cart for sale south australia | 20 | — |
 | petrol golf carts for sale brisbane | 20 | — |
 | petrol golf carts for sale near me | 20 | — |
 | petrol golf carts for sale nsw | 20 | — |
 | petrol golf carts for sale qld | 20 | — |
 | petrol golf carts for sale queensland | 20 | — |
-| petrol golf carts for sale sydney | 20 | — |
 | petrol golf carts for sale australia | 20 | — |
 | ezgo petrol golf cart for sale | 20 | — |
 | golf cart engine for sale | 20 | — |
@@ -472,7 +457,6 @@ Reserved for junior product pages. `junior golf carts for sale` is assigned to
 |---|---:|---:|
 | golf buggy battery | 260 | 6 |
 | golf buggy batteries | 210 | 6 |
-| golf cart batteries brisbane | 210 | 6 |
 | battery golf buggy | 140 | 26 |
 | golf buggy battery replacement | 90 | 3 |
 | golf buggy batteries melbourne | 40 | — |
@@ -532,28 +516,13 @@ Reserved for junior product pages. `junior golf carts for sale` is assigned to
 
 | Keyword | Vol | KD |
 |---|---:|---:|
-| golf carts gold coast | 210 | 6 |
-| golf buggies gold coast | 110 | 5 |
-| golf buggy gold coast | 110 | 4 |
-| golf carts melbourne australia | 90 | 41 |
-| golf buggies adelaide | 70 | 5 |
-| golf buggies perth | 50 | 18 |
-| golf cars adelaide | 50 | 6 |
 | golf carts qld | 40 | — |
 | electric golf carts melbourne | 30 | — |
-| electric golf buggies adelaide | 30 | — |
 | electric golf buggies brisbane | 30 | — |
-| electric golf buggies melbourne | 30 | — |
-| electric golf buggies perth | 30 | — |
-| electric golf buggies sydney | 30 | — |
-| golf buggies sydney | 30 | — |
 | golf buggy repairs sydney | 30 | — |
 | augusta golf carts melbourne | 30 | — |
-| golf cart perth | 30 | — |
 | golf cart world perth | 30 | — |
-| electric golf carts adelaide | 20 | — |
 | electric golf carts brisbane | 20 | — |
-| electric golf carts perth | 20 | — |
 | golf buggy repairs perth | 20 | 10 |
 | electric golf buggies perth wa | 20 | — |
 | electric golf buggy brisbane | 20 | — |
@@ -915,24 +884,15 @@ Reserved for junior product pages. `junior golf buggy australia` is assigned to
 
 | Keyword | Vol | KD |
 |---|---:|---:|
-| qld golf carts | 90 | 10 |
-| gold coast golf carts | 70 | 9 |
-| yamaha golf carts melbourne | 70 | 10 |
-| north brisbane golf carts | 70 | 8 |
 | yamaha golf cars melbourne | 50 | 19 |
-| yamaha golf carts perth | 40 | — |
 | mgi golf buggy repairs perth | 20 | — |
 | club car golf carts melbourne | 20 | — |
 | ezgo golf carts melbourne | 20 | — |
 | brisbane yamaha golf carts | 20 | — |
 | yamaha golf cars of melbourne braeside vic | 20 | — |
-| yamaha golf carts adelaide | 20 | — |
 | yamaha golf carts geelong | 20 | — |
-| yamaha golf carts gold coast | 20 | — |
-| yamaha golf carts nsw | 20 | — |
 | yamaha golf carts queensland | 20 | — |
 | yamaha golf carts sunshine coast | 20 | — |
-| yamaha golf carts sydney | 20 | — |
 | yamaha golf carts townsville | 10 | — |
 
 ### used (31 kw, 440/mo)
@@ -1237,7 +1197,6 @@ Reserved for junior product pages. `junior golf buggy australia` is assigned to
 | Keyword | Vol | KD |
 |---|---:|---:|
 | yamaha golf cars of melbourne | 90 | 14 |
-| melbourne golf cars | 70 | 11 |
 | golf buggy repairs brisbane | 20 | 3 |
 | where can i buy a golf cart near me | 20 | — |
 

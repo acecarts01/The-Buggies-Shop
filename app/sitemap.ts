@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SITE, PRODUCTS, CATEGORIES, BRAND_PAGES, CONTENT_UPDATED } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
+import { DELIVERY_METROS } from '@/src/config/delivery';
 
 // Split sitemaps, served at /sitemap/<id>.xml and indexed by
 // app/sitemap.xml/route.ts (which robots.txt and Search Console point at).
@@ -55,6 +56,12 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
           lastModified: catalogDate,
           changeFrequency: 'weekly' as const,
           priority: 0.8,
+        })),
+        ...DELIVERY_METROS.map((m) => ({
+          url: `${base}/delivery/${m.slug}/`,
+          lastModified: pagesDate,
+          changeFrequency: 'monthly' as const,
+          priority: 0.75,
         })),
       ];
 

@@ -10,6 +10,7 @@ import {
   FAQ,
 } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
+import { DELIVERY_METROS } from '@/src/config/delivery';
 
 // /llms.txt, generated from the config at build time (llmstxt.org format:
 // H1, blockquote summary, prose, then H2 sections of markdown links).
@@ -79,7 +80,8 @@ export function GET() {
     `## Services`,
     ``,
     `- [Delivery Australia-wide](${base}/delivery/): enclosed freight quoted per postcode from Yatala QLD; no free-freight threshold`,
-    `- [Crypto payment](${base}/crypto-payment/): ${SHOP.cryptoDiscount}% off the vehicle price when settled in BTC or USDT`,
+    ...DELIVERY_METROS.map((m) => `- [Delivery to ${m.city}](${base}/delivery/${m.slug}/): ${m.freightMode === 'same-corridor' ? 'same-corridor delivery' : 'enclosed interstate freight'}, about ${m.roadKm.toLocaleString('en-AU')} km from the depot`),
+    `- [Crypto payment](${base}/crypto-payment/): ${SHOP.cryptoDiscount}% off the vehicle price when paid in BTC or USDT on the site (address and QR at checkout); every order is confirmed by sending the payment receipt on WhatsApp`,
     `- [Wholesale & fleet](${base}/wholesale/): golf clubs, resorts, farms and estates`,
     `- [Contact & demonstrations](${base}/contact/): complimentary on-farm trial for vehicles of $15,000 AUD or more`,
     `- [About the depot](${base}/about/): Yatala QLD workshop, warranty, servicing and custom builds`,

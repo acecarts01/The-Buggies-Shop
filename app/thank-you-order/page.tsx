@@ -41,7 +41,12 @@ export default function ThankYouOrderPage() {
             <ol className="list-decimal list-inside space-y-1 text-[#E7E5E4] text-[11px] leading-relaxed">
               <li>Our dispatch director verifies exact vehicle stock at Yatala.</li>
               <li>Enclosed freight quote confirmed to your delivery address.</li>
-              <li>Official invoice issued with direct EFT PayID or BTC/USDT discount.</li>
+              <li>Official invoice issued with PayID / EFT details, the Finance in 4 plan, or the BTC/USDT discount.</li>
+              <li>
+                <strong className="text-[#E2A17A]">Once you have paid, confirm your order on WhatsApp</strong> by sending the
+                payment receipt or a screenshot of it. That applies to every payment method - bank transfer, PayID, Finance in 4
+                and crypto.
+              </li>
             </ol>
           </div>
 
@@ -55,14 +60,14 @@ export default function ThankYouOrderPage() {
             </Link>
             <a
               href={`https://wa.me/61480804189?text=${encodeURIComponent(
-                'Hello The Buggies Express, I have submitted an order manifest online and would like to confirm invoice details.'
+                'Hello The Buggies Express, I have submitted an order online. My payment receipt / screenshot is attached below - please confirm my order.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 py-3 bg-[#25D366] text-[#121417] text-xs font-extrabold rounded-lg hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-1.5 shadow"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Confirm on WhatsApp</span>
+              <span>Send payment receipt on WhatsApp</span>
             </a>
           </div>
         </div>

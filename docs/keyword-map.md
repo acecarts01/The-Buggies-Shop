@@ -382,3 +382,20 @@ it wastes seven chances to place cluster keywords.
    systematically under-sampled by keyword tools.
 6. **Head terms.** `golf cart` (KD 39) and the electric commercial variants
    (KD 27–41) are a long hold — maintain, do not chase.
+
+---
+
+## 9. Metro delivery pages — `/delivery/<city>/` (added 2026-09-11)
+
+Delivery pages, not local-presence pages: one depot at Yatala QLD, freight quoted per postcode, no transit promises. `/delivery/` is now the national hub; the Gold Coast cluster it used to carry moved to its own page. Source: `src/config/delivery.ts`.
+
+| Page | Primary (vol/KD) | Supporting (vol/KD) |
+|---|---|---|
+| `/delivery/gold-coast/` | golf carts gold coast (210/6) | golf carts for sale gold coast (110/5), golf buggy gold coast (110/4), golf buggies gold coast (110/5), golf buggy for sale gold coast (90/5), gold coast golf carts (70/9), yamaha golf carts gold coast (20) |
+| `/delivery/brisbane/` | golf carts for sale qld (210/5) | golf buggy for sale qld (110/8), golf buggies for sale qld (110/12), qld golf carts (90/10), golf buggies for sale brisbane (70/7), north brisbane golf carts (70/8), golf cart batteries brisbane (210/6) |
+| `/delivery/sydney/` | golf buggy for sale sydney (90/2) | golf buggies for sale sydney (70/12), golf buggies sydney (30), electric golf buggies sydney (30), yamaha golf carts sydney (20), petrol golf carts for sale sydney (20), yamaha golf carts nsw (20) |
+| `/delivery/melbourne/` | golf cart for sale melbourne (50/5) | golf carts melbourne australia (90/41), golf buggy for sale melbourne (40/11), golf buggies for sale melbourne (40/14), melbourne golf cars (70/11), yamaha golf carts melbourne (70/10), electric golf buggies melbourne (30) |
+| `/delivery/adelaide/` | golf buggies adelaide (70/5) | golf cars adelaide (50/6), electric golf buggies adelaide (30), electric golf carts adelaide (20), yamaha golf carts adelaide (20), petrol golf cart for sale south australia (20) |
+| `/delivery/perth/` | golf buggy for sale perth (90/0) | golf buggies perth (50/18), electric golf buggy for sale perth (50/7), golf cart perth (30), electric golf buggies perth (30), electric golf carts perth (20), yamaha golf carts perth (40) |
+
+Left in the reserve on purpose: every `second hand` / `used` / `under $5000` city term (no pre-owned stock is listed), and every `repairs <city>` term (the only workshop is Yatala; claiming repairs in Perth or Sydney would be a fabricated presence).

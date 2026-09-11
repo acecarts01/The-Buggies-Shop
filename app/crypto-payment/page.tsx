@@ -8,7 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
   title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
-  description: `Settle your golf buggy in BTC or USDT and take ${CRYPTO.discountPercent}% off the vehicle price. Pick a verified exchange and keep control of funds until you release.`,
+  description: `Pay for your golf buggy in BTC or USDT on this site and take ${CRYPTO.discountPercent}% off the vehicle price. Address and QR at checkout; confirm with your receipt on WhatsApp.`,
   path: '/crypto-payment/',
 });
 
@@ -24,20 +24,20 @@ export default function CryptoPaymentPage() {
       {
         '@type': 'HowToStep',
         position: 1,
-        name: 'Work out the amount',
-        text: `Choose your buggy or enter a quoted vehicle price. The page applies the ${CRYPTO.discountPercent}% crypto settlement discount and shows the AUD amount to buy.`,
+        name: 'Add the buggy to your cart and choose Crypto',
+        text: `The ${CRYPTO.discountPercent}% crypto settlement discount comes off the vehicle price automatically; accessories and freight stay at full rate.`,
       },
       {
         '@type': 'HowToStep',
         position: 2,
-        name: 'Buy the crypto',
-        text: 'Buy that amount of BTC or USDT with a bank card or bank transfer through an independent exchange.',
+        name: 'Tap Pay with BTC / USDT',
+        text: 'The cart shows the Bitcoin, USDT (TRC-20) or USDT (ERC-20) settlement address with a QR code and your order reference. Send the AUD-equivalent from any wallet or exchange you already use.',
       },
       {
         '@type': 'HowToStep',
         position: 3,
-        name: 'Choose where the coins land',
-        text: 'Have the exchange deliver to a wallet you control and release payment yourself, or send straight to the settlement address issued for your order.',
+        name: 'Confirm on WhatsApp with your receipt',
+        text: 'Send a screenshot of the payment receipt or the transaction ID on WhatsApp. The sales desk matches it on-chain, issues the tax invoice and quotes freight to your postcode.',
       },
     ],
   };
@@ -61,10 +61,10 @@ export default function CryptoPaymentPage() {
             <p className="text-sm sm:text-base text-[#6B645E] leading-relaxed max-w-2xl">
               Card and bank settlement carry interchange and international wire costs we
               would otherwise pass on. Paying in crypto avoids them, so we hand that
-              saving back as {CRYPTO.discountPercent}% off the vehicle price. Below you
-              can work out exactly what to buy, buy it through an exchange of your
-              choosing, and decide whether the coins reach us directly or pass through
-              your own wallet first.
+              saving back as {CRYPTO.discountPercent}% off the vehicle price. You pay
+              on this website: the cart&rsquo;s Pay button shows our Bitcoin or USDT
+              address and a QR code, you send from whichever wallet or exchange you
+              already use, then confirm with your receipt on WhatsApp.
             </p>
           </header>
 
