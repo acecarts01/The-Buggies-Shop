@@ -23,7 +23,7 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import FaqSection from '@/src/components/FaqSection';
-import { BlogPost, POSTS, SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import { BlogPost, POSTS, SITE, ABN_INFO, CONTACT, PRODUCTS, CATEGORIES } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 
 interface BlogPostClientProps {
@@ -36,9 +36,21 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
   const [cartItems, setCartItems] = useCart();
 
   const relatedPosts = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
-  const relatedProduct = post.relatedProductSlug
-    ? PRODUCTS.find((p) => p.slug === post.relatedProductSlug)
-    : PRODUCTS[0];
+  // A guide for a range that is not stocked yet points at the coming-soon
+  // category instead of a product: the product callout would otherwise fall
+  // back to PRODUCTS[0] and label it "mentioned in guide" when it is not.
+  const comingSoonCategory = post.relatedProductCategory
+    ? CATEGORIES.find(
+        (c) =>
+          c.comingSoon &&
+          (c.slug === post.relatedProductCategory || c.rawCategory === post.relatedProductCategory)
+      )
+    : undefined;
+  const relatedProduct = comingSoonCategory
+    ? undefined
+    : post.relatedProductSlug
+      ? PRODUCTS.find((p) => p.slug === post.relatedProductSlug)
+      : PRODUCTS[0];
 
   const handleShare = () => {
     if (typeof window !== 'undefined') {
@@ -178,6 +190,40 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
           {post.faqs && post.faqs.length > 0 && (
             <div className="my-10">
               <FaqSection items={post.faqs} tone="dark" />
+            </div>
+          )}
+
+          {/* Coming-soon range: register interest instead of a product */}
+          {comingSoonCategory && (
+            <div className="my-10 p-6 bg-gradient-to-r from-[#1A1D21] to-[#0A0B0D] border border-[#E2A17A]/40 rounded-2xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#E2A17A] bg-[#121417] px-2.5 py-1 rounded border border-[#2B2F34]">
+                  Coming Soon
+                </span>
+                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#ffffff]">
+                  {comingSoonCategory.name}
+                </h3>
+                <p className="text-xs text-[#A8A29E] max-w-xl">
+                  This range is being finalised and nothing in it is listed for sale yet. Leave your
+                  details on the category page and we will email you the day the models, photos and
+                  pricing go live.
+                </p>
+              </div>
+
+              <div className="flex sm:flex-col gap-2 shrink-0 w-full sm:w-auto">
+                <Link
+                  href={`/shop/${comingSoonCategory.slug}/`}
+                  className="w-full text-center px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C86D51] to-[#E2A17A] text-[#121417] font-bold text-xs shadow hover:from-[#E2A17A] hover:to-[#EFC7A6] transition-all"
+                >
+                  Register Interest
+                </Link>
+                <Link
+                  href="/shop/"
+                  className="w-full text-center px-5 py-2 rounded-lg bg-[#121417] border border-[#2B2F34] text-xs font-medium text-[#ffffff] hover:border-[#E2A17A] transition-colors"
+                >
+                  Browse Current Range
+                </Link>
+              </div>
             </div>
           )}
 

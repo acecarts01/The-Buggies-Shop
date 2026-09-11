@@ -96,6 +96,11 @@ export default function Footer() {
                   className="text-[#6B645E] hover:text-[#A85640] transition-colors"
                 >
                   {cat.name}
+                  {cat.comingSoon && (
+                    <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider text-[#A85640]">
+                      Coming soon
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}

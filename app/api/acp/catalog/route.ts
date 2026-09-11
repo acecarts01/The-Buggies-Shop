@@ -10,6 +10,9 @@ export async function GET() {
         slug: c.slug,
         name: c.name,
         url: `https://${SITE.domain}/shop/${c.slug}/`,
+        // Empty product list by design, not a stock-out: nothing in the
+        // range is listed or purchasable yet.
+        ...(c.comingSoon ? { comingSoon: true } : {}),
         products: PRODUCTS.filter((p) => (c.rawCategory ? p.category === c.rawCategory : true)).map((p) => ({
           id: p.id,
           slug: p.slug,

@@ -25,10 +25,16 @@ export async function generateMetadata({ params }: PageProps) {
     cat.metaDescription ??
     `Shop our ${cat.name} range in Australia. Tested at our Yatala QLD depot. Direct ABN 28 668 598 758 guarantee with enclosed freight.`;
   const canonical = `https://${SITE.domain}/shop/${cat.slug}/`;
+  // The category's assigned terms (docs/keyword-map.md), declared where
+  // machines read them rather than repeated through the copy.
+  const keywords = cat.primaryKeyword
+    ? [cat.primaryKeyword, ...(cat.supportingKeywords ?? [])]
+    : undefined;
 
   return {
     title,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: 'website' },
     twitter: { card: 'summary_large_image', title, description },

@@ -406,7 +406,10 @@ Notes: ${quoteForm.notes || 'None'}`
 
           {/* Category Chips Scroller */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
-            {CATEGORIES.map((category) => {
+            {/* A coming-soon category has no products, so a filter chip for
+                it can only ever show "no models match". It still has a page
+                (linked from the header and footer); it just is not a filter. */}
+            {CATEGORIES.filter((c) => !c.comingSoon).map((category) => {
               const active = selectedCategory === category.slug;
               return (
                 <button

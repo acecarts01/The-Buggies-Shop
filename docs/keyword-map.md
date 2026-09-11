@@ -143,8 +143,34 @@ Support posts already published (all should link up to the category):
 - `/blog/best-golf-trolley-australia-push-motorized-remote-comparison`
 - `/blog/motorised-vs-push-golf-buggy-health-stamina-benefits`
 
-> `junior golf buggy` (110/mo) has **no matching product**. Do not write copy
-> targeting it until a junior model is genuinely stocked — see gap **G4**.
+> `junior golf buggy` (110/mo) is listed here for scale only. It is assigned to
+> `/shop/junior-golf-buggies` (below), not to this page, and no walk-behind
+> model may be described as junior — see gap **G4**.
+
+### `/shop/junior-golf-buggies` — coming-soon category (no products yet)
+
+| Keyword | Vol | KD | Intent |
+|---|---:|---:|---|
+| junior golf buggy | 110 | 11 | Commercial |
+| kids golf buggy | 110 | 7 | Commercial |
+| kids golf cart | 90 | 24 | Commercial |
+| childrens golf buggy | 40 | 10 | Commercial |
+| junior golf buggy australia | 20 | — | Commercial |
+| junior golf carts for sale | 20 | — | Transactional |
+| junior golf buggies | 20 | — | Commercial |
+
+**Cluster: 410/mo** across 7 keywords.
+
+Owner-initiated on 2026-09-11 ("stay connected, coming to you soon"). The
+page carries `comingSoon: true` in `CATEGORIES`: CategoryClient swaps the
+catalogue for a register-interest form, the filter chip is hidden, and the
+header/footer links carry a "Coming soon" tag. Intro, four sections and six
+FAQs target the cluster **without stating a date, price, model or
+specification** — none is final, and inventing one breaks the
+no-fabricated-facts rule. `junior golf buggy` moved here from the guide;
+the guide now leads on `junior golf trolley` and links up to this page.
+
+Support post: `/blog/junior-golf-buggy-australia-guide`.
 
 ### `/shop/batteries-chargers` and `/shop/accessories-spare-parts`
 
@@ -316,22 +342,20 @@ cannot drift from the catalogue. The old category page points at
 `/shop/accessories-spare-parts/`, which inherited its title and 16 of its 26
 products.
 
-### G4. `junior golf buggy` — 110/mo, KD 11 — HELD, owner-initiated
+### G4. `junior golf buggy` — 110/mo, KD 11 — coming-soon category (owner-initiated)
 
-Real demand, no stock to answer it. The cluster is parked, not abandoned:
+Real demand, no stock yet. Held until 2026-09-11, when the owner asked for a
+coming-soon category page carrying the cluster and FAQs while the products
+and photos are awaited:
 
-- `junior golf buggy` plus six supporting terms are assigned to the editorial
-  guide `/blog/junior-golf-buggy-australia-guide/`. A buying guide can answer
-  the search honestly without claiming stock, so the demand is captured and
-  the term is not left to a competitor.
-- Six further junior terms (~100/mo) stay in `docs/keyword-reserve.md`,
-  reserved for the product and category pages if a junior model is carried.
-- No product, no category, and no copy anywhere implies a junior model is for
-  sale. The warning in the walk-behind category comment stands.
-
-**Do not build this out proactively.** The owner has said they will raise the
-junior range when they are ready and we will add it together. Until then the
-holding pattern above is the intended state, not an omission to fix.
+- `/shop/junior-golf-buggies/` is live as a register-interest page (section
+  4 above). It takes `junior golf buggy` and six supporting terms.
+- `/blog/junior-golf-buggy-australia-guide/` keeps the trolley-phrased terms
+  (`junior golf trolley` primary) and links up to the category page.
+- Four junior terms remain in `docs/keyword-reserve.md` for the product pages
+  when models are added.
+- No page states a launch date, price, model or specification. When stock
+  lands: remove `comingSoon`, add the products, and reassign the reserve.
 
 ### G5. Category meta descriptions are templated
 

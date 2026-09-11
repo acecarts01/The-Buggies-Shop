@@ -449,8 +449,9 @@ export const CATEGORIES = [
     // products actually in this category. Note: the range is entirely MOTORISED
     // - there are no manual push trolleys in stock, so push buggies are only
     // ever discussed editorially and linked to the guides, never implied to be
-    // for sale. Do not add "junior golf buggy" copy either: real demand, no
-    // matching product.
+    // for sale. Do not add "junior golf buggy" copy either: that cluster lives
+    // on the coming-soon /shop/junior-golf-buggies/ page, and nothing here is
+    // a junior model.
     intro:
       'Electric golf trolleys and motorised walk-behind buggies for Australian golfers who prefer to walk the course. Six lithium models from $1,299 to $2,849 AUD, including full remote control and hands-free follow, tested and dispatched from our Yatala QLD depot.',
     sections: [
@@ -559,6 +560,86 @@ export const CATEGORIES = [
       { slug: 'electric-golf-buggy-troubleshooting-and-replacement-parts', label: 'Troubleshooting and replacement parts' },
       { slug: 'mgi-golf-buggy-accessories-guide-australia', label: 'MGI accessories and spares guide' },
       { slug: 'golf-buggy-seat-covers-and-upholstery-australia', label: 'Seat covers and upholstery' },
+    ],
+  },
+  {
+    slug: 'junior-golf-buggies',
+    name: 'Junior Golf Buggies',
+    rawCategory: 'Junior Golf Buggies',
+    count: 0,
+    // No products yet. The page exists so the junior cluster has a home
+    // that starts earning before stock lands, and so interest can be
+    // registered. CategoryClient swaps the catalogue for a register-interest
+    // block; CatalogInterface hides the filter chip (a chip with zero
+    // results is a dead end). Remove the flag - and add real products - when
+    // the owner confirms the range. NOTHING here may state a date, price,
+    // model or specification: none is final, and inventing one breaks the
+    // no-fabricated-facts rule.
+    comingSoon: true,
+    metaTitle: 'Junior & Kids Golf Buggies — Coming Soon | Buggies Express',
+    metaDescription:
+      'Junior and kids golf buggies are coming to The Buggies Express. Register your interest and we will email you the day the range, photos and pricing go live.',
+    h1: 'Junior Golf Buggies in Australia — Coming Soon',
+    primaryKeyword: 'junior golf buggy',
+    supportingKeywords: [
+      'kids golf buggy',
+      'kids golf cart',
+      'childrens golf buggy',
+      'junior golf buggy australia',
+      'junior golf carts for sale',
+      'junior golf buggies',
+    ],
+    intro:
+      'A junior golf buggy range sized for younger golfers is on its way. We are finalising the models now, and until the buggies, photos and pricing are confirmed nothing on this page is for sale. Register your interest below and you will hear from us the day it lands, dispatched as always from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What Makes a Golf Buggy Junior-Sized',
+        body: 'A kids golf buggy is not simply a smaller adult one. The details that matter are a handle or seat height a younger golfer can use without reaching, a frame light enough for them to load themselves, and controls that are simple and predictable. Those are the criteria we are holding the range to, and we will publish the exact specification for every model rather than describe it loosely.',
+      },
+      {
+        heading: 'What We Will and Will Not Say Yet',
+        body: 'We have not announced a launch date, a price or a model list, because none of them is final. Every product on this site carries specifications we have checked at our Yatala QLD depot, and the junior range will be no different. When the buggies arrive you will see photographs of the actual units, GST-inclusive pricing and a full specification for each - not a rendering and a promise.',
+      },
+      {
+        heading: 'In the Meantime: Our Current Range',
+        body: 'Our walk-behind electric trolleys are built for adult golfers, so we will not claim any of them is a junior model. Whether one suits a taller teenager comes down to handle height and bag weight, and that is a conversation worth having with us rather than a guess. The junior buying guide below covers what to measure before you decide.',
+      },
+      {
+        heading: 'Register Your Interest',
+        body: 'Leave your name, email and postcode and we will let you know as soon as the range is live. Like everything we sell, junior golf buggies will ship Australia-wide in enclosed freight, with the cost quoted against your delivery postcode rather than added later.',
+      },
+    ],
+    guides: [
+      { slug: 'junior-golf-buggy-australia-guide', label: 'Junior golf buggy guide: sizing, safety and what to look for' },
+      { slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight', label: 'Foldable buggies: boot space and weight' },
+      { slug: 'motorised-vs-push-golf-buggy-health-stamina-benefits', label: 'Motorised vs push: what it changes for a round' },
+      { slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review', label: 'Three-wheel vs four-wheel push buggies' },
+    ],
+    faqs: [
+      {
+        q: 'When will the junior golf buggies be available?',
+        a: 'We have not set a date, and we will not guess at one. The range is being finalised now. Register your interest on this page and we will email you as soon as the junior golf buggies, their photos and their pricing are live.',
+      },
+      {
+        q: 'What is a junior golf buggy?',
+        a: 'A golf buggy sized for a younger golfer: a lower handle or seat height they can use comfortably, a lighter frame they can load into a car themselves, and simple controls. A kids golf buggy that is just a shrunken adult model usually gets the handle height wrong, and that is the dimension that matters most.',
+      },
+      {
+        q: 'Will you publish prices and specifications before launch?',
+        a: 'No - only once they are final. Every product on this site carries specifications checked at our Yatala QLD depot and a GST-inclusive price, and the junior range will be listed the same way rather than with estimates.',
+      },
+      {
+        q: 'Can a junior use one of your current electric golf trolleys?',
+        a: 'Our walk-behind range is built for adult golfers, so we will not describe any of it as a junior model. Whether one suits a taller teenager depends on handle height and bag weight. Call or message us with their height and the bag they use and we will give you a straight answer.',
+      },
+      {
+        q: 'Will junior golf buggies be delivered Australia-wide?',
+        a: 'Yes. Junior golf buggies will ship the same way as everything else we sell: enclosed freight to every state and territory from Yatala QLD, with the freight cost quoted against your delivery postcode rather than added as a surprise later.',
+      },
+      {
+        q: 'How do I register my interest in the junior range?',
+        a: 'Use the form on this page with your name, email and postcode. You can also email or WhatsApp us using the contact details in the footer. We will contact you once the junior golf buggies are available to order.',
+      },
     ],
   },
 ];
@@ -7700,20 +7781,20 @@ export const POSTS: BlogPost[] = [
     },
     image: "https://picsum.photos/seed/juniorgolfbuggy/800/600",
     tags: ["Junior Golf", "Youth", "Buying Guide", "Safety"],
-    primaryKeyword: "junior golf buggy",
+    primaryKeyword: "junior golf trolley",
     supportingKeywords: [
-      "junior golf buggies",
-      "kids golf buggy",
       "youth golf trolley",
       "junior golf trolley australia",
       "golf buggy for juniors",
       "small golf buggy australia",
+      "3 wheel junior golf trolley",
+      "golf trolley junior",
     ],
     keyTakeaways: [
       "Handle height, not overall size, is what makes a trolley usable for a junior.",
       "A junior bag is lighter, so a smaller battery is genuinely sufficient rather than a compromise.",
       "Weight matters twice over: the junior may be loading it into a car themselves.",
-      "We do not currently stock a dedicated junior model, and we will say so rather than sell around it.",
+      "We do not currently stock a dedicated junior model, and we will say so rather than sell around it - a junior range is coming, and you can register interest on the category page.",
     ],
     content: [
       {
@@ -7734,13 +7815,13 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: "What We Currently Stock",
-        body: "We do not currently hold a dedicated junior model, and we would rather say that plainly than sell you an adult trolley described as suitable. What we can do is check the handle adjustment range on the models we do stock against your junior's height, since the entry-level MGI Zip X1 with its simple speed dial and light battery suits some older juniors well. We are expanding the range, so if a junior-specific model is what you need, tell us and we will let you know when it lands.",
+        body: "We do not currently hold a dedicated junior model, and we would rather say that plainly than sell you an adult trolley described as suitable. What we can do is check the handle adjustment range on the models we do stock against your junior's height, since the entry-level MGI Zip X1 with its simple speed dial and light battery suits some older juniors well. A dedicated junior golf buggy range is coming: the models are being finalised now and nothing is listed until the photos, specifications and GST-inclusive pricing are confirmed. If a junior-specific model is what you need, register your interest on the junior golf buggies page and we will email you the day it lands.",
       },
     ],
     faqs: [
       {
         q: "Do you sell junior golf buggies in Australia?",
-        a: "We do not currently hold a dedicated junior model and we would rather say so than sell an adult trolley described as suitable. We are expanding the range. Meanwhile we can check the handle adjustment on stocked models against your junior's height, since some suit older juniors well.",
+        a: "We do not currently hold a dedicated junior model and we would rather say so than sell an adult trolley described as suitable. A dedicated junior range is coming and you can register your interest on the junior golf buggies category page; no date, price or model is published until it is final. Meanwhile we can check the handle adjustment on stocked models against your junior's height, since some suit older juniors well.",
       },
       {
         q: "What size golf buggy does a junior need?",
@@ -7763,7 +7844,7 @@ export const POSTS: BlogPost[] = [
         a: "A parking brake that genuinely holds on a slope, because a trolley rolling away while they play a shot is the most common incident with young users. And a variable speed control set conservatively rather than a fixed speed, so they build confidence without the trolley outpacing them.",
       },
     ],
-    relatedProductCategory: "Motorised Walk-Behind Golf Buggies",
+    relatedProductCategory: "junior-golf-buggies",
   },
   {
     slug: "how-much-does-a-golf-cart-cost-australia",

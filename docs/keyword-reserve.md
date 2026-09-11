@@ -358,11 +358,13 @@ Two pages chasing the same term compete with each other and both lose.
 | golf cart insurance australia cost | 20 | — |
 | buy street-legal golf carts in australia | 10 | — |
 
-### junior (2 kw, 30/mo)
+### junior (1 kw, 10/mo)
+
+Reserved for junior product pages. `junior golf carts for sale` is assigned to
+`/shop/junior-golf-buggies/` (coming soon).
 
 | Keyword | Vol | KD |
 |---|---:|---:|
-| junior golf carts for sale | 20 | — |
 | junior golf buggy for sale | 10 | — |
 
 ---
@@ -737,12 +739,14 @@ Two pages chasing the same term compete with each other and both lose.
 | golf cart utility | 10 | — |
 | *…and 10 more* | | |
 
-### junior (4 kw, 70/mo)
+### junior (3 kw, 50/mo)
+
+Reserved for junior product pages. `junior golf buggy australia` is assigned to
+`/shop/junior-golf-buggies/` (coming soon).
 
 | Keyword | Vol | KD |
 |---|---:|---:|
 | brosnan junior golf buggy | 20 | — |
-| junior golf buggy australia | 20 | — |
 | junior golf cart | 20 | — |
 | youth golf cart | 10 | — |
 

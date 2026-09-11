@@ -142,6 +142,9 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                     onClick={() => setShopDropdownOpen(false)}
                   >
                     {cat.name}
+                    {cat.comingSoon && (
+                      <span className="ml-1.5 text-[9px] font-bold uppercase tracking-wider text-[#A85640]">Coming soon</span>
+                    )}
                   </Link>
                 ))}
 
@@ -289,6 +292,9 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {c.name}
+                    {c.comingSoon && (
+                      <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider text-[#A85640]">Coming soon</span>
+                    )}
                   </Link>
                 ))}
               </div>

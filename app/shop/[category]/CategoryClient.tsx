@@ -6,6 +6,8 @@ import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
+import RegisterInterest from '@/src/components/RegisterInterest';
+import FaqSection from '@/src/components/FaqSection';
 import { SITE, CATEGORIES, ProductItem } from '@/src/config/site';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
@@ -24,6 +26,7 @@ interface CategoryClientProps {
 // this component.
 const NO_SECTIONS: ReadonlyArray<{ heading: string; body: string }> = [];
 const NO_GUIDES: ReadonlyArray<{ slug: string; label: string }> = [];
+const NO_FAQS: ReadonlyArray<{ q: string; a: string }> = [];
 
 export default function CategoryClient({ categorySlug, categoryName }: CategoryClientProps) {
   const [cartItems, setCartItems] = useCart();
@@ -86,6 +89,10 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
   const intro = cat?.intro;
   const sections = cat?.sections ?? NO_SECTIONS;
   const guides = cat?.guides ?? NO_GUIDES;
+  const faqs = cat?.faqs ?? NO_FAQS;
+  // A category with no stock yet shows a register-interest block where the
+  // catalogue would be, rather than an empty grid and "no models match".
+  const comingSoon = cat?.comingSoon === true;
 
   const breadcrumbs = {
     '@context': 'https://schema.org',
@@ -142,7 +149,11 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
             </StaggeredParagraph>
           </div>
 
-          <CatalogInterface initialCategory={categorySlug} onAddToCart={handleAddToCart} />
+          {comingSoon ? (
+            <RegisterInterest rangeName={categoryName} />
+          ) : (
+            <CatalogInterface initialCategory={categorySlug} onAddToCart={handleAddToCart} />
+          )}
 
           {sections.length > 0 && (
             <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-10 border-t border-[#2B2F34]">
@@ -180,6 +191,16 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
                 </div>
               )}
             </section>
+          )}
+
+          {faqs.length > 0 && (
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+              <FaqSection
+                items={faqs as { q: string; a: string }[]}
+                heading={`${categoryName}: Your Questions`}
+                tone="dark"
+              />
+            </div>
           )}
         </main>
 

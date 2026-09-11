@@ -15,6 +15,9 @@ export async function GET() {
       name: c.name,
       count,
       url: `https://${SITE.domain}/shop/${c.slug}/`,
+      // A count of 0 on its own reads as sold out; this says the range is
+      // not yet listed and the page takes register-interest details only.
+      ...(c.comingSoon ? { comingSoon: true } : {}),
     };
   });
 
