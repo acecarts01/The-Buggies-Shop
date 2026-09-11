@@ -137,7 +137,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 {CATEGORIES.map((cat) => (
                   <Link
                     key={cat.slug}
-                    href={`/shop/${cat.slug === 'all' ? '' : cat.slug}/`}
+                    href={cat.slug === 'all' ? '/shop/' : `/shop/${cat.slug}/`}
                     className="block px-3 py-2 text-xs text-[#121417] hover:bg-[#F7EFEA] hover:text-[#A85640] transition-colors"
                     onClick={() => setShopDropdownOpen(false)}
                   >
@@ -287,7 +287,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 {CATEGORIES.map((c) => (
                   <Link
                     key={c.slug}
-                    href={`/shop/${c.slug === 'all' ? '' : c.slug}/`}
+                    href={c.slug === 'all' ? '/shop/' : `/shop/${c.slug}/`}
                     className="text-sm text-[#6B645E] py-1 hover:text-[#A85640]"
                     onClick={() => setMobileMenuOpen(false)}
                   >

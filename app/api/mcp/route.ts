@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { PRODUCTS, CATEGORIES, SHOP, SITE, CONTACT, ABN_INFO } from '@/src/config/site';
+import { withDetails } from '@/src/config/product-details';
+import { productUrl } from '@/lib/schema';
 
 const TOOLS_SCHEMA = [
   {
@@ -134,7 +136,7 @@ export async function POST(request: Request) {
           price_aud: p.price_aud,
           price_display: p.price_display,
           key_specs: p.key_specs,
-          url: `https://${SITE.domain}/shop/${p.slug}/`,
+          url: productUrl(p),
         }));
 
         return NextResponse.json({
@@ -172,7 +174,7 @@ export async function POST(request: Request) {
             content: [
               {
                 type: 'text',
-                text: JSON.stringify(product, null, 2),
+                text: JSON.stringify({ ...withDetails(product), url: productUrl(product) }, null, 2),
               },
             ],
           },

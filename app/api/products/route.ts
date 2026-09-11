@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { PRODUCTS, SITE } from '@/src/config/site';
+import { SITE } from '@/src/config/site';
+import { PRODUCTS_FULL } from '@/src/config/product-details';
+import { productUrl } from '@/lib/schema';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -8,7 +10,9 @@ export async function GET(request: Request) {
   const q = searchParams.get('q');
   const limit = searchParams.get('limit');
 
-  let filtered = [...PRODUCTS];
+  // Full records (description, FAQs, keywords): this is the agent-facing
+  // catalogue, so it carries everything the product page shows.
+  let filtered = [...PRODUCTS_FULL];
 
   if (category && category !== 'all') {
     const slugNorm = category.toLowerCase().replace(/-/g, ' ');
@@ -41,7 +45,8 @@ export async function GET(request: Request) {
   const responseData = filtered.map((p) => ({
     ...p,
     currency: SITE.currency,
-    url: `https://${SITE.domain}/shop/${p.slug}/`,
+    // Product routes are /shop/<category>/<slug>/; the old /shop/<slug>/ 404d.
+    url: productUrl(p),
   }));
 
   return NextResponse.json(

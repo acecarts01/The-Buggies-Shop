@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { PRODUCTS, FAQ, SITE } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
+import { productUrl } from '@/lib/schema';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -29,7 +30,7 @@ export async function GET(request: Request) {
     price_aud: p.price_aud,
     price_display: p.price_display,
     specs: p.key_specs,
-    url: `/shop/${p.slug}/`,
+    url: productUrl(p),
   }));
 
   const matchedPosts = POSTS.filter(

@@ -23,6 +23,7 @@ import {
   ProductItem,
 } from '@/src/config/site';
 import type { BlogPost } from '@/src/config/posts';
+import { getProductDetails } from '@/src/config/product-details';
 
 export const ORIGIN = `https://${SITE.domain}`;
 export const ORG_ID = `${ORIGIN}/#organization`;
@@ -212,19 +213,20 @@ export function productSchema(product: ProductItem) {
   const url = productUrl(product);
   const brand = productBrandName(product);
   const images = (product.images || []).map(absoluteUrl);
+  const details = getProductDetails(product.slug);
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
     '@id': `${url}#product`,
     name: product.name,
     url,
-    description: product.fullDescription || product.shortDescription,
+    description: details.fullDescription || product.shortDescription,
     sku: product.id,
     category: product.category,
     image: images.length ? images : [DEFAULT_IMAGE_URL],
     ...(brand ? { brand: { '@type': 'Brand', name: brand } } : {}),
-    ...(product.primaryKeyword
-      ? { keywords: [product.primaryKeyword, ...(product.supportingKeywords || [])].join(', ') }
+    ...(details.primaryKeyword
+      ? { keywords: [details.primaryKeyword, ...(details.supportingKeywords || [])].join(', ') }
       : {}),
     offers: {
       '@type': 'Offer',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { PRODUCTS, CATEGORIES, SITE } from '@/src/config/site';
+import { getProductDetails } from '@/src/config/product-details';
 import ProductClient from './ProductClient';
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { jsonLd, productSchema, breadcrumbSchema, absoluteUrl } from '@/lib/schema';
@@ -68,7 +69,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <ProductClient product={product} />
+      <ProductClient product={product} details={getProductDetails(product.slug)} />
     </>
   );
 }

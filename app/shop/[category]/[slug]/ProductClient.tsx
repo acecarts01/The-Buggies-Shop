@@ -28,6 +28,7 @@ import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, isBuggyItem, VEHICLE_COLORS } from '@/src/config/site';
+import type { ProductDetails } from '@/src/config/product-details';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -40,9 +41,12 @@ import {
 
 interface ProductClientProps {
   product: ProductItem;
+  /** Long description, FAQs and keywords, joined on the server from
+   *  product-details.ts so they never enter the shared client bundle. */
+  details: ProductDetails;
 }
 
-export default function ProductClient({ product }: ProductClientProps) {
+export default function ProductClient({ product, details }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -536,9 +540,9 @@ Notes: ${quoteForm.notes || 'None'}`
               {/* Long Form Description */}
               <div className="prose prose-invert max-w-none text-sm sm:text-base text-[#D6D3D1] leading-relaxed space-y-4">
                 <StaggeredParagraph delay={0.1} className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
-                  {product.fullDescription || product.shortDescription}
+                  {details.fullDescription || product.shortDescription}
                 </StaggeredParagraph>
-                {product.shortDescription && product.fullDescription && product.shortDescription !== product.fullDescription && (
+                {product.shortDescription && details.fullDescription && product.shortDescription !== details.fullDescription && (
                   <StaggeredParagraph delay={0.2} className="text-xs text-[#A8A29E] italic">
                     {product.shortDescription}
                   </StaggeredParagraph>
@@ -594,10 +598,10 @@ Notes: ${quoteForm.notes || 'None'}`
 
             {/* Six model-specific questions, each answered from this product's
                 own data. Also emits the page's FAQPage schema. */}
-            {product.faqs && product.faqs.length > 0 && (
+            {details.faqs && details.faqs.length > 0 && (
               <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-sm metal-brushed-dark">
                 <FaqSection
-                  items={product.faqs}
+                  items={details.faqs}
                   heading={`${product.name} — Questions Buyers Ask`}
                   tone="dark"
                 />

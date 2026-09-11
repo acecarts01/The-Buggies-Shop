@@ -12,9 +12,12 @@ React/Next.js ecommerce site, Vercel deployment, Australian golf buggy specialis
 
 ## Architecture
 `src/config/site.ts` is the single source of truth for all buggy models, categories, pricing, contact details, and agent metadata.
-`src/config/posts.ts` holds the blog posts. It is server-only: never import it from a `'use client'` component (site.ts is
-already in the shared client chunk; posts.ts added 390 KB of prose to every page before it was split). Client components
-receive `PostSummary[]` as props.
+`src/config/posts.ts` (blog posts) and `src/config/product-details.ts` (each product's fullDescription, faqs and
+keywords, keyed by slug) are server-only: never import either from a `'use client'` component. site.ts is in the
+shared client chunk on every page; before the split it carried 666 KB of prose, now 85 KB. Client components receive
+`PostSummary[]` / `ProductDetails` as props; server code joins with `withDetails()` / `PRODUCTS_FULL`.
+Adding a product means an entry in PRODUCTS (site.ts) AND one in PRODUCT_DETAILS (product-details.ts); the build
+throws on a slug missing from either.
 Never hand-write product pages. All routes, metadata, and JSON-LD derive from this configuration:
 - JSON-LD builders live in `lib/schema.ts` (one Organization `@id`, referenced everywhere). Serialise with `jsonLd()`.
 - Route metadata goes through `pageMetadata()` / `socialImages()` in `lib/seo.ts` so og:url and og:image are never inherited.

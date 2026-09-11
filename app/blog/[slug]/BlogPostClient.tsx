@@ -251,7 +251,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
 
               <div className="flex sm:flex-col gap-2 shrink-0 w-full sm:w-auto">
                 <Link
-                  href={`/shop/${relatedProduct.slug}/`}
+                  href={`/shop/${CATEGORIES.find((c) => c.rawCategory === relatedProduct.category)?.slug ?? 'fleet'}/${relatedProduct.slug}/`}
                   className="w-full text-center px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C86D51] to-[#E2A17A] text-[#121417] font-bold text-xs shadow hover:from-[#E2A17A] hover:to-[#EFC7A6] transition-all"
                 >
                   View Full Specs

@@ -92,7 +92,7 @@ export default function Footer() {
             {CATEGORIES.map((cat) => (
               <li key={cat.slug}>
                 <Link
-                  href={`/shop/${cat.slug === 'all' ? '' : cat.slug}/`}
+                  href={cat.slug === 'all' ? '/shop/' : `/shop/${cat.slug}/`}
                   className="text-[#6B645E] hover:text-[#A85640] transition-colors"
                 >
                   {cat.name}
