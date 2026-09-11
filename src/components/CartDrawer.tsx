@@ -214,7 +214,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white border-l border-[#E7E5E4] text-[#121417] shadow-sm flex flex-col">
+        <div className="w-screen max-w-md h-full bg-white border-l border-[#E7E5E4] text-[#121417] shadow-sm flex flex-col min-h-0">
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-[#E7E5E4] flex items-center justify-between bg-[#F7F6F2]">
             <div>
@@ -281,8 +281,16 @@ The total above excludes freight. Please confirm stock availability at the Yatal
             </div>
           )}
 
+          {/* Everything below the header scrolls as one region. The items list
+              and the checkout footer used to be siblings with only the list
+              scrollable, so once the footer (payment options, form, crypto
+              invoice) outgrew the viewport the drawer could not scroll at all.
+              min-h-0 is required: a flex child defaults to min-height:auto and
+              will not shrink below its content, which silently disables
+              overflow-y-auto. */}
+          <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain flex flex-col">
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 divide-y divide-[#E7E5E4]">
+          <div className="flex-1 p-4 sm:p-5 space-y-4 divide-y divide-[#E7E5E4]">
             {items.length === 0 ? (
               <div className="py-12 text-center space-y-3">
                 <div className="w-14 h-14 mx-auto rounded-full bg-[#F7EFEA] border border-[#C86D51]/20 flex items-center justify-center text-[#A85640] shadow-inner">
@@ -662,6 +670,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
               </div>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>
