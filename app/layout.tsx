@@ -11,15 +11,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
-  description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.`,
+  title: "Buggies for Sale Australia | Golf Carts | Buggies Express",
+  description: `Buggies for sale Australia-wide: ${PRODUCTS.length} golf buggies and carts, from luxury 4-seaters to lifted 4x4 acreage models. Sales, service and parts from Yatala QLD.`,
   metadataBase: new URL(`https://${SITE.domain}`),
   alternates: {
     canonical: `https://${SITE.domain}/`,
   },
   openGraph: {
-    title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
-    description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.`,
+    title: "Buggies for Sale Australia | Golf Carts | Buggies Express",
+    description: `Buggies for sale Australia-wide: ${PRODUCTS.length} golf buggies and carts, from luxury 4-seaters to lifted 4x4 acreage models. Sales, service and parts from Yatala QLD.`,
     type: 'website',
     locale: 'en_AU',
     url: `https://${SITE.domain}/`,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
+    title: "Buggies for Sale Australia | Golf Carts | Buggies Express",
     description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models in stock at Yatala QLD depot.`,
   },
   robots: {

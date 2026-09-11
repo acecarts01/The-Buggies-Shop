@@ -1712,9 +1712,12 @@ export const FAQ = [
   },
 ];
 
+// The owner's primary keyword is 'buggies for sale'. It lives on the homepage
+// (title, description, H1). Do not change it.
 export const KEYWORDS = {
-  primary: 'golf buggies for sale',
+  primary: 'buggies for sale',
   primaryHubs: [
+    'buggies for sale',
     'golf buggies for sale',
     'golf buggy for sale',
     'electric golf buggy for sale',

@@ -42,7 +42,6 @@ Two pages chasing the same term compete with each other and both lose.
 | golf cart for sale | 1300 | 8 |
 | mgi golf cart | 880 | 19 |
 | stinger golf buggy | 590 | 7 |
-| buggies for sale | 590 | 14 |
 | golf buggies for sale | 480 | 12 |
 | mgi golf buggy australia | 480 | 17 |
 | electric golf buggy for sale | 390 | 17 |

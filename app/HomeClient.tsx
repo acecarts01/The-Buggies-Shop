@@ -160,7 +160,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
                 {/* Single H1 Mandated for SEO and Accessibility with Word-by-Word Stagger */}
                 <StaggeredHeading
                   tag="h1"
-                  text="Australia's Most Complete Golf Buggy Specialists — Sales, Service & Custom Builds"
+                  text="Buggies for Sale Australia — Golf Buggy Sales, Service & Custom Builds"
                   className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#121417] tracking-tight leading-tight"
                 />
 

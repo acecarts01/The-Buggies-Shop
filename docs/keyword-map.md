@@ -45,7 +45,8 @@ are the terms it must keep owning.
 
 | Keyword | Vol | KD | Intent | Role |
 |---|---:|---:|---|---|
-| golf buggy | 6,600 | 11 | Commercial | **primary** |
+| buggies for sale | 590 | 14 | Transactional | **PRIMARY — owner-set, do not change** (title, description, H1) |
+| golf buggy | 6,600 | 11 | Commercial | head term, paired in the H1 |
 | golf cart | 5,400 | 39 | Commercial | secondary (H1 pairs both) |
 | buggies golf | 2,900 | 12 | Commercial | variant — natural in brand name |
 | golf buggy sales | 390 | 6 | Transactional | secondary |
