@@ -23,6 +23,9 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Route metadata goes through `pageMetadata()` / `socialImages()` in `lib/seo.ts` so og:url and og:image are never inherited.
 - `llms.txt` and the sitemap index are routes generated from the config; there is no static file to edit.
 - Metro delivery pages (`/delivery/<city>/`) derive from `src/config/delivery.ts`: delivery-only copy, one depot, no transit promises.
+- Brand assets: the logo is `public/brand/logo.png` (full lockup) + `public/brand/logo-mark.png` (shield). `npm run brand`
+  regenerates favicon.ico (16/32/48), icon.png, apple-icon.png, manifest marks and `src/config/brand-assets.ts`; `BrandMark`
+  renders it in the header/footer and `lib/schema.ts` reads it. Never hand-place a logo `<img>` or hand-edit the icon files.
 - Crypto is paid on-site (`CryptoCheckout`: the three `CRYPTO.wallets` addresses, QR, WhatsApp receipt step). Never link out to an
   exchange. Every payment method ends with the buyer sending the receipt or a screenshot on WhatsApp.
 

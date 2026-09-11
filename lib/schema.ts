@@ -24,11 +24,14 @@ import {
 } from '@/src/config/site';
 import type { BlogPost } from '@/src/config/posts';
 import { getProductDetails } from '@/src/config/product-details';
+import { BRAND_ASSETS } from '@/src/config/brand-assets';
 
 export const ORIGIN = `https://${SITE.domain}`;
 export const ORG_ID = `${ORIGIN}/#organization`;
 export const WEBSITE_ID = `${ORIGIN}/#website`;
-export const LOGO_URL = `${ORIGIN}/icon.png`;
+// The real logo once `npm run brand` has recorded one; the square mark until then.
+export const LOGO_URL = `${ORIGIN}${BRAND_ASSETS.logo?.path ?? '/icon.png'}`;
+const LOGO_SIZE = BRAND_ASSETS.logo ? { width: BRAND_ASSETS.logo.width, height: BRAND_ASSETS.logo.height } : { width: 512, height: 512 };
 export const DEFAULT_IMAGE_URL = `${ORIGIN}/opengraph-image.jpg`;
 
 const prices = PRODUCTS.map((p) => p.price_aud);
@@ -70,7 +73,7 @@ export function organizationSchema(opts: { full?: boolean } = {}) {
     legalName: ABN_INFO.companyName,
     alternateName: ['Buggies Express', SITE.legalEntity],
     url: `${ORIGIN}/`,
-    logo: { '@type': 'ImageObject', url: LOGO_URL, width: 512, height: 512 },
+    logo: { '@type': 'ImageObject', url: LOGO_URL, ...LOGO_SIZE },
     image: DEFAULT_IMAGE_URL,
     telephone: CONTACT.phone,
     email: CONTACT.emailRaw,

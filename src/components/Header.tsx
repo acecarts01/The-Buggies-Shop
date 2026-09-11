@@ -16,6 +16,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { ABN_INFO, CONTACT, CATEGORIES, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
+import BrandMark from './BrandMark';
 
 interface HeaderProps {
   cartCount?: number;
@@ -82,18 +83,8 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
       {/* Main Navigation Row */}
       <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between gap-4">
         {/* Brand Identity */}
-        <Link href="/" className="flex items-center gap-3 group focus:outline-none" id="header-brand-logo">
-          <div className="w-10 h-10 rounded-lg bg-[#F7EFEA] border border-[#C86D51]/30 flex items-center justify-center font-serif text-lg font-bold text-[#A85640] shadow-xs">
-            BE
-          </div>
-          <div>
-            <div className="text-lg sm:text-xl font-serif font-bold tracking-tight text-[#121417] group-hover:text-[#A85640] transition-colors">
-              The Buggies Express
-            </div>
-            <div className="text-[10px] tracking-widest uppercase text-[#6B645E] font-sans font-medium">
-              Yatala QLD • Australian Specialists
-            </div>
-          </div>
+        <Link href="/" className="flex items-center group focus:outline-none" id="header-brand-logo" aria-label="The Buggies Express home">
+          <BrandMark height={44} priority />
         </Link>
 
         {/* Desktop Navigation Links */}

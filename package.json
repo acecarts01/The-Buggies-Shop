@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "brand": "node scripts/brand-icons.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

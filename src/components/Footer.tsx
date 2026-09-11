@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ExternalLink, ShieldCheck, Phone, Mail, MapPin, Truck, CheckCircle2 } from 'lucide-react';
 import { ABN_INFO, CONTACT, CATEGORIES, SITE } from '@/src/config/site';
+import BrandMark from './BrandMark';
 
 export default function Footer() {
   return (
@@ -52,9 +53,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs">
         {/* Company & Entity Summary */}
         <div className="space-y-3">
-          <div className="font-serif text-lg font-bold text-[#121417]">
-            {SITE.name}
-          </div>
+          <BrandMark variant="full" height={120} withText={false} />
           <p className="text-[#6B645E] leading-relaxed">
             Australia&apos;s most complete golf buggy business — sales, service, warranty, parts, and custom builds, backed by support that doesn&apos;t end at delivery.
           </p>
