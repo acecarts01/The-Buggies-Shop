@@ -7,7 +7,8 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import FaqSection from '@/src/components/FaqSection';
 import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES } from '@/src/config/site';
-import { buildTitle, buildDescription } from '@/lib/seo';
+import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
+import { absoluteUrl } from '@/lib/schema';
 
 export async function generateStaticParams() {
   return BRAND_PAGES.map((b) => ({ brand: b.slug }));
@@ -41,12 +42,16 @@ export async function generateMetadata({ params }: PageProps) {
   );
   const canonical = `https://${SITE.domain}/shop/brand/${b.slug}/`;
 
+  // Share image: the first model in the brand range, else the brand image.
+  const first = PRODUCTS.find((p) => p.name.toLowerCase().includes(b.match.toLowerCase()));
+  const photo = first?.images?.[0] ? { url: absoluteUrl(first.images[0]), alt: first.name } : undefined;
+
   return {
     title,
     description,
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name, images: socialImages(photo) },
+    twitter: { card: 'summary_large_image', title, description, images: socialImages(photo) },
   };
 }
 

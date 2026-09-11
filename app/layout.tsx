@@ -46,7 +46,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-AU">
       <body suppressHydrationWarning className="bg-[#F7F6F2] text-[#121417] antialiased min-h-screen">
         {children}
-        <Script src="/js/webmcp.js" strategy="afterInteractive" />
+        {/* Agent-only (navigator.modelContext); nothing on the page waits on it,
+            so it loads after the page is idle rather than competing with the
+            hero image and hydration for bandwidth. */}
+        <Script src="/js/webmcp.js" strategy="lazyOnload" />
       </body>
     </html>
   );

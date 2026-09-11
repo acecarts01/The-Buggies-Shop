@@ -1,21 +1,48 @@
 import type { Metadata } from 'next';
-import { SITE } from '@/src/config/site';
+import { PRODUCTS, SITE } from '@/src/config/site';
+import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
+import { jsonLd, productSchema, breadcrumbSchema, absoluteUrl } from '@/lib/schema';
 
-// The page below is a client component and cannot export metadata itself, so
-// it lives here. This static route also needs its own canonical, otherwise it
-// inherits the /shop/ layout's.
+// The page below is a client component and cannot export metadata or emit
+// server-rendered JSON-LD itself, so both live here. Everything derives from
+// the Atlas entry in PRODUCTS through the same builders the templated product
+// route uses; previously this route hand-typed its own title, description and
+// Product schema (no image, an invented mpn), which drifted from the catalogue.
+const SLUG = 'atlas-4-passenger-lifted-lithium-buggy';
+const CATEGORY = 'luxury-4-seater';
+const atlas = PRODUCTS.find((p) => p.slug === SLUG);
+if (!atlas) throw new Error(`PRODUCTS has no entry for ${SLUG}`);
+
+const canonical = `https://${SITE.domain}/shop/${CATEGORY}/${SLUG}/`;
+const title = buildTitle(atlas.name);
+const description = buildDescription(
+  `${atlas.name}, ${atlas.price_display} inc GST.`,
+  atlas.key_specs,
+  ['Tested at our Yatala QLD depot.', 'Enclosed freight Australia-wide.', 'Finance in 4 available.']
+);
+const photo = atlas.images?.[0] ? { url: absoluteUrl(atlas.images[0]), alt: atlas.name } : undefined;
+
 export const metadata: Metadata = {
-  // Kept in the same band as the templated product pages (title <= 60,
-  // description 120-158) - see lib/seo.ts. This page has its own layout, so
-  // it does not inherit that builder.
-  title: 'Atlas 4-Passenger Lifted Lithium Buggy | Buggies Express',
-  description:
-    'Atlas 4-Passenger Lifted Lithium Buggy, $20,900 AUD inc GST. 48V lithium, 3-inch factory lift, custom leather seats. Enclosed freight Australia-wide.',
-  alternates: {
-    canonical: `https://${SITE.domain}/shop/luxury-4-seater/atlas-4-passenger-lifted-lithium-buggy/`,
-  },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name, images: socialImages(photo) },
+  twitter: { card: 'summary_large_image', title, description, images: socialImages(photo) },
 };
 
 export default function AtlasProductLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  const schema = productSchema(atlas!);
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Shop', path: '/shop/' },
+    { name: 'Luxury 4-Seaters', path: `/shop/${CATEGORY}/` },
+    { name: atlas!.name, path: `/shop/${CATEGORY}/${SLUG}/` },
+  ]);
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
+      {children}
+    </>
+  );
 }

@@ -3,6 +3,8 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import { SITE, BRAND, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import { socialImages } from '@/lib/seo';
+import { jsonLd, organizationSchema, breadcrumbSchema, ORG_ID, WEBSITE_ID, ORIGIN } from '@/lib/schema';
 import { ShieldCheck, MapPin, Award, Truck, Wrench, BatteryCharging, CheckCircle, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -28,6 +30,14 @@ export const metadata = {
     description:
       `Australian owned golf buggy specialist in Yatala QLD. ${PRODUCTS.length} buggy models, 5-year commercial lithium warranties, and nationwide delivery.`,
     url: `https://${SITE.domain}/about/`,
+    images: socialImages(),
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About The Buggies Express | Yatala QLD Depot',
+    description:
+      'Golf Buggies Express PTY LTD, ABN 28 668 598 758, based in Yatala QLD. Sales, custom lithium builds, spare parts and nationwide enclosed freight.',
+    images: socialImages(),
   },
   other: {
     'og:updated_time': new Date().toISOString(),
@@ -35,69 +45,41 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const organizationSchema = {
+  // AboutPage whose subject is the one organisation entity (by @id). The
+  // page used to type itself as [Store, Organization, AboutPage], which mixes
+  // a CreativeWork into a business and gave the company a second identity
+  // with a different name from the homepage.
+  const aboutSchema = {
     '@context': 'https://schema.org',
-    '@type': ['Store', 'Organization', 'AboutPage'],
-    name: 'Golf Buggies Express PTY LTD',
-    alternateName: 'The Buggies Express',
-    description: BRAND.description,
-    foundingDate: BRAND.foundingYear,
-    foundingLocation: {
-      '@type': 'Place',
-      name: BRAND.foundingLocation,
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Yatala Light Industrial Precinct',
-      addressLocality: 'Yatala',
-      addressRegion: 'QLD',
-      postalCode: '4207',
-      addressCountry: 'AU',
-    },
-    url: `https://${SITE.domain}/`,
-    taxID: ABN_INFO.abn,
-    telephone: CONTACT.phone,
-    email: CONTACT.email,
-    areaServed: ['AU'],
-    numberOfItems: PRODUCTS.length,
-    knowsAbout: [
-      'Golf Buggies Australia',
-      'Lithium Golf Cart Conversions',
-      'Acreage Utility Vehicles',
-      'Commercial Passenger Shuttles',
-      'Off-Road 4x4 Buggies',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': `${ORIGIN}/about/#webpage`,
+        url: `${ORIGIN}/about/`,
+        name: 'About The Buggies Express',
+        inLanguage: 'en-AU',
+        isPartOf: { '@id': WEBSITE_ID },
+        about: { '@id': ORG_ID },
+        mainEntity: { '@id': ORG_ID },
+      },
+      organizationSchema({ full: true }),
     ],
-    priceRange: `${Math.min(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} - ${Math.max(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} AUD`,
   };
 
-  const breadcrumbs = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: `https://${SITE.domain}/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'About',
-        item: `https://${SITE.domain}/about/`,
-      },
-    ],
-  };
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about/' },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(aboutSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
 
       <div className="flex flex-col min-h-screen bg-[#121417]">

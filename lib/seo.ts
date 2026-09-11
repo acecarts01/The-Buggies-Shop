@@ -1,3 +1,6 @@
+import type { Metadata } from 'next';
+import { SITE } from '@/src/config/site';
+
 // Title and meta-description builders.
 //
 // Google truncates titles past roughly 60 characters and descriptions past
@@ -79,4 +82,64 @@ export function buildDescription(
   }
 
   return out;
+}
+
+// ---------------------------------------------------------------------------
+// Social images
+//
+// Next only applies the root `app/opengraph-image.jpg` to routes that do not
+// define their own `openGraph` object, and every route here does, so category,
+// blog, brand and static pages were shipping without any og:image. Each
+// route's metadata spreads one of these so a share card never comes up blank.
+// Product pages pass their own photo; everything else uses the brand image.
+
+export const OG_IMAGE_PATH = '/opengraph-image.jpg';
+
+export const DEFAULT_OG_IMAGE = {
+  url: OG_IMAGE_PATH,
+  width: 1200,
+  height: 630,
+  alt: 'The Buggies Express signpost on an Australian golf course fairway, with buggies and players behind.',
+};
+
+/** `openGraph.images` / `twitter.images` for a route. */
+export function socialImages(image?: { url: string; alt: string; width?: number; height?: number }) {
+  return [image ?? DEFAULT_OG_IMAGE];
+}
+
+/**
+ * Complete metadata for a static route. Next does not merge a child route's
+ * missing `openGraph` with the parent's field by field: a route that sets
+ * only `title`/`description` inherits the ROOT openGraph object wholesale, so
+ * /shop/, /contact/, /faq/, /wholesale/ and /crypto-payment/ were sharing as
+ * the homepage card with the homepage URL. Every static route goes through
+ * this so og:title, og:url, og:image and the Twitter card always match.
+ */
+export function pageMetadata(opts: {
+  title: string;
+  description: string;
+  /** Path with leading and trailing slash, e.g. '/contact/'. */
+  path: string;
+  type?: 'website' | 'article';
+  image?: { url: string; alt: string; width?: number; height?: number };
+  robots?: Metadata['robots'];
+}): Metadata {
+  const url = `https://${SITE.domain}${opts.path}`;
+  const images = socialImages(opts.image);
+  return {
+    title: opts.title,
+    description: opts.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: opts.type ?? 'website',
+      siteName: SITE.name,
+      locale: 'en_AU',
+      title: opts.title,
+      description: opts.description,
+      url,
+      images,
+    },
+    twitter: { card: 'summary_large_image', title: opts.title, description: opts.description, images },
+    ...(opts.robots ? { robots: opts.robots } : {}),
+  };
 }

@@ -20,7 +20,8 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
-import { POSTS, BlogPost, SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import { SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
+import type { PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -31,7 +32,12 @@ import {
   StaggerItem
 } from '@/src/components/AnimatedText';
 
-export default function BlogClient() {
+interface BlogClientProps {
+  /** Summaries only: the article bodies stay on the server. */
+  posts: PostSummary[];
+}
+
+export default function BlogClient({ posts }: BlogClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   // Resources menu links in as /blog/?category=Buyer%20Guides.
@@ -60,7 +66,7 @@ export default function BlogClient() {
   );
 
   const filteredPosts = useMemo(() => {
-    return POSTS.filter((post) => {
+    return posts.filter((post) => {
       const matchesCategory =
         selectedCategory === 'All'
           ? true
@@ -76,11 +82,11 @@ export default function BlogClient() {
         post.author.name.toLowerCase().includes(query);
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery]);
 
   const featuredPost = useMemo(() => {
-    return POSTS.find((p) => p.featured) || POSTS[0];
-  }, []);
+    return posts.find((p) => p.featured) || posts[0];
+  }, [posts]);
 
   return (
     <div className="flex flex-col min-h-screen bg-[#121417] text-[#ffffff]">

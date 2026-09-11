@@ -3,6 +3,8 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import { SITE, BRAND, ABN_INFO, CONTACT, SHOP, PRODUCTS } from '@/src/config/site';
+import { socialImages } from '@/lib/seo';
+import { jsonLd, organizationSchema, ORG_ID } from '@/lib/schema';
 import { MapPin, Truck, Globe2, ClipboardCheck, PackageCheck, Route } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -30,11 +32,13 @@ export const metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: `https://${SITE.domain}/delivery/`,
+    images: socialImages(),
   },
   twitter: {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
+    images: socialImages(),
   },
   other: {
     'og:updated_time': new Date().toISOString(),
@@ -60,29 +64,16 @@ export default function DeliveryPage() {
     name: 'Golf Buggy & Golf Cart Delivery Australia',
     serviceType: 'Vehicle delivery and enclosed freight',
     description: DESCRIPTION,
-    provider: {
-      '@type': ['Store', 'Organization'],
-      name: SITE.name,
-      legalName: ABN_INFO.companyName,
-      taxID: ABN_INFO.abn,
-      url: `https://${SITE.domain}/`,
-      telephone: CONTACT.phone,
-      email: CONTACT.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Yatala Light Industrial Precinct',
-        addressLocality: 'Yatala',
-        addressRegion: 'QLD',
-        postalCode: '4207',
-        addressCountry: 'AU',
-      },
-    },
+    // The one organisation entity, by @id; the node itself is emitted below.
+    provider: { '@id': ORG_ID },
     areaServed: [
       { '@type': 'Country', name: 'Australia' },
       ...METRO_ROUTES.map((r) => ({ '@type': 'City', name: r.city })),
     ],
     url: `https://${SITE.domain}/delivery/`,
   };
+
+  const providerSchema = { '@context': 'https://schema.org', ...organizationSchema() };
 
   const breadcrumbs = {
     '@context': 'https://schema.org',
@@ -107,11 +98,15 @@ export default function DeliveryPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(providerSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
 
       <div className="flex flex-col min-h-screen bg-[#121417]">

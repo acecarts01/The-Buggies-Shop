@@ -23,19 +23,22 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import FaqSection from '@/src/components/FaqSection';
-import { BlogPost, POSTS, SITE, ABN_INFO, CONTACT, PRODUCTS, CATEGORIES } from '@/src/config/site';
+import { SITE, ABN_INFO, CONTACT, PRODUCTS, CATEGORIES } from '@/src/config/site';
+import type { BlogPost, PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
 
 interface BlogPostClientProps {
   post: BlogPost;
+  /** Three other posts for the footer strip, passed down so this client
+   *  component never imports the full POSTS module. */
+  relatedPosts: PostSummary[];
 }
 
-export default function BlogPostClient({ post }: BlogPostClientProps) {
+export default function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
   const [cartOpen, setCartOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [cartItems, setCartItems] = useCart();
 
-  const relatedPosts = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
   // A guide for a range that is not stocked yet points at the coming-soon
   // category instead of a product: the product callout would otherwise fall
   // back to PRODUCTS[0] and label it "mentioned in guide" when it is not.

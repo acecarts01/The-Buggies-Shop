@@ -1,8 +1,10 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { POSTS, SITE, ABN_INFO } from '@/src/config/site';
-import { buildTitle, clampDescription } from '@/lib/seo';
+import { SITE } from '@/src/config/site';
+import { POSTS, toPostSummary } from '@/src/config/posts';
+import { buildTitle, clampDescription, socialImages } from '@/lib/seo';
+import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
 import BlogPostClient from './BlogPostClient';
 
 export async function generateStaticParams() {
@@ -43,11 +45,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://${SITE.domain}/blog/${post.slug}/`,
       publishedTime: post.date,
       authors: [post.author.name],
+      images: socialImages(),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: socialImages(),
     },
     other: {
       'og:updated_time': new Date().toISOString(),
@@ -62,70 +66,24 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
-  const blogPostingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt,
-    // Assigned terms declared where machines read them, rather than worked
-    // into the prose. See docs/keyword-map.md for the one-keyword-one-page rule.
-    ...(post.primaryKeyword
-      ? { keywords: [post.primaryKeyword, ...(post.supportingKeywords || []), ...(post.tags || [])].join(', ') }
-      : { keywords: (post.tags || []).join(', ') }),
-    datePublished: post.date,
-    dateModified: post.date,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://${SITE.domain}/blog/${post.slug}/`,
-    },
-    author: {
-      '@type': 'Person',
-      name: post.author.name,
-      jobTitle: post.author.role,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: ABN_INFO.companyName,
-      url: `https://${SITE.domain}/`,
-    },
-  };
+  const article = blogPostingSchema(post);
+  const breadcrumbs = breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: post.title, path: `/blog/${post.slug}/` },
+  ]);
 
-  const breadcrumbsSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: `https://${SITE.domain}/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Blog',
-        item: `https://${SITE.domain}/blog/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: post.title,
-        item: `https://${SITE.domain}/blog/${post.slug}/`,
-      },
-    ],
-  };
+  // Three other posts for the footer strip. Summaries only, so the client
+  // component does not pull every article body into its bundle.
+  const relatedPosts = POSTS.filter((p) => p.slug !== post.slug)
+    .slice(0, 3)
+    .map(toPostSummary);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsSchema) }}
-      />
-      <BlogPostClient post={post} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(article) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
+      <BlogPostClient post={post} relatedPosts={relatedPosts} />
     </>
   );
 }

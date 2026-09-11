@@ -21,7 +21,13 @@ export default function middleware(request) {
   if (prefersMarkdownOverHtml(accept)) {
     const url = new URL(request.url);
     if (MARKDOWN_ROUTES.has(url.pathname)) {
-      return NextResponse.rewrite(new URL('/llms.txt', request.url));
+      // The negotiated body is llms.txt (markdown), so label it as such:
+      // the route itself serves text/plain, which is what a plain /llms.txt
+      // fetch should get, but a client that asked for text/markdown should
+      // see text/markdown come back.
+      return NextResponse.rewrite(new URL('/llms.txt', request.url), {
+        headers: { 'content-type': 'text/markdown; charset=utf-8', vary: 'Accept' },
+      });
     }
   }
   return NextResponse.next();

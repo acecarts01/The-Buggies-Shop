@@ -1,15 +1,50 @@
+# The Buggies Express — https://www.golfbuggiesexpress.com.au/
+# Search engines and answer engines are welcome on every public page.
+# Only transactional dead-ends and the form endpoint are excluded.
+
 User-agent: *
+Allow: /
 Disallow: /thank-you-contact/
 Disallow: /thank-you-order/
+Disallow: /thank-you-wholesale/
+Disallow: /api/contact/
+Disallow: /search/?
+Disallow: /*?q=
+
 Sitemap: https://www.golfbuggiesexpress.com.au/sitemap.xml
 
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
-# AI crawlers — welcome to index golf buggy catalog and guides
-User-agent: GPTBot
+# Search-mode crawlers (these fetch pages to answer live questions)
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+# Index-building crawlers
+User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -18,10 +53,13 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 User-agent: Amazonbot
@@ -31,9 +69,6 @@ User-agent: Bytespider
 Allow: /
 
 User-agent: CCBot
-Allow: /
-
-User-agent: Google-Extended
 Allow: /
 
 User-agent: Meta-ExternalAgent
@@ -47,3 +82,4 @@ Allow: /
 # API Catalog: https://www.golfbuggiesexpress.com.au/.well-known/api-catalog
 # Agent Skills: https://www.golfbuggiesexpress.com.au/.well-known/agent-skills/index.json
 # MCP Server Card: https://www.golfbuggiesexpress.com.au/.well-known/mcp/server-card.json
+# MCP endpoint: https://www.golfbuggiesexpress.com.au/api/mcp/

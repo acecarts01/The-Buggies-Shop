@@ -4,7 +4,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import { SITE, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
-import { buildTitle, buildDescription } from '@/lib/seo';
+import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 
 const TITLE = buildTitle('Shop Golf Buggies by Brand Australia');
 const DESCRIPTION = buildDescription(
@@ -17,8 +17,8 @@ export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: `https://${SITE.domain}/shop/brand/` },
-  openGraph: { title: TITLE, description: DESCRIPTION, url: `https://${SITE.domain}/shop/brand/`, type: 'website', siteName: SITE.name },
-  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: `https://${SITE.domain}/shop/brand/`, type: 'website', siteName: SITE.name, images: socialImages() },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: socialImages() },
 };
 
 export default function BrandIndexPage() {

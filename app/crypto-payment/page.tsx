@@ -4,14 +4,13 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CryptoPortal from '@/src/components/CryptoPortal';
 import { SITE, CRYPTO, CONTACT } from '@/src/config/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
   description: `Settle your golf buggy in BTC or USDT and take ${CRYPTO.discountPercent}% off the vehicle price. Pick a verified exchange and keep control of funds until you release.`,
-  alternates: {
-    canonical: `https://${SITE.domain}/crypto-payment/`,
-  },
-};
+  path: '/crypto-payment/',
+});
 
 export default function CryptoPaymentPage() {
   // HowTo describes the three steps on the page itself. No offer or price

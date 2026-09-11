@@ -1,6 +1,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { CATEGORIES, PRODUCTS, SITE } from '@/src/config/site';
+import { socialImages } from '@/lib/seo';
+import { jsonLd, collectionPageSchema, absoluteUrl } from '@/lib/schema';
 import CategoryClient from './CategoryClient';
 
 export async function generateStaticParams() {
@@ -31,13 +33,17 @@ export async function generateMetadata({ params }: PageProps) {
     ? [cat.primaryKeyword, ...(cat.supportingKeywords ?? [])]
     : undefined;
 
+  // Share image: the first product photo in the range, else the brand image.
+  const first = cat.rawCategory ? PRODUCTS.find((p) => p.category === cat.rawCategory) : undefined;
+  const photo = first?.images?.[0] ? { url: absoluteUrl(first.images[0]), alt: first.name } : undefined;
+
   return {
     title,
     description,
     ...(keywords ? { keywords } : {}),
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: 'website' },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name, images: socialImages(photo) },
+    twitter: { card: 'summary_large_image', title, description, images: socialImages(photo) },
   };
 }
 
@@ -46,5 +52,13 @@ export default async function CategoryPage({ params }: PageProps) {
   const cat = CATEGORIES.find((c) => c.slug === category);
   if (!cat) notFound();
 
-  return <CategoryClient categorySlug={cat.slug} categoryName={cat.name} />;
+  // CollectionPage + ItemList: the range as a list an engine can read without
+  // crawling every product. CategoryClient still emits the BreadcrumbList and
+  // the category FAQPage.
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(collectionPageSchema(cat)) }} />
+      <CategoryClient categorySlug={cat.slug} categoryName={cat.name} />
+    </>
+  );
 }
