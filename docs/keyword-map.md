@@ -316,10 +316,22 @@ cannot drift from the catalogue. The old category page points at
 `/shop/accessories-spare-parts/`, which inherited its title and 16 of its 26
 products.
 
-### G4. `junior golf buggy` — 110/mo, KD 11 — no matching product
+### G4. `junior golf buggy` — 110/mo, KD 11 — HELD, owner-initiated
 
-Real demand, no stock to answer it. Leave unassigned until a junior model is
-actually carried.
+Real demand, no stock to answer it. The cluster is parked, not abandoned:
+
+- `junior golf buggy` plus six supporting terms are assigned to the editorial
+  guide `/blog/junior-golf-buggy-australia-guide/`. A buying guide can answer
+  the search honestly without claiming stock, so the demand is captured and
+  the term is not left to a competitor.
+- Six further junior terms (~100/mo) stay in `docs/keyword-reserve.md`,
+  reserved for the product and category pages if a junior model is carried.
+- No product, no category, and no copy anywhere implies a junior model is for
+  sale. The warning in the walk-behind category comment stands.
+
+**Do not build this out proactively.** The owner has said they will raise the
+junior range when they are ready and we will add it together. Until then the
+holding pattern above is the intended state, not an omission to fix.
 
 ### G5. Category meta descriptions are templated
 
