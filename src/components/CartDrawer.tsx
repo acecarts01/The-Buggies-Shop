@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight } from 'lucide-react';
-import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem } from '@/src/config/site';
+import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem, PRODUCTS } from '@/src/config/site';
 
 export interface CartItem {
   id: string;
@@ -252,7 +252,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 </div>
                 <div className="text-base font-bold text-[#121417]">Your order manifest is currently empty</div>
                 <p className="text-xs text-[#6B645E] max-w-xs mx-auto leading-relaxed">
-                  Browse our 61 Australian models including luxury 4-seaters, lifted 4x4 acreage buggies, and golf course carts.
+                  Browse our {PRODUCTS.length} Australian models including luxury 4-seaters, lifted 4x4 acreage buggies, and golf course carts.
                 </p>
               </div>
             ) : (

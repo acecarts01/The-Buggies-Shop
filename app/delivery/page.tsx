@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
-import { SITE, BRAND, ABN_INFO, CONTACT, SHOP } from '@/src/config/site';
+import { SITE, BRAND, ABN_INFO, CONTACT, SHOP, PRODUCTS } from '@/src/config/site';
 import { MapPin, Truck, Globe2, ClipboardCheck, PackageCheck, Route } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -252,7 +252,7 @@ export default function DeliveryPage() {
             </p>
             <div className="flex flex-wrap gap-4 pt-2 text-xs font-bold">
               <Link href="/shop/" className="text-[#E2A17A] hover:underline">
-                Browse all 61 buggies and parts
+                Browse all {PRODUCTS.length} buggies and parts
               </Link>
               <Link href="/shop/luxury-4-seater/" className="text-[#E2A17A] hover:underline">
                 Luxury 4-seater golf buggies

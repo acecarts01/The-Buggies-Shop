@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
-import { SITE, BRAND, ABN_INFO, CONTACT } from '@/src/config/site';
+import { SITE, BRAND, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
 import { ShieldCheck, MapPin, Award, Truck, Wrench, BatteryCharging, CheckCircle, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -26,7 +26,7 @@ export const metadata = {
     siteName: SITE.name,
     title: 'About The Buggies Express | Yatala QLD Depot',
     description:
-      'Australian owned golf buggy specialist in Yatala QLD. 61 buggy models, 5-year commercial lithium warranties, and nationwide delivery.',
+      `Australian owned golf buggy specialist in Yatala QLD. ${PRODUCTS.length} buggy models, 5-year commercial lithium warranties, and nationwide delivery.`,
     url: `https://${SITE.domain}/about/`,
   },
   other: {
@@ -59,7 +59,7 @@ export default function AboutPage() {
     telephone: CONTACT.phone,
     email: CONTACT.email,
     areaServed: ['AU'],
-    numberOfItems: 61,
+    numberOfItems: PRODUCTS.length,
     knowsAbout: [
       'Golf Buggies Australia',
       'Lithium Golf Cart Conversions',
@@ -67,7 +67,7 @@ export default function AboutPage() {
       'Commercial Passenger Shuttles',
       'Off-Road 4x4 Buggies',
     ],
-    priceRange: '$1,300 - $24,500 AUD',
+    priceRange: `${Math.min(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} - ${Math.max(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} AUD`,
   };
 
   const breadcrumbs = {
@@ -159,7 +159,7 @@ export default function AboutPage() {
               We established our Yatala operations depot with a singular charter: engineer, assemble, and deliver high-torque, lithium-powered golf buggies specifically calibrated for Australian soil, coastal salt spray, and extreme summer thermal cycles. Every chassis we supply features reinforced tubular steel framing, automotive e-coat corrosion dip treatment, and sealed electronic controllers rated to IP65 or higher.
             </StaggeredParagraph>
             <StaggeredParagraph delay={0.2}>
-              Unlike traditional distributors who operate purely as drop-shippers with zero physical stock in the country, Golf Buggies Express maintains over $1.2M in vehicle stock across 61 models and a dedicated inventory of over 7,200 genuine replacement parts right here in Yatala QLD. Whether you need an Atlas 48V replacement battery pack, a Club Car heavy-duty leaf spring assembly, or an EZGO Curtis controller, our dispatch bays ship the same day across the country.
+              Unlike traditional distributors who operate purely as drop-shippers with zero physical stock in the country, Golf Buggies Express maintains over $1.2M in vehicle stock across {PRODUCTS.length} models and a dedicated inventory of over 7,200 genuine replacement parts right here in Yatala QLD. Whether you need an Atlas 48V replacement battery pack, a Club Car heavy-duty leaf spring assembly, or an EZGO Curtis controller, our dispatch bays ship the same day across the country.
             </StaggeredParagraph>
           </div>
 
@@ -242,7 +242,7 @@ export default function AboutPage() {
                 href="/shop/"
                 className="px-6 py-3 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] hover:from-[#E2A17A] hover:to-[#EFC7A6] text-[#121417] font-extrabold text-xs rounded-lg transition-all shadow-xs"
               >
-                Browse All 61 Buggies &amp; Order Now
+                Browse All {PRODUCTS.length} Buggies &amp; Order Now
               </Link>
               <Link
                 href="/contact/"

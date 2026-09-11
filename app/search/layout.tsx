@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE } from '@/src/config/site';
+import { SITE, PRODUCTS } from '@/src/config/site';
 
 // The page below is a client component and cannot export metadata itself,
 // so it lives here. Without it the route inherits the root layout's title,
@@ -7,7 +7,7 @@ import { SITE } from '@/src/config/site';
 export const metadata: Metadata = {
   title: 'Search the Golf Buggy Fleet | The Buggies Express',
   description:
-    'Search all 61 golf buggy models, batteries, chargers and parts stocked at the Yatala QLD depot.',
+    `Search all ${PRODUCTS.length} golf buggy models, batteries, chargers and parts stocked at the Yatala QLD depot.`,
   alternates: {
     canonical: `https://${SITE.domain}/search/`,
   },

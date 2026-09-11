@@ -6,7 +6,7 @@ import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
-import { SITE, ProductItem } from '@/src/config/site';
+import { SITE, ProductItem, PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -99,7 +99,7 @@ export default function ShopPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 space-y-1">
             <StaggeredHeading
               tag="h1"
-              text="Australian Golf Buggies Fleet — All 61 Models for Sale"
+              text={`Australian Golf Buggies Fleet — All ${PRODUCTS.length} Models for Sale`}
               className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
             <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-1 max-w-2xl leading-relaxed">

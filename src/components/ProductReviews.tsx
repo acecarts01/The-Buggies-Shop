@@ -51,6 +51,25 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
       return hasWordMatch;
     });
 
+    // The fallback above matches on any shared word, so a battery product
+    // pulls in nearly every battery review. Rank by how specifically each
+    // review names THIS product, otherwise a review written about this exact
+    // model can get pushed past the six-item cut by generic ones.
+    const specificity = (r: ReviewItem) => {
+      const mention = (r.productMentioned || '').toLowerCase();
+      if (!mention) return 0;
+      const nameWords = productNameLower.split(/[\s()/-]+/).filter((w) => w.length > 3);
+      const hits = nameWords.filter((w) => mention.includes(w)).length;
+      // Voltage is the difference between a 48V and a 72V pack, so a mismatch
+      // there outweighs any amount of shared wording.
+      const volOf = (t: string) => (t.match(/\b(\d{2})v\b/) || [])[1];
+      const pv = volOf(productNameLower);
+      const rv = volOf(mention) || volOf(r.text.toLowerCase());
+      if (pv && rv && pv !== rv) return -1;
+      return hits;
+    };
+    exactMatches.sort((a, b) => specificity(b) - specificity(a) || (b.helpfulCount || 0) - (a.helpfulCount || 0));
+
     // 2. Category specific matches
     let categoryMatches: ReviewItem[] = [];
     if (productCategoryLower.includes('batteries') || productCategoryLower.includes('charger') || keySpecsLower.includes('lifepo4') || keySpecsLower.includes('lithium')) {

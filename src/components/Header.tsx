@@ -15,7 +15,7 @@ import {
   MapPin,
   ChevronDown
 } from 'lucide-react';
-import { ABN_INFO, CONTACT, CATEGORIES, BRAND_PAGES } from '@/src/config/site';
+import { ABN_INFO, CONTACT, CATEGORIES, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
 
 interface HeaderProps {
   cartCount?: number;
@@ -132,7 +132,7 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
                 </Link>
 
                 <div className="px-3 py-1.5 mt-1 text-[10px] font-bold uppercase tracking-wider text-[#A85640] border-y border-[#E7E5E4] mb-1">
-                  Buggy Categories (61 Models)
+                  Buggy Categories ({PRODUCTS.length} Models)
                 </div>
                 {CATEGORIES.map((cat) => (
                   <Link

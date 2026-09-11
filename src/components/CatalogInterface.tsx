@@ -333,7 +333,7 @@ Notes: ${quoteForm.notes || 'None'}`
               Australian Golf Buggies &amp; Utility Vehicles for Sale
             </h2>
             <p className="text-sm text-[#6B645E] mt-1 max-w-2xl">
-              Featuring advanced LiFePO4 zero-maintenance lithium battery technology and high-torque AC drivetrains. All 61 models certified and supported from our central Yatala QLD engineering center.
+              Featuring advanced LiFePO4 zero-maintenance lithium battery technology and high-torque AC drivetrains. All {PRODUCTS.length} models certified and supported from our central Yatala QLD engineering center.
             </p>
           </div>
 

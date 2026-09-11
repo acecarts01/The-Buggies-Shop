@@ -388,7 +388,7 @@ export const VEHICLE_COLORS = [
 // templated description, which reads as near-duplicate content and wastes
 // seven chances to place cluster terms. Titles <=60 chars, descriptions ~150.
 export const CATEGORIES = [
-  { slug: 'all', name: 'All Vehicles & Parts', count: 61 },
+  { slug: 'all', name: 'All Vehicles & Parts', count: 62 },
   {
     slug: 'luxury-4-seater',
     name: 'Luxury 4-Seater',
@@ -481,7 +481,7 @@ export const CATEGORIES = [
     slug: 'batteries-chargers-parts',
     name: 'Batteries, Chargers & Parts',
     rawCategory: 'Batteries, Chargers & Parts',
-    count: 25,
+    count: 26,
     metaTitle: 'Golf Buggy Spare Parts & Accessories | Buggies Express',
     metaDescription:
       'Golf buggy spare parts, accessories, lithium batteries and chargers in Australia. 25 items covering controllers, brakes, lighting and conversion kits.',
@@ -2501,6 +2501,59 @@ export const PRODUCTS: ProductItem[] = [
       {
         q: "Is the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack in stock at your Yatala depot?",
         a: "We hold stock at Yatala QLD 4207 rather than drop-shipping from overseas, which is why we can test a unit before it ships. Availability does move, so confirm the RoyPow 48V 105Ah Golf Cart Lithium Battery Pack is on the floor before you plan around a delivery date — call 0480 804 189 or use the chat and we will check it while you are on the line.",
+      },
+    ],
+  },
+  {
+    id: 'PART-026',
+    slug: 'roypow-72v-105ah-commercial-lithium-battery',
+    name: 'RoyPow 72V 105Ah Commercial Lithium Battery Pack',
+    category: 'Batteries, Chargers & Parts',
+    fuel_type: 'Battery Part',
+    price_aud: 4700,
+    price_display: '$4,700 AUD',
+    search_intent: 'Commercial',
+    target_audience: 'Resort fleets, security patrols and grounds teams running 72V vehicles',
+    key_specs: '72V 105Ah, Drop-In Replacement, Built-in BMS, 5-Year Warranty, Thermal Protection',
+    shortDescription: 'Commercial-duty 72V LiFePO4 pack with smart BMS and thermal protection, sized for full-shift resort and grounds work.',
+    fullDescription: "The 72V version of the RoyPow drop-in pack, specified for commercial duty rather than private golf. Higher system voltage moves the same load at lower current, so the pack and cabling run cooler and hold performance through a full working shift instead of fading toward the end of it. That is why resort fleets, security patrols and grounds teams end up here rather than on a 48V pack. Automotive-grade LiFePO4 cells and a smart BMS report state of charge and pack health rather than leaving you to infer them from how the vehicle feels, and integrated thermal protection guards against charging in freezing conditions. Supplied with a 5-year warranty and dispatched from our Yatala QLD depot.",
+    badge: '72V Commercial',
+    featured: false,
+    images: ['/images/roypow-72v-105ah-commercial-lithium-battery.webp'],
+    inStock: true,
+    primaryKeyword: "golf buggy battery",
+    supportingKeywords: [
+      "golf buggy battery replacement",
+      "lithium battery golf buggy",
+      "golf buggy battery replacement price",
+      "electric golf buggy battery",
+      "electric golf buggy lithium battery",
+      "golf buggy battery life",
+    ],
+    faqs: [
+      {
+        q: "How much is the RoyPow 72V 105Ah Commercial Lithium Battery Pack?",
+        a: "The RoyPow 72V 105Ah Commercial Lithium Battery Pack is $4,700 AUD including GST. Buy it alongside a buggy and the 5% accessory bundle discount applies. Freight is quoted against your delivery postcode, and every order is issued with a proper Australian tax invoice showing GST separately and our ABN 28 668 598 758.",
+      },
+      {
+        q: "Will the RoyPow 72V pack fit my golf buggy?",
+        a: "Only if your vehicle is already a 72V system. A 72V pack is not a drop-in upgrade for a 48V buggy, because the controller, motor and charger are all matched to system voltage. Tell us the make, model and year before ordering and we will confirm from Yatala rather than let you find out after delivery.",
+      },
+      {
+        q: "What is the difference between the 72V and 48V RoyPow packs?",
+        a: "System voltage, and it is not an upgrade path between them. Higher voltage moves the same load at lower current, so the pack and cabling run cooler and hold performance through a long shift. That suits commercial duty. For a standard 48V golf buggy the 48V 105Ah pack is the correct part.",
+      },
+      {
+        q: "Does the RoyPow 72V pack come with a warranty?",
+        a: "Yes, a 5-year warranty, the same term as the RoyPow 48V pack, supported from our Yatala QLD depot rather than an overseas returns address. Because we hold stock in Australia a claim is handled locally. Keep your tax invoice, as it is the proof of purchase date.",
+      },
+      {
+        q: "Can I fit the RoyPow 72V pack myself?",
+        a: "The pack is designed as a drop-in for an existing 72V system, and many commercial operators fit their own. Anything involving opening the pack belongs with a qualified technician. Stop immediately for any burning smell, a swollen or leaking battery, discoloured connectors, or a component too hot to touch. Our Yatala workshop can carry out the work.",
+      },
+      {
+        q: "Do I need a different charger for a 72V lithium pack?",
+        a: "Yes. A charger is matched to both system voltage and chemistry, so a 48V charger will not serve a 72V pack and a lead-acid charger is unsuitable for lithium regardless of voltage. Confirm your existing charger with us before ordering, because getting this wrong is a safety and longevity risk rather than a minor mismatch.",
       },
     ],
   },
@@ -7211,7 +7264,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: "What We Call Them and Why",
-        body: "We use buggy throughout, because we are an Australian business selling to Australian buyers and it is the word our customers use. We do say cart and car where a manufacturer's own model name or documentation uses it, since renaming someone else's product would be more confusing than helpful. If you arrived here searching golf car or golf cart, you are in the right place: the vehicle is the same, and the range is the same 61 models either way.",
+        body: "We use buggy throughout, because we are an Australian business selling to Australian buyers and it is the word our customers use. We do say cart and car where a manufacturer's own model name or documentation uses it, since renaming someone else's product would be more confusing than helpful. If you arrived here searching golf car or golf cart, you are in the right place: the vehicle is the same, and the range is the same either way.",
       },
     ],
     faqs: [

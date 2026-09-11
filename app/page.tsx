@@ -40,7 +40,7 @@ import {
   AnimatedCard
 } from '@/src/components/AnimatedText';
 import { motion } from 'motion/react';
-import { ABN_INFO, CONTACT, SITE, SHOP, FAQ, BRAND, ProductItem, POSTS } from '@/src/config/site';
+import { ABN_INFO, CONTACT, SITE, SHOP, FAQ, BRAND, ProductItem, POSTS, PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 
 export default function HomePage() {
@@ -119,7 +119,7 @@ export default function HomePage() {
     telephone: CONTACT.phone,
     email: CONTACT.email,
     areaServed: ['AU-QLD', 'AU-NSW', 'AU-VIC', 'AU-SA', 'AU-WA', 'AU-TAS', 'AU-NT', 'AU-ACT'],
-    numberOfItems: 61,
+    numberOfItems: PRODUCTS.length,
     knowsAbout: [
       'Golf Buggies Australia',
       'Electric Golf Carts',
@@ -128,14 +128,14 @@ export default function HomePage() {
       'Commercial Utility Vehicles',
       'Lithium Conversion Batteries',
     ],
-    priceRange: '$1,299 - $27,900 AUD',
+    priceRange: `${Math.min(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} - ${Math.max(...PRODUCTS.map((x) => x.price_aud)).toLocaleString()} AUD`,
     brand: { '@type': 'Brand', name: SITE.name },
     makesOffer: {
       '@type': 'AggregateOffer',
       priceCurrency: 'AUD',
-      lowPrice: 1299,
-      highPrice: 27900,
-      offerCount: 61,
+      lowPrice: Math.min(...PRODUCTS.map((x) => x.price_aud)),
+      highPrice: Math.max(...PRODUCTS.map((x) => x.price_aud)),
+      offerCount: PRODUCTS.length,
     },
   };
 
@@ -221,7 +221,7 @@ export default function HomePage() {
                 </FadeUpText>
 
                 <StaggeredParagraph delay={0.2} className="text-xs sm:text-sm text-[#6B645E] leading-relaxed max-w-2xl">
-                  {BRAND.description} Headquartered in our central Yatala QLD engineering center with 61+ models in stock—from 48V lithium 4-passenger buggies to lifted 4x4 acreage transports and walk-behind MGI motorized units.
+                  {BRAND.description} Headquartered in our central Yatala QLD engineering center with {PRODUCTS.length} models in stock—from 48V lithium 4-passenger buggies to lifted 4x4 acreage transports and walk-behind MGI motorized units.
                 </StaggeredParagraph>
 
                 {/* Hero CTAs */}
@@ -232,7 +232,7 @@ export default function HomePage() {
                     id="hero-explore-catalog-cta"
                   >
                     <SlidersHorizontal className="w-4 h-4" />
-                    <span>Explore 61 Models for Sale</span>
+                    <span>Explore {PRODUCTS.length} Models for Sale</span>
                   </a>
 
                   <Link

@@ -605,7 +605,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   href="/shop/"
                   className="text-xs text-[#E2A17A] font-bold hover:underline flex items-center gap-1"
                 >
-                  <span>View All 61</span>
+                  <span>View All {PRODUCTS.length}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

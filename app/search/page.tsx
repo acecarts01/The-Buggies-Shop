@@ -65,7 +65,7 @@ export default function SearchPage() {
             Search Australian Golf Buggies Fleet
           </h1>
           <p className="text-sm text-[#A8A29E] mt-2">
-            Instant search across 61 models of electric, lithium, petrol, and commercial utility buggies.
+            Instant search across {PRODUCTS.length} models of electric, lithium, petrol, and commercial utility buggies.
           </p>
 
           <div className="mt-6 relative">
@@ -143,7 +143,7 @@ export default function SearchPage() {
                     href="/shop/"
                     className="inline-flex items-center gap-1.5 text-xs text-[#E2A17A] font-extrabold hover:underline"
                   >
-                    <span>Browse complete 61-buggy catalog</span>
+                    <span>Browse complete {PRODUCTS.length}-buggy catalog</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

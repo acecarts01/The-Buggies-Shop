@@ -48,9 +48,16 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!product) notFound();
 
   const url = `https://${SITE.domain}/shop/${category}/${product.slug}/`;
-  const brand = BRAND_PAGES.find((b) =>
-    product.name.toLowerCase().includes(b.match.toLowerCase())
-  );
+  // Brands with a shop page resolve from BRAND_PAGES. Component makers
+  // (batteries, controllers, chargers) do not get a shop page but are still
+  // real manufacturers, and Product schema should name them.
+  const COMPONENT_BRANDS = [
+    'RoyPow', 'Eco Battery', 'Invicta', 'Trojan', 'Delta-Q', 'Curtis',
+    'Navitas', 'MadJax', 'Albright',
+  ];
+  const brandName =
+    BRAND_PAGES.find((b) => product.name.toLowerCase().includes(b.match.toLowerCase()))?.name ??
+    COMPONENT_BRANDS.find((b) => product.name.toLowerCase().includes(b.toLowerCase()));
 
   // Product + Offer. No aggregateRating is emitted: rating markup is only
   // valid for genuine, attributable reviews, and inventing one to win a star
@@ -70,7 +77,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       ? { keywords: [product.primaryKeyword, ...(product.supportingKeywords || [])].join(', ') }
       : {}),
     image: (product.images || []).map((img) => `https://${SITE.domain}${img}`),
-    ...(brand ? { brand: { '@type': 'Brand', name: brand.name } } : {}),
+    ...(brandName ? { brand: { '@type': 'Brand', name: brandName } } : {}),
     offers: {
       '@type': 'Offer',
       url,

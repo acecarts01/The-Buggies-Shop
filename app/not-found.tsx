@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, HelpCircle } from 'lucide-react';
+import { PRODUCTS } from '@/src/config/site';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 
@@ -34,7 +35,7 @@ export default function NotFound() {
               href="/shop/"
               className="px-6 py-3 bg-gradient-to-r from-[#C86D51] to-[#E2A17A] hover:from-[#E2A17A] hover:to-[#EFC7A6] text-[#121417] text-xs font-extrabold rounded-lg transition-all flex items-center justify-center gap-1.5 shadow"
             >
-              <span>Explore 61 Buggies</span>
+              <span>Explore {PRODUCTS.length} Buggies</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

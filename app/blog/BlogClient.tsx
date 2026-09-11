@@ -20,7 +20,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
-import { POSTS, BlogPost, SITE, ABN_INFO, CONTACT } from '@/src/config/site';
+import { POSTS, BlogPost, SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -412,7 +412,7 @@ export default function BlogClient() {
                 href="/shop/"
                 className="px-5 py-2.5 rounded-lg bg-[#1A1D21] border border-[#2B2F34] text-[#ffffff] hover:border-[#E2A17A] font-bold text-xs transition-colors metal-brushed-dark"
               >
-                Browse 61+ Buggies in Stock
+                Browse {PRODUCTS.length} Buggies in Stock
               </Link>
             </div>
           </div>

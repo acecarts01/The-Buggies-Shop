@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import { SITE } from '@/src/config/site';
+import { SITE, PRODUCTS } from '@/src/config/site';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -12,14 +12,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
-  description: "Sales, service, warranty, parts, and custom builds. 61+ models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.",
+  description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.`,
   metadataBase: new URL(`https://${SITE.domain}`),
   alternates: {
     canonical: `https://${SITE.domain}/`,
   },
   openGraph: {
     title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
-    description: "Sales, service, warranty, parts, and custom builds. 61+ models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.",
+    description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models from luxury 4-seaters to lifted 4x4 acreage buggies. Yatala QLD depot. ABN 28 668 598 758.`,
     type: 'website',
     locale: 'en_AU',
     url: `https://${SITE.domain}/`,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Golf Buggies & Golf Carts Australia | The Buggies Express",
-    description: "Sales, service, warranty, parts, and custom builds. 61+ models in stock at Yatala QLD depot.",
+    description: `Sales, service, warranty, parts, and custom builds. ${PRODUCTS.length} models in stock at Yatala QLD depot.`,
   },
   robots: {
     index: true,
