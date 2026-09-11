@@ -86,7 +86,10 @@ export default function Footer() {
             Fleet Categories
           </div>
           <ul className="space-y-2">
-            {CATEGORIES.slice(0, 6).map((cat) => (
+            {/* Every category, not a fixed slice: the footer is the only
+                site-wide internal link a category page gets, and a slice
+                silently drops whichever categories were added last. */}
+            {CATEGORIES.map((cat) => (
               <li key={cat.slug}>
                 <Link
                   href={`/shop/${cat.slug === 'all' ? '' : cat.slug}/`}

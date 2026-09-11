@@ -146,7 +146,9 @@ Support posts already published (all should link up to the category):
 > `junior golf buggy` (110/mo) has **no matching product**. Do not write copy
 > targeting it until a junior model is genuinely stocked — see gap **G4**.
 
-### `/shop/batteries-chargers-parts`
+### `/shop/batteries-chargers` and `/shop/accessories-spare-parts`
+
+(Split from the former `/shop/batteries-chargers-parts` — see gap **G3**.)
 
 | Keyword | Vol | KD | Intent |
 |---|---:|---:|---|
@@ -296,14 +298,23 @@ individual product pages.
 **Action:** consider `/shop/brand/[brand]` derived from `PRODUCTS`, the same
 way categories are. Config-driven, no hand-written pages.
 
-### G3. Accessories and batteries share one page
+### G3. Accessories and batteries share one page — CLOSED
 
 16 accessory/spares keywords (570/mo) and all the battery/charger products
-collapse onto `/shop/batteries-chargers-parts`. The category holds 25
+collapsed onto `/shop/batteries-chargers-parts`. The category held 26
 products — the largest on the site — against the lowest-KD keyword block.
 
-**Action:** splitting accessories from batteries/chargers would give each
-cluster its own canonical target.
+**Resolved.** Split into `/shop/batteries-chargers` (10 products, the battery
+and charger cluster) and `/shop/accessories-spare-parts` (16 products, the
+accessories/spares cluster). Each has its own title, description, intro, four
+body sections and five guide links.
+
+Because product URLs are built as `/shop/<category>/<product>/`, the split
+moved 26 live URLs. All 26, plus the old category page, are 308-redirected in
+`next.config.ts` — derived from `PRODUCTS` rather than hand-listed, so the map
+cannot drift from the catalogue. The old category page points at
+`/shop/accessories-spare-parts/`, which inherited its title and 16 of its 26
+products.
 
 ### G4. `junior golf buggy` — 110/mo, KD 11 — no matching product
 

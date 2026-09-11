@@ -127,9 +127,13 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
 
         <main id="main" className="flex-1 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 space-y-1">
+            {/* The template reads well for vehicle categories but not for
+                every one: "Walk-Behind Buggies" doubles the word, and parts
+                categories are not buggies at all. Categories that need their
+                own wording carry an explicit `h1` in CATEGORIES. */}
             <StaggeredHeading
               tag="h1"
-              text={`${categoryName} Buggies for Sale in Australia`}
+              text={cat?.h1 ?? `${categoryName} Buggies for Sale in Australia`}
               className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
             <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-1 max-w-2xl leading-relaxed">
