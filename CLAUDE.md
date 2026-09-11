@@ -38,6 +38,8 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - After a content deploy run `npm run indexnow` (Bing/Yandex). Full audit + GSC protocol: docs/seo-audit-2026-09-11.md.
 - Web3Forms CORS method: FormData with Accept header only, no Content-Type.
 - Framework Preset on Vercel must be "Next.js".
+- Never run `next build` while `next dev` is running: both use `.next/`, and the build wipes the dev server's manifests
+  (500s, `ENOENT routes-manifest.json`). Stop the dev server first; if it happens, `rm -rf .next` and restart dev.
 
 ## Brand Facts
 - Registered: 7/06/2023 with ASIC (Next review: 7/06/2027).
