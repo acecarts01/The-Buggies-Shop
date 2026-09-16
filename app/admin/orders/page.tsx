@@ -115,7 +115,7 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
           href={settle}
           className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#B8973F] hover:bg-[#D9C27A] text-[#071527] font-bold text-sm transition-all hover:-translate-y-px shadow-lg shadow-black/30"
         >
-          Review Order &amp; Settle Payment
+          View Order in Admin
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
         </Link>
       </div>

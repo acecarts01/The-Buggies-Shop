@@ -42,8 +42,8 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
     ${row(
       E.bone,
       'padding:6px 28px 24px 28px;',
-      `${button(settle, 'Review Order &amp; Settle Payment', { full: true })}
-       <div style="padding-top:10px;text-align:center;font-family:${FONT};font-size:11px;color:${E.muted};">Opens the pre-filled settlement terminal · requires the admin passphrase</div>`,
+      `${button(settle, 'View Order in Admin', { full: true })}
+       <div style="padding-top:10px;text-align:center;font-family:${FONT};font-size:11px;color:${E.muted};">Opens with the payment details ready to fill in and send · requires the admin passphrase</div>`,
       'class="be-pad"'
     )}`;
 

@@ -97,7 +97,13 @@ export function verifyOrder(token: string | null | undefined): Order | null {
 // URLs and WhatsApp
 
 export function siteUrl(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL || `https://${SITE.domain}`).replace(/\/$/, '');
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '');
+  // Preview deployments get a fresh *.vercel.app URL every push; VERCEL_URL is
+  // set automatically by Vercel to that exact deployment's own host, so links
+  // in an email sent from a Preview build always point back at that same
+  // Preview, never at the production domain where this branch isn't live yet.
+  if (process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return `https://${SITE.domain}`;
 }
 
 export function adminOrderUrl(token: string): string {
