@@ -127,6 +127,17 @@ export async function orderCounts(): Promise<Record<string, number>> {
   return out;
 }
 
+export async function orderRevenue(): Promise<{ settled: number; pipeline: number }> {
+  await migrate();
+  const { rows } = await sql`
+    SELECT
+      COALESCE(SUM(CASE WHEN status IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS settled,
+      COALESCE(SUM(CASE WHEN status NOT IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS pipeline
+    FROM orders
+  `;
+  return { settled: Number(rows[0]?.settled ?? 0), pipeline: Number(rows[0]?.pipeline ?? 0) };
+}
+
 function rowToOrder(r: any): OrderRow {
   return {
     ref: r.ref,
@@ -175,6 +186,12 @@ export interface EnquiryRow {
   phone: string | null;
   message: string | null;
   payload: Record<string, unknown>;
+}
+
+export async function enquiryTotalCount(): Promise<number> {
+  await migrate();
+  const { rows } = await sql`SELECT count(*)::int AS n FROM enquiries`;
+  return rows[0]?.n ?? 0;
 }
 
 export async function listEnquiries(opts: { limit?: number; formType?: string; search?: string } = {}): Promise<EnquiryRow[]> {
