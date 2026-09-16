@@ -45,8 +45,6 @@ export interface InvoiceDetails {
   bank?: { accountName: string; bsb: string; accountNumber: string; payId?: string };
   crypto?: { walletKey: string; asset: string; network: string; address: string };
   finance4?: { instructions: string; link?: string };
-  freight: { amount: number | null; note: string };
-  deliveryTimeframe: string;
   notes?: string;
 }
 

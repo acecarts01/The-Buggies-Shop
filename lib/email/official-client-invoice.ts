@@ -50,8 +50,6 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
   const state = c.state ?? stateFromPostcode(c.postcode);
   const site = siteUrl();
   const first = c.name.split(' ')[0];
-  const freightLabel = inv?.freight?.amount != null ? aud(inv.freight.amount) : inv?.freight?.note || 'Quoted separately';
-  const grand = order.totals.total + (inv?.freight?.amount ?? 0);
   const issued = inv?.issuedAt ? new Date(inv.issuedAt) : new Date();
 
   const body = `
@@ -89,9 +87,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
         E.white,
         `<tr>${td(E.white, 'padding:18px 22px 6px 22px;', `
           <div style="font-family:${FONT};font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:${E.gold};font-weight:700;">Itemised</div>
-          ${table(E.white, ledgerRows(order) + totalsRows(order, { freight: freightLabel }))}
-          ${inv?.freight?.amount != null ? table(E.white, `<tr>${td(E.white, `padding:10px 0 4px 0;font-family:${FONT};font-size:16px;font-weight:700;color:${E.navy};`, 'Amount payable incl. freight')}${td(E.white, `padding:10px 0 4px 0;text-align:right;font-family:${FONT};font-size:20px;font-weight:700;color:${E.navy};white-space:nowrap;`, aud(grand))}</tr>`) : ''}
-          ${inv?.deliveryTimeframe ? `<div style="padding:10px 0 8px 0;font-family:${FONT};font-size:13px;color:${E.ink};">🚚 <strong>Delivery:</strong> ${esc(inv.deliveryTimeframe)}</div>` : ''}
+          ${table(E.white, ledgerRows(order) + totalsRows(order, { freight: 'Confirmed once payment is received' }))}
         `)}</tr>`,
         `border-radius:12px;border:1px solid ${E.line};`
       ),
@@ -123,7 +119,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
 
   const html = emailShell({
     title: `Tax invoice ${order.ref} — The Buggies Express`,
-    preheader: `Invoice ${order.ref}: ${aud(grand)} payable. Payment details inside.`,
+    preheader: `Invoice ${order.ref}: ${aud(order.totals.total)} payable. Payment details inside.`,
     headerNote: 'Tax invoice',
     body,
     siteUrl: site,
@@ -139,9 +135,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
   const text = [
     `TAX INVOICE ${order.ref} — ${ABN_INFO.companyName}, ABN ${ABN_INFO.abn}`,
     ...order.lines.map((l) => `- ${l.name} x${l.quantity} — ${aud(l.lineTotal)}`),
-    `Total ${aud(order.totals.total)} (incl. GST ${aud(order.totals.gst)}) · Freight ${freightLabel}`,
-    inv?.freight?.amount != null ? `Amount payable incl. freight: ${aud(grand)}` : '',
-    inv?.deliveryTimeframe ? `Delivery: ${inv.deliveryTimeframe}` : '',
+    `Total ${aud(order.totals.total)} (incl. GST ${aud(order.totals.gst)}) · Freight confirmed once payment is received`,
     ``,
     ...payLines.filter(Boolean),
     ``,
@@ -151,5 +145,5 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
     .filter((l) => l !== '')
     .join('\n');
 
-  return { subject: `Tax invoice ${order.ref} — ${aud(grand)} — The Buggies Express`, html, text };
+  return { subject: `Tax invoice ${order.ref} — ${aud(order.totals.total)} — The Buggies Express`, html, text };
 }

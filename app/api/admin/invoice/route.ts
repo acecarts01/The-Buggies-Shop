@@ -18,14 +18,8 @@ function cleanInvoice(raw: Partial<InvoiceDetails> | undefined, order: Order): I
   const inv: InvoiceDetails = {
     issuedAt: new Date().toISOString(),
     method,
-    freight: {
-      amount: raw?.freight?.amount === null || raw?.freight?.amount === undefined || raw?.freight?.amount === ('' as unknown) ? null : Math.max(0, Math.round(Number(raw.freight.amount) * 100) / 100),
-      note: s(raw?.freight?.note, 160) || 'Quoted separately against your postcode',
-    },
-    deliveryTimeframe: s(raw?.deliveryTimeframe, 160),
     notes: s(raw?.notes, 600) || undefined,
   };
-  if (Number.isNaN(inv.freight.amount as number)) inv.freight.amount = null;
 
   if (method === 'bank') {
     const b: Partial<NonNullable<InvoiceDetails['bank']>> = raw?.bank ?? {};
@@ -73,7 +67,7 @@ export async function POST(request: Request) {
   if ('error' in cleaned) {
     if (preview) {
       // Preview still renders with whatever is filled so the admin sees progress.
-      const draft: Order = { ...order, invoice: { issuedAt: new Date().toISOString(), method: (body.invoice?.method as InvoiceDetails['method']) || 'bank', freight: { amount: null, note: 'Quoted separately' }, deliveryTimeframe: '', ...(body.invoice as Partial<InvoiceDetails>) } as InvoiceDetails };
+      const draft: Order = { ...order, invoice: { issuedAt: new Date().toISOString(), method: (body.invoice?.method as InvoiceDetails['method']) || 'bank', ...(body.invoice as Partial<InvoiceDetails>) } as InvoiceDetails };
       const t = signOrder({ ...draft, status: 'invoice_sent' });
       return NextResponse.json({ success: true, html: renderInvoice(draft, payPageUrl(t)).html, incomplete: cleaned.error });
     }

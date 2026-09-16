@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import QRCode from 'qrcode';
-import { Copy, Check, MessageSquare, Mail, ShieldCheck, Truck } from 'lucide-react';
+import { Copy, Check, MessageSquare, Mail, ShieldCheck } from 'lucide-react';
 import { type Order, aud, stateFromPostcode } from '@/lib/orders-shared';
 import { ABN_INFO, CONTACT } from '@/src/config/site';
 import { BRAND_ASSETS } from '@/src/config/brand-assets';
@@ -59,7 +59,7 @@ export default function PayInvoice({ order }: { order: Order | null }) {
 
   const c = order.customer;
   const state = c.state ?? stateFromPostcode(c.postcode);
-  const grand = order.totals.total + (inv.freight.amount ?? 0);
+  const grand = order.totals.total;
   const wa = `https://wa.me/${CONTACT.whatsappNumber.replace('+', '')}?text=${encodeURIComponent(`Payment receipt for invoice ${order.ref} — receipt/screenshot attached below.`)}`;
 
   return (
@@ -100,12 +100,9 @@ export default function PayInvoice({ order }: { order: Order | null }) {
             {order.totals.accessoryDiscount > 0 && <div className="flex justify-between text-[#1E7A46]"><dt>Accessory bundle discount (5%)</dt><dd>−{aud(order.totals.accessoryDiscount)}</dd></div>}
             {order.totals.cryptoDiscount > 0 && <div className="flex justify-between text-[#1E7A46]"><dt>Crypto settlement incentive (10%)</dt><dd>−{aud(order.totals.cryptoDiscount)}</dd></div>}
             <div className="flex justify-between text-[#6B7280]"><dt>Includes GST (10%)</dt><dd>{aud(order.totals.gst)}</dd></div>
-            <div className="flex justify-between text-[#6B7280]"><dt>Freight</dt><dd>{inv.freight.amount != null ? aud(inv.freight.amount) : inv.freight.note}</dd></div>
+            <div className="flex justify-between text-[#6B7280]"><dt>Freight</dt><dd>Confirmed once payment is received</dd></div>
             <div className="flex justify-between text-lg font-bold text-[#0B1F3A] pt-2 border-t border-[#0B1F3A]"><dt>Amount payable</dt><dd>{aud(grand)}</dd></div>
           </dl>
-          {inv.deliveryTimeframe && (
-            <p className="flex items-center gap-2 text-sm"><Truck className="w-4 h-4 text-[#B8973F]" aria-hidden="true" /> <strong>Delivery:</strong> {inv.deliveryTimeframe}</p>
-          )}
         </section>
 
         {/* Settlement box */}

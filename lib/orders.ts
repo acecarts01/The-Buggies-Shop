@@ -158,15 +158,13 @@ export function whatsappInvoiceMessage(order: Order, payUrl: string): string {
   } else if (inv?.method === 'finance4' && inv.finance4) {
     pay.push(`💳 *Finance in 4*`, inv.finance4.instructions, inv.finance4.link ?? '');
   }
-  const freight = inv?.freight?.amount != null ? `Freight to ${order.customer.postcode ?? 'your postcode'}: ${aud(inv.freight.amount)}` : `Freight: ${inv?.freight?.note || 'quoted separately'}`;
   return [
     `📄 *Invoice ${order.ref}* — The Buggies Express`,
     `Hi ${order.customer.name.split(' ')[0]}, here are your payment details.`,
     ``,
     ...order.lines.map((l) => `• ${l.name} ×${l.quantity} — ${aud(l.lineTotal)}`),
     `*Total: ${aud(order.totals.total)}* (incl. GST ${aud(order.totals.gst)})`,
-    freight,
-    inv?.deliveryTimeframe ? `🚚 ${inv.deliveryTimeframe}` : null,
+    `Freight: confirmed once payment is received`,
     ``,
     ...pay,
     ``,

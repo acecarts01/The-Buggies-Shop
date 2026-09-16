@@ -30,9 +30,6 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
   const [bank, setBank] = useState(bankDefaults);
   const [walletKey, setWalletKey] = useState(CRYPTO.wallets[0].key);
   const [finance, setFinance] = useState({ instructions: '', link: '' });
-  const [freightAmount, setFreightAmount] = useState('');
-  const [freightNote, setFreightNote] = useState('');
-  const [timeframe, setTimeframe] = useState('');
   const [notes, setNotes] = useState('');
   const [qr, setQr] = useState('');
   const [preview, setPreview] = useState('');
@@ -50,11 +47,9 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
       bank: method === 'bank' ? bank : undefined,
       crypto: method === 'crypto' ? { walletKey: wallet.key, asset: wallet.asset, network: wallet.network, address: wallet.address } : undefined,
       finance4: method === 'finance4' ? finance : undefined,
-      freight: { amount: freightAmount === '' ? null : Number(freightAmount), note: freightNote },
-      deliveryTimeframe: timeframe,
       notes,
     }),
-    [method, bank, wallet, finance, freightAmount, freightNote, timeframe, notes]
+    [method, bank, wallet, finance, notes]
   );
 
   // QR for the crypto panel.
@@ -116,8 +111,6 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
       /* selectable fallback below */
     }
   };
-
-  const grand = order.totals.total + (freightAmount ? Number(freightAmount) || 0 : 0);
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
@@ -235,30 +228,16 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
           )}
         </section>
 
-        {/* Freight + delivery */}
+        {/* Notes */}
         <section className="bg-[#0B1F3A] border border-white/10 rounded-2xl p-5 space-y-3">
-          <h2 className="text-[11px] uppercase tracking-[0.18em] text-[#D9C27A] font-bold">Freight &amp; delivery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label className={label} htmlFor="freight">Freight (AUD) <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(blank = quoted separately)</span></label>
-              <input id="freight" className={input} inputMode="decimal" value={freightAmount} onChange={(e) => setFreightAmount(e.target.value.replace(/[^\d.]/g, ''))} placeholder="e.g. 480" />
-            </div>
-            <div>
-              <label className={label} htmlFor="timeframe">Delivery timeframe</label>
-              <input id="timeframe" className={input} value={timeframe} onChange={(e) => setTimeframe(e.target.value)} placeholder="e.g. 5–8 business days after payment clears" />
-            </div>
-            <div className="sm:col-span-2">
-              <label className={label} htmlFor="freight-note">Freight note</label>
-              <input id="freight-note" className={input} value={freightNote} onChange={(e) => setFreightNote(e.target.value)} placeholder="e.g. Enclosed transporter to Southport, tilt-tray unload" />
-            </div>
-            <div className="sm:col-span-2">
-              <label className={label} htmlFor="notes">Notes on the invoice <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(optional)</span></label>
-              <textarea id="notes" className={`${input} min-h-[72px]`} value={notes} onChange={(e) => setNotes(e.target.value)} />
-            </div>
+          <h2 className="text-[11px] uppercase tracking-[0.18em] text-[#D9C27A] font-bold">Invoice notes</h2>
+          <div>
+            <label className={label} htmlFor="notes">Notes on the invoice <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(optional)</span></label>
+            <textarea id="notes" className={`${input} min-h-[72px]`} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Freight is quoted once payment clears — mention that here if useful." />
           </div>
           <div className="flex justify-between text-sm pt-2 border-t border-white/10">
-            <span className="text-[#A9B4C6]">Amount payable {freightAmount ? 'incl. freight' : 'excl. freight'}</span>
-            <span className="font-bold text-[#D9C27A] text-lg">{aud(grand)}</span>
+            <span className="text-[#A9B4C6]">Amount payable (freight confirmed after payment)</span>
+            <span className="font-bold text-[#D9C27A] text-lg">{aud(order.totals.total)}</span>
           </div>
         </section>
 

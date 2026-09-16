@@ -37,8 +37,6 @@ const bankInvoiced: Order = {
     issuedAt: '2026-09-16T02:00:00.000Z',
     method: 'bank',
     bank: { accountName: 'Golf Buggies Express Pty Ltd', bsb: '000-000', accountNumber: '00000000', payId: 'ABN 28 668 598 758' },
-    freight: { amount: 480, note: 'Enclosed transporter to Southport' },
-    deliveryTimeframe: '5–8 business days after payment clears',
     notes: 'Fixture invoice for template checks only.',
   },
 };
@@ -49,8 +47,6 @@ const cryptoInvoiced: Order = {
     issuedAt: '2026-09-16T02:00:00.000Z',
     method: 'crypto',
     crypto: { walletKey: 'btc', asset: 'BTC', network: 'Bitcoin mainnet', address: 'bc1qe3mfevg3ud3jukp9ad37wszcfrwev7zxxex5u5' },
-    freight: { amount: null, note: 'Quoted separately against your postcode' },
-    deliveryTimeframe: '',
   },
 };
 
