@@ -15,7 +15,7 @@ export default function AdminShell({ title, subtitle, children, wide = false }: 
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-white/10 bg-[#0B1F3A]">
         <div className={`mx-auto ${wide ? 'max-w-7xl' : 'max-w-4xl'} px-4 sm:px-6 py-3 flex items-center justify-between gap-4`}>
-          <Link href="/admin/orders/" className="flex items-center gap-3 min-w-0">
+          <Link href="/admin/portal/" className="flex items-center gap-3 min-w-0">
             {mark ? (
               <Image src={mark.path} alt="" width={Math.round((mark.width / mark.height) * 36)} height={36} className="h-9 w-auto shrink-0" priority />
             ) : (
@@ -26,7 +26,10 @@ export default function AdminShell({ title, subtitle, children, wide = false }: 
               <span className="block text-[10px] uppercase tracking-[0.2em] text-[#D9C27A]">Sales desk admin</span>
             </span>
           </Link>
-          <AdminSignOut />
+          <nav className="flex items-center gap-4">
+            <Link href="/admin/portal/" className="text-xs font-bold text-[#A9B4C6] hover:text-[#D9C27A] transition-colors hidden sm:inline">Portal</Link>
+            <AdminSignOut />
+          </nav>
         </div>
       </header>
       <main id="main" className={`flex-1 mx-auto w-full ${wide ? 'max-w-7xl' : 'max-w-4xl'} px-4 sm:px-6 py-8 sm:py-10`}>

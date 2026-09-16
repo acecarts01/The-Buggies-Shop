@@ -4,8 +4,10 @@ import { redirect } from 'next/navigation';
 import { Mail, Phone, MapPin, CreditCard, ArrowRight, Inbox, MessageSquare } from 'lucide-react';
 import { isAdminRequest } from '@/lib/admin-auth';
 import { verifyOrder, aud, paymentLabel, stateFromPostcode, whatsappToCustomerUrl, STATUS_LABEL, type OrderStatus } from '@/lib/orders';
+import { getOrder, getOrderEvents } from '@/lib/db';
 import AdminShell from '@/src/components/admin/AdminShell';
 import StatusBadge from '@/src/components/admin/StatusBadge';
+import OrderStatusActions from '@/src/components/admin/OrderStatusActions';
 
 // /admin/orders/?o=<token> - the "View in Admin" card. Without a token it
 // explains where orders arrive (there is no order list: orders live in the
@@ -29,11 +31,20 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
     );
   }
 
+  // The token carries the order as it was when it was signed; the database
+  // (when reachable) is the live source of truth for status, since it
+  // advances from actions (paid, dispatched) the token was never re-signed
+  // for. Line items, customer and totals don't change after the fact, so
+  // those stay token-derived either way.
+  const dbRow = await getOrder(order.ref).catch(() => null);
+  if (dbRow) order.status = dbRow.status;
+
   const c = order.customer;
   const state = c.state ?? stateFromPostcode(c.postcode);
   const settle = `/admin/orders/settle/?o=${encodeURIComponent(o!)}`;
   const steps: OrderStatus[] = ['new', 'awaiting_invoice', 'invoice_sent', 'paid', 'dispatched'];
   const current = steps.indexOf(order.status);
+  const events = await getOrderEvents(order.ref).catch(() => []);
 
   return (
     <AdminShell title={`Order ${order.ref}`} subtitle={`Placed ${new Date(order.createdAt).toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' })} AEST · ${order.channel === 'whatsapp' ? 'WhatsApp checkout' : order.channel === 'crypto' ? 'On-site crypto invoice' : 'Invoice request'}`}>
@@ -119,7 +130,28 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
         </Link>
       </div>
-      <p className="mt-3 text-[11px] text-[#A9B4C6]">Status: {STATUS_LABEL[order.status]}. Statuses advance as invoices go out; the updated link is emailed to the sales desk each time.</p>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-[11px] text-[#A9B4C6]">Status: {STATUS_LABEL[order.status]}. Statuses advance as invoices go out; the updated link is emailed to the sales desk each time.</p>
+        <OrderStatusActions orderRef={order.ref} status={order.status} />
+      </div>
+
+      {events.length > 0 && (
+        <section className="mt-6 bg-[#0B1F3A] border border-white/10 rounded-2xl p-6">
+          <h2 className="text-[11px] uppercase tracking-[0.18em] text-[#D9C27A] font-bold mb-4">Activity</h2>
+          <ol className="space-y-3">
+            {events.map((e, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8973F] mt-1.5 shrink-0" aria-hidden="true" />
+                <div>
+                  <span className="font-semibold">{STATUS_LABEL[e.status as OrderStatus] ?? e.status}</span>
+                  {e.note ? <span className="text-[#A9B4C6]"> — {e.note}</span> : null}
+                  <div className="text-[11px] text-[#A9B4C6]">{new Date(e.at).toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' })} AEST</div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
     </AdminShell>
   );
 }

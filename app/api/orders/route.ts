@@ -13,6 +13,7 @@ import {
 import { renderOrderConfirmation } from '@/lib/email/order-confirmation';
 import { renderAdminNewOrder } from '@/lib/email/admin-new-order';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
+import { upsertOrder } from '@/lib/db';
 
 // POST /api/orders/ - the cart's order submission.
 //
@@ -66,6 +67,7 @@ export async function POST(request: Request) {
   const [customerResult, adminResult] = await Promise.all([
     sendMail({ to: email, subject: confirmation.subject, html: confirmation.html, text: confirmation.text }),
     sendMail({ to: salesDeskAddress(), subject: adminMail.subject, html: adminMail.html, text: adminMail.text, replyTo: email }),
+    upsertOrder(order, 'Order placed'),
   ]);
 
   return NextResponse.json({

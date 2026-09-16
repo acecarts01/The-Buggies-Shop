@@ -5,6 +5,7 @@ import { type InvoiceDetails, type Order, verifyOrder, signOrder, payPageUrl, ad
 import { renderInvoice } from '@/lib/email/official-client-invoice';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
 import { CRYPTO } from '@/src/config/site';
+import { upsertOrder } from '@/lib/db';
 
 // POST /api/admin/invoice/?preview=1  -> { html }               (live preview)
 // POST /api/admin/invoice/            -> sends the invoice, returns the
@@ -81,7 +82,10 @@ export async function POST(request: Request) {
 
   if (preview) return NextResponse.json({ success: true, html: mail.html });
 
-  const result = await sendMail({ to: order.customer.email, subject: mail.subject, html: mail.html, text: mail.text, bcc: salesDeskAddress() });
+  const [result] = await Promise.all([
+    sendMail({ to: order.customer.email, subject: mail.subject, html: mail.html, text: mail.text, bcc: salesDeskAddress() }),
+    upsertOrder(invoiced, 'Invoice sent'),
+  ]);
   const waText = whatsappInvoiceMessage(invoiced, payUrl);
 
   return NextResponse.json({
