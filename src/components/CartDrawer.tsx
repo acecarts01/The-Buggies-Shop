@@ -54,47 +54,38 @@ export default function CartDrawer({
   const [cryptoStage, setCryptoStage] = useState<'form' | 'pay'>('form');
   const [orderRef, setOrderRef] = useState('');
 
-  const sendOrderToSalesDesk = async (method: 'whatsapp' | 'invoice' | 'crypto', ref?: string) => {
+  // Submits the order to /api/orders/, which reprices it from PRODUCTS, emails
+  // the customer their confirmation and the sales desk its View-in-Admin
+  // link, and returns the order reference. Failures never block the buyer:
+  // the WhatsApp/thank-you path still works and the desk follows up.
+  const sendOrderToSalesDesk = async (
+    method: 'whatsapp' | 'invoice' | 'crypto',
+    ref?: string
+  ): Promise<{ ref: string; whatsappUrl?: string } | null> => {
     try {
-      await fetch('/api/contact/', {
+      const res = await fetch('/api/orders/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          formType: 'order',
-          subject: 'NEW ORDER',
-          name: buyerName.trim() || 'Website Customer',
+          channel: method,
+          payment: paymentOption,
+          ref,
+          name: buyerName.trim(),
+          email: buyerEmail.trim(),
           phone: buyerPhone.trim() || undefined,
-          email: buyerEmail.trim() || undefined,
-          postcode: buyerPostcode.trim() || 'Pending',
-          paymentOption,
-          total: finalTotal,
-          items: items.map((i) => ({
-            name: i.name,
-            quantity: i.quantity,
-            price: i.price_aud,
-            id: i.id,
-          })),
-          message: `NEW ORDER placed via website manifest (${
-            method === 'invoice' ? 'Direct Tax Invoice' : method === 'crypto' ? 'On-site Crypto Invoice' : 'WhatsApp Checkout'
-          }).${ref ? `
-Order Ref: ${ref}` : ''}
-Payment Option: ${paymentOption}${method === 'crypto' ? ' (BTC / USDT - buyer confirms with receipt on WhatsApp)' : ''}
-Subtotal: $${rawSubtotal.toLocaleString()} AUD
-Bundle Discount: -$${accessoryDiscount.toLocaleString()} AUD
-Crypto Discount: -$${cryptoDiscount.toLocaleString()} AUD
-Final Total: $${finalTotal.toLocaleString()} AUD (excludes freight)
-Freight: to be quoted against the delivery postcode
-Postcode: ${buyerPostcode || 'Not specified'}
-
-Items:
-${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).toLocaleString()} AUD)`).join('\n')}`,
+          postcode: buyerPostcode.trim() || undefined,
+          items: items.map((i) => ({ id: i.id, quantity: i.quantity })),
         }),
       });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) {
+        console.error('[CartDrawer] order not accepted:', data.message);
+        return null;
+      }
+      return { ref: data.ref, whatsappUrl: data.whatsappUrl };
     } catch (e) {
-      console.error('[CartDrawer] Error notifying sales desk:', e);
+      console.error('[CartDrawer] Error submitting order:', e);
+      return null;
     }
   };
 
@@ -104,8 +95,8 @@ ${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).
       setOrderError('Please enter your full name.');
       return;
     }
-    if (!buyerPhone.trim() && !buyerEmail.trim()) {
-      setOrderError('Please provide either an email or mobile phone number.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(buyerEmail.trim())) {
+      setOrderError('Please enter a valid email address - your order confirmation and invoice are sent there.');
       return;
     }
 
@@ -130,8 +121,8 @@ ${items.map((i) => `• ${i.name} x${i.quantity} ($${(i.price_aud * i.quantity).
       setOrderError('Please enter your full name.');
       return;
     }
-    if (!buyerPhone.trim() && !buyerEmail.trim()) {
-      setOrderError('Please provide either an email or mobile phone number.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(buyerEmail.trim())) {
+      setOrderError('Please enter a valid email address - your order confirmation and invoice are sent there.');
       return;
     }
     setSubmittingOrder(true);

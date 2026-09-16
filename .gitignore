@@ -14,3 +14,6 @@ Buggies Express Product Images/
 
 # TS incremental build cache
 *.tsbuildinfo
+
+# Dev-only rendered emails (SMTP unset locally)
+.email-outbox/

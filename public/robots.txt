@@ -8,6 +8,10 @@ Disallow: /thank-you-contact/
 Disallow: /thank-you-order/
 Disallow: /thank-you-wholesale/
 Disallow: /api/contact/
+Disallow: /api/orders/
+Disallow: /api/admin/
+Disallow: /admin/
+Disallow: /pay/
 Disallow: /search/?
 Disallow: /*?q=
 
