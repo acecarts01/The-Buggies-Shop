@@ -73,7 +73,7 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
         E.white,
         `<tr>${td(E.white, 'padding:18px 22px;', `
           <div style="font-family:${FONT};font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:${E.gold};font-weight:700;">What happens next</div>
-          <p style="margin:8px 0 0 0;font-family:${FONT};font-size:13px;line-height:20px;color:${E.ink};">We quote enclosed freight to your postcode, send your tax invoice for <strong>${esc(paymentLabel(order.payment))}</strong>, then dispatch once you've paid and sent the receipt on WhatsApp.</p>
+          <p style="margin:8px 0 0 0;font-family:${FONT};font-size:13px;line-height:20px;color:${E.ink};">We send your tax invoice for <strong>${esc(paymentLabel(order.payment))}</strong>. Once you've paid and sent the receipt on WhatsApp, we confirm your freight to your postcode and book dispatch.</p>
           <div style="padding-top:14px;">${button(`https://wa.me/${CONTACT.whatsappNumber.replace('+', '')}?text=${encodeURIComponent(`Hi, this is ${c.name} about order ${order.ref}.`)}`, 'Message the sales desk on WhatsApp', { bg: E.navy, color: E.white })}</div>
         `)}</tr>`,
         `border-radius:12px;border:1px solid ${E.line};`

@@ -6,6 +6,7 @@
 // into white boxes on a phone. All CSS is inline; the <style> block only
 // carries the color-scheme hint, a mobile media query and the badge glow
 // (which degrades to a static badge where keyframes are unsupported).
+import { CONTACT, ABN_INFO, SITE } from '@/src/config/site';
 
 export const E = {
   navy: '#0B1F3A',
@@ -134,8 +135,8 @@ ${table(
       ${row(
         E.navyDeep,
         `padding:22px 28px 26px 28px;text-align:center;font-family:${FONT};font-size:11px;line-height:17px;color:${E.mutedOnNavy};`,
-        `GOLF BUGGIES EXPRESS PTY LTD · ABN 28 668 598 758 · Yatala QLD 4207<br />
-         <a href="${esc(o.siteUrl)}" style="color:${E.goldLight};text-decoration:none;">golfbuggiesexpress.com.au</a> · <a href="mailto:sales&#64;golfbuggiesexpress.com.au" style="color:${E.goldLight};text-decoration:none;">sales&#64;golfbuggiesexpress.com.au</a> · 0480 804 189
+        `${esc(ABN_INFO.companyName)} · ABN ${esc(ABN_INFO.abn)} · ${esc(ABN_INFO.locality)}<br />
+         <a href="${esc(o.siteUrl)}" style="color:${E.goldLight};text-decoration:none;">${esc(SITE.domain.replace(/^www\./, ''))}</a> · <a href="mailto:${CONTACT.email}" style="color:${E.goldLight};text-decoration:none;">${CONTACT.email}</a> · ${esc(CONTACT.phoneDisplay)}
          ${o.footerNote ? `<br /><span style="color:${E.mutedOnNavy};">${o.footerNote}</span>` : ''}`,
         'class="be-pad"'
       )}`,

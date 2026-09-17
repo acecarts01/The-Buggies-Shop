@@ -4,7 +4,7 @@
 // actually work - email clients do not run scripts.
 import { E, FONT, SERIF, emailShell, table, td, row, kv, statusBadge, esc, button } from './layout';
 import { type Order, aud, siteUrl, stateFromPostcode } from '@/lib/orders';
-import { ABN_INFO } from '@/src/config/site';
+import { ABN_INFO, CONTACT } from '@/src/config/site';
 import { ledgerRows, totalsRows } from './order-confirmation';
 
 /** Selectable, monospace value box - the email equivalent of a copy button. */
@@ -103,7 +103,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
           <div style="font-family:${SERIF};font-size:20px;color:${E.white};padding:6px 0 12px 0;">${esc(inv ? METHOD_TITLE[inv.method] : 'Payment details')}</div>
           ${table(E.navySoft, settlementRows(order))}
           <div style="padding:8px 0 4px 0;">${button(payUrl, 'Open invoice · copy details · QR code', { full: true })}</div>
-          <div style="font-family:${FONT};font-size:12px;line-height:18px;color:${E.mutedOnNavy};padding-top:8px;">Once paid, send the receipt or a screenshot on WhatsApp <a href="https://wa.me/61480804189?text=${encodeURIComponent(`Payment receipt for invoice ${order.ref}`)}" style="color:${E.goldLight};">0480 804 189</a> and we confirm your order.</div>
+          <div style="font-family:${FONT};font-size:12px;line-height:18px;color:${E.mutedOnNavy};padding-top:8px;">Once paid, send the receipt or a screenshot on WhatsApp <a href="${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Payment receipt for invoice ${order.ref}`)}" style="color:${E.goldLight};">${esc(CONTACT.phoneDisplay)}</a> and we confirm your order.</div>
           ${inv?.notes ? `<div style="font-family:${FONT};font-size:12px;line-height:18px;color:${E.white};padding-top:10px;border-top:1px solid rgba(255,255,255,0.15);margin-top:10px;">${esc(inv.notes)}</div>` : ''}
         `)}</tr>`,
         `border-radius:12px;border:1px solid ${E.gold};`
@@ -113,7 +113,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
     ${row(
       E.bone,
       'padding:8px 28px 26px 28px;text-align:center;font-family:' + FONT + ';font-size:12px;line-height:18px;color:' + E.muted + ';',
-      `Questions? <a href="mailto:sales&#64;golfbuggiesexpress.com.au" style="color:${E.navy};">sales&#64;golfbuggiesexpress.com.au</a> · <a href="${esc(site)}/faq/" style="color:${E.navy};">FAQ</a> · <a href="${esc(site)}/delivery/" style="color:${E.navy};">Delivery</a>`,
+      `Questions? <a href="mailto:${CONTACT.email}" style="color:${E.navy};">${CONTACT.email}</a> · <a href="${esc(site)}/faq/" style="color:${E.navy};">FAQ</a> · <a href="${esc(site)}/delivery/" style="color:${E.navy};">Delivery</a>`,
       'class="be-pad"'
     )}`;
 
@@ -140,7 +140,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
     ...payLines.filter(Boolean),
     ``,
     `Full invoice: ${payUrl}`,
-    `Once paid, send the receipt on WhatsApp 0480 804 189.`,
+    `Once paid, send the receipt on WhatsApp ${CONTACT.phoneDisplay}.`,
   ]
     .filter((l) => l !== '')
     .join('\n');
