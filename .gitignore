@@ -17,3 +17,4 @@ Buggies Express Product Images/
 
 # Dev-only rendered emails (SMTP unset locally)
 .email-outbox/
+.vercel
