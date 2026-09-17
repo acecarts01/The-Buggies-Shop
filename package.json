@@ -9,11 +9,14 @@
     "lint": "eslint .",
     "clean": "next clean",
     "indexnow": "node scripts/indexnow.mjs",
-    "brand": "node scripts/brand-icons.mjs"
+    "brand": "node scripts/brand-icons.mjs",
+    "crosscheck": "node scripts/crosscheck.mjs",
+    "email:lint": "bun scripts/email-lint.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@hookform/resolvers": "^5.2.1",
+    "@vercel/postgres": "^0.10.0",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

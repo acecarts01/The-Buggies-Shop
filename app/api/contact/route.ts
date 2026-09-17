@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { CONTACT } from '@/src/config/site';
 import { sendEmailThroughZoho, SendInquiryParams } from '@/lib/mail';
+import { insertEnquiry } from '@/lib/db';
 
 export async function POST(request: Request) {
   try {
@@ -72,6 +73,17 @@ export async function POST(request: Request) {
 
     // Attempt direct dispatch via Zoho Mail SMTP
     const zohoResult = await sendEmailThroughZoho(emailParams);
+
+    if (!isOrder) {
+      await insertEnquiry({
+        formType: emailParams.formType || 'contact',
+        name,
+        email,
+        phone,
+        message,
+        payload: body,
+      });
+    }
 
     return NextResponse.json({
       success: true,
