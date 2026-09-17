@@ -85,12 +85,12 @@ async function DashboardTab() {
           ) : (
             <ul className="divide-y divide-white/5">
               {recentOrders.map((r) => (
-                <li key={r.ref} className="py-3 flex items-center justify-between gap-3">
+                <li key={r.ref} className="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <div className="min-w-0">
                     <div className="font-semibold truncate">{r.customer.name}</div>
                     <div className="text-xs text-[#A9B4C6] font-mono">{r.ref}</div>
                   </div>
-                  <div className="flex items-center gap-3 shrink-0">
+                  <div className="flex flex-wrap items-center gap-3">
                     <span className="text-sm whitespace-nowrap">{aud(r.totals.total)}</span>
                     <StatusBadge status={r.status} active done={false} />
                     <Link href={`/admin/orders/?o=${encodeURIComponent(orderToToken(r))}`} className="text-xs font-bold text-[#D9C27A] hover:underline">Open</Link>
@@ -153,44 +153,72 @@ async function OrdersTab({ status, q }: { status?: string; q: string }) {
       {rows.length === 0 ? (
         <p className="text-sm text-[#A9B4C6] bg-[#0B1F3A] border border-white/10 rounded-2xl p-6 text-center">No orders match yet.</p>
       ) : (
-        <div className="bg-[#0B1F3A] border border-white/10 rounded-2xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-left text-[10px] uppercase tracking-[0.14em] text-[#A9B4C6] border-b border-white/10">
-                  <th className="px-4 py-3 font-bold">Ref</th>
-                  <th className="px-4 py-3 font-bold">Customer</th>
-                  <th className="px-4 py-3 font-bold">Status</th>
-                  <th className="px-4 py-3 font-bold text-right">Total</th>
-                  <th className="px-4 py-3 font-bold">Placed</th>
-                  <th className="px-4 py-3 font-bold"></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {rows.map((r) => {
-                  const token = orderToToken(r);
-                  return (
-                    <tr key={r.ref} className="hover:bg-white/[0.03] transition-colors">
-                      <td className="px-4 py-3 font-mono text-xs whitespace-nowrap">{r.ref}</td>
-                      <td className="px-4 py-3">
-                        <div className="font-semibold">{r.customer.name}</div>
-                        <div className="text-xs text-[#A9B4C6]">{r.customer.email}</div>
-                      </td>
-                      <td className="px-4 py-3"><StatusBadge status={r.status} active done={false} /></td>
-                      <td className="px-4 py-3 text-right whitespace-nowrap">{aud(r.totals.total)}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-[#A9B4C6] text-xs">{new Date(r.createdAt).toLocaleDateString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium' })}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-right">
-                        <Link href={`/admin/orders/?o=${encodeURIComponent(token)}`} className="text-xs font-bold text-[#D9C27A] hover:underline">
-                          Open
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+        <>
+          {/* Cards on mobile - a wide table doesn't fit a phone screen. */}
+          <ul className="sm:hidden space-y-3">
+            {rows.map((r) => {
+              const token = orderToToken(r);
+              return (
+                <li key={r.ref} className="bg-[#0B1F3A] border border-white/10 rounded-2xl p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="font-semibold truncate">{r.customer.name}</div>
+                      <div className="text-xs text-[#A9B4C6] truncate">{r.customer.email}</div>
+                      <div className="text-xs text-[#A9B4C6] font-mono mt-0.5">{r.ref}</div>
+                    </div>
+                    <span className="font-bold whitespace-nowrap shrink-0">{aud(r.totals.total)}</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-3 mt-3 pt-3 border-t border-white/10">
+                    <StatusBadge status={r.status} active done={false} />
+                    <Link href={`/admin/orders/?o=${encodeURIComponent(token)}`} className="text-xs font-bold text-[#D9C27A] hover:underline">
+                      Open
+                    </Link>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Table from tablet width up. */}
+          <div className="hidden sm:block bg-[#0B1F3A] border border-white/10 rounded-2xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="text-left text-[10px] uppercase tracking-[0.14em] text-[#A9B4C6] border-b border-white/10">
+                    <th className="px-4 py-3 font-bold">Ref</th>
+                    <th className="px-4 py-3 font-bold">Customer</th>
+                    <th className="px-4 py-3 font-bold">Status</th>
+                    <th className="px-4 py-3 font-bold text-right">Total</th>
+                    <th className="px-4 py-3 font-bold">Placed</th>
+                    <th className="px-4 py-3 font-bold"></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  {rows.map((r) => {
+                    const token = orderToToken(r);
+                    return (
+                      <tr key={r.ref} className="hover:bg-white/[0.03] transition-colors">
+                        <td className="px-4 py-3 font-mono text-xs whitespace-nowrap">{r.ref}</td>
+                        <td className="px-4 py-3">
+                          <div className="font-semibold">{r.customer.name}</div>
+                          <div className="text-xs text-[#A9B4C6]">{r.customer.email}</div>
+                        </td>
+                        <td className="px-4 py-3"><StatusBadge status={r.status} active done={false} /></td>
+                        <td className="px-4 py-3 text-right whitespace-nowrap">{aud(r.totals.total)}</td>
+                        <td className="px-4 py-3 whitespace-nowrap text-[#A9B4C6] text-xs">{new Date(r.createdAt).toLocaleDateString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium' })}</td>
+                        <td className="px-4 py-3 whitespace-nowrap text-right">
+                          <Link href={`/admin/orders/?o=${encodeURIComponent(token)}`} className="text-xs font-bold text-[#D9C27A] hover:underline">
+                            Open
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
