@@ -58,14 +58,23 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Allow access to remote image placeholder.
   images: {
+    // AVIF first: Next negotiates by the browser's Accept header and falls
+    // back to WebP automatically. Without this, Next only ever emits WebP
+    // (its unconfigured default), leaving a real, free 20-50% file-size
+    // saving on the table for every image on the site.
+    formats: ['image/avif', 'image/webp'],
+    // Every optimized image URL is content-addressed (includes width+quality
+    // in the query string), so it's safe to cache hard. The unconfigured
+    // default let the optimizer serve `max-age=0, must-revalidate`, forcing
+    // a revalidation round-trip on every repeat page view.
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
-        pathname: '/**', // This allows any path under the hostname
+        pathname: '/**', // Legacy blog-post placeholder — see audit note: replace with real imagery, then remove this pattern.
       },
     ],
   },

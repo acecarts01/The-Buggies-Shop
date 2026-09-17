@@ -496,6 +496,20 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
 
           {/* Frequently Asked Questions (FAQ Section with Direct Answers) */}
           <section className="py-16 bg-white border-t border-[#E7E5E4] px-4 sm:px-6 lg:px-8">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'FAQPage',
+                  mainEntity: FAQ.map((faq) => ({
+                    '@type': 'Question',
+                    name: faq.question,
+                    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+                  })),
+                }),
+              }}
+            />
             <div className="max-w-4xl mx-auto space-y-8">
               <div className="text-center space-y-2">
                 <FadeUpText className="text-xs uppercase font-extrabold tracking-wider text-[#A85640]">
