@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   if (!lines.length) return NextResponse.json({ success: false, message: 'Your cart is empty.' }, { status: 400 });
 
   const order: Order = {
-    ref: typeof body.ref === 'string' && /^BE-\d{6}-[A-Z0-9]{4}$/.test(body.ref) ? body.ref : newOrderRef(),
+    ref: newOrderRef(),
     createdAt: new Date().toISOString(),
     status: 'new',
     channel,

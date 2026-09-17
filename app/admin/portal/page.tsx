@@ -51,7 +51,7 @@ async function DashboardTab() {
     listEnquiries({ limit: 5 }),
   ]);
   const totalOrders = Object.values(counts).reduce((s, n) => s + n, 0);
-  const needsAction = (counts.new ?? 0) + (counts.awaiting_invoice ?? 0);
+  const needsAction = counts.new ?? 0;
 
   const cards = [
     { label: 'Orders', value: totalOrders.toLocaleString('en-AU'), icon: Inbox, href: '/admin/portal/?tab=orders' },
@@ -129,7 +129,7 @@ async function DashboardTab() {
   );
 }
 
-const ORDER_STATUSES: OrderStatus[] = ['new', 'awaiting_invoice', 'invoice_sent', 'paid', 'dispatched'];
+const ORDER_STATUSES: OrderStatus[] = ['new', 'invoice_sent', 'paid', 'dispatched'];
 
 async function OrdersTab({ status, q }: { status?: string; q: string }) {
   const [rows, counts] = await Promise.all([listOrders({ status, search: q || undefined, limit: 100 }), orderCounts()]);

@@ -3,7 +3,7 @@
 
 export type PaymentChannel = 'standard' | 'finance4' | 'crypto';
 export type OrderChannel = 'invoice' | 'whatsapp' | 'crypto';
-export type OrderStatus = 'new' | 'awaiting_invoice' | 'invoice_sent' | 'paid' | 'dispatched';
+export type OrderStatus = 'new' | 'invoice_sent' | 'paid' | 'dispatched';
 
 export interface OrderLine {
   id: string;
@@ -50,7 +50,6 @@ export interface InvoiceDetails {
 
 export const STATUS_LABEL: Record<OrderStatus, string> = {
   new: 'New Order',
-  awaiting_invoice: 'Awaiting Invoice',
   invoice_sent: 'Invoice Sent',
   paid: 'Paid',
   dispatched: 'Dispatched',

@@ -3,7 +3,6 @@ import { STATUS_LABEL, type OrderStatus } from '@/lib/orders';
 
 const TONE: Record<OrderStatus, string> = {
   new: 'bg-[#B8973F] text-[#071527] border-[#B8973F]',
-  awaiting_invoice: 'bg-[#3A2F12] text-[#D9C27A] border-[#B8973F]/60',
   invoice_sent: 'bg-[#12294A] text-white border-[#4C6A96]',
   paid: 'bg-[#0F3D26] text-[#7FD09A] border-[#1E7A46]',
   dispatched: 'bg-[#0F3D26] text-[#7FD09A] border-[#1E7A46]',

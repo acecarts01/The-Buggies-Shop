@@ -42,7 +42,7 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
   const c = order.customer;
   const state = c.state ?? stateFromPostcode(c.postcode);
   const settle = `/admin/orders/settle/?o=${encodeURIComponent(o!)}`;
-  const steps: OrderStatus[] = ['new', 'awaiting_invoice', 'invoice_sent', 'paid', 'dispatched'];
+  const steps: OrderStatus[] = ['new', 'invoice_sent', 'paid', 'dispatched'];
   const current = steps.indexOf(order.status);
   const events = await getOrderEvents(order.ref).catch(() => []);
 

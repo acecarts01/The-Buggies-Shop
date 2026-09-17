@@ -59,8 +59,7 @@ export default function CartDrawer({
   // link, and returns the order reference. Failures never block the buyer:
   // the WhatsApp/thank-you path still works and the desk follows up.
   const sendOrderToSalesDesk = async (
-    method: 'whatsapp' | 'invoice' | 'crypto',
-    ref?: string
+    method: 'whatsapp' | 'invoice' | 'crypto'
   ): Promise<{ ref: string; whatsappUrl?: string } | null> => {
     try {
       const res = await fetch('/api/orders/', {
@@ -69,7 +68,6 @@ export default function CartDrawer({
         body: JSON.stringify({
           channel: method,
           payment: paymentOption,
-          ref,
           name: buyerName.trim(),
           email: buyerEmail.trim(),
           phone: buyerPhone.trim() || undefined,
@@ -115,6 +113,11 @@ export default function CartDrawer({
   };
 
   // Crypto "Pay": record the order with the sales desk, then show the invoice.
+  // The server is the only authority on the order ref (it's a database
+  // primary key) - show its placeholder locally so the invoice UI has
+  // something to render immediately, then swap in the real ref the moment
+  // the response arrives. Never let the on-screen ref and the one in the
+  // customer's actual confirmation email/DB record end up different.
   const handleCryptoPay = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!buyerName.trim()) {
@@ -127,10 +130,10 @@ export default function CartDrawer({
     }
     setSubmittingOrder(true);
     setOrderError('');
-    const ref = newOrderRef();
-    setOrderRef(ref);
+    setOrderRef(newOrderRef());
     try {
-      await sendOrderToSalesDesk('crypto', ref);
+      const result = await sendOrderToSalesDesk('crypto');
+      if (result?.ref) setOrderRef(result.ref);
     } finally {
       setSubmittingOrder(false);
       setCryptoStage('pay');

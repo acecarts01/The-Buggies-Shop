@@ -5,7 +5,7 @@ import { type InvoiceDetails, type Order, verifyOrder, signOrder, payPageUrl, ad
 import { renderInvoice } from '@/lib/email/official-client-invoice';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
 import { CRYPTO } from '@/src/config/site';
-import { upsertOrder } from '@/lib/db';
+import { getOrder, upsertOrder } from '@/lib/db';
 
 // POST /api/admin/invoice/?preview=1  -> { html }               (live preview)
 // POST /api/admin/invoice/            -> sends the invoice, returns the
@@ -63,6 +63,17 @@ export async function POST(request: Request) {
   }
   const order = verifyOrder(body.token);
   if (!order) return NextResponse.json({ success: false, message: 'Invalid order token.' }, { status: 400 });
+
+  // The token carries whatever status it was signed with, which can be
+  // stale (an admin reusing an old email's settle link after the order has
+  // since been marked paid/dispatched via the portal). The database is the
+  // live source of truth for status - never let a resend regress it.
+  if (!preview) {
+    const live = await getOrder(order.ref).catch(() => null);
+    if (live && (live.status === 'paid' || live.status === 'dispatched')) {
+      return NextResponse.json({ success: false, message: `This order is already marked ${live.status}. Open it from the portal for a current link before resending an invoice.` }, { status: 409 });
+    }
+  }
 
   const cleaned = cleanInvoice(body.invoice, order);
   if ('error' in cleaned) {

@@ -1,11 +1,14 @@
 // Order model for the confirmation → admin → invoice flow.
 //
-// There is no database: an order lives in a signed token that travels in the
-// links and emails about it. The token is HMAC-SHA256 over the JSON payload
-// with ORDER_SIGNING_SECRET, so a link cannot be forged or edited, and every
+// An order's authority is a signed token that travels in the links and
+// emails about it. The token is HMAC-SHA256 over the JSON payload with
+// ORDER_SIGNING_SECRET, so a link cannot be forged or edited, and every
 // admin page and API verifies it before trusting a byte. Status advances by
 // re-signing the order with the new status (the settlement terminal returns
-// the "invoice_sent" token, the emails carry it onwards).
+// the "invoice_sent" token, the emails carry it onwards). lib/db.ts mirrors
+// each order into Postgres, keyed by the same ref, purely so the admin
+// portal has something to list - the token is still what proves an order's
+// contents and grants access to it, never the database row.
 //
 // Prices are recomputed here from PRODUCTS. The client sends ids and
 // quantities; it never sets a price.
@@ -18,7 +21,11 @@ import { type Order, type OrderLine, type OrderTotals, type PaymentChannel, aud,
 
 export function newOrderRef(now = new Date()): string {
   const stamp = `${now.getFullYear().toString().slice(2)}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
-  return `BE-${stamp}-${randomBytes(3).toString('hex').toUpperCase().slice(0, 4)}`;
+  // 5 bytes = 10 hex chars: this is now a database primary key (lib/db.ts),
+  // so a same-day collision wouldn't just look odd - it would silently
+  // overwrite a different customer's order. 4 hex chars (2 bytes) was only
+  // 65,536 slots per day, a real collision risk at any real order volume.
+  return `BE-${stamp}-${randomBytes(5).toString('hex').toUpperCase()}`;
 }
 
 
