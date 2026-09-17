@@ -8,6 +8,12 @@ import type { Order, OrderStatus } from './orders-shared';
 
 let migrated: Promise<void> | null = null;
 
+// Neon's serverless compute can be cold (suspended after idle) on the first
+// request to a warm lambda instance. If that first connection attempt ever
+// throws, a naively-memoized promise would stay rejected forever for the
+// life of the instance - every later request would fail immediately with no
+// chance to retry, even once Neon is fully awake. Clear the cache on
+// failure so the next call gets a fresh attempt.
 function migrate(): Promise<void> {
   if (!migrated) {
     migrated = (async () => {
@@ -42,25 +48,40 @@ function migrate(): Promise<void> {
       )`;
       await sql`CREATE INDEX IF NOT EXISTS order_events_ref_idx ON order_events (order_ref, at)`;
       await sql`CREATE INDEX IF NOT EXISTS enquiries_created_idx ON enquiries (created_at DESC)`;
-    })();
+    })().catch((e) => {
+      migrated = null;
+      throw e;
+    });
   }
   return migrated;
 }
 
+/** Retries a read once after a short delay - covers a cold Neon compute waking up. */
+async function withRetry<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (e) {
+    await new Promise((r) => setTimeout(r, 400));
+    return fn();
+  }
+}
+
 export async function upsertOrder(order: Order, note?: string): Promise<void> {
   try {
-    await migrate();
-    await sql`
-      INSERT INTO orders (ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at)
-      VALUES (${order.ref}, ${order.createdAt}, ${order.status}, ${order.channel}, ${order.payment},
-        ${JSON.stringify(order.customer)}::jsonb, ${JSON.stringify(order.lines)}::jsonb, ${JSON.stringify(order.totals)}::jsonb,
-        ${order.invoice ? JSON.stringify(order.invoice) : null}::jsonb, now())
-      ON CONFLICT (ref) DO UPDATE SET
-        status = EXCLUDED.status,
-        invoice = EXCLUDED.invoice,
-        updated_at = now()
-    `;
-    await sql`INSERT INTO order_events (order_ref, status, note) VALUES (${order.ref}, ${order.status}, ${note ?? null})`;
+    await withRetry(async () => {
+      await migrate();
+      await sql`
+        INSERT INTO orders (ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at)
+        VALUES (${order.ref}, ${order.createdAt}, ${order.status}, ${order.channel}, ${order.payment},
+          ${JSON.stringify(order.customer)}::jsonb, ${JSON.stringify(order.lines)}::jsonb, ${JSON.stringify(order.totals)}::jsonb,
+          ${order.invoice ? JSON.stringify(order.invoice) : null}::jsonb, now())
+        ON CONFLICT (ref) DO UPDATE SET
+          status = EXCLUDED.status,
+          invoice = EXCLUDED.invoice,
+          updated_at = now()
+      `;
+      await sql`INSERT INTO order_events (order_ref, status, note) VALUES (${order.ref}, ${order.status}, ${note ?? null})`;
+    });
   } catch (e) {
     console.error('[db] upsertOrder failed (non-fatal):', e);
   }
@@ -80,25 +101,29 @@ export interface OrderRow {
 }
 
 export async function listOrders(opts: { limit?: number; status?: string; search?: string } = {}): Promise<OrderRow[]> {
-  await migrate();
-  const limit = Math.min(200, Math.max(1, opts.limit ?? 50));
-  const status = opts.status && opts.status !== 'all' ? opts.status : null;
-  const search = opts.search ? `%${opts.search.toLowerCase()}%` : null;
-  const { rows } = await sql`
-    SELECT ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at
-    FROM orders
-    WHERE (${status}::text IS NULL OR status = ${status})
-      AND (${search}::text IS NULL OR ref ILIKE ${search} OR customer->>'name' ILIKE ${search} OR customer->>'email' ILIKE ${search})
-    ORDER BY created_at DESC
-    LIMIT ${limit}
-  `;
-  return rows.map(rowToOrder);
+  return withRetry(async () => {
+    await migrate();
+    const limit = Math.min(200, Math.max(1, opts.limit ?? 50));
+    const status = opts.status && opts.status !== 'all' ? opts.status : null;
+    const search = opts.search ? `%${opts.search.toLowerCase()}%` : null;
+    const { rows } = await sql`
+      SELECT ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at
+      FROM orders
+      WHERE (${status}::text IS NULL OR status = ${status})
+        AND (${search}::text IS NULL OR ref ILIKE ${search} OR customer->>'name' ILIKE ${search} OR customer->>'email' ILIKE ${search})
+      ORDER BY created_at DESC
+      LIMIT ${limit}
+    `;
+    return rows.map(rowToOrder);
+  });
 }
 
 export async function getOrder(ref: string): Promise<OrderRow | null> {
-  await migrate();
-  const { rows } = await sql`SELECT ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at FROM orders WHERE ref = ${ref}`;
-  return rows[0] ? rowToOrder(rows[0]) : null;
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT ref, created_at, status, channel, payment, customer, lines, totals, invoice, updated_at FROM orders WHERE ref = ${ref}`;
+    return rows[0] ? rowToOrder(rows[0]) : null;
+  });
 }
 
 export interface OrderEvent {
@@ -108,34 +133,42 @@ export interface OrderEvent {
 }
 
 export async function getOrderEvents(ref: string): Promise<OrderEvent[]> {
-  await migrate();
-  const { rows } = await sql`SELECT status, note, at FROM order_events WHERE order_ref = ${ref} ORDER BY at ASC`;
-  return rows.map((r) => ({ status: r.status, note: r.note, at: new Date(r.at).toISOString() }));
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT status, note, at FROM order_events WHERE order_ref = ${ref} ORDER BY at ASC`;
+    return rows.map((r) => ({ status: r.status, note: r.note, at: new Date(r.at).toISOString() }));
+  });
 }
 
 export async function setOrderStatus(ref: string, status: OrderStatus, note?: string): Promise<void> {
-  await migrate();
-  await sql`UPDATE orders SET status = ${status}, updated_at = now() WHERE ref = ${ref}`;
-  await sql`INSERT INTO order_events (order_ref, status, note) VALUES (${ref}, ${status}, ${note ?? null})`;
+  return withRetry(async () => {
+    await migrate();
+    await sql`UPDATE orders SET status = ${status}, updated_at = now() WHERE ref = ${ref}`;
+    await sql`INSERT INTO order_events (order_ref, status, note) VALUES (${ref}, ${status}, ${note ?? null})`;
+  });
 }
 
 export async function orderCounts(): Promise<Record<string, number>> {
-  await migrate();
-  const { rows } = await sql`SELECT status, count(*)::int AS n FROM orders GROUP BY status`;
-  const out: Record<string, number> = {};
-  for (const r of rows) out[r.status] = r.n;
-  return out;
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT status, count(*)::int AS n FROM orders GROUP BY status`;
+    const out: Record<string, number> = {};
+    for (const r of rows) out[r.status] = r.n;
+    return out;
+  });
 }
 
 export async function orderRevenue(): Promise<{ settled: number; pipeline: number }> {
-  await migrate();
-  const { rows } = await sql`
-    SELECT
-      COALESCE(SUM(CASE WHEN status IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS settled,
-      COALESCE(SUM(CASE WHEN status NOT IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS pipeline
-    FROM orders
-  `;
-  return { settled: Number(rows[0]?.settled ?? 0), pipeline: Number(rows[0]?.pipeline ?? 0) };
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`
+      SELECT
+        COALESCE(SUM(CASE WHEN status IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS settled,
+        COALESCE(SUM(CASE WHEN status NOT IN ('paid', 'dispatched') THEN (totals->>'total')::numeric ELSE 0 END), 0) AS pipeline
+      FROM orders
+    `;
+    return { settled: Number(rows[0]?.settled ?? 0), pipeline: Number(rows[0]?.pipeline ?? 0) };
+  });
 }
 
 function rowToOrder(r: any): OrderRow {
@@ -167,11 +200,13 @@ export interface EnquiryInput {
 
 export async function insertEnquiry(e: EnquiryInput): Promise<void> {
   try {
-    await migrate();
-    await sql`
-      INSERT INTO enquiries (form_type, name, email, phone, message, payload)
-      VALUES (${e.formType}, ${e.name}, ${e.email ?? null}, ${e.phone ?? null}, ${e.message ?? null}, ${JSON.stringify(e.payload)}::jsonb)
-    `;
+    await withRetry(async () => {
+      await migrate();
+      await sql`
+        INSERT INTO enquiries (form_type, name, email, phone, message, payload)
+        VALUES (${e.formType}, ${e.name}, ${e.email ?? null}, ${e.phone ?? null}, ${e.message ?? null}, ${JSON.stringify(e.payload)}::jsonb)
+      `;
+    });
   } catch (err) {
     console.error('[db] insertEnquiry failed (non-fatal):', err);
   }
@@ -189,32 +224,36 @@ export interface EnquiryRow {
 }
 
 export async function enquiryTotalCount(): Promise<number> {
-  await migrate();
-  const { rows } = await sql`SELECT count(*)::int AS n FROM enquiries`;
-  return rows[0]?.n ?? 0;
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT count(*)::int AS n FROM enquiries`;
+    return rows[0]?.n ?? 0;
+  });
 }
 
 export async function listEnquiries(opts: { limit?: number; formType?: string; search?: string } = {}): Promise<EnquiryRow[]> {
-  await migrate();
-  const limit = Math.min(200, Math.max(1, opts.limit ?? 50));
-  const formType = opts.formType && opts.formType !== 'all' ? opts.formType : null;
-  const search = opts.search ? `%${opts.search.toLowerCase()}%` : null;
-  const { rows } = await sql`
-    SELECT id, created_at, form_type, name, email, phone, message, payload
-    FROM enquiries
-    WHERE (${formType}::text IS NULL OR form_type = ${formType})
-      AND (${search}::text IS NULL OR name ILIKE ${search} OR email ILIKE ${search} OR phone ILIKE ${search})
-    ORDER BY created_at DESC
-    LIMIT ${limit}
-  `;
-  return rows.map((r) => ({
-    id: r.id,
-    createdAt: new Date(r.created_at).toISOString(),
-    formType: r.form_type,
-    name: r.name,
-    email: r.email,
-    phone: r.phone,
-    message: r.message,
-    payload: r.payload,
-  }));
+  return withRetry(async () => {
+    await migrate();
+    const limit = Math.min(200, Math.max(1, opts.limit ?? 50));
+    const formType = opts.formType && opts.formType !== 'all' ? opts.formType : null;
+    const search = opts.search ? `%${opts.search.toLowerCase()}%` : null;
+    const { rows } = await sql`
+      SELECT id, created_at, form_type, name, email, phone, message, payload
+      FROM enquiries
+      WHERE (${formType}::text IS NULL OR form_type = ${formType})
+        AND (${search}::text IS NULL OR name ILIKE ${search} OR email ILIKE ${search} OR phone ILIKE ${search})
+      ORDER BY created_at DESC
+      LIMIT ${limit}
+    `;
+    return rows.map((r) => ({
+      id: r.id,
+      createdAt: new Date(r.created_at).toISOString(),
+      formType: r.form_type,
+      name: r.name,
+      email: r.email,
+      phone: r.phone,
+      message: r.message,
+      payload: r.payload,
+    }));
+  });
 }
