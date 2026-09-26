@@ -36,32 +36,42 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
   const atlasProduct = PRODUCTS.find((p) => p.slug === 'atlas-4-passenger-lifted-lithium-buggy');
   const [finish, setFinish] = useState(0);
   const [quoteSent, setQuoteSent] = useState(false);
+  const [quoteSubmitting, setQuoteSubmitting] = useState(false);
   const [quoteForm, setQuoteForm] = useState({
     name: '',
+    email: '',
     phone: '',
     postcode: '',
     deliveryPreference: 'Door-to-Door Enclosed Transport',
     timeframe: 'Immediate Dispatch (Current Stock)',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setQuoteSent(true);
+    setQuoteSubmitting(true);
 
-    // Send quote request directly to Yatala Zoho sales desk
-    fetch('/api/contact/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        formType: 'quote',
-        name: quoteForm.name,
-        phone: quoteForm.phone,
-        postcode: quoteForm.postcode,
-        buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
-        subject: 'Tax Invoice & Freight Schedule: Atlas 4-Passenger Lifted Lithium Buggy',
-        message: `Atlas 4-Passenger Lifted Lithium Quotation Request\nDelivery Preference: ${quoteForm.deliveryPreference}\nTimeframe: ${quoteForm.timeframe}`,
-      }),
-    }).catch(() => {});
+    // Wait for the quote to actually reach the Yatala sales desk (email,
+    // with the "Reply to Client" link) before opening WhatsApp.
+    try {
+      await fetch('/api/quotes/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: quoteForm.name,
+          email: quoteForm.email,
+          phone: quoteForm.phone,
+          postcode: quoteForm.postcode,
+          buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
+          deliveryPreference: quoteForm.deliveryPreference,
+          notes: `Timeframe: ${quoteForm.timeframe}`,
+        }),
+      });
+    } catch {
+      /* still hand off to WhatsApp below */
+    }
+
+    setQuoteSubmitting(false);
+    setQuoteSent(true);
 
     const text = encodeURIComponent(
       `Hello The Buggies Express team,
@@ -73,9 +83,7 @@ Postcode: ${quoteForm.postcode}
 Delivery Preference: ${quoteForm.deliveryPreference}
 Timeframe: ${quoteForm.timeframe}`
     );
-    setTimeout(() => {
-      window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
-    }, 1200);
+    window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
   };
 
   return (
@@ -498,6 +506,19 @@ Timeframe: ${quoteForm.timeframe}`
                 </div>
               </div>
 
+              <div>
+                <label className="block font-bold text-[#121417] mb-1">Email Address</label>
+                <input
+                  type="email"
+                  required
+                  value={quoteForm.email}
+                  onChange={(e) => setQuoteForm({ ...quoteForm, email: e.target.value })}
+                  placeholder="e.g. lachlan@example.com"
+                  className="w-full bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-[#121417] placeholder-[#78716C]/50 focus:outline-none focus:border-[#C86D51] focus:bg-white surface-card"
+                />
+                <p className="mt-1 text-[11px] text-[#6B645E]">Your official written quote and reply from our sales desk is sent here.</p>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block font-bold text-[#121417] mb-1">Delivery Destination Postcode</label>
@@ -537,11 +558,12 @@ Timeframe: ${quoteForm.timeframe}`
 
               <button
                 type="submit"
-                className="w-full py-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-extrabold text-sm rounded-lg transition-all shadow-xs mt-3 flex items-center justify-center gap-2 hover:-translate-y-px duration-200"
+                disabled={quoteSubmitting}
+                className="w-full py-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-extrabold text-sm rounded-lg transition-all shadow-xs mt-3 flex items-center justify-center gap-2 hover:-translate-y-px duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
                 id="atlas-submit-quote-form"
               >
                 <Zap className="w-4 h-4" />
-                <span>Submit Formal Quote &amp; Freight Schedule Request</span>
+                <span>{quoteSubmitting ? 'Sending Quote to Sales Desk…' : 'Submit Formal Quote & Freight Schedule Request'}</span>
               </button>
 
               <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-[11px] text-[#6B645E]">

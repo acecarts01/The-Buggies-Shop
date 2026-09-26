@@ -52,9 +52,11 @@ export default function ProductClient({ product, details }: ProductClientProps) 
   const [finish, setFinish] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const [quoteSubmitting, setQuoteSubmitting] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
   const [quoteForm, setQuoteForm] = useState({
     name: '',
+    email: '',
     phone: '',
     postcode: '',
     deliveryPreference: 'Door-to-Door Enclosed Freight',
@@ -144,24 +146,36 @@ export default function ProductClient({ product, details }: ProductClientProps) 
 
   const battery = getBatteryDetails();
 
-  const handleQuoteSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setQuoteSubmitted(true);
+    setQuoteSubmitting(true);
 
-    // Send quote request directly to Yatala Zoho sales desk
-    fetch('/api/contact/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        formType: 'quote',
-        name: quoteForm.name,
-        phone: quoteForm.phone,
-        postcode: quoteForm.postcode,
-        buggyModel: product.name,
-        subject: `Official Quote Request: ${product.name}`,
-        message: `Quote Request for ${product.name} (${product.price_display})\nDelivery Preference: ${quoteForm.deliveryPreference}\nNotes: ${quoteForm.notes || 'None'}`,
-      }),
-    }).catch(() => {});
+    // Wait for the quote to actually reach the Yatala sales desk (email,
+    // with the "Reply to Client" link) before opening WhatsApp, so the
+    // client is never handed off to WhatsApp while the quote is still
+    // silently failing to send in the background.
+    try {
+      await fetch('/api/quotes/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: quoteForm.name,
+          email: quoteForm.email,
+          phone: quoteForm.phone,
+          postcode: quoteForm.postcode,
+          buggyModel: `${product.name} (${product.price_display})`,
+          deliveryPreference: quoteForm.deliveryPreference,
+          notes: quoteForm.notes,
+        }),
+      });
+    } catch {
+      // Even if the request itself fails, still hand the client to
+      // WhatsApp so they aren't stuck - the sales desk still has the
+      // fallback of WhatsApp reaching them directly.
+    }
+
+    setQuoteSubmitting(false);
+    setQuoteSubmitted(true);
 
     const text = encodeURIComponent(
       `Hello The Buggies Express team, I would like an official Australian Tax Quote & Freight Logistics estimate for:
@@ -172,9 +186,7 @@ Postcode: ${quoteForm.postcode}
 Delivery Preference: ${quoteForm.deliveryPreference}
 Notes: ${quoteForm.notes || 'None'}`
     );
-    setTimeout(() => {
-      window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
-    }, 1200);
+    window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
   };
 
   return (
@@ -745,6 +757,19 @@ Notes: ${quoteForm.notes || 'None'}`
                       />
                     </div>
 
+                    <div>
+                      <label className="block font-semibold text-[#A8A29E] mb-1">Email Address</label>
+                      <input
+                        type="email"
+                        required
+                        value={quoteForm.email}
+                        onChange={(e) => setQuoteForm({ ...quoteForm, email: e.target.value })}
+                        placeholder="e.g. robert@example.com"
+                        className="w-full bg-[#121417] border border-[#2B2F34] rounded p-2 text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
+                      />
+                      <p className="mt-1 text-[10px] text-[#78716C]">Your official written quote and reply from our sales desk is sent here.</p>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block font-semibold text-[#A8A29E] mb-1">Australian Mobile</label>
@@ -795,10 +820,11 @@ Notes: ${quoteForm.notes || 'None'}`
 
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#E2A17A] text-[#121417] font-extrabold text-xs rounded hover:bg-[#B45A40] transition-all shadow-xs mt-2 flex items-center justify-center gap-1.5 hover:-translate-y-px duration-200"
+                      disabled={quoteSubmitting}
+                      className="w-full py-3 bg-[#E2A17A] text-[#121417] font-extrabold text-xs rounded hover:bg-[#B45A40] transition-all shadow-xs mt-2 flex items-center justify-center gap-1.5 hover:-translate-y-px duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
-                      <span>Submit &amp; Open WhatsApp Sales Desk</span>
+                      <span>{quoteSubmitting ? 'Sending Quote to Sales Desk…' : 'Submit & Open WhatsApp Sales Desk'}</span>
                     </button>
 
                     <div className="text-[10px] text-[#A8A29E] text-center">

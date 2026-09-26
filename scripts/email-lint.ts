@@ -12,6 +12,9 @@ import { type Order, computeTotals, priceLines, signOrder, payPageUrl } from '@/
 import { renderOrderConfirmation } from '@/lib/email/order-confirmation';
 import { renderAdminNewOrder } from '@/lib/email/admin-new-order';
 import { renderInvoice } from '@/lib/email/official-client-invoice';
+import { type QuoteRequest, signQuote } from '@/lib/quotes';
+import { renderQuoteRequest } from '@/lib/email/quote-request';
+import { renderQuoteReply } from '@/lib/email/quote-reply';
 
 const lines = priceLines([
   { id: 'BUG-001', quantity: 1 },
@@ -50,6 +53,17 @@ const cryptoInvoiced: Order = {
   },
 };
 
+const quote: QuoteRequest = {
+  kind: 'quote',
+  ref: 'QT-260916-TEST',
+  createdAt: '2026-09-16T01:15:00.000Z',
+  customer: { name: 'Test Buyer', email: 'acecarts01@gmail.com', phone: '0400 000 000', postcode: '4217', state: 'QLD' },
+  buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
+  deliveryPreference: 'Door-to-Door Enclosed Freight',
+  notes: 'Fixture quote request for template checks only.',
+};
+const quoteToken = signQuote(quote);
+
 const token = signOrder(base);
 const renders: { name: string; html: string; subject: string }[] = [
   { name: 'order-confirmation', ...renderOrderConfirmation(base) },
@@ -57,6 +71,16 @@ const renders: { name: string; html: string; subject: string }[] = [
   { name: 'admin-new-order', ...renderAdminNewOrder(base, token) },
   { name: 'official-client-invoice-bank', ...renderInvoice(bankInvoiced, payPageUrl(signOrder(bankInvoiced))) },
   { name: 'official-client-invoice-crypto', ...renderInvoice(cryptoInvoiced, payPageUrl(signOrder(cryptoInvoiced))) },
+  { name: 'admin-quote-request', ...renderQuoteRequest(quote, quoteToken) },
+  { name: 'quote-reply-message-only', ...renderQuoteReply(quote, { message: 'Fixture reply for template checks only.' }) },
+  {
+    name: 'quote-reply-with-payment',
+    ...renderQuoteReply(quote, {
+      message: 'Fixture reply for template checks only.',
+      quotedPrice: 20900,
+      payment: { issuedAt: '2026-09-16T02:00:00.000Z', method: 'bank', bank: { accountName: 'Golf Buggies Express Pty Ltd', bsb: '000-000', accountNumber: '00000000', payId: 'ABN 28 668 598 758' } },
+    }),
+  },
 ];
 
 const failures: string[] = [];
