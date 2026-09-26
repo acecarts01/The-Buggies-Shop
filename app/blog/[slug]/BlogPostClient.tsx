@@ -23,6 +23,7 @@ import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import FaqSection from '@/src/components/FaqSection';
+import SmartImage from '@/src/components/SmartImage';
 import { SITE, ABN_INFO, CONTACT, PRODUCTS, CATEGORIES } from '@/src/config/site';
 import type { BlogPost, PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
@@ -148,6 +149,18 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
               </button>
             </div>
           </header>
+
+          {/* Hero image: the model this guide is built around */}
+          <div className="my-8 relative aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden bg-[#0A0B0D] border border-[#2B2F34]">
+            <SmartImage
+              src={post.image}
+              alt={post.title}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+          </div>
 
           {/* Key Takeaways Box (AEO & AI Search Optimized) */}
           <div className="my-8 p-5 sm:p-6 bg-[#1A1D21] border border-[#2B2F34] rounded-2xl shadow-xs metal-brushed-dark">

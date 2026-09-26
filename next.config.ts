@@ -69,14 +69,6 @@ const nextConfig: NextConfig = {
     // default let the optimizer serve `max-age=0, must-revalidate`, forcing
     // a revalidation round-trip on every repeat page view.
     minimumCacheTTL: 31536000,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**', // Legacy blog-post placeholder — see audit note: replace with real imagery, then remove this pattern.
-      },
-    ],
   },
   output: 'standalone',
   transpilePackages: ['motion'],

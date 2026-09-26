@@ -20,6 +20,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
+import SmartImage from '@/src/components/SmartImage';
 import { SITE, ABN_INFO, CONTACT, PRODUCTS } from '@/src/config/site';
 import type { PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
@@ -265,6 +266,15 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   </div>
 
                   <div className="lg:col-span-4 bg-[#121417] border border-[#2B2F34] rounded-xl p-5 space-y-3">
+                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#0A0B0D] -mx-1 -mt-1">
+                      <SmartImage
+                        src={featuredPost.image}
+                        alt={featuredPost.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 400px"
+                      />
+                    </div>
                     <div className="text-xs font-bold text-[#ffffff] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#1F2226] pb-2">
                       <Wrench className="w-4 h-4 text-[#E2A17A]" />
                       <span>About Yatala Tech Support</span>
@@ -340,6 +350,19 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   key={post.slug}
                   className="bg-[#1A1D21] border border-[#2B2F34] rounded-xl overflow-hidden flex flex-col hover:border-[#E2A17A]/60 transition-all group shadow-xs metal-brushed-dark"
                 >
+                  <Link
+                    href={`/blog/${post.slug}/`}
+                    aria-label={post.title}
+                    className="block relative aspect-[16/9] bg-[#0A0B0D] overflow-hidden"
+                  >
+                    <SmartImage
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </Link>
                   <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                     <div>
                       {/* Meta badge row */}
