@@ -47,8 +47,8 @@ export async function sendMail(mail: Mail): Promise<SendResult> {
     }
   }
 
-  try {
-    const info = await transporter.sendMail({
+  const attempt = () =>
+    transporter.sendMail({
       from: `"${FROM_NAME()}" <${FROM_USER()}>`,
       to: mail.to,
       bcc: mail.bcc,
@@ -57,9 +57,24 @@ export async function sendMail(mail: Mail): Promise<SendResult> {
       text: mail.text,
       html: mail.html,
     });
+
+  try {
+    const info = await attempt();
     return { sent: true, messageId: info.messageId };
-  } catch (e) {
-    console.error('[mail] send failed:', e);
-    return { sent: false, error: (e as Error).message };
+  } catch (firstError) {
+    // Port 465's implicit-TLS handshake drops occasionally under normal
+    // conditions (confirmed by hand: an identical send failed once, then
+    // succeeded on the very next attempt with no code change). One
+    // immediate retry recovers that case rather than losing the customer's
+    // confirmation email to a one-off network blip.
+    console.warn('[mail] send failed, retrying once:', (firstError as Error).message);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    try {
+      const info = await attempt();
+      return { sent: true, messageId: info.messageId };
+    } catch (secondError) {
+      console.error('[mail] send failed after retry:', secondError);
+      return { sent: false, error: (secondError as Error).message };
+    }
   }
 }
