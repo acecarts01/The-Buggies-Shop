@@ -186,8 +186,8 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-[#6B645E]">
             <Mail className="w-4 h-4 text-[#A85640] shrink-0" />
             {/* Entity-encoded email as mandated by WebForge SEO standards */}
-            <a href="mailto:sales&#64;golfbuggiesexpress.com.au" className="hover:text-[#A85640]">
-              sales&#64;golfbuggiesexpress.com.au
+            <a href={`mailto:${CONTACT.emailRaw}`} className="hover:text-[#A85640]">
+              {CONTACT.email}
             </a>
           </div>
           <div className="pt-2 text-[11px] text-[#6B645E]">

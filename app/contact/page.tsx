@@ -147,10 +147,10 @@ export default function ContactPage() {
                   <div>
                     <div className="font-bold text-[#ffffff]">Official Email</div>
                     <a
-                      href="mailto:info@golfbuggiesexpress.com.au"
+                      href={`mailto:${CONTACT.emailRaw}`}
                       className="text-[#E7E5E4] hover:text-[#E2A17A] text-xs font-mono"
                     >
-                      info&#64;golfbuggiesexpress.com.au
+                      {CONTACT.email}
                     </a>
                   </div>
                 </div>
