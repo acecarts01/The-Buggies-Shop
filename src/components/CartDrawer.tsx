@@ -101,15 +101,19 @@ export default function CartDrawer({
     setSubmittingOrder(true);
     setOrderError('');
 
-    try {
-      await sendOrderToSalesDesk('invoice');
-      onClearCart();
-      window.location.assign('/thank-you-order/');
-    } catch {
-      window.location.assign('/thank-you-order/');
-    } finally {
-      setSubmittingOrder(false);
+    // A failed submission used to redirect to the thank-you page and clear
+    // the cart anyway, so a network hiccup here meant the order silently
+    // never reached us while the buyer walked away thinking it had. Now a
+    // failure keeps the cart intact and points the buyer at the WhatsApp
+    // fallback instead of a fake success.
+    const result = await sendOrderToSalesDesk('invoice');
+    setSubmittingOrder(false);
+    if (!result) {
+      setOrderError("We couldn't submit your order automatically. Please tap “Confirm Order via WhatsApp” below, or call 0480 804 189, and we'll process it directly - your cart has been kept as is.");
+      return;
     }
+    onClearCart();
+    window.location.assign('/thank-you-order/');
   };
 
   // Crypto "Pay": record the order with the sales desk, then show the invoice.
@@ -131,13 +135,19 @@ export default function CartDrawer({
     setSubmittingOrder(true);
     setOrderError('');
     setOrderRef(newOrderRef());
-    try {
-      const result = await sendOrderToSalesDesk('crypto');
-      if (result?.ref) setOrderRef(result.ref);
-    } finally {
-      setSubmittingOrder(false);
-      setCryptoStage('pay');
+    // A failed submission used to advance to the payment-address stage
+    // regardless, so a network hiccup here could send a buyer straight to
+    // real wallet addresses for an order that was never recorded - real
+    // crypto, unrecoverable, with no automatic trace. Now a failure keeps
+    // them on the form with the WhatsApp fallback instead.
+    const result = await sendOrderToSalesDesk('crypto');
+    setSubmittingOrder(false);
+    if (!result) {
+      setOrderError("We couldn't record your order automatically, so we haven't shown the payment address yet. Please tap “Confirm Order via WhatsApp” below, or call 0480 804 189, and we'll set up crypto payment with you directly.");
+      return;
     }
+    if (result.ref) setOrderRef(result.ref);
+    setCryptoStage('pay');
   };
 
   const handleWhatsAppOrderClick = () => {
