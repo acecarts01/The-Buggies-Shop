@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import QRCode from 'qrcode';
 import { Landmark, Bitcoin, CreditCard, Send, Lock, CheckCircle2, AlertTriangle, X } from 'lucide-react';
-import { type InvoiceDetails } from '@/lib/orders-shared';
+import { type InvoiceDetails, paymentLabel } from '@/lib/orders-shared';
 import { type QuoteRequest } from '@/lib/quotes';
 import { CRYPTO } from '@/src/config/site';
 
@@ -117,6 +117,7 @@ export default function QuoteReplyTerminal({ token, quote, bankDefaults }: Props
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Postcode</dt><dd className="text-right">{quote.customer.postcode ?? '—'}{quote.customer.state ? ` · ${quote.customer.state}` : ''}</dd></div>
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Model</dt><dd className="text-right">{quote.buggyModel ?? '—'}</dd></div>
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Delivery preference</dt><dd className="text-right">{quote.deliveryPreference ?? '—'}</dd></div>
+            <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Payment preference</dt><dd className="text-right">{quote.paymentPreference ? paymentLabel(quote.paymentPreference) : '—'}</dd></div>
           </dl>
           {quote.notes && (
             <p className="border-t border-white/10 pt-3 text-sm text-[#E7ECF3]">

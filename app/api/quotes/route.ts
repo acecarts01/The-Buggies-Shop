@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import { newQuoteRef, signQuote, type QuoteRequest } from '@/lib/quotes';
 import { stateFromPostcode } from '@/lib/orders';
+import type { PaymentChannel } from '@/lib/orders-shared';
 import { renderQuoteRequest } from '@/lib/email/quote-request';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
+
+const PAYMENTS: PaymentChannel[] = ['standard', 'finance4', 'crypto'];
 
 // POST /api/quotes/ - a client's "Request Formal Tax Quote" submission.
 //
@@ -28,6 +31,7 @@ export async function POST(request: Request) {
   const postcode = String(body.postcode ?? '').trim().slice(0, 4) || undefined;
   const buggyModel = String(body.buggyModel ?? '').trim().slice(0, 160) || undefined;
   const deliveryPreference = String(body.deliveryPreference ?? '').trim().slice(0, 120) || undefined;
+  const paymentPreference = PAYMENTS.includes(body.paymentPreference as PaymentChannel) ? (body.paymentPreference as PaymentChannel) : undefined;
   const notes = String(body.notes ?? '').trim().slice(0, 600) || undefined;
 
   if (!name) return NextResponse.json({ success: false, message: 'Please enter your full name.' }, { status: 400 });
@@ -40,6 +44,7 @@ export async function POST(request: Request) {
     customer: { name, email, phone, postcode, state: stateFromPostcode(postcode) },
     buggyModel,
     deliveryPreference,
+    paymentPreference,
     notes,
   };
 

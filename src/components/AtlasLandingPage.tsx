@@ -26,6 +26,7 @@ import {
   AnimatedBadge 
 } from '@/src/components/AnimatedText';
 import { ABN_INFO, CONTACT, PRODUCTS, VEHICLE_COLORS } from '@/src/config/site';
+import { paymentLabel } from '@/lib/orders-shared';
 import SmartImage from '@/src/components/SmartImage';
 
 interface AtlasLandingPageProps {
@@ -43,6 +44,7 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
     phone: '',
     postcode: '',
     deliveryPreference: 'Door-to-Door Enclosed Transport',
+    paymentPreference: 'standard' as 'standard' | 'finance4' | 'crypto',
     timeframe: 'Immediate Dispatch (Current Stock)',
   });
 
@@ -63,6 +65,7 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
           postcode: quoteForm.postcode,
           buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
           deliveryPreference: quoteForm.deliveryPreference,
+          paymentPreference: quoteForm.paymentPreference,
           notes: `Timeframe: ${quoteForm.timeframe}`,
         }),
       });
@@ -81,6 +84,7 @@ Name: ${quoteForm.name}
 Phone: ${quoteForm.phone}
 Postcode: ${quoteForm.postcode}
 Delivery Preference: ${quoteForm.deliveryPreference}
+Payment Preference: ${paymentLabel(quoteForm.paymentPreference)}
 Timeframe: ${quoteForm.timeframe}`
     );
     window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
@@ -554,6 +558,19 @@ Timeframe: ${quoteForm.timeframe}`
                     <option value="Planning Ahead (60+ Days)">Planning Ahead (60+ Days)</option>
                   </select>
                 </div>
+              </div>
+
+              <div>
+                <label className="block font-bold text-[#121417] mb-1">Preferred Payment Method</label>
+                <select
+                  value={quoteForm.paymentPreference}
+                  onChange={(e) => setQuoteForm({ ...quoteForm, paymentPreference: e.target.value as typeof quoteForm.paymentPreference })}
+                  className="w-full bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-[#121417] focus:outline-none focus:border-[#C86D51] focus:bg-white surface-card"
+                >
+                  <option value="standard">Standard (PayID / Bank Transfer)</option>
+                  <option value="finance4">Finance in 4 (0% Interest)</option>
+                  <option value="crypto">Crypto (BTC / USDT - 10% Off)</option>
+                </select>
               </div>
 
               <button

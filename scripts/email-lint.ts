@@ -60,6 +60,7 @@ const quote: QuoteRequest = {
   customer: { name: 'Test Buyer', email: 'acecarts01@gmail.com', phone: '0400 000 000', postcode: '4217', state: 'QLD' },
   buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
   deliveryPreference: 'Door-to-Door Enclosed Freight',
+  paymentPreference: 'crypto',
   notes: 'Fixture quote request for template checks only.',
 };
 const quoteToken = signQuote(quote);

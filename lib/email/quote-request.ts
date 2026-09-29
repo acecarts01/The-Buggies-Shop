@@ -4,6 +4,7 @@
 import { E, FONT, SERIF, emailShell, table, td, row, statusBadge, esc, button } from './layout';
 import { type QuoteRequest, adminQuoteReplyUrl } from '@/lib/quotes';
 import { siteUrl, stateFromPostcode } from '@/lib/orders';
+import { paymentLabel } from '@/lib/orders-shared';
 
 export function renderQuoteRequest(quote: QuoteRequest, token: string): { subject: string; html: string; text: string } {
   const c = quote.customer;
@@ -35,6 +36,7 @@ export function renderQuoteRequest(quote: QuoteRequest, token: string): { subjec
           <div style="font-family:${FONT};font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:${E.gold};font-weight:700;padding:14px 0 4px 0;">Request</div>
           <div style="font-family:${FONT};font-size:13px;line-height:20px;color:${E.ink};">
             ${quote.deliveryPreference ? `Delivery preference: ${esc(quote.deliveryPreference)}<br />` : ''}
+            ${quote.paymentPreference ? `Payment preference: ${esc(paymentLabel(quote.paymentPreference))}<br />` : ''}
             ${quote.notes ? `Notes: ${esc(quote.notes)}` : '<em style="color:' + E.muted + ';">No additional notes.</em>'}
           </div>
         `)}</tr>`,
@@ -64,6 +66,7 @@ export function renderQuoteRequest(quote: QuoteRequest, token: string): { subjec
     `${c.name} · ${c.email} · ${c.phone ?? '-'} · postcode ${c.postcode ?? '-'}`,
     quote.buggyModel ? `Model: ${quote.buggyModel}` : '',
     quote.deliveryPreference ? `Delivery preference: ${quote.deliveryPreference}` : '',
+    quote.paymentPreference ? `Payment preference: ${paymentLabel(quote.paymentPreference)}` : '',
     quote.notes ? `Notes: ${quote.notes}` : '',
     ``,
     `Reply: ${reply}`,

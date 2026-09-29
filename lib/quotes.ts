@@ -5,7 +5,7 @@
 // ref prefix stop an order token from ever being accepted here, or vice
 // versa, even though both use the same signing secret.
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
-import type { InvoiceDetails } from './orders-shared';
+import type { InvoiceDetails, PaymentChannel } from './orders-shared';
 import { siteUrl } from './orders';
 
 export interface QuoteRequest {
@@ -15,6 +15,8 @@ export interface QuoteRequest {
   customer: { name: string; email: string; phone?: string; postcode?: string; state?: string };
   buggyModel?: string;
   deliveryPreference?: string;
+  /** How the client intends to pay, if they said - same three options the cart offers. */
+  paymentPreference?: PaymentChannel;
   notes?: string;
 }
 

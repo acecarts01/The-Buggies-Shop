@@ -29,6 +29,7 @@ import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, isBuggyItem, VEHICLE_COLORS } from '@/src/config/site';
 import type { ProductDetails } from '@/src/config/product-details';
+import { paymentLabel } from '@/lib/orders-shared';
 import { useCart } from '@/hooks/use-cart';
 import {
   StaggeredHeading,
@@ -60,6 +61,7 @@ export default function ProductClient({ product, details }: ProductClientProps) 
     phone: '',
     postcode: '',
     deliveryPreference: 'Door-to-Door Enclosed Freight',
+    paymentPreference: 'standard' as 'standard' | 'finance4' | 'crypto',
     notes: '',
   });
 
@@ -165,6 +167,7 @@ export default function ProductClient({ product, details }: ProductClientProps) 
           postcode: quoteForm.postcode,
           buggyModel: `${product.name} (${product.price_display})`,
           deliveryPreference: quoteForm.deliveryPreference,
+          paymentPreference: quoteForm.paymentPreference,
           notes: quoteForm.notes,
         }),
       });
@@ -184,6 +187,7 @@ Customer: ${quoteForm.name}
 Phone: ${quoteForm.phone}
 Postcode: ${quoteForm.postcode}
 Delivery Preference: ${quoteForm.deliveryPreference}
+Payment Preference: ${paymentLabel(quoteForm.paymentPreference)}
 Notes: ${quoteForm.notes || 'None'}`
     );
     window.open(`https://wa.me/61480804189?text=${text}`, '_blank');
@@ -804,6 +808,19 @@ Notes: ${quoteForm.notes || 'None'}`
                       >
                         <option value="Door-to-Door Enclosed Freight">Door-to-Door Enclosed Freight (Australia-Wide Direct)</option>
                         <option value="Regional Transport Depot Delivery">Regional Transport Depot Delivery (Door Delivery)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block font-semibold text-[#A8A29E] mb-1">Preferred Payment Method</label>
+                      <select
+                        value={quoteForm.paymentPreference}
+                        onChange={(e) => setQuoteForm({ ...quoteForm, paymentPreference: e.target.value as typeof quoteForm.paymentPreference })}
+                        className="w-full bg-[#121417] border border-[#2B2F34] rounded p-2 text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
+                      >
+                        <option value="standard">Standard (PayID / Bank Transfer)</option>
+                        <option value="finance4">Finance in 4 (0% Interest)</option>
+                        <option value="crypto">Crypto (BTC / USDT - 10% Off)</option>
                       </select>
                     </div>
 
