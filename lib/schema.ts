@@ -229,9 +229,7 @@ export function productSchema(product: ProductItem) {
     category: product.category,
     image: images.length ? images : [DEFAULT_IMAGE_URL],
     ...(brand ? { brand: { '@type': 'Brand', name: brand } } : {}),
-    ...(details.primaryKeyword
-      ? { keywords: [details.primaryKeyword, ...(details.supportingKeywords || [])].join(', ') }
-      : {}),
+    keywords: [details.primaryKeyword, ...(details.supportingKeywords || []), ...details.tags].filter(Boolean).join(', '),
     offers: {
       '@type': 'Offer',
       url,

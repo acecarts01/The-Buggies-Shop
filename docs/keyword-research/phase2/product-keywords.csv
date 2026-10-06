@@ -1,0 +1,180 @@
+product_slug,role,keyword,cluster_id,monthly_volume,intent
+"atlas-4-passenger-lifted-lithium-buggy",primary,"atlas golf carts for sale",C01505,20,
+"atlas-4-passenger-lifted-lithium-buggy",supporting,"atlas golf carts reviews",C01506,20,"Commercial"
+"atlas-4-passenger-lifted-lithium-buggy",supporting,"atlas golf carts near me",C03400,10,"Transactional"
+"evolution-d5-ranger-4-plus-2",primary,"evolution d5 golf cart for sale",C06358,0,
+"evolution-d5-ranger-4-plus-2",supporting,"evolution d5 golf cart price",C03908,10,"Transactional"
+"evolution-d5-ranger-4-plus-2",supporting,"buy evolution d5 golf cart",C06047,0,"Transactional"
+"evolution-d5-ranger-4-plus-2",supporting,"evolution d5 golf cart cost",C11989,0,"Transactional"
+"evolution-d5-ranger-4-plus-2",supporting,"evolution d5 golf cart reviews",C11990,0,"Commercial"
+"evolution-d5-ranger-4-plus-2",supporting,"evolution 6 seater golf cart",C03330,10,"Commercial"
+"club-car-onward-4-passenger-lithium",primary,"club car onward for sale",C01841,20,
+"club-car-onward-4-passenger-lithium",supporting,"club car onward 4 passenger for sale",C03663,10,"Transactional"
+"club-car-onward-4-passenger-lithium",supporting,"club car onward 4 passenger price",C03664,10,"Transactional"
+"club-car-onward-4-passenger-lithium",supporting,"club car onward 4 seater",C03665,10,"Commercial"
+"club-car-onward-4-passenger-lithium",supporting,"club car onward price",C01843,20,"Transactional"
+"club-car-onward-4-passenger-lithium",supporting,"club car onward 4 passenger",C01839,20,"Commercial"
+"tara-roadster-2-plus-2-lifted",primary,"tara golf carts price",C01147,20,
+"tara-roadster-2-plus-2-lifted",supporting,"tara roadster 2 golf cart reviews",C01149,20,"Commercial"
+"ezgo-express-l6-lithium",primary,"ezgo express l6 for sale",C10880,0,
+"ezgo-express-l6-lithium",supporting,"ezgo express l6 price",C11108,0,"Transactional"
+"ezgo-express-l6-lithium",supporting,"ezgo 6 seater golf cart",C01605,20,"Commercial"
+"lvtong-4-seater-resort-cruiser",primary,"resort buggy for sale",C01112,20,
+"lvtong-4-seater-resort-cruiser",supporting,"4 seater electric golf cart",C00604,20,"Commercial"
+"lvtong-4-seater-resort-cruiser",supporting,"4 seat electric golf cart",C00603,20,"Commercial"
+"club-car-tempo-lithium-2025",primary,"club car tempo for sale",C01859,20,
+"club-car-tempo-lithium-2025",supporting,"club car tempo price",C01868,20,"Transactional"
+"club-car-tempo-lithium-2025",supporting,"club car tempo electric",C01858,20,"Commercial"
+"ezgo-rxv-elite-lithium",primary,"ezgo rxv elite for sale",C03792,10,
+"ezgo-rxv-elite-lithium",supporting,"ezgo elite golf cart for sale",C01615,20,"Transactional"
+"ezgo-rxv-elite-lithium",supporting,"ezgo elite golf cart price",C01616,20,"Transactional"
+"ezgo-rxv-elite-lithium",supporting,"ezgo rxv golf cart for sale",C01695,20,"Transactional"
+"ezgo-rxv-elite-lithium",supporting,"ezgo rxv golf cart price",C01696,20,"Transactional"
+"ezgo-rxv-elite-lithium",supporting,"ezgo rxv electric golf cart",C01690,20,"Commercial"
+"yamaha-drive2-ac-lithium",primary,"yamaha drive2 golf cart for sale",C02166,20,
+"yamaha-drive2-ac-lithium",supporting,"yamaha drive 2 golf cart for sale",C02163,20,"Transactional"
+"yamaha-drive2-ac-lithium",supporting,"yamaha drive 2 golf cart price",C02164,20,"Transactional"
+"yamaha-drive2-ac-lithium",supporting,"yamaha drive 2 electric golf cart",C04063,10,"Commercial"
+"yamaha-drive2-ac-lithium",supporting,"yamaha electric carts",C00183,70,"Commercial"
+"yamaha-drive2-ac-lithium",supporting,"electric golf cart yamaha",C02100,20,"Commercial"
+"tara-spirit-pro-2-seater",primary,"tara electric golf cart",C02924,10,
+"tara-spirit-pro-2-seater",supporting,"2 seater electric golf carts",C00210,50,"Commercial"
+"tara-spirit-pro-2-seater",supporting,"2 seat electric golf cart",C00598,20,"Commercial"
+"lvtong-2-passenger-golf-buggy",primary,"2 person electric golf cart",C00432,20,
+"lvtong-2-passenger-golf-buggy",supporting,"2 person golf cart",C00426,20,"Commercial"
+"lvtong-2-passenger-golf-buggy",supporting,"two seater electric golf cart",C00732,20,"Commercial"
+"evolution-classic-2-plus",primary,"evolution golf carts for sale",C00922,20,
+"evolution-classic-2-plus",supporting,"evolution 2 seater golf carts",C03328,10,"Commercial"
+"evolution-classic-2-plus",supporting,"evolution golf carts near me",C01174,20,"Transactional"
+"atlas-4-seater-heavy-duty-lifted-350a",primary,"atlas golf carts price",C00389,30,
+"atlas-4-seater-heavy-duty-lifted-350a",supporting,"atlas golf cart price range",C09176,0,"Transactional"
+"atlas-4-seater-heavy-duty-lifted-350a",supporting,"atlas golf carts for sale near me",C09178,0,"Transactional"
+"atlas-4-seater-heavy-duty-lifted-350a",supporting,"atlas golf cart reviews consumer reports",C09177,0,"Commercial"
+"evolution-d-max-gt4-off-road",primary,"evolution electric golf cart",C02893,10,
+"evolution-d-max-gt4-off-road",supporting,"evolution golf cart reviews",C00682,20,"Commercial"
+"ezgo-express-s4-lifted-high-torque",primary,"ezgo express s4 for sale",C10883,0,
+"ezgo-express-s4-lifted-high-torque",supporting,"ezgo express s4 price",C10885,0,"Transactional"
+"ezgo-express-s4-lifted-high-torque",supporting,"ezgo express s4 reviews",C11116,0,"Commercial"
+"ezgo-express-s4-lifted-high-torque",supporting,"ezgo golf cart lifted",C03754,10,"Commercial"
+"ezgo-express-s4-lifted-high-torque",supporting,"ezgo express s4 elite for sale",C11111,0,"Transactional"
+"lvtong-rough-terrain-lifted-buggy",primary,"all terrain golf cart for sale",C02963,10,
+"club-car-onward-lifted-efi-petrol",primary,"club car onward lifted",C03669,10,
+"club-car-onward-lifted-efi-petrol",supporting,"club car onward lifted 4 passenger",C03670,10,"Commercial"
+"club-car-onward-lifted-efi-petrol",supporting,"club car lifted golf carts",C03392,10,"Commercial"
+"tara-roadster-4-off-road",primary,"roadster golf cart for sale",C03161,10,
+"club-car-carryall-700-electric-utility",primary,"club car carryall 700 for sale",C01800,20,
+"club-car-carryall-700-electric-utility",supporting,"club car carryall 700 price",C01801,20,"Transactional"
+"club-car-carryall-700-electric-utility",supporting,"club car utility golf cart",C01880,20,"Commercial"
+"ezgo-cushman-hauler-pro-lithium",primary,"cushman utility cart for sale",C03409,10,
+"ezgo-cushman-hauler-pro-lithium",supporting,"cushman electric utility cart",C03408,10,"Commercial"
+"ezgo-cushman-hauler-pro-lithium",supporting,"cushman electric cart",C00631,20,"Commercial"
+"ezgo-cushman-hauler-pro-lithium",supporting,"cushman utility cart",C01513,20,"Commercial"
+"ezgo-cushman-hauler-pro-lithium",supporting,"cushman electric golf cart",C02860,10,"Commercial"
+"yamaha-umax-rally-efi-petrol",primary,"yamaha umax utility cart for sale",C13468,0,
+"yamaha-umax-rally-efi-petrol",supporting,"yamaha umax utility cart",C13467,0,"Commercial"
+"evolution-700-heavy-commercial-utility",primary,"evolution golf cart price",C00921,20,
+"evolution-700-heavy-commercial-utility",supporting,"evolution golf cart dealers",C03049,10,"Transactional"
+"lvtong-commercial-flatbed-cargo-buggy",primary,"flatbed golf cart for sale",C06381,0,
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"electric flatbed golf cart",C05314,0,"Commercial"
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"electric cargo golf cart",C05313,0,"Commercial"
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"cargo golf cart for sale",C06095,0,"Transactional"
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"cargo buggy for sale",C06094,0,"Transactional"
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"electric buggy with tray",C04733,0,"Commercial"
+"lvtong-commercial-flatbed-cargo-buggy",supporting,"golf buggy with tray for sale",C06537,0,"Transactional"
+"club-car-transporter-6-commercial",primary,"club car transporter golf carts for sale",C10413,0,
+"club-car-transporter-6-commercial",supporting,"club car golf buggy for sale",C00116,110,"Transactional"
+"club-car-transporter-6-commercial",supporting,"club car golf buggy",C00050,260,"Commercial"
+"yamaha-drive2-quiettech-efi-petrol",primary,"yamaha petrol golf buggy for sale",C01173,20,
+"yamaha-drive2-quiettech-efi-petrol",supporting,"yamaha petrol golf cart for sale",C00409,30,"Transactional"
+"yamaha-drive2-quiettech-efi-petrol",supporting,"yamaha petrol golf cart price",C00171,70,"Transactional"
+"yamaha-drive2-quiettech-efi-petrol",supporting,"yamaha efi golf cart for sale",C02167,20,"Transactional"
+"yamaha-drive2-quiettech-efi-petrol",supporting,"yamaha efi golf cart price",C02168,20,"Transactional"
+"yamaha-drive2-quiettech-efi-petrol",supporting,"yamaha gas golf cart for sale",C02211,20,"Transactional"
+"club-car-tempo-efi-petrol",primary,"club car petrol golf buggy",C00859,20,
+"club-car-tempo-efi-petrol",supporting,"club car petrol golf cart",C01844,20,"Commercial"
+"club-car-tempo-efi-petrol",supporting,"club car petrol golf carts for sale",C06168,0,"Transactional"
+"club-car-tempo-efi-petrol",supporting,"club car tempo gas",C03683,10,"Commercial"
+"ezgo-freedom-rxv-gas",primary,"ezgo freedom rxv for sale",C01621,20,
+"ezgo-freedom-rxv-gas",supporting,"ezgo gas golf cart for sale",C03718,10,"Transactional"
+"ezgo-freedom-rxv-gas",supporting,"ezgo rxv gas golf cart",C03794,10,"Commercial"
+"ezgo-freedom-rxv-gas",supporting,"ezgo freedom rxv price australia",C08803,0,"Transactional"
+"ezgo-freedom-rxv-gas",supporting,"ezgo freedom golf cart for sale",C10888,0,"Transactional"
+"ezgo-freedom-rxv-gas",supporting,"ezgo rxv freedom ex1 gas",C10914,0,"Commercial"
+"cushman-hauler-1200-gas-utility",primary,"cushman golf cart for sale",C00866,20,
+"cushman-hauler-1200-gas-utility",supporting,"cushman carts for sale",C01511,20,"Transactional"
+"cushman-hauler-1200-gas-utility",supporting,"cushman buggy for sale",C06209,0,"Transactional"
+"cushman-hauler-1200-gas-utility",supporting,"cushman cart models",C03700,10,"Commercial"
+"yamaha-umax-one-efi-utility",primary,"yamaha umax golf cart for sale",C04230,10,
+"club-car-carryall-300-petrol",primary,"club car carryall for sale",C01802,20,
+"club-car-carryall-300-petrol",supporting,"club car carryall price",C01803,20,"Transactional"
+"mgi-ai-navigator-gps-remote-buggy",primary,"mgi ai navigator gps+ remote golf buggy",C02638,20,
+"mgi-ai-navigator-gps-remote-buggy",supporting,"mgi ai navigator gps+ buggy",C00095,140,"Informational, Transactional"
+"mgi-ai-navigator-gps-remote-buggy",supporting,"mgi golf buggy remote control",C00366,30,"Commercial"
+"mgi-ai-navigator-gps-remote-buggy",supporting,"mgi ai navigator gps+ review",C00421,30,"Commercial"
+"mgi-zip-navigator-all-terrain",primary,"mgi zip navigator all terrain motorised golf buggy",C01271,20,
+"mgi-zip-navigator-all-terrain",supporting,"mgi navigator all terrain",C00076,170,"Commercial"
+"mgi-zip-navigator-all-terrain",supporting,"mgi navigator all terrain golf buggy reviews",C07925,0,"Commercial"
+"mgi-2024-zip-x5-36-hole-lithium",primary,"mgi zip x5 motorised golf buggy",C03228,10,
+"mgi-2024-zip-x5-36-hole-lithium",supporting,"mgi zip x5 review",C00301,40,"Commercial"
+"mgi-2024-zip-x5-36-hole-lithium",supporting,"mgi zip x5 best price",C02723,20,"Transactional"
+"mgi-2024-zip-x5-36-hole-lithium",supporting,"mgi zip x5 electric golf cart",C01293,20,"Commercial"
+"powakaddy-fx7-gps-lithium",primary,"powakaddy fx7 gps electric golf trolley",C03262,10,
+"powakaddy-fx7-gps-lithium",supporting,"powakaddy fx7 gps",C01328,20,"Commercial"
+"powakaddy-fx7-gps-lithium",supporting,"powakaddy fx7 review",C01329,20,"Commercial"
+"powakaddy-fx7-gps-lithium",supporting,"powakaddy electric golf buggies",C01327,20,"Commercial"
+"powakaddy-fx7-gps-lithium",supporting,"powakaddy golf trolley",C01330,20,"Commercial"
+"robera-pro-follow-remote-golf-buggy",primary,"follow me remote control golf trolley",C03856,10,
+"robera-pro-follow-remote-golf-buggy",supporting,"follow me golf buggy australia",C00338,30,"Commercial"
+"robera-pro-follow-remote-golf-buggy",supporting,"follow golf buggy",C00931,20,"Commercial"
+"robera-pro-follow-remote-golf-buggy",supporting,"best follow me golf cart",C00620,20,"Commercial"
+"robera-pro-follow-remote-golf-buggy",supporting,"electric follow golf cart",C00638,20,"Commercial"
+"mgi-zip-x1-lithium-buggy",primary,"mgi zip x1 motorised golf buggy",C01285,20,
+"mgi-zip-x1-lithium-buggy",supporting,"mgi zip x1 review",C00425,30,"Commercial"
+"mgi-zip-x1-lithium-buggy",supporting,"mgi zip x1 price",C02709,20,"Transactional"
+"mgi-zip-x1-lithium-buggy",supporting,"mgi x1 electric golf trolley",C01260,20,"Commercial"
+"eco-battery-48v-105ah-lithium-conversion-kit",primary,"golf cart electric conversion kit",C01977,20,
+"eco-battery-48v-105ah-lithium-conversion-kit",supporting,"electric golf cart conversion",C01976,20,"Commercial"
+"eco-battery-48v-105ah-lithium-conversion-kit",supporting,"golf push cart electric conversion kit",C02013,20,"Commercial"
+"roypow-48v-105ah-lithium-battery-pack",primary,"electric golf buggy lithium battery",C00501,20,
+"invicta-48v-50ah-lithium-drop-in-module",primary,"electric buggy 48v",C00496,20,
+"trojan-t-875-8v-deep-cycle-lead-acid-battery",primary,"lead acid battery for golf trolley",C02797,10,
+"delta-q-quiq-48v-smart-on-board-charger",primary,"on board golf cart charger",C02021,20,
+"delta-q-quiq-48v-smart-on-board-charger",supporting,"golf cart charger",C00175,70,"Commercial"
+"delta-q-quiq-48v-smart-on-board-charger",supporting,"golf cart charger for sale",C00966,20,"Transactional"
+"club-car-eric-48v-high-frequency-charger",primary,"club car golf cart battery charger",C01809,20,
+"club-car-eric-48v-high-frequency-charger",supporting,"club car golf buggy charger",C04680,0,"Commercial"
+"mgi-24v-lithium-battery-36-hole",primary,"mgi golf buggy lithium battery",C01298,20,
+"mgi-24v-lithium-battery-36-hole",supporting,"mgi golf buggy battery",C00185,70,"Informational, Transactional"
+"mgi-24v-lithium-battery-36-hole",supporting,"mgi zip navigator battery",C00253,50,"Commercial"
+"mgi-24v-lithium-battery-36-hole",supporting,"lithium battery for golf trolley",C00563,20,"Commercial"
+"curtis-1268-400a-programmable-motor-controller",primary,"electric golf cart controller",C03890,10,
+"curtis-1268-400a-programmable-motor-controller",supporting,"electric golf cart motor controller",C03895,10,"Commercial"
+"curtis-1268-400a-programmable-motor-controller",supporting,"electric golf cart speed controller",C01993,20,"Commercial"
+"navitas-600a-ac-controller-upgrade-kit",primary,"golf cart controllers for sale",C12045,0,
+"navitas-600a-ac-controller-upgrade-kit",supporting,"best golf cart controller",C11855,0,"Commercial"
+"navitas-600a-ac-controller-upgrade-kit",supporting,"how much is a controller for a golf cart",C03923,10,"Transactional"
+"universal-48v-to-12v-30a-voltage-reducer",primary,"best golf cart dc converter",C11856,0,
+"universal-48v-to-12v-30a-voltage-reducer",supporting,"12v accessories for golf cart",C08660,0,"Commercial"
+"madjax-alpha-lux-street-legal-led-light-kit",primary,"golf cart lights",C00275,40,
+"all-weather-heavy-duty-pvc-enclosure",primary,"golf buggy enclosures for sale",C06499,0,
+"all-terrain-23x10-5-12-wheel-tyre-combo",primary,"golf cart wheels and tyres",C00132,90,
+"all-terrain-23x10-5-12-wheel-tyre-combo",supporting,"golf cart tyres",C00057,210,"Commercial"
+"all-terrain-23x10-5-12-wheel-tyre-combo",supporting,"golf cart wheels",C00044,260,"Commercial"
+"all-terrain-23x10-5-12-wheel-tyre-combo",supporting,"golf cart wheels and rims",C00041,260,"Commercial"
+"all-terrain-23x10-5-12-wheel-tyre-combo",supporting,"golf buggy tyres wheels",C00173,70,"Commercial"
+"all-terrain-23x10-5-12-wheel-tyre-combo",supporting,"all terrain golf cart tires",C02434,20,"Commercial"
+"replacement-mgi-ai-zip-remote-controller",primary,"mgi remote golf buggy",C00241,50,
+"golf-cart-side-mirrors-integrated-led-indicators",primary,"golf cart mirrors near me",C01479,20,
+"heavy-duty-rear-flip-seat-kit-2-to-4",primary,"golf cart rear flip seat",C02509,20,
+"heavy-duty-rear-flip-seat-kit-2-to-4",supporting,"golf cart folding rear seat",C02499,20,"Commercial"
+"heavy-duty-rear-flip-seat-kit-2-to-4",supporting,"golf cart rear seat kit",C02511,20,"Commercial"
+"heavy-duty-rear-flip-seat-kit-2-to-4",supporting,"golf cart rear seat",C02510,20,"Commercial"
+"golf-cart-solar-charging-panel-expansion-kit",primary,"solar charging golf cart",C00727,20,
+"golf-cart-solar-charging-panel-expansion-kit",supporting,"solar golf cart",C00728,20,"Commercial"
+"golf-cart-solar-charging-panel-expansion-kit",supporting,"solar powered golf buggy",C01139,20,"Commercial"
+"golf-cart-solar-charging-panel-expansion-kit",supporting,"solar charge golf cart",C02022,20,"Commercial"
+"golf-cart-solar-charging-panel-expansion-kit",supporting,"golf cart solar power",C02934,10,"Commercial"
+"golf-cart-solar-charging-panel-expansion-kit",supporting,"solar powered golf carts for sale",C03178,10,"Transactional"
+"retractable-seatbelt-system-set",primary,"golf cart seat belts",C02516,20,
+"retractable-seatbelt-system-set",supporting,"golf cart seat belt kit",C02515,20,"Commercial"
+"retractable-seatbelt-system-set",supporting,"golf cart retractable seat belts",C04336,10,"Commercial"

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PRODUCTS, SITE } from '@/src/config/site';
-import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
+import { socialImages } from '@/lib/seo';
+import { productMeta } from '@/lib/product-meta';
 import { jsonLd, productSchema, breadcrumbSchema, absoluteUrl } from '@/lib/schema';
 
 // The page below is a client component and cannot export metadata or emit
@@ -14,12 +15,7 @@ const atlas = PRODUCTS.find((p) => p.slug === SLUG);
 if (!atlas) throw new Error(`PRODUCTS has no entry for ${SLUG}`);
 
 const canonical = `https://${SITE.domain}/shop/${CATEGORY}/${SLUG}/`;
-const title = buildTitle(atlas.name);
-const description = buildDescription(
-  `${atlas.name}, ${atlas.price_display} inc GST.`,
-  atlas.key_specs,
-  ['Tested at our Yatala QLD depot.', 'Enclosed freight Australia-wide.', 'Finance in 4 available.']
-);
+const { title, description } = productMeta(atlas);
 const photo = atlas.images?.[0] ? { url: absoluteUrl(atlas.images[0]), alt: atlas.name } : undefined;
 
 export const metadata: Metadata = {

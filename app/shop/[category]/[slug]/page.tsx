@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import { PRODUCTS, CATEGORIES, SITE } from '@/src/config/site';
 import { getProductDetails } from '@/src/config/product-details';
 import ProductClient from './ProductClient';
-import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
+import { socialImages } from '@/lib/seo';
+import { productMeta, productLead } from '@/lib/product-meta';
+import { resolveCategory } from '@/src/config/category-content';
 import { jsonLd, productSchema, breadcrumbSchema, absoluteUrl } from '@/lib/schema';
 
 export async function generateStaticParams() {
@@ -27,12 +29,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   // Built rather than interpolated, so long model names cannot push the
   // title or description past what Google will show. See lib/seo.ts.
-  const title = buildTitle(product.name);
-  const description = buildDescription(
-    `${product.name}, ${product.price_display} inc GST.`,
-    product.key_specs,
-    ['Tested at our Yatala QLD depot.', 'Enclosed freight Australia-wide.', 'Finance in 4 available.']
-  );
+  const { title, description } = productMeta(product);
   const canonical = `https://${SITE.domain}/shop/${category}/${product.slug}/`;
 
   // The product photo is the share image; the brand image is the fallback.
@@ -69,7 +66,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <ProductClient product={product} details={getProductDetails(product.slug)} />
+      <ProductClient
+        product={product}
+        details={getProductDetails(product.slug)}
+        lead={productLead(product)}
+        guides={(resolveCategory(category)?.guides ?? []).slice(0, 4)}
+      />
     </>
   );
 }

@@ -7,15 +7,18 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import AtlasLandingPage from '@/src/components/AtlasLandingPage';
 import FaqSection from '@/src/components/FaqSection';
+import { ProductTags, ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
 import { PRODUCTS } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 
 interface AtlasProductClientProps {
   /** Joined on the server from product-details.ts; keeps the FAQs out of the client bundle. */
   faqs: { q: string; a: string }[];
+  tags: string[];
+  guides: { slug: string; label: string }[];
 }
 
-export default function AtlasProductClient({ faqs }: AtlasProductClientProps) {
+export default function AtlasProductClient({ faqs, tags, guides }: AtlasProductClientProps) {
   const atlasProduct = PRODUCTS.find((p) => p.slug === 'atlas-4-passenger-lifted-lithium-buggy');
   const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
@@ -97,6 +100,12 @@ export default function AtlasProductClient({ faqs }: AtlasProductClientProps) {
               </div>
             </div>
           )}
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 space-y-8">
+            <ProductTags tags={tags} />
+            <ShippingPaymentBlock />
+            <ProductGuides guides={guides} />
+          </div>
         </main>
 
         <Footer />

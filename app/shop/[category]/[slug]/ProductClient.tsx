@@ -13,7 +13,6 @@ import {
   ExternalLink,
   MessageSquare,
   Sparkles,
-  Award,
   ArrowRight,
   BatteryCharging,
   Battery,
@@ -27,6 +26,7 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
+import { ProductTags, ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, isBuggyItem, VEHICLE_COLORS } from '@/src/config/site';
 import type { ProductDetails } from '@/src/config/product-details';
 import { paymentLabel } from '@/lib/orders-shared';
@@ -45,9 +45,13 @@ interface ProductClientProps {
   /** Long description, FAQs and keywords, joined on the server from
    *  product-details.ts so they never enter the shared client bundle. */
   details: ProductDetails;
+  /** Opening sentence carrying the page's primary keyword. */
+  lead: string;
+  /** The category's buying guides, as descriptive links. */
+  guides: { slug: string; label: string }[];
 }
 
-export default function ProductClient({ product, details }: ProductClientProps) {
+export default function ProductClient({ product, details, lead, guides }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -367,7 +371,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     </div>
                     <div>
                       <span className="text-[#A8A29E]">Depot Warranty:</span>
-                      <div className="font-semibold text-[#E2A17A]">Yatala 3-5 Year Australian Factory Backed</div>
+                      <div className="font-semibold text-[#E2A17A]">Supported from our Yatala QLD depot</div>
                     </div>
                   </div>
                 </div>
@@ -384,7 +388,7 @@ Notes: ${quoteForm.notes || 'None'}`
                 </p>
                 <div className="pt-1 flex items-center gap-2 text-[#DFE5DF]">
                   <Truck className="w-3.5 h-3.5 text-[#E2A17A]" />
-                  <span>Door-to-door hydraulic tailgate delivery available Australia-wide.</span>
+                  <span>Enclosed delivery Australia-wide, quoted against your postcode.</span>
                 </div>
               </div>
             </div>
@@ -401,6 +405,9 @@ Notes: ${quoteForm.notes || 'None'}`
                   text={product.name}
                   className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#ffffff] mt-1 tracking-tight"
                 />
+                <FadeUpText delay={0.1} className="text-sm text-[#D6D3D1] mt-2 leading-relaxed">
+                  {lead}
+                </FadeUpText>
                 <FadeUpText delay={0.15} className="text-xs text-[#A8A29E] mt-1">
                   Targeted for: {product.target_audience}
                 </FadeUpText>
@@ -565,48 +572,24 @@ Notes: ${quoteForm.notes || 'None'}`
                 )}
               </div>
 
-              {/* 4-Pillar Feature Grid */}
-              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#2B2F34]">
-                <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
-                  <div className="flex items-center gap-2 text-[#E2A17A] font-bold text-xs">
-                    <Zap className="w-4 h-4" />
-                    <span>Powertrain &amp; Motor</span>
-                  </div>
-                  <p className="text-xs text-[#A8A29E] leading-relaxed">
-                    High-efficiency electric AC / EFI powertrain engineered for rapid torque delivery, silent operation, and Australian temperature resiliency.
-                  </p>
-                </StaggerItem>
-
-                <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
-                  <div className="flex items-center gap-2 text-[#AEB4B8] font-bold text-xs">
-                    <BatteryCharging className="w-4 h-4" />
-                    <span>Battery Management</span>
-                  </div>
-                  <p className="text-xs text-[#A8A29E] leading-relaxed">
-                    Zero maintenance LiFePO4 / heavy-duty cycle with smart thermal control, onboard digital gauge, and rapid multi-stage charging.
-                  </p>
-                </StaggerItem>
-
-                <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
-                  <div className="flex items-center gap-2 text-[#6B9A76] font-bold text-xs">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span>Chassis &amp; Suspension</span>
-                  </div>
-                  <p className="text-xs text-[#A8A29E] leading-relaxed">
-                    E-coated steel ladder frame, marine-grade fasteners, and independent double A-arm front suspension for rough turf stability.
-                  </p>
-                </StaggerItem>
-
-                <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
-                  <div className="flex items-center gap-2 text-[#A85640] font-bold text-xs">
-                    <Award className="w-4 h-4" />
-                    <span>Depot Backing</span>
-                  </div>
-                  <p className="text-xs text-[#A8A29E] leading-relaxed">
-                    Full spare parts inventory at Yatala QLD depot, 3-5 year factory warranties, and dedicated Australian logistics support.
-                  </p>
-                </StaggerItem>
+              {/* Key specifications: this product's own spec sheet. The generic
+                  four-pillar grid that stood here made identical claims (frame,
+                  suspension, warranty length) on every product page. */}
+              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-4 border-t border-[#2B2F34]">
+                {product.key_specs
+                  .split(',')
+                  .map((x) => x.trim())
+                  .filter(Boolean)
+                  .map((spec) => (
+                    <StaggerItem key={spec} className="p-3 bg-[#121417] border border-[#2B2F34] rounded-xl flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-[#E2A17A] shrink-0 mt-0.5" aria-hidden="true" />
+                      <span className="text-xs text-[#D6D3D1] leading-relaxed">{spec}</span>
+                    </StaggerItem>
+                  ))}
               </StaggerContainer>
+
+              {/* Tags: descriptive terms true of this product */}
+              <ProductTags tags={details.tags} />
             </AnimatedCard>
 
             {/* Product Reviews & Field Reports Component */}
@@ -623,6 +606,12 @@ Notes: ${quoteForm.notes || 'None'}`
                 />
               </div>
             )}
+
+            {/* Delivery, payment and warranty: stated once, here, instead of in
+                every FAQ answer on every product page. */}
+            <ShippingPaymentBlock />
+
+            <ProductGuides guides={guides} />
 
             {/* Related Products in this Category */}
             <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm metal-brushed-dark">
