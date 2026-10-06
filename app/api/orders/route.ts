@@ -14,6 +14,7 @@ import { renderOrderConfirmation } from '@/lib/email/order-confirmation';
 import { renderAdminNewOrder } from '@/lib/email/admin-new-order';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
 import { upsertOrder } from '@/lib/db';
+import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 
 // POST /api/orders/ - the cart's order submission.
 //
@@ -45,6 +46,15 @@ export async function POST(request: Request) {
 
   if (!name) return NextResponse.json({ success: false, message: 'Please enter your full name.' }, { status: 400 });
   if (!EMAIL_RE.test(email)) return NextResponse.json({ success: false, message: 'A valid email address is required so we can send your confirmation.' }, { status: 400 });
+
+  // Unlike enquiries, a refused order says so, so a genuine buyer who is
+  // wrongly flagged is sent to WhatsApp by the cart instead of losing the order.
+  const spamInput = { name, email, phone, postcode, honeypot: body.website };
+  const reasons = blockReasons(spamInput);
+  if (reasons.length > 0 || (await overRateLimit('order', request, email))) {
+    await logBlocked('order', reasons.length ? reasons : ['rate-limit'], spamInput);
+    return NextResponse.json({ success: false, message: 'We could not accept this order automatically. Please confirm it with us on WhatsApp or by phone.' }, { status: 429 });
+  }
 
   const lines = priceLines(rawItems.slice(0, 30));
   if (!lines.length) return NextResponse.json({ success: false, message: 'Your cart is empty.' }, { status: 400 });

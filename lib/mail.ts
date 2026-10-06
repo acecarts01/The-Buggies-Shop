@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
+import { CONTACT, ABN_INFO } from '@/src/config/site';
 
 let cachedTransporter: Transporter | null = null;
 
@@ -225,7 +226,7 @@ export async function sendEmailThroughZoho(params: SendInquiryParams): Promise<{
           </div>
           <div class="footer">
             <p style="margin: 0 0 5px;"><strong>The Buggies Express</strong> · Yatala QLD 4207 Australia</p>
-            <p style="margin: 0;">Phone: 0480 408 189 · Email: ${zohoUser} · ACN: 668 598 758</p>
+            <p style="margin: 0;">Phone: ${CONTACT.phoneDisplay} · Email: ${zohoUser} · ACN: ${ABN_INFO.acn}</p>
           </div>
         </div>
       </body>

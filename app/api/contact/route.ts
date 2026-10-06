@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { CONTACT } from '@/src/config/site';
 import { sendEmailThroughZoho, SendInquiryParams } from '@/lib/mail';
 import { insertEnquiry } from '@/lib/db';
+import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 
 export async function POST(request: Request) {
   try {
@@ -46,6 +47,19 @@ export async function POST(request: Request) {
         { success: false, message: 'Customer name and either an email or phone number are required.' },
         { status: 400 }
       );
+    }
+
+    // Bots get a normal-looking success so they don't adapt, but nothing is
+    // emailed or stored. Blocked attempts are kept in spam_log for review.
+    const spamInput = { name, email, phone, postcode, message, honeypot: body.website };
+    const reasons = blockReasons(spamInput);
+    if (reasons.length > 0 || (await overRateLimit('contact', request, email))) {
+      await logBlocked('contact', reasons.length ? reasons : ['rate-limit'], spamInput);
+      return NextResponse.json({
+        success: true,
+        message: 'Inquiry successfully transmitted to Yatala Depot.',
+        inquiryId: `BE-${Date.now().toString(36).toUpperCase()}`,
+      });
     }
 
     const isOrder =

@@ -4,6 +4,7 @@ import { stateFromPostcode } from '@/lib/orders';
 import type { PaymentChannel } from '@/lib/orders-shared';
 import { renderQuoteRequest } from '@/lib/email/quote-request';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
+import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 
 const PAYMENTS: PaymentChannel[] = ['standard', 'finance4', 'crypto'];
 
@@ -36,6 +37,15 @@ export async function POST(request: Request) {
 
   if (!name) return NextResponse.json({ success: false, message: 'Please enter your full name.' }, { status: 400 });
   if (!EMAIL_RE.test(email)) return NextResponse.json({ success: false, message: 'A valid email address is required so we can send your official quote.' }, { status: 400 });
+
+  // Bots get a normal-looking success so they don't adapt, but nothing is
+  // emailed. Blocked attempts are kept in spam_log for review.
+  const spamInput = { name, email, phone, postcode, message: notes, honeypot: body.website };
+  const reasons = blockReasons(spamInput);
+  if (reasons.length > 0 || (await overRateLimit('quote', request, email))) {
+    await logBlocked('quote', reasons.length ? reasons : ['rate-limit'], spamInput);
+    return NextResponse.json({ success: true, ref: newQuoteRef(), emailSent: true });
+  }
 
   const quote: QuoteRequest = {
     kind: 'quote',
