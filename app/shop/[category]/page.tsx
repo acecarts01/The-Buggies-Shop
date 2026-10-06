@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { CATEGORIES, PRODUCTS, SITE } from '@/src/config/site';
+import { CATEGORIES, PRODUCTS, SITE, isElectricBuggy } from '@/src/config/site';
+import { resolveCategory } from '@/src/config/category-content';
 import { socialImages } from '@/lib/seo';
 import { jsonLd, collectionPageSchema, absoluteUrl } from '@/lib/schema';
 import CategoryClient from './CategoryClient';
@@ -17,7 +18,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const { category } = await params;
-  const cat = CATEGORIES.find((c) => c.slug === category);
+  const cat = resolveCategory(category);
   if (!cat) return { title: 'Category Not Found' };
 
   // Per-category copy lives in CATEGORIES (see docs/keyword-map.md); the
@@ -34,7 +35,11 @@ export async function generateMetadata({ params }: PageProps) {
     : undefined;
 
   // Share image: the first product photo in the range, else the brand image.
-  const first = cat.rawCategory ? PRODUCTS.find((p) => p.category === cat.rawCategory) : undefined;
+  const first = cat.electric
+    ? PRODUCTS.find(isElectricBuggy)
+    : cat.rawCategory
+      ? PRODUCTS.find((p) => p.category === cat.rawCategory)
+      : undefined;
   const photo = first?.images?.[0] ? { url: absoluteUrl(first.images[0]), alt: first.name } : undefined;
 
   return {
@@ -49,7 +54,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function CategoryPage({ params }: PageProps) {
   const { category } = await params;
-  const cat = CATEGORIES.find((c) => c.slug === category);
+  const cat = resolveCategory(category);
   if (!cat) notFound();
 
   // CollectionPage + ItemList: the range as a list an engine can read without
@@ -58,7 +63,18 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(collectionPageSchema(cat)) }} />
-      <CategoryClient categorySlug={cat.slug} categoryName={cat.name} />
+      <CategoryClient
+        categorySlug={cat.slug}
+        categoryName={cat.name}
+        content={{
+          h1: cat.h1,
+          intro: cat.intro,
+          sections: cat.sections ?? [],
+          guides: cat.guides ?? [],
+          faqs: cat.faqs ?? [],
+          comingSoon: cat.comingSoon === true,
+        }}
+      />
     </>
   );
 }

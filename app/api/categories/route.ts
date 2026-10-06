@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
-import { CATEGORIES, PRODUCTS, SITE } from '@/src/config/site';
+import { CATEGORIES, PRODUCTS, SITE, isElectricBuggy } from '@/src/config/site';
 
 export async function GET() {
   const data = CATEGORIES.map((c) => {
     let count = 0;
     if (c.slug === 'all') {
       count = PRODUCTS.length;
+    } else if (c.electric) {
+      count = PRODUCTS.filter(isElectricBuggy).length;
     } else if (c.rawCategory) {
       count = PRODUCTS.filter((p) => p.category === c.rawCategory).length;
     }

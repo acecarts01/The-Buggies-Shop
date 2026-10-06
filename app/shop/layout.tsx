@@ -1,14 +1,19 @@
 import type { Metadata } from 'next';
-import { PRODUCTS } from '@/src/config/site';
 import { pageMetadata } from '@/lib/seo';
+import { hubContent } from '@/src/config/category-content';
 
-// The page below is a client component and cannot export metadata itself,
-// so it lives here (see pageMetadata for why every field is set explicitly).
-export const metadata: Metadata = pageMetadata({
-  title: `Shop Golf Buggies Australia | All ${PRODUCTS.length} Models`,
-  description: `Browse all ${PRODUCTS.length} models: luxury 4-seaters, 2-seaters, lifted 4x4, commercial utility, petrol and walk-behind buggies, plus batteries and parts.`,
-  path: '/shop/',
-});
+const hub = hubContent();
+
+// The page is a server wrapper around a client component; its metadata
+// lives here (see pageMetadata for why every field is set explicitly).
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: hub.title,
+    description: hub.description,
+    path: '/shop/',
+  }),
+  keywords: [hub.primaryKeyword, ...hub.supportingKeywords],
+};
 
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

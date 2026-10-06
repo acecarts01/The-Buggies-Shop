@@ -15,7 +15,7 @@ import {
   X,
   MessageSquare
 } from 'lucide-react';
-import { PRODUCTS, CATEGORIES, ProductItem } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, ProductItem, isElectricBuggy } from '@/src/config/site';
 import { paymentLabel } from '@/lib/orders-shared';
 import { AnimatedCounter, FadeUpText } from '@/src/components/AnimatedText';
 
@@ -239,7 +239,9 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart,
       // Category filter
       if (selectedCategory !== 'all') {
         const catObj = CATEGORIES.find((c) => c.slug === selectedCategory);
-        if (catObj && catObj.rawCategory && p.category !== catObj.rawCategory) {
+        if (catObj && catObj.electric) {
+          if (!isElectricBuggy(p)) return false;
+        } else if (catObj && catObj.rawCategory && p.category !== catObj.rawCategory) {
           return false;
         }
       }

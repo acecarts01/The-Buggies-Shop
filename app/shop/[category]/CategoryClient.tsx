@@ -8,7 +8,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import RegisterInterest from '@/src/components/RegisterInterest';
 import FaqSection from '@/src/components/FaqSection';
-import { SITE, CATEGORIES, ProductItem } from '@/src/config/site';
+import { SITE, ProductItem } from '@/src/config/site';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
 import {
@@ -16,19 +16,23 @@ import {
   StaggeredParagraph
 } from '@/src/components/AnimatedText';
 
+export interface CategoryViewContent {
+  h1?: string;
+  intro?: string;
+  sections: { heading: string; body: string }[];
+  guides: { slug: string; label: string }[];
+  faqs: { q: string; a: string }[];
+  comingSoon: boolean;
+}
+
 interface CategoryClientProps {
   categorySlug: string;
   categoryName: string;
+  /** Resolved server-side from CATEGORIES + category-content.ts. */
+  content: CategoryViewContent;
 }
 
-// Stable fallbacks. Returning a fresh [] from the `??` below would hand the
-// React Compiler a new reference every render and cost the memoization in
-// this component.
-const NO_SECTIONS: ReadonlyArray<{ heading: string; body: string }> = [];
-const NO_GUIDES: ReadonlyArray<{ slug: string; label: string }> = [];
-const NO_FAQS: ReadonlyArray<{ q: string; a: string }> = [];
-
-export default function CategoryClient({ categorySlug, categoryName }: CategoryClientProps) {
+export default function CategoryClient({ categorySlug, categoryName, content }: CategoryClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -85,14 +89,10 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
   // Keep this lookup BELOW the hooks. Above them the React Compiler bails out
   // with "Existing memoization could not be preserved" and drops this
   // component's memoization entirely.
-  const cat = CATEGORIES.find((c) => c.slug === categorySlug);
-  const intro = cat?.intro;
-  const sections = cat?.sections ?? NO_SECTIONS;
-  const guides = cat?.guides ?? NO_GUIDES;
-  const faqs = cat?.faqs ?? NO_FAQS;
+  const { intro, sections, guides, faqs } = content;
   // A category with no stock yet shows a register-interest block where the
   // catalogue would be, rather than an empty grid and "no models match".
-  const comingSoon = cat?.comingSoon === true;
+  const comingSoon = content.comingSoon;
 
   const breadcrumbs = {
     '@context': 'https://schema.org',
@@ -140,7 +140,7 @@ export default function CategoryClient({ categorySlug, categoryName }: CategoryC
                 own wording carry an explicit `h1` in CATEGORIES. */}
             <StaggeredHeading
               tag="h1"
-              text={cat?.h1 ?? `${categoryName} Buggies for Sale in Australia`}
+              text={content.h1 ?? `${categoryName} Buggies for Sale in Australia`}
               className="text-3xl sm:text-4xl font-serif font-bold text-[#ffffff] tracking-tight"
             />
             <StaggeredParagraph delay={0.15} className="text-xs sm:text-sm text-[#A8A29E] mt-1 max-w-2xl leading-relaxed">

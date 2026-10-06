@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PRODUCTS, CATEGORIES, SHOP, SITE } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, SHOP, SITE, isElectricBuggy } from '@/src/config/site';
 import { productUrl } from '@/lib/schema';
 
 export async function GET() {
@@ -14,7 +14,7 @@ export async function GET() {
         // Empty product list by design, not a stock-out: nothing in the
         // range is listed or purchasable yet.
         ...(c.comingSoon ? { comingSoon: true } : {}),
-        products: PRODUCTS.filter((p) => (c.rawCategory ? p.category === c.rawCategory : true)).map((p) => ({
+        products: PRODUCTS.filter((p) => (c.electric ? isElectricBuggy(p) : c.rawCategory ? p.category === c.rawCategory : true)).map((p) => ({
           id: p.id,
           slug: p.slug,
           name: p.name,

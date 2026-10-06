@@ -21,6 +21,7 @@ import {
   CATEGORIES,
   BRAND_PAGES,
   ProductItem,
+  isElectricBuggy,
 } from '@/src/config/site';
 import type { BlogPost } from '@/src/config/posts';
 import { getProductDetails } from '@/src/config/product-details';
@@ -254,9 +255,11 @@ export function productSchema(product: ProductItem) {
  * Category listing. ItemList carries the products so an engine can read the
  * range without following 61 links; coming-soon categories have no list.
  */
-export function collectionPageSchema(cat: { slug: string; name: string; rawCategory?: string; comingSoon?: boolean; metaDescription?: string }) {
+export function collectionPageSchema(cat: { slug: string; name: string; rawCategory?: string; electric?: boolean; comingSoon?: boolean; metaDescription?: string }) {
   const url = `${ORIGIN}/shop/${cat.slug}/`;
-  const items = cat.comingSoon ? [] : PRODUCTS.filter((p) => (cat.rawCategory ? p.category === cat.rawCategory : true));
+  const items = cat.comingSoon
+    ? []
+    : PRODUCTS.filter((p) => (cat.electric ? isElectricBuggy(p) : cat.rawCategory ? p.category === cat.rawCategory : true));
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',

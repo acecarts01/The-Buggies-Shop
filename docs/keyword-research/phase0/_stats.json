@@ -1,0 +1,52 @@
+{
+ "rawCsv": 1147454,
+ "rawXlsx": 402,
+ "rawTotal": 1147856,
+ "conflicts": 0,
+ "filledKd": 688,
+ "filledIntent": 685,
+ "unique": 118875,
+ "removedTotal": 97427,
+ "removalCounts": {
+  "intent rule: Informational only (no allowed page type)": 3841,
+  "off-topic: non-Australian market / non-English": 5382,
+  "off-topic: no golf buggy/cart/trolley anchor": 61091,
+  "off-topic: golf equipment (bags, clubs, balls, apparel...)": 1675,
+  "unclassified: no intent modifier (held for review)": 9564,
+  "competitor brand or retailer (not stocked)": 1636,
+  "held: junior range (owner-initiated coming-soon page only)": 263,
+  "parts / repair / manuals": 3335,
+  "off-topic: other vehicle, product or meaning": 6501,
+  "used / second-hand / marketplace": 2903,
+  "off-topic: hire / rental / tours (we sell, not hire)": 1236
+ },
+ "keptKeywords": 21448,
+ "clusters": 14933,
+ "keptIntentSource": {
+  "semrush": 531,
+  "inferred": 20909,
+  "inferred (head term)": 8
+ },
+ "clusterIntent": {
+  "Commercial": 7872,
+  "Transactional": 4149,
+  "Informational, Transactional": 28,
+  "Informational, Commercial": 26,
+  "Navigational, Transactional": 2,
+  "Informational, Navigational": 1,
+  "Navigational": 2852,
+  "Navigational, Commercial": 3
+ },
+ "clustersVol0": 10457,
+ "clustersVolPos": 4476,
+ "product": 12080,
+ "info": 10756,
+ "byType": {
+  "buggy": 1477,
+  "cart": 11164,
+  "trolley": 2292
+ },
+ "stockedBrand": 5724,
+ "notStockedModel": 514,
+ "removedWithVolume": 35908
+}

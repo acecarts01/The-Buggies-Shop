@@ -53,7 +53,7 @@ export const SITE = {
 // cover actually changes; blog posts use their own `date`.
 export const CONTENT_UPDATED = {
   /** PRODUCTS, CATEGORIES or BRAND_PAGES changed (prices, specs, copy, new models). */
-  catalog: '2026-09-11',
+  catalog: '2026-10-07',
   /** Static pages: home, about, faq, delivery, contact, crypto-payment, wholesale. */
   pages: '2026-09-11',
 };
@@ -365,6 +365,19 @@ export const VEHICLE_COLORS = [
 export const CATEGORIES = [
   { slug: 'all', name: 'All Vehicles & Parts', count: 62 },
   {
+    // A cross-category landing page, not a rawCategory: it lists every
+    // electric buggy (isElectricBuggy below) so the "electric golf buggy"
+    // cluster has one canonical money page. Its copy lives in the
+    // server-only src/config/category-content.ts.
+    slug: 'electric-golf-buggies',
+    name: 'Electric Golf Buggies',
+    electric: true,
+    count: 0,
+    metaTitle: 'Electric Golf Buggies for Sale Australia | Buggies Express',
+    metaDescription:
+      'Electric golf buggies for sale in Australia: lithium 4-seaters, 2-seaters, 4x4, utility and remote control walk-behind models, GST included.',
+  },
+  {
     slug: 'luxury-4-seater',
     name: 'Luxury 4-Seater',
     rawCategory: 'Luxury & High-Demand 4-Seaters',
@@ -581,19 +594,19 @@ export const CATEGORIES = [
       },
       {
         heading: 'Register Your Interest',
-        body: 'Leave your name, email and postcode and we will let you know as soon as the range is live. Like everything we sell, junior golf buggies will ship Australia-wide in enclosed freight, with the cost quoted against your delivery postcode rather than added later.',
+        body: 'Leave your name, email and postcode and we will let you know as soon as the range is live. Like everything we sell, the range will ship Australia-wide in enclosed freight, with the cost quoted against your delivery postcode rather than added later.',
       },
     ],
     guides: [
-      { slug: 'junior-golf-buggy-australia-guide', label: 'Junior golf buggy guide: sizing, safety and what to look for' },
+      { slug: 'junior-golf-buggy-australia-guide', label: 'Junior sizing, safety and what to look for' },
       { slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight', label: 'Foldable buggies: boot space and weight' },
       { slug: 'motorised-vs-push-golf-buggy-health-stamina-benefits', label: 'Motorised vs push: what it changes for a round' },
       { slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review', label: 'Three-wheel vs four-wheel push buggies' },
     ],
     faqs: [
       {
-        q: 'When will the junior golf buggies be available?',
-        a: 'We have not set a date, and we will not guess at one. The range is being finalised now. Register your interest on this page and we will email you as soon as the junior golf buggies, their photos and their pricing are live.',
+        q: 'When will the junior range be available?',
+        a: 'We have not set a date, and we will not guess at one. The range is being finalised now. Register your interest on this page and we will email you as soon as the buggies, their photos and their pricing are live.',
       },
       {
         q: 'What is a junior golf buggy?',
@@ -608,12 +621,12 @@ export const CATEGORIES = [
         a: 'Our walk-behind range is built for adult golfers, so we will not describe any of it as a junior model. Whether one suits a taller teenager depends on handle height and bag weight. Call or message us with their height and the bag they use and we will give you a straight answer.',
       },
       {
-        q: 'Will junior golf buggies be delivered Australia-wide?',
-        a: 'Yes. Junior golf buggies will ship the same way as everything else we sell: enclosed freight to every state and territory from Yatala QLD, with the freight cost quoted against your delivery postcode rather than added as a surprise later.',
+        q: 'Will the junior range be delivered Australia-wide?',
+        a: 'Yes. The junior range will ship the same way as everything else we sell: enclosed freight to every state and territory from Yatala QLD, with the freight cost quoted against your delivery postcode rather than added as a surprise later.',
       },
       {
         q: 'How do I register my interest in the junior range?',
-        a: 'Use the form on this page with your name, email and postcode. You can also email or WhatsApp us using the contact details in the footer. We will contact you once the junior golf buggies are available to order.',
+        a: 'Use the form on this page with your name, email and postcode. You can also email or WhatsApp us using the contact details in the footer. We will contact you once the range is available to order.',
       },
     ],
   },
@@ -1676,6 +1689,11 @@ export const PRODUCTS: ProductItem[] = [
     inStock: true,
   },
 ];
+
+/** A vehicle (not a part) with an electric powertrain: the electric hub's range. */
+export function isElectricBuggy(p: ProductItem): boolean {
+  return p.fuel_type.startsWith('Electric') && isBuggyItem(p.category, p.id, p.name);
+}
 
 export const FAQ = [
   {

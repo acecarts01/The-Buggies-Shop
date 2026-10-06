@@ -8,6 +8,7 @@ import {
   CATEGORIES,
   BRAND_PAGES,
   FAQ,
+  isElectricBuggy,
 } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { DELIVERY_METROS } from '@/src/config/delivery';
@@ -24,8 +25,8 @@ export const dynamic = 'force-static';
 const base = `https://${SITE.domain}`;
 const aud = (n: number) => `$${n.toLocaleString('en-AU')}`;
 
-function priceBand(rawCategory?: string): string {
-  const items = PRODUCTS.filter((p) => (rawCategory ? p.category === rawCategory : true));
+function priceBand(rawCategory?: string, electric?: boolean): string {
+  const items = PRODUCTS.filter((p) => (electric ? isElectricBuggy(p) : rawCategory ? p.category === rawCategory : true));
   if (!items.length) return '';
   const prices = items.map((p) => p.price_aud);
   return `${aud(Math.min(...prices))} – ${aud(Math.max(...prices))} AUD inc. GST, ${items.length} ${items.length === 1 ? 'model' : 'models'}`;
@@ -37,7 +38,7 @@ function categoryLine(cat: (typeof CATEGORIES)[number]): string {
     return `- [${cat.name}](${url}): COMING SOON. No models, prices or launch date are published; the page takes register-interest details only.`;
   }
   const desc = (cat.metaDescription ?? '').replace(/\s+/g, ' ').trim();
-  return `- [${cat.name}](${url}): ${priceBand(cat.rawCategory)}. ${desc}`;
+  return `- [${cat.name}](${url}): ${priceBand(cat.rawCategory, cat.electric)}. ${desc}`;
 }
 
 export function GET() {
