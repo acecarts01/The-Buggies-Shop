@@ -7,7 +7,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import FaqSection from '@/src/components/FaqSection';
-import { CONTACT, ABN_INFO, SHOP, CATEGORIES, PRODUCTS } from '@/src/config/site';
+import { CONTACT, ABN_INFO, SHOP, CATEGORIES, PRODUCTS, isBuggyItem, isElectricBuggy } from '@/src/config/site';
 import { DELIVERY_METROS, getDeliveryMetro } from '@/src/config/delivery';
 import { pageMetadata } from '@/lib/seo';
 import { jsonLd, organizationSchema, breadcrumbSchema, ORG_ID, ORIGIN } from '@/lib/schema';
@@ -44,6 +44,20 @@ export default async function DeliveryCityPage({ params }: PageProps) {
     .map((slug) => CATEGORIES.find((c) => c.slug === slug))
     .filter((c): c is (typeof CATEGORIES)[number] => Boolean(c))
     .map((c) => ({ ...c, count: PRODUCTS.filter((p) => p.category === c.rawCategory).length }));
+
+  // The whole vehicle range, computed so the copy cannot drift from the catalogue.
+  const vehicles = PRODUCTS.filter((p) => isBuggyItem(p.category, p.id, p.name));
+  const prices = vehicles.map((p) => p.price_aud);
+  const aud = (n: number) => `$${n.toLocaleString('en-AU')}`;
+  const electricCount = PRODUCTS.filter(isElectricBuggy).length;
+  const petrolCount = vehicles.filter((p) => p.fuel_type.startsWith('Mechanical')).length;
+  const faqs = [
+    ...metro.faqs,
+    {
+      q: `Where can I buy a golf buggy in ${metro.city}?`,
+      a: `Online from us. Choose a model, add it to your cart and order; every golf buggy ships from our single Yatala QLD depot to ${metro.city} (${metro.freightMode === 'same-corridor' ? 'a same-corridor delivery' : 'by enclosed interstate freight'}), with freight quoted against your postcode and shown separately from the GST-inclusive price. There is no showroom in ${metro.city}.`,
+    },
+  ];
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -131,6 +145,24 @@ export default async function DeliveryCityPage({ params }: PageProps) {
             ))}
           </div>
 
+          {/* The range, as a delivery offer */}
+          <section className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-3 shadow-sm metal-brushed-dark">
+            <h2 className="text-lg sm:text-xl font-serif font-bold text-[#ffffff]">Golf buggy for sale in {metro.city}: what we deliver</h2>
+            <p className="text-sm text-[#A8A29E] leading-relaxed">
+              Every golf buggy we list can be delivered to {metro.city}: {vehicles.length} vehicles from {aud(Math.min(...prices))} to {aud(Math.max(...prices))} AUD including GST,
+              {' '}{electricCount} of them lithium electric and {petrolCount} petrol. See the{' '}
+              <Link href="/shop/" className="text-[#E2A17A] font-semibold hover:underline">full golf buggy range</Link>
+              {' '}or go straight to our{' '}
+              <Link href="/shop/electric-golf-buggies/" className="text-[#E2A17A] font-semibold hover:underline">electric golf buggies</Link>.
+              {metro.guide && (
+                <>
+                  {' '}Still deciding? Read our{' '}
+                  <Link href={`/blog/${metro.guide.slug}/`} className="text-[#E2A17A] font-semibold hover:underline">{metro.guide.label.toLowerCase()}</Link>.
+                </>
+              )}
+            </p>
+          </section>
+
           {/* Ranges for this metro */}
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#ffffff] tracking-tight">
@@ -185,7 +217,7 @@ export default async function DeliveryCityPage({ params }: PageProps) {
           </section>
 
           {/* FAQs (FaqSection emits the FAQPage JSON-LD) */}
-          <FaqSection items={metro.faqs} heading={`${metro.city} delivery: your questions`} tone="dark" />
+          <FaqSection items={faqs} heading={`${metro.city} delivery: your questions`} tone="dark" />
 
           {/* Other metros */}
           <nav aria-label="Other delivery areas" className="border-t border-[#2B2F34] pt-8">

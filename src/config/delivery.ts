@@ -29,6 +29,8 @@ export interface DeliveryMetro {
   faqs: { q: string; a: string }[];
   /** Category slugs most relevant to this metro's typical buyers. */
   categories: string[];
+  /** The city buyers guide on the blog (informational; this page is the money page). */
+  guide?: { slug: string; label: string };
 }
 
 export const DELIVERY_METROS: DeliveryMetro[] = [
@@ -39,21 +41,21 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     stateCode: 'QLD',
     roadKm: 35,
     freightMode: 'same-corridor',
-    metaTitle: 'Golf Carts Gold Coast | Delivered from Yatala QLD',
+    metaTitle: 'Golf Buggy for Sale Gold Coast | Yatala Depot Delivery',
     metaDescription:
-      'Golf carts and buggies for the Gold Coast, delivered from our Yatala depot 35 km up the M1. Lithium 4-seaters and lifted acreage buggies, tested first.',
-    h1: 'Golf Carts Gold Coast: Delivered from Our Yatala Depot',
-    primaryKeyword: 'golf carts gold coast',
+      'Golf buggy for sale Gold Coast: delivered from our Yatala depot 35 km up the M1. Golf carts, lithium 4-seaters and 4x4s, tested first, GST included.',
+    h1: 'Golf Buggy for Sale Gold Coast: Delivered from Our Yatala Depot',
+    primaryKeyword: 'golf buggy for sale gold coast',
     supportingKeywords: [
-      'golf carts for sale gold coast',
       'golf buggy gold coast',
       'golf buggies gold coast',
-      'golf buggy for sale gold coast',
-      'gold coast golf carts',
+      'golf carts gold coast',
+      'golf carts for sale gold coast',
+      'electric golf buggy for sale gold coast',
       'yamaha golf carts gold coast',
     ],
     intro:
-      'The Gold Coast is our home corridor. Our depot at Yatala sits on the M1 roughly 35 km north of Southport, so a golf cart bought for a Gold Coast address is stored, tested and dispatched by the same people you speak to on the phone. No interstate transporter, no reseller in between.',
+      'The Gold Coast is our home corridor. Our depot at Yatala sits on the M1 roughly 35 km north of Southport, so a golf buggy bought for a Gold Coast address is stored, tested and dispatched by the same people you speak to on the phone. No interstate transporter, no reseller in between.',
     sections: [
       {
         heading: 'What Gold Coast buyers tend to order',
@@ -70,7 +72,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     ],
     faqs: [
       {
-        q: 'Do you deliver golf carts to the Gold Coast?',
+        q: 'Do you deliver golf buggies to the Gold Coast?',
         a: 'Yes. Our depot at Yatala QLD 4207 is about 35 km north of Southport on the M1, so the Gold Coast is a same-corridor delivery rather than an interstate freight leg. The buggy is tested at Yatala and carried to your address on an enclosed transporter or tilt-tray.',
       },
       {
@@ -78,7 +80,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
         a: 'Freight is quoted against your delivery postcode at checkout and shown separately from the vehicle price. There is no minimum order and no free-freight threshold; the quote covers the actual leg from Yatala to your street.',
       },
       {
-        q: 'Can I see a golf cart before I buy?',
+        q: 'Can I see a golf buggy before I buy?',
         a: 'Yes. Every model on this site is held at the Yatala depot, and Gold Coast buyers are close enough to visit. Vehicles priced at $15,000 AUD or more also qualify for a complimentary on-site trial demonstration at your property.',
       },
       {
@@ -103,21 +105,22 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     stateCode: 'QLD',
     roadKm: 40,
     freightMode: 'same-corridor',
-    metaTitle: 'Golf Carts for Sale QLD | Brisbane Delivery from Yatala',
+    metaTitle: 'Golf Buggy for Sale Brisbane | Delivered from Yatala QLD',
     metaDescription:
-      'Golf carts and buggies for sale in QLD, delivered to Brisbane and South East Queensland from our Yatala depot 40 km south of the CBD. GST-inclusive prices.',
-    h1: 'Golf Carts for Sale in QLD: Brisbane Delivery from Yatala',
-    primaryKeyword: 'golf carts for sale qld',
+      'Golf buggy for sale in Brisbane and QLD, delivered from our Yatala depot 40 km south of the CBD. Golf carts and buggies, lithium and petrol, GST included.',
+    h1: 'Golf Buggy for Sale in Brisbane: Delivered from Yatala QLD',
+    primaryKeyword: 'golf buggy for sale brisbane',
     supportingKeywords: [
       'golf buggy for sale qld',
-      'golf buggies for sale qld',
-      'qld golf carts',
       'golf buggies for sale brisbane',
-      'north brisbane golf carts',
+      'golf carts for sale brisbane',
+      'golf carts for sale qld',
+      'electric golf buggies brisbane',
+      'golf buggy batteries brisbane',
       'golf cart batteries brisbane',
     ],
     intro:
-      'Brisbane is roughly 40 km up the M1 from our Yatala depot, which makes it a same-corridor delivery: the golf cart you order is the one we charged and road-tested that week, carried straight to your address without an interstate leg. Every model is held in Queensland and priced with GST included.',
+      'Brisbane is roughly 40 km up the M1 from our Yatala depot, which makes it a same-corridor delivery: the golf buggy you order is the one we charged and road-tested that week, carried straight to your address without an interstate leg. Every golf buggy for sale in QLD is held at the one depot and priced with GST included.',
     sections: [
       {
         heading: 'Brisbane and South East Queensland buyers',
@@ -134,7 +137,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     ],
     faqs: [
       {
-        q: 'Where in QLD are your golf carts for sale?',
+        q: 'Where in QLD are your golf buggies for sale?',
         a: 'All stock is held at our depot in Yatala QLD 4207, about 40 km south of the Brisbane CBD on the M1. The catalogue on this site is that stock, priced with GST included, and we deliver anywhere in Queensland.',
       },
       {
@@ -150,7 +153,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
         a: 'Yes. Lithium conversion kits, drop-in lithium modules, deep-cycle lead-acid cells and smart chargers are stocked at Yatala and dispatched to Brisbane addresses. Fitting and lithium upgrades are done at the depot.',
       },
       {
-        q: 'Can I inspect a golf cart before buying?',
+        q: 'Can I inspect a golf buggy before buying?',
         a: 'Yes. Every model is at the Yatala depot and Brisbane buyers are close enough to visit. Vehicles priced at $15,000 AUD or more also qualify for a complimentary on-site trial demonstration.',
       },
       {
@@ -159,6 +162,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
     ],
     categories: ['off-road-4x4', 'commercial-utility', 'luxury-4-seater', 'batteries-chargers'],
+    guide: { slug: 'golf-carts-for-sale-brisbane-buyers-guide', label: 'Golf carts for sale in Brisbane: what to check before you buy' },
   },
   {
     slug: 'sydney',
@@ -169,16 +173,17 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     freightMode: 'interstate-enclosed',
     metaTitle: 'Golf Buggy for Sale Sydney | Enclosed Delivery to NSW',
     metaDescription:
-      'Golf buggies for sale, delivered to Sydney and NSW in enclosed interstate freight from our Yatala QLD depot. Lithium 4-seaters, acreage 4x4s, GST included.',
-    h1: 'Golf Buggy for Sale, Delivered to Sydney and NSW',
+      'Golf buggy for sale Sydney and NSW, delivered in enclosed interstate freight from our Yatala QLD depot. Lithium 4-seaters, acreage 4x4s, GST included.',
+    h1: 'Golf Buggy for Sale Sydney: Enclosed Delivery Across NSW',
     primaryKeyword: 'golf buggy for sale sydney',
     supportingKeywords: [
+      'golf buggy for sale nsw',
       'golf buggies for sale sydney',
-      'golf buggies sydney',
+      'golf carts for sale sydney',
       'electric golf buggies sydney',
-      'yamaha golf carts sydney',
+      'motorised golf buggies sydney',
       'petrol golf carts for sale sydney',
-      'yamaha golf carts nsw',
+      'yamaha golf carts sydney',
     ],
     intro:
       'We deliver golf buggies to Sydney and across New South Wales from our Yatala depot in Queensland, roughly 900 km up the Pacific Motorway. The buggy travels in an enclosed transporter rather than exposed on a flatbed, and freight is quoted against your postcode before you commit.',
@@ -223,6 +228,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
     ],
     categories: ['luxury-4-seater', 'off-road-4x4', 'walk-behind-buggies', 'mechanical-petrol'],
+    guide: { slug: 'golf-carts-for-sale-sydney-nsw-buyers-guide', label: 'Golf carts for sale in Sydney and NSW: buyers guide' },
   },
   {
     slug: 'melbourne',
@@ -231,21 +237,21 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     stateCode: 'VIC',
     roadKm: 1750,
     freightMode: 'interstate-enclosed',
-    metaTitle: 'Golf Cart for Sale Melbourne | Enclosed Delivery to VIC',
+    metaTitle: 'Golf Buggy for Sale Melbourne | Enclosed Delivery to VIC',
     metaDescription:
-      'Golf carts for sale, delivered to Melbourne and Victoria in enclosed freight from our Yatala QLD depot. Lithium, petrol and utility models, GST included.',
-    h1: 'Golf Cart for Sale, Delivered to Melbourne and Victoria',
-    primaryKeyword: 'golf cart for sale melbourne',
+      'Golf buggy for sale in Melbourne and Victoria, delivered in enclosed freight from our Yatala QLD depot. Lithium, petrol and utility golf carts, GST included.',
+    h1: 'Golf Buggy for Sale Melbourne: Enclosed Delivery Across Victoria',
+    primaryKeyword: 'golf buggy for sale melbourne',
     supportingKeywords: [
-      'golf carts melbourne australia',
-      'golf buggy for sale melbourne',
-      'golf buggies for sale melbourne',
-      'melbourne golf cars',
-      'yamaha golf carts melbourne',
+      'golf buggies for sale victoria',
+      'golf carts for sale melbourne',
+      'golf carts for sale victoria',
       'electric golf buggies melbourne',
+      'golf buggy batteries melbourne',
+      'yamaha golf carts melbourne',
     ],
     intro:
-      'Melbourne is about 1,750 km from our Yatala depot, and we deliver there the same way we deliver everywhere: the golf cart is tested in Queensland, loaded into an enclosed transporter, and freighted to your Victorian address with the leg quoted against your postcode before you order.',
+      'Melbourne is about 1,750 km from our Yatala depot, and we deliver there the same way we deliver everywhere: the golf buggy is tested in Queensland, loaded into an enclosed transporter, and freighted to your Victorian address with the leg quoted against your postcode before you order.',
     sections: [
       {
         heading: 'What Melbourne and Victorian buyers order',
@@ -262,11 +268,11 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     ],
     faqs: [
       {
-        q: 'Do you deliver golf carts to Melbourne?',
+        q: 'Do you deliver golf buggies to Melbourne?',
         a: 'Yes. We freight to Melbourne and all of Victoria from our Yatala QLD depot in enclosed, weather-sealed transporters, with the freight leg quoted against your delivery postcode at checkout.',
       },
       {
-        q: 'How much is golf cart delivery from Queensland to Melbourne?',
+        q: 'How much is golf buggy delivery from Queensland to Melbourne?',
         a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price. There is no free-freight threshold and no minimum order.',
       },
       {
@@ -282,11 +288,12 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
         a: 'Yes, with sensible storage. Lithium packs cope with the cold far better than lead-acid but should be charged indoors where possible and stored above freezing. We can pair the vehicle with an all-weather enclosure and the right charger.',
       },
       {
-        q: 'Is the golf cart ready to drive when it arrives in Melbourne?',
+        q: 'Is the golf buggy ready to drive when it arrives in Melbourne?',
         a: 'Yes. It is charged, road-tested and cleaned at Yatala before loading and arrives ready to drive, not crated for assembly.',
       },
     ],
     categories: ['commercial-utility', 'off-road-4x4', 'luxury-4-seater', 'walk-behind-buggies'],
+    guide: { slug: 'golf-carts-for-sale-melbourne-buyers-guide', label: 'Golf carts for sale in Melbourne: buyers guide' },
   },
   {
     slug: 'adelaide',
@@ -295,17 +302,19 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     stateCode: 'SA',
     roadKm: 2000,
     freightMode: 'interstate-enclosed',
-    metaTitle: 'Golf Buggies Adelaide | Enclosed Delivery to South Australia',
+    metaTitle: 'Golf Buggy for Sale Adelaide | Enclosed Delivery to SA',
     metaDescription:
-      'Golf buggies delivered to Adelaide and South Australia in enclosed freight from our Yatala QLD depot. Electric, petrol and utility models, GST included.',
-    h1: 'Golf Buggies for Adelaide and South Australia, Delivered from Yatala',
-    primaryKeyword: 'golf buggies adelaide',
+      'Golf buggy for sale in Adelaide and South Australia, delivered in enclosed freight from our Yatala QLD depot. Electric, petrol and utility, GST included.',
+    h1: 'Golf Buggy for Sale Adelaide: Enclosed Delivery Across South Australia',
+    primaryKeyword: 'golf buggy for sale adelaide',
     supportingKeywords: [
+      'golf buggies adelaide',
+      'golf carts for sale adelaide',
+      'golf carts for sale south australia',
+      'buggy for sale south australia',
       'golf cars adelaide',
       'electric golf buggies adelaide',
-      'electric golf carts adelaide',
-      'yamaha golf carts adelaide',
-      'petrol golf cart for sale south australia',
+      'electric golf buggy for sale adelaide',
     ],
     intro:
       'Adelaide is roughly 2,000 km from our Yatala depot. We freight there in enclosed transporters, with the vehicle tested in Queensland before it leaves and the freight leg quoted against your South Australian postcode before you order. Every price on this site includes GST.',
@@ -350,6 +359,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
     ],
     categories: ['commercial-utility', 'luxury-4-seater', 'mechanical-petrol', 'walk-behind-buggies'],
+    guide: { slug: 'golf-carts-for-sale-adelaide-sa-buyers-guide', label: 'Golf carts for sale in Adelaide: SA buyers guide' },
   },
   {
     slug: 'perth',
@@ -360,16 +370,17 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     freightMode: 'interstate-enclosed',
     metaTitle: 'Golf Buggy for Sale Perth | Enclosed Delivery to WA',
     metaDescription:
-      'Golf buggies for sale, delivered to Perth and WA in enclosed freight from our Yatala QLD depot. Lithium, petrol and utility models with GST-inclusive prices.',
-    h1: 'Golf Buggy for Sale, Delivered to Perth and Western Australia',
+      'Golf buggy for sale Perth and WA, delivered in enclosed freight from our Yatala QLD depot. Lithium, petrol and utility models with GST-inclusive prices.',
+    h1: 'Golf Buggy for Sale Perth: Enclosed Delivery Across Western Australia',
     primaryKeyword: 'golf buggy for sale perth',
     supportingKeywords: [
       'golf buggies perth',
+      'golf carts for sale perth',
+      'golf carts for sale wa',
       'electric golf buggy for sale perth',
-      'golf cart perth',
       'electric golf buggies perth',
-      'electric golf carts perth',
-      'yamaha golf carts perth',
+      'motorised golf buggies perth',
+      'golf carts perth',
     ],
     intro:
       'Perth is the longest run we do, roughly 4,300 km from our Yatala depot. It is a real freight leg and we quote it honestly against your Western Australian postcode before you order, so you can weigh the delivered price against what is available locally. The buggy is tested in Queensland and travels enclosed the whole way.',
@@ -414,6 +425,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
     ],
     categories: ['off-road-4x4', 'luxury-4-seater', 'mechanical-petrol', 'walk-behind-buggies'],
+    guide: { slug: 'golf-carts-for-sale-perth-wa-buyers-guide', label: 'Golf carts for sale in Perth: WA buyers guide' },
   },
 ];
 
