@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PRODUCTS, CATEGORIES, BRAND_PAGES, FAQ } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, BRAND_PAGES, FAQ, isBuggyItem } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { DELIVERY_METROS } from '@/src/config/delivery';
 import { getProductDetails } from '@/src/config/product-details';
@@ -36,7 +36,8 @@ function build(): SearchEntry[] {
     const d = getProductDetails(p.slug);
     const cat = CATEGORIES.find((c) => c.rawCategory === p.category)?.slug ?? 'fleet';
     out.push({
-      t: 'product',
+      // Vehicles and walk-behind buggies rank above batteries, chargers and accessories.
+      t: isBuggyItem(p.category, p.id, p.name) ? 'product' : 'part',
       ti: p.name,
       u: `/shop/${cat}/${p.slug}/`,
       d: `${p.price_display} · ${clip(p.key_specs, 110)}`,
