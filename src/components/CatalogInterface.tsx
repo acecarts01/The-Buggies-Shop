@@ -113,6 +113,7 @@ const ProductCard = React.memo(function ProductCard({
     >
       {/* Product image. Both this and the title link through to the product
           page, so the card needs no separate 'Full Details' button. */}
+      <div className="relative">
       <Link href={productUrl} aria-label={product.name} className="block relative aspect-[4/3] bg-white overflow-hidden">
         <SmartImage
           src={product.images?.[0] || ''}
@@ -121,13 +122,14 @@ const ProductCard = React.memo(function ProductCard({
           className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
+      </Link>
         {isHighTicket && (
-          <span className="absolute top-2 left-2 inline-flex items-center gap-1 bg-[#F7EFEA] border border-[#E8D2C6] text-[#A85640] px-2 py-0.5 rounded text-[10px] font-bold">
+          <span className="absolute top-2 left-2 pointer-events-none inline-flex items-center gap-1 bg-[#F7EFEA] border border-[#E8D2C6] text-[#A85640] px-2 py-0.5 rounded text-[10px] font-bold">
             <Sparkles className="w-3 h-3 text-[#A85640]" />
             Tour Fleet Flagship
           </span>
         )}
-      </Link>
+      </div>
 
       {/* The box directly below the image carries the specs and the order
           details, and nothing else. The full description, battery detail,

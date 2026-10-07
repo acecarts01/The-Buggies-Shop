@@ -252,7 +252,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                         href={`/blog/${featuredPost.slug}/`}
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C86D51] to-[#E2A17A] text-[#121417] font-bold text-xs shadow hover:from-[#E2A17A] hover:to-[#EFC7A6] transition-all"
                       >
-                        <span>Read Full Guide</span>
+                        <span>Read Full Guide<span className="sr-only">: {featuredPost.title}</span></span>
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                       <Link
@@ -410,7 +410,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E2A17A] group-hover:text-[#EFC7A6] transition-colors"
                         aria-label={`Read guide: ${post.title}`}
                       >
-                        <span>Read</span>
+                        <span>Read<span className="sr-only"> {post.title}</span></span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                     </div>

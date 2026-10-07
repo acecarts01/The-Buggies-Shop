@@ -143,3 +143,31 @@ export function pageMetadata(opts: {
     ...(opts.robots ? { robots: opts.robots } : {}),
   };
 }
+
+// ---------------------------------------------------------------------------
+// Guide copy: keep a page's declared primary keyword in its meta description
+// and its opening line without rewriting 71 hand-written excerpts.
+
+const LEAD_STOP = new Set(['for', 'a', 'the', 'of', 'to', 'and', 'with', 'in', 'on', 'at']);
+const leadTokens = (t: string) =>
+  t
+    .toLowerCase()
+    .replace(/e[- ]?z[- ]?go/g, 'ezgo')
+    .replace(/buggies/g, 'buggy')
+    .replace(/carts/g, 'cart')
+    .replace(/trolleys/g, 'trolley')
+    .replace(/[^a-z0-9+ ]+/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w && !LEAD_STOP.has(w))
+    .join(' ');
+
+/** True when the text already contains the keyword as a phrase (plural-insensitive). */
+export function mentionsKeyword(text: string, keyword: string): boolean {
+  return (' ' + leadTokens(text) + ' ').includes(' ' + leadTokens(keyword) + ' ');
+}
+
+/** The excerpt, prefixed with the keyword ("Keyword: excerpt") only when it is missing. */
+export function keywordLead(excerpt: string, keyword?: string): string {
+  if (!keyword || mentionsKeyword(excerpt, keyword)) return excerpt;
+  return `${keyword.charAt(0).toUpperCase()}${keyword.slice(1)}: ${excerpt}`;
+}

@@ -38,7 +38,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "atlas-4-passenger-lifted-lithium-buggy": {
     fullDescription: "Engineered for Australian acreage estates and elite gated communities such as Sanctuary Cove and Hope Island, the Atlas 4-Passenger pairs whisper-quiet 48V lithium power with genuine rough-terrain capability. The three-inch factory lift and 14-inch alloy wheels raise the floor clear of rutted driveways, garden edging and unsealed estate tracks that bottom out a standard-height golf buggy, while custom leather seating and a touchscreen display keep the cabin closer to a car than a course buggy. Four adults travel in comfort without fumes, engine noise or the weekly water-topping that lead-acid buggies demand. Every Atlas is inspected, charge-cycled and road tested at our Yatala QLD depot before enclosed freight, and at this price it qualifies for a complimentary on-farm trial demonstration before you commit.",
     primaryKeyword: "atlas golf carts for sale",
-    supportingKeywords: ["atlas golf carts reviews", "atlas golf carts near me"],
+    supportingKeywords: ["atlas golf carts reviews"],
     tags: [
       "atlas 4-passenger lifted lithium buggy",
       "atlas golf buggy",

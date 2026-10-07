@@ -267,13 +267,13 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
                   href={`/shop/${CATEGORIES.find((c) => c.rawCategory === relatedProduct.category)?.slug ?? 'fleet'}/${relatedProduct.slug}/`}
                   className="w-full text-center px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#C86D51] to-[#E2A17A] text-[#121417] font-bold text-xs shadow hover:from-[#E2A17A] hover:to-[#EFC7A6] transition-all"
                 >
-                  View Full Specs
+                  View {relatedProduct.name} specs
                 </Link>
                 <Link
                   href="/shop/"
                   className="w-full text-center px-5 py-2 rounded-lg bg-[#121417] border border-[#2B2F34] text-xs font-medium text-[#ffffff] hover:border-[#E2A17A] transition-colors"
                 >
-                  Compare Fleet
+                  Compare the full golf buggy range
                 </Link>
               </div>
             </div>
@@ -343,7 +343,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
                       href={`/blog/${rPost.slug}/`}
                       className="text-[#E2A17A] font-bold hover:underline inline-flex items-center gap-1"
                     >
-                      <span>Read</span>
+                      <span>Read<span className="sr-only"> {rPost.title}</span></span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>

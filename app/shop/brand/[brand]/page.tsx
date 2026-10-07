@@ -6,7 +6,10 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
 import FaqSection from '@/src/components/FaqSection';
-import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES } from '@/src/config/site';
+import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES, isBuggyItem } from '@/src/config/site';
+import { POSTS } from '@/src/config/posts';
+import { resolveCategory } from '@/src/config/category-content';
+import { ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/schema';
 
@@ -21,12 +24,25 @@ interface PageProps {
 const rangeFor = (match: string) =>
   PRODUCTS.filter((p) => p.name.toLowerCase().includes(match.toLowerCase()));
 
+/** The vehicles in a brand's range; its batteries, remotes and parts are listed but are not "models". */
+const vehiclesFor = (match: string) => rangeFor(match).filter((p) => isBuggyItem(p.category, p.id, p.name));
+
+/** Capitalises a keyword, restoring the brand's own spelling at the start ("mgi ..." -> "MGI ..."). */
+function capKeyword(kw: string, brandName: string): string {
+  const flat = (x: string) => x.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const words = kw.split(' ');
+  for (let n = Math.min(3, words.length); n >= 1; n--) {
+    if (flat(words.slice(0, n).join(' ')) === flat(brandName)) return [brandName, ...words.slice(n)].join(' ');
+  }
+  return kw.charAt(0).toUpperCase() + kw.slice(1);
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { brand } = await params;
   const b = BRAND_PAGES.find((x) => x.slug === brand);
   if (!b) return { title: 'Brand Not Found' };
 
-  const items = rangeFor(b.match);
+  const items = vehiclesFor(b.match);
   const prices = items.map((p) => p.price_aud).sort((x, y) => x - y);
   const priceText = prices.length
     ? prices[0] === prices[prices.length - 1]
@@ -34,11 +50,12 @@ export async function generateMetadata({ params }: PageProps) {
       : `$${prices[0].toLocaleString()}–$${prices[prices.length - 1].toLocaleString()} AUD`
     : '';
 
-  const title = buildTitle(`${b.name} Golf Buggies Australia`);
+  const title = buildTitle(`${b.name} Golf Buggies for Sale Australia`);
+  const lead = b.primaryKeyword ? `${capKeyword(b.primaryKeyword, b.name)}: ${b.name} golf buggies in Australia.` : `${b.name} golf buggies for sale in Australia.`;
   const description = buildDescription(
-    `${b.name} golf buggies for sale in Australia. ${items.length} ${items.length === 1 ? 'model' : 'models'} in stock${priceText ? ', ' + priceText : ''}.`,
+    `${lead} ${items.length} ${items.length === 1 ? 'model' : 'models'} in stock${priceText ? ', ' + priceText : ''}.`,
     '',
-    ['Tested at our Yatala QLD depot.', 'Enclosed freight Australia-wide.', 'Australian parts and warranty.']
+    ['Tested at our Yatala QLD depot.', 'Enclosed freight Australia-wide.', 'GST included.']
   );
   const canonical = `https://${SITE.domain}/shop/brand/${b.slug}/`;
 
@@ -49,6 +66,7 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title,
     description,
+    ...(b.primaryKeyword ? { keywords: [b.primaryKeyword, ...b.supportingKeywords] } : {}),
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name, images: socialImages(photo) },
     twitter: { card: 'summary_large_image', title, description, images: socialImages(photo) },
@@ -60,40 +78,58 @@ export default async function BrandPage({ params }: PageProps) {
   const b = BRAND_PAGES.find((x) => x.slug === brand);
   if (!b) notFound();
 
-  const items = rangeFor(b.match);
+  const everything = rangeFor(b.match);
+  const items = vehiclesFor(b.match);
   const prices = items.map((p) => p.price_aud).sort((x, y) => x - y);
 
   const catSlug = (cat: string) =>
     CATEGORIES.find((c) => c.rawCategory === cat)?.slug || 'luxury-4-seater';
 
+  const money = (n: number) => `$${n.toLocaleString('en-AU')}`;
+  const sorted = [...items].sort((x, y) => x.price_aud - y.price_aud);
+  const cheapest = sorted[0];
+  const dearest = sorted[sorted.length - 1];
+  const byCat = new Map<string, string[]>();
+  for (const p of items) byCat.set(p.category, [...(byCat.get(p.category) ?? []), p.name]);
+  const electric = items.filter((p) => p.fuel_type.startsWith('Electric')).length;
+  const petrol = items.filter((p) => p.fuel_type.startsWith('Mechanical')).length;
+  const n = items.length;
   const faqs = [
     {
-      q: `Do you stock ${b.name} golf buggies in Australia?`,
-      a: `Yes. We hold ${items.length} ${b.name} ${items.length === 1 ? 'model' : 'models'} at our Yatala QLD 4207 depot rather than drop-shipping from overseas, which is why we can inspect and road test a unit before it ships. Availability moves, so confirm the specific model is on the floor before planning around a delivery date.`,
-    },
-    {
-      q: `Can you get ${b.name} parts in Australia?`,
-      a: `We hold ${b.name} parts in Australian stock. That is the practical difference between a repair measured in days and one measured in weeks waiting on an international order. Tell us the model and year of your buggy and we will confirm the right part from Yatala before you order.`,
+      q: `Which ${b.name} models do you stock?`,
+      a: `We stock ${n} ${b.name} ${n === 1 ? 'model' : 'models'}: ${items.map((p) => `${p.name} (${p.price_display})`).join('; ')}.`,
     },
     {
       q: `How much does a ${b.name} buggy cost?`,
       a: prices.length
-        ? `Our ${b.name} range runs from $${prices[0].toLocaleString()} to $${prices[prices.length - 1].toLocaleString()} AUD including GST. Freight is quoted separately against your delivery postcode. Finance in 4 splits any of them into four interest-free payments, and settling in Bitcoin or Tether takes 10% off the vehicle price.`
-        : `Pricing depends on the model and specification. Every price we publish includes GST, and freight is quoted separately against your delivery postcode rather than averaged into the advertised figure.`,
+        ? `${b.name} prices run from ${money(prices[0])} for the ${cheapest.name} to ${money(prices[prices.length - 1])} for the ${dearest.name}, GST included.`
+        : `Pricing depends on the model and specification, and every price we publish includes GST.`,
     },
     {
-      q: `Does ${b.name} come with an Australian warranty?`,
-      a: `Yes. ${b.name} vehicles bought from us carry an Australian factory warranty supported from Yatala QLD, not an overseas returns address. Because we hold parts locally, a claim is handled here rather than becoming a freight exercise. Keep your tax invoice as proof of the purchase date.`,
+      q: `Which ${b.name} model suits which job?`,
+      a: [...byCat.entries()].map(([cat, names]) => `In ${cat}: ${names.join(', ')}`).join('. ') + '.',
     },
     {
-      q: `Can you deliver a ${b.name} buggy to my state?`,
-      a: `Yes. We deliver nationwide to every state and territory, metropolitan and regional, in enclosed weather-sealed transporters rather than on open flatbeds. Send your delivery postcode with the enquiry and the freight cost comes back alongside the vehicle quote rather than appearing later.`,
+      q: `Are ${b.name} buggies electric or petrol?`,
+      a: `Of our ${n} ${b.name} ${n === 1 ? 'model' : 'models'}, ${electric} ${electric === 1 ? 'is' : 'are'} electric and ${petrol} ${petrol === 1 ? 'is' : 'are'} petrol.`,
     },
     {
       q: `Is ${b.name} the right brand for my property?`,
-      a: `Brand matters less than matching the buggy to your ground. A steep acreage block, a flat gated estate and a resort shuttle run point at different models regardless of badge. Tell us the terrain, how many people you carry and the daily distance, and we will recommend the right model even if it is not a ${b.name}.`,
+      a: `Brand matters less than matching the buggy to your ground. Tell us the terrain, how many people you carry and the daily distance, and we will recommend the right model even if it is not a ${b.name}.`,
     },
   ];
+
+  // Guides: any that name the brand, else the guides for the brand's main category.
+  const named = POSTS.filter((p) => (p.slug + ' ' + p.title).toLowerCase().includes(b.match.toLowerCase().replace('-', '')) || (p.slug + ' ' + p.title).toLowerCase().includes(b.match.toLowerCase()));
+  const mainCat = [...byCat.entries()].sort((x, y) => y[1].length - x[1].length)[0]?.[0];
+  const catGuides = resolveCategory(CATEGORIES.find((c) => c.rawCategory === mainCat)?.slug ?? '')?.guides ?? [];
+  const guides = [
+    ...named.map((p) => ({ slug: p.slug, label: p.title })),
+    ...catGuides.filter((g) => !named.some((p) => p.slug === g.slug)),
+  ].slice(0, 4);
+  const leadLine = b.primaryKeyword
+    ? `${capKeyword(b.primaryKeyword, b.name)}: ${n} ${b.name} ${n === 1 ? 'model' : 'models'} in stock at Yatala QLD${prices.length ? `, from ${money(prices[0])} to ${money(prices[prices.length - 1])} AUD inc GST` : ''}.`
+    : '';
 
   const breadcrumbs = {
     '@context': 'https://schema.org',
@@ -144,6 +180,7 @@ export default async function BrandPage({ params }: PageProps) {
               {b.name} Golf Buggies for Sale in Australia
             </h1>
             <p className="text-sm sm:text-base text-[#A8A29E] max-w-3xl leading-relaxed">{b.intro}</p>
+            {leadLine && <p className="text-sm text-[#D6D3D1] max-w-3xl leading-relaxed">{leadLine}</p>}
           </div>
 
           <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark">
@@ -156,7 +193,7 @@ export default async function BrandPage({ params }: PageProps) {
               The {b.name} Range
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {items.map((p) => (
+              {everything.map((p) => (
                 <Link
                   key={p.slug}
                   href={`/shop/${catSlug(p.category)}/${p.slug}/`}
@@ -187,6 +224,10 @@ export default async function BrandPage({ params }: PageProps) {
           <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark">
             <FaqSection items={faqs} heading={`${b.name} in Australia — Common Questions`} tone="dark" />
           </div>
+
+          <ShippingPaymentBlock />
+
+          <ProductGuides guides={guides} />
 
           <div className="flex flex-wrap gap-4 text-xs font-bold">
             <Link href="/shop/brand/" className="text-[#E2A17A] hover:underline">All golf buggy brands</Link>

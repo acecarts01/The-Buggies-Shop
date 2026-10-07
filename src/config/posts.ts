@@ -137,6 +137,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-passenger-lifted-lithium-buggy.webp',
     featured: true,
     tags: ['4-Seater Golf Buggy', 'Conditional Registration', 'Resort Buggy', 'Acreage Cart'],
+    primaryKeyword: '4 seat golf cart',
+    supportingKeywords: ['6 seater golf cart', '6 seat golf buggy', 'six seater golf cart'],
     keyTakeaways: [
       '4-passenger buggies come in forward-facing or 2+2 flip-seat configurations that convert into a flat utility cargo bed in seconds.',
       'Conditional registration in QLD (TMR) and NSW (Transport for NSW) allows buggy access on gazetted roads connecting golf courses, estates, and marinas.',
@@ -218,6 +220,8 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/evolution-d-max-gt4-off-road.webp',
     tags: ['Lifted 4x4 Buggy', 'Acreage Transport', 'All-Terrain Tyres', 'AC Motor Torque'],
+    primaryKeyword: 'four wheel drive golf carts',
+    supportingKeywords: ['4wd electric golf cart', 'four wheel drive electric golf cart', 'lifted electric golf cart', 'custom lifted golf cart'],
     keyTakeaways: [
       '6-inch suspension lift kits paired with 23-inch aggressive all-terrain tyres prevent underbody scraping on ruts, logs, and drainage swales.',
       'High-output 400A AC controllers deliver high starting torque from 0 RPM, climbing 25-degree wet grass hills without hesitation.',
@@ -293,6 +297,8 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/tara-roadster-2-plus-2-lifted.webp',
     tags: ['Buggy Servicing', 'Tyre Pressure', 'Brake Maintenance', 'Coastal Protection'],
+    primaryKeyword: 'golf buggy service',
+    supportingKeywords: ['golf cart service'],
     keyTakeaways: [
       'Maintain 20–22 PSI for street tyres and 14–18 PSI for off-road all-terrain tyres to maximize range and tread life.',
       'Flush brake fluid every 24 months to prevent moisture condensation and brake line corrosion in humid coastal regions.',
@@ -449,6 +455,8 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/club-car-carryall-700-electric-utility.webp',
     tags: ['Commercial Buggies', 'Resort Fleet', 'Utility Cargo Bed', 'Corporate Fleet'],
+    primaryKeyword: 'electric golf cart utility vehicle',
+    supportingKeywords: ['golf cart utility vehicle', 'golf buggy utility vehicle'],
     keyTakeaways: [
       'Heavy-duty hydraulic and manual dump beds carry up to 500kg payloads for landscaping, laundry, and tools.',
       'Corrosion-resistant aircraft aluminum frames provide lifelong durability in coastal salt environments and humid nurseries.',
@@ -525,6 +533,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-ai-navigator-gps-remote-buggy.webp',
     featured: true,
     tags: ['Remote Control Golf Buggies', 'Remote Control Golf Buggy Australia', 'Motorised Golf Buggy For Sale', 'MGI Navigator', 'Gyroscopic Tracking'],
+    primaryKeyword: 'remote controlled golf buggy',
+    supportingKeywords: ['remote control golf buggy australia', 'remote golf buggy australia', 'remote control golf caddy'],
     keyTakeaways: [
       'Patented gyroscopic straight-tracking sensors automatically detect side-slope camber and modulate individual wheel speeds to keep the buggy tracking straight on hilly fairways.',
       'Calibrated twin 230W motors provide low-end climbing torque on wet morning kikuyu grass without wheel spin or motor whine.',
@@ -614,6 +624,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-zip-x1-lithium-buggy.webp',
     featured: false,
     tags: ['Golf Push Buggy', 'Best Push Golf Buggy Australia Review', 'Three Wheel Golf Buggy', 'Push Golf Buggy For Sale', 'Golf Trolley'],
+    primaryKeyword: 'best golf push buggy australia',
+    supportingKeywords: ['best golf push buggy', '3 wheel golf buggy', 'three wheel golf buggy', '4 wheel golf buggy', '3 wheel golf push buggy'],
     keyTakeaways: [
       '3-wheel push buggies provide superior rotational maneuverability and easy one-handed steering around tight greens and trees.',
       '4-wheel push buggies offer unmatched anti-roll stability on steep hillside courses and easily carry heavy staff or tour bags.',
@@ -699,6 +711,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-zip-x1-lithium-buggy.webp',
     featured: false,
     tags: ['Foldable Golf Buggy', 'Folding Golf Buggy Australia', 'Golf Push Buggy', 'Compact Golf Trolley', 'Boot Space'],
+    primaryKeyword: 'foldable golf buggy',
+    supportingKeywords: ['folding golf buggy', 'compact golf buggy', 'folding golf buggy australia'],
     keyTakeaways: [
       'Folded dimensions of 65cm x 40cm x 35cm or smaller allow fitting both a golf bag and buggy into standard sedan and hatchback boots.',
       'One-motion folding latches allow opening and packing down the cart in under 5 seconds without loose pins or knobs.',
@@ -784,6 +798,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-2024-zip-x5-36-hole-lithium.webp',
     featured: false,
     tags: ['Motorised Golf Buggy For Sale', 'Motorized Golf Buggy', 'Golf Push Buggy', 'Golf Trolley', 'Golf Fitness'],
+    primaryKeyword: 'push or electric golf trolley',
     keyTakeaways: [
       'Walking 18 holes burns roughly 800 to 1,100 calories regardless of whether you push a cart or walk alongside a motorized electric buggy.',
       'Pushing a 15kg buggy up steep fairway slopes spikes heart rates into anaerobic zones (145+ BPM), degrading putting touch and fine motor control.',
@@ -869,6 +884,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-24v-lithium-battery-36-hole.webp',
     featured: false,
     tags: ['Golf Buggy Accessories Australia', 'MGI Golf Buggy Accessories', 'Golf Buggy Spares', 'Electric Golf Buggy Parts', 'Sand Bucket Holder'],
+    primaryKeyword: 'golf cart accessories australia',
+    supportingKeywords: ['universal golf buggy accessories'],
     keyTakeaways: [
       'Heavy-duty adjustable umbrella holders and extenders provide vital UV protection under the harsh Australian summer sun.',
       'Course-compliant sand bucket loops and seed bottles ensure instant divot repair on sensitive bentgrass and couch greens.',
@@ -1048,6 +1065,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-seater-heavy-duty-lifted-350a.webp',
     featured: false,
     tags: ['Heavy Duty Off Road Golf Buggy', 'Lithium Golf Cart For Acreage', '4 Seater Lifted Golf Cart Australia', 'Farm Utility Cart'],
+    primaryKeyword: 'electric off road golf cart',
+    supportingKeywords: ['off road lifted golf carts', 'custom off road golf cart'],
     keyTakeaways: [
       '6-inch suspension lift kits paired with 23-inch all-terrain knobby tyres provide 180mm to 220mm of underbody ground clearance.',
       'High-torque 4kW to 5kW AC motors deliver immediate climbing power from a dead stop on wet 25-degree paddock slopes.',
@@ -1133,6 +1152,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/club-car-carryall-700-electric-utility.webp',
     featured: false,
     tags: ['Electric Utility Buggy Price', 'Electric Golf Buggies For Sale', 'Golf Buggy Sales', 'Commercial Cart Cost', 'Fleet ROI'],
+    primaryKeyword: 'electric farm buggy australia',
+    supportingKeywords: ['electric golf cart for farm use'],
     keyTakeaways: [
       'Commercial electric utility buggies in Australia typically range from $15,900 AUD for standard flatbeds up to $26,400 AUD for heavy-payload models.',
       'Recharging costs are under $1.20 AUD per 50km on standard Australian 240V tariffs, compared to $12+ AUD in diesel fuel for a traditional ute.',
@@ -1218,6 +1239,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/curtis-1268-400a-programmable-motor-controller.webp',
     featured: false,
     tags: ['Electric Golf Buggy Parts', 'Golf Buggy Spares', 'Electric Golf Buggy Australia', 'Solenoid Testing', 'Controller Diagnostics'],
+    primaryKeyword: 'electric golf cart has power but won t move',
     keyTakeaways: [
       'Always switch the Tow/Run switch to "Tow" and disconnect the main battery negative terminal before touching any electrical wiring.',
       'A loud solenoid click without vehicle movement usually points to burnt internal copper contacts, discharged battery voltage, or worn motor brushes.',
@@ -1303,6 +1325,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/tara-spirit-pro-2-seater.webp',
     featured: false,
     tags: ['Electric Golf Buggy Australia', 'Electric Golf Buggies For Sale', 'Golf Buggy For Sale', 'Motorised Golf Buggy For Sale', 'Buyer Guide'],
+    primaryKeyword: 'which golf cart is best',
+    supportingKeywords: ['which golf carts are the best', 'which golf cart brand is best'],
     keyTakeaways: [
       'Choose walk-behind motorized buggies if you enjoy walking 18 holes, have compact vehicle boot space, and play purely on standard golf courses.',
       'Choose traditional 2-seater sit-down buggies for effortless course transportation with weather tops and dedicated golf bag holders.',
@@ -1392,6 +1416,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-passenger-lifted-lithium-buggy.webp',
     featured: true,
     tags: ['Golf Buggy Australia', 'Conditional Registration', 'Electric Golf Buggy Australia', '4 Seater Lifted Golf Cart Australia', 'Road Legal Buggy'],
+    primaryKeyword: 'street legal golf cart',
+    supportingKeywords: ['electric golf cart road legal', 'street legal 4 seater golf cart', 'electric buggy for adults road legal'],
     keyTakeaways: [
       'Conditional registration permits driving golf buggies on designated public council roads between residential properties, golf clubs, and local shops within gazetted zones.',
       'Essential equipment mandates across all states include forward headlights, rear brake lights, turn indicators, rearview mirrors, a horn, and an amber hazard beacon.',
@@ -1583,6 +1609,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/curtis-1268-400a-programmable-motor-controller.webp',
     featured: false,
     tags: ['Electric Golf Buggy Parts', 'Golf Buggy Spares', 'Electric Golf Buggy Australia', 'Buggy Servicing', 'Preventive Maintenance'],
+    primaryKeyword: 'servicing electric golf buggy',
     keyTakeaways: [
       'Monthly tyre pressure checks (maintain 18–22 PSI for turf, 24–28 PSI for road) prevent excessive rolling resistance and battery range loss.',
       'Quarterly chassis lubrication using marine-grade lithium grease extends kingpin and A-arm bushing lifespan in coastal environments.',
@@ -1672,6 +1699,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/evolution-d5-ranger-4-plus-2.webp',
     featured: false,
     tags: ['Electric Golf Buggies For Sale', 'Golf Buggy Electric', 'Lithium Golf Cart For Acreage', 'Motorized Golf Buggy', 'Range Test'],
+    primaryKeyword: 'electric golf cart range',
+    supportingKeywords: ['electric golf cart distance range'],
     keyTakeaways: [
       'A standard 48V 105Ah LiFePO4 battery achieves 65km to 85km of real-world range on flat fairways and paved estate pathways.',
       'On undulating 20-acre acreage with 4 adult passengers and all-terrain knobby tyres, expect 45km to 60km of continuous driving per charge.',
@@ -1762,6 +1791,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-ai-navigator-gps-remote-buggy.webp',
     featured: false,
     tags: ['Golf Trolley', 'Motorised Golf Buggy For Sale', 'Push Golf Buggy For Sale', 'Remote Control Golf Buggy Australia', 'Best Push Golf Buggy Australia Review'],
+    primaryKeyword: 'best golf trolley',
+    supportingKeywords: ['best electric golf trolley with gps', 'best electric golf caddy'],
     keyTakeaways: [
       'Push trolleys ($250–$650 AUD) require zero charging, fold down compactly, and suit golfers who prefer simple, unpowered equipment.',
       'Motorized walking buggies ($1,200–$1,900 AUD) eliminate hill strain with variable speed dials and automated downhill braking.',
@@ -1861,6 +1892,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-seater-heavy-duty-lifted-350a.webp',
     featured: false,
     tags: ['Golf Buggy Australia', 'Golf Buggies For Sale', 'Heavy Duty Off Road Golf Buggy', '4 Seater Lifted Golf Cart Australia', 'Towing Guide'],
+    primaryKeyword: 'electric buggy with trailer',
     keyTakeaways: [
       'Always strap down via the chassis or suspension lower control arms using 4 independent rated ratchet straps (minimum 500kg lashing capacity each).',
       'Fold down or remove acrylic folding split windscreens prior to highway towing at 100km/h to prevent severe wind breakage.',
@@ -2039,6 +2071,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-seater-heavy-duty-lifted-350a.webp',
     featured: false,
     tags: ['Motorised Golf Buggy For Sale', 'Electric Golf Buggies For Sale', 'Heavy Duty Off Road Golf Buggy', 'Golf Buggy Electric', 'AC vs DC'],
+    primaryKeyword: 'electric motorized golf cart',
+    supportingKeywords: ['electric motor for golf push cart'],
     keyTakeaways: [
       'AC induction motors have zero carbon brushes to replace, eliminating motor arcing, carbon dust accumulation, and routine brush servicing.',
       'AC motors produce peak torque at 0 RPM, allowing effortless hill starts on 30% incline fairways and muddy paddocks without burning out.',
@@ -2128,6 +2162,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/mgi-ai-navigator-gps-remote-buggy.webp',
     featured: false,
     tags: ['MGI Golf Buggy Accessories', 'Golf Buggy Accessories Australia', 'Remote Control Golf Buggies', 'Foldable Golf Buggy', 'Buggy Upgrades'],
+    primaryKeyword: 'mgi buggy accessories',
+    supportingKeywords: ['mgi golf trolley accessories', 'mgi electric golf buggy accessories', 'mgi golf cart accessories'],
     keyTakeaways: [
       'Telescopic umbrella extenders elevate shade height, allowing tall golfers to walk underneath without ducking during high-UV Australian rounds.',
       'Spring-loaded quick-attach padded seats provide comfortable rests on congested tee boxes while doubling as waterproof scorecard/ball storage.',
@@ -2221,6 +2257,8 @@ export const POSTS: BlogPost[] = [
     image: '/images/club-car-carryall-700-electric-utility.webp',
     featured: false,
     tags: ['Electric Golf Buggies For Sale', 'Lithium Golf Cart For Acreage', 'Electric Utility Buggy Price', 'Golf Buggy Electric', 'Solar Powered Buggy'],
+    primaryKeyword: 'solar powered golf carts',
+    supportingKeywords: ['solar golf buggies', 'solar panel golf carts'],
     keyTakeaways: [
       'A 200W to 350W high-efficiency monocrystalline solar roof panel generates approximately 0.8kWh to 1.5kWh of energy daily in sunny Australian conditions.',
       'This daily solar harvest equates to 10km to 18km of free auxiliary driving range, easily covering a typical 18-hole round without drawing from the wall.',
@@ -2475,8 +2513,6 @@ export const POSTS: BlogPost[] = [
     supportingKeywords: [
       "used gas golf cart",
       "used petrol golf cart",
-      "petrol golf cart for sale",
-      "gas golf cart for sale",
       "second hand petrol golf buggy",
       "used golf cart petrol",
     ],
@@ -2631,9 +2667,7 @@ export const POSTS: BlogPost[] = [
     tags: ["Golf Caddy", "Electric Trolley", "Walk-Behind", "Buying Guide"],
     primaryKeyword: "golf caddy",
     supportingKeywords: [
-      "electric golf caddy",
       "golf caddy australia",
-      "electric caddy golf",
       "golf caddie trolley",
       "motorised golf caddy",
       "golf caddy for sale",
@@ -2696,8 +2730,8 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "golf-carts-for-sale-brisbane-buyers-guide",
-    seoTitle: "Golf Carts for Sale Brisbane: Local Buyers Guide",
-    title: "Golf Carts for Sale in Brisbane: Delivery, Registration and What Suits South East Queensland",
+    seoTitle: "Electric Golf Carts Brisbane: Local Buyers Guide",
+    title: "Electric Golf Carts in Brisbane: Delivery, Registration and What Suits South East Queensland",
     excerpt: "Buying a golf buggy in Brisbane, from our Yatala depot 40 minutes south. Local delivery, QLD conditional registration and humidity considerations.",
     category: "Buyer Guides",
     date: "2026-09-10",
@@ -2708,14 +2742,10 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/atlas-4-passenger-lifted-lithium-buggy.webp',
     tags: ["Brisbane", "Queensland", "Local Delivery", "Buying Guide"],
-    primaryKeyword: "golf carts for sale brisbane",
+    primaryKeyword: "electric golf carts brisbane",
     supportingKeywords: [
-      "golf buggy for sale brisbane",
-      "golf buggies brisbane",
-      "golf carts brisbane",
-      "electric golf cart brisbane",
-      "golf buggy brisbane",
-      "buggies for sale brisbane",
+      "motorised golf buggies brisbane",
+      "electric golf carts queensland",
     ],
     keyTakeaways: [
       "Our depot at Yatala QLD 4207 sits on the M1 between Brisbane and the Gold Coast, so Brisbane is a same-corridor delivery.",
@@ -2775,8 +2805,8 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "golf-carts-for-sale-melbourne-buyers-guide",
-    seoTitle: "Golf Carts for Sale Melbourne: Buyers Guide",
-    title: "Golf Carts and Buggies for Sale in Melbourne: Delivery, Cold Starts and Victorian Rules",
+    seoTitle: "Golf Carts Melbourne: Buyers Guide",
+    title: "Golf Carts and Buggies in Melbourne: Delivery, Cold Starts and Victorian Rules",
     excerpt: "Buying a golf buggy in Melbourne, including MGI walk-behind trolleys, enclosed delivery from Yatala QLD, and what Victorian winters do to batteries.",
     category: "Buyer Guides",
     date: "2026-09-10",
@@ -2787,14 +2817,11 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/mgi-ai-navigator-gps-remote-buggy.webp',
     tags: ["Melbourne", "Victoria", "MGI", "Buying Guide"],
-    primaryKeyword: "golf carts for sale melbourne",
+    primaryKeyword: "golf carts melbourne",
     supportingKeywords: [
-      "mgi golf buggies melbourne",
-      "golf buggies melbourne",
-      "golf buggy melbourne",
-      "golf carts melbourne",
-      "electric golf buggy melbourne",
-      "golf trolley melbourne",
+      "golf carts melbourne australia",
+      "electric golf carts melbourne",
+      "golf carts victoria",
     ],
     keyTakeaways: [
       "Melbourne is a standard interstate enclosed freight leg from our Yatala QLD depot, quoted by postcode.",
@@ -2854,8 +2881,8 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "golf-carts-for-sale-perth-wa-buyers-guide",
-    seoTitle: "Golf Carts for Sale Perth: WA Buyers Guide",
-    title: "Golf Carts for Sale in Perth: Cross-Country Freight, Heat and Sandy Ground",
+    seoTitle: "Electric Golf Carts Perth: WA Buyers Guide",
+    title: "Electric Golf Carts in Perth: Cross-Country Freight, Heat and Sandy Ground",
     excerpt: "Buying a golf buggy in Perth and WA from our Yatala QLD depot. Cross-country enclosed freight, extreme heat on batteries, and sand-country tyres.",
     category: "Buyer Guides",
     date: "2026-09-10",
@@ -2866,14 +2893,11 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/atlas-4-seater-heavy-duty-lifted-350a.webp',
     tags: ["Perth", "Western Australia", "Freight", "Buying Guide"],
-    primaryKeyword: "golf carts for sale perth",
+    primaryKeyword: "electric golf carts perth",
     supportingKeywords: [
-      "golf buggy perth",
-      "golf buggies for sale perth",
-      "golf carts perth",
-      "electric golf cart perth",
-      "golf buggy for sale wa",
-      "golf carts for sale wa",
+      "golf trolley perth",
+      "electric golf buggies perth wa",
+      "4 seat golf carts perth",
     ],
     keyTakeaways: [
       "Perth is our longest freight leg, which is exactly why we quote it by postcode rather than averaging it.",
@@ -2933,8 +2957,8 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "golf-carts-for-sale-sydney-nsw-buyers-guide",
-    seoTitle: "Golf Carts for Sale Sydney & NSW: Buyers Guide",
-    title: "Golf Carts for Sale in Sydney and NSW: Delivery, Coastal Salt and Access Rules",
+    seoTitle: "Electric Golf Carts Sydney: NSW Buyers Guide",
+    title: "Electric Golf Carts in Sydney and NSW: Delivery, Coastal Salt and Access Rules",
     excerpt: "Buying a golf buggy in Sydney or regional NSW from our Yatala QLD depot, with enclosed freight, coastal corrosion advice and NSW road access rules.",
     category: "Buyer Guides",
     date: "2026-09-10",
@@ -2945,14 +2969,10 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/atlas-4-seater-heavy-duty-lifted-350a.webp',
     tags: ["Sydney", "New South Wales", "Coastal", "Buying Guide"],
-    primaryKeyword: "golf carts for sale nsw",
+    primaryKeyword: "electric golf carts sydney",
     supportingKeywords: [
-      "golf carts for sale sydney",
-      "golf buggy sydney",
-      "golf buggies for sale nsw",
-      "golf carts sydney",
-      "golf buggy for sale nsw",
-      "electric golf cart sydney",
+      "electric golf buggies sydney area",
+      "sydney golf carts utility vehicles",
     ],
     keyTakeaways: [
       "NSW is a routine interstate leg from Yatala, quoted by postcode for metropolitan and regional addresses alike.",
@@ -3012,8 +3032,8 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "golf-carts-for-sale-adelaide-sa-buyers-guide",
-    seoTitle: "Golf Carts for Sale Adelaide: SA Buyers Guide",
-    title: "Golf Carts for Sale in Adelaide: Dry Heat, Vineyard Blocks and Delivery to South Australia",
+    seoTitle: "Electric Golf Carts Adelaide: SA Buyers Guide",
+    title: "Electric Golf Carts in Adelaide: Dry Heat, Vineyard Blocks and Delivery to South Australia",
     excerpt: "Buying a golf buggy in Adelaide and South Australia from our Yatala QLD depot, with enclosed freight, dry-heat battery advice and vineyard use.",
     category: "Buyer Guides",
     date: "2026-09-10",
@@ -3024,14 +3044,12 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/club-car-carryall-700-electric-utility.webp',
     tags: ["Adelaide", "South Australia", "Vineyards", "Buying Guide"],
-    primaryKeyword: "golf carts for sale adelaide",
+    primaryKeyword: "electric golf carts adelaide",
     supportingKeywords: [
-      "golf buggy adelaide",
-      "golf buggies for sale adelaide",
-      "golf carts adelaide",
-      "golf cart for sale sa",
-      "electric golf buggy adelaide",
-      "golf buggies south australia",
+      "motorised golf buggies adelaide",
+      "battery powered golf carts adelaide",
+      "electric golf buggies south australia",
+      "golf trolley adelaide",
     ],
     keyTakeaways: [
       "South Australia is a routine interstate leg, quoted by postcode from our Yatala QLD depot.",
@@ -3186,7 +3204,6 @@ export const POSTS: BlogPost[] = [
     supportingKeywords: [
       "golf push carts",
       "push cart golf",
-      "golf buggy push",
       "push golf cart australia",
       "golf push trolley",
       "manual golf trolley",
@@ -3263,10 +3280,8 @@ export const POSTS: BlogPost[] = [
     tags: ["Remote Control", "Gyroscope", "Walk-Behind", "Buying Guide"],
     primaryKeyword: "golf cart with remote",
     supportingKeywords: [
-      "electric golf buggy with remote",
       "golf buggy with remote control",
       "remote golf buggy",
-      "golf buggy remote control",
       "remote control motorised golf buggy",
       "electric golf trolley with remote",
     ],
@@ -3328,7 +3343,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "electric-golf-buggy-australia-complete-guide",
-    seoTitle: "Electric Golf Buggy Australia: Complete Guide",
+    seoTitle: "Electric Golf Cart Australia: Complete Guide",
     title: "Electric Golf Buggy Australia: The Complete Guide to Choosing, Charging and Owning One",
     excerpt: "Everything Australian buyers need on electric golf buggies: lithium versus lead-acid, seat counts, charging at home, heat, and what they actually cost.",
     category: "Buyer Guides",
@@ -3340,15 +3355,7 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/club-car-tempo-lithium-2025.webp',
     tags: ["Electric Golf Buggy", "Lithium", "Charging", "Complete Guide"],
-    primaryKeyword: "electric golf buggy",
-    supportingKeywords: [
-      "electric golf buggies",
-      "electric golf buggy australia",
-      "electric golf cart australia",
-      "electric golf buggies australia",
-      "buy electric golf buggy",
-      "electric golf buggy for sale australia",
-    ],
+    primaryKeyword: "electric golf cart australia",
     keyTakeaways: [
       "Lithium has effectively replaced lead-acid on new stock, and the ownership difference is larger than the price difference.",
       "Charging infrastructure decides more fleet purchases than range does.",
@@ -3441,23 +3448,23 @@ export const POSTS: BlogPost[] = [
     content: [
       {
         heading: "Three Words, One Vehicle",
-        body: "Golf buggy, golf cart and golf car all describe the same thing in Australia: a small low-speed vehicle for carrying people and equipment around a course, an estate or a property. There is no technical distinction between them in ordinary usage, which is worth knowing because sellers use different words and you will see different results depending on which you type. Buyers regularly assume a golf car is something other than a golf buggy and miss half the market as a result.",
+        body: "Golf buggy, golf cart and golf car all describe the same thing in Australia: a small low-speed vehicle for carrying people and equipment around a course, an estate or a property. There is no technical distinction between them in ordinary usage, which is worth knowing because sellers use different words and you will see different results depending on which you type. Buyers regularly assume the formal term is something other than a golf buggy and miss half the market as a result.",
       },
       {
         heading: "Why Australians Say Buggy",
         body: "Buggy is the standard Australian and British term, and it is what you will hear at almost any club in the country. It carries no American connotation and it is the word we use throughout our own range for that reason. If you are speaking to an Australian seller, a club professional or a groundskeeper, buggy is the word that will be understood without a second thought. It also disambiguates helpfully from a shopping trolley, which the word cart does not always do.",
       },
       {
-        heading: "Why Manufacturers Say Golf Car",
-        body: "The manufacturers themselves, particularly the American ones, most often say golf car rather than golf cart, and the reason is regulatory rather than stylistic. In their home market these vehicles fall into a low-speed vehicle classification that treats them as cars with a restricted top speed rather than as carts. Yamaha's own division is called the Yamaha Golf-Car Company. When you see golf car in a specification sheet or a parts catalogue, it is the manufacturer's formal term rather than a different product.",
+        heading: "Why Manufacturers Use the Word Car",
+        body: "The manufacturers themselves, particularly the American ones, most often say golf car rather than golf cart, and the reason is regulatory rather than stylistic. In their home market these vehicles fall into a low-speed vehicle classification that treats them as cars with a restricted top speed rather than as carts. Yamaha's own division is called the Yamaha Golf-Car Company. When you see it in a specification sheet or a parts catalogue, it is the manufacturer's formal term rather than a different product.",
       },
       {
         heading: "Why the Word You Search Changes What You Find",
-        body: "Search engines treat these as related but distinct terms, so the sellers ranking for golf cart are not always the ones ranking for golf buggy, and specialist listings often sit under golf car. Buyers who search only one phrase see only one slice of the market, which can mean missing both a better price and a better-suited model. If you are shopping seriously, run all three. It takes a minute and it regularly surfaces stock that the first search did not.",
+        body: "Search engines treat these as related but distinct terms, so the sellers ranking for golf cart are not always the ones ranking for golf buggy, and specialist listings often sit under the formal term. Buyers who search only one phrase see only one slice of the market, which can mean missing both a better price and a better-suited model. If you are shopping seriously, run all three. It takes a minute and it regularly surfaces stock that the first search did not.",
       },
       {
         heading: "What We Call Them and Why",
-        body: "We use buggy throughout, because we are an Australian business selling to Australian buyers and it is the word our customers use. We do say cart and car where a manufacturer's own model name or documentation uses it, since renaming someone else's product would be more confusing than helpful. If you arrived here searching golf car or golf cart, you are in the right place: the vehicle is the same, and the range is the same either way.",
+        body: "We use buggy throughout, because we are an Australian business selling to Australian buyers and it is the word our customers use. We do say cart and car where a manufacturer's own model name or documentation uses it, since renaming someone else's product would be more confusing than helpful. If you arrived here searching either term, you are in the right place: the vehicle is the same, and the range is the same either way.",
       },
     ],
     faqs: [
@@ -3466,12 +3473,12 @@ export const POSTS: BlogPost[] = [
         a: "There is no difference in Australia; they describe the same vehicle. Buggy is the standard Australian and British term, cart is American, and golf car is the manufacturers' own formal word because in their home market these fall into a low-speed vehicle classification rather than being carts.",
       },
       {
-        q: "Why do manufacturers say golf car instead of golf cart?",
+        q: "Why do manufacturers say car instead of cart?",
         a: "It is regulatory rather than stylistic. In the United States these vehicles fall into a low-speed vehicle classification that treats them as cars with a restricted top speed. Yamaha's own division is called the Yamaha Golf-Car Company, so the term appears throughout specification sheets and parts catalogues.",
       },
       {
         q: "Should I search golf buggy or golf cart in Australia?",
-        a: "Search all three, including golf car. Search engines treat them as related but distinct, so the sellers ranking for one are not always the ones ranking for another, and specialist listings often sit under golf car. Running all three regularly surfaces stock the first search missed.",
+        a: "Search all three, including golf car. Search engines treat them as related but distinct, so the sellers ranking for one are not always the ones ranking for another, and specialist listings often sit under the formal term. Running all three regularly surfaces stock the first search missed.",
       },
       {
         q: "Is a golf buggy the same as a golf trolley?",
@@ -3507,7 +3514,6 @@ export const POSTS: BlogPost[] = [
       "motocaddy vs mgi",
       "best electric golf trolley australia",
       "mgi electric golf trolley",
-      "electric golf trolley comparison",
       "motocaddy australia",
       "which electric golf trolley to buy",
     ],
@@ -3660,14 +3666,10 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/mgi-ai-navigator-gps-remote-buggy.webp',
     tags: ["PowaKaddy", "MGI", "Comparison", "GPS"],
-    primaryKeyword: "powakaddy golf buggy",
+    primaryKeyword: "compare electric golf trolleys",
     supportingKeywords: [
-      "powakaddy australia",
-      "powakaddy electric golf buggies",
-      "powakaddy golf trolleys",
-      "powakaddy buggy",
-      "powakaddy vs mgi",
-      "powakaddy fx7 australia",
+      "electric golf trolley comparison",
+      "compare electric golf carts",
     ],
     keyTakeaways: [
       "We stock both brands, so this comparison has no thumb on the scale.",
@@ -3741,7 +3743,6 @@ export const POSTS: BlogPost[] = [
     tags: ["Electric Trolleys", "Buying Guide", "Comparison", "Brands"],
     primaryKeyword: "best electric golf trolley",
     supportingKeywords: [
-      "best electric golf buggy australia",
       "what is the best electric golf buggy australia",
       "best golf trolley australia",
       "electric golf trolley australia",
@@ -3885,7 +3886,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: "how-much-does-a-golf-cart-cost-australia",
-    seoTitle: "How Much Does a Golf Cart Cost in Australia?",
+    seoTitle: "Golf Cart Prices Australia: What They Cost",
     title: "How Much Does a Golf Cart Cost in Australia? Real Price Bands for 2026",
     excerpt: "What golf buggies actually cost in Australia by category, what drives the price differences, and the costs buyers routinely forget to budget for.",
     category: "Finance & Buying",
@@ -3897,14 +3898,9 @@ export const POSTS: BlogPost[] = [
     },
     image: '/images/club-car-tempo-lithium-2025.webp',
     tags: ["Pricing", "Budget", "Buying Guide", "Costs"],
-    primaryKeyword: "how much is a golf cart",
+    primaryKeyword: "golf cart prices australia",
     supportingKeywords: [
-      "how much are golf carts",
-      "golf cart cost",
-      "golf buggy price australia",
-      "cost of golf cart",
-      "golf cart prices australia",
-      "how much does a golf buggy cost",
+      "how much does an electric golf cart cost",
     ],
     keyTakeaways: [
       "Walk-behind trolleys start around $1,300; ride-on buggies run roughly $8,000 to over $27,000.",
@@ -4138,7 +4134,6 @@ export const POSTS: BlogPost[] = [
     supportingKeywords: [
       "golf buggy seat kit",
       "rear flip seat golf cart",
-      "golf cart rear seat",
       "2 to 4 seater conversion",
       "golf buggy extra seat",
       "golf cart seat kit australia",
@@ -4571,7 +4566,7 @@ export const POSTS: BlogPost[] = [
     ],
     relatedProductSlug: 'delta-q-quiq-48v-smart-on-board-charger',
     primaryKeyword: 'golf buggy charger australia',
-    supportingKeywords: ['golf cart charger amperage', 'lithium golf buggy charger australia', 'on board golf cart charger', 'golf buggy charge time', 'solar charger golf buggy australia'],
+    supportingKeywords: ['golf cart charger amperage', 'lithium golf buggy charger australia', 'golf buggy charge time', 'solar charger golf buggy australia'],
   },
   {
     slug: 'how-golf-buggy-ordering-invoicing-delivery-works',
@@ -5102,8 +5097,6 @@ export const POSTS: BlogPost[] = [
       { q: 'What payment methods are available for a Canberra order?', a: 'The same as any Australian delivery: PayID/Osko, direct bank transfer, Finance in 4 at 0% interest, or crypto (Bitcoin or Tether) for a 10% discount on the vehicle price.' },
     ],
     relatedProductSlug: 'evolution-d5-ranger-4-plus-2',
-    primaryKeyword: 'golf buggies for sale canberra',
-    supportingKeywords: ['golf cart delivery act australia', 'golf buggy canberra cold weather', 'buy golf buggy canberra', 'act golf cart freight', 'lithium battery cold climate golf buggy'],
   },
   {
     slug: 'golf-buggy-windscreens-weather-enclosures-australia',

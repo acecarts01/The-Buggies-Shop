@@ -484,7 +484,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
                         href={`/blog/${post.slug}/`}
                         className="inline-flex items-center gap-1 text-xs font-bold text-[#A85640] group-hover:text-[#A85640] transition-colors"
                       >
-                        <span>Read Guide</span>
+                        <span>Read Guide<span className="sr-only">: {post.title}</span></span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
                     </div>
