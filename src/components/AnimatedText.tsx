@@ -1,11 +1,29 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence, type Variants } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
 
-const CUBIC_BEZIER: [number, number, number, number] = [0.16, 1, 0.3, 1];
+// Entrance animations, done in CSS rather than with the `motion` library.
+//
+// The previous version wrapped every WORD of every heading and paragraph in a
+// motion component that started at opacity 0 and waited for hydration and an
+// IntersectionObserver before showing. On a phone that put thousands of
+// animated React nodes through hydration (seconds of main-thread work), and
+// because the text started invisible the largest contentful paint could not
+// happen until all of it had run. Now each block is one element:
+//
+//   * it is visible from the first paint (only a small slide-up and a partial
+//     fade are animated, never opacity 0), so LCP no longer waits on scripts;
+//   * the slide-up runs in CSS, and where the browser supports scroll-driven
+//     animation it plays as the block scrolls into view (see globals.css);
+//   * `prefers-reduced-motion` turns it off;
+//   * the full text is a single text node, so crawlers read it unbroken.
+//
+// Component names and props are unchanged, so no caller needed editing.
 
-// Word-by-word staggered reveal for headings and hero titles with enhanced kinetic presence
+type Vars = React.CSSProperties & { [k: `--${string}`]: string | number | undefined };
+
+const reveal = (delay: number, y = 18): Vars => ({ '--d': `${delay}s`, '--y': `${y}px` });
+
 interface StaggeredHeadingProps {
   text?: string;
   children?: React.ReactNode;
@@ -14,251 +32,80 @@ interface StaggeredHeadingProps {
   delay?: number;
 }
 
-export function StaggeredHeading({
-  text,
-  children,
-  className = '',
-  tag = 'h2',
-  delay = 0,
-}: StaggeredHeadingProps) {
-  const content = text || (typeof children === 'string' ? children : '');
-  const words = content.split(' ').filter(Boolean);
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  const wordVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 24,
-      filter: 'blur(6px)',
-      scale: 0.96,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      scale: 1,
-      transition: {
-        duration: 0.65,
-        ease: CUBIC_BEZIER,
-      },
-    },
-  };
-
-  const Component = motion[tag] as typeof motion.h2;
-
-  if (words.length === 0) {
-    return <Component className={className}>{children}</Component>;
-  }
-
+export function StaggeredHeading({ text, children, className = '', tag = 'h2', delay = 0 }: StaggeredHeadingProps) {
+  const Tag = tag;
   return (
-    <Component
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-40px' }}
-      className={className}
-    >
-      {/* The space between words is a real text node, not a margin. An
-          inline-block span separated only by mr-[…] renders correctly but
-          concatenates in textContent/innerText, so crawlers and text
-          extractors read the H1 as one unbroken string and no keyword
-          phrase in it can be matched. */}
-      {words.map((word, i) => (
-        <React.Fragment key={i}>
-          <motion.span variants={wordVariants} className="inline-block">
-            {word}
-          </motion.span>
-          {i < words.length - 1 ? ' ' : ''}
-        </React.Fragment>
-      ))}
-    </Component>
+    <Tag className={`reveal ${className}`} style={reveal(delay, 22)}>
+      {text ?? children}
+    </Tag>
   );
 }
 
-// Staggered word-by-word reveal for descriptions and paragraphs across the site with vivid flow
 interface StaggeredParagraphProps {
   text?: string;
   children?: React.ReactNode;
   className?: string;
   delay?: number;
+  /** Kept for compatibility; words are no longer animated one by one. */
   wordDelay?: number;
   tag?: 'p' | 'div' | 'span';
 }
 
-export function StaggeredParagraph({
-  text,
-  children,
-  className = '',
-  delay = 0.08,
-  wordDelay = 0.015,
-  tag = 'p',
-}: StaggeredParagraphProps) {
-  const content = text || (typeof children === 'string' ? children : '');
-  const words = content.split(' ').filter(Boolean);
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: wordDelay,
-        delayChildren: delay,
-      },
-    },
-  };
-
-  const wordVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 14,
-      filter: 'blur(4px)',
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.5,
-        ease: CUBIC_BEZIER,
-      },
-    },
-  };
-
-  const Component = motion[tag] as typeof motion.p;
-
-  if (words.length === 0) {
-    return (
-      <FadeUpText delay={delay} className={className}>
-        {children}
-      </FadeUpText>
-    );
-  }
-
+export function StaggeredParagraph({ text, children, className = '', delay = 0.08, tag = 'p' }: StaggeredParagraphProps) {
+  const Tag = tag;
   return (
-    <Component
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-30px' }}
-      className={className}
-    >
-      {/* Real space text node between words - see the note in
-          StaggeredHeading for why a margin is not enough. */}
-      {words.map((word, i) => (
-        <React.Fragment key={i}>
-          <motion.span variants={wordVariants} className="inline-block">
-            {word}
-          </motion.span>
-          {i < words.length - 1 ? ' ' : ''}
-        </React.Fragment>
-      ))}
-    </Component>
+    <Tag className={`reveal ${className}`} style={reveal(delay, 14)}>
+      {text ?? children}
+    </Tag>
   );
 }
 
-// Fade up text on scroll into view with enhanced kinetic lift
 interface FadeUpTextProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  /** Kept for compatibility. */
   duration?: number;
   yOffset?: number;
 }
 
-export function FadeUpText({
-  children,
-  className = '',
-  delay = 0,
-  duration = 0.65,
-  yOffset = 26,
-}: FadeUpTextProps) {
+export function FadeUpText({ children, className = '', delay = 0, yOffset = 26 }: FadeUpTextProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: yOffset, filter: 'blur(4px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-30px' }}
-      transition={{ duration, delay, ease: CUBIC_BEZIER }}
-      className={className}
-    >
+    <div className={`reveal ${className}`} style={reveal(delay, yOffset)}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-// Animated Card wrapper with subtle lift on hover and initial entrance
-export function AnimatedCard({
-  children,
-  className = '',
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
+export function AnimatedCard({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 28, filter: 'blur(3px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.6, delay, ease: CUBIC_BEZIER }}
-      whileHover={{ y: -5, transition: { duration: 0.22, ease: 'easeOut' } }}
-      className={className}
-    >
+    <div className={`reveal transition-transform duration-200 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ${className}`} style={reveal(delay, 28)}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-// Rotating dynamic text highlight
 interface RotatingWordsProps {
   words: string[];
   intervalMs?: number;
   className?: string;
 }
 
-export function RotatingWords({
-  words,
-  intervalMs = 2800,
-  className = '',
-}: RotatingWordsProps) {
+export function RotatingWords({ words, intervalMs = 2800, className = '' }: RotatingWordsProps) {
   const [index, setIndex] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, intervalMs);
+    const timer = setInterval(() => setIndex((prev) => (prev + 1) % words.length), intervalMs);
     return () => clearInterval(timer);
   }, [words.length, intervalMs]);
-
   return (
     <span className={`inline-flex items-center overflow-hidden py-0.5 ${className}`}>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={words[index]}
-          initial={{ opacity: 0, y: 20, filter: 'blur(6px)', scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-          exit={{ opacity: 0, y: -20, filter: 'blur(6px)', scale: 0.95 }}
-          transition={{ duration: 0.45, ease: CUBIC_BEZIER }}
-          className="inline-block font-bold text-[#A85640]"
-        >
-          {words[index]}
-        </motion.span>
-      </AnimatePresence>
+      <span key={words[index]} className="word-swap inline-block font-bold text-[#A85640]">
+        {words[index]}
+      </span>
     </span>
   );
 }
 
-// Animated counting number for metrics (e.g. 61 models, 100%, 10%)
 interface AnimatedCounterProps {
   target?: number;
   value?: number;
@@ -268,54 +115,49 @@ interface AnimatedCounterProps {
   className?: string;
 }
 
-export function AnimatedCounter({
-  target,
-  value,
-  suffix = '',
-  prefix = '',
-  duration = 2.0,
-  className = '',
-}: AnimatedCounterProps) {
+/** Counts up once when scrolled into view. The number is real text from the first render. */
+export function AnimatedCounter({ target, value, suffix = '', prefix = '', duration = 2.0, className = '' }: AnimatedCounterProps) {
   const finalValue = target ?? value ?? 0;
-  const [count, setCount] = useState(0);
-  const [inView, setInView] = useState(false);
+  const [count, setCount] = useState(finalValue);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!inView) return;
-
-    let startTime: number | null = null;
-    let animFrame: number;
-
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      // Ease out quartic curve
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.round(eased * finalValue));
-
-      if (progress < 1) {
-        animFrame = requestAnimationFrame(animate);
-      }
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    let frame = 0;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        let start: number | null = null;
+        const tick = (ts: number) => {
+          if (start === null) start = ts;
+          const p = Math.min((ts - start) / (duration * 1000), 1);
+          setCount(Math.round((1 - Math.pow(1 - p, 4)) * finalValue));
+          if (p < 1) frame = requestAnimationFrame(tick);
+        };
+        setCount(0);
+        frame = requestAnimationFrame(tick);
+      },
+      { rootMargin: '-20px' }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(frame);
     };
-
-    animFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animFrame);
-  }, [inView, finalValue, duration]);
+  }, [finalValue, duration]);
 
   return (
-    <motion.span
-      onViewportEnter={() => setInView(true)}
-      viewport={{ once: true, margin: '-20px' }}
-      className={className}
-    >
+    <span ref={ref} className={className}>
       {prefix}
       {count}
       {suffix}
-    </motion.span>
+    </span>
   );
 }
 
-// Staggered list container
 interface StaggerContainerProps {
   children: React.ReactNode;
   className?: string;
@@ -323,82 +165,23 @@ interface StaggerContainerProps {
   delay?: number;
 }
 
-export function StaggerContainer({
-  children,
-  className = '',
-  stagger = 0.1,
-  delay = 0,
-}: StaggerContainerProps) {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: stagger,
-        delayChildren: delay,
-      },
-    },
-  };
-
+/** Children get a staggered slide-up (see `.stagger` in globals.css). */
+export function StaggerContainer({ children, className = '', stagger = 0.1, delay = 0 }: StaggerContainerProps) {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-40px' }}
-      variants={containerVariants}
-      className={className}
-    >
+    <div className={`stagger ${className}`} style={{ '--step': `${stagger}s`, '--d': `${delay}s` } as Vars}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-// Stagger item with enhanced elevation
-export function StaggerItem({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 26, filter: 'blur(4px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: { duration: 0.55, ease: CUBIC_BEZIER },
-    },
-  };
-
-  return (
-    <motion.div
-      variants={itemVariants}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+export function StaggerItem({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return <div className={`stagger-item ${className}`}>{children}</div>;
 }
 
-// Subtle badge pulse/glow animation
-export function AnimatedBadge({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+export function AnimatedBadge({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 6 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: CUBIC_BEZIER }}
-      whileHover={{ scale: 1.04 }}
-      className={className}
-    >
+    <div className={`badge-in transition-transform duration-200 hover:scale-[1.04] motion-reduce:transition-none ${className}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }
-

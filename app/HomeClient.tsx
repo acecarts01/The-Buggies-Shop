@@ -39,7 +39,6 @@ import {
   AnimatedBadge,
   AnimatedCard
 } from '@/src/components/AnimatedText';
-import { motion } from 'motion/react';
 import { ABN_INFO, CONTACT, SITE, SHOP, FAQ, BRAND, ProductItem, PRODUCTS } from '@/src/config/site';
 import type { PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
