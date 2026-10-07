@@ -579,7 +579,7 @@ export function hubContent(): HubContent {
     h1: `Golf Buggy for Sale in Australia: All ${vehicles.length} Buggies`,
     intro: `Our full range of golf buggies for sale in Australia: ${riding.length} passenger and utility buggies, ${walk.n} motorised walk-behind models, plus ${parts} batteries, chargers and accessories. Everything is tested at our Yatala QLD depot and priced with GST included.`,
     primaryKeyword: 'golf buggy for sale',
-    supportingKeywords: ['golf buggies for sale australia', 'buy golf buggy', 'best golf buggy australia', 'golf buggy sales', 'golf buggy price'],
+    supportingKeywords: ['golf buggies for sale australia', 'buy golf buggy', 'best golf buggy australia', 'golf buggy sales', 'golf buggy price', 'brand new golf cart'],
     sections: [
       {
         heading: 'Golf Buggy Sales: Browse by Type',

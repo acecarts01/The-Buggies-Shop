@@ -138,7 +138,7 @@ export const POSTS: BlogPost[] = [
     featured: true,
     tags: ['4-Seater Golf Buggy', 'Conditional Registration', 'Resort Buggy', 'Acreage Cart'],
     primaryKeyword: '4 seat golf cart',
-    supportingKeywords: ['6 seater golf cart', '6 seat golf buggy', 'six seater golf cart'],
+    supportingKeywords: ['6 seater golf cart', '6 seat golf buggy', 'six seater golf cart', 'four person golf carts', 'best 4 person golf cart', '5 person golf cart'],
     keyTakeaways: [
       '4-passenger buggies come in forward-facing or 2+2 flip-seat configurations that convert into a flat utility cargo bed in seconds.',
       'Conditional registration in QLD (TMR) and NSW (Transport for NSW) allows buggy access on gazetted roads connecting golf courses, estates, and marinas.',
@@ -456,7 +456,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/club-car-carryall-700-electric-utility.webp',
     tags: ['Commercial Buggies', 'Resort Fleet', 'Utility Cargo Bed', 'Corporate Fleet'],
     primaryKeyword: 'electric golf cart utility vehicle',
-    supportingKeywords: ['golf cart utility vehicle', 'golf buggy utility vehicle'],
+    supportingKeywords: ['golf cart utility vehicle', 'golf buggy utility vehicle', '8 person golf carts'],
     keyTakeaways: [
       'Heavy-duty hydraulic and manual dump beds carry up to 500kg payloads for landscaping, laundry, and tools.',
       'Corrosion-resistant aircraft aluminum frames provide lifelong durability in coastal salt environments and humid nurseries.',
@@ -1326,7 +1326,7 @@ export const POSTS: BlogPost[] = [
     featured: false,
     tags: ['Electric Golf Buggy Australia', 'Electric Golf Buggies For Sale', 'Golf Buggy For Sale', 'Motorised Golf Buggy For Sale', 'Buyer Guide'],
     primaryKeyword: 'which golf cart is best',
-    supportingKeywords: ['which golf carts are the best', 'which golf cart brand is best', 'best new golf carts', 'best value golf carts', 'best quality golf carts', 'best luxury golf carts'],
+    supportingKeywords: ['which golf carts are the best', 'which golf cart brand is best', 'best new golf carts', 'best value golf carts', 'best quality golf carts', 'best luxury golf carts', 'top rated golf carts', 'best golf cart to buy', 'best golf cart', 'best rated golf cart', 'golf cart reviews'],
     keyTakeaways: [
       'Choose walk-behind motorized buggies if you enjoy walking 18 holes, have compact vehicle boot space, and play purely on standard golf courses.',
       'Choose traditional 2-seater sit-down buggies for effortless course transportation with weather tops and dedicated golf bag holders.',
@@ -1417,7 +1417,7 @@ export const POSTS: BlogPost[] = [
     featured: true,
     tags: ['Golf Buggy Australia', 'Conditional Registration', 'Electric Golf Buggy Australia', '4 Seater Lifted Golf Cart Australia', 'Road Legal Buggy'],
     primaryKeyword: 'street legal golf cart',
-    supportingKeywords: ['electric golf cart road legal', 'street legal 4 seater golf cart', 'electric buggy for adults road legal'],
+    supportingKeywords: ['electric golf cart road legal', 'street legal 4 seater golf cart', 'electric buggy for adults road legal', '6 passenger golf cars street legal'],
     keyTakeaways: [
       'Conditional registration permits driving golf buggies on designated public council roads between residential properties, golf clubs, and local shops within gazetted zones.',
       'Essential equipment mandates across all states include forward headlights, rear brake lights, turn indicators, rearview mirrors, a horn, and an amber hazard beacon.',
@@ -4980,7 +4980,7 @@ export const POSTS: BlogPost[] = [
     ],
     relatedProductSlug: 'club-car-transporter-6-commercial',
     primaryKeyword: '4 seater vs 6 seater golf buggy',
-    supportingKeywords: ['6 seater golf cart australia', 'golf buggy flip seat kit', 'best golf buggy for family of six', 'golf cart passenger capacity guide', '4 seater golf buggy australia'],
+    supportingKeywords: ['6 seater golf cart australia', 'golf buggy flip seat kit', 'best golf buggy for family of six', 'golf cart passenger capacity guide', '4 seater golf buggy australia', 'six person golf cart'],
   },
   {
     slug: 'golf-buggies-for-gated-communities-residential-estates',

@@ -295,7 +295,7 @@ export const BRAND_PAGES: BrandPage[] = [
     match: 'lvtong',
     origin: 'China',
     primaryKeyword: 'lvtong golf carts',
-    supportingKeywords: ['lvtong golf cart reviews', 'lvtong golf cart for sale', 'lvtong golf cart price', 'lvtong golf buggy', 'lvtong buggy', 'lvtong carts'],
+    supportingKeywords: ['lvtong golf cart reviews', 'lvtong golf cart for sale', 'lvtong golf cart price', 'lvtong golf buggy', 'lvtong buggy', 'lvtong carts', 'lvtong', 'lvtong price', 'best lvtong golf carts dealer in australia', 'lvtong electric golf carts with warranty', 'lvtong golf carts with lithium battery upgrade', 'lvtong golf cart reviews australia', 'lv tong utility vehicles'],
     intro: 'LVTONG electric golf buggies for Australian resorts, caravan parks and commercial operators, supplied and supported from Yatala QLD.',
     body: 'LVTONG is specified by operators who count running cost per year rather than features per brochure, and it has become a proven workhorse across Australian caravan parks and holiday resorts. The Resort Cruiser pairs a 4kW AC motor with a maintenance-free lithium pack and an on-board charger, so any standard outlet becomes a charging point without new infrastructure. Heavy-duty bumpers take the knocks that shared-use vehicles collect from bollards and gateposts. The commercial flatbed adds a low steel mesh deck that drains, turning awkward lifts into slides for nursery and grounds work.',
   },
