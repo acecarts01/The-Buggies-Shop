@@ -8,7 +8,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import RegisterInterest from '@/src/components/RegisterInterest';
 import FaqSection from '@/src/components/FaqSection';
-import { SITE, ProductItem, PRODUCTS, CATEGORIES, isElectricBuggy } from '@/src/config/site';
+import { SITE, ProductItem, PRODUCTS, CATEGORIES, BRAND_PAGES, isElectricBuggy } from '@/src/config/site';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
 import {
@@ -177,6 +177,31 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </nav>
+          )}
+
+          {!comingSoon && (
+            <nav aria-label="Shop this range by brand" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+              <h2 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] tracking-tight mb-3">
+                Shop {categoryName} by Brand
+              </h2>
+              <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+                {(() => {
+                  const inRange = BRAND_PAGES.filter((b) => rangeProducts.some((p) => p.name.toLowerCase().includes(b.match.toLowerCase())));
+                  return (inRange.length ? inRange : BRAND_PAGES).map((b) => (
+                    <li key={b.slug}>
+                      <Link href={`/shop/brand/${b.slug}/`} className="text-xs sm:text-sm text-[#E2A17A] hover:underline font-semibold">
+                        {b.name} golf buggies
+                      </Link>
+                    </li>
+                  ));
+                })()}
+                <li>
+                  <Link href="/shop/brand/" className="text-xs sm:text-sm text-[#E2A17A] hover:underline font-semibold">
+                    All golf buggy brands
+                  </Link>
+                </li>
               </ul>
             </nav>
           )}

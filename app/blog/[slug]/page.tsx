@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { SITE } from '@/src/config/site';
+import { SITE, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
 import { POSTS, toPostSummary } from '@/src/config/posts';
 import { buildTitle, clampDescription, socialImages, keywordLead } from '@/lib/seo';
 import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
@@ -66,6 +66,21 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  // Brand pages this guide is about: named in the title, excerpt, tags or slug, or
+  // mentioned twice or more in the body; else the brand of its featured product.
+  const bodyText = post.content.map((c) => c.body).join(' ').toLowerCase();
+  const head = (post.title + ' ' + post.excerpt + ' ' + post.tags.join(' ') + ' ' + post.slug.replace(/-/g, ' ')).toLowerCase();
+  const flat = (x: string) => x.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const mentions = (b: (typeof BRAND_PAGES)[number], hay: string) => hay.split(b.name.toLowerCase()).length - 1;
+  let brands = BRAND_PAGES.filter((b) => flat(head).includes(flat(b.name)) || mentions(b, bodyText) >= 2)
+    .sort((a, b) => mentions(b, bodyText) - mentions(a, bodyText))
+    .slice(0, 4);
+  if (!brands.length && post.relatedProductSlug) {
+    const rp = PRODUCTS.find((p) => p.slug === post.relatedProductSlug);
+    brands = BRAND_PAGES.filter((b) => rp && rp.name.toLowerCase().includes(b.match.toLowerCase())).slice(0, 1);
+  }
+  const brandLinks = brands.map((b) => ({ slug: b.slug, name: b.name }));
+
   const article = blogPostingSchema(post);
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -89,7 +104,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(article) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} />
+      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} />
     </>
   );
 }

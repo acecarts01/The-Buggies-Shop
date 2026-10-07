@@ -29,13 +29,15 @@ import type { BlogPost, PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
 
 interface BlogPostClientProps {
+  /** Brand pages this guide is about. */
+  brands: { slug: string; name: string }[];
   post: BlogPost;
   /** Three other posts for the footer strip, passed down so this client
    *  component never imports the full POSTS module. */
   relatedPosts: PostSummary[];
 }
 
-export default function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
+export default function BlogPostClient({ post, relatedPosts, brands }: BlogPostClientProps) {
   const [cartOpen, setCartOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [cartItems, setCartItems] = useCart();
@@ -277,6 +279,21 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
                 </Link>
               </div>
             </div>
+          )}
+
+          {brands.length > 0 && (
+            <nav aria-label="Brands in this guide" className="mt-8 p-5 bg-[#1A1D21] border border-[#2B2F34] rounded-xl">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#A8A29E] mb-2">Brands in this guide</h2>
+              <ul className="flex flex-wrap gap-x-5 gap-y-1.5">
+                {brands.map((b) => (
+                  <li key={b.slug}>
+                    <Link href={`/shop/brand/${b.slug}/`} className="text-sm text-[#E2A17A] font-semibold hover:underline">
+                      {b.name} golf buggies for sale
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           )}
 
           {/* Tags */}

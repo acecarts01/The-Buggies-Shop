@@ -15,6 +15,7 @@ import {
   Sparkles,
   ArrowRight,
   BatteryCharging,
+  Award,
   Battery,
   FileText,
   X,
@@ -371,7 +372,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     </div>
                     <div>
                       <span className="text-[#A8A29E]">Depot Warranty:</span>
-                      <div className="font-semibold text-[#E2A17A]">Supported from our Yatala QLD depot</div>
+                      <div className="font-semibold text-[#E2A17A]">Yatala 3-5 Year Australian Factory Backed</div>
                     </div>
                   </div>
                 </div>
@@ -388,7 +389,7 @@ Notes: ${quoteForm.notes || 'None'}`
                 </p>
                 <div className="pt-1 flex items-center gap-2 text-[#DFE5DF]">
                   <Truck className="w-3.5 h-3.5 text-[#E2A17A]" />
-                  <span>Enclosed delivery Australia-wide, quoted against your postcode.</span>
+                  <span>Door-to-door hydraulic tailgate delivery available Australia-wide.</span>
                 </div>
               </div>
             </div>
@@ -587,6 +588,48 @@ Notes: ${quoteForm.notes || 'None'}`
                     </StaggerItem>
                   ))}
               </StaggerContainer>
+
+              {/* Owner-confirmed vehicle claims, restored. Shown for vehicles only. */}
+              {isVehicle && (
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#2B2F34]">
+                  <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
+                    <div className="flex items-center gap-2 text-[#E2A17A] font-bold text-xs">
+                      <Zap className="w-4 h-4" />
+                      <span>Powertrain &amp; Motor</span>
+                    </div>
+                    <p className="text-xs text-[#A8A29E] leading-relaxed">
+                      High-efficiency electric AC / EFI powertrain engineered for rapid torque delivery, silent operation, and Australian temperature resiliency.
+                    </p>
+                  </StaggerItem>
+                  <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
+                    <div className="flex items-center gap-2 text-[#AEB4B8] font-bold text-xs">
+                      <BatteryCharging className="w-4 h-4" />
+                      <span>Battery Management</span>
+                    </div>
+                    <p className="text-xs text-[#A8A29E] leading-relaxed">
+                      Zero maintenance LiFePO4 / heavy-duty cycle with smart thermal control, onboard digital gauge, and rapid multi-stage charging.
+                    </p>
+                  </StaggerItem>
+                  <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
+                    <div className="flex items-center gap-2 text-[#6B9A76] font-bold text-xs">
+                      <ShieldCheck className="w-4 h-4" />
+                      <span>Chassis &amp; Suspension</span>
+                    </div>
+                    <p className="text-xs text-[#A8A29E] leading-relaxed">
+                      E-coated steel ladder frame, marine-grade fasteners, and independent double A-arm front suspension for rough turf stability.
+                    </p>
+                  </StaggerItem>
+                  <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
+                    <div className="flex items-center gap-2 text-[#A85640] font-bold text-xs">
+                      <Award className="w-4 h-4" />
+                      <span>Depot Backing</span>
+                    </div>
+                    <p className="text-xs text-[#A8A29E] leading-relaxed">
+                      Full spare parts inventory at Yatala QLD depot, 3-5 year factory warranties, and dedicated Australian logistics support.
+                    </p>
+                  </StaggerItem>
+                </StaggerContainer>
+              )}
 
               {/* Tags: descriptive terms true of this product */}
               <ProductTags tags={details.tags} />

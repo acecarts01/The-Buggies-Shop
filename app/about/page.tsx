@@ -217,7 +217,7 @@ export default function AboutPage() {
               className="text-xl font-serif font-bold text-[#ffffff]"
             />
             <StaggeredParagraph delay={0.1} className="text-xs sm:text-sm text-[#A8A29E] max-w-lg mx-auto">
-              Our engineering workshop and vehicle showroom prepares direct deliveries and welcomes collection in Yatala QLD. Speak directly with an Australian buggy technician.
+              Our engineering workshop in Yatala QLD prepares every delivery. Speak directly with an Australian buggy technician.
             </StaggeredParagraph>
             <div className="flex flex-wrap justify-center gap-4 pt-2">
               <Link

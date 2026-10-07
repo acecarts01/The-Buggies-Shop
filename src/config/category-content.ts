@@ -504,7 +504,7 @@ function build(): Record<string, CategoryContent> {
     // ------------------------------------------------------- accessories
     'accessories-spare-parts': {
       primaryKeyword: 'golf buggy accessories',
-      supportingKeywords: ['golf buggy accessories australia', 'golf buggy wheels', 'golf buggy tyres', 'golf cart accessories'],
+      supportingKeywords: ['golf buggy accessories australia', 'golf buggy wheels', 'golf buggy tyres', 'golf cart accessories', 'golf buggy parts australia', 'golf cart parts australia', 'golf cart parts'],
       faqs: [
         {
           q: 'What golf buggy accessories do you sell?',

@@ -55,7 +55,7 @@ export function ShippingPaymentBlock() {
         <div className="space-y-1.5">
           <h3 className="text-sm font-bold text-[#ffffff]">Warranty and stock</h3>
           <p>
-            Warranty and parts support are handled from our Yatala QLD depot, not an overseas returns address. Keep your tax invoice as proof of purchase. Availability changes, so confirm this item is on the floor before you plan around a delivery date. More answers are in our{' '}
+            Every product carries an Australian factory warranty supported from our Yatala QLD depot, not an overseas returns address. Because we hold parts in Australia, a warranty claim is handled locally. Keep your tax invoice as proof of purchase. Availability changes, so confirm this item is on the floor before you plan around a delivery date. More answers are in our{' '}
             <Link href="/faq/" className="text-[#E2A17A] font-semibold hover:underline">
               frequently asked questions
             </Link>

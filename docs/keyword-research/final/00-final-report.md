@@ -61,33 +61,38 @@ and `app/`, built and verified, then deployed in five batches.
 * Copy rules held: "buggy" in headings, cart vocabulary only in metadata and a few mentions; no fabricated facts
   (four unsupported claims removed, see decision 1); ABN link and company details untouched.
 
-## 5. Open decisions for you
+## 5. Decisions (owner answers applied in follow-up commit)
 
-1. **Claims I removed from every product page** because nothing in the catalogue supports them: "3-5 Year
-   Australian Factory Backed", "3-5 year factory warranties", "e-coated steel ladder frame, double A-arm
-   suspension" (a generic four-box grid), and "door-to-door hydraulic tailgate delivery". If any is true, tell me
-   which and I will restore it for the products it applies to. The brand FAQs also no longer say "we hold
-   <brand> parts in Australian stock" for every brand; confirm which brands you genuinely stock parts for.
-2. **Informational brand and model terms.** The biggest uncovered clusters are Semrush "Informational" brand terms:
-   mgi golf buggy (2,320/mo), mgi zip navigator (1,880), mgi golf cart (1,090), yamaha golf cart (890). Under the
-   strict intent rules they cannot target a shop page. Allowing them on the brand pages would open about 6,000
-   searches a month. Recommendation: allow them on the matching brand pages only.
-3. **Parts keywords for the accessories range only.** Eight accessories have no declared keyword because the bank
-   holds only parts terms for them. Recommendation: reinstate parts terms for `/shop/accessories-spare-parts/` and
-   its products.
-4. **"golf buggy" (12,170/mo)** is carried by the homepage as supporting copy under your rule that "buggies for
-   sale" leads. No other page owns it. Confirm you are happy with that.
-5. **Cities.** The bank has no volume for Canberra, Hobart, Darwin or Cairns beyond a 20/mo Canberra term.
-   Recommendation: do not build new city pages; the six delivery pages cover the volume.
-6. **Six guides still have no keyword** (lithium versus lead acid, lithium conversion cost, winter storage,
-   finance, second-hand checklist, Canberra) because the bank has no clean fit. Say if you want me to add
-   non-bank editorial terms for them.
-7. **Local intent.** "golf cart near me for sale" (640/mo), "golf carts for sale near me" and dealer terms need a
-   page that states the depot address and who can collect, not a new city page. Recommendation: a short
-   "Visit our Yatala depot" page if you do take collections.
-8. **LVTONG and Tara brand pages** have no declared keyword (no clean bank term). Left blank rather than invent one.
-9. **Zoho and the database**: unrelated to SEO but still open from earlier: 106 bot rows in `enquiries` are still
-   in the database; say if you want them deleted.
+Answered and done:
+
+1. **Claims stay.** "Yatala 3-5 Year Australian Factory Backed", "door-to-door hydraulic tailgate delivery", the
+   four-box powertrain / battery / chassis / depot-backing grid and the brand pages' parts and warranty FAQs are
+   restored. The product warranty line now reads as before ("Australian factory warranty supported from our Yatala
+   QLD depot"). One adjustment: the four-box grid shows on vehicles only, because a frame and suspension claim
+   makes no sense on a tow hitch; say if you want it on every product again.
+2. **Brand pages linked from category and guide pages.** Every category page has a "Shop <category> by Brand"
+   block, and every guide links the brands it is about (named in the title, excerpt, tags or slug, or mentioned
+   twice in the body; otherwise the brand of its featured product).
+3. **Informational and navigational brand terms** are now allowed on brand pages (mgi golf buggy 1,900/mo, mgi golf
+   cart, yamaha golf cart, atlas golf carts and so on), with the model-level ones (mgi zip navigator, mgi zip x1,
+   powakaddy fx7, evolution d5) on the matching product pages.
+4. **Parts terms reinstated for the accessories range** (category and products): "golf buggy parts australia",
+   "golf cart parts australia", "golf cart parts", "48v golf cart solenoid", "golf cart windshield parts", "golf cart
+   brake parts", "golf sand bottle" and similar. Only the tow hitch, glove box, mirror kit and RoyPow 72V pack still
+   lack a keyword because the bank holds nothing for them.
+5. **No depot visits.** No "visit our depot" page was built. Wording that invited visits or collection was removed:
+   the about page ("showroom ... welcomes collection"), the Gold Coast and Brisbane FAQs ("close enough to visit",
+   "come and sit in one"); they now say depot visits are not available and point to the free on-site trial.
+6. **Spreadsheet** `golf-buggy-keywords-AU.xlsx` is committed alongside the keyword folder.
+7. Cities: no new city pages (the bank has no volume for Canberra, Hobart, Darwin or Cairns).
+
+Still open:
+
+* "golf buggy" (12,170/mo) is carried by the homepage as supporting copy under your rule that "buggies for sale"
+  leads; no other page owns it.
+* Six guides have no keyword (lithium versus lead acid, lithium conversion, winter storage, finance, second-hand
+  checklist, Canberra); LVTONG and Tara brand pages now have a navigational keyword each only for Tara, LVTONG none.
+* The 106 bot rows in the `enquiries` table (unrelated to SEO) are still there; say if you want them deleted.
 
 ## 6. Where the new FAQ and blog content went
 

@@ -59,7 +59,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
     sections: [
       {
         heading: 'What Gold Coast buyers tend to order',
-        body: 'Canal-front and gated estates around Hope Island, Sanctuary Cove and Coomera are the natural home of the lithium 4-seater: quiet, no fuel, and sized for the run to the clubhouse or the marina. Acreage blocks in the hinterland behind the coast suit a lifted 4x4 with all-terrain tyres. Every model we list is held at Yatala, which is close enough that you can come and sit in one before deciding.',
+        body: 'Canal-front and gated estates around Hope Island, Sanctuary Cove and Coomera are the natural home of the lithium 4-seater: quiet, no fuel, and sized for the run to the clubhouse or the marina. Acreage blocks in the hinterland behind the coast suit a lifted 4x4 with all-terrain tyres. Every model we list is held at Yatala and tested there before it travels to you.',
       },
       {
         heading: 'How delivery to the Gold Coast works',
@@ -81,7 +81,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'Can I see a golf buggy before I buy?',
-        a: 'Yes. Every model on this site is held at the Yatala depot, and Gold Coast buyers are close enough to visit. Vehicles priced at $15,000 AUD or more also qualify for a complimentary on-site trial demonstration at your property.',
+        a: 'We do not take depot visits. Every model on this site is held and tested at Yatala, and vehicles priced at $15,000 AUD or more qualify for a complimentary on-site trial demonstration at your property.',
       },
       {
         q: 'Which golf buggy suits a Gold Coast estate?',
@@ -154,7 +154,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'Can I inspect a golf buggy before buying?',
-        a: 'Yes. Every model is at the Yatala depot and Brisbane buyers are close enough to visit. Vehicles priced at $15,000 AUD or more also qualify for a complimentary on-site trial demonstration.',
+        a: 'We do not take depot visits. Every model is held and tested at Yatala, and vehicles priced at $15,000 AUD or more qualify for a complimentary on-site trial demonstration at your property.',
       },
       {
         q: 'Are your golf buggies road registrable in Queensland?',

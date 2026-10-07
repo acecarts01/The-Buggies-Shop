@@ -114,6 +114,14 @@ export default async function BrandPage({ params }: PageProps) {
       a: `Of our ${n} ${b.name} ${n === 1 ? 'model' : 'models'}, ${electric} ${electric === 1 ? 'is' : 'are'} electric and ${petrol} ${petrol === 1 ? 'is' : 'are'} petrol.`,
     },
     {
+      q: `Can you get ${b.name} parts in Australia?`,
+      a: `We hold ${b.name} parts in Australian stock. That is the practical difference between a repair measured in days and one measured in weeks waiting on an international order. Tell us the model and year of your buggy and we will confirm the right part from Yatala before you order.`,
+    },
+    {
+      q: `Does ${b.name} come with an Australian warranty?`,
+      a: `Yes. ${b.name} vehicles bought from us carry an Australian factory warranty supported from Yatala QLD, not an overseas returns address. Because we hold parts locally, a claim is handled here rather than becoming a freight exercise. Keep your tax invoice as proof of the purchase date.`,
+    },
+    {
       q: `Is ${b.name} the right brand for my property?`,
       a: `Brand matters less than matching the buggy to your ground. Tell us the terrain, how many people you carry and the daily distance, and we will recommend the right model even if it is not a ${b.name}.`,
     },

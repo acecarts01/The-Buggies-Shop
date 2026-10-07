@@ -59,7 +59,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "evolution-d5-ranger-4-plus-2": {
     fullDescription: "The Evolution D5 Ranger 4+2 carries six passengers across expansive private properties and championship fairways without a second trip. Forward-facing seating in both rows means conversation stays natural and nobody rides backwards over rough ground, which matters on long estate driveways and resort transfers. A 110Ah lithium pack supplies the range for a full day of running, and the nine-inch touchscreen, Bluetooth soundbar and foldable windshield make it as suited to a summer afternoon around the property as to eighteen holes. Families choosing a buggy as a genuine second vehicle tend to land here: it is the largest-capacity model in our luxury range while still driving with the quiet, low-effort manners of a lithium buggy. Tested at Yatala QLD and delivered Australia-wide by enclosed transporter.",
     primaryKeyword: "evolution d5 golf cart for sale",
-    supportingKeywords: ["evolution d5 golf cart price", "buy evolution d5 golf cart", "evolution d5 golf cart cost", "evolution d5 golf cart reviews", "evolution 6 seater golf cart"],
+    supportingKeywords: ["evolution d5 golf cart price", "buy evolution d5 golf cart", "evolution d5 golf cart cost", "evolution d5 golf cart reviews", "evolution 6 seater golf cart", "evolution d5 golf carts"],
     tags: [
       "evolution d5 ranger 4+2 plus",
       "evolution golf buggy",
@@ -101,7 +101,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "tara-roadster-2-plus-2-lifted": {
     fullDescription: "The Tara Roadster 2+2 is the value entry into lifted four-seat buggies, and it earns that position with hardware rather than trim. Hydraulic disc brakes on a lifted chassis give you genuine stopping control on sloped semi-rural driveways, where drum brakes fade and feel vague under load. The rear flip seat converts from passenger bench to flat cargo deck in seconds, so the same buggy carries the family down to the gate in the morning and mulch, feed or tools in the afternoon. A full LED light package keeps it usable at dusk on unlit property tracks. For lifestyle blocks and semi-rural acreage that need ground clearance and dual-purpose flexibility without a luxury price tag, this is the most sensible buy in the range.",
     primaryKeyword: "tara golf carts price",
-    supportingKeywords: ["tara roadster 2 golf cart reviews"],
+    supportingKeywords: ["tara roadster 2 golf cart reviews", "tara roadster 2 golf cart"],
     tags: [
       "tara roadster 2+2 lifted",
       "tara golf buggy",
@@ -185,7 +185,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "ezgo-rxv-elite-lithium": {
     fullDescription: "The defining feature of the RXV ELiTE is what happens when you lift your foot: the automatic electromagnetic brake holds the buggy the moment you step off the throttle, so it will not creep or run away on a steep fairway slope or a sloped village driveway. For retirement village residents and anyone parking on an incline, that single behaviour is worth more than any spec on the sheet. Samsung SDI lithium batteries supply consistent power delivery through the full charge rather than fading toward the end like lead-acid, and the high-efficiency AC drive keeps consumption low across a full round. Fleet buyers value the reduced servicing burden across many units. Supported with Australian parts and warranty from our Yatala QLD depot, delivered nationwide by enclosed transporter.",
     primaryKeyword: "ezgo rxv elite for sale",
-    supportingKeywords: ["ezgo elite golf cart for sale", "ezgo elite golf cart price", "ezgo rxv golf cart for sale", "ezgo rxv golf cart price", "ezgo rxv electric golf cart"],
+    supportingKeywords: ["ezgo elite golf cart for sale", "ezgo elite golf cart price", "ezgo rxv golf cart for sale", "ezgo rxv golf cart price", "ezgo rxv electric golf cart", "ezgo rxv"],
     tags: [
       "e-z-go rxv elite lithium",
       "e-z-go golf buggy",
@@ -658,7 +658,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "mgi-ai-navigator-gps-remote-buggy": {
     fullDescription: "The gyroscope straight tracker is what separates a good remote buggy from a frustrating one. Without it, any motorised buggy drifts off line on a cambered fairway and you spend the walk correcting it; the gyroscope holds the chosen heading across slopes so the buggy tracks where you pointed it. Full directional remote control means you can send it ahead to the next tee or around a bunker while you play, and the integrated touchscreen GPS puts distances in front of you without reaching for a phone or a separate rangefinder. For private golfers who walk the course, this is the flagship of the MGI range and the model to choose if you want the buggy to require no attention at all.",
     primaryKeyword: "mgi ai navigator gps+ remote golf buggy",
-    supportingKeywords: ["mgi ai navigator gps+ buggy", "mgi golf buggy remote control", "mgi ai navigator gps+ review"],
+    supportingKeywords: ["mgi ai navigator gps+ buggy", "mgi golf buggy remote control", "mgi ai navigator gps+ review", "mgi navigator", "mgi ai navigator gps+"],
     tags: [
       "mgi ai navigator gps remote buggy",
       "mgi golf buggy",
@@ -679,7 +679,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "mgi-zip-navigator-all-terrain": {
     fullDescription: "Twin 230W motors drive the wheels independently, which is what gives the Zip Navigator its footing on wet slopes and cambered lies where a single-motor buggy scrabbles and slides sideways. The rear fold-out fifth wheel is the other half of the story: it sits behind the main axle and stops the buggy tipping backwards when climbing steep contours, a genuine risk on undulating Australian courses when a full bag sits high on the frame. A 24V 380Wh lithium pack supplies the sustained power both motors need. For walk-behind golfers whose home course has real elevation rather than gentle undulation, this is the stability specification worth paying for.",
     primaryKeyword: "mgi zip navigator all terrain motorised golf buggy",
-    supportingKeywords: ["mgi navigator all terrain", "mgi navigator all terrain golf buggy reviews"],
+    supportingKeywords: ["mgi navigator all terrain", "mgi navigator all terrain golf buggy reviews", "mgi zip navigator", "mgi zip navigator all terrain"],
     tags: [
       "mgi zip navigator all-terrain",
       "mgi golf buggy",
@@ -721,7 +721,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "powakaddy-fx7-gps-lithium": {
     fullDescription: "PowaKaddy's FX7 brings UK engineering and a genuinely usable screen to the walk-behind category. The 3.5-inch OCA full colour touchscreen comes preloaded with over 40,000 courses worldwide, so it works on your home course and on holiday without a subscription hunt or a manual download before every round. OCA bonding is the reason it stays readable in Australian sunlight where cheaper laminated screens wash out. The high-power 30V Plug 'n' Play lithium system fits and removes without tools, which matters when the buggy lives in a car boot between rounds and the battery comes inside to charge. For tech-focused golfers who want the data on the buggy rather than the wrist, this is the pick.",
     primaryKeyword: "powakaddy fx7 gps electric golf trolley",
-    supportingKeywords: ["powakaddy fx7 gps", "powakaddy fx7 review", "powakaddy electric golf buggies", "powakaddy golf trolley"],
+    supportingKeywords: ["powakaddy fx7 gps", "powakaddy fx7 review", "powakaddy electric golf buggies", "powakaddy golf trolley", "fx7 powakaddy", "powakaddy fx7 ebs"],
     tags: [
       "powakaddy fx7 gps lithium",
       "powakaddy golf buggy",
@@ -763,7 +763,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "mgi-zip-x1-lithium-buggy": {
     fullDescription: "The Zip X1 is where most Australians make the move from pushing to motorised, and it is deliberately uncomplicated. A single variable speed dial is the entire control interface, so there is no menu, no pairing and nothing to learn before your first round. The Click & Go lithium system drops the battery in and out without tools or cables, and the compact fold mechanism collapses the frame quickly for a standard car boot. Measure your boot before ordering and the rest takes care of itself. For first-time motorised buyers, this is the model that answers the real question, which is not what it can do but whether it will be simple enough to use every week.",
     primaryKeyword: "mgi zip x1 motorised golf buggy",
-    supportingKeywords: ["mgi zip x1 review", "mgi zip x1 price", "mgi x1 electric golf trolley"],
+    supportingKeywords: ["mgi zip x1 review", "mgi zip x1 price", "mgi x1 electric golf trolley", "mgi zip x1"],
     tags: [
       "mgi zip x1 lithium buggy",
       "mgi golf buggy",
@@ -941,7 +941,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "curtis-1268-400a-programmable-motor-controller": {
     fullDescription: "The controller is the component that decides how much current reaches the motor, which makes it the real limit on a lifted or high-torque conversion. Fitting larger tyres and a lift kit increases the load on every hill, and a factory controller current-limits or overheats long before the motor does. The Curtis 1268 raises that ceiling to 400 amps peak and adds programmable acceleration and speed curves, so the buggy can be tuned for torque on steep acreage rather than left with a flat factory map. Regenerative braking control recovers energy on descents and adds engine-braking feel. A well-known industrial unit with parts and programming knowledge widely available in Australia.",
     primaryKeyword: "electric golf cart controller",
-    supportingKeywords: ["electric golf cart motor controller", "electric golf cart speed controller"],
+    supportingKeywords: ["electric golf cart motor controller", "electric golf cart speed controller", "golf buggy controller", "golf buggy speed controller", "48v golf cart controller"],
     tags: [
       "curtis 1268 400a programmable motor controller",
       "curtis golf buggy accessory",
@@ -962,7 +962,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "navitas-600a-ac-controller-upgrade-kit": {
     fullDescription: "A 600-amp AC controller upgrade for owners who want a decisive change rather than a marginal one, delivering both substantially higher top speed and the hill torque that heavy lifted buggies demand. The feature that sets it apart is Bluetooth on-the-fly control: performance modes can be changed from a dashboard dial or a phone, so the same vehicle can run a restricted profile when guests, children or staff are driving and full output when you are. That lockout is a genuine safety consideration on a family property. AC drive also brings smoother power delivery and better regenerative braking than a DC system. Fitting is best handled by an experienced technician.",
     primaryKeyword: "golf cart controllers for sale",
-    supportingKeywords: ["best golf cart controller", "how much is a controller for a golf cart"],
+    supportingKeywords: ["best golf cart controller", "how much is a controller for a golf cart", "golf cart controller replacement"],
     tags: [
       "navitas 600a ac controller upgrade kit",
       "navitas golf buggy accessory",
@@ -981,7 +981,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "universal-48v-to-12v-30a-voltage-reducer": {
     fullDescription: "Every accessory worth adding to a golf buggy runs on 12V, and the pack does not. A voltage reducer is the correct way to bridge that gap: it steps 48V down to a clean, regulated 12V supply at up to 30 amps, which is enough headroom for an LED light kit, a soundbar and USB charging together. Tapping a single battery in the bank instead, which is the shortcut people take, unbalances the pack and shortens the life of every cell in it. Key-switch triggering means it powers down with the buggy rather than draining the pack overnight. Waterproof cast aluminium housing handles under-seat heat and moisture.",
     primaryKeyword: "best golf cart dc converter",
-    supportingKeywords: ["12v accessories for golf cart"],
+    supportingKeywords: ["12v accessories for golf cart", "golf cart dc converter"],
     tags: [
       "universal 48v/36v to 12v 30a voltage reducer",
       "golf buggy battery",
@@ -999,6 +999,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "madjax-alpha-lux-street-legal-led-light-kit": {
     fullDescription: "A complete lighting package rather than a pair of headlights, and that distinction matters if the buggy is used on private estate roads shared with vehicles. It includes automotive LED projector headlights, sequential turn signals, hazard lights, a brake switch and a mechanical horn, which together cover the signalling equipment normally expected for legitimate road use. Projector optics put light where it is needed with a defined cut-off rather than scattering glare at oncoming drivers. Note that conditional registration requirements differ by state, so confirm what your state requires before assuming a kit alone makes a buggy road legal. Supplied with mounting hardware and dispatched from Yatala QLD.",
     primaryKeyword: "golf cart lights",
+    supportingKeywords: ["golf cart turn signal kit", "universal golf cart headlight kit"],
     tags: [
       "madjax alpha lux street legal led light kit",
       "madjax golf buggy accessory",
@@ -1016,6 +1017,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "heavy-duty-4-wheel-hydraulic-disc-brake-kit": {
     fullDescription: "Factory rear drum brakes are the weakest point on most golf buggies, and they become genuinely inadequate once a lift kit, larger tyres, extra seats or a loaded cargo tray increase the mass being stopped. Drums also fade when hot and hold water after wet grass, which is precisely when you need them. This kit replaces all four corners with dual-piston hydraulic calipers on stainless steel lines, giving consistent, repeatable stopping that does not deteriorate down a long descent. Stainless lines resist the corrosion that causes soft pedal feel over time. Direct bolt-on fitment means no fabrication. If you have lifted a buggy, this is the upgrade to pair with it.",
+    primaryKeyword: "golf cart brake parts",
     tags: [
       "heavy duty 4-wheel hydraulic disc brake kit",
       "golf buggy accessory",
@@ -1033,6 +1035,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "all-weather-heavy-duty-pvc-enclosure": {
     fullDescription: "A four-sided enclosure turns a buggy into a usable vehicle through winter mornings, wet season downpours and dusty afternoons, which for most owners is the difference between using it year round and leaving it in the shed. The clear marine-grade vinyl windows roll up individually, so ventilation can be adjusted rather than being an all-or-nothing choice. Marine vinyl is specified because standard clear PVC yellows and cracks under Australian UV within a season or two. Heavy-duty zippers and reinforced brass eyelets are the components that usually fail first on cheap enclosures, which is exactly why they are upgraded here. Universal fit options cover most common two and four-seat models.",
     primaryKeyword: "golf buggy enclosures for sale",
+    supportingKeywords: ["golf buggy enclosures"],
     tags: [
       "all-weather heavy-duty pvc enclosure",
       "golf buggy accessory",
@@ -1051,7 +1054,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "all-terrain-23x10-5-12-wheel-tyre-combo": {
     fullDescription: "A matched wheel and tyre package, supplied mounted with lug nuts included, so there is no separate fitting exercise. The 6-ply construction is the specification that matters on rural property: standard golf tyres are built for turf and puncture readily on stubble, stones and stick, while a 6-ply carcass resists that. Twenty-three-inch diameter adds genuine ground clearance under the axle rather than just filling the arch, and the aggressive tread clears mud instead of packing with it. Diamond-cut 12-inch alloy rims handle the side loads of off-camber driving better than pressed steel. Pair with a lift kit for the intended geometry, and check clearance before fitting to an unlifted chassis.",
     primaryKeyword: "golf cart wheels and tyres",
-    supportingKeywords: ["golf cart tyres", "golf cart wheels", "golf cart wheels and rims", "golf buggy tyres wheels", "all terrain golf cart tires"],
+    supportingKeywords: ["golf cart tyres", "golf cart wheels", "golf cart wheels and rims", "golf buggy tyres wheels", "all terrain golf cart tires", "replacement golf buggy wheels"],
     tags: [
       "all-terrain 23x10.5-12 wheel & tyre combo set of 4",
       "golf buggy accessory",
@@ -1071,6 +1074,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "foldable-tinted-acrylic-windshield-system": {
     fullDescription: "A split windshield that folds down, which is the practical arrangement for Australian conditions: up for cold mornings, insects and rain, down for airflow on hot afternoons. Fixed windshields force you to choose once and live with it. High-impact acrylic resists the stone and stick strikes that shatter glass, and the smoke tint blocks UV, which matters as much for the driver as for the dashboard and seats that would otherwise fade and crack. Snug noise-reduction clips are a small detail that prevents the buzz and rattle that makes cheaper folding windshields irritating at speed. A straightforward comfort upgrade that is fitted in minutes.",
+    primaryKeyword: "golf cart windshield parts",
     tags: [
       "foldable tinted acrylic windshield system",
       "golf buggy accessory",
@@ -1087,6 +1091,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "heavy-duty-solenoid-albright-48vdc-200a": {
     fullDescription: "The solenoid is the high-current switch between the battery pack and the motor, and it is a common failure point on buggies that have been upgraded or worked hard. Every start draws a current spike through its contacts, and a lightweight solenoid pits and welds under that duty until it either sticks closed or stops passing current. The Albright unit uses silver alloy contacts with a continuous duty rating, meaning it is built to stay energised for extended periods without overheating, rather than for intermittent switching. If your buggy clicks but will not move, or has started intermittently cutting out, this is the part to suspect. Industrial-grade and stocked at Yatala QLD.",
+    primaryKeyword: "48v golf cart solenoid",
+    supportingKeywords: ["48 volt golf cart solenoid", "golf cart solenoid replacement"],
     tags: [
       "heavy duty solenoid albright 48vdc 200a",
       "albright golf buggy accessory",
@@ -1104,6 +1110,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "replacement-mgi-ai-zip-remote-controller": {
     fullDescription: "The official replacement handheld remote for MGI Zip Navigator and Ai Series buggies. Remotes lead a hard life clipped to a bag or a belt through every round, and a cracked case, failed button or dead internal battery does not justify replacing an otherwise healthy buggy. This is the genuine unit with pre-programmed pairing capability, so it links to your buggy without a service visit. USB-C charging means it takes the same cable as everything else rather than a proprietary lead you will lose. Using the official remote rather than a generic substitute preserves correct pairing behaviour and directional response. Held in Australian stock and dispatched from Yatala QLD.",
     primaryKeyword: "mgi remote golf buggy",
+    supportingKeywords: ["mgi golf buggy remote control replacement", "mgi zip navigator replacement remote"],
     tags: [
       "replacement mgi ai & zip remote controller unit",
       "mgi golf buggy accessory",
@@ -1137,7 +1144,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "heavy-duty-rear-flip-seat-kit-2-to-4": {
     fullDescription: "The most cost-effective way to add capacity to a buggy you already own. Rather than trading a two-seater for a four-seater, this kit converts it: rear-facing seating for two more passengers that folds flat into a cargo tray when you need to carry rather than seat. That dual purpose is why it suits property owners as much as families, since the same vehicle handles the school gate and the feed run. The powder-coated steel frame resists the corrosion that would otherwise start at every weld and bolt hole in coastal or irrigated conditions. Consider pairing it with a seatbelt set and upgraded brakes, since added passengers mean added mass to stop.",
     primaryKeyword: "golf cart rear flip seat",
-    supportingKeywords: ["golf cart folding rear seat", "golf cart rear seat kit", "golf cart rear seat"],
+    supportingKeywords: ["golf cart folding rear seat", "golf cart rear seat kit", "golf cart rear seat", "golf cart rear seat replacement parts"],
     tags: [
       "heavy duty rear flip seat kit converts 2 to 4 seater",
       "golf buggy accessory",
@@ -1193,6 +1200,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "waterproof-marine-grade-bluetooth-soundbar": {
     fullDescription: "Marine-grade IP67 construction is the right specification for a golf buggy, because the vehicle lives outdoors and gets rained on, hosed down and covered in dust regardless of intent. IP67 means fully protected against dust and capable of surviving temporary immersion, which comfortably covers weather and washing. Bass radiators produce genuine low end from a compact enclosure without the ported bulk that would not survive the vibration of rough ground. Integrated RGB accent lighting is customisable, and the direct clamp mount fits roll cages and roof struts without drilling. Pair it with a voltage reducer rather than tapping a single battery, which unbalances the pack.",
+    primaryKeyword: "golf cart speaker mounts",
+    supportingKeywords: ["bluetooth golf cart", "golf cart with stereo"],
     tags: [
       "waterproof marine grade bluetooth soundbar 26-inch",
       "golf buggy accessory",
@@ -1210,7 +1219,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "retractable-seatbelt-system-set": {
     fullDescription: "E-Mark certification is the meaningful detail here: it means the harness has been tested and approved against a recognised international standard rather than simply resembling a seatbelt. For anyone carrying children, elderly passengers or driving on sloped or uneven ground, that distinction is worth insisting on. The three-point lap and shoulder configuration restrains the torso as well as the hips, which is what prevents the forward pitch that causes most buggy injuries. Automatic retraction keeps the belts out of the door aperture and off the ground when unused, so they stay clean and actually get worn. Heavy-duty steel mounting brackets are included, and the kit should be anchored to structural frame points.",
     primaryKeyword: "golf cart seat belts",
-    supportingKeywords: ["golf cart seat belt kit", "golf cart retractable seat belts"],
+    supportingKeywords: ["golf cart seat belt kit", "golf cart retractable seat belts", "do golf carts have seat belts"],
     tags: [
       "retractable seatbelt system set front & rear",
       "golf buggy accessory",
@@ -1243,6 +1252,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "heavy-duty-sand-bottle-assembly-dual-set": {
     fullDescription: "A dual set of divot bottles with curved easy-pour necks and rattle-free bracket mounts. Repairing divots is basic course etiquette and most clubs expect it, but factory bottle mounts are notorious for rattling loose over a round until they are removed and left in the shed. The rattle-free bracket design is the entire point of upgrading: mounts that stay quiet and stay put get used, while ones that buzz constantly do not. The curved neck pours accurately into the divot rather than scattering sand across the surrounding turf, which is what makes the repair actually take. Supplied as a pair with side-frame mounting hardware.",
+    primaryKeyword: "golf sand bottle",
+    supportingKeywords: ["what is a sand bottle used for in golf"],
     tags: [
       "heavy duty sand bottle assembly dual set",
       "golf buggy accessory",
