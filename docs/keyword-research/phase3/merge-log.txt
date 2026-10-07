@@ -1,0 +1,54 @@
+new     C14934 "lvtong golf carts" v210 Navigational
+new     C14935 "lvtong" v70 Navigational
+new     C14936 "lvtong golf cart reviews" v50 Commercial
+new     C14937 "tara golf carts" v50 Navigational
+exists  "top rated golf carts" -> C00213
+merged  "lvtong golf car" -> C14934 "lvtong golf carts"
+merged  "4 person golf cart" -> C00081 "4 seater golf cart"
+merged  "6 passenger golf cart" -> C01432 "6 seater golf cart"
+merged  "6 person golf cart" -> C01432 "6 seater golf cart"
+merged  "best golf carts to buy" -> C01177 "best golf car to buy"
+new     C14938 "best new golf carts" v20 Commercial
+new     C14939 "best value golf carts" v20 Commercial
+merged  "brand new golf cart" -> C00807 "brand new golf car"
+new     C14940 "follow golf cart reviews" v20 Commercial
+new     C14941 "follow me golf cart reviews" v20 Commercial
+new     C14942 "four person golf carts" v20 Transactional
+merged  "golf cart reviews" -> C00963 "golf car review"
+new     C14943 "luxury 6 seater golf cart" v20 Commercial
+new     C14944 "lvtong buggy" v20 Commercial
+new     C14945 "lvtong carts" v20 Commercial
+new     C14946 "lvtong golf buggy" v20 Commercial
+new     C14947 "lvtong golf cart for sale" v20 Transactional
+new     C14948 "lvtong golf cart price" v20 Transactional
+new     C14949 "lvtong price" v20 Transactional
+merged  "onward golf carts for sale" -> C07456 "onward golf cart for sale"
+new     C14950 "tara golf cart reviews" v20 Commercial
+merged  "tara golf carts reviews" -> C14950 "tara golf cart reviews"
+merged  "the best golf carts" -> C00228 "best golf cart"
+merged  "4 person golf carts" -> C00081 "4 seater golf cart"
+merged  "5 person golf cart" -> C00431 "5 passenger golf cart"
+merged  "6 person street legal golf cart" -> C09157 "6 passenger golf cars street legal"
+new     C14951 "8 person golf carts" v10 Commercial
+new     C14952 "best 4 person golf cart" v10 Commercial
+new     C14953 "best luxury golf carts" v10 Commercial
+new     C14954 "best lvtong golf carts dealer in australia" v10 Transactional
+new     C14955 "best quality golf carts" v10 Commercial
+merged  "best rated golf carts" -> C10826 "best rated golf cart"
+merged  "brand new golf carts" -> C00807 "brand new golf car"
+merged  "golf carts brand new" -> C00807 "brand new golf car"
+merged  "golf carts reviews" -> C00963 "golf car review"
+new     C14956 "lv tong australia golf carts" v10 Commercial
+new     C14957 "lv tong electric golf carts" v10 Commercial
+new     C14958 "lv tong utility vehicles" v10 Commercial
+new     C14959 "lvtong electric golf carts with warranty" v10 Commercial
+merged  "lvtong golf cart review" -> C14936 "lvtong golf cart reviews"
+merged  "lvtong golf carts for sale" -> C14947 "lvtong golf cart for sale"
+new     C14960 "lvtong golf carts with lithium battery upgrade" v10 Commercial
+new     C14961 "six person golf cart" v10 Transactional
+new     C14962 "tempo golf cart for sale" v10 Transactional
+merged  "lvtong cart" -> C14945 "lvtong carts"
+merged  "lvtong electric golf carts" -> C14957 "lv tong electric golf carts"
+new     C14963 "lvtong golf cart reviews australia" v0 Commercial
+new     C14964 "lvtong maintenance free battery" v0 Commercial
+merged  "lvtong golf cart" -> C14934 "lvtong golf carts"

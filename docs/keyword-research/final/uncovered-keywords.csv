@@ -46,6 +46,7 @@ C00214,"cheap golf carts for sale",50,160,5,"Transactional",cart,"guide or categ
 C00229,"push pull golf buggy",50,160,9,"Commercial",buggy,"/shop/walk-behind-buggies/ or a guide"
 C00115,"mgi zip navigator accessories",110,150,9,"Commercial",trolley,"/shop/accessories-spare-parts/ or a guide"
 C00145,"push golf buggy for sale",90,150,8,"Transactional",buggy,"/shop/walk-behind-buggies/ or a guide"
+C00228,"best golf cart",50,150,9,"Commercial",cart,"guide or category supporting term"
 C00084,"golf cart iphone holder",140,140,6,"Commercial",cart,"guide or category supporting term"
 C00086,"golf buggy tires",140,140,7,"Commercial",buggy,"/shop/accessories-spare-parts/ or a guide"
 C00088,"golf car cost",140,140,8,"Transactional",cart,"guide or category supporting term"
@@ -57,5 +58,4 @@ C00119,"yamaha golf carts brisbane",110,130,14,"Informational, Transactional",ca
 C00137,"new golf buggies",90,130,5,"Commercial",buggy,"guide or category supporting term"
 C00139,"cheap golf buggy",90,130,6,"Commercial",buggy,"guide or category supporting term"
 C00167,"new golf carts for sale",90,130,35,"Transactional",cart,"guide or category supporting term"
-C00228,"best golf cart",50,130,9,"Commercial",cart,"guide or category supporting term"
 C00174,"golf buggy trailer for sale",70,120,1,"Transactional",buggy,"guide or category supporting term"

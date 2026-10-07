@@ -144,7 +144,7 @@ function build(): Record<string, CategoryContent> {
     // ------------------------------------------------------------ 4-seater
     'luxury-4-seater': {
       primaryKeyword: '4 seater golf buggy for sale',
-      supportingKeywords: ['6 seater golf buggy', '6 seater golf buggy for sale', '4 seater golf cart', '4 seater electric golf buggy', '4 seat golf buggy for sale', '4 passenger electric golf cart'],
+      supportingKeywords: ['6 seater golf buggy', '6 seater golf buggy for sale', '4 seater golf cart', '4 seater electric golf buggy', '4 seat golf buggy for sale', '4 passenger electric golf cart', 'luxury 6 seater golf cart'],
       h1: '4 Seater Golf Buggies for Sale in Australia',
       metaTitle: '4 Seater Golf Buggies for Sale Australia | Buggies Express',
       metaDescription: `${cap(word(lux.n))} 4 seater golf buggies for sale in Australia, including 4+2 six-passenger models, from ${aud(lux.lo)}. Lithium power, GST included, shipped from Yatala QLD.`,

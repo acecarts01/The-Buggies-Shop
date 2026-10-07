@@ -80,7 +80,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "club-car-onward-4-passenger-lithium": {
     fullDescription: "Club Car's aircraft-grade aluminium frame is the reason the Onward holds its value so well in Australian conditions: aluminium does not rust, so coastal salt air and irrigated fairways cannot eat the chassis out from under the bodywork the way they do with steel-framed imports. The AC drive motor delivers smooth, progressive power up village inclines rather than the surging feel of older DC systems, and the premium canopy top, ergonomic seating and custom metallic paint make this the model buyers choose when the buggy will be parked in front of the house. Zero-maintenance lithium removes acid spills and water topping entirely. Supported from our Yatala QLD depot with genuine Club Car parts held in Australia, backed by an Australian factory warranty and nationwide enclosed freight.",
     primaryKeyword: "club car onward for sale",
-    supportingKeywords: ["club car onward 4 passenger for sale", "club car onward 4 passenger price", "club car onward 4 seater", "club car onward price", "club car onward 4 passenger"],
+    supportingKeywords: ["club car onward 4 passenger for sale", "club car onward 4 passenger price", "club car onward 4 seater", "club car onward price", "club car onward 4 passenger", "onward golf cart for sale"],
     tags: [
       "club car onward 4-passenger lithium",
       "club car golf buggy",
@@ -143,7 +143,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "lvtong-4-seater-resort-cruiser": {
     fullDescription: "A proven workhorse across Australian caravan parks and holiday resorts, the LVTONG 4-Seater Resort Cruiser is specified for operators who count running cost per year rather than features per brochure. The 4kW AC motor pulls four adults and luggage up park inclines without straining, the maintenance-free lithium pack removes the labour of watering and equalising a lead-acid bank, and the on-board charger means any standard outlet becomes a charging point without extra infrastructure. A heavy-duty bumper takes the knocks that shared-use vehicles inevitably collect from bollards, kerbs and gateposts. For hotels, holiday parks and community centres running a small fleet, it delivers dependable all-day duty with low maintenance overheads. Freight is quoted per delivery postcode and every unit is tested at Yatala QLD before dispatch.",
     primaryKeyword: "resort buggy for sale",
-    supportingKeywords: ["4 seater electric golf cart", "4 seat electric golf cart"],
+    supportingKeywords: ["4 seater electric golf cart", "4 seat electric golf cart", "lv tong electric golf carts", "lvtong maintenance free battery"],
     tags: [
       "lvtong 4-seater resort cruiser",
       "lvtong golf buggy",
@@ -164,7 +164,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "club-car-tempo-lithium-2025": {
     fullDescription: "The 2025 Club Car Tempo is built for the golfer who plays the same course every week and wants the buggy to disappear underneath them. The Monaco drive system delivers smooth hill-climbing acceleration without the lurch that makes a full bag shift on steep fairway transitions, and the automotive-style dashboard puts digital battery metrics in front of you so range stops being guesswork on the back nine. A rust-proof aluminium frame is the long-term argument: Australian courses combine irrigation, humidity and coastal air, and an aluminium chassis simply does not corrode the way steel does. Golf bag caddy security keeps clubs stable through turns. Private course members and avid golfers choose the Tempo when they intend to keep a buggy for many seasons rather than trade it quickly.",
     primaryKeyword: "club car tempo for sale",
-    supportingKeywords: ["club car tempo price", "club car tempo electric"],
+    supportingKeywords: ["club car tempo price", "club car tempo electric", "tempo golf cart for sale"],
     tags: [
       "club car tempo lithium 2025 model",
       "club car golf buggy",
@@ -248,7 +248,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "lvtong-2-passenger-golf-buggy": {
     fullDescription: "The LVTONG 2-Passenger is specified so you can roll straight onto your local course without a shopping list of extras. The split foldable windshield, dual sand bottles and caddy bag holder are fitted rather than optional, which is where competing budget buggies quietly recover margin once you start adding the parts you actually need. A 48V system keeps it compact, agile and energy efficient around tight club layouts and shorter suburban courses, and the two-seat footprint parks and stores in a standard garage or club bay without difficulty. For budget-focused private buyers and smaller local clubs building a modest fleet, it delivers dependable electric running with no hidden extra costs. Prices include GST and freight is quoted against your delivery postcode.",
     primaryKeyword: "2 person electric golf cart",
-    supportingKeywords: ["2 person golf cart", "two seater electric golf cart"],
+    supportingKeywords: ["2 person golf cart", "two seater electric golf cart", "lv tong australia golf carts"],
     tags: [
       "lvtong 2-passenger golf buggy",
       "lvtong golf buggy",

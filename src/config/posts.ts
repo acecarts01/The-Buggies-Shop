@@ -1326,7 +1326,7 @@ export const POSTS: BlogPost[] = [
     featured: false,
     tags: ['Electric Golf Buggy Australia', 'Electric Golf Buggies For Sale', 'Golf Buggy For Sale', 'Motorised Golf Buggy For Sale', 'Buyer Guide'],
     primaryKeyword: 'which golf cart is best',
-    supportingKeywords: ['which golf carts are the best', 'which golf cart brand is best'],
+    supportingKeywords: ['which golf carts are the best', 'which golf cart brand is best', 'best new golf carts', 'best value golf carts', 'best quality golf carts', 'best luxury golf carts'],
     keyTakeaways: [
       'Choose walk-behind motorized buggies if you enjoy walking 18 holes, have compact vehicle boot space, and play purely on standard golf courses.',
       'Choose traditional 2-seater sit-down buggies for effortless course transportation with weather tops and dedicated golf bag holders.',
