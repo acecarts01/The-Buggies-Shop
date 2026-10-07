@@ -26,7 +26,7 @@ export const KIND_LABEL: Record<SearchKind, string> = {
   page: 'Pages',
   faq: 'Questions',
 };
-export const KIND_ORDER: SearchKind[] = ['range', 'product', 'guide', 'page', 'faq'];
+export const KIND_ORDER: SearchKind[] = ['product', 'range', 'guide', 'page', 'faq'];
 
 const IRREG: Record<string, string> = { buggies: 'buggy', buggys: 'buggy', carts: 'cart', trolleys: 'trolley', batteries: 'battery', accessories: 'accessory', ezgo: 'e-z-go', ez: 'e-z-go' };
 const STOP = new Set(['a', 'an', 'the', 'for', 'of', 'to', 'in', 'on', 'and', 'with', 'my', 'me', 'i', 'do', 'you', 'is', 'are']);
@@ -43,7 +43,7 @@ export function tokens(q: string): string[] {
 
 const flat = (s: string) => ' ' + tokens(s).join(' ') + ' ';
 
-const KIND_BOOST: Record<SearchKind, number> = { range: 4, product: 3, guide: 1.5, page: 2, faq: 0.5 };
+const KIND_BOOST: Record<SearchKind, number> = { product: 6, range: 3, page: 2, guide: 1.5, faq: 0.5 };
 
 /** Every query word must appear (as a word start) somewhere in the entry; title and keyword hits rank higher. */
 export function searchIndex(index: SearchEntry[], query: string, limit = 40): SearchHit[] {
