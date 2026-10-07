@@ -17,14 +17,14 @@ import {
 } from 'lucide-react';
 import { ABN_INFO, CONTACT, CATEGORIES, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
 import BrandMark from './BrandMark';
+import SiteSearch from './SiteSearch';
 
 interface HeaderProps {
   cartCount?: number;
   onOpenCart?: () => void;
-  onOpenSearch?: () => void;
 }
 
-export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: HeaderProps) {
+export default function Header({ cartCount = 0, onOpenCart }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [shopDropdownOpen, setShopDropdownOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -218,17 +218,8 @@ export default function Header({ cartCount = 0, onOpenCart, onOpenSearch }: Head
 
         {/* Action Buttons: Search, Cart, Order Now CTA */}
         <div className="flex items-center gap-3">
-          {onOpenSearch && (
-            <button
-              type="button"
-              onClick={onOpenSearch}
-              className="p-2 rounded-lg hover:bg-[#F7EFEA] text-[#6B645E] hover:text-[#A85640] transition-colors focus:outline-none border border-transparent hover:border-[#E7E5E4] surface-card"
-              aria-label="Search Buggies Catalog"
-              id="header-search-btn"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-          )}
+          {/* Site-wide search: products, ranges, brands, delivery, guides, pages, FAQ */}
+          <SiteSearch />
 
           <button
             type="button"

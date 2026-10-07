@@ -1,8 +1,11 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { PRODUCTS, CATEGORIES, SITE } from '@/src/config/site';
+import { PRODUCTS, CATEGORIES, SITE, BRAND_PAGES } from '@/src/config/site';
 import { getProductDetails } from '@/src/config/product-details';
 import ProductClient from './ProductClient';
+import { resolveReferences } from '@/src/config/references';
+import { createLinker } from '@/lib/autolink';
+import { isBuggyItem } from '@/src/config/site';
 import { socialImages } from '@/lib/seo';
 import { productMeta, productLead } from '@/lib/product-meta';
 import { resolveCategory } from '@/src/config/category-content';
@@ -54,6 +57,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
   // Product + Offer and the breadcrumb trail both come from lib/schema.ts so
   // every product page (including the bespoke Atlas route) emits the same
   // shape: image, brand, sku, seller by @id, GST-inclusive price.
+  const details = getProductDetails(product.slug);
+  const descriptionSegs = createLinker(`/shop/${category}/${product.slug}/`, 3, 2).link(details.fullDescription || product.shortDescription);
   const schema = productSchema(product);
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -68,9 +73,22 @@ export default async function ProductDetailPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
       <ProductClient
         product={product}
-        details={getProductDetails(product.slug)}
+        details={details}
+        descriptionSegs={descriptionSegs}
+        brandLink={(() => {
+          const b = BRAND_PAGES.find((x) => product.name.toLowerCase().includes(x.match.toLowerCase()));
+          return b ? { slug: b.slug, name: b.name } : null;
+        })()}
+        categoryLink={{ slug: category, name: CATEGORIES.find((c) => c.slug === category)?.name ?? product.category }}
         lead={productLead(product)}
         guides={(resolveCategory(category)?.guides ?? []).slice(0, 4)}
+        references={resolveReferences(
+          product.category === 'Golf Buggy Batteries & Chargers'
+            ? ['accc-lithium', 'wiki-lfp']
+            : isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies'
+              ? [...['nsw-golf-buggy', 'qld-golf-buggy', 'vic-noncompliant', 'sa-restricted'] as const]
+              : []
+        )}
       />
     </>
   );

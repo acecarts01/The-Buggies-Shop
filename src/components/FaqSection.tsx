@@ -1,4 +1,5 @@
 import React from 'react';
+import { jsonLd } from '@/lib/json-ld';
 
 export interface FaqItem {
   q: string;
@@ -34,22 +35,29 @@ export default function FaqSection({ items, heading = 'Frequently Asked Question
   const aText = dark ? 'text-[#A8A29E]' : 'text-[#57534E]';
   const chev = dark ? 'text-[#E2A17A]' : 'text-[#A85640]';
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: items.map((f) => ({
+  // Google's FAQ rich-result rules: every Question needs a non-empty name and an
+  // acceptedAnswer with text, the content must be visible on the page (the
+  // <details> below renders every answer in the DOM), and a page may carry only
+  // one FAQPage. Items are taken straight from what is rendered, tags are
+  // stripped from the answer text and duplicate questions are dropped.
+  const plain = (t: string) => t.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  const seen = new Set<string>();
+  const entities = items
+    .map((f) => ({ q: plain(f.q), a: plain(f.a) }))
+    .filter((f) => f.q && f.a && !seen.has(f.q) && seen.add(f.q))
+    .map((f) => ({
       '@type': 'Question',
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+    }));
+  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: entities };
 
   return (
     <section className="space-y-4" aria-labelledby="faq-heading">
-      {schema && (
+      {schema && entities.length > 0 && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
         />
       )}
 

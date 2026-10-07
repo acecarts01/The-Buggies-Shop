@@ -39,13 +39,8 @@ const prices = PRODUCTS.map((p) => p.price_aud);
 const LOW = Math.min(...prices);
 const HIGH = Math.max(...prices);
 
-/** Serialise for a <script type="application/ld+json"> block. */
-export function jsonLd(data: unknown): string {
-  return JSON.stringify(data)
-    .replace(/</g, '\\u003c')
-    .split(CONTACT.emailRaw)
-    .join(CONTACT.emailRaw.replace('@', '\\u0040'));
-}
+/** Serialise for a <script type="application/ld+json"> block (see lib/json-ld.ts). */
+export { jsonLd } from './json-ld';
 
 export function absoluteUrl(path: string): string {
   return path.startsWith('http') ? path : `${ORIGIN}${path}`;

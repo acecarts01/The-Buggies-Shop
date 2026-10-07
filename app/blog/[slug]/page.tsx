@@ -1,11 +1,13 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { SITE, BRAND_PAGES, PRODUCTS } from '@/src/config/site';
+import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES } from '@/src/config/site';
 import { POSTS, toPostSummary } from '@/src/config/posts';
 import { buildTitle, clampDescription, socialImages, keywordLead } from '@/lib/seo';
 import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
 import BlogPostClient from './BlogPostClient';
+import { createLinker } from '@/lib/autolink';
+import { GUIDE_REFERENCES, resolveReferences } from '@/src/config/references';
 
 export async function generateStaticParams() {
   return POSTS.map((p) => ({
@@ -81,6 +83,23 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
   const brandLinks = brands.map((b) => ({ slug: b.slug, name: b.name }));
 
+  // Contextual internal links: first natural mention of a target keyword, in reading order.
+  const linker = createLinker(`/blog/${post.slug}/`, 10, 3);
+  const linkedBodies = post.content.map((sec) => linker.link(sec.body));
+
+  // Models this guide helps you choose between: its featured product plus the
+  // nearest others in the same range, so every guide links down to real models.
+  const featured = PRODUCTS.find((p) => p.slug === post.relatedProductSlug);
+  const rangeName = featured?.category ?? post.relatedProductCategory;
+  const rangeProducts = PRODUCTS.filter((p) => p.category === rangeName && p.id !== featured?.id)
+    .sort((a, b) => Math.abs(a.price_aud - (featured?.price_aud ?? 0)) - Math.abs(b.price_aud - (featured?.price_aud ?? 0)))
+    .slice(0, featured ? 3 : 4);
+  const models = [...(featured ? [featured] : []), ...rangeProducts].map((p) => ({
+    name: p.name,
+    price: p.price_display,
+    href: `/shop/${CATEGORIES.find((c) => c.rawCategory === p.category)?.slug ?? 'fleet'}/${p.slug}/`,
+  }));
+
   const article = blogPostingSchema(post);
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -104,7 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(article) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} />
+      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} references={resolveReferences(GUIDE_REFERENCES[post.slug])} linkedBodies={linkedBodies} models={models} />
     </>
   );
 }

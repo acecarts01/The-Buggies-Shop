@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { SITE, PRODUCTS } from '@/src/config/site';
+import SeoHead from '@/src/components/SeoHead';
+import { homeGraph } from '@/lib/schema';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -45,6 +47,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-AU">
       <body suppressHydrationWarning className="bg-[#F7F6F2] text-[#121417] antialiased min-h-screen">
+        {/* Site-wide entity graph (Organization + WebSite with SearchAction) on every
+            route, so the @id every product, guide and city page points at is defined
+            on the same page. Title/description/canonical/OG stay with the Metadata API. */}
+        <SeoHead schema={homeGraph()} />
         {children}
         {/* Agent-only (navigator.modelContext); nothing on the page waits on it,
             so it loads after the page is idle rather than competing with the

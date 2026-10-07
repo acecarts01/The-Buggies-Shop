@@ -5,6 +5,7 @@ import { resolveCategory } from '@/src/config/category-content';
 import { socialImages } from '@/lib/seo';
 import { jsonLd, collectionPageSchema, absoluteUrl } from '@/lib/schema';
 import CategoryClient from './CategoryClient';
+import { createLinker } from '@/lib/autolink';
 
 export async function generateStaticParams() {
   return CATEGORIES.filter((c) => c.slug !== 'all').map((c) => ({
@@ -57,6 +58,9 @@ export default async function CategoryPage({ params }: PageProps) {
   const cat = resolveCategory(category);
   if (!cat) notFound();
 
+  const linker = createLinker(`/shop/${cat.slug}/`, 6, 1);
+  const linkedSections = (cat.sections ?? []).map((sec) => ({ ...sec, segs: linker.link(sec.body) }));
+
   // CollectionPage + ItemList: the range as a list an engine can read without
   // crawling every product. CategoryClient still emits the BreadcrumbList and
   // the category FAQPage.
@@ -69,7 +73,7 @@ export default async function CategoryPage({ params }: PageProps) {
         content={{
           h1: cat.h1,
           intro: cat.intro,
-          sections: cat.sections ?? [],
+          sections: linkedSections,
           guides: cat.guides ?? [],
           faqs: cat.faqs ?? [],
           comingSoon: cat.comingSoon === true,

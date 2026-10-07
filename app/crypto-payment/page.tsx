@@ -6,6 +6,8 @@ import CryptoPortal from '@/src/components/CryptoPortal';
 import { SITE, CRYPTO, CONTACT } from '@/src/config/site';
 import { pageMetadata } from '@/lib/seo';
 import { jsonLd, breadcrumbSchema } from '@/lib/schema';
+import ExternalReferences from '@/src/components/ExternalReferences';
+import { REFERENCES } from '@/src/config/references';
 
 export const metadata: Metadata = pageMetadata({
   title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
@@ -89,6 +91,9 @@ export default function CryptoPaymentPage() {
             issued for crypto-settled orders exactly as it is for any other payment
             method.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+          <ExternalReferences refs={[REFERENCES['ato-crypto']]} heading="Tax Treatment of Crypto: Official Guidance" tone="light" />
         </div>
       </main>
       <ChatHub />

@@ -4,6 +4,25 @@ import { ExternalLink, ShieldCheck, Phone, Mail, MapPin, Truck, CheckCircle2 } f
 import { ABN_INFO, CONTACT, CATEGORIES, SITE } from '@/src/config/site';
 import BrandMark from './BrandMark';
 
+const POPULAR: { href: string; label: string }[] = [
+  { href: '/shop/', label: 'Golf buggy for sale' },
+  { href: '/shop/electric-golf-buggies/', label: 'Electric golf buggies' },
+  { href: '/shop/luxury-4-seater/', label: '4 seater golf buggies for sale' },
+  { href: '/shop/traditional-2-seater/', label: '2 seater golf buggies for sale' },
+  { href: '/shop/off-road-4x4/', label: 'Off road golf buggies' },
+  { href: '/shop/commercial-utility/', label: 'Farm buggies for sale' },
+  { href: '/shop/mechanical-petrol/', label: 'Petrol golf buggies' },
+  { href: '/shop/walk-behind-buggies/', label: 'Golf trolleys and remote control golf buggies' },
+  { href: '/shop/batteries-chargers/', label: 'Golf buggy batteries' },
+  { href: '/shop/accessories-spare-parts/', label: 'Golf buggy accessories' },
+  { href: '/delivery/brisbane/', label: 'Golf buggy for sale Brisbane' },
+  { href: '/delivery/gold-coast/', label: 'Golf buggy for sale Gold Coast' },
+  { href: '/delivery/sydney/', label: 'Golf buggy for sale Sydney' },
+  { href: '/delivery/melbourne/', label: 'Golf buggy for sale Melbourne' },
+  { href: '/delivery/adelaide/', label: 'Golf buggy for sale Adelaide' },
+  { href: '/delivery/perth/', label: 'Golf buggy for sale Perth' },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#F7F6F2] text-[#121417] border-t border-[#E7E5E4]">
@@ -205,6 +224,21 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Popular searches: one sitewide link to each money page, anchored on the
+          keyword that page targets. */}
+      <nav aria-label="Popular searches" className="max-w-7xl mx-auto px-4 pb-8 text-xs">
+        <div className="font-bold text-sm uppercase tracking-wider text-[#121417] mb-3">Popular Searches</div>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          {POPULAR.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       {/* Bottom Legal Copyright */}
       <div className="border-t border-[#E7E5E4] px-4 py-4 text-center text-[11px] text-[#6B645E] bg-white">

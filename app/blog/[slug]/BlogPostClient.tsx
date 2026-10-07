@@ -1,5 +1,8 @@
 'use client';
 
+import ExternalReferences from '@/src/components/ExternalReferences';
+import LinkedText, { type Seg } from '@/src/components/LinkedText';
+import type { Reference } from '@/src/config/references';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
@@ -29,6 +32,12 @@ import type { BlogPost, PostSummary } from '@/src/config/posts';
 import { useCart } from '@/hooks/use-cart';
 
 interface BlogPostClientProps {
+  /** Models from the range this guide covers. */
+  models: { name: string; price: string; href: string }[];
+  /** Each section body with contextual internal links applied on the server. */
+  linkedBodies: Seg[][];
+  /** Vetted outbound sources for this guide (src/config/references.ts). */
+  references: Reference[];
   /** Brand pages this guide is about. */
   brands: { slug: string; name: string }[];
   post: BlogPost;
@@ -37,7 +46,7 @@ interface BlogPostClientProps {
   relatedPosts: PostSummary[];
 }
 
-export default function BlogPostClient({ post, relatedPosts, brands }: BlogPostClientProps) {
+export default function BlogPostClient({ post, relatedPosts, brands, references, linkedBodies, models }: BlogPostClientProps) {
   const [cartOpen, setCartOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [cartItems, setCartItems] = useCart();
@@ -187,7 +196,9 @@ export default function BlogPostClient({ post, relatedPosts, brands }: BlogPostC
                 <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#ffffff] tracking-tight pt-3">
                   {sec.heading}
                 </h2>
-                <p className="text-[#A8A29E] leading-relaxed">{sec.body}</p>
+                <p className="text-[#A8A29E] leading-relaxed">
+                  <LinkedText segs={linkedBodies[idx] ?? [sec.body]} />
+                </p>
 
                 {sec.bulletPoints && sec.bulletPoints.length > 0 && (
                   <ul className="mt-3 space-y-2 pl-2">
@@ -279,6 +290,28 @@ export default function BlogPostClient({ post, relatedPosts, brands }: BlogPostC
                 </Link>
               </div>
             </div>
+          )}
+
+          {references.length > 0 && (
+            <div className="mt-8">
+              <ExternalReferences refs={references} />
+            </div>
+          )}
+
+          {models.length > 0 && (
+            <nav aria-label="Models related to this guide" className="mt-8 p-5 bg-[#1A1D21] border border-[#2B2F34] rounded-xl">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#A8A29E] mb-2">Models related to this guide</h2>
+              <ul className="space-y-1.5">
+                {models.map((m) => (
+                  <li key={m.href}>
+                    <Link href={m.href} className="text-sm text-[#E2A17A] font-semibold hover:underline">
+                      {m.name}
+                    </Link>{' '}
+                    <span className="text-xs text-[#A8A29E]">{m.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           )}
 
           {brands.length > 0 && (

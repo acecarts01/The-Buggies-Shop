@@ -28,6 +28,9 @@ import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
 import { ProductTags, ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
+import ExternalReferences from '@/src/components/ExternalReferences';
+import LinkedText, { type Seg } from '@/src/components/LinkedText';
+import type { Reference } from '@/src/config/references';
 import { ProductItem, SITE, ABN_INFO, CONTACT, SHOP, CATEGORIES, PRODUCTS, isAccessoryItem, isBuggyItem, VEHICLE_COLORS } from '@/src/config/site';
 import type { ProductDetails } from '@/src/config/product-details';
 import { paymentLabel } from '@/lib/orders-shared';
@@ -48,11 +51,18 @@ interface ProductClientProps {
   details: ProductDetails;
   /** Opening sentence carrying the page's primary keyword. */
   lead: string;
+  /** Brand page and category page this product belongs to, linked from the related block. */
+  brandLink: { slug: string; name: string } | null;
+  categoryLink: { slug: string; name: string };
+  /** The full description with contextual internal links applied on the server. */
+  descriptionSegs: Seg[];
   /** The category's buying guides, as descriptive links. */
   guides: { slug: string; label: string }[];
+  /** Vetted outbound sources (registration rules for vehicles, battery safety for batteries). */
+  references: Reference[];
 }
 
-export default function ProductClient({ product, details, lead, guides }: ProductClientProps) {
+export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -563,9 +573,9 @@ Notes: ${quoteForm.notes || 'None'}`
 
               {/* Long Form Description */}
               <div className="prose prose-invert max-w-none text-sm sm:text-base text-[#D6D3D1] leading-relaxed space-y-4">
-                <StaggeredParagraph delay={0.1} className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
-                  {details.fullDescription || product.shortDescription}
-                </StaggeredParagraph>
+                <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
+                  <LinkedText segs={descriptionSegs} />
+                </p>
                 {product.shortDescription && details.fullDescription && product.shortDescription !== details.fullDescription && (
                   <StaggeredParagraph delay={0.2} className="text-xs text-[#A8A29E] italic">
                     {product.shortDescription}
@@ -656,6 +666,11 @@ Notes: ${quoteForm.notes || 'None'}`
 
             <ProductGuides guides={guides} />
 
+            <ExternalReferences
+              refs={references}
+              heading={isVehicle ? 'Road Registration Rules: Official Guidance' : 'Battery Safety: Official Guidance'}
+            />
+
             {/* Related Products in this Category */}
             <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm metal-brushed-dark">
               <div className="flex items-center justify-between border-b border-[#2B2F34] pb-4">
@@ -675,6 +690,17 @@ Notes: ${quoteForm.notes || 'None'}`
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
+
+              <p className="text-xs text-[#A8A29E] flex flex-wrap gap-x-4 gap-y-1">
+                <Link href={`/shop/${categoryLink.slug}/`} className="text-[#E2A17A] font-semibold hover:underline">
+                  See all {categoryLink.name}
+                </Link>
+                {brandLink && (
+                  <Link href={`/shop/brand/${brandLink.slug}/`} className="text-[#E2A17A] font-semibold hover:underline">
+                    All {brandLink.name} golf buggies for sale
+                  </Link>
+                )}
+              </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {PRODUCTS.filter((p) => p.id !== product.id && p.category === product.category)

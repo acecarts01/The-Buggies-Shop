@@ -10,6 +10,10 @@ import FaqSection from '@/src/components/FaqSection';
 import { CONTACT, ABN_INFO, SHOP, CATEGORIES, PRODUCTS, isBuggyItem, isElectricBuggy } from '@/src/config/site';
 import { DELIVERY_METROS, getDeliveryMetro } from '@/src/config/delivery';
 import { pageMetadata } from '@/lib/seo';
+import LinkedText from '@/src/components/LinkedText';
+import { createLinker } from '@/lib/autolink';
+import ExternalReferences from '@/src/components/ExternalReferences';
+import { resolveReferences, referencesForState } from '@/src/config/references';
 import { jsonLd, organizationSchema, breadcrumbSchema, ORG_ID, ORIGIN } from '@/lib/schema';
 
 // /delivery/<city>/ - one page per metro in DELIVERY_METROS. Delivery pages,
@@ -58,6 +62,9 @@ export default async function DeliveryCityPage({ params }: PageProps) {
       a: `Online from us. Choose a model, add it to your cart and order; every golf buggy ships from our single Yatala QLD depot to ${metro.city} (${metro.freightMode === 'same-corridor' ? 'a same-corridor delivery' : 'by enclosed interstate freight'}), with freight quoted against your postcode and shown separately from the GST-inclusive price. There is no showroom in ${metro.city}.`,
     },
   ];
+
+  const linker = createLinker(`/delivery/${metro.slug}/`, 4, 1);
+  const linkedSections = metro.sections.map((sec) => ({ ...sec, segs: linker.link(sec.body) }));
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -137,10 +144,10 @@ export default async function DeliveryCityPage({ params }: PageProps) {
 
           {/* Sections */}
           <div className="space-y-6">
-            {metro.sections.map((s) => (
+            {linkedSections.map((s) => (
               <section key={s.heading} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-3 shadow-sm metal-brushed-dark">
                 <h2 className="text-lg sm:text-xl font-serif font-bold text-[#ffffff]">{s.heading}</h2>
-                <p className="text-sm text-[#A8A29E] leading-relaxed">{s.body}</p>
+                <p className="text-sm text-[#A8A29E] leading-relaxed"><LinkedText segs={s.segs} /></p>
               </section>
             ))}
           </div>
@@ -218,6 +225,11 @@ export default async function DeliveryCityPage({ params }: PageProps) {
 
           {/* FAQs (FaqSection emits the FAQPage JSON-LD) */}
           <FaqSection items={faqs} heading={`${metro.city} delivery: your questions`} tone="dark" />
+
+          <ExternalReferences
+            refs={resolveReferences(referencesForState(metro.stateCode))}
+            heading={`${metro.state} Road Registration: Official Guidance`}
+          />
 
           {/* Other metros */}
           <nav aria-label="Other delivery areas" className="border-t border-[#2B2F34] pt-8">

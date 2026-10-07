@@ -8,6 +8,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import Link from 'next/link';
 import FaqSection from '@/src/components/FaqSection';
+import LinkedText, { type Seg } from '@/src/components/LinkedText';
 import { SITE, ProductItem, CATEGORIES } from '@/src/config/site';
 import { useCart } from '@/hooks/use-cart';
 import {
@@ -18,7 +19,7 @@ import {
 export interface HubView {
   h1: string;
   intro: string;
-  sections: { heading: string; body: string }[];
+  sections: { heading: string; body: string; segs?: Seg[] }[];
   faqs: { q: string; a: string }[];
 }
 
@@ -126,7 +127,7 @@ export default function ShopClient({ hub }: { hub: HubView }) {
                   className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs metal-brushed-dark"
                 >
                   <h2 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] tracking-tight">{s.heading}</h2>
-                  <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.body}</p>
+                  <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.segs ? <LinkedText segs={s.segs} /> : s.body}</p>
                 </div>
               ))}
             </div>

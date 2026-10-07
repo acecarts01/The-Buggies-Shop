@@ -8,6 +8,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import RegisterInterest from '@/src/components/RegisterInterest';
 import FaqSection from '@/src/components/FaqSection';
+import LinkedText, { type Seg } from '@/src/components/LinkedText';
 import { SITE, ProductItem, PRODUCTS, CATEGORIES, BRAND_PAGES, isElectricBuggy } from '@/src/config/site';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
@@ -19,7 +20,7 @@ import {
 export interface CategoryViewContent {
   h1?: string;
   intro?: string;
-  sections: { heading: string; body: string }[];
+  sections: { heading: string; body: string; segs?: Seg[] }[];
   guides: { slug: string; label: string }[];
   faqs: { q: string; a: string }[];
   comingSoon: boolean;
@@ -227,7 +228,7 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
                     <h2 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] tracking-tight">
                       {s.heading}
                     </h2>
-                    <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.body}</p>
+                    <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.segs ? <LinkedText segs={s.segs} /> : s.body}</p>
                   </div>
                 ))}
               </div>

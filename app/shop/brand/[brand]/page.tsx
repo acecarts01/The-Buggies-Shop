@@ -10,6 +10,10 @@ import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES, isBuggyItem } from '@/src/conf
 import { POSTS } from '@/src/config/posts';
 import { resolveCategory } from '@/src/config/category-content';
 import { ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
+import ExternalReferences from '@/src/components/ExternalReferences';
+import LinkedText from '@/src/components/LinkedText';
+import { createLinker } from '@/lib/autolink';
+import { BRAND_REFERENCES, REFERENCES } from '@/src/config/references';
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/schema';
 
@@ -139,6 +143,8 @@ export default async function BrandPage({ params }: PageProps) {
     ? `${capKeyword(b.primaryKeyword, b.name)}: ${n} ${b.name} ${n === 1 ? 'model' : 'models'} in stock at Yatala QLD${prices.length ? `, from ${money(prices[0])} to ${money(prices[prices.length - 1])} AUD inc GST` : ''}.`
     : '';
 
+  const bodySegs = createLinker(`/shop/brand/${b.slug}/`, 3, 3).link(b.body);
+
   const breadcrumbs = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -193,7 +199,7 @@ export default async function BrandPage({ params }: PageProps) {
 
           <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark">
             <h2 className="text-lg sm:text-xl font-serif font-bold text-white mb-3">Why Buyers Choose {b.name}</h2>
-            <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{b.body}</p>
+            <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed"><LinkedText segs={bodySegs} /></p>
           </div>
 
           <section className="space-y-5">
@@ -236,6 +242,18 @@ export default async function BrandPage({ params }: PageProps) {
           <ShippingPaymentBlock />
 
           <ProductGuides guides={guides} />
+
+          {BRAND_REFERENCES[b.slug] && (
+            <ExternalReferences refs={[REFERENCES[BRAND_REFERENCES[b.slug]]]} heading={`${b.name} Official Website`} />
+          )}
+
+          <nav aria-label={`${b.name} by category`} className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold">
+            {[...byCat.keys()].map((cat) => (
+              <Link key={cat} href={`/shop/${catSlug(cat)}/`} className="text-[#E2A17A] hover:underline">
+                {b.name} in {CATEGORIES.find((c) => c.rawCategory === cat)?.name ?? cat}
+              </Link>
+            ))}
+          </nav>
 
           <div className="flex flex-wrap gap-4 text-xs font-bold">
             <Link href="/shop/brand/" className="text-[#E2A17A] hover:underline">All golf buggy brands</Link>

@@ -7,6 +7,8 @@ import { socialImages } from '@/lib/seo';
 import { jsonLd, organizationSchema, breadcrumbSchema, ORG_ID, WEBSITE_ID, ORIGIN } from '@/lib/schema';
 import { ShieldCheck, MapPin, Award, Truck, Wrench, BatteryCharging, CheckCircle, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import ExternalReferences from '@/src/components/ExternalReferences';
+import { REFERENCES } from '@/src/config/references';
 import {
   StaggeredHeading,
   StaggeredParagraph,
@@ -234,6 +236,10 @@ export default function AboutPage() {
               </Link>
             </div>
           </FadeUpText>
+
+          <div className="max-w-3xl mx-auto px-4 pb-12">
+            <ExternalReferences refs={[REFERENCES.abr, REFERENCES['asic-search']]} heading="Verify Our Registration" />
+          </div>
         </main>
 
         <Footer />
