@@ -15,7 +15,7 @@ let cachedIndex: SearchEntry[] | null = null;
 let pending: Promise<SearchEntry[]> | null = null;
 export function loadSearchIndex(): Promise<SearchEntry[]> {
   if (cachedIndex) return Promise.resolve(cachedIndex);
-  pending ??= fetch('/api/search-index')
+  pending ??= fetch('/api/search-index/')
     .then((r) => (r.ok ? r.json() : []))
     .then((j: SearchEntry[]) => (cachedIndex = j))
     .catch(() => {
