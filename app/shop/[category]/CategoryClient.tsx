@@ -8,7 +8,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CatalogInterface from '@/src/components/CatalogInterface';
 import RegisterInterest from '@/src/components/RegisterInterest';
 import FaqSection from '@/src/components/FaqSection';
-import { SITE, ProductItem } from '@/src/config/site';
+import { SITE, ProductItem, PRODUCTS, CATEGORIES, isElectricBuggy } from '@/src/config/site';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
 import {
@@ -93,6 +93,12 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
   // A category with no stock yet shows a register-interest block where the
   // catalogue would be, rather than an empty grid and "no models match".
   const comingSoon = content.comingSoon;
+  // Plain links to every model: the catalogue grid loads 12 at a time, so without
+  // this the models past the first page had no crawlable inbound link.
+  const rangeCat = CATEGORIES.find((c) => c.slug === categorySlug);
+  const rangeProducts = comingSoon
+    ? []
+    : PRODUCTS.filter((p) => (rangeCat?.electric ? isElectricBuggy(p) : rangeCat?.rawCategory ? p.category === rangeCat.rawCategory : false));
 
   const breadcrumbs = {
     '@context': 'https://schema.org',
@@ -153,6 +159,36 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
             <RegisterInterest rangeName={categoryName} />
           ) : (
             <CatalogInterface initialCategory={categorySlug} onAddToCart={handleAddToCart} />
+          )}
+
+          {rangeProducts.length > 0 && (
+            <nav aria-label="All models in this range" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+              <h2 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] tracking-tight mb-3">
+                All {rangeProducts.length} models in {categoryName}
+              </h2>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1.5">
+                {rangeProducts.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/shop/${CATEGORIES.find((c) => c.rawCategory === p.category)?.slug ?? 'fleet'}/${p.slug}/`}
+                      className="text-xs sm:text-sm text-[#E2A17A] hover:underline"
+                    >
+                      {p.name} ({p.price_display})
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          {categorySlug === 'commercial-utility' && (
+            <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 text-xs sm:text-sm text-[#A8A29E]">
+              Buying several? See our{' '}
+              <Link href="/wholesale/" className="text-[#E2A17A] font-semibold hover:underline">
+                fleet and wholesale enquiries
+              </Link>{' '}
+              page.
+            </p>
           )}
 
           {sections.length > 0 && (

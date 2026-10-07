@@ -5,6 +5,7 @@ import ChatHub from '@/src/components/ChatHub';
 import CryptoPortal from '@/src/components/CryptoPortal';
 import { SITE, CRYPTO, CONTACT } from '@/src/config/site';
 import { pageMetadata } from '@/lib/seo';
+import { jsonLd, breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
@@ -47,6 +48,10 @@ export default function CryptoPaymentPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Pay in Bitcoin or USDT', path: '/crypto-payment/' }])) }}
       />
       <Header />
       <main className="bg-[#F7F6F2] min-h-screen">

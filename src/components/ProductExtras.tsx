@@ -45,13 +45,21 @@ export function ShippingPaymentBlock() {
         <div className="space-y-1.5">
           <h3 className="text-sm font-bold text-[#ffffff]">Payment</h3>
           <p>
-            {SHOP.paymentMethods.join(', ')}. After any payment, send the receipt or a screenshot to us on WhatsApp so we can confirm your order.
+            {SHOP.paymentMethods.join(', ')}. After any payment, send the receipt or a screenshot to us on WhatsApp so we can confirm your order. See{' '}
+            <Link href="/crypto-payment/" className="text-[#E2A17A] font-semibold hover:underline">
+              how paying in Bitcoin or USDT works
+            </Link>
+            .
           </p>
         </div>
         <div className="space-y-1.5">
           <h3 className="text-sm font-bold text-[#ffffff]">Warranty and stock</h3>
           <p>
-            Warranty and parts support are handled from our Yatala QLD depot, not an overseas returns address. Keep your tax invoice as proof of purchase. Availability changes, so confirm this item is on the floor before you plan around a delivery date.
+            Warranty and parts support are handled from our Yatala QLD depot, not an overseas returns address. Keep your tax invoice as proof of purchase. Availability changes, so confirm this item is on the floor before you plan around a delivery date. More answers are in our{' '}
+            <Link href="/faq/" className="text-[#E2A17A] font-semibold hover:underline">
+              frequently asked questions
+            </Link>
+            .
           </p>
         </div>
       </div>

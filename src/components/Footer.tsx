@@ -146,6 +146,16 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/wholesale/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Fleet &amp; Wholesale Enquiries
+              </Link>
+            </li>
+            <li>
+              <Link href="/crypto-payment/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Pay in Bitcoin or USDT
+              </Link>
+            </li>
+            <li>
               <a
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"

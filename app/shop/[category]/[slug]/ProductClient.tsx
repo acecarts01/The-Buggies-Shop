@@ -634,7 +634,8 @@ Notes: ${quoteForm.notes || 'None'}`
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {PRODUCTS.filter((p) => p.id !== product.id && (p.category === product.category || p.price_aud < 1000))
+                {PRODUCTS.filter((p) => p.id !== product.id && p.category === product.category)
+                  .sort((a, b) => Math.abs(a.price_aud - product.price_aud) - Math.abs(b.price_aud - product.price_aud))
                   .slice(0, 3)
                   .map((relProduct) => {
                     const catSlug = CATEGORIES.find((c) => c.rawCategory === relProduct.category)?.slug || 'luxury-4-seater';

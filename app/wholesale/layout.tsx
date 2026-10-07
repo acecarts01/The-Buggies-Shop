@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
+import { jsonLd, breadcrumbSchema } from '@/lib/schema';
+
+const BREADCRUMBS = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Wholesale', path: '/wholesale/' },
+]);
+
 
 // The page below is a client component and cannot export metadata itself,
 // so it lives here (see pageMetadata for why every field is set explicitly).
@@ -10,5 +17,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function WholesaleLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(BREADCRUMBS) }} />
+      {children}
+    </>
+  );
 }
