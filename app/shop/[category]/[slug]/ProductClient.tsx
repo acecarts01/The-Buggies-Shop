@@ -112,9 +112,16 @@ export default function ProductClient({ product, details, descriptionSegs, brand
   // Parts and accessories are not vehicles: no colour finishes, and the
   // powertrain line below reads as nonsense on a charger or a tow hitch.
   const isVehicle = isBuggyItem(product.category, product.id, product.name);
+  // Full-size vehicles only: walk-behind and push buggies have no factory finish
+  // options, no AC/EFI powertrain and no LiFePO4 battery management to describe.
+  const isFullSize = isVehicle && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies';
 
   // Battery Technology Details
   const getBatteryDetails = () => {
+    // Manual push buggies, MGI batteries, chargers and accessories: no power-system claim to make.
+    if (/^(Manual Push|Push Buggy Accessory|Walk-Behind (Battery|Charger|Accessory))/.test(product.fuel_type)) {
+      return { tech: 'none', title: '', badgeText: '', subtext: '', badgeBg: '', pillBg: '', isZeroMaintenance: false };
+    }
     const rawText = `${product.fuel_type} ${product.key_specs} ${product.name}`.toLowerCase();
     
     if (rawText.includes('lithium') || rawText.includes('lifepo4') || rawText.includes('li-ion')) {
@@ -251,7 +258,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   <div className="space-y-3">
                     <div
                       className="relative aspect-[4/3] bg-white rounded-xl overflow-hidden border border-[#2B2F34]"
-                      style={isVehicle ? { filter: VEHICLE_COLORS[finish].filter } : undefined}
+                      style={isFullSize ? { filter: VEHICLE_COLORS[finish].filter } : undefined}
                     >
                       <SmartImage
                         src={product.images?.[activeImage] || product.images?.[0] || ''}
@@ -299,7 +306,7 @@ Notes: ${quoteForm.notes || 'None'}`
                         Vehicles only - a battery pack, charger or tow hitch
                         does not come in Outback Ochre, and offering the choice
                         on one was just confusing. */}
-                    {isVehicle && (
+                    {isFullSize && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] uppercase tracking-widest font-bold text-[#A8A29E]">
@@ -344,6 +351,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   </div>
 
                   {/* BATTERY TECHNOLOGY BADGE */}
+                  {battery.tech !== 'none' && (
                   <div className={`p-4 rounded-xl border text-xs ${battery.badgeBg} space-y-1.5`}>
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-2 font-bold text-sm">
@@ -364,6 +372,7 @@ Notes: ${quoteForm.notes || 'None'}`
                       {battery.subtext}
                     </p>
                   </div>
+                  )}
 
                   <div className="space-y-2 text-xs">
                     <div className="text-xs font-bold text-[#E7E5E4] uppercase tracking-wider flex items-center gap-1.5">
@@ -600,7 +609,7 @@ Notes: ${quoteForm.notes || 'None'}`
               </StaggerContainer>
 
               {/* Owner-confirmed vehicle claims, restored. Shown for vehicles only. */}
-              {isVehicle && (
+              {isFullSize && (
                 <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#2B2F34]">
                   <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
                     <div className="flex items-center gap-2 text-[#E2A17A] font-bold text-xs">

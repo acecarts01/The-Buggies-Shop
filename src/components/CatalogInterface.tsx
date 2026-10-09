@@ -39,6 +39,18 @@ const POWERTRAINS = [
 function getBatteryInfo(product: ProductItem) {
   const rawText = `${product.fuel_type} ${product.key_specs} ${product.name}`.toLowerCase();
   
+  if (product.fuel_type.startsWith('Manual Push')) {
+    return {
+      tech: 'manual',
+      title: 'Manual push buggy',
+      badgeText: 'No Battery',
+      shortDesc: 'No charging • No battery to replace',
+      badgeBg: 'bg-[#F7F6F2] border-[#E7E5E4] text-[#6B645E]',
+      pillBg: 'bg-[#E7E5E4] text-[#57534E] border border-[#D6D3D1]',
+      isZeroMaintenance: false,
+    };
+  }
+
   if (rawText.includes('lithium') || rawText.includes('lifepo4') || rawText.includes('li-ion')) {
     const voltage = rawText.includes('72v') 
       ? '72V' 

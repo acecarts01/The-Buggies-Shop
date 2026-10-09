@@ -23,6 +23,9 @@ interface ProductReviewsProps {
 export default function ProductReviews({ product }: ProductReviewsProps) {
   // Find reviews tailored to this product, brand, and category
   const getInitialReviews = (): ReviewItem[] => {
+    // No owner reviews exist for the Clicgear and Rovic push buggies yet, and the
+    // generic fallback below would show reviews written about other vehicles.
+    if (product.category === 'Push Golf Buggies') return [];
     const productNameLower = product.name.toLowerCase();
     const productCategoryLower = product.category.toLowerCase();
     const keySpecsLower = product.key_specs.toLowerCase();
@@ -153,6 +156,8 @@ export default function ProductReviews({ product }: ProductReviewsProps) {
   const fourStarCount = reviews.filter(r => r.rating === 4).length;
   const threeStarCount = reviews.filter(r => r.rating === 3).length;
   const twoStarCount = reviews.filter(r => r.rating === 2).length;
+
+  if (product.category === 'Push Golf Buggies' && reviews.length === 0) return null;
 
   return (
     <section className="bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-8 shadow-xs surface-card" id="product-reviews-section">

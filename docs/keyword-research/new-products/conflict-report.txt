@@ -1,0 +1,12 @@
+KEYWORD CONFLICT REPORT
+products: 45 | primary+secondary slots: 270
+repeated primary/secondary keywords (stem-level): 0
+primary/secondary already used on the live site: 0
+product keywords containing the word cart: 0
+tags that equal a primary/secondary: 0
+duplicate tags inside one product: 0
+tags shared by more than one product: 0
+blog keywords clashing with products, site or each other: 0
+blog keywords delivered: 159 of 160
+real-data product keywords: 164 | generated: 106
+real-data tags: 189 of 315

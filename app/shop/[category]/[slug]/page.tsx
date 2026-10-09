@@ -85,7 +85,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         references={resolveReferences(
           product.category === 'Golf Buggy Batteries & Chargers'
             ? ['accc-lithium', 'wiki-lfp']
-            : isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies'
+            : isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies'
               ? [...['nsw-golf-buggy', 'qld-golf-buggy', 'vic-noncompliant', 'sa-restricted'] as const]
               : []
         )}

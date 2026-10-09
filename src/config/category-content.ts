@@ -43,6 +43,7 @@ const OFF = 'Off-Road, Lifted & 4x4 Buggies';
 const COM = 'Commercial & Farm Utility Buggies';
 const PET = 'Mechanical & Petrol Buggies';
 const WALK = 'Motorised Walk-Behind Golf Buggies';
+const PUSH = 'Push Golf Buggies';
 
 const TRIAL_MIN = 15000; // brand rule: complimentary on-farm trial demonstration at or above this price
 const trialCount = (items: ProductItem[]) => items.filter((p) => p.price_aud >= TRIAL_MIN).length;
@@ -60,6 +61,7 @@ function build(): Record<string, CategoryContent> {
   const offElectric = inCat(OFF).filter((p) => !isPetrol(p)).length;
   const comElectric = inCat(COM).filter((p) => !isPetrol(p)).length;
   const walk = stats(inCat(WALK));
+  const push = stats(inCat(PUSH));
   const elec = PRODUCTS.filter(isElectricBuggy);
   const elecRiding = elec.filter((p) => p.category !== WALK);
   const elecStats = stats(elec);
@@ -442,6 +444,49 @@ function build(): Record<string, CategoryContent> {
       ],
     },
 
+
+    // -------------------------------------------------------- push buggies
+    // Manual (no battery) Clicgear and Rovic models. Every figure is computed
+    // from the products in this category.
+    'push-golf-buggies': {
+      primaryKeyword: 'push golf buggy for sale',
+      supportingKeywords: ['golf pull buggy', 'push golf buggies australia', 'golf buggy push cart', 'golf push carts for sale', 'golf push cart australia'],
+      h1: 'Push Golf Buggies for Sale in Australia',
+      metaTitle: 'Push Golf Buggies for Sale Australia | Buggies Express',
+      metaDescription: `Push golf buggies for sale in Australia: ${word(push.n)} Clicgear and Rovic manual models from ${aud(push.lo)} to ${aud(push.hi)} with no battery to charge. GST included.`,
+      intro: `${cap(word(push.n))} manual push golf buggies from ${aud(push.lo)} to ${aud(push.hi)} AUD, from Clicgear and Rovic. No battery, no motor and nothing to charge before a round, shipped from our Yatala QLD depot.`,
+      sections: [
+        {
+          heading: 'Clicgear and Rovic Push Buggies',
+          body: `The Clicgear Model 4.0 comes in four colours: silver, matte white and soft pink at ${price('clicgear-model-4-0-buggy-silver')} and teal at ${price('clicgear-model-4-0-buggy-teal')}. The Clicgear 4.5 (${price('clicgear-model-4-5-buggy-black')}) adds an upgraded aluminium frame and improved storage. Rovic adds two compact options: the RV1S Swivel 2.0 (${price('rovic-rv1s-swivel-2-0-buggy-light-blue')}) with a 360-degree swivel front wheel, and the RV1C Compact 2.0 (${price('rovic-rv1c-compact-2-0-buggy-silver-black')}) built for the smallest folded size.`,
+        },
+        {
+          heading: 'Push Buggy or Motorised Trolley?',
+          body: `A push buggy has no battery to charge or replace, which keeps running costs close to nothing. If hills or a long back nine are the problem, a motorised trolley or the MGI E-Boost, a pushcart with a boost button, may suit better. Our walk-behind range covers the motorised side, and the guides below compare the two.`,
+        },
+      ],
+      guides: [
+        { slug: 'golf-push-cart-vs-electric-trolley-australia', label: 'Golf push buggy vs electric trolley' },
+        { slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review', label: 'Push golf buggies compared: three-wheel vs four-wheel' },
+        { slug: 'clicgear-vs-mgi-push-buggy-comparison-australia', label: 'Clicgear vs MGI: manual push or motorised?' },
+        { slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight', label: 'Foldable golf buggy guide: boot space and weight' },
+      ],
+      faqs: [
+        {
+          q: 'How much does a push golf buggy cost in Australia?',
+          a: `Our ${word(push.n)} push golf buggies cost between ${aud(push.lo)} and ${aud(push.hi)} AUD including GST, with freight quoted separately against your postcode.`,
+        },
+        {
+          q: 'Do your push golf buggies need a battery?',
+          a: `No. Every model in this range is a manual push buggy with no battery, motor or charger.`,
+        },
+        {
+          q: 'Which push golf buggy folds smallest?',
+          a: `The Rovic RV1C Compact 2.0 (${price('rovic-rv1c-compact-2-0-buggy-silver-black')}) is built for ultra-compact storage. Measure your boot first, because fit depends on your car.`,
+        },
+      ],
+    },
+
     // ------------------------------------------------------- walk-behind
     'walk-behind-buggies': {
       primaryKeyword: 'golf trolley',
@@ -452,11 +497,11 @@ function build(): Record<string, CategoryContent> {
       faqs: [
         {
           q: 'What is the difference between a golf push buggy and a motorised golf buggy?',
-          a: `A golf push buggy is moved by hand. A motorised golf buggy drives itself under lithium power while you walk beside it. Everything in this range is motorised; we do not stock manual push trolleys.`,
+          a: `A golf push buggy is moved by hand. A motorised golf buggy drives itself under lithium power while you walk beside it. Everything in this range is motorised; our manual push buggies are in the Push Golf Buggies range.`,
         },
         {
           q: 'How much does an electric golf trolley cost in Australia?',
-          a: `Our ${word(walk.n)} motorised walk-behind models range from ${aud(walk.lo)} for the MGI Zip X1 to ${aud(walk.hi)} for the MGI Ai Navigator GPS Remote, including GST.`,
+          a: `Our ${word(walk.n)} motorised walk-behind models range from ${aud(walk.lo)} for the MGI E-Boost to ${aud(walk.hi)} for the MGI Ai Navigator Halo, including GST.`,
         },
         {
           q: 'Which golf trolley has a remote control?',
