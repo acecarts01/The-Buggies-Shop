@@ -1349,8 +1349,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "mgi-zip-navigator": {
     fullDescription: "The Zip Navigator is MGI's remote-control Zip buggy: put the bag on, walk wherever suits your round and steer the buggy from the remote. Full directional remote control means you do not have to touch the handle, and the Gyroscope Straight Tracker keeps it on line across cambered ground that would pull a basic buggy off course. Downhill speed control stops it running away from you on slopes. The matte grey and black finish and gloss top box give it a modern look. The all-terrain version is listed separately, and the choice between them comes down to the ground you play on. The Zip range suits cart bags, and not every stand or carry bag fits. Prices include GST, freight quoted at checkout.",
-    primaryKeyword: "zip navigator",
-    supportingKeywords: ["mgi zip navigator remote control", "mgi zip", "mgi navigator golf buggy", "best remote control golf buggy australia", "electric golf buggy with remote australia"],
+    primaryKeyword: "mgi zip",
+    supportingKeywords: ["mgi zip navigator remote control", "zip navigator", "mgi navigator golf buggy", "best remote control golf buggy australia", "electric golf buggy with remote australia"],
     tags: [
       "mgi navigator ai",
       "mgi navigator accessories",
@@ -1433,8 +1433,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "clicgear-model-4-0-buggy-silver": {
     fullDescription: "The Clicgear Model 4.0 is a compact three-wheel push buggy built around stability and durability. The adjustable upper saddle fits your bag properly, a lower saddle gives the front wheel more clearance, and silicone straps and an umbrella tube strap hold the bag firmly. A lockable storage console, a silicone scorecard and pencil holder and a drink holder keep the essentials to hand. It comes supplied with an umbrella holder, storage net, drink holder, storage console and several accessory tabs for adding more. With no battery and no electronics there is nothing to charge and little to go wrong. This is the silver model. Prices include GST, with freight quoted to your postcode at checkout.",
-    primaryKeyword: "clicgear 4.0 best price australia",
-    supportingKeywords: ["clicgear 4.0 for sale", "buy clicgear 4.0", "clicgear 4 wheel", "clicgear 4.0 australia", "push buggy"],
+    primaryKeyword: "push buggy",
+    supportingKeywords: ["clicgear 4.0 best price australia", "clicgear 4.0 for sale", "buy clicgear 4.0", "clicgear 4 wheel", "clicgear 4.0 australia"],
     tags: [
       "best clicgear accessories",
       "clicgear 4.0 accessories australia",
@@ -1447,8 +1447,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "clicgear-model-4-0-buggy-matte-white": {
     fullDescription: "The Clicgear Model 4.0 in matte white is the same stable, compact push buggy in a lighter finish. An adjustable upper saddle fits the bag, a lower saddle clears the front wheel, and silicone straps with an umbrella tube strap keep everything in place. The storage console locks, there is a silicone scorecard and pencil holder, and the buggy comes with an umbrella holder, storage net, drink holder and multiple accessory tabs. It has no battery and no electronics to look after. Silver, soft pink and teal versions are listed separately. Prices include GST, with freight quoted to your postcode at checkout.",
-    primaryKeyword: "clicgear 4.0 price",
-    supportingKeywords: ["clicgear 4.0 best price", "clicgear 4 vs 8", "clicgear model 4.0", "clicgear 4.0 golf trolley", "clicgear model 4 buggy"],
+    primaryKeyword: "clicgear model 4.0",
+    supportingKeywords: ["clicgear model 4 buggy", "clicgear 4.0 price", "clicgear 4.0 best price", "clicgear 4 vs 8", "clicgear 4.0 golf trolley"],
     tags: [
       "clic golf trolley",
       "clic golf buggy",
@@ -1503,8 +1503,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "rovic-rv1s-swivel-2-0-buggy-light-blue": {
     fullDescription: "The Rovic RV1S Swivel 2.0 is a push buggy for golfers who want easy turning. The front wheel swivels through 360 degrees for light, tight steering, and a swivel lock fixes it straight when you want to hold a line on slopes. Dual-action footbrakes park it securely, and the patented folding action packs it down for the boot. A full console and umbrella mount are included, Clicgear accessory tabs let you add more, and the 2.0 update brings silicone bag straps and an external ball clip for a fast reload. Prices include GST, with freight quoted to your postcode at checkout.",
-    primaryKeyword: "rv1s rovic",
-    supportingKeywords: ["rovic 1s", "rovic rv1s 2.0", "rovic rv1s swivel golf buggy", "rovic rv1s swivel", "rovic swivel golf buggy"],
+    primaryKeyword: "rovic rv1s 2.0",
+    supportingKeywords: ["rv1s rovic", "rovic rv1s swivel golf buggy", "rovic rv1s swivel", "rovic swivel golf buggy", "rovic 1s"],
     tags: [
       "rovic golf buggy accessories",
       "rovic rv1c accessories",
@@ -1560,7 +1560,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "mgi-lithium-24v-250wh-battery": {
     fullDescription: "The MGI Lithium 24V 250Wh battery is the pack supplied as standard with the Zip X-series buggies. As a lithium battery it is lighter than the lead-acid packs older trolleys used. It can only be charged with the MGI Lithium 24V battery charger, which is sold separately. Use it as a spare so a flat battery never ends a round early. Prices include GST, with freight quoted to your postcode at checkout.",
     primaryKeyword: "mgi battery",
-    supportingKeywords: ["mgi battery box", "mgi batteries", "mgi battery replacement", "battery powered golf buggy", "battery operated golf buggy"],
+    supportingKeywords: ["mgi battery replacement", "mgi batteries", "mgi battery box", "battery powered golf buggy", "battery operated golf buggy"],
     tags: [
       "mgi battery charging time",
       "mgi battery replacement price",
@@ -1713,8 +1713,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "mgi-seat": {
     fullDescription: "The MGI Seat is a padded seat for comfort and practicality, with a lined storage compartment for easy access to your golfing essentials. It includes a bracket to attach it to the base frame, so you can rest between shots and keep a few items handy. The Quad seat bracket is sold separately, and you should choose the seat made for your respective buggy. Prices include GST, with freight quoted to your postcode at checkout.",
-    primaryKeyword: "single seat golf buggy accessories",
-    supportingKeywords: ["mgi seat", "push golf buggy with seat", "electric golf buggy with seat", "single seat golf buggies", "single seat golf buggy for sale"],
+    primaryKeyword: "mgi seat",
+    supportingKeywords: ["push golf buggy with seat", "electric golf buggy with seat", "single seat golf buggies", "single seat golf buggy for sale", "single seat golf buggy accessories"],
     tags: [
       "golf buggy with seat for sale",
       "mgi ai seat",
@@ -1784,7 +1784,7 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   "mgi-accessories-bag": {
     fullDescription: "The MGI Accessories Bag keeps valuables such as keys, wallet and phone secure and out of your pockets while you play. It is made from durable fabric with a secure zip closure, and a simple bracket mechanism lets it clip on and off the MGI frame. Prices include GST, with freight quoted to your postcode at checkout.",
     primaryKeyword: "mgi accessories",
-    supportingKeywords: ["golf trolley accessories", "golf push buggy accessories", "mgi golf buggy accessories australia", "electric golf trolley accessories", "mgi golf buggy accessories"],
+    supportingKeywords: ["mgi golf buggy accessories", "golf trolley accessories", "electric golf trolley accessories", "golf push buggy accessories", "mgi golf buggy accessories australia"],
     tags: [
       "mgi golf accessories",
       "mgi ai accessories",
@@ -1881,8 +1881,8 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
   },
   "mgi-rear-wheels": {
     fullDescription: "Customise your MGI buggy with Zip rear wheels in pink, gold or black, and mix and match to suit your style. They suit 2023 or newer MGI Ai Series models and 2019 or newer MGI Zip Series models with 15mm axles. They do not suit the Zip X1 or Zip X3. Check your model and year before ordering. Prices include GST, with freight quoted to your postcode at checkout.",
-    primaryKeyword: "big wheel golf buggy accessories",
-    supportingKeywords: ["golf trolley wheels", "golf buggy wheels for sale", "golf buggy mag wheels", "mgi wheel replacement", "mgi buggy wheels"],
+    primaryKeyword: "golf trolley wheels",
+    supportingKeywords: ["golf buggy wheels for sale", "golf buggy mag wheels", "mgi wheel replacement", "mgi buggy wheels", "big wheel golf buggy accessories"],
     tags: [
       "golf trolley front wheel",
       "golf trolley wheels for sale",

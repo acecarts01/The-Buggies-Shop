@@ -6,6 +6,7 @@ import { socialImages } from '@/lib/seo';
 import { jsonLd, collectionPageSchema, absoluteUrl } from '@/lib/schema';
 import CategoryClient from './CategoryClient';
 import { createLinker } from '@/lib/autolink';
+import { buyerLinksFor } from '@/src/config/inbound-links';
 
 export async function generateStaticParams() {
   return CATEGORIES.filter((c) => c.slug !== 'all').map((c) => ({
@@ -77,6 +78,7 @@ export default async function CategoryPage({ params }: PageProps) {
           guides: cat.guides ?? [],
           faqs: cat.faqs ?? [],
           comingSoon: cat.comingSoon === true,
+          buyerLinks: buyerLinksFor('cat', cat.slug),
         }}
       />
     </>

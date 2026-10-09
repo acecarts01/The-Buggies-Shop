@@ -2,6 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES } from '@/src/config/site';
+import { buyerLinksFor } from '@/src/config/inbound-links';
 import { POSTS, toPostSummary } from '@/src/config/posts';
 import { buildTitle, clampDescription, socialImages, keywordLead } from '@/lib/seo';
 import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
@@ -123,7 +124,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(article) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} references={resolveReferences(GUIDE_REFERENCES[post.slug])} linkedBodies={linkedBodies} models={models} />
+      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} references={resolveReferences(GUIDE_REFERENCES[post.slug])} buyerLinks={buyerLinksFor('blog', post.slug)} linkedBodies={linkedBodies} models={models} />
     </>
   );
 }

@@ -17,6 +17,8 @@ import {
   StaggeredParagraph
 } from '@/src/components/AnimatedText';
 
+import { BuyerLinks, type BuyerLinkItem } from '@/src/components/ProductExtras';
+
 export interface CategoryViewContent {
   h1?: string;
   intro?: string;
@@ -24,6 +26,7 @@ export interface CategoryViewContent {
   guides: { slug: string; label: string }[];
   faqs: { q: string; a: string }[];
   comingSoon: boolean;
+  buyerLinks?: BuyerLinkItem[];
 }
 
 interface CategoryClientProps {
@@ -90,7 +93,7 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
   // Keep this lookup BELOW the hooks. Above them the React Compiler bails out
   // with "Existing memoization could not be preserved" and drops this
   // component's memoization entirely.
-  const { intro, sections, guides, faqs } = content;
+  const { intro, sections, guides, faqs, buyerLinks } = content;
   // A category with no stock yet shows a register-interest block where the
   // catalogue would be, rather than an empty grid and "no models match".
   const comingSoon = content.comingSoon;
@@ -232,6 +235,12 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
                   </div>
                 ))}
               </div>
+
+              {buyerLinks && buyerLinks.length > 0 && (
+                <div className="mt-8">
+                  <BuyerLinks items={buyerLinks} heading="Popular in this range" />
+                </div>
+              )}
 
               {guides.length > 0 && (
                 <div className="mt-8 bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 space-y-3 shadow-xs metal-brushed-dark">

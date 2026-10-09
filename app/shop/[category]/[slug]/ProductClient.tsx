@@ -27,7 +27,7 @@ import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
-import { ProductTags, ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
+import { ProductTags, ShippingPaymentBlock, ProductGuides, BuyerLinks, type BuyerLinkItem } from '@/src/components/ProductExtras';
 import ExternalReferences from '@/src/components/ExternalReferences';
 import LinkedText, { type Seg } from '@/src/components/LinkedText';
 import type { Reference } from '@/src/config/references';
@@ -58,11 +58,13 @@ interface ProductClientProps {
   descriptionSegs: Seg[];
   /** The category's buying guides, as descriptive links. */
   guides: { slug: string; label: string }[];
+  /** Keyword-anchored links to related products (src/config/inbound-links.ts). */
+  buyerLinks?: BuyerLinkItem[];
   /** Vetted outbound sources (registration rules for vehicles, battery safety for batteries). */
   references: Reference[];
 }
 
-export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references }: ProductClientProps) {
+export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references, buyerLinks }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -675,9 +677,11 @@ Notes: ${quoteForm.notes || 'None'}`
 
             <ProductGuides guides={guides} />
 
+            <BuyerLinks items={buyerLinks ?? []} heading="Compare and complete your setup" />
+
             <ExternalReferences
               refs={references}
-              heading={isVehicle ? 'Road Registration Rules: Official Guidance' : 'Battery Safety: Official Guidance'}
+              heading={isFullSize ? 'Road Registration Rules: Official Guidance' : product.category === 'Golf Buggy Batteries & Chargers' ? 'Battery Safety: Official Guidance' : 'Official Sources and Further Reading'}
             />
 
             {/* Related Products in this Category */}

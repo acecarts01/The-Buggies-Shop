@@ -4,7 +4,8 @@
 // Selection rules (anything that fails one is left out):
 //   1. Primary source: a government or regulator page, the maker's own site, or
 //      a standards/rules body. No aggregators, link directories, blogs, review
-//      sites, affiliate pages or commercial competitors.
+//      sites, affiliate pages or commercial competitors. Owner-approved
+//      exceptions: Wikipedia and Australian Golf Digest, used sparingly.
 //   2. Directly relevant to the page that carries it (registration guidance on
 //      the registration guide, the ACCC on the warranty guide, and so on).
 //   3. Checked live. Each URL was fetched; pages behind bot protection that
@@ -57,6 +58,21 @@ export const REFERENCES = {
   'maker-mgi': { title: 'MGI Golf official website', publisher: 'MGI Golf', url: 'https://mgigolf.com/' },
   'maker-evolution': { title: 'Evolution Electric Vehicles official website', publisher: 'Evolution Electric Vehicles', url: 'https://evolutionelectricvehicle.com/' },
   'maker-cushman': { title: 'Cushman official website', publisher: 'Cushman (Textron)', url: 'https://www.cushman.com/' },
+  'maker-clicgear': { title: 'Clicgear official website (includes Rovic)', publisher: 'Clicgear', url: 'https://www.clicgear.com/' },
+  // MGI's own support and product pages (maker). Checked live in October 2026.
+  'mgi-zip-faq': { title: 'Zip Series FAQs', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/zip-series-faqs' },
+  'mgi-ai-faq': { title: 'Ai Series FAQs', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/ai-series-faqs' },
+  'mgi-lithium-faq': { title: 'Lithium Battery FAQs', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/lithium-battery-faqs' },
+  'mgi-eboost': { title: 'MGI E-Boost pushcart', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/e-boost-pushcart' },
+  'mgi-accessories': { title: 'MGI buggy accessories', publisher: 'MGI Golf', url: 'https://mgigolf.com/collections/accessories' },
+  'mgi-manuals': { title: 'User manuals', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/user-manuals' },
+  'mgi-warranty': { title: 'Warranty', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/warranty' },
+  // Safety bodies. These sites block scripted requests, so each was confirmed through search results.
+  'psa-lithium': { title: 'Lithium-ion batteries guide', publisher: 'Product Safety Australia (ACCC)', url: 'https://www.productsafety.gov.au/products/electronics-technology/lithium-ion-batteries' },
+  'qfd-lithium': { title: 'Lithium-ion battery safety', publisher: 'Queensland Fire Department', url: 'https://www.fire.qld.gov.au/safety-education/battery-and-charging-safety/lithium-ion-battery-safety' },
+  // Owner-approved exceptions to rule 1 (reference and editorial sources), used sparingly.
+  'wiki-golf-trolley': { title: 'Golf trolley', publisher: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Golf_trolley' },
+  'golf-digest-mgi': { title: 'MGI Golf: 2026 equipment guide', publisher: 'Australian Golf Digest', url: 'https://www.australiangolfdigest.com.au/2026-equipment-guide-mgi-golf/' },
 } satisfies Record<string, Reference>;
 
 export type ReferenceId = keyof typeof REFERENCES;
@@ -68,9 +84,35 @@ export const BRAND_REFERENCES: Record<string, ReferenceId> = {
   yamaha: 'maker-yamaha',
   powakaddy: 'maker-powakaddy',
   mgi: 'maker-mgi',
+  clicgear: 'maker-clicgear',
+  rovic: 'maker-clicgear',
   evolution: 'maker-evolution',
   cushman: 'maker-cushman',
 };
+
+/** A second source for a brand page, beyond the maker. */
+export const BRAND_EXTRA_REFERENCES: Record<string, ReferenceId[]> = {
+  mgi: ['golf-digest-mgi'],
+  clicgear: ['wiki-golf-trolley'],
+};
+
+/** Product page -> its outbound sources: the maker, plus a safety body for batteries and chargers. */
+export function productReferenceIds(p: { name: string; category: string }, fullSizeVehicle: boolean): ReferenceId[] {
+  const n = p.name;
+  const mgi = /^MGI/i.test(n);
+  if (/Fireproof Charging Box/i.test(n)) return ['mgi-lithium-faq', 'psa-lithium', 'qfd-lithium'];
+  if (p.category === 'Golf Buggy Batteries & Chargers') return mgi ? ['mgi-lithium-faq', 'psa-lithium'] : ['accc-lithium', 'wiki-lfp'];
+  if (/^(Clicgear|Rovic)/i.test(n)) return ['maker-clicgear'];
+  if (p.category === 'Motorised Walk-Behind Golf Buggies' && mgi) {
+    if (/E-Boost/i.test(n)) return ['mgi-eboost'];
+    if (/Ai |Halo/i.test(n)) return ['mgi-ai-faq'];
+    if (/Zip|Navigator/i.test(n)) return ['mgi-zip-faq'];
+    return ['maker-mgi'];
+  }
+  if (p.category === 'Golf Buggy Accessories & Spare Parts' && mgi) return /Halo Eye/i.test(n) ? ['mgi-ai-faq'] : ['mgi-accessories'];
+  if (fullSizeVehicle) return ['nsw-golf-buggy', 'qld-golf-buggy', 'vic-noncompliant', 'sa-restricted'];
+  return [];
+}
 
 const STATE_REFS: Record<string, ReferenceId[]> = {
   QLD: ['qld-golf-buggy', 'qld-conditional'],
@@ -98,6 +140,18 @@ export const GUIDE_REFERENCES: Record<string, ReferenceId[]> = {
   'paying-for-a-golf-buggy-in-crypto-btc-usdt-guide': ['ato-crypto'],
   'how-golf-buggy-ordering-invoicing-delivery-works': ['abr', 'accc-guarantees'],
   'lithium-vs-lead-acid-golf-buggy-batteries-australia': ['wiki-lfp', 'accc-lithium'],
+  'mgi-zip-x-series-explained': ['mgi-zip-faq', 'mgi-manuals'],
+  'mgi-ai-navigator-gps-explained': ['mgi-ai-faq', 'golf-digest-mgi'],
+  'mgi-zip-navigator-setup-guide': ['mgi-zip-faq', 'mgi-manuals'],
+  'clicgear-rovic-push-buggies-guide': ['maker-clicgear', 'wiki-golf-trolley'],
+  'mgi-buggy-accessories-guide': ['mgi-accessories', 'mgi-manuals'],
+  'mgi-remote-pairing-guide': ['mgi-zip-faq', 'mgi-ai-faq'],
+  'mgi-battery-charger-guide': ['mgi-lithium-faq', 'psa-lithium', 'qfd-lithium'],
+  'mgi-golf-buggies-australia-guide': ['maker-mgi', 'golf-digest-mgi', 'mgi-warranty'],
+  'mgi-parts-wheels-warranty-guide': ['mgi-warranty', 'mgi-manuals', 'accc-guarantees'],
+  'mgi-zip-navigator-troubleshooting': ['mgi-zip-faq', 'qfd-lithium'],
+  'clicgear-vs-mgi-push-buggy-comparison-australia': ['maker-clicgear', 'maker-mgi'],
+  'golf-push-cart-vs-electric-trolley-australia': ['wiki-golf-trolley'],
   'lithium-battery-conversion-guide-cost-australia': ['accc-lithium', 'wiki-lfp'],
   'golf-buggy-winter-storage-battery-care-australia': ['accc-lithium'],
   'golf-buggy-chargers-explained-australia': ['accc-lithium'],

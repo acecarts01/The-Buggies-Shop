@@ -89,3 +89,45 @@ export function ProductGuides({ guides }: { guides: { slug: string; label: strin
     </section>
   );
 }
+
+export interface BuyerLinkItem {
+  href: string;
+  anchor: string;
+  name: string;
+  price: string;
+  intent: 'T' | 'C';
+}
+
+/**
+ * Keyword-anchored links to products. The link text is the target product's own
+ * search term (transactional or commercial); the product name and price sit under
+ * it. Placed in buying contexts: product pages, category hubs, brand pages, guides.
+ */
+export function BuyerLinks({ items, heading, tone = 'dark' }: { items: BuyerLinkItem[]; heading: string; tone?: 'dark' | 'light' }) {
+  if (!items.length) return null;
+  const dark = tone === 'dark';
+  return (
+    <section
+      aria-label={heading}
+      className={
+        dark
+          ? 'bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-3 shadow-sm metal-brushed-dark'
+          : 'bg-white border border-[#E7E5E4] rounded-2xl p-6 sm:p-8 space-y-3 shadow-sm'
+      }
+    >
+      <h2 className={`text-base sm:text-lg font-serif font-bold tracking-tight ${dark ? 'text-[#ffffff]' : 'text-[#121417]'}`}>{heading}</h2>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+        {items.map((l) => (
+          <li key={l.href + l.anchor} className="text-xs sm:text-sm leading-snug">
+            <Link href={l.href} className={`font-semibold hover:underline ${dark ? 'text-[#E2A17A]' : 'text-[#A85640]'}`}>
+              {l.anchor}
+            </Link>
+            <div className={dark ? 'text-[#A8A29E]' : 'text-[#6B645E]'}>
+              {l.name} &middot; {l.price}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}

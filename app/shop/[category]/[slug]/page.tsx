@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { PRODUCTS, CATEGORIES, SITE, BRAND_PAGES } from '@/src/config/site';
 import { getProductDetails } from '@/src/config/product-details';
 import ProductClient from './ProductClient';
-import { resolveReferences } from '@/src/config/references';
+import { resolveReferences, productReferenceIds } from '@/src/config/references';
+import { buyerLinksFor } from '@/src/config/inbound-links';
 import { createLinker } from '@/lib/autolink';
 import { isBuggyItem } from '@/src/config/site';
 import { socialImages } from '@/lib/seo';
@@ -82,13 +83,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
         categoryLink={{ slug: category, name: CATEGORIES.find((c) => c.slug === category)?.name ?? product.category }}
         lead={productLead(product)}
         guides={(resolveCategory(category)?.guides ?? []).slice(0, 4)}
-        references={resolveReferences(
-          product.category === 'Golf Buggy Batteries & Chargers'
-            ? ['accc-lithium', 'wiki-lfp']
-            : isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies'
-              ? [...['nsw-golf-buggy', 'qld-golf-buggy', 'vic-noncompliant', 'sa-restricted'] as const]
-              : []
-        )}
+        references={resolveReferences(productReferenceIds(product, isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies'))}
+        buyerLinks={buyerLinksFor('product', product.slug)}
       />
     </>
   );

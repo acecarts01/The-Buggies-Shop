@@ -9,11 +9,12 @@ import FaqSection from '@/src/components/FaqSection';
 import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES, isBuggyItem } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { resolveCategory } from '@/src/config/category-content';
-import { ShippingPaymentBlock, ProductGuides } from '@/src/components/ProductExtras';
+import { ShippingPaymentBlock, ProductGuides, BuyerLinks } from '@/src/components/ProductExtras';
+import { buyerLinksFor } from '@/src/config/inbound-links';
 import ExternalReferences from '@/src/components/ExternalReferences';
 import LinkedText from '@/src/components/LinkedText';
 import { createLinker } from '@/lib/autolink';
-import { BRAND_REFERENCES, REFERENCES } from '@/src/config/references';
+import { BRAND_REFERENCES, BRAND_EXTRA_REFERENCES, REFERENCES } from '@/src/config/references';
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/schema';
 
@@ -245,10 +246,12 @@ export default async function BrandPage({ params }: PageProps) {
 
           <ShippingPaymentBlock />
 
+          <BuyerLinks items={buyerLinksFor('brand', b.slug)} heading={`Popular ${b.name} searches`} />
+
           <ProductGuides guides={guides} />
 
           {BRAND_REFERENCES[b.slug] && (
-            <ExternalReferences refs={[REFERENCES[BRAND_REFERENCES[b.slug]]]} heading={`${b.name} Official Website`} />
+            <ExternalReferences refs={[REFERENCES[BRAND_REFERENCES[b.slug]], ...(BRAND_EXTRA_REFERENCES[b.slug] ?? []).map((id) => REFERENCES[id])]} heading={`${b.name}: Official and Independent Sources`} />
           )}
 
           <nav aria-label={`${b.name} by category`} className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold">

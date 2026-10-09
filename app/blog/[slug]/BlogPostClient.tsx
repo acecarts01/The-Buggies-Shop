@@ -1,6 +1,7 @@
 'use client';
 
 import ExternalReferences from '@/src/components/ExternalReferences';
+import { BuyerLinks, type BuyerLinkItem } from '@/src/components/ProductExtras';
 import LinkedText, { type Seg } from '@/src/components/LinkedText';
 import type { Reference } from '@/src/config/references';
 import React, { useState, useEffect } from 'react';
@@ -38,6 +39,8 @@ interface BlogPostClientProps {
   linkedBodies: Seg[][];
   /** Vetted outbound sources for this guide (src/config/references.ts). */
   references: Reference[];
+  /** Keyword-anchored links to the products this guide covers. */
+  buyerLinks?: BuyerLinkItem[];
   /** Brand pages this guide is about. */
   brands: { slug: string; name: string }[];
   post: BlogPost;
@@ -46,7 +49,7 @@ interface BlogPostClientProps {
   relatedPosts: PostSummary[];
 }
 
-export default function BlogPostClient({ post, relatedPosts, brands, references, linkedBodies, models }: BlogPostClientProps) {
+export default function BlogPostClient({ post, relatedPosts, brands, references, linkedBodies, models, buyerLinks }: BlogPostClientProps) {
   const [cartOpen, setCartOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [cartItems, setCartItems] = useCart();
@@ -289,6 +292,12 @@ export default function BlogPostClient({ post, relatedPosts, brands, references,
                   Compare the full golf buggy range
                 </Link>
               </div>
+            </div>
+          )}
+
+          {buyerLinks && buyerLinks.length > 0 && (
+            <div className="mt-8">
+              <BuyerLinks items={buyerLinks} heading="Where to buy what this guide covers" />
             </div>
           )}
 
