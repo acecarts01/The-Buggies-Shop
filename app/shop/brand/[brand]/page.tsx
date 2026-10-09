@@ -115,11 +115,15 @@ export default async function BrandPage({ params }: PageProps) {
     },
     {
       q: `Are ${b.name} buggies electric or petrol?`,
-      a: `Of our ${n} ${b.name} ${n === 1 ? 'model' : 'models'}, ${electric} ${electric === 1 ? 'is' : 'are'} electric and ${petrol} ${petrol === 1 ? 'is' : 'are'} petrol.`,
+      a: electric + petrol === 0
+        ? `${b.name} buggies are manual push buggies: there is no battery, motor or fuel to manage.`
+        : `Of our ${n} ${b.name} ${n === 1 ? 'model' : 'models'}, ${electric} ${electric === 1 ? 'is' : 'are'} electric and ${petrol} ${petrol === 1 ? 'is' : 'are'} petrol.`,
     },
     {
       q: `Can you get ${b.name} parts in Australia?`,
-      a: `We hold ${b.name} parts in Australian stock. That is the practical difference between a repair measured in days and one measured in weeks waiting on an international order. Tell us the model and year of your buggy and we will confirm the right part from Yatala before you order.`,
+      a: ['clicgear', 'rovic'].includes(b.slug)
+        ? `Tell us the model and what you need, such as straps, a seat or a wheel, and we will confirm what we can supply from Yatala before you order.`
+        : `We hold ${b.name} parts in Australian stock. That is the practical difference between a repair measured in days and one measured in weeks waiting on an international order. Tell us the model and year of your buggy and we will confirm the right part from Yatala before you order.`,
     },
     {
       q: `Does ${b.name} come with an Australian warranty?`,

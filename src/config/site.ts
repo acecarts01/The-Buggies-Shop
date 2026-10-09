@@ -260,6 +260,26 @@ export const BRAND_PAGES: BrandPage[] = [
     body: 'MGI is an Australian company and it shows in how the buggies are set up for local courses. The Zip and Ai Navigator ranges cover the whole walk-behind spectrum, from a simple speed dial for a first motorised buggy through to full directional remote control with gyroscope straight-tracking that holds a line across cambered fairways. Australian conditions were the design brief rather than an afterthought, which matters on kikuyu and couch turf and through a wet season. Genuine MGI batteries, remotes and accessories are held in Australian stock, so a worn consumable does not mean replacing an otherwise healthy buggy.',
   },
   {
+    slug: 'clicgear',
+    name: 'Clicgear',
+    match: 'clicgear',
+    origin: 'Push buggies',
+    primaryKeyword: 'clicgear',
+    supportingKeywords: ['clickgear', 'clic gear', 'clicgear golf buggies', 'clicgear buggies', 'cliqgear', 'clickgear buggy'],
+    intro: 'Clicgear push golf buggies for sale in Australia: the Model 4.0 in four colours and the Clicgear 4.5, shipped from our Yatala QLD depot.',
+    body: 'Clicgear is the push buggy buyers ask for by name. Its models are compact three-wheel buggies with no battery, motor or charger, so there is nothing to run flat before a round. The Model 4.0 has an adjustable upper saddle so the bag sits properly, a lower saddle that gives the front wheel more clearance, silicone straps, a lockable storage console and a silicone scorecard and pencil holder, and it ships with an umbrella holder, storage net, drink holder and accessory tabs. The Clicgear 4.5 steps up to an aluminium frame, adjustable handle height and improved storage. Those accessory tabs are the reason the range is easy to personalise: a soft seat cover, cooler bag or umbrella fitting can be added later without changing the buggy. If you are weighing a push buggy against a motorised trolley, our MGI range covers the motorised side.',
+  },
+  {
+    slug: 'rovic',
+    name: 'Rovic',
+    match: 'rovic',
+    origin: 'Push buggies',
+    primaryKeyword: 'rovic',
+    supportingKeywords: ['rovic buggy', 'rovic golf', 'rovic golf buggies', 'rovic push carts', 'clicgear rovic', 'rovic accessories'],
+    intro: 'Rovic push golf buggies for sale in Australia: the RV1S Swivel and the compact RV1C, shipped from our Yatala QLD depot.',
+    body: 'Rovic builds two compact push buggies that share the Clicgear accessory tabs, so accessories made for one fit the other. The RV1S Swivel 2.0 has a front wheel that swivels through 360 degrees with a swivel lock, dual-action footbrakes and a patented folding action. The RV1C Compact 2.0 is the smaller option, with ultra-compact storage, a handle-mounted brake and adjustable front-wheel tracking. Both include a full console and umbrella mount, and the 2.0 update adds silicone bag straps and an external ball clip for a fast reload. Neither has a battery or electronics, which keeps ownership simple. A Rovic RV1C/1S seat is available if you want somewhere to rest between shots.',
+  },
+  {
     slug: 'e-z-go',
     name: 'E-Z-GO',
     match: 'e-z-go',
@@ -363,7 +383,7 @@ export const VEHICLE_COLORS = [
 // templated description, which reads as near-duplicate content and wastes
 // seven chances to place cluster terms. Titles <=60 chars, descriptions ~150.
 export const CATEGORIES = [
-  { slug: 'all', name: 'All Vehicles & Parts', count: 97 },
+  { slug: 'all', name: 'All Vehicles & Parts', count: 102 },
   {
     // A cross-category landing page, not a rawCategory: it lists every
     // electric buggy (isElectricBuggy below) so the "electric golf buggy"
@@ -481,7 +501,7 @@ export const CATEGORIES = [
     slug: 'batteries-chargers',
     name: 'Batteries & Chargers',
     rawCategory: 'Golf Buggy Batteries & Chargers',
-    count: 15,
+    count: 18,
     h1: 'Golf Buggy Batteries & Chargers in Australia',
     metaTitle: 'Golf Buggy Batteries & Chargers Australia | Buggies Express',
     metaDescription:
@@ -491,7 +511,7 @@ export const CATEGORIES = [
     // is read off the ten products actually in this category - do not add
     // chemistry or runtime claims that no product on the site supports.
     intro:
-      'Golf buggy batteries and chargers for Australian owners, from an $85 voltage reducer to a $4,700 72V commercial lithium pack. Fifteen power-system items covering lithium conversion kits, drop-in modules, MGI walk-behind batteries, deep cycle lead acid and smart chargers, dispatched from our Yatala QLD depot.',
+      'Golf buggy batteries and chargers for Australian owners, from an $85 voltage reducer to a $4,700 72V commercial lithium pack. Eighteen power-system items covering lithium conversion kits, drop-in modules, MGI walk-behind batteries, deep cycle lead acid and smart chargers, dispatched from our Yatala QLD depot.',
     sections: [
       {
         heading: 'Lithium vs Lead Acid',
@@ -522,7 +542,7 @@ export const CATEGORIES = [
     slug: 'accessories-spare-parts',
     name: 'Accessories & Spare Parts',
     rawCategory: 'Golf Buggy Accessories & Spare Parts',
-    count: 32,
+    count: 34,
     h1: 'Golf Buggy Accessories & Spare Parts in Australia',
     metaTitle: 'Golf Buggy Accessories & Spare Parts | Buggies Express',
     metaDescription:
@@ -532,7 +552,7 @@ export const CATEGORIES = [
     // brand-qualified ("ezgo golf cart parts", "yamaha golf buggy parts"), so
     // the copy names the fitments we actually carry and nothing else.
     intro:
-      'Golf buggy accessories and spare parts for Australian owners, from a $20.95 multipurpose hook to a $1,450 AC controller upgrade. Thirty-two items covering controllers and solenoids, brakes, wheels and tyres, lighting, mirrors, seating, weather protection, MGI and Clicgear fittings and storage, dispatched from our Yatala QLD depot.',
+      'Golf buggy accessories and spare parts for Australian owners, from a $20.95 multipurpose hook to a $1,450 AC controller upgrade. Thirty-four items covering controllers and solenoids, brakes, wheels and tyres, lighting, mirrors, seating, weather protection, MGI and Clicgear fittings and storage, dispatched from our Yatala QLD depot.',
     sections: [
       {
         heading: 'Controllers and Electrical Spares',
@@ -2255,6 +2275,86 @@ export const PRODUCTS: ProductItem[] = [
     shortDescription: "Aluminium seat made for the Rovic RV1C and RV1S push buggies, for a rest between shots.",
     featured: false,
     images: ["/images/rovic-rv1c-1s-seat.webp"],
+    inStock: true,
+  },
+  {
+    id: "PART-048",
+    slug: "mgi-2024-zip-24v-299wh-lithium-battery",
+    name: "MGI 2024 Zip 24V 299Wh Lithium Battery",
+    category: "Golf Buggy Batteries & Chargers",
+    fuel_type: "Walk-Behind Battery",
+    price_aud: 539,
+    price_display: "$539 AUD",
+    search_intent: "Replacement battery buyers",
+    target_audience: "Owners of MGI Zip X1, X3, X5 and Zip Navigator buggies",
+    key_specs: "24V 299Wh Lithium, 36-Hole Capacity, Fits Zip X1, X3, X5 and Zip Navigator, Charge With MGI 24V Lithium Charger",
+    shortDescription: "MGI 2024 Zip 24V 299Wh 36-hole lithium battery, fitting the Zip X1, X3, X5 and Zip Navigator buggies.",
+    featured: false,
+    images: ["/images/mgi-2024-zip-24v-299wh-lithium-battery.webp"],
+    inStock: true,
+  },
+  {
+    id: "PART-049",
+    slug: "mgi-lithium-12v-299wh-battery",
+    name: "MGI Lithium 12v 299Wh BATTERY",
+    category: "Golf Buggy Batteries & Chargers",
+    fuel_type: "Walk-Behind Battery",
+    price_aud: 539,
+    price_display: "$539 AUD",
+    search_intent: "Replacement battery buyers",
+    target_audience: "Owners of MGI Quad Series and older MGI buggies",
+    key_specs: "12V 299Wh Lithium, Lifting Strap, Battery Leads for Quad Series, Charge With MGI 12V Lithium Charger",
+    shortDescription: "MGI 12V 299Wh lithium battery for Quad Series buggies, supplied with a lifting strap and battery leads.",
+    featured: false,
+    images: ["/images/mgi-lithium-12v-299wh-battery.webp"],
+    inStock: true,
+  },
+  {
+    id: "PART-050",
+    slug: "mgi-e-series-charger",
+    name: "MGI E Series Charger",
+    category: "Golf Buggy Batteries & Chargers",
+    fuel_type: "Walk-Behind Charger",
+    price_aud: 119.95,
+    price_display: "$119.95 AUD",
+    search_intent: "Charger buyers",
+    target_audience: "Owners of the MGI E-Boost pushcart",
+    key_specs: "Replacement Charger for E-Boost 24V 225Wh Lithium Battery, E-Boost Only",
+    shortDescription: "Replacement MGI E Series charger for the E-Boost 24V 225Wh lithium battery, for use with the E-Boost battery only.",
+    featured: false,
+    images: ["/images/mgi-e-series-charger.webp"],
+    inStock: true,
+  },
+  {
+    id: "PART-051",
+    slug: "mgi-telescopic-umbrella",
+    name: "MGI Telescopic Umbrella",
+    category: "Golf Buggy Accessories & Spare Parts",
+    fuel_type: "Walk-Behind Accessory",
+    price_aud: 89.95,
+    price_display: "$89.95 AUD",
+    search_intent: "Accessory buyers",
+    target_audience: "MGI buggy owners",
+    key_specs: "Silver, Anti-Flip, UV Protection, Wind Resistant, Auto-Extending Handle",
+    shortDescription: "Silver MGI telescopic umbrella with an anti-flip, wind-resistant, UV-protective canopy and an automatically extending handle.",
+    featured: false,
+    images: ["/images/mgi-telescopic-umbrella.webp"],
+    inStock: true,
+  },
+  {
+    id: "PART-052",
+    slug: "mgi-rear-wheels",
+    name: "MGI Rear Wheels",
+    category: "Golf Buggy Accessories & Spare Parts",
+    fuel_type: "Walk-Behind Accessory",
+    price_aud: 179.95,
+    price_display: "$179.95 AUD",
+    search_intent: "Accessory buyers",
+    target_audience: "MGI Zip and Ai owners who want to change their wheels",
+    key_specs: "Pink, Gold or Black, Fits 2023+ Ai and 2019+ Zip With 15mm Axles, Excludes Zip X1 and X3",
+    shortDescription: "MGI Zip rear wheels in pink, gold or black for 2023 or newer Ai and 2019 or newer Zip models with 15mm axles.",
+    featured: false,
+    images: ["/images/mgi-rear-wheels.webp"],
     inStock: true,
   },
 ];
