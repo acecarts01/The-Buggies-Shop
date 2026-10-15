@@ -69,6 +69,9 @@ export const REFERENCES = {
   'mgi-warranty': { title: 'Warranty', publisher: 'MGI Golf', url: 'https://mgigolf.com/pages/warranty' },
   // Safety bodies. These sites block scripted requests, so each was confirmed through search results.
   'psa-lithium': { title: 'Lithium-ion batteries guide', publisher: 'Product Safety Australia (ACCC)', url: 'https://www.productsafety.gov.au/products/electronics-technology/lithium-ion-batteries' },
+  'ato-iawo': { title: '$20,000 instant asset write-off', publisher: 'Australian Taxation Office', url: 'https://www.ato.gov.au/about-ato/new-legislation/in-detail/businesses/20000-dollars-instant-asset-write-off' },
+  'qfd-bushfire': { title: 'Plan to survive: bushfire survival planning', publisher: 'Queensland Fire Department', url: 'https://www.fire.qld.gov.au/plantosurvive' },
+  'accc-parallel': { title: 'Buying parallel imports', publisher: 'ACCC', url: 'https://www.accc.gov.au/consumers/buying-products-and-services/buying-parallel-imports' },
   'qfd-lithium': { title: 'Lithium-ion battery safety', publisher: 'Queensland Fire Department', url: 'https://www.fire.qld.gov.au/safety-education/battery-and-charging-safety/lithium-ion-battery-safety' },
   // Owner-approved exceptions to rule 1 (reference and editorial sources), used sparingly.
   'wiki-golf-trolley': { title: 'Golf trolley', publisher: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Golf_trolley' },
@@ -125,6 +128,14 @@ export const referencesForState = (stateCode: string): ReferenceId[] => STATE_RE
 
 /** Guide slug -> the sources that back what the guide says. */
 export const GUIDE_REFERENCES: Record<string, ReferenceId[]> = {
+  'electric-golf-buggy-that-follows-you-gps-follow-vs-remote-australia': ['mgi-ai-faq', 'golf-digest-mgi'],
+  'golf-buggy-top-speed-australia-what-to-know-before-you-change-it': ['qld-golf-buggy', 'nsw-golf-buggy'],
+  'buggy-vs-golf-cart-vs-side-by-side-utv-five-year-cost-australia': ['accc-guarantees'],
+  'golf-buggy-bushfire-season-battery-charging-safety-australia': ['qfd-bushfire', 'qfd-lithium'],
+  'golf-buggy-salt-air-coastal-care-australia': ['qfd-lithium', 'accc-lithium'],
+  'golf-buggy-heat-summer-battery-storage-australia': ['qfd-lithium', 'mgi-lithium-faq'],
+  'golf-buggy-instant-asset-write-off-business-australia': ['ato-iawo'],
+  'parallel-import-golf-buggies-grey-import-risks-australia': ['accc-parallel', 'accc-guarantees', 'accc-warranties'],
   'golf-buggy-registration-australia-conditional-road-access': ['qld-golf-buggy', 'nsw-golf-buggy', 'vic-noncompliant', 'sa-restricted', 'wa-registration'],
   'golf-carts-for-sale-brisbane-buyers-guide': ['qld-golf-buggy', 'qld-conditional'],
   'golf-carts-for-sale-sydney-nsw-buyers-guide': ['nsw-golf-buggy'],
