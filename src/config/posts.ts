@@ -566,6 +566,7 @@ export const POSTS: BlogPost[] = [
         q: "Are remote golf buggies allowed at Australian clubs?",
         a: "Policies vary more than most golfers assume. Some clubs restrict motorised trolleys during wet periods to protect turf, and a few have conditions on remote-operated buggies specifically. A quick conversation with the pro shop before buying is faster than discovering a restriction on the first tee.",
       },
+      { q: "Which remote-control golf buggy has GPS?", a: "The MGI Ai Navigator Halo combines a GPS remote with Geo Protect hazard mapping at $3,249 AUD including GST. The Halo Eye sensor at $599 AUD adds follow me, return home and obstacle avoidance. Check that your chosen model and accessory are compatible before ordering." },
     ],
     content: [
       {
@@ -605,6 +606,10 @@ export const POSTS: BlogPost[] = [
       heading: "Battery Range Planning for Thirty-Six Hole Days",
       body: "Range on a remote buggy is quoted in holes rather than kilometres, and the honest planning figure is lower than the headline. Remote and follow operation draw more power than simple forward drive because the buggy makes constant small steering corrections, and hilly courses raise consumption further. A pack rated for thirty-six holes on flat ground may not comfortably cover thirty-six on genuinely undulating terrain with a full bag. If you regularly play long days, the practical options are a battery specified well beyond your usual round, or a second pack carried in the car. Cold mornings also temporarily reduce available capacity, which is worth knowing before a winter competition rather than discovering it on the sixteenth.",
     },
+      {
+        heading: "GPS, follow and remote compared",
+        body: "Remote control is only one option. Some buggies add GPS, and some follow you automatically. Our guide to electric golf buggies that follow you compares the Robera Pro Follow, the MGI Ai Navigator Halo and the Halo Eye, with prices.",
+      },
   ],
     relatedProductCategory: 'walk-behind-buggies',
     relatedProductSlug: 'mgi-ai-navigator-gps-remote-buggy',
@@ -744,6 +749,7 @@ export const POSTS: BlogPost[] = [
         q: "Which folding buggies do you stock?",
         a: "Folding is standard across our walk-behind range, including the entry-level MGI Zip X1 with its compact fold mechanism. Send us your boot dimensions and we will tell you honestly which models fit rather than which we would prefer to sell.",
       },
+      { q: "Do follow-me buggies fold to fit a car boot?", a: "Many do. The MGI Ai Navigator Halo lists a compact fold, and the Halo Eye sensor adds follow me without changing the fold. Measure your boot, including the width with the wheels on, and compare it to the buggy's folded size before you order." },
     ],
     content: [
       {
@@ -779,6 +785,10 @@ export const POSTS: BlogPost[] = [
       heading: "Lifting Weight Matters More Than Total Weight",
       body: "Total weight is the figure quoted, but the number that determines whether you keep using a buggy is how much you have to lift in one movement at boot height. A buggy whose battery detaches separately might weigh more overall than a lighter fixed-battery model while being far easier to load, because the heaviest single component travels in your hand rather than in the frame. That difference compounds every round. If you have a shoulder, back or knee that objects to awkward lifts, prioritise a removable battery and a frame that folds into a shape with an obvious carry point over the lowest headline weight. Boot lip height on your particular car matters too, since a high lip means lifting the buggy up before moving it in rather than sliding it.",
     },
+      {
+        heading: "Fold size and smart features",
+        body: "GPS and follow features do not always add bulk, but check the fold. The MGI Ai Navigator Halo lists a compact fold, and the Halo Eye adds LiDAR follow me. Measure your boot first. Our follow vs remote guide compares the models.",
+      },
   ],
     relatedProductCategory: 'walk-behind-buggies',
     relatedProductSlug: 'mgi-zip-x1-lithium-buggy',
@@ -1449,6 +1459,7 @@ export const POSTS: BlogPost[] = [
         q: "What about private estate and gated community roads?",
         a: "Private roads may sit outside the registration scheme but the liability if a pedestrian is injured is entirely real. Many gated communities also set their own internal rules, so check with the body corporate as well as the council.",
       },
+      { q: "Does changing my buggy's speed affect registration?", a: "It may. Conditional registration conditions vary by state, and a modification could affect them. Before you change a controller or speed setting, check the official Queensland or New South Wales golf buggy page, or ask your state's registering authority. Also check brakes, tyres and your warranty." },
     ],
     content: [
       {
@@ -1500,6 +1511,10 @@ export const POSTS: BlogPost[] = [
       heading: "Insurance and Liability on Private Estate Roads",
       body: "Insurance is the part owners think about last and regret first. A golf buggy is frequently excluded from both home contents policies and standard motor policies, sitting in a gap where owners assume they are covered and discover otherwise only after an incident. Gated communities and private estates add another layer, because the roads may be private but the liability if a pedestrian is injured is entirely real. Speak to your insurer specifically about the vehicle, how and where it is used, and who drives it, including whether learner-age or unlicensed family members will be at the wheel. Get the answer in writing. Where conditional registration applies, compulsory third party arrangements are usually part of the scheme, and your road authority can confirm what is required.",
     },
+      {
+        heading: "Speed changes and road conditions",
+        body: "Conditional registration comes with conditions that differ by state, and some relate to the vehicle's specifications. Before you change a controller or speed setting, read the official page for your state, linked below, and ask the registering authority how a change affects your conditions. Our top speed guide covers brakes, tyres and warranty.",
+      },
   ],
     relatedProductCategory: 'luxury-4-seater',
     relatedProductSlug: 'atlas-4-passenger-lifted-lithium-buggy',
@@ -2014,6 +2029,7 @@ export const POSTS: BlogPost[] = [
         q: "Do brakes suffer during storage?",
         a: "Drums in particular hold surface corrosion after a damp storage period and will feel poor until it wears off. Test at walking pace in a clear area before driving anywhere, rather than discovering it on the first descent.",
       },
+      { q: "Is storing a buggy battery in summer different from winter?", a: "The core advice is the same: keep the battery cool and dry, away from direct sun and heat, and at about 40 per cent charge for long-term storage. In summer, avoid closed sun-baked sheds and hot car boots, and check it every month or two." },
     ],
     content: [
       {
@@ -2052,6 +2068,10 @@ export const POSTS: BlogPost[] = [
       heading: "Bringing a Stored Buggy Back Safely",
       body: "Recommissioning deserves a slower first run than most owners give it. Before reconnecting the pack, look over the wiring for rodent damage, which is common in rural sheds and dangerous if a chewed cable is energised without inspection. Check tyre pressures, which will have dropped over months, and look for flat spots from static loading. Reconnect the battery, then charge fully and observe the charge cycle rather than walking away, since a pack damaged during storage often reveals itself by charging abnormally fast or refusing to complete. Test the brakes at walking pace in a clear area before driving anywhere, because drums in particular can hold surface corrosion after a damp storage period and will feel poor until it wears off.",
     },
+      {
+        heading: "Summer and bushfire season storage",
+        body: "The same rules apply in summer: a cool, dry place, away from sun and heat, with long-term storage at about 40 per cent charge, as the Queensland Fire Department advises. Our summer heat and bushfire guides cover hot sheds and charging.",
+      },
   ],
     relatedProductCategory: 'batteries-chargers',
     relatedProductSlug: 'mgi-24v-lithium-battery-36-hole',
@@ -2290,6 +2310,7 @@ export const POSTS: BlogPost[] = [
         q: "Is solar worth it for a fleet?",
         a: "It suits fleets that park outdoors between short runs better than any other use case, because that is exactly the idle-in-sun pattern solar rewards. For fleets that charge overnight in a shed, the infrastructure spend is better directed elsewhere.",
       },
+      { q: "Is it safe to charge a golf buggy from home solar in summer?", a: "Yes, if you follow normal battery safety. Use the charger made for your battery, charge on a hard, non-combustible surface in a shaded, ventilated spot, and avoid charging a hot battery straight after a long drive. Queensland Fire Department advice covers cool, dry storage." },
     ],
     content: [
       {
@@ -2329,6 +2350,10 @@ export const POSTS: BlogPost[] = [
       heading: "Solar as Battery Preservation Rather Than Free Range",
       body: "The more durable argument for a solar roof is not the range it adds but what it does to the depth of discharge. Battery life is governed heavily by how deeply a pack is drained on each cycle: shallow, frequent partial cycles are gentler than deep ones. A panel topping the pack back up during idle hours keeps the battery in that shallower band, which over years contributes to pack longevity in a way that does not appear in any daily range figure. Treat solar as maintenance charging that reduces the work the pack does rather than as a fuel replacement. Framed that way, the case is stronger and the expectations are realistic, which is the opposite of how solar accessories are usually sold.",
     },
+      {
+        heading: "Charging from home solar in summer",
+        body: "If you charge from a home solar system, the battery safety advice still applies: use the supplied charger, charge on a hard surface and keep the area clear and ventilated. Midday charging is often the hottest part of the day, so choose a shaded spot. Our summer heat guide has the details.",
+      },
   ],
     relatedProductCategory: 'commercial-utility',
     relatedProductSlug: 'club-car-carryall-700-electric-utility',
@@ -4244,6 +4269,10 @@ export const POSTS: BlogPost[] = [
         heading: "How We Handle Fleet Enquiries",
         body: "Tell us the number of vehicles, the duty, the terrain and your charging situation, and we will specify against that rather than quoting a list price times a quantity. Fleet pricing, delivery scheduling and a standardised parts holding are all part of the conversation. Freight on multiple units is quoted as one job against your site postcode. For clubs, resorts, councils and commercial operators, our wholesale desk handles tender documentation and phased delivery where a full replacement in one week is impractical.",
       },
+      {
+        heading: "Tax and care for fleet buyers",
+        body: "The ATO says the instant asset write-off applies per asset, to eligible businesses under the turnover limit, so a fleet is assessed buggy by buggy. Read our instant asset write-off guide and ask your accountant. For coastal venues, our salt air care guide gives a routine for staff.",
+      },
     ],
     faqs: [
       {
@@ -4270,6 +4299,7 @@ export const POSTS: BlogPost[] = [
         q: "Can you deliver a fleet in stages?",
         a: "Yes. Phased delivery is common because replacing an entire fleet in one week is impractical for most clubs and resorts. Freight on multiple units is quoted as a single job against your site postcode rather than per vehicle, which is usually the more economical arrangement.",
       },
+      { q: "Can a fleet of buggies qualify for the instant asset write-off?", a: "The ATO applies the write-off per asset to eligible businesses with turnover under the limit, so each buggy is assessed on its own cost and business use. Rules and thresholds change, so confirm with your accountant or the ATO before you order." },
     ],
     relatedProductCategory: "Commercial & Farm Utility Buggies",
   },
@@ -4438,6 +4468,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Pressure, Wear And When To Replace',
         body: "Tyre pressure matters more on a golf buggy than most owners expect, because the vehicle is light relative to its tyre footprint. Under-inflation accelerates edge wear and can cause the tyre to sit unevenly under load, while over-inflation transmits every surface irregularity straight into the frame and seats. Check pressure monthly rather than assuming it holds, and replace a tyre once the tread depth is visibly shallow — a worn tyre on wet turf or gravel is a genuine loss of control, not just a cosmetic issue.",
       },
+      {
+        heading: "Heat, salt and tyre age",
+        body: "Hot summers and salt air age tyres faster. Check pressure when the tyres are cold, look for cracking on the sidewalls, and rinse salt off with fresh water. Our summer heat and salt air guides cover parking in shade and a monthly checking routine.",
+      },
     ],
     faqs: [
       { q: 'What is the difference between turf and all-terrain golf buggy tyres?', a: 'Turf tyres use a smooth, shallow tread designed to avoid scuffing manicured grass, while all-terrain tyres use a deeper, more aggressive tread for grip on gravel, dirt and light mud. All-terrain tyres are harder on a fairway; turf tyres are ineffective on loose or wet ground.' },
@@ -4445,6 +4479,7 @@ export const POSTS: BlogPost[] = [
       { q: 'How often should golf buggy tyres be checked or replaced?', a: 'Check pressure monthly, since a light buggy on small tyres is more sensitive to under- or over-inflation than a car. Replace a tyre once tread depth is visibly shallow — worn tread on wet turf or gravel is a real loss of grip, not just a cosmetic issue.' },
       { q: 'Do street tyres wear out faster off-road than all-terrain tyres?', a: 'Yes, meaningfully. A street-compound tyre is built for smooth wear on sealed surfaces and will wear unevenly and lose grip quickly on gravel or dirt. If the buggy regularly leaves sealed roads, all-terrain tyres are the better long-term choice even at a slightly higher upfront cost.' },
       { q: 'What tyres come standard on your off-road and lifted 4x4 buggies?', a: 'Our off-road and lifted 4x4 models ship with all-terrain tyres as standard factory fitment, matched to the lift height and suspension of each model rather than added as an aftermarket upgrade.' },
+      { q: "Does summer heat affect golf buggy tyres?", a: "Yes. Heat raises tyre pressure and can age rubber faster, so check pressure when the tyres are cold, inspect sidewalls for cracks and park in shade when you can. Replace tyres that are worn or cracked, and ask us for a quote for your model." },
     ],
     relatedProductSlug: 'all-terrain-23x10-5-12-wheel-tyre-combo',
     primaryKeyword: 'golf buggy tyres australia',
@@ -4497,6 +4532,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Matching Brakes To How You Actually Use The Buggy',
         body: 'The right brake system depends on load and terrain more than personal preference. A light 2-seater on flat sealed roads is genuinely fine on a stock drum brake. Anything heavier, lifted, towing, or regularly on a slope should be running hydraulic disc brakes at minimum, and anyone parking on an incline should weight electromagnetic braking heavily in their buying decision regardless of the rest of the spec sheet.',
       },
+      {
+        heading: "Brakes when speed or load goes up",
+        body: "More speed, more passengers and a heavy cargo load all lengthen stopping distance. The Atlas 4-Seater Heavy Duty Lifted 350A lists four-wheel hydraulic brakes and the Tara Roadster 2+2 lists hydraulic disc brakes. If you plan a controller upgrade, inspect and service the brakes first. See our golf buggy top speed guide for the full checklist.",
+      },
     ],
     faqs: [
       { q: 'What type of brakes come standard on most golf buggies?', a: 'Most stock 2-seater buggies ship with mechanical drum brakes, operated by a foot pedal. They are adequate on flat, sealed ground at factory weight, but are the first component to feel overwhelmed once tyres, weight or terrain change.' },
@@ -4504,6 +4543,7 @@ export const POSTS: BlogPost[] = [
       { q: 'What is electromagnetic braking on a golf buggy?', a: 'It is a braking system that engages automatically the moment you lift off the accelerator, holding the vehicle in place without any pedal input — a genuinely different behaviour to a foot brake, not just a stronger one. It is especially valuable on sloped ground.' },
       { q: 'How do I know if my golf buggy brakes need attention?', a: 'A spongy or delayed pedal, noticeably longer stopping distance than usual, or any rollback on a slope with the brake applied are all signs the system is worn or undersized. Address it before it causes a near miss, not after.' },
       { q: 'Do lifted 4x4 golf buggies need different brakes to standard models?', a: 'Yes. The added weight, larger all-terrain tyres and rougher terrain of a lifted 4x4 buggy demand hydraulic disc brakes rather than a stock drum brake — which is why our off-road and lifted range is specified with the stronger system from the factory.' },
+      { q: "Do I need better brakes if I speed up my buggy?", a: "Check them first. Higher speed lengthens stopping distance, so inspect the pads or shoes, cables and fluid before any change and replace worn parts. Models such as the Atlas 350A list four-wheel hydraulic brakes. Have a qualified technician check the whole braking system." },
     ],
     relatedProductSlug: 'heavy-duty-4-wheel-hydraulic-disc-brake-kit',
     primaryKeyword: 'golf buggy brakes',
@@ -4556,6 +4596,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Signs Your Charger Needs Replacing',
         body: "A charger that runs noticeably hotter than it used to, takes visibly longer to reach a full charge, or fails to taper off and simply stops abruptly are all signs it's failing or was never correctly matched to the pack. Because a mismatched or failing charger can shorten battery life significantly, it's worth replacing promptly with a correctly rated unit rather than continuing to use one that's behaving unusually.",
       },
+      {
+        heading: "Charging safely in summer and bushfire season",
+        body: "Charge on a hard, non-combustible surface with the charger made for the battery, in a ventilated spot away from fuel, clutter and sun. The Queensland Fire Department also advises checking for the Regulatory Compliance Mark. Our bushfire season and summer heat guides expand on this.",
+      },
     ],
     faqs: [
       { q: 'Can I use a lead-acid charger on a lithium golf buggy battery?', a: 'No. A lead-acid charger applies a charge profile suited to that chemistry, which is a genuine safety and longevity risk on a lithium pack. Always use a charger specifically rated for lithium, matched to both the voltage and chemistry of your battery.' },
@@ -4563,6 +4607,7 @@ export const POSTS: BlogPost[] = [
       { q: 'What is the difference between an on-board and off-board golf buggy charger?', a: 'An on-board charger is wired permanently into the vehicle, so you plug into any standard outlet wherever the buggy is parked. An off-board charger is a separate unit you connect via a port, which suits fleets or dedicated charging bays.' },
       { q: 'Can solar panels fully charge a golf buggy battery?', a: 'Realistically, no — Australian daylight hours and practical panel size make solar a supplement to mains charging rather than a replacement for it. A solar expansion kit extends range between charges rather than removing the need to plug in.' },
       { q: 'How do I know if my golf buggy charger needs replacing?', a: 'Watch for a charger running noticeably hotter than usual, taking longer to reach full charge, or stopping abruptly instead of tapering off. Any of these suggest it is failing or mismatched to the pack, and continuing to use it can shorten battery life.' },
+      { q: "Is it safe to charge a golf buggy in a hot shed?", a: "Avoid it. The Queensland Fire Department advises keeping lithium-ion batteries cool and dry, away from sun and heat. Charge in a shaded, ventilated spot on a hard, non-combustible surface using the supplied charger, away from fuel and clutter, and never leave it charging while away." },
     ],
     relatedProductSlug: 'delta-q-quiq-48v-smart-on-board-charger',
     primaryKeyword: 'golf buggy charger australia',
@@ -4793,6 +4838,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Ordering For A Rural Or Regional Winery Address',
         body: "Freight to a vineyard or winery address, whether it's five minutes from a regional town or genuinely remote, is quoted the same way as any other delivery: against your specific postcode, with no minimum order to hit. For larger purchases — say a utility model and a guest 4-seater together — our wholesale and fleet desk can quote the freight as one combined job rather than two separate deliveries.",
       },
+      {
+        heading: "Hauling loads between rows and cellar door",
+        body: "For heavier vineyard jobs, a utility buggy suits better than a passenger model. The Club Car Carryall 700 Electric Utility lists a 680kg payload capacity and a tow hitch, and the E-Z-GO Cushman Hauler PRO Lithium lists 544kg towing capacity. Our guide to buggy, golf cart and side-by-side five-year costs shows how to compare them with a petrol utility vehicle using your own hours and prices.",
+      },
     ],
     faqs: [
       { q: 'Will a standard golf buggy fit between vineyard rows?', a: "It depends on your specific row spacing and the buggy's full width including mirrors and guards, not just its stated wheelbase. Measure your actual rows and compare them against a model's width spec before ordering, since narrow rows rule out some models entirely." },
@@ -4800,6 +4849,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Should a winery buy one buggy for both fieldwork and guests?', a: "It's possible but usually a compromise. Wineries doing meaningful volumes of both jobs more often run two purpose-built vehicles: a commercial utility model for row work, and a presentable 4-seater kept specifically for cellar-door guest transport." },
       { q: 'Do you deliver golf buggies to regional and rural vineyard addresses?', a: 'Yes. Freight is quoted against your specific postcode regardless of how rural the address is, with no minimum order. For multiple vehicles, our wholesale and fleet desk can quote combined freight as one job.' },
       { q: 'What buggy suits carrying pruning waste and picking bins?', a: 'A commercial utility or flatbed cargo model built for load carrying, rather than a passenger-focused buggy. Our commercial utility range is built for exactly this kind of mixed farm and hospitality load work.' },
+      { q: "Which buggy suits hauling loads on a vineyard?", a: "A utility buggy suits heavy jobs. The Club Car Carryall 700 lists a 680kg payload and a tow hitch at $22,900 AUD, and the E-Z-GO Cushman Hauler PRO lists 544kg towing capacity at $21,500 AUD, both including GST. Compare them on payload, terrain and running cost before you decide." },
     ],
     relatedProductSlug: 'club-car-carryall-700-electric-utility',
     primaryKeyword: 'golf buggies for wineries australia',
@@ -4852,6 +4902,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Ordering And Delivering A Resort Fleet',
         body: 'For multiple units, our wholesale and fleet desk quotes freight as one combined job against your park or resort address, rather than pricing and scheduling each vehicle separately. Tell us your guest volume, site terrain and whether you need luggage-carrying capacity alongside passenger seating, and we will specify a fleet against that rather than a generic quantity of one model.',
       },
+      {
+        heading: "Coastal parks: protect the fleet from salt air",
+        body: "Parks near the beach face salt spray year-round. Choose buggies with aluminium frames, rinse them with fresh water on a weekly routine, and inspect connectors and brake parts for early corrosion. Our golf buggy salt air care guide sets out a simple monthly routine you can hand to staff.",
+      },
     ],
     faqs: [
       { q: 'What type of golf buggy suits a caravan park or resort fleet?', a: 'A commercial utility model with both passenger seating and a tray or flatbed, so it can handle guest and staff transport as well as luggage, linen and maintenance loads across the same shift, rather than needing separate vehicles for each job.' },
@@ -4859,6 +4913,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Why is lithium power recommended for resort fleets?', a: 'A resort buggy runs far more hours per week than a private one, and lithium’s faster, more predictable charging and lack of daily maintenance keep it reliably ready for the next shift without a technician checking water levels between uses.' },
       { q: 'When should a resort schedule golf buggy servicing?', a: 'During the shoulder or off-peak season rather than reactively during a fully booked period. Occupancy in this industry is predictable well in advance, which makes planned servicing around the quiet months genuinely practical.' },
       { q: 'Do you offer fleet pricing and combined delivery for resorts?', a: 'Yes. Our wholesale and fleet desk quotes multiple units as one combined freight job against your site address, and can advise on fleet sizing based on your guest volume and terrain rather than quoting a generic quantity.' },
+      { q: "How do I protect caravan park buggies from salt air?", a: "Rinse each buggy gently with fresh water weekly, dry it, and check battery terminals, connectors, bolts and brake parts for early corrosion. Aluminium frames such as the Club Car Tempo and Onward resist rust, but fasteners and electrics still need attention. Never pressure wash electrics or the charging port." },
     ],
     relatedProductSlug: 'lvtong-commercial-flatbed-cargo-buggy',
     primaryKeyword: 'golf buggies for caravan parks',
@@ -4911,6 +4966,10 @@ export const POSTS: BlogPost[] = [
         heading: 'How To Actually Decide',
         body: "The honest deciding factor is usually your property's power access and how far the buggy needs to travel between charges or refuels, more than a pure running-cost calculation. A property without reliable power near where the buggy is used may find petrol the more practical choice despite the higher fuel cost, while a property with easy overnight charging access will typically find electric the lower-cost option over the vehicle's life.",
       },
+      {
+        heading: "Compare five years, not one price",
+        body: "Running cost is only one line. Build a five-year table that includes purchase price, energy, servicing, registration and insurance, and resale, using your own hours of use. Our buggy vs golf cart vs side-by-side guide shows the method.",
+      },
     ],
     faqs: [
       { q: 'Is it cheaper to run an electric or petrol golf buggy in Australia?', a: 'On a per-kilometre basis, charging overnight on standard household electricity is generally cheaper and more price-stable than petrol, which moves with the bowser price. Servicing costs differ too: electric has fewer routine services but an eventual battery replacement cost.' },
@@ -4918,6 +4977,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Why would someone choose petrol over electric for a golf buggy?', a: 'Mainly range and refuel speed — a petrol buggy covers long distances without planning around a charge cycle and refuels in minutes. It also suits properties without a convenient power point near where the buggy operates.' },
       { q: 'Are quiet petrol golf buggies available in Australia?', a: 'Yes. Yamaha’s QuietTech engineering specifically targets the noise gap with electric, bringing petrol close enough in sound that conversation at speed stays comfortable — relevant if noise was the reason you were considering electric.' },
       { q: 'How do I decide between petrol and electric for my property?', a: 'Start with your power access and typical trip distance rather than running cost alone. Easy overnight charging access tends to favour electric; a property without convenient power near where the buggy is used often favours petrol despite the higher fuel cost.' },
+      { q: "How do I compare petrol and electric buggy costs over five years?", a: "List five costs for each machine: delivered price, energy, servicing and parts, registration and insurance, and expected resale. Use your own hours of use, electricity tariff and fuel price, and get written quotes. Then add each column to compare totals." },
     ],
     relatedProductSlug: 'club-car-tempo-efi-petrol',
     primaryKeyword: 'petrol vs electric golf buggy australia',
@@ -5029,6 +5089,10 @@ export const POSTS: BlogPost[] = [
         heading: 'Buying For Estate Use',
         body: "If daily use inside a gated community or large residential estate is the primary job, prioritise road-awareness features, presentation and quiet running over off-road capability the estate will likely never need. A traditional 2-seater or luxury 4-seater from our range typically suits this use case better than an off-road or lifted model built for terrain the estate simply doesn't have.",
       },
+      {
+        heading: "Speed, by-laws and neighbours",
+        body: "Estates often set their own rules for buggies, including speed and permitted hours. Ask your body corporate before you buy, and choose a model whose listed top speed suits the estate. Our golf buggy top speed guide explains what sets a buggy's speed and why we do not publish one figure for every model.",
+      },
     ],
     faqs: [
       { q: 'What features matter most for a golf buggy used in a gated community?', a: 'Turn signals and mirrors for genuine road awareness, quiet lithium running given the proximity to other residences, and presentation, since the vehicle is visible to neighbours daily. Off-road capability is rarely relevant on estate roads.' },
@@ -5036,6 +5100,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Why does quiet running matter for estate use specifically?', a: "Because a buggy on estate roads passes close to other residences multiple times a day, often early or late. Lithium's genuinely quiet running matters more here than in almost any other use case for reasons beyond running cost." },
       { q: 'Which golf buggy models suit gated community daily use best?', a: 'A traditional 2-seater or luxury 4-seater with road-aware features like turn signals and mirrors typically suits estate use better than an off-road or lifted model, since the terrain those models are built for rarely exists inside an estate.' },
       { q: 'Do you deliver golf buggies directly to residential estates?', a: 'Yes, by enclosed nationwide freight quoted against your specific delivery address, including gated community and estate addresses, the same as any other Australian postcode.' },
+      { q: "What speed can I drive a buggy in a residential estate?", a: "It depends on your estate's by-laws and body corporate rules, which vary. Ask in writing before you buy. A buggy's top speed depends on the model, so check the maker's listed specification, and drive at a pace that suits pedestrians, children and the road surface." },
     ],
     relatedProductSlug: 'evolution-classic-2-plus',
     primaryKeyword: 'golf buggies for gated communities australia',
@@ -5263,6 +5328,10 @@ export const POSTS: BlogPost[] = [
         heading: 'This Is General Information, Not Advice',
         body: "This article explains how golf buggy insurance commonly works in Australia in general terms. It is not personal financial or insurance advice, and insurer terms, availability and pricing change over time and differ between providers. Always read the current product disclosure statement and confirm specific terms directly with the insurer before purchasing any policy.",
       },
+      {
+        heading: "Tell your insurer about changes and risks",
+        body: "Modifications such as a controller upgrade, a lifted suspension or a new battery can affect cover, and so can where the buggy is stored. If you live in a bushfire-prone or coastal area, ask how your policy treats those risks. Our guides on bushfire season safety and salt air care list sensible precautions, which insurers may ask about.",
+      },
     ],
     faqs: [
       { q: 'Can I insure a golf buggy in Australia?', a: 'Generally yes, though typically through a specialist, leisure or caravan-and-lifestyle insurer rather than a standard car policy, since a golf buggy usually isn’t a registered road vehicle. Availability and terms vary by insurer, so confirm directly with providers.' },
@@ -5270,6 +5339,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Does golf buggy insurance cover off-road or acreage use?', a: "It depends entirely on the specific policy — some are written for course or estate use only and exclude off-road or acreage use. If your buggy is used off-road, explicitly confirm this is covered before relying on a policy." },
       { q: 'Do modifications like a lift kit affect golf buggy insurance?', a: 'They can. Undisclosed modifications such as lift kits, controller upgrades or non-standard batteries are a common reason a claim is later reduced or declined. Disclose any modification to your insurer at the time of purchase or when it’s fitted.' },
       { q: 'Is warranty the same as insurance for a golf buggy?', a: "No. Our Australian warranty covers manufacturing or normal-use faults in the chassis, motor and controller. Insurance covers events like theft, accident or weather damage. The two are complementary, and most owners benefit from having both." },
+      { q: "Do I need to tell my insurer if I modify my buggy?", a: "Usually you should. Modifications such as a controller upgrade can change the risk, and your policy may require you to disclose them. Read your policy wording and ask your insurer in writing before you fit the change. Moneysmart explains how to compare cover." },
     ],
     relatedProductSlug: 'ezgo-express-l6-lithium',
     primaryKeyword: 'golf buggy insurance australia',
