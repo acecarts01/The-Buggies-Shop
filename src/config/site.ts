@@ -133,11 +133,10 @@ export const SHOP = {
 // Crypto settlement. Buyers paying in BTC or USDT take SHOP.cryptoDiscount off
 // the vehicle price; freight and accessories are charged at full rate on top.
 //
-// The seller addresses below are intentionally empty. They must be pasted in by
-// the business owner and checked character by character - a mistyped address
-// sends funds somewhere unrecoverable, and there is no reversal on a settled
-// chain transaction. While an address is blank the portal hides the
-// "pay the seller directly" route rather than showing a placeholder.
+// The seller addresses below are the owner's, pasted from their own wallets. A
+// mistyped address sends funds somewhere unrecoverable and there is no reversal
+// on a settled chain transaction, so change one only by pasting it again and
+// checking it character by character.
 export const CRYPTO = {
   discountPercent: SHOP.cryptoDiscount,
   wallets: [
@@ -147,7 +146,8 @@ export const CRYPTO = {
       assetName: 'Bitcoin',
       network: 'Bitcoin mainnet',
       addressHint: 'starts with bc1, 1 or 3',
-      address: 'bc1qe3mfevg3ud3jukp9ad37wszcfrwev7zxxex5u5',
+      address: 'bc1qdhgnlpctw37vg825eejkknurpm23a5lsthfdhg',
+      discount: true,
     },
     {
       key: 'usdt-trc20',
@@ -156,6 +156,7 @@ export const CRYPTO = {
       network: 'Tron (TRC-20)',
       addressHint: 'starts with T',
       address: 'TVQGzSJKcHXTwX6Fn8CPb6A5PmAkoCFZRh',
+      discount: true,
     },
     {
       key: 'usdt-erc20',
@@ -164,10 +165,86 @@ export const CRYPTO = {
       network: 'Ethereum (ERC-20)',
       addressHint: 'starts with 0x',
       address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
+      discount: true,
+    },
+    {
+      key: 'eth',
+      asset: 'ETH',
+      assetName: 'Ethereum',
+      network: 'Ethereum (ERC-20)',
+      addressHint: 'starts with 0x',
+      address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
+      discount: false,
+    },
+    {
+      key: 'bnb',
+      asset: 'BNB',
+      assetName: 'BNB',
+      network: 'BNB Smart Chain (BEP-20)',
+      addressHint: 'starts with 0x',
+      address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
+      discount: false,
+    },
+    {
+      key: 'sol',
+      asset: 'SOL',
+      assetName: 'Solana',
+      network: 'Solana',
+      addressHint: 'a 32 to 44 character base58 address',
+      address: 'GdNUybxyu8cBY7snHAZsdopH6WKdHBVXo5d79mR9PhJ',
+      discount: false,
+    },
+    {
+      key: 'trx',
+      asset: 'TRX',
+      assetName: 'Tron',
+      network: 'Tron (TRC-20)',
+      addressHint: 'starts with T',
+      address: 'TVQGzSJKcHXTwX6Fn8CPb6A5PmAkoCFZRh',
+      discount: false,
+    },
+    {
+      key: 'xrp',
+      asset: 'XRP',
+      assetName: 'XRP',
+      network: 'XRP Ledger',
+      addressHint: 'starts with r',
+      address: 'rBiWxdA3a27BXYC9ZwQRTyFdXNWaEjLfBr',
+      discount: false,
+    },
+    {
+      key: 'ltc',
+      asset: 'LTC',
+      assetName: 'Litecoin',
+      network: 'Litecoin mainnet',
+      addressHint: 'starts with ltc1, L, M or 3',
+      address: 'ltc1q65vx7y70uxtemnmvu3grsfnuydngfzk7ngqx82',
+      discount: false,
+    },
+    {
+      key: 'doge',
+      asset: 'DOGE',
+      assetName: 'Dogecoin',
+      network: 'Dogecoin mainnet',
+      addressHint: 'starts with D',
+      address: 'DQiMuCNgLSaVzeJuw8TL5CMkYKtdpst5Rc',
+      discount: false,
+    },
+    {
+      key: 'bch',
+      asset: 'BCH',
+      assetName: 'Bitcoin Cash',
+      network: 'Bitcoin Cash mainnet',
+      addressHint: 'starts with q or bitcoincash:q',
+      address: 'qq9l4ntg9nf9a7qz5h9he7mh4ktzf6prrgcg7htn9t',
+      discount: false,
     },
   ],
-  // Payment is taken on-site (CryptoCheckout): the three addresses above,
-  // a QR code and a WhatsApp receipt step. No exchange is linked or recommended.
+  // Payment is taken on-site (CryptoCheckout): the addresses above, a QR code
+  // and a WhatsApp receipt step. No exchange is linked or recommended. Only BTC
+  // and USDT carry the crypto discount (`discount: true`); any other coin is
+  // settled at the amount agreed with the sales desk. A coin not listed here is
+  // arranged on request, never by a buyer typing in an address.
 };
 
 export const FORMS = {

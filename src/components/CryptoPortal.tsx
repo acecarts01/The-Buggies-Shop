@@ -50,7 +50,7 @@ export default function CryptoPortal() {
     {
       icon: Bitcoin,
       title: 'Tap "Pay with BTC / USDT"',
-      body: 'The cart shows our Bitcoin, USDT (TRC-20) or USDT (ERC-20) address with a QR code and your order reference. Send from any wallet or exchange you already use.',
+      body: 'The cart lets you choose Bitcoin, USDT, Ethereum, BNB, Solana, Tron, XRP, Litecoin, Dogecoin or Bitcoin Cash and shows that address with a QR code and your order reference. Send from any wallet or exchange you already use.',
     },
     {
       icon: MessageSquare,
@@ -172,7 +172,7 @@ export default function CryptoPortal() {
       <section aria-label="Settlement addresses">
         <h2 className="text-lg sm:text-xl font-bold text-[#121417] mb-1">Our settlement addresses</h2>
         <p className="text-xs text-[#6B645E] mb-4 leading-relaxed">
-          These are the only three addresses {SITE.name} settles to. They are the same ones shown at checkout. If you have
+          These are the only addresses {SITE.name} settles to. They are the same ones shown at checkout. If you have
           already agreed a figure with the sales desk, you can pay from here and confirm on WhatsApp.
         </p>
         <CryptoCheckout amountAud={payable > 0 ? payable : 0} />

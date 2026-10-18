@@ -49,7 +49,7 @@ const cryptoInvoiced: Order = {
   invoice: {
     issuedAt: '2026-09-16T02:00:00.000Z',
     method: 'crypto',
-    crypto: { walletKey: 'btc', asset: 'BTC', network: 'Bitcoin mainnet', address: 'bc1qe3mfevg3ud3jukp9ad37wszcfrwev7zxxex5u5' },
+    crypto: { walletKey: 'btc', asset: 'BTC', network: 'Bitcoin mainnet', address: 'bc1qdhgnlpctw37vg825eejkknurpm23a5lsthfdhg' },
   },
 };
 

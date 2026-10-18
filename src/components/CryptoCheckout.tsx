@@ -24,10 +24,10 @@ interface CryptoCheckoutProps {
 }
 
 /**
- * On-site crypto invoice. Nothing leaves the page: the buyer picks BTC or USDT,
+ * On-site crypto invoice. Nothing leaves the page: the buyer picks a coin,
  * sees the settlement address and its QR, sends from whichever wallet or
  * exchange they already use, then confirms with a receipt on WhatsApp. The
- * three addresses are the owner's; they are read from CRYPTO.wallets and are
+ * addresses are the owner's; they are read from CRYPTO.wallets and are
  * never fetched or generated. No live exchange rate is quoted (the site makes
  * no outbound calls); the invoice is the AUD figure and the sales desk
  * confirms the crypto amount received against it.
@@ -76,8 +76,12 @@ export default function CryptoCheckout({
     }
   };
 
+  // The crypto discount is for BTC and USDT only. The cart's figure already has
+  // it taken off, so for any other coin no figure is shown and the sales desk
+  // confirms the amount instead.
+  const discounted = wallet.discount;
   // On the guide page there may be no figure yet.
-  const hasAmount = amountAud > 0;
+  const hasAmount = amountAud > 0 && discounted;
   const amountText = hasAmount ? `$${amountAud.toLocaleString('en-AU')} AUD` : 'the amount agreed with our sales desk';
 
   const whatsappMessage = encodeURIComponent(
@@ -100,7 +104,7 @@ export default function CryptoCheckout({
               {orderRef ? 'Crypto invoice' : 'Settlement addresses'}
             </div>
             <h3 id={headingId} className="text-base sm:text-lg font-serif font-bold leading-tight">
-              {orderRef ? `Order ${orderRef}` : 'Pay in BTC or USDT'}
+              {orderRef ? `Order ${orderRef}` : 'Pay in crypto'}
             </h3>
           </div>
           <Bitcoin className="w-6 h-6 text-[#E2A17A] shrink-0" aria-hidden="true" />
@@ -110,7 +114,11 @@ export default function CryptoCheckout({
           <div>
             <div className="text-[10px] uppercase tracking-wider text-[#A8A29E]">Amount payable</div>
             <div className={`${hasAmount ? 'text-2xl' : 'text-sm'} font-extrabold text-[#E2A17A] leading-none mt-1`}>{amountText}</div>
-            <div className="text-[10px] text-[#A8A29E] mt-1">10% crypto discount applied · excludes freight · GST inclusive</div>
+            <div className="text-[10px] text-[#A8A29E] mt-1">
+              {discounted
+                ? '10% crypto discount applied · excludes freight · GST inclusive'
+                : `The ${CRYPTO.discountPercent}% discount is for BTC and USDT. We confirm the amount for ${wallet.asset} on WhatsApp · GST inclusive`}
+            </div>
           </div>
           {hasAmount && (
             <button
@@ -125,7 +133,7 @@ export default function CryptoCheckout({
         </div>
 
         {/* Asset / network picker */}
-        <div className="grid grid-cols-3 gap-1.5" role="radiogroup" aria-label="Choose the coin and network">
+        <div className={`grid ${compact ? 'grid-cols-3' : 'grid-cols-3 sm:grid-cols-4'} gap-1.5`} role="radiogroup" aria-label="Choose the coin and network">
           {CRYPTO.wallets.map((w) => {
             const active = w.key === walletKey;
             return (
@@ -145,6 +153,9 @@ export default function CryptoCheckout({
             );
           })}
         </div>
+        <p className="text-[10px] text-[#A8A29E] leading-relaxed">
+          Want to pay in a coin that is not listed? Message us on WhatsApp and we will give you an address for it.
+        </p>
       </div>
 
       {/* Address + QR */}
@@ -181,13 +192,18 @@ export default function CryptoCheckout({
               {wallet.assetName} address ({wallet.addressHint}). Send the {wallet.asset} equivalent of {amountText} at the rate your wallet or
               exchange shows at the time of transfer. Network fees are paid by the sender.
             </p>
+            {wallet.asset === 'XRP' && (
+              <p className="text-[10px] text-[#7A2E12] leading-relaxed">
+                Sending XRP from an exchange that insists on a destination tag? Message us on WhatsApp first so we can arrange it.
+              </p>
+            )}
           </div>
         </div>
 
         <div className="flex items-start gap-2 text-[11px] text-[#7A2E12] bg-[#FBEDE7] border border-[#E2A17A]/50 rounded-lg px-3 py-2">
           <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
           <p className="leading-relaxed">
-            <strong>Check the network before you send.</strong> USDT sent on the wrong network, or any coin sent to a mistyped
+            <strong>Check the network before you send.</strong> Any coin sent on the wrong network, or to a mistyped
             address, cannot be recovered. Only ever use an address shown on this website — never one sent to you by email or
             message.
           </p>

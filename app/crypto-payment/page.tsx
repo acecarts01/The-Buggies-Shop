@@ -34,7 +34,7 @@ export default function CryptoPaymentPage() {
         '@type': 'HowToStep',
         position: 2,
         name: 'Tap Pay with BTC / USDT',
-        text: 'The cart shows the Bitcoin, USDT (TRC-20) or USDT (ERC-20) settlement address with a QR code and your order reference. Send the AUD-equivalent from any wallet or exchange you already use.',
+        text: 'The cart lets you choose a coin and shows our settlement address for it with a QR code and your order reference. Send the AUD-equivalent from any wallet or exchange you already use.',
       },
       {
         '@type': 'HowToStep',

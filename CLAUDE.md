@@ -26,7 +26,7 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Brand assets: the logo is `public/brand/logo.png` (full lockup) + `public/brand/logo-mark.png` (shield). `npm run brand`
   regenerates favicon.ico (16/32/48), icon.png, apple-icon.png, manifest marks and `src/config/brand-assets.ts`; `BrandMark`
   renders it in the header/footer and `lib/schema.ts` reads it. Never hand-place a logo `<img>` or hand-edit the icon files.
-- Crypto is paid on-site (`CryptoCheckout`: the three `CRYPTO.wallets` addresses, QR, WhatsApp receipt step). Never link out to an
+- Crypto is paid on-site (`CryptoCheckout`: the `CRYPTO.wallets` addresses (BTC, USDT, ETH, BNB, SOL, TRX, XRP, LTC, DOGE, BCH; only BTC and USDT carry the 10% discount), QR, WhatsApp receipt step). Never link out to an
   exchange. Every payment method ends with the buyer sending the receipt or a screenshot on WhatsApp.
 
 ## Rules

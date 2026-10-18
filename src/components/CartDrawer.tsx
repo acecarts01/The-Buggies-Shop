@@ -471,7 +471,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                     Pay in BTC or USDT on this page
                   </div>
                   <div className="text-[10px] text-[#6B645E] leading-relaxed">
-                    Tap <strong>Pay with BTC / USDT</strong> below: you get our Bitcoin, USDT (TRC-20) or USDT (ERC-20) address and
+                    Tap <strong>Pay with BTC / USDT</strong> below: you choose a coin and get our address for it and
                     QR code, send from any wallet or exchange, then confirm with the receipt on WhatsApp.{' '}
                     <Link href="/crypto-payment/" className="underline hover:text-[#A85640]">How it works</Link>
                   </div>
