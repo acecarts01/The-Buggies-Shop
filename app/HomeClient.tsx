@@ -268,7 +268,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
                 </div>
                 <div>
                   <div className="font-extrabold text-[#121417]">10% Crypto Incentive</div>
-                  <div className="text-[11px] text-[#6B645E]">Save on BTC &amp; USDT payments</div>
+                  <div className="text-[11px] text-[#6B645E]">Save 10% paying in crypto</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>

@@ -9,7 +9,7 @@ interface AnnouncementBarProps {
 const defaultAnnouncements = [
   'Enclosed trailer delivery direct to your acreage homestead or golf estate across Australia',
   'Official ASIC Registered Entity: Golf Buggies Express PTY LTD (ABN 28 668 598 758) • Yatala QLD',
-  'Save 10% on your total vehicle order when settling with Bitcoin (BTC) or USDT',
+  'Save 10% on your total vehicle order when you pay in crypto',
   'Modern zero-maintenance LiFePO4 Lithium power systems with 3-5 Year Australian Factory Warranties',
 ];
 

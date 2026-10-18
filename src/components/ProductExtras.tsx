@@ -47,7 +47,7 @@ export function ShippingPaymentBlock() {
           <p>
             {SHOP.paymentMethods.join(', ')}. After any payment, send the receipt or a screenshot to us on WhatsApp so we can confirm your order. See{' '}
             <Link href="/crypto-payment/" className="text-[#E2A17A] font-semibold hover:underline">
-              how paying in Bitcoin or USDT works
+              how paying in crypto works
             </Link>
             .
           </p>

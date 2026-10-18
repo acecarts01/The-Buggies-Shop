@@ -379,7 +379,7 @@ Timeframe: ${quoteForm.timeframe}`
               Exclusive 10% Crypto Incentive
             </h3>
             <p className="text-xs text-[#6B645E] leading-relaxed">
-              Settle your vehicle order via Bitcoin (BTC) or USDT to receive an instant 10% discount on the vehicle purchase price—saving <strong className="text-[#121417]">$2,090 AUD</strong>. Instant settlement, no bank clearing delays, and zero merchant surcharges.
+              Settle your vehicle order in crypto to receive an instant 10% discount on the vehicle purchase price—saving <strong className="text-[#121417]">$2,090 AUD</strong>. Instant settlement, no bank clearing delays, and zero merchant surcharges.
             </p>
           </StaggerItem>
         </StaggerContainer>
@@ -569,7 +569,7 @@ Timeframe: ${quoteForm.timeframe}`
                 >
                   <option value="standard">Standard (PayID / Bank Transfer)</option>
                   <option value="finance4">Finance in 4 (0% Interest)</option>
-                  <option value="crypto">Crypto (BTC / USDT - 10% Off)</option>
+                  <option value="crypto">Crypto (10% Off)</option>
                 </select>
               </div>
 
@@ -609,7 +609,7 @@ Timeframe: ${quoteForm.timeframe}`
             Ready for Immediate Acquisition?
           </h3>
           <p className="text-xs text-[#6B645E]">
-            Secure an in-stock Atlas from our current Yatala shipment. Settle via PayID, direct bank transfer, or crypto (BTC/USDT 10% discount).
+            Secure an in-stock Atlas from our current Yatala shipment. Settle via PayID, direct bank transfer, or crypto (10% discount).
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button

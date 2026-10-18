@@ -701,7 +701,7 @@ Notes: ${quoteForm.notes || 'None'}`
                       >
                         <option value="standard">Standard (PayID / Bank Transfer)</option>
                         <option value="finance4">Finance in 4 (0% Interest)</option>
-                        <option value="crypto">Crypto (BTC / USDT - 10% Off)</option>
+                        <option value="crypto">Crypto (10% Off)</option>
                       </select>
                     </div>
 

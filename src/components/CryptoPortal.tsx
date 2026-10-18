@@ -49,7 +49,7 @@ export default function CryptoPortal() {
     },
     {
       icon: Bitcoin,
-      title: 'Tap "Pay with BTC / USDT"',
+      title: 'Tap "Pay with crypto"',
       body: 'The cart lets you choose Bitcoin, USDT, Ethereum, BNB, Solana, Tron, XRP, Litecoin, Dogecoin or Bitcoin Cash and shows that address with a QR code and your order reference. Send from any wallet or exchange you already use.',
     },
     {

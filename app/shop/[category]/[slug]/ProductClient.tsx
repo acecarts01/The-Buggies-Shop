@@ -541,7 +541,7 @@ Notes: ${quoteForm.notes || 'None'}`
               {/* 10% Crypto Incentive Notice */}
               <div className="p-3 bg-[#1A1D21] border border-[#2B2F34] rounded-lg text-xs flex items-center justify-between metal-brushed-dark">
                 <div>
-                  <span className="font-semibold text-[#E2A17A]">Pay with Bitcoin or USDT:</span>
+                  <span className="font-semibold text-[#E2A17A]">Pay with crypto:</span>
                   <div className="text-[11px] text-[#A8A29E]">Save 10% on vehicle price (${Math.round(product.price_aud * 0.1).toLocaleString()} AUD off)</div>
                 </div>
                 <span className="bg-[#E2A17A] text-[#121417] text-[10px] font-extrabold px-2 py-1 rounded">

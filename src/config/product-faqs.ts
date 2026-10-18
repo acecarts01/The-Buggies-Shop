@@ -83,10 +83,10 @@ function payFaq(p: ProductItem): Faq {
   const crypto = p.price_aud * (1 - SHOP.cryptoDiscount / 100);
   const extra = accessory
     ? `Bought with any buggy it earns the ${SHOP.accessoryBundleDiscount}% accessory discount; the crypto discount applies to vehicles only.`
-    : `Paying in Bitcoin or USDT takes ${SHOP.cryptoDiscount}% off the vehicle price, bringing it to ${aud(crypto)}.`;
+    : `Paying in crypto takes ${SHOP.cryptoDiscount}% off the vehicle price, bringing it to ${aud(crypto)}.`;
   return {
     q: `Can I pay for the ${p.name} with Finance in 4, PayID or Bitcoin?`,
-    a: `Yes. Finance in 4 splits it into four interest-free payments of ${aud(quarter)}. PayID / Osko, bank transfer and Bitcoin or USDT are also accepted. ${extra} After paying, send us the receipt on WhatsApp so we can confirm your order.`,
+    a: `Yes. Finance in 4 splits it into four interest-free payments of ${aud(quarter)}. PayID / Osko, bank transfer and crypto are also accepted. ${extra} After paying, send us the receipt on WhatsApp so we can confirm your order.`,
   };
 }
 

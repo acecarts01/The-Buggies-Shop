@@ -41,7 +41,7 @@ export default function ThankYouOrderPage() {
             <ol className="list-decimal list-inside space-y-1 text-[#E7E5E4] text-[11px] leading-relaxed">
               <li>Our dispatch director verifies exact vehicle stock at Yatala.</li>
               <li>Enclosed freight quote confirmed to your delivery address.</li>
-              <li>Official invoice issued with PayID / EFT details, the Finance in 4 plan, or the BTC/USDT discount.</li>
+              <li>Official invoice issued with PayID / EFT details, the Finance in 4 plan, or the crypto discount.</li>
               <li>
                 <strong className="text-[#E2A17A]">Once you have paid, confirm your order on WhatsApp</strong> by sending the
                 payment receipt or a screenshot of it. That applies to every payment method - bank transfer, PayID, Finance in 4

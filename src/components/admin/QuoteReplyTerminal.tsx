@@ -17,7 +17,7 @@ interface Props {
 
 const METHODS: { key: Method; label: string; icon: React.ElementType; hint: string }[] = [
   { key: 'bank', label: 'Bank / PayID', icon: Landmark, hint: 'BSB, account, reference' },
-  { key: 'crypto', label: 'Crypto', icon: Bitcoin, hint: 'BTC · USDT, QR code' },
+  { key: 'crypto', label: 'Crypto', icon: Bitcoin, hint: 'All coins, QR code' },
   { key: 'finance4', label: 'Finance in 4', icon: CreditCard, hint: 'Plan instructions / link' },
 ];
 

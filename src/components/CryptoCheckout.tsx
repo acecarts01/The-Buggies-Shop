@@ -76,7 +76,7 @@ export default function CryptoCheckout({
     }
   };
 
-  // The crypto discount is for BTC and USDT only. The cart's figure already has
+  // The crypto discount applies to every coin that has `discount: true`. The cart's figure already has
   // it taken off, so for any other coin no figure is shown and the sales desk
   // confirms the amount instead.
   const discounted = wallet.discount;
@@ -117,7 +117,7 @@ export default function CryptoCheckout({
             <div className="text-[10px] text-[#A8A29E] mt-1">
               {discounted
                 ? '10% crypto discount applied · excludes freight · GST inclusive'
-                : `The ${CRYPTO.discountPercent}% discount is for BTC and USDT. We confirm the amount for ${wallet.asset} on WhatsApp · GST inclusive`}
+                : `The ${CRYPTO.discountPercent}% discount does not apply to ${wallet.asset}. We confirm the amount for ${wallet.asset} on WhatsApp · GST inclusive`}
             </div>
           </div>
           {hasAmount && (

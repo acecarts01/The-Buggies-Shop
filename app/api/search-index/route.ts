@@ -56,7 +56,7 @@ function build(): SearchEntry[] {
     ['Guides and articles', '/blog/', 'Buying guides, comparisons and technical articles.', 'blog guides articles'],
     ['Shop by brand', '/shop/brand/', 'Club Car, E-Z-GO, Yamaha, MGI, PowaKaddy, Evolution, Atlas, Tara, LVTONG, Cushman and Robera.', 'brands makers'],
     ['Frequently asked questions', '/faq/', 'Delivery, warranty, payment and buying questions.', 'faq help questions'],
-    ['Pay in Bitcoin or USDT', '/crypto-payment/', 'How crypto payment and the 10% discount work.', 'bitcoin usdt crypto pay discount'],
+    ['Pay in crypto', '/crypto-payment/', 'How crypto payment and the 10% discount work.', 'bitcoin usdt crypto pay discount'],
     ['Fleet and wholesale enquiries', '/wholesale/', 'Buying several buggies: fleet and wholesale.', 'wholesale fleet bulk trade'],
     ['Contact and sales desk', '/contact/', 'Phone, WhatsApp, email and enquiry form.', 'contact phone whatsapp email quote'],
     ['About Golf Buggies Express', '/about/', 'Company details, ABN and the Yatala QLD depot.', 'about abn acn company yatala'],

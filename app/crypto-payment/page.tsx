@@ -10,8 +10,8 @@ import ExternalReferences from '@/src/components/ExternalReferences';
 import { REFERENCES } from '@/src/config/references';
 
 export const metadata: Metadata = pageMetadata({
-  title: `Pay in Bitcoin or USDT | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
-  description: `Pay for your golf buggy in BTC or USDT on this site and take ${CRYPTO.discountPercent}% off the vehicle price. Address and QR at checkout; confirm with your receipt on WhatsApp.`,
+  title: `Pay in crypto | ${CRYPTO.discountPercent}% Off | ${SITE.name}`,
+  description: `Pay for your golf buggy in crypto on this site and take ${CRYPTO.discountPercent}% off the vehicle price. Address and QR at checkout; confirm with your receipt on WhatsApp.`,
   path: '/crypto-payment/',
 });
 
@@ -21,7 +21,7 @@ export default function CryptoPaymentPage() {
   const howToSchema = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: `Pay for a golf buggy in Bitcoin or USDT at ${SITE.name}`,
+    name: `Pay for a golf buggy in crypto at ${SITE.name}`,
     description: `How to settle a golf buggy order in cryptocurrency and claim the ${CRYPTO.discountPercent}% vehicle-price discount.`,
     step: [
       {
@@ -33,7 +33,7 @@ export default function CryptoPaymentPage() {
       {
         '@type': 'HowToStep',
         position: 2,
-        name: 'Tap Pay with BTC / USDT',
+        name: 'Tap Pay with crypto',
         text: 'The cart lets you choose a coin and shows our settlement address for it with a QR code and your order reference. Send the AUD-equivalent from any wallet or exchange you already use.',
       },
       {
@@ -53,7 +53,7 @@ export default function CryptoPaymentPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Pay in Bitcoin or USDT', path: '/crypto-payment/' }])) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Pay in crypto', path: '/crypto-payment/' }])) }}
       />
       <Header />
       <main className="bg-[#F7F6F2] min-h-screen">
@@ -63,13 +63,13 @@ export default function CryptoPaymentPage() {
               {CRYPTO.discountPercent}% off the vehicle price
             </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-[#121417] leading-tight mb-3">
-              Pay in Bitcoin or USDT
+              Pay in crypto
             </h1>
             <p className="text-sm sm:text-base text-[#6B645E] leading-relaxed max-w-2xl">
               Card and bank settlement carry interchange and international wire costs we
               would otherwise pass on. Paying in crypto avoids them, so we hand that
               saving back as {CRYPTO.discountPercent}% off the vehicle price. You pay
-              on this website: the cart&rsquo;s Pay button shows our Bitcoin or USDT
+              on this website: the cart&rsquo;s Pay button shows our crypto
               address and a QR code, you send from whichever wallet or exchange you
               already use, then confirm with your receipt on WhatsApp.
             </p>

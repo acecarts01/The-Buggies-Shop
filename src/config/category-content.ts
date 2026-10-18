@@ -130,7 +130,7 @@ function build(): Record<string, CategoryContent> {
         },
         {
           q: 'Can I buy an electric golf buggy online and have it delivered?',
-          a: `Yes. We ship Australia-wide in enclosed freight from our Yatala QLD depot. Freight is quoted against your delivery postcode at checkout, and the cart total is shown excluding freight. You can pay by PayID / Osko, direct bank transfer, Finance in 4, or Bitcoin or USDT with a ${SHOP.cryptoDiscount}% discount on the vehicle price.`,
+          a: `Yes. We ship Australia-wide in enclosed freight from our Yatala QLD depot. Freight is quoted against your delivery postcode at checkout, and the cart total is shown excluding freight. You can pay by PayID / Osko, direct bank transfer, Finance in 4, or crypto with a ${SHOP.cryptoDiscount}% discount on the vehicle price.`,
         },
         {
           q: 'Can I try one before I buy?',
@@ -565,7 +565,7 @@ function build(): Record<string, CategoryContent> {
         },
         {
           q: 'Is there a discount on accessories bought with a buggy?',
-          a: `Yes. Accessories bought alongside any buggy qualify for a ${SHOP.accessoryBundleDiscount}% discount. Bitcoin and USDT payments take ${SHOP.cryptoDiscount}% off the vehicle price only; accessories and freight are charged at full rate on top.`,
+          a: `Yes. Accessories bought alongside any buggy qualify for a ${SHOP.accessoryBundleDiscount}% discount. Crypto payments take ${SHOP.cryptoDiscount}% off the vehicle price only; accessories and freight are charged at full rate on top.`,
         },
         {
           q: 'Do you sell replacement remotes for walk-behind buggies?',
@@ -632,7 +632,7 @@ export function hubContent(): HubContent {
       },
       {
         heading: 'How Much Does a Golf Buggy Cost in Australia?',
-        body: `Our vehicles run from ${aud(v.lo)} for the MGI Zip X1 walk-behind to ${aud(v.hi)} for the E-Z-GO Express L6. All prices include 10% GST. There is no minimum order and no free-freight threshold: freight is quoted against your delivery postcode at checkout, and the cart total is shown excluding freight. Payment is by PayID / Osko, direct bank transfer, Finance in 4, or Bitcoin or USDT with a ${SHOP.cryptoDiscount}% discount on the vehicle price.`,
+        body: `Our vehicles run from ${aud(v.lo)} for the MGI Zip X1 walk-behind to ${aud(v.hi)} for the E-Z-GO Express L6. All prices include 10% GST. There is no minimum order and no free-freight threshold: freight is quoted against your delivery postcode at checkout, and the cart total is shown excluding freight. Payment is by PayID / Osko, direct bank transfer, Finance in 4, or crypto with a ${SHOP.cryptoDiscount}% discount on the vehicle price.`,
       },
       {
         heading: 'Buy a Golf Buggy With Confidence',
@@ -666,7 +666,7 @@ export function hubContent(): HubContent {
       },
       {
         q: 'What payment methods do you accept?',
-        a: `PayID / Osko, direct bank transfer (EFT), Finance in 4 (four equal interest-free payments) and Bitcoin or USDT with a ${SHOP.cryptoDiscount}% discount on the vehicle price. After any payment we ask you to send the receipt or a screenshot on WhatsApp.`,
+        a: `PayID / Osko, direct bank transfer (EFT), Finance in 4 (four equal interest-free payments) and crypto with a ${SHOP.cryptoDiscount}% discount on the vehicle price. After any payment we ask you to send the receipt or a screenshot on WhatsApp.`,
       },
     ],
   };

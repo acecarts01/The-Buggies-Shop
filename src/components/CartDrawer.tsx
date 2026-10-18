@@ -187,7 +187,7 @@ export default function CartDrawer({
       paymentOption === 'finance4'
         ? `Finance in 4 (4 Equal Interest-Free Payments of $${installmentAmount.toLocaleString()} AUD)`
         : paymentOption === 'crypto'
-        ? 'Crypto BTC / USDT (10% Discount Applied)'
+        ? 'Crypto (10% Discount Applied)'
         : 'PayID / Direct Bank Transfer (EFT)';
 
     const text = `Hello The Buggies Express team,
@@ -468,10 +468,10 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 shadow-2xs">
                   <div className="font-bold text-[11px] text-[#A85640] mb-0.5 flex items-center gap-1.5">
                     <Bitcoin className="w-3.5 h-3.5" aria-hidden="true" />
-                    Pay in BTC or USDT on this page
+                    Pay in crypto on this page
                   </div>
                   <div className="text-[10px] text-[#6B645E] leading-relaxed">
-                    Tap <strong>Pay with BTC / USDT</strong> below: you choose a coin and get our address for it and
+                    Tap <strong>Pay with crypto</strong> below: you choose a coin and get our address for it and
                     QR code, send from any wallet or exchange, then confirm with the receipt on WhatsApp.{' '}
                     <Link href="/crypto-payment/" className="underline hover:text-[#A85640]">How it works</Link>
                   </div>
@@ -635,7 +635,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                   {submittingOrder
                     ? 'Submitting Order...'
                     : paymentOption === 'crypto'
-                    ? 'Pay with BTC / USDT'
+                    ? 'Pay with crypto'
                     : paymentOption === 'finance4'
                     ? 'Place Order with Finance in 4'
                     : 'Place Order & Request Official Invoice'}

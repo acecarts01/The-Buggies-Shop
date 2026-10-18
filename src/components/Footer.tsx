@@ -171,7 +171,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/crypto-payment/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
-                Pay in Bitcoin or USDT
+                Pay in crypto
               </Link>
             </li>
             <li>
@@ -220,7 +220,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="pt-2 text-[11px] text-[#6B645E]">
-            Payments: PayID / Osko, Direct Bank EFT, Pay-in-4, and 10% Crypto Discount (BTC/USDT).
+            Payments: PayID / Osko, Direct Bank EFT, Pay-in-4, and 10% Crypto Discount.
           </div>
         </div>
       </div>

@@ -207,7 +207,7 @@ export async function POST(request: Request) {
                 text: JSON.stringify(
                   {
                     shipping: SHOP.shippingNote,
-                    cryptoDiscount: `${SHOP.cryptoDiscount}% on BTC and USDT`,
+                    cryptoDiscount: `${SHOP.cryptoDiscount}% on any crypto payment`,
                     paymentMethods: SHOP.paymentMethods,
                     depot: ABN_INFO.locality,
                     entity: ABN_INFO.companyName,

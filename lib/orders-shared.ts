@@ -75,6 +75,6 @@ export const aud = (n: number) => `$${n.toLocaleString('en-AU', { minimumFractio
 const PAYMENT_LABEL: Record<PaymentChannel, string> = {
   standard: 'PayID / Bank Transfer (EFT)',
   finance4: 'Finance in 4 (4 interest-free payments)',
-  crypto: 'Crypto - BTC / USDT (10% discount applied)',
+  crypto: 'Crypto (10% discount applied)',
 };
 export const paymentLabel = (p: PaymentChannel) => PAYMENT_LABEL[p];

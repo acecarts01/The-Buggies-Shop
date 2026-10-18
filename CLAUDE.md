@@ -26,7 +26,7 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Brand assets: the logo is `public/brand/logo.png` (full lockup) + `public/brand/logo-mark.png` (shield). `npm run brand`
   regenerates favicon.ico (16/32/48), icon.png, apple-icon.png, manifest marks and `src/config/brand-assets.ts`; `BrandMark`
   renders it in the header/footer and `lib/schema.ts` reads it. Never hand-place a logo `<img>` or hand-edit the icon files.
-- Crypto is paid on-site (`CryptoCheckout`: the `CRYPTO.wallets` addresses (BTC, USDT, ETH, BNB, SOL, TRX, XRP, LTC, DOGE, BCH; only BTC and USDT carry the 10% discount), QR, WhatsApp receipt step). Never link out to an
+- Crypto is paid on-site (`CryptoCheckout`: the `CRYPTO.wallets` addresses (BTC, USDT, ETH, BNB, SOL, TRX, XRP, LTC, DOGE, BCH; all carry the 10% discount), QR, WhatsApp receipt step). Never link out to an
   exchange. Every payment method ends with the buyer sending the receipt or a screenshot on WhatsApp.
 
 ## Rules
@@ -48,5 +48,5 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Order rules live in `SHOP` (src/config/site.ts) — never restate the numbers here, or they drift.
 - No minimum order. No free-freight threshold. Freight is always quoted against the delivery
   postcode at checkout, and the cart total is shown excluding freight.
-- Crypto incentive: 10% discount on vehicle price for Bitcoin (BTC) or Tether (USDT).
+- Crypto incentive: 10% discount on vehicle price for any crypto payment (owner decision, 2026-10-18).
 - High-ticket rule: complimentary on-farm trial demonstration for vehicles ≥ $15,000 AUD.

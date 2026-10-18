@@ -113,7 +113,7 @@ export const SHOP = {
   minOrder: 0,                     // confirmed: no minimum order
   freeShippingThreshold: null,     // confirmed: no free-freight offer; always quoted
   shippingNote: 'Calculated according to location/distance & pallet freight requirements',
-  cryptoDiscount: 10, // 10% on BTC / USDT
+  cryptoDiscount: 10, // 10% on any crypto payment
   accessoryBundleDiscount: 5, // 5% discount on all accessories when purchased alongside any buggy
   financeIn4: {
     enabled: true,
@@ -126,11 +126,11 @@ export const SHOP = {
     'PayID / Osko',
     'Direct Bank Transfer (EFT)',
     'Finance in 4 (4 Equal Interest-Free Payments)',
-    'Crypto (BTC / USDT - 10% Off)',
+    'Crypto (10% Off)',
   ],
 };
 
-// Crypto settlement. Buyers paying in BTC or USDT take SHOP.cryptoDiscount off
+// Crypto settlement. Buyers paying in crypto take SHOP.cryptoDiscount off
 // the vehicle price; freight and accessories are charged at full rate on top.
 //
 // The seller addresses below are the owner's, pasted from their own wallets. A
@@ -146,7 +146,7 @@ export const CRYPTO = {
       assetName: 'Bitcoin',
       network: 'Bitcoin mainnet',
       addressHint: 'starts with bc1, 1 or 3',
-      address: 'bc1qdhgnlpctw37vg825eejkknurpm23a5lsthfdhg',
+      address: 'bc1qe3mfevg3ud3jukp9ad37wszcfrwev7zxxex5u5',
       discount: true,
     },
     {
@@ -174,7 +174,7 @@ export const CRYPTO = {
       network: 'Ethereum (ERC-20)',
       addressHint: 'starts with 0x',
       address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
-      discount: false,
+      discount: true,
     },
     {
       key: 'bnb',
@@ -183,7 +183,7 @@ export const CRYPTO = {
       network: 'BNB Smart Chain (BEP-20)',
       addressHint: 'starts with 0x',
       address: '0x2629c24d3720E5A24adBe7Bde4677334B559C36D',
-      discount: false,
+      discount: true,
     },
     {
       key: 'sol',
@@ -192,7 +192,7 @@ export const CRYPTO = {
       network: 'Solana',
       addressHint: 'a 32 to 44 character base58 address',
       address: 'GdNUybxyu8cBY7snHAZsdopH6WKdHBVXo5d79mR9PhJ',
-      discount: false,
+      discount: true,
     },
     {
       key: 'trx',
@@ -201,7 +201,7 @@ export const CRYPTO = {
       network: 'Tron (TRC-20)',
       addressHint: 'starts with T',
       address: 'TVQGzSJKcHXTwX6Fn8CPb6A5PmAkoCFZRh',
-      discount: false,
+      discount: true,
     },
     {
       key: 'xrp',
@@ -210,7 +210,7 @@ export const CRYPTO = {
       network: 'XRP Ledger',
       addressHint: 'starts with r',
       address: 'rBiWxdA3a27BXYC9ZwQRTyFdXNWaEjLfBr',
-      discount: false,
+      discount: true,
     },
     {
       key: 'ltc',
@@ -219,7 +219,7 @@ export const CRYPTO = {
       network: 'Litecoin mainnet',
       addressHint: 'starts with ltc1, L, M or 3',
       address: 'ltc1q65vx7y70uxtemnmvu3grsfnuydngfzk7ngqx82',
-      discount: false,
+      discount: true,
     },
     {
       key: 'doge',
@@ -228,7 +228,7 @@ export const CRYPTO = {
       network: 'Dogecoin mainnet',
       addressHint: 'starts with D',
       address: 'DQiMuCNgLSaVzeJuw8TL5CMkYKtdpst5Rc',
-      discount: false,
+      discount: true,
     },
     {
       key: 'bch',
@@ -237,13 +237,13 @@ export const CRYPTO = {
       network: 'Bitcoin Cash mainnet',
       addressHint: 'starts with q or bitcoincash:q',
       address: 'qq9l4ntg9nf9a7qz5h9he7mh4ktzf6prrgcg7htn9t',
-      discount: false,
+      discount: true,
     },
   ],
   // Payment is taken on-site (CryptoCheckout): the addresses above, a QR code
-  // and a WhatsApp receipt step. No exchange is linked or recommended. Only BTC
-  // and USDT carry the crypto discount (`discount: true`); any other coin is
-  // settled at the amount agreed with the sales desk. A coin not listed here is
+  // and a WhatsApp receipt step. No exchange is linked or recommended. Every
+  // coin carries the crypto discount (`discount: true`; set false to show
+  // "amount agreed with the sales desk" instead). A coin not listed here is
   // arranged on request, never by a buyer typing in an address.
 };
 
@@ -2464,7 +2464,7 @@ export const FAQ = [
   },
   {
     question: 'Do you offer crypto discounts and flexible payment methods?',
-    answer: 'Yes. We provide a 10% discount on orders settled via Bitcoin (BTC) or Tether (USDT). We also accept PayID / Osko for instant bank clearance, standard EFT, credit cards, and Finance in 4 interest-free installments.',
+    answer: 'Yes. We provide a 10% discount on orders settled in cryptocurrency. We also accept PayID / Osko for instant bank clearance, standard EFT, credit cards, and Finance in 4 interest-free installments.',
   },
   {
     question: 'How does the 5% accessory bundle discount work when purchasing with a buggy?',
