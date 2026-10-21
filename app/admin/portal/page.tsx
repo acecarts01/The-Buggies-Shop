@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ArrowRight, Inbox, PackageCheck, Wallet, Clock } from 'lucide-react';
 import { isAdminRequest } from '@/lib/admin-auth';
-import { listOrders, listEnquiries, orderCounts, orderRevenue, enquiryTotalCount } from '@/lib/db';
+import { listOrders, listEnquiries, orderCounts, orderRevenue, enquiryTotalCount, enquiryUnrepliedCount } from '@/lib/db';
 import { signOrder, aud, STATUS_LABEL, type Order, type OrderStatus } from '@/lib/orders';
 import AdminShell from '@/src/components/admin/AdminShell';
 import StatusBadge from '@/src/components/admin/StatusBadge';
@@ -32,7 +32,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Promi
           Enquiries
         </Link>
       </div>
-      {tab === 'dashboard' ? <DashboardTab /> : tab === 'orders' ? <OrdersTab status={sp.status} q={q} /> : <EnquiriesTab formType={sp.type} q={q} />}
+      {tab === 'dashboard' ? <DashboardTab /> : tab === 'orders' ? <OrdersTab status={sp.status} q={q} /> : <EnquiriesTab formType={sp.type} q={q} unreplied={sp.status === 'unreplied'} />}
     </AdminShell>
   );
 }
@@ -43,18 +43,20 @@ function orderToToken(r: { ref: string; createdAt: string; status: OrderStatus; 
 }
 
 async function DashboardTab() {
-  const [counts, revenue, enquiryCount, recentOrders, recentEnquiries] = await Promise.all([
+  const [counts, revenue, enquiryCount, recentOrders, recentEnquiries, unrepliedCount] = await Promise.all([
     orderCounts(),
     orderRevenue(),
     enquiryTotalCount(),
     listOrders({ limit: 5 }),
     listEnquiries({ limit: 5 }),
+    enquiryUnrepliedCount(),
   ]);
   const totalOrders = Object.values(counts).reduce((s, n) => s + n, 0);
   const needsAction = counts.new ?? 0;
 
   const cards = [
     { label: 'Orders', value: totalOrders.toLocaleString('en-AU'), icon: Inbox, href: '/admin/portal/?tab=orders' },
+    { label: 'Enquiries to answer', value: unrepliedCount.toLocaleString('en-AU'), icon: Inbox, href: '/admin/portal/?tab=enquiries&status=unreplied' },
     { label: 'Needs invoicing', value: needsAction.toLocaleString('en-AU'), icon: Clock, href: '/admin/portal/?tab=orders&status=new' },
     { label: 'Settled revenue', value: aud(revenue.settled), icon: PackageCheck, href: '/admin/portal/?tab=orders&status=paid' },
     { label: 'Pipeline value', value: aud(revenue.pipeline), icon: Wallet, href: '/admin/portal/?tab=orders' },
@@ -62,7 +64,7 @@ async function DashboardTab() {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {cards.map((c) => (
           <Link key={c.label} href={c.href} className="bg-[#0B1F3A] border border-white/10 rounded-2xl p-5 hover:border-[#B8973F]/50 transition-colors">
             <c.icon className="w-4 h-4 text-[#D9C27A] mb-2" aria-hidden="true" />
@@ -113,13 +115,13 @@ async function DashboardTab() {
           ) : (
             <ul className="divide-y divide-white/5">
               {recentEnquiries.map((e) => (
-                <li key={e.id} className="py-3 flex items-center justify-between gap-3">
+                <li key={e.id} className="py-3"><Link href={`/admin/enquiries/reply/?id=${e.id}`} className="flex items-center justify-between gap-3 hover:opacity-80">
                   <div className="min-w-0">
                     <div className="font-semibold truncate">{e.name}</div>
                     <div className="text-xs text-[#A9B4C6] truncate">{e.email ?? e.phone ?? '—'}</div>
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.1em] text-[#071527] bg-[#D9C27A] rounded-full px-2 py-0.5 font-bold shrink-0">{ENQUIRY_LABEL[e.formType] ?? e.formType}</span>
-                </li>
+                </Link></li>
               ))}
             </ul>
           )}
@@ -227,8 +229,8 @@ async function OrdersTab({ status, q }: { status?: string; q: string }) {
 const ENQUIRY_TYPES = ['contact', 'wholesale', 'quote', 'tradein'] as const;
 const ENQUIRY_LABEL: Record<string, string> = { contact: 'Contact', wholesale: 'Wholesale', quote: 'Quote', tradein: 'Trade-in' };
 
-async function EnquiriesTab({ formType, q }: { formType?: string; q: string }) {
-  const rows = await listEnquiries({ formType, search: q || undefined, limit: 100 });
+async function EnquiriesTab({ formType, q, unreplied }: { formType?: string; q: string; unreplied: boolean }) {
+  const rows = await listEnquiries({ formType, search: q || undefined, limit: 100, unrepliedOnly: unreplied });
 
   return (
     <div className="space-y-5">
@@ -241,8 +243,12 @@ async function EnquiriesTab({ formType, q }: { formType?: string; q: string }) {
             <option key={t} value={t}>{ENQUIRY_LABEL[t]}</option>
           ))}
         </select>
+        <select name="status" defaultValue={unreplied ? 'unreplied' : 'all'} className="px-3 py-2 rounded-lg bg-[#0B1F3A] border border-white/15 text-white text-sm focus:outline-none focus:border-[#B8973F]">
+          <option value="all">Answered and not</option>
+          <option value="unreplied">Needs a reply</option>
+        </select>
         <button type="submit" className="px-4 py-2 rounded-lg bg-[#B8973F] hover:bg-[#D9C27A] text-[#071527] text-sm font-bold transition-colors">Filter</button>
-        {(q || formType) && <Link href="/admin/portal/?tab=enquiries" className="text-xs text-[#A9B4C6] hover:text-white underline">Clear</Link>}
+        {(q || formType || unreplied) && <Link href="/admin/portal/?tab=enquiries" className="text-xs text-[#A9B4C6] hover:text-white underline">Clear</Link>}
       </form>
 
       {rows.length === 0 ? (
@@ -266,6 +272,20 @@ async function EnquiriesTab({ formType, q }: { formType?: string; q: string }) {
                 <time className="text-[11px] text-[#A9B4C6] whitespace-nowrap">{new Date(e.createdAt).toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' })}</time>
               </div>
               {e.message && <p className="mt-3 text-sm text-[#E7ECF3] leading-relaxed whitespace-pre-line">{e.message}</p>}
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                {e.email ? (
+                  <Link href={`/admin/enquiries/reply/?id=${e.id}`} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#B8973F] hover:bg-[#D9C27A] text-[#071527] text-xs font-bold transition-colors">
+                    {e.repliedAt ? 'Reply again' : 'Reply'} <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                  </Link>
+                ) : (
+                  <span className="text-[11px] text-[#A9B4C6]">No email on file: call or WhatsApp {e.phone ?? 'the client'}</span>
+                )}
+                {e.repliedAt ? (
+                  <span className="text-[11px] font-bold text-[#7FD09A]">Answered {new Date(e.repliedAt).toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' })}</span>
+                ) : (
+                  <span className="text-[11px] font-bold text-[#E8B04A]">Needs a reply</span>
+                )}
+              </div>
             </li>
           ))}
         </ul>

@@ -63,6 +63,8 @@ export interface SendInquiryParams {
   items?: Array<{ name: string; quantity: number; price?: number; id?: string }>;
   total?: number;
   paymentOption?: string;
+  /** Admin portal link that opens the auto-drafted reply for this enquiry. */
+  portalReplyUrl?: string;
 }
 
 export async function sendEmailThroughZoho(params: SendInquiryParams): Promise<{ success: boolean; messageId?: string; error?: string }> {
@@ -222,6 +224,7 @@ export async function sendEmailThroughZoho(params: SendInquiryParams): Promise<{
 
             <div style="margin-top: 25px; padding: 12px; background: #eff6ff; border-radius: 6px; font-size: 12px; color: #1e40af; text-align: center;">
               Reply directly to this email to respond to <strong>${params.name}</strong>${params.email ? ` (${params.email})` : ''}.
+              ${params.portalReplyUrl ? `<br/><a href="${params.portalReplyUrl}" style="display:inline-block;margin-top:10px;padding:10px 18px;background:#0f172a;color:#ffffff;text-decoration:none;border-radius:6px;font-weight:bold;">Open the auto-drafted reply</a>` : ''}
             </div>
           </div>
           <div class="footer">

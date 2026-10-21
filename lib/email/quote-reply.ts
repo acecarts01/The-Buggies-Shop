@@ -16,9 +16,9 @@ function valueBox(label: string, value: string): string {
   `)}</tr>`;
 }
 
-const METHOD_TITLE = { bank: 'Bank transfer · PayID / EFT', crypto: 'Crypto settlement', finance4: 'Finance in 4' } as const;
+export const METHOD_TITLE = { bank: 'Bank transfer · PayID / EFT', crypto: 'Crypto settlement', finance4: 'Finance in 4' } as const;
 
-function paymentRows(inv: InvoiceDetails, ref: string): string {
+export function paymentRows(inv: InvoiceDetails, ref: string): string {
   if (inv.method === 'bank' && inv.bank) {
     return (
       valueBox('Account name', inv.bank.accountName) +

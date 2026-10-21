@@ -4,6 +4,7 @@ import { stateFromPostcode } from '@/lib/orders';
 import type { PaymentChannel } from '@/lib/orders-shared';
 import { renderQuoteRequest } from '@/lib/email/quote-request';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
+import { insertEnquiry } from '@/lib/db';
 import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 
 const PAYMENTS: PaymentChannel[] = ['standard', 'finance4', 'crypto'];
@@ -57,6 +58,17 @@ export async function POST(request: Request) {
     paymentPreference,
     notes,
   };
+
+  // Keep a copy in the portal so every quote request can be answered from the
+  // Enquiries tab as well as from the emailed link. A failed write never blocks the email.
+  await insertEnquiry({
+    formType: 'quote',
+    name,
+    email,
+    phone,
+    message: notes,
+    payload: { ref: quote.ref, buggyModel, postcode, state: quote.customer.state, deliveryPreference, paymentPreference, notes },
+  });
 
   const token = signQuote(quote);
   const mail = renderQuoteRequest(quote, token);

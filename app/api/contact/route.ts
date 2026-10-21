@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { CONTACT } from '@/src/config/site';
 import { sendEmailThroughZoho, SendInquiryParams } from '@/lib/mail';
 import { insertEnquiry } from '@/lib/db';
+import { siteUrl } from '@/lib/orders';
 import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 
 export async function POST(request: Request) {
@@ -85,11 +86,11 @@ export async function POST(request: Request) {
       paymentOption,
     };
 
-    // Attempt direct dispatch via Zoho Mail SMTP
-    const zohoResult = await sendEmailThroughZoho(emailParams);
-
+    // Store the enquiry first so the sales desk email can link straight to its
+    // auto-drafted reply. A failed write returns null and never blocks the email.
+    let enquiryId: number | null = null;
     if (!isOrder) {
-      await insertEnquiry({
+      enquiryId = await insertEnquiry({
         formType: emailParams.formType || 'contact',
         name,
         email,
@@ -98,6 +99,10 @@ export async function POST(request: Request) {
         payload: body,
       });
     }
+    if (enquiryId && email) emailParams.portalReplyUrl = `${siteUrl()}/admin/enquiries/reply/?id=${enquiryId}`;
+
+    // Attempt direct dispatch via Zoho Mail SMTP
+    const zohoResult = await sendEmailThroughZoho(emailParams);
 
     return NextResponse.json({
       success: true,

@@ -46,6 +46,9 @@ function migrate(): Promise<void> {
         message TEXT,
         payload JSONB NOT NULL
       )`;
+      await sql`ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS replied_at TIMESTAMPTZ`;
+      await sql`ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS reply_subject TEXT`;
+      await sql`ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS reply_message TEXT`;
       await sql`CREATE INDEX IF NOT EXISTS order_events_ref_idx ON order_events (order_ref, at)`;
       await sql`CREATE INDEX IF NOT EXISTS enquiries_created_idx ON enquiries (created_at DESC)`;
     })().catch((e) => {
@@ -198,17 +201,21 @@ export interface EnquiryInput {
   payload: Record<string, unknown>;
 }
 
-export async function insertEnquiry(e: EnquiryInput): Promise<void> {
+/** Stores an enquiry and returns its id (null if the write failed - never blocks the email). */
+export async function insertEnquiry(e: EnquiryInput): Promise<number | null> {
   try {
-    await withRetry(async () => {
+    return await withRetry(async () => {
       await migrate();
-      await sql`
+      const { rows } = await sql`
         INSERT INTO enquiries (form_type, name, email, phone, message, payload)
         VALUES (${e.formType}, ${e.name}, ${e.email ?? null}, ${e.phone ?? null}, ${e.message ?? null}, ${JSON.stringify(e.payload)}::jsonb)
+        RETURNING id
       `;
+      return (rows[0]?.id as number) ?? null;
     });
   } catch (err) {
     console.error('[db] insertEnquiry failed (non-fatal):', err);
+    return null;
   }
 }
 
@@ -221,6 +228,58 @@ export interface EnquiryRow {
   phone: string | null;
   message: string | null;
   payload: Record<string, unknown>;
+  repliedAt: string | null;
+  replySubject: string | null;
+  replyMessage: string | null;
+}
+
+function rowToEnquiry(r: any): EnquiryRow {
+  return {
+    id: r.id,
+    createdAt: new Date(r.created_at).toISOString(),
+    formType: r.form_type,
+    name: r.name,
+    email: r.email,
+    phone: r.phone,
+    message: r.message,
+    payload: r.payload,
+    repliedAt: r.replied_at ? new Date(r.replied_at).toISOString() : null,
+    replySubject: r.reply_subject ?? null,
+    replyMessage: r.reply_message ?? null,
+  };
+}
+
+export async function getEnquiry(id: number): Promise<EnquiryRow | null> {
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT id, created_at, form_type, name, email, phone, message, payload, replied_at, reply_subject, reply_message FROM enquiries WHERE id = ${id}`;
+    return rows[0] ? rowToEnquiry(rows[0]) : null;
+  });
+}
+
+/** Records that the sales desk answered this enquiry, so it is not answered twice. */
+export async function markEnquiryReplied(id: number, subject: string, message: string): Promise<void> {
+  await withRetry(async () => {
+    await migrate();
+    await sql`UPDATE enquiries SET replied_at = now(), reply_subject = ${subject}, reply_message = ${message} WHERE id = ${id}`;
+  });
+}
+
+/** Same, for a quote request answered from the emailed link (matched by its QT- reference). */
+export async function markEnquiryRepliedByRef(ref: string, subject: string, message: string): Promise<void> {
+  await withRetry(async () => {
+    await migrate();
+    await sql`UPDATE enquiries SET replied_at = now(), reply_subject = ${subject}, reply_message = ${message} WHERE payload->>'ref' = ${ref}`;
+  });
+}
+
+/** Enquiries with an email address that nobody has answered yet. */
+export async function enquiryUnrepliedCount(): Promise<number> {
+  return withRetry(async () => {
+    await migrate();
+    const { rows } = await sql`SELECT count(*)::int AS n FROM enquiries WHERE replied_at IS NULL AND email IS NOT NULL AND email <> ''`;
+    return rows[0]?.n ?? 0;
+  });
 }
 
 export async function enquiryTotalCount(): Promise<number> {
@@ -231,29 +290,22 @@ export async function enquiryTotalCount(): Promise<number> {
   });
 }
 
-export async function listEnquiries(opts: { limit?: number; formType?: string; search?: string } = {}): Promise<EnquiryRow[]> {
+export async function listEnquiries(opts: { limit?: number; formType?: string; search?: string; unrepliedOnly?: boolean } = {}): Promise<EnquiryRow[]> {
   return withRetry(async () => {
     await migrate();
     const limit = Math.min(200, Math.max(1, opts.limit ?? 50));
     const formType = opts.formType && opts.formType !== 'all' ? opts.formType : null;
     const search = opts.search ? `%${opts.search.toLowerCase()}%` : null;
+    const unreplied = Boolean(opts.unrepliedOnly);
     const { rows } = await sql`
-      SELECT id, created_at, form_type, name, email, phone, message, payload
+      SELECT id, created_at, form_type, name, email, phone, message, payload, replied_at, reply_subject, reply_message
       FROM enquiries
       WHERE (${formType}::text IS NULL OR form_type = ${formType})
         AND (${search}::text IS NULL OR name ILIKE ${search} OR email ILIKE ${search} OR phone ILIKE ${search})
+        AND (${unreplied}::boolean = false OR replied_at IS NULL)
       ORDER BY created_at DESC
       LIMIT ${limit}
     `;
-    return rows.map((r) => ({
-      id: r.id,
-      createdAt: new Date(r.created_at).toISOString(),
-      formType: r.form_type,
-      name: r.name,
-      email: r.email,
-      phone: r.phone,
-      message: r.message,
-      payload: r.payload,
-    }));
+    return rows.map(rowToEnquiry);
   });
 }
