@@ -40,3 +40,32 @@ export function payIn4Schedule(total: number, frequency: PayIn4Frequency, start:
 export function fmtAud(n: number): string {
   return `$${n.toLocaleString('en-AU', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 })}`;
 }
+
+// ---------------------------------------------------------------------------
+// An order's plan: derived from the order total and the frequency the buyer
+// chose in the cart (stored on totals.financeFrequency), never from client-sent
+// amounts. Dates run from the day the order was placed.
+import type { Order } from './orders-shared';
+
+export interface OrderPlan {
+  frequency: PayIn4Frequency;
+  total: number;
+  schedule: (PayIn4Payment & { dateText: string })[];
+}
+
+export const planDate = (d: Date) => d.toLocaleDateString('en-AU', { timeZone: 'Australia/Brisbane', day: 'numeric', month: 'short', year: 'numeric' });
+
+export function orderPlan(order: Pick<Order, 'payment' | 'totals' | 'createdAt'>): OrderPlan | null {
+  if (order.payment !== 'finance4') return null;
+  const frequency: PayIn4Frequency = order.totals.financeFrequency === 'monthly' ? 'monthly' : 'fortnightly';
+  const schedule = payIn4Schedule(order.totals.total, frequency, new Date(order.createdAt)).map((p) => ({ ...p, dateText: planDate(p.date) }));
+  return { frequency, total: order.totals.total, schedule };
+}
+
+/** Plain-text plan, one line per payment (plain-text emails, the invoice instructions box). */
+export function planLines(plan: OrderPlan): string[] {
+  return [
+    `Finance in 4, ${plan.frequency}: 4 payments, 0% interest, ${fmtAud(plan.total)} in total (freight quoted separately)`,
+    ...plan.schedule.map((p) => `${p.n}. ${fmtAud(p.amount)} - ${p.label.toLowerCase()} (${p.dateText})`),
+  ];
+}

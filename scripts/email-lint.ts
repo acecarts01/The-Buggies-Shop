@@ -53,6 +53,15 @@ const cryptoInvoiced: Order = {
   },
 };
 
+const financeLines = priceLines([{ id: 'BUG-002', quantity: 1 }]);
+const financeOrder: Order = {
+  ...base,
+  ref: 'BE-260916-FIN4',
+  payment: 'finance4',
+  lines: financeLines,
+  totals: { ...computeTotals(financeLines, 'finance4'), financeFrequency: 'monthly' },
+};
+
 const quote: QuoteRequest = {
   kind: 'quote',
   ref: 'QT-260916-TEST',
@@ -69,7 +78,9 @@ const token = signOrder(base);
 const renders: { name: string; html: string; subject: string }[] = [
   { name: 'order-confirmation', ...renderOrderConfirmation(base) },
   { name: 'order-confirmation-crypto', ...renderOrderConfirmation(cryptoOrder) },
+  { name: 'order-confirmation-finance4', ...renderOrderConfirmation(financeOrder) },
   { name: 'admin-new-order', ...renderAdminNewOrder(base, token) },
+  { name: 'admin-new-order-finance4', ...renderAdminNewOrder(financeOrder, signOrder(financeOrder)) },
   { name: 'official-client-invoice-bank', ...renderInvoice(bankInvoiced, payPageUrl(signOrder(bankInvoiced))) },
   { name: 'official-client-invoice-crypto', ...renderInvoice(cryptoInvoiced, payPageUrl(signOrder(cryptoInvoiced))) },
   { name: 'admin-quote-request', ...renderQuoteRequest(quote, quoteToken) },

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Mail, Phone, MapPin, CreditCard, ArrowRight, Inbox, MessageSquare } from 'lucide-react';
 import { isAdminRequest } from '@/lib/admin-auth';
+import { orderPlan, fmtAud } from '@/lib/pay-in-4';
 import { verifyOrder, aud, paymentLabel, stateFromPostcode, whatsappToCustomerUrl, STATUS_LABEL, type OrderStatus } from '@/lib/orders';
 import { getOrder, getOrderEvents } from '@/lib/db';
 import AdminShell from '@/src/components/admin/AdminShell';
@@ -41,6 +42,7 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
 
   const c = order.customer;
   const state = c.state ?? stateFromPostcode(c.postcode);
+  const plan = orderPlan(order);
   const settle = `/admin/orders/settle/?o=${encodeURIComponent(o!)}`;
   const steps: OrderStatus[] = ['new', 'invoice_sent', 'paid', 'dispatched'];
   const current = steps.indexOf(order.status);
@@ -88,6 +90,20 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
               <CreditCard className="w-4 h-4 text-[#A9B4C6] mt-0.5 shrink-0" aria-hidden="true" />
               <span>{paymentLabel(order.payment)}</span>
             </div>
+            {plan && (
+              <div className="mt-1 rounded-lg border border-[#B8973F]/40 bg-[#071527] p-3" aria-label="Finance in 4 plan">
+                <div className="text-[11px] uppercase tracking-[0.15em] text-[#D9C27A] font-bold mb-2">Finance in 4 plan · {plan.frequency}</div>
+                <ol className="space-y-1 text-sm">
+                  {plan.schedule.map((p) => (
+                    <li key={p.n} className="flex justify-between gap-3">
+                      <span className="text-[#A9B4C6]">{p.n}. {p.label} · {p.dateText}</span>
+                      <span className="font-bold whitespace-nowrap">{fmtAud(p.amount)}</span>
+                    </li>
+                  ))}
+                </ol>
+                <div className="text-[11px] text-[#A9B4C6] mt-2">{fmtAud(plan.total)} total, freight excluded</div>
+              </div>
+            )}
           </dl>
         </section>
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import QRCode from 'qrcode';
 import { Landmark, Bitcoin, CreditCard, Send, MessageSquare, Copy, Check, Lock, ExternalLink, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { orderPlan, planLines } from '@/lib/pay-in-4';
 import { type Order, type InvoiceDetails, aud, paymentLabel } from '@/lib/orders-shared';
 import { CRYPTO } from '@/src/config/site';
 
@@ -29,7 +30,9 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
   const [method, setMethod] = useState<Method>(defaultMethod);
   const [bank, setBank] = useState(bankDefaults);
   const [walletKey, setWalletKey] = useState(CRYPTO.wallets[0].key);
-  const [finance, setFinance] = useState({ instructions: '', link: '' });
+  // Pre-filled from the plan the buyer chose in the cart; edit freely before sending.
+  const plan = orderPlan(order);
+  const [finance, setFinance] = useState({ instructions: plan ? planLines(plan).join('\n') : '', link: '' });
   const [notes, setNotes] = useState('');
   const [qr, setQr] = useState('');
   const [preview, setPreview] = useState('');
@@ -127,7 +130,7 @@ export default function SettleTerminal({ token, order, bankDefaults }: Props) {
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Email</dt><dd className="text-right break-all">{order.customer.email}</dd></div>
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Phone</dt><dd className="text-right">{order.customer.phone ?? '—'}</dd></div>
             <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Postcode</dt><dd className="text-right">{order.customer.postcode ?? '—'}{order.customer.state ? ` · ${order.customer.state}` : ''}</dd></div>
-            <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Chosen on site</dt><dd className="text-right">{paymentLabel(order.payment)}</dd></div>
+            <div className="flex justify-between gap-3"><dt className="text-[#A9B4C6]">Chosen on site</dt><dd className="text-right">{paymentLabel(order.payment)}{plan ? ` (${plan.frequency})` : ''}</dd></div>
           </dl>
           <ul className="border-t border-white/10 pt-3 space-y-1.5 text-sm">
             {order.lines.map((l) => (

@@ -1,5 +1,6 @@
 // order-confirmation: the customer's instant confirmation.
 import { E, FONT, SERIF, emailShell, table, td, row, spacer, statusBadge, esc, button } from './layout';
+import { financePlanBlock, financePlanText } from './finance-plan';
 import { type Order, aud, paymentLabel, siteUrl, stateFromPostcode } from '@/lib/orders';
 import { CONTACT } from '@/src/config/site';
 
@@ -66,6 +67,7 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
       ),
       'class="be-pad"'
     )}
+    ${financePlanBlock(order, 'client')}
     ${row(
       E.bone,
       'padding:6px 28px 24px 28px;',
@@ -98,6 +100,7 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
     ...order.lines.map((l) => `- ${l.name} x${l.quantity} — ${aud(l.lineTotal)}`),
     `Total ${aud(order.totals.total)} (GST incl., freight quoted separately)`,
     `Payment: ${paymentLabel(order.payment)}`,
+    ...financePlanText(order),
     ``,
     `Our sales concierge will send the official payment invoice shortly. Once paid, send the receipt on WhatsApp ${CONTACT.whatsappUrl}.`,
   ].join('\n');

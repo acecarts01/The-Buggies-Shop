@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     payment,
     customer: { name, email, phone, postcode, state: stateFromPostcode(postcode) },
     lines,
-    totals: computeTotals(lines, payment),
+    totals: { ...computeTotals(lines, payment), ...(payment === 'finance4' ? { financeFrequency: body.financeFrequency === 'monthly' ? ('monthly' as const) : ('fortnightly' as const) } : {}) },
   };
 
   const token = signOrder(order);

@@ -24,6 +24,8 @@ export interface OrderTotals {
   total: number;
   /** GST component of `total` (prices are GST-inclusive: total / 11). */
   gst: number;
+  /** Finance in 4 only: the schedule the buyer picked in the cart. */
+  financeFrequency?: 'fortnightly' | 'monthly';
 }
 
 export interface Order {

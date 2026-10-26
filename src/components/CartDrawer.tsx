@@ -69,6 +69,7 @@ export default function CartDrawer({
         body: JSON.stringify({
           channel: method,
           payment: paymentOption,
+          financeFrequency: paymentOption === 'finance4' ? finFreq : undefined,
           name: buyerName.trim(),
           email: buyerEmail.trim(),
           phone: buyerPhone.trim() || undefined,

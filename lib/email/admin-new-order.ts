@@ -1,5 +1,6 @@
 // admin-new-order: the sales desk's copy. One link, straight into the pre-filled settlement terminal.
 import { E, FONT, SERIF, emailShell, table, td, row, statusBadge, esc, button } from './layout';
+import { financePlanBlock, financePlanText } from './finance-plan';
 import { type Order, aud, paymentLabel, siteUrl, stateFromPostcode, settleUrl, STATUS_LABEL } from '@/lib/orders';
 import { ledgerRows, totalsRows } from './order-confirmation';
 
@@ -39,6 +40,7 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
       ),
       'class="be-pad"'
     )}
+    ${financePlanBlock(order, 'desk')}
     ${row(
       E.bone,
       'padding:6px 28px 24px 28px;',
@@ -60,6 +62,7 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
     `NEW ORDER ${order.ref} (${CHANNEL_LABEL[order.channel]})`,
     `${c.name} · ${c.email} · ${c.phone ?? '-'} · postcode ${c.postcode ?? '-'}`,
     `Payment: ${paymentLabel(order.payment)}`,
+    ...financePlanText(order),
     ...order.lines.map((l) => `- ${l.name} x${l.quantity} — ${aud(l.lineTotal)}`),
     `Total ${aud(order.totals.total)}`,
     ``,
