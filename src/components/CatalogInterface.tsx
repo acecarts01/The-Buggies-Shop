@@ -561,7 +561,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded-lg transition-all shadow-sm flex items-center justify-center gap-2 active:scale-95 hover:-translate-y-px duration-200"
                   >
                     <span>Load Next 12 Models</span>
-                    <span className="text-[10px] bg-white/20 px-1.5 py-0.5 rounded font-bold">
+                    <span className="text-[10px] bg-black/25 px-1.5 py-0.5 rounded font-bold">
                       +{Math.min(12, filteredProducts.length - displayedProducts.length)}
                     </span>
                   </button>

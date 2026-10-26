@@ -68,7 +68,7 @@ export default function PayIn4Calculator({ defaultAmount = 0, productName, tone 
             Orders over {fmtAud(PAY_IN_4.min)} AUD · {SHOP.financeIn4.interestRate} interest · {SHOP.financeIn4.installments} equal payments
           </p>
         </div>
-        <span className={`shrink-0 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded ${dark ? 'bg-[#E2A17A] text-[#121417]' : 'bg-[#F7EFEA] text-[#A85640] border border-[#C86D51]/30'}`}>
+        <span className={`shrink-0 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded ${dark ? 'bg-[#E2A17A] text-[#121417]' : 'bg-[#F7EFEA] text-[#8F4632] border border-[#C86D51]/30'}`}>
           Pay in 4
         </span>
       </div>

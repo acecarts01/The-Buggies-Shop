@@ -633,7 +633,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     </p>
                   </StaggerItem>
                   <StaggerItem className="p-4 bg-[#121417] border border-[#2B2F34] rounded-xl space-y-2">
-                    <div className="flex items-center gap-2 text-[#A85640] font-bold text-xs">
+                    <div className="flex items-center gap-2 text-[#E2A17A] font-bold text-xs">
                       <Award className="w-4 h-4" />
                       <span>Depot Backing</span>
                     </div>

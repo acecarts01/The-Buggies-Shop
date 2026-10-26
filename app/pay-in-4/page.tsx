@@ -41,7 +41,7 @@ export default function PayIn4Page() {
       <main className="bg-[#F7F6F2] min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
           <header className="mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#C86D51]/30 text-xs font-bold text-[#A85640] mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F7EFEA] border border-[#C86D51]/30 text-xs font-bold text-[#8F4632] mb-4">
               {SHOP.financeIn4.interestRate} interest · orders over {fmtAud(PAY_IN_4.min)}
             </div>
             <h1 className="text-2xl sm:text-4xl font-extrabold text-[#121417] leading-tight mb-3">Pay in 4 for golf buggies</h1>
@@ -71,9 +71,9 @@ export default function PayIn4Page() {
             <FaqSection items={PAY_IN_4_FAQS} heading="Pay in 4 questions" tone="light" />
           </div>
 
-          <p className="mt-8 text-xs text-[#78716C] leading-relaxed">
+          <p className="mt-8 text-xs text-[#6B645E] leading-relaxed">
             Prefer to talk it through? Call{' '}
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="font-bold text-[#A85640] underline">{CONTACT.phoneDisplay}</a> or{' '}
+            <a href={`tel:${CONTACT.phone}`} className="font-bold text-[#A85640] underline">{CONTACT.phoneDisplay}</a> or{' '}
             <a href={`${CONTACT.whatsappUrl}?text=${encodeURIComponent('Hi, I have a question about Pay in 4.')}`} className="font-bold text-[#A85640] underline">message us on WhatsApp</a>.
             All prices include 10% Australian GST. Browse <Link href="/shop/" className="font-bold text-[#A85640] underline">all golf buggies</Link>.
           </p>
