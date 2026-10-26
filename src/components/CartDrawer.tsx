@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight, Bitcoin, ArrowLeft } from 'lucide-react';
 import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem, PRODUCTS } from '@/src/config/site';
 import CryptoCheckout from './CryptoCheckout';
-import { PAY_IN_4, fmtAud, isPayIn4Eligible } from '@/lib/pay-in-4';
+import { PAY_IN_4, fmtAud, isPayIn4Eligible, payIn4Schedule, type PayIn4Frequency } from '@/lib/pay-in-4';
 
 /** Order reference shown on the crypto invoice and quoted back on WhatsApp. */
 function newOrderRef(): string {
@@ -175,7 +175,10 @@ export default function CartDrawer({
   const finalTotal = Math.max(0, subtotalAfterAccessory - cryptoDiscount);
 
   // Finance in 4 calculations: 4 equal installments
-  const installmentAmount = Math.round((finalTotal / 4) * 100) / 100;
+  const [finFreq, setFinFreq] = useState<PayIn4Frequency>('fortnightly');
+  const finSchedule = payIn4Schedule(finalTotal, finFreq);
+  const finToday = finSchedule[0].amount; // first payment, due at checkout
+  const installmentAmount = finSchedule[1].amount; // each of the other three
 
   // Pay in 4 is for orders over SHOP.financeIn4.minAmount (checked on the pre-crypto subtotal).
   const payIn4Ok = isPayIn4Eligible(subtotalAfterAccessory);
@@ -192,7 +195,7 @@ export default function CartDrawer({
 
     const paymentLabel =
       paymentOption === 'finance4'
-        ? `Finance in 4 (4 Equal Interest-Free Payments of $${installmentAmount.toLocaleString()} AUD)`
+        ? `Finance in 4 (${finFreq}: ${fmtAud(finToday)} today, then 3 payments of ${fmtAud(installmentAmount)})`
         : paymentOption === 'crypto'
         ? 'Crypto (10% Discount Applied)'
         : 'PayID / Direct Bank Transfer (EFT)';
@@ -203,7 +206,7 @@ ${lines.join('\n')}
 
 Subtotal: $${rawSubtotal.toLocaleString()} AUD
 ${isBundleEligible ? `Buggy + Accessory 5% Bundle Discount: -$${accessoryDiscount.toLocaleString()} AUD (Applies to all payment methods!)\n` : ''}${paymentOption === 'crypto' ? `Crypto 10% Incentive: -$${cryptoDiscount.toLocaleString()} AUD\n` : ''}Final Estimated Total: $${finalTotal.toLocaleString()} AUD
-${paymentOption === 'finance4' ? `Finance in 4 Plan: 4 interest-free payments of $${installmentAmount.toLocaleString()} AUD\n` : ''}
+${paymentOption === 'finance4' ? `Finance in 4 Plan (${finFreq}): ${fmtAud(finToday)} today, then 3 payments of ${fmtAud(installmentAmount)} AUD\n` : ''}
 Payment Method Preference: ${paymentLabel}
 Customer: ${buyerName || 'Australian Buyer'}
 Delivery Postcode: ${buyerPostcode || 'Pending'}
@@ -486,45 +489,51 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 </div>
               )}
 
-              {/* Finance in 4 Schedule Breakdown Card */}
+              {/* Finance in 4: what the client pays today and on each date */}
               {paymentOption === 'finance4' && (
-                <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 text-xs space-y-2 shadow-2xs">
+                <div className="bg-white border border-[#C86D51]/30 rounded-xl p-3 text-xs space-y-2.5 shadow-2xs">
                   <div className="flex items-center justify-between">
                     <div className="font-bold text-[#A85640] flex items-center gap-1.5">
                       <CreditCard className="w-4 h-4 text-[#A85640]" />
-                      <span>Finance in 4: 4x ${installmentAmount.toLocaleString()} AUD</span>
+                      <span>Finance in 4: pay {fmtAud(finToday)} today</span>
                     </div>
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#F7EFEA] text-[#A85640] border border-[#C86D51]/20">
                       0% Interest
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-4 gap-1.5 text-center text-[10px] pt-1">
-                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
-                      <div className="text-[#6B645E]">Payment 1</div>
-                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#A85640] font-medium">Today</div>
-                    </div>
-                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
-                      <div className="text-[#6B645E]">Payment 2</div>
-                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#6B645E]">2 Weeks</div>
-                    </div>
-                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
-                      <div className="text-[#6B645E]">Payment 3</div>
-                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#6B645E]">4 Weeks</div>
-                    </div>
-                    <div className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
-                      <div className="text-[#6B645E]">Payment 4</div>
-                      <div className="font-bold text-[#121417]">${installmentAmount.toLocaleString()}</div>
-                      <div className="text-[9px] text-[#6B645E]">6 Weeks</div>
-                    </div>
+                  <div role="group" aria-label="Payment frequency" className="grid grid-cols-2 gap-1.5">
+                    {(['fortnightly', 'monthly'] as const).map((fq) => (
+                      <button
+                        key={fq}
+                        type="button"
+                        aria-pressed={finFreq === fq}
+                        onClick={() => setFinFreq(fq)}
+                        className={`rounded-md border px-2 py-1.5 text-[11px] font-bold capitalize transition-colors ${
+                          finFreq === fq ? 'bg-[#B45A40] border-[#B45A40] text-white' : 'bg-white border-[#E7E5E4] text-[#6B645E] hover:border-[#C86D51]/50'
+                        }`}
+                      >
+                        {fq}
+                      </button>
+                    ))}
                   </div>
 
-                  <div className="text-[10px] text-[#6B645E] flex items-center gap-1 pt-0.5">
-                    <CheckCircle2 className="w-3 h-3 text-[#A85640] shrink-0" />
-                    <span>No hidden fees • Instant approval on invoice via Yatala finance team.</span>
+                  <div className="grid grid-cols-4 gap-1.5 text-center text-[10px]">
+                    {finSchedule.map((p) => (
+                      <div key={p.n} className="p-1.5 rounded bg-[#F7F6F2] border border-[#E7E5E4]">
+                        <div className="text-[#6B645E]">Payment {p.n}</div>
+                        <div className="font-bold text-[#121417]">{fmtAud(p.amount)}</div>
+                        <div className="text-[9px] text-[#A85640] font-medium">{p.label}</div>
+                        <div className="text-[9px] text-[#6B645E]">{p.date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="text-[10px] text-[#6B645E] flex items-start gap-1 pt-0.5">
+                    <CheckCircle2 className="w-3 h-3 text-[#A85640] shrink-0 mt-px" />
+                    <span>
+                      {fmtAud(finalTotal)} in total, 0% interest. Freight is quoted separately and your plan is confirmed on your tax invoice.
+                    </span>
                   </div>
                 </div>
               )}
@@ -579,8 +588,9 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                   <div className="text-right">
                     <div className="text-[#A85640] font-sans font-bold">${finalTotal.toLocaleString()} AUD</div>
                     {paymentOption === 'finance4' && (
-                      <div className="text-[11px] font-sans font-medium text-[#6B645E]">
-                        or 4 payments of ${installmentAmount.toLocaleString()} AUD
+                      <div className="text-[11px] font-sans font-medium text-[#6B645E] leading-snug">
+                        <div className="text-[#121417] font-bold">Pay today: {fmtAud(finToday)}</div>
+                        then 3 payments of {fmtAud(installmentAmount)} ({finFreq})
                       </div>
                     )}
                   </div>
