@@ -7,6 +7,7 @@ import { verifyOrder, aud, paymentLabel } from '@/lib/orders';
 import { contextFromEnquiry, contextFromQuote, type EnquiryContext } from '@/lib/enquiry-context';
 import { findProduct } from '@/lib/reply-draft';
 import { PRODUCTS, SHOP } from '@/src/config/site';
+import { introFor } from '@/lib/order-kind';
 import AdminShell from '@/src/components/admin/AdminShell';
 import DocumentBuilder, { type BuilderPrefill } from '@/src/components/admin/DocumentBuilder';
 
@@ -25,18 +26,11 @@ function fromContext(ctx: EnquiryContext, source: BuilderPrefill['source'], aske
   // The form sends "Name (price AUD)": match the exact product first, then fall back to a fuzzy match.
   const exact = ctx.model ? PRODUCTS.find((p) => ctx.model!.toLowerCase().startsWith(p.name.toLowerCase())) : undefined;
   const product = exact ?? findProduct(ctx.message, ctx.model);
-  const noun = asked === 'invoice' ? 'tax invoice' : 'quote';
   return {
     kind: asked,
     client: { name: ctx.name, email: ctx.email, phone: ctx.phone ?? '', postcode: ctx.postcode ?? '' },
     lines: product ? [{ slug: product.slug, name: product.name, description: '', qty: 1, price: product.price_aud }] : [],
-    message: [
-      `Hi ${first(ctx.name)},`,
-      `Thanks for your ${asked === 'invoice' ? 'invoice' : 'quote'} request${product ? ` for the ${product.name}` : ''}. Your ${noun} is below, with payment details and the steps that follow.`,
-      ctx.postcode ? `Freight to postcode ${ctx.postcode} is confirmed against your delivery address once you accept.` : '',
-    ]
-      .filter(Boolean)
-      .join('\n\n'),
+    message: introFor({ first: first(ctx.name), lines: product ? [{ slug: product.slug, name: product.name }] : [], source: 'request', asked, postcode: ctx.postcode }),
     paymentPreference: ctx.paymentPreference,
     source,
     request: { message: ctx.message, delivery: ctx.deliveryPreference, model: ctx.model, asked },
@@ -63,13 +57,7 @@ export default async function InvoicePage({ searchParams }: { searchParams: Prom
         kind: 'invoice',
         client: { name: order.customer.name, email: order.customer.email, phone: order.customer.phone ?? '', postcode: order.customer.postcode ?? '' },
         lines,
-        message: [
-          `Hi ${first(order.customer.name)},`,
-          `Thank you for your order. Your tax invoice is below, with payment details and the steps that follow. Your buggy stays reserved at our Yatala QLD depot while you settle.`,
-          order.customer.postcode ? `Freight to postcode ${order.customer.postcode} is confirmed once your payment is received.` : '',
-        ]
-          .filter(Boolean)
-          .join('\n\n'),
+        message: introFor({ first: first(order.customer.name), lines: order.lines.map((l) => ({ slug: l.slug, name: l.name })), source: 'order', asked: 'invoice', postcode: order.customer.postcode }),
         paymentPreference: order.payment,
         financeFrequency: t.financeFrequency,
         source: { type: 'order', ref: order.ref, label: `order ${order.ref} (${aud(t.total)}, ${paymentLabel(order.payment)})`, token: o },

@@ -8,7 +8,7 @@ import { type Order, type OrderLine, type InvoiceDetails, type PaymentChannel, s
 import { newOrderRef } from './orders';
 import { newQuoteRef } from './quotes';
 import { cleanPayment } from './reply-payment';
-import { DEFAULT_AFTER_PAYMENT } from './document-defaults';
+import { afterPaymentFor } from './order-kind';
 import { isPayIn4Eligible, PAY_IN_4, fmtAud } from './pay-in-4';
 
 export type DocKind = 'quote' | 'invoice';
@@ -126,7 +126,7 @@ export function buildDocument(raw: DocInput, opts: { strict: boolean; ref?: stri
     lines,
     totals: { subtotal, accessoryDiscount: 0, cryptoDiscount: 0, total, gst, ...(channel === 'finance4' ? { financeFrequency } : {}) },
   };
-  const afterPayment = (s(raw.afterPayment, 1200) || DEFAULT_AFTER_PAYMENT).split('{ref}').join(ref);
+  const afterPayment = (s(raw.afterPayment, 1200) || afterPaymentFor(lines)).split('{ref}').join(ref);
   if (payment) {
     // {ref} may be typed into the Finance in 4 instructions too.
     if (payment.finance4) payment.finance4 = { ...payment.finance4, instructions: payment.finance4.instructions.split('{ref}').join(ref) };

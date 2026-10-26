@@ -3,6 +3,7 @@ import { E, FONT, SERIF, emailShell, table, td, row, spacer, statusBadge, esc, b
 import { financePlanBlock, financePlanText } from './finance-plan';
 import { type Order, aud, paymentLabel, siteUrl, stateFromPostcode } from '@/lib/orders';
 import { CONTACT } from '@/src/config/site';
+import { reservationPhrase } from '@/lib/order-kind';
 
 export function ledgerRows(order: Order): string {
   return order.lines
@@ -39,6 +40,7 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
   const c = order.customer;
   const state = c.state ?? stateFromPostcode(c.postcode);
   const first = c.name.split(' ')[0];
+  const res = reservationPhrase(order.lines);
   const site = siteUrl();
   const logo = `${site}/brand/logo-mark-192.png`;
 
@@ -46,9 +48,9 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
     ${row(
       E.navy,
       `padding:6px 28px 20px 28px;text-align:center;`,
-      `${statusBadge('Order Logged — Allocation Reserved')}
+      `${statusBadge(res.badge)}
        <h1 class="be-h1" style="margin:14px 0 6px 0;font-family:${SERIF};font-size:26px;line-height:32px;font-weight:700;color:${E.white};">Thank you, ${esc(first)}.</h1>
-       <p style="margin:0;font-family:${FONT};font-size:13px;line-height:20px;color:${E.mutedOnNavy};">Order <span style="color:${E.goldLight};font-weight:700;">${esc(order.ref)}</span> is reserved at our Yatala QLD depot. Your official payment invoice follows shortly.</p>`,
+       <p style="margin:0;font-family:${FONT};font-size:13px;line-height:20px;color:${E.mutedOnNavy};">Order <span style="color:${E.goldLight};font-weight:700;">${esc(order.ref)}</span> ${res.sentence}. Your official payment invoice follows shortly.</p>`,
       'class="be-pad"'
     )}
     ${row(
@@ -95,7 +97,7 @@ export function renderOrderConfirmation(order: Order): { subject: string; html: 
   });
 
   const text = [
-    `Thank you, ${first}. Order ${order.ref} is logged at our Yatala QLD depot and reserved.`,
+    `Thank you, ${first}. Order ${order.ref} ${res.sentence}.`,
     ``,
     ...order.lines.map((l) => `- ${l.name} x${l.quantity} — ${aud(l.lineTotal)}`),
     `Total ${aud(order.totals.total)} (GST incl., freight quoted separately)`,

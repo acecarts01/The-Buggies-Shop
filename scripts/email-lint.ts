@@ -16,6 +16,8 @@ import { type QuoteRequest, signQuote } from '@/lib/quotes';
 import { renderQuoteRequest } from '@/lib/email/quote-request';
 import { renderQuoteReply } from '@/lib/email/quote-reply';
 import { renderDocument } from '@/lib/email/document';
+import { PRODUCTS } from '@/src/config/site';
+import { afterPaymentFor, introFor, lineKind, reservationPhrase } from '@/lib/order-kind';
 import { buildDocument, type DocInput } from '@/lib/document';
 
 const lines = priceLines([
@@ -117,6 +119,29 @@ const renders: { name: string; html: string; subject: string }[] = [
 ];
 
 const failures: string[] = [];
+
+// Preparation claims must match the product: only rideable vehicles are road tested, only electric
+// ones are charge-cycled, and parts, accessories, push buggies and custom lines claim neither.
+for (const p of PRODUCTS) {
+  const kind = lineKind({ slug: p.slug, name: p.name });
+  const vehicle = kind === 'electric-vehicle' || kind === 'petrol-vehicle';
+  const single = [{ slug: p.slug, name: p.name }];
+  const steps = afterPaymentFor(single);
+  const intro = introFor({ first: 'Sam', lines: single, source: 'order', asked: 'invoice', postcode: '4207' });
+  const res = reservationPhrase(single);
+  const all = `${steps}\n${intro}\n${res.badge} ${res.sentence} ${res.invoiceLine}`;
+  if (/road.?test/i.test(all) !== vehicle) failures.push(`copy: ${p.slug} (${kind}) ${vehicle ? 'is missing' : 'wrongly claims'} a road test`);
+  if (/charge-cycled/i.test(all) !== (kind === 'electric-vehicle')) failures.push(`copy: ${p.slug} (${kind}) ${kind === 'electric-vehicle' ? 'is missing' : 'wrongly claims'} a charge cycle`);
+  if (/enclosed/i.test(all) !== vehicle) failures.push(`copy: ${p.slug} (${kind}) enclosed-freight wording does not fit`);
+  if (/reserved/i.test(all) !== vehicle) failures.push(`copy: ${p.slug} (${kind}) reservation wording does not fit`);
+}
+{
+  const custom = afterPaymentFor([{ name: 'Custom fabrication' }]);
+  if (/road.?test|charge-cycled|enclosed/i.test(custom)) failures.push('copy: a custom-only order claims vehicle preparation');
+  const mixed = afterPaymentFor([{ slug: 'evolution-d-max-gt4-off-road', name: 'Evolution D-MAX GT4 Off-Road' }, { slug: 'mgi-multipurpose-hook', name: 'MGI Multipurpose Hook' }]);
+  if (/parts and accessories (has|have) been/i.test(mixed) || /hook[^.]*road tested/i.test(mixed)) failures.push('copy: a vehicle-plus-parts order claims the parts were tested');
+  if (!/road tested/i.test(mixed) || !/parts and accessories are packed/i.test(mixed)) failures.push('copy: a vehicle-plus-parts order must test the vehicle and only pack the parts');
+}
 const outDir = path.join(process.cwd(), 'docs', 'email-previews');
 fs.mkdirSync(outDir, { recursive: true });
 

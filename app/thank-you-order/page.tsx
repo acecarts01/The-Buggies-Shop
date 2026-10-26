@@ -29,7 +29,7 @@ export default function ThankYouOrderPage() {
               Order Manifest Transmitted
             </h1>
             <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">
-              Your vehicle specifications and delivery postcode have been lodged with our Yatala dispatch office. An official Australian Tax Invoice including GST will be generated.
+              Your order and delivery postcode have been lodged with our Yatala dispatch office. An official Australian Tax Invoice including GST will be generated.
             </p>
           </div>
 
@@ -39,8 +39,8 @@ export default function ThankYouOrderPage() {
               <span>Next Steps:</span>
             </div>
             <ol className="list-decimal list-inside space-y-1 text-[#E7E5E4] text-[11px] leading-relaxed">
-              <li>Our dispatch director verifies exact vehicle stock at Yatala.</li>
-              <li>Enclosed freight quote confirmed to your delivery address.</li>
+              <li>Our dispatch director verifies exact stock at Yatala.</li>
+              <li>Freight quote confirmed to your delivery address.</li>
               <li>Official invoice issued with PayID / EFT details, the Finance in 4 plan, or the crypto discount.</li>
               <li>
                 <strong className="text-[#E2A17A]">Once you have paid, confirm your order on WhatsApp</strong> by sending the

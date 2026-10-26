@@ -6,6 +6,7 @@ import { E, FONT, SERIF, emailShell, table, td, row, kv, statusBadge, esc, butto
 import { type Order, aud, siteUrl, stateFromPostcode } from '@/lib/orders';
 import { ABN_INFO, CONTACT } from '@/src/config/site';
 import { ledgerRows, totalsRows } from './order-confirmation';
+import { reservationPhrase } from '@/lib/order-kind';
 
 /** Selectable, monospace value box - the email equivalent of a copy button. */
 function valueBox(label: string, value: string): string {
@@ -58,7 +59,7 @@ export function renderInvoice(order: Order, payUrl: string): { subject: string; 
       'padding:6px 28px 24px 28px;text-align:center;',
       `${statusBadge('Tax invoice · payment due')}
        <h1 class="be-h1" style="margin:16px 0 6px 0;font-family:${SERIF};font-size:28px;line-height:34px;color:${E.white};">Invoice ${esc(order.ref)}</h1>
-       <p style="margin:0;font-family:${FONT};font-size:14px;line-height:22px;color:${E.mutedOnNavy};">Hi ${esc(first)} — your unit is reserved at Yatala. Settle using the details below and we book dispatch.</p>`,
+       <p style="margin:0;font-family:${FONT};font-size:14px;line-height:22px;color:${E.mutedOnNavy};">Hi ${esc(first)}, ${esc(reservationPhrase(order.lines).invoiceLine)}</p>`,
       'class="be-pad"'
     )}
     ${row(

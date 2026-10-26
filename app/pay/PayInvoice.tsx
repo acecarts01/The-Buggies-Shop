@@ -1,5 +1,6 @@
 'use client';
 
+import { reservationPhrase } from '@/lib/order-kind';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -72,7 +73,7 @@ export default function PayInvoice({ order }: { order: Order | null }) {
             <span className="w-1.5 h-1.5 rounded-full bg-[#071527] animate-pulse" aria-hidden="true" /> Tax invoice · payment due
           </span>
           <h1 className="text-xl sm:text-3xl font-serif font-bold break-words">Invoice {order.ref}</h1>
-          <p className="text-sm text-[#A9B4C6]">Hi {c.name.split(' ')[0]} — your unit is reserved at Yatala. Settle below and we book dispatch.</p>
+          <p className="text-sm text-[#A9B4C6]">Hi {c.name.split(' ')[0]}, {reservationPhrase(order.lines).invoiceLine.replace('Settle using the details below', 'Settle below')}</p>
         </header>
 
         {/* Details + items */}

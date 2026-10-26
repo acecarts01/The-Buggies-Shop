@@ -6,7 +6,7 @@ import QRCode from 'qrcode';
 import { Landmark, Bitcoin, CreditCard, Send, Plus, Trash2, CheckCircle2, AlertTriangle, FileText, Receipt, Truck, BadgePercent, Copy } from 'lucide-react';
 import { type InvoiceDetails, type PaymentChannel, paymentLabel } from '@/lib/orders-shared';
 import { CRYPTO, PRODUCTS, CATEGORIES, SHOP, isBuggyItem } from '@/src/config/site';
-import { DEFAULT_AFTER_PAYMENT } from '@/lib/document-defaults';
+import { afterPaymentFor, introFor } from '@/lib/order-kind';
 import { PAY_IN_4, fmtAud, isPayIn4Eligible, orderPlan, planLines } from '@/lib/pay-in-4';
 
 type Method = InvoiceDetails['method'];
@@ -76,7 +76,10 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
   const [walletKey, setWalletKey] = useState(CRYPTO.wallets[0].key);
   const [finance, setFinance] = useState({ instructions: '', link: '' });
   const [financeFreq, setFinanceFreq] = useState<'fortnightly' | 'monthly'>(prefill?.financeFrequency ?? 'fortnightly');
-  const [afterPayment, setAfterPayment] = useState(DEFAULT_AFTER_PAYMENT);
+  const kindLines = (ls: Line[]) => ls.filter((l) => l.slug || l.name.trim()).map((l) => ({ slug: l.slug || undefined, name: l.name }));
+  const [afterPayment, setAfterPayment] = useState(() => afterPaymentFor(kindLines(lines)));
+  const [afterEdited, setAfterEdited] = useState(false);
+  const [messageEdited, setMessageEdited] = useState(false);
   const [message, setMessage] = useState(prefill?.message ?? '');
   const [validDays, setValidDays] = useState('14');
   const [subject, setSubject] = useState('');
@@ -151,6 +154,16 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
   }, [kind, client, lines, payment, financeFreq, afterPayment, message, validDays, subject]);
 
   const touch = () => setApproved(false);
+
+  // The steps and the drafted intro always describe what is actually being bought: a parts order never
+  // mentions a road test. They follow the items until the desk types over them.
+  useEffect(() => {
+    if (!afterEdited) setAfterPayment(afterPaymentFor(kindLines(lines)));
+    if (prefill && !messageEdited) {
+      setMessage(introFor({ first: client.name.split(' ')[0], lines: kindLines(lines), source: prefill.source.type === 'order' ? 'order' : 'request', asked: kind, postcode: client.postcode }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lines, client.name, client.postcode, kind, afterEdited, messageEdited]);
   const setLine = (key: number, patch: Partial<Line>) => {
     setLines((ls) => ls.map((l) => (l.key === key ? { ...l, ...patch } : l)));
     touch();
@@ -221,7 +234,8 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
     setLines([mkLine()]);
     setMessage('');
     setSubject('');
-    setAfterPayment(DEFAULT_AFTER_PAYMENT);
+    setAfterEdited(false);
+    setMessageEdited(false);
   };
 
   return (
@@ -475,11 +489,14 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
           <h2 className={cardTitle}>What the client does next</h2>
           <div>
             <label className={label} htmlFor="after">{kind === 'invoice' ? 'Instructions to follow after payment' : 'Instructions to follow when they accept'} <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(one step per line; {'{ref}'} becomes the reference)</span></label>
-            <textarea id="after" className={`${input} min-h-[150px] leading-relaxed`} value={afterPayment} onChange={(e) => { setAfterPayment(e.target.value); touch(); }} />
+            <textarea id="after" className={`${input} min-h-[150px] leading-relaxed`} value={afterPayment} onChange={(e) => { setAfterPayment(e.target.value); setAfterEdited(true); touch(); }} />
           </div>
+          {afterEdited && (
+            <button type="button" onClick={() => { setAfterEdited(false); touch(); }} className="text-[11px] font-bold text-[#D9C27A] underline">Rewrite the steps to match the items</button>
+          )}
           <div>
             <label className={label} htmlFor="msg">Personal note at the top <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(optional; blank line = new paragraph)</span></label>
-            <textarea id="msg" className={`${input} min-h-[110px] leading-relaxed`} value={message} onChange={(e) => { setMessage(e.target.value); touch(); }} />
+            <textarea id="msg" className={`${input} min-h-[110px] leading-relaxed`} value={message} onChange={(e) => { setMessage(e.target.value); setMessageEdited(true); touch(); }} />
           </div>
           <div>
             <label className={label} htmlFor="subj">Subject <span className="normal-case tracking-normal font-normal text-[#A9B4C6]">(blank = automatic)</span></label>
