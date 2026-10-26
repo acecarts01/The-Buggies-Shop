@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { X, Trash2, Plus, Minus, ShieldCheck, ArrowRight, MessageSquare, Zap, Sparkles, CreditCard, CheckCircle2, ChevronRight, Bitcoin, ArrowLeft } from 'lucide-react';
 import { SITE, CONTACT, SHOP, isAccessoryItem, isBuggyItem, PRODUCTS } from '@/src/config/site';
 import CryptoCheckout from './CryptoCheckout';
+import { PAY_IN_4, fmtAud, isPayIn4Eligible } from '@/lib/pay-in-4';
 
 /** Order reference shown on the crypto invoice and quoted back on WhatsApp. */
 function newOrderRef(): string {
@@ -175,6 +176,12 @@ export default function CartDrawer({
 
   // Finance in 4 calculations: 4 equal installments
   const installmentAmount = Math.round((finalTotal / 4) * 100) / 100;
+
+  // Pay in 4 is for orders over SHOP.financeIn4.minAmount (checked on the pre-crypto subtotal).
+  const payIn4Ok = isPayIn4Eligible(subtotalAfterAccessory);
+  useEffect(() => {
+    if (paymentOption === 'finance4' && !payIn4Ok) setPaymentOption('standard');
+  }, [paymentOption, payIn4Ok]);
 
   const generateWhatsAppMessage = () => {
     const lines = items.map((item) => {
@@ -437,14 +444,15 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                   <button
                     type="button"
                     onClick={() => setPaymentOption('finance4')}
-                    className={`p-2 rounded-lg border text-left flex flex-col justify-between transition-all relative ${
+                    disabled={!payIn4Ok}
+                    className={`p-2 rounded-lg border text-left flex flex-col justify-between transition-all relative disabled:opacity-50 disabled:cursor-not-allowed ${
                       paymentOption === 'finance4'
                         ? 'bg-[#F7EFEA] border-[#C86D51] text-[#A85640] ring-1 ring-[#C86D51]'
                         : 'bg-white border-[#E7E5E4] text-[#6B645E] hover:border-[#C86D51]/40'
                     }`}
                   >
                     <div className="font-bold text-[11px] text-[#A85640] leading-tight">Finance in 4</div>
-                    <div className="text-[9px] text-[#6B645E] mt-0.5">0% Interest</div>
+                    <div className="text-[9px] text-[#6B645E] mt-0.5">{payIn4Ok ? '0% Interest' : `Over ${fmtAud(PAY_IN_4.min)}`}</div>
                   </button>
 
                   {/* Option 3: Crypto 10% Off */}

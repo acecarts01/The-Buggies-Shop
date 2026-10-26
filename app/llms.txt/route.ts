@@ -83,6 +83,7 @@ export function GET() {
     `- [Delivery Australia-wide](${base}/delivery/): enclosed freight quoted per postcode from Yatala QLD; no free-freight threshold`,
     ...DELIVERY_METROS.map((m) => `- [Delivery to ${m.city}](${base}/delivery/${m.slug}/): ${m.freightMode === 'same-corridor' ? 'same-corridor delivery' : 'enclosed interstate freight'}, about ${m.roadKm.toLocaleString('en-AU')} km from the depot`),
     `- [Crypto payment](${base}/crypto-payment/): ${SHOP.cryptoDiscount}% off the vehicle price when paid in crypto on the site (address and QR at checkout); every order is confirmed by sending the payment receipt on WhatsApp`,
+    `- [Pay in 4](${base}/pay-in-4/): orders over $${SHOP.financeIn4.minAmount.toLocaleString("en-AU")} AUD split into ${SHOP.financeIn4.installments} equal ${SHOP.financeIn4.interestRate} interest payments, fortnightly or monthly; calculator on the page`,
     `- [Wholesale & fleet](${base}/wholesale/): golf clubs, resorts, farms and estates`,
     `- [Contact & demonstrations](${base}/contact/): complimentary on-farm trial for vehicles of $15,000 AUD or more`,
     `- [About the depot](${base}/about/): Yatala QLD workshop, warranty, servicing and custom builds`,

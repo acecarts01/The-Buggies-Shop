@@ -389,7 +389,7 @@ export const POSTS: BlogPost[] = [
     faqs: [
       {
         q: "How does Finance in 4 work on a golf buggy?",
-        a: "It splits the purchase into four equal interest-free instalments at 0% interest, available across our range on vehicles, parts and accessories. It changes cash flow rather than total cost, which is what makes a better-specified buggy reachable without paying interest.",
+        a: "It splits the purchase into four equal interest-free instalments at 0% interest, available on orders over $3,000 AUD. It changes cash flow rather than total cost, which is what makes a better-specified buggy reachable without paying interest.",
       },
       {
         q: "How much do I save paying in cryptocurrency?",
@@ -409,7 +409,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Do you offer finance on reconditioned buggies?",
-        a: "Finance in 4 applies across our range including reconditioned stock, and the 10% cryptocurrency discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
+        a: "Finance in 4 applies to orders over $3,000 AUD, including reconditioned stock, and the 10% cryptocurrency discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
       },
     ],
     content: [
@@ -2641,7 +2641,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: "Payment Terms Change the Maths",
-        body: "Finance in 4 splits any purchase into four interest-free instalments, which materially changes how a new buggy sits against a cheaper used one paid in a lump. Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure and can close much of the gap on its own. Freight is quoted separately against your delivery postcode either way, so compare like with like: vehicle plus freight plus expected spend, not sticker against sticker.",
+        body: "Finance in 4 splits any order over $3,000 AUD into four interest-free instalments, which materially changes how a new buggy sits against a cheaper used one paid in a lump. Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure and can close much of the gap on its own. Freight is quoted separately against your delivery postcode either way, so compare like with like: vehicle plus freight plus expected spend, not sticker against sticker.",
       },
       {
         heading: "How to Decide in One Conversation",
@@ -2659,7 +2659,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Do you offer finance on reconditioned golf buggies?",
-        a: "Finance in 4 splits a purchase into four interest-free instalments and is available across our range. The 10% Bitcoin and Tether discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
+        a: "Finance in 4 splits a purchase into four interest-free instalments and is available on orders over $3,000 AUD. The 10% Bitcoin and Tether discount applies to the vehicle price. Tell us which buggy you are considering and we will set out the payment options against that specific figure.",
       },
       {
         q: "How long should a golf buggy last?",
@@ -3410,7 +3410,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: "What They Cost and How People Pay",
-        body: "Ride-on electric buggies run from roughly $8,000 for a straightforward two-seater to over $27,000 for a lifted luxury four-seater, with walk-behind trolleys well below that. Every price we publish includes GST, and freight is quoted separately against your delivery postcode rather than averaged into the figure. Finance in 4 splits any purchase into four interest-free instalments, and settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial number.",
+        body: "Ride-on electric buggies run from roughly $8,000 for a straightforward two-seater to over $27,000 for a lifted luxury four-seater, with walk-behind trolleys well below that. Every price we publish includes GST, and freight is quoted separately against your delivery postcode rather than averaged into the figure. Finance in 4 splits any order over $3,000 AUD into four interest-free instalments, and settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial number.",
       },
     ],
     faqs: [
@@ -3948,7 +3948,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: "Ways to Reduce What You Actually Pay",
-        body: "Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure. Finance in 4 splits the purchase into four interest-free instalments, which changes cash flow rather than total cost but makes a better-specified buggy reachable. Buying accessories alongside a buggy rather than afterwards earns the 5% bundle discount. And reconditioned stock, where a suitable unit is on the floor, can deliver most of the vehicle for meaningfully less, provided you know the battery date.",
+        body: "Settling in Bitcoin or Tether takes 10% off the vehicle price, which on a mid-range buggy is a substantial figure. Finance in 4 splits an order over $3,000 AUD into four interest-free instalments, which changes cash flow rather than total cost but makes a better-specified buggy reachable. Buying accessories alongside a buggy rather than afterwards earns the 5% bundle discount. And reconditioned stock, where a suitable unit is on the floor, can deliver most of the vehicle for meaningfully less, provided you know the battery date.",
       },
       {
         heading: "Getting a Number That Means Something",
@@ -3970,7 +3970,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Can I pay for a golf buggy in instalments?",
-        a: "Yes. Finance in 4 splits any purchase into four equal interest-free instalments. That changes cash flow rather than total cost, but it does make a better-specified buggy reachable. We also accept PayID, Osko, direct bank transfer and cryptocurrency.",
+        a: "Yes. Finance in 4 splits any order over $3,000 AUD into four equal interest-free instalments. That changes cash flow rather than total cost, but it does make a better-specified buggy reachable. We also accept PayID, Osko, direct bank transfer and cryptocurrency.",
       },
       {
         q: "Is there a discount for paying in cryptocurrency?",
@@ -4355,7 +4355,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Does The Buggies Express run EOFY sales with discounted pricing?', a: "No. We don't run temporary EOFY sales with inflated 'was' pricing. Every buggy is priced at one number year-round, and the only discounts that apply are the ones published everywhere: 10% off for Bitcoin or Tether payment and 5% off accessories bought with a buggy." },
       { q: 'Can I claim a golf buggy purchase as a business expense before 30 June?', a: "Possibly, if it's genuinely used for your business and delivered and in use before the deadline — but eligibility for any write-off provision depends on your business structure and current ATO rules. That's a question for your accountant, not something we can advise on." },
       { q: 'How early should I order for EOFY delivery?', a: 'Order in the first half of June rather than the last week. Freight is quoted against your delivery postcode at checkout, and interstate enclosed transport takes longer than a same-corridor Queensland delivery, so a late order can miss the deadline even if the buggy itself is in stock.' },
-      { q: 'Is Finance in 4 available on EOFY purchases?', a: 'Yes. Finance in 4 splits any purchase into four equal interest-free instalments, fortnightly or monthly, at 0% interest, and it runs year-round rather than being tied to a sale period.' },
+      { q: 'Is Finance in 4 available on EOFY purchases?', a: 'Yes. Finance in 4 splits any order over $3,000 AUD into four equal interest-free instalments, fortnightly or monthly, at 0% interest, and it runs year-round rather than being tied to a sale period.' },
       { q: 'Do I get a trial before committing to a large EOFY purchase?', a: 'For any vehicle priced at $15,000 AUD or more, yes — we offer a complimentary on-farm trial demonstration regardless of when in the year you buy.' },
     ],
     relatedProductSlug: 'atlas-4-passenger-lifted-lithium-buggy',

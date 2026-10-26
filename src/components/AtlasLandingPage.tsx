@@ -26,6 +26,7 @@ import {
   AnimatedBadge 
 } from '@/src/components/AnimatedText';
 import { ABN_INFO, CONTACT, PRODUCTS, VEHICLE_COLORS } from '@/src/config/site';
+import { PAY_IN_4, fmtAud } from '@/lib/pay-in-4';
 import { paymentLabel } from '@/lib/orders-shared';
 import SmartImage from '@/src/components/SmartImage';
 
@@ -568,7 +569,7 @@ Timeframe: ${quoteForm.timeframe}`
                   className="w-full bg-[#F7F6F2] border border-[#E7E5E4] rounded-lg p-3 text-[#121417] focus:outline-none focus:border-[#C86D51] focus:bg-white surface-card"
                 >
                   <option value="standard">Standard (PayID / Bank Transfer)</option>
-                  <option value="finance4">Finance in 4 (0% Interest)</option>
+                  <option value="finance4">{`Finance in 4 (0% Interest, orders over ${fmtAud(PAY_IN_4.min)})`}</option>
                   <option value="crypto">Crypto (10% Off)</option>
                 </select>
               </div>

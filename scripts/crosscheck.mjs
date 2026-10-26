@@ -40,7 +40,7 @@ const decode = (s) => s.replace(/&amp;/g, '&').replace(/&#x27;/g, "'").replace(/
 const files = walk(APP);
 const titles = new Map();
 let indexable = 0;
-const NOINDEX_ROUTES = [/^\/admin/, /^\/pay/, /^\/thank-you/, /^\/search$/, /_not-found/];
+const NOINDEX_ROUTES = [/^\/admin/, /^\/pay(\/|$)/, /^\/thank-you/, /^\/search$/, /_not-found/];
 for (const f of files) {
   const s = fs.readFileSync(f, 'utf8');
   const route = f.split(path.sep).join('/').replace(/^.*server\/app/, '').replace(/\.html$/, '') || '/';

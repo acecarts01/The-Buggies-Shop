@@ -15,6 +15,7 @@ import { renderAdminNewOrder } from '@/lib/email/admin-new-order';
 import { sendMail, salesDeskAddress } from '@/lib/email/send';
 import { upsertOrder } from '@/lib/db';
 import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
+import { isPayIn4Eligible } from '@/lib/pay-in-4';
 
 // POST /api/orders/ - the cart's order submission.
 //
@@ -40,7 +41,7 @@ export async function POST(request: Request) {
   const email = String(body.email ?? '').trim().toLowerCase().slice(0, 160);
   const phone = String(body.phone ?? '').trim().slice(0, 40) || undefined;
   const postcode = String(body.postcode ?? '').trim().slice(0, 4) || undefined;
-  const payment = PAYMENTS.includes(body.payment as PaymentChannel) ? (body.payment as PaymentChannel) : 'standard';
+  let payment = PAYMENTS.includes(body.payment as PaymentChannel) ? (body.payment as PaymentChannel) : 'standard';
   const channel = CHANNELS.includes(body.channel as OrderChannel) ? (body.channel as OrderChannel) : 'invoice';
   const rawItems = Array.isArray(body.items) ? (body.items as { id: string; quantity: number }[]) : [];
 
@@ -58,6 +59,9 @@ export async function POST(request: Request) {
 
   const lines = priceLines(rawItems.slice(0, 30));
   if (!lines.length) return NextResponse.json({ success: false, message: 'Your cart is empty.' }, { status: 400 });
+
+  // Pay in 4 only applies to orders over the minimum; the cart enforces it too, this stops a hand-built request.
+  if (payment === 'finance4' && !isPayIn4Eligible(computeTotals(lines, 'standard').total)) payment = 'standard';
 
   const order: Order = {
     ref: newOrderRef(),

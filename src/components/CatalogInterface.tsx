@@ -16,6 +16,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, ProductItem, isElectricBuggy } from '@/src/config/site';
+import { PAY_IN_4, fmtAud } from '@/lib/pay-in-4';
 import { paymentLabel } from '@/lib/orders-shared';
 import { AnimatedCounter, FadeUpText } from '@/src/components/AnimatedText';
 
@@ -700,7 +701,7 @@ Notes: ${quoteForm.notes || 'None'}`
                         className="w-full bg-white border border-[#E7E5E4] rounded p-2 text-[#121417] focus:outline-none focus:border-[#C86D51]"
                       >
                         <option value="standard">Standard (PayID / Bank Transfer)</option>
-                        <option value="finance4">Finance in 4 (0% Interest)</option>
+                        <option value="finance4">{`Finance in 4 (0% Interest, orders over ${fmtAud(PAY_IN_4.min)})`}</option>
                         <option value="crypto">Crypto (10% Off)</option>
                       </select>
                     </div>

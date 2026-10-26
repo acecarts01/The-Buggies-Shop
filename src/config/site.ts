@@ -53,9 +53,9 @@ export const SITE = {
 // cover actually changes; blog posts use their own `date`.
 export const CONTENT_UPDATED = {
   /** PRODUCTS, CATEGORIES or BRAND_PAGES changed (prices, specs, copy, new models). */
-  catalog: '2026-10-09',
+  catalog: '2026-10-26',
   /** Static pages: home, about, faq, delivery, contact, crypto-payment, wholesale. */
-  pages: '2026-10-09',
+  pages: '2026-10-26',
 };
 
 export function isAccessoryItem(category?: string, id?: string, name?: string): boolean {
@@ -117,15 +117,17 @@ export const SHOP = {
   accessoryBundleDiscount: 5, // 5% discount on all accessories when purchased alongside any buggy
   financeIn4: {
     enabled: true,
+    // Owner decision 2026-10-26: Pay in 4 is for orders OVER this amount (AUD incl. GST).
+    minAmount: 3000,
     installments: 4,
     interestRate: '0%',
     frequency: 'Fortnightly or Monthly',
-    description: 'Split your purchase into 4 equal interest-free installments with 0% interest and instant approval.',
+    description: 'Split orders over $3,000 into 4 equal interest-free installments with 0% interest.',
   },
   paymentMethods: [
     'PayID / Osko',
     'Direct Bank Transfer (EFT)',
-    'Finance in 4 (4 Equal Interest-Free Payments)',
+    'Finance in 4 (4 Equal Interest-Free Payments, orders over $3,000)',
     'Crypto (10% Off)',
   ],
 };
@@ -2472,7 +2474,7 @@ export const FAQ = [
   },
   {
     question: 'How does Finance in 4 work for buggies and accessories?',
-    answer: 'Finance in 4 allows Australian buyers to split their order into 4 equal interest-free installments with 0% interest and instant pre-qualification. It is available on all models, parts, and accessories with flexible fortnightly or monthly schedules.',
+    answer: 'Finance in 4 splits any order over $3,000 AUD into 4 equal interest-free payments with 0% interest, paid fortnightly or monthly. Use the Pay in 4 calculator on any eligible product page or at /pay-in-4/ to see your exact payments and dates.',
   },
 ];
 

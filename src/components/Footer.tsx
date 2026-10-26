@@ -175,6 +175,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/pay-in-4/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Pay in 4
+              </Link>
+            </li>
+            <li>
               <a
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"

@@ -25,6 +25,8 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
+import PayIn4Calculator from '@/src/components/PayIn4Calculator';
+import { PAY_IN_4, fmtAud, isPayIn4Eligible } from '@/lib/pay-in-4';
 import ProductReviews from '@/src/components/ProductReviews';
 import FaqSection from '@/src/components/FaqSection';
 import { ProductTags, ShippingPaymentBlock, ProductGuides, BuyerLinks, type BuyerLinkItem } from '@/src/components/ProductExtras';
@@ -446,25 +448,15 @@ Notes: ${quoteForm.notes || 'None'}`
                   </span>
                 </div>
 
-                {/* Finance in 4 Breakdown Badge */}
-                <div className="p-3 bg-[#16181B] border border-[#E2A17A]/40 rounded-xl text-xs flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-[#E2A17A] text-[#121417] flex items-center justify-center font-extrabold text-xs shrink-0 shadow-sm">
-                      4x
-                    </div>
-                    <div>
-                      <div className="font-bold text-[#ffffff]">
-                        or 4 interest-free payments of ${(Math.round((product.price_aud / 4) * 100) / 100).toLocaleString()} AUD
-                      </div>
-                      <div className="text-[11px] text-[#AEB4B8] font-medium">
-                        Finance in 4 • 0% Interest • Fast approval on invoice
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-[#E2A17A] text-[#121417] shrink-0">
-                    Pay in 4
-                  </span>
-                </div>
+                {/* Pay in 4: orders over the SHOP.financeIn4 minimum get the calculator; cheaper items get a one-line pointer. */}
+                {isPayIn4Eligible(product.price_aud) ? (
+                  <PayIn4Calculator tone="dark" defaultAmount={product.price_aud} productName={product.name} id="pay-in-4-calculator" />
+                ) : (
+                  <p className="text-[11px] text-[#AEB4B8]">
+                    Pay in 4 is available on orders over {fmtAud(PAY_IN_4.min)} AUD.{' '}
+                    <Link href="/pay-in-4/" className="underline hover:text-[#E2A17A]">How it works</Link>
+                  </p>
+                )}
 
                 {/* 5% Accessory Bundle Banner */}
                 {isAccessoryItem(product.category, product.id, product.name) ? (
@@ -891,8 +883,8 @@ Notes: ${quoteForm.notes || 'None'}`
                         className="w-full bg-[#121417] border border-[#2B2F34] rounded p-2 text-[#ffffff] focus:outline-none focus:border-[#E2A17A]"
                       >
                         <option value="standard">Standard (PayID / Bank Transfer)</option>
-                        <option value="finance4">Finance in 4 (0% Interest)</option>
-                        <option value="crypto">Crypto (BTC / USDT - 10% Off)</option>
+                        {isPayIn4Eligible(product.price_aud) && <option value="finance4">Finance in 4 (0% Interest)</option>}
+                        <option value="crypto">Crypto (10% Off)</option>
                       </select>
                     </div>
 

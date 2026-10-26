@@ -19,6 +19,7 @@
 //
 // A product can still carry hand-written `faqs` in PRODUCT_DETAILS to override.
 import { PRODUCTS, SHOP, isBuggyItem, isAccessoryItem, type ProductItem } from './site';
+import { PAY_IN_4, isPayIn4Eligible } from '@/lib/pay-in-4';
 
 export interface Faq {
   q: string;
@@ -84,8 +85,14 @@ function payFaq(p: ProductItem): Faq {
   const extra = accessory
     ? `Bought with any buggy it earns the ${SHOP.accessoryBundleDiscount}% accessory discount; the crypto discount applies to vehicles only.`
     : `Paying in crypto takes ${SHOP.cryptoDiscount}% off the vehicle price, bringing it to ${aud(crypto)}.`;
+  if (!isPayIn4Eligible(p.price_aud)) {
+    return {
+      q: `Can I pay for the ${p.name} with PayID, bank transfer or crypto?`,
+      a: `Yes. PayID / Osko, bank transfer and crypto are all accepted. Finance in 4 is available on orders over ${aud(PAY_IN_4.min)}. ${extra} After paying, send us the receipt on WhatsApp so we can confirm your order.`,
+    };
+  }
   return {
-    q: `Can I pay for the ${p.name} with Finance in 4, PayID or Bitcoin?`,
+    q: `Can I pay for the ${p.name} with Finance in 4, PayID or crypto?`,
     a: `Yes. Finance in 4 splits it into four interest-free payments of ${aud(quarter)}. PayID / Osko, bank transfer and crypto are also accepted. ${extra} After paying, send us the receipt on WhatsApp so we can confirm your order.`,
   };
 }
