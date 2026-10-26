@@ -119,6 +119,9 @@ export function adminOrderUrl(token: string): string {
 export function settleUrl(token: string): string {
   return `${siteUrl()}/admin/orders/settle/?o=${encodeURIComponent(token)}`;
 }
+export function builderUrl(token: string): string {
+  return `${siteUrl()}/admin/invoice/?o=${encodeURIComponent(token)}`;
+}
 export function payPageUrl(token: string): string {
   return `${siteUrl()}/pay/?i=${encodeURIComponent(token)}`;
 }

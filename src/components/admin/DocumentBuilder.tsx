@@ -13,10 +13,16 @@ type Method = InvoiceDetails['method'];
 type Kind = 'quote' | 'invoice';
 
 export interface BuilderPrefill {
+  kind: Kind;
   client: { name: string; email: string; phone: string; postcode: string };
-  productSlug?: string;
-  source: string;
+  lines: { slug?: string; name: string; description: string; qty: number; price: number }[];
+  message: string;
   paymentPreference?: PaymentChannel;
+  financeFrequency?: 'fortnightly' | 'monthly';
+  /** What this document answers: its reference stays the same and it is closed off when sent. */
+  source: { type: 'order' | 'quote' | 'enquiry'; ref: string; label: string; token?: string; id?: number };
+  /** The client's own request, shown read-only so the desk can check the document against it. */
+  request?: { message?: string; delivery?: string; model?: string; asked: Kind };
 }
 
 interface Props {
@@ -59,17 +65,19 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
   const [kind, setKind] = useState<Kind>(initialKind);
   const [client, setClient] = useState({ name: prefill?.client.name ?? '', company: '', email: prefill?.client.email ?? '', phone: prefill?.client.phone ?? '', address: '', postcode: prefill?.client.postcode ?? '' });
   const [lines, setLines] = useState<Line[]>(() => {
-    const p = prefill?.productSlug ? PRODUCTS.find((x) => x.slug === prefill.productSlug) : undefined;
-    return [p ? { key: nextKey.current++, slug: p.slug, name: p.name, description: '', qty: '1', price: String(p.price_aud) } : { key: nextKey.current++, slug: '', name: '', description: '', qty: '1', price: '' }];
+    if (prefill && prefill.lines.length > 0) {
+      return prefill.lines.map((l) => ({ key: nextKey.current++, slug: l.slug ?? '', name: l.name, description: l.description, qty: String(l.qty), price: String(l.price) }));
+    }
+    return [{ key: nextKey.current++, slug: '', name: '', description: '', qty: '1', price: '' }];
   });
   const [includePayment, setIncludePayment] = useState(initialKind === 'invoice');
   const [method, setMethod] = useState<Method>(prefill?.paymentPreference === 'crypto' ? 'crypto' : prefill?.paymentPreference === 'finance4' ? 'finance4' : 'bank');
   const [bank, setBank] = useState(bankDefaults);
   const [walletKey, setWalletKey] = useState(CRYPTO.wallets[0].key);
   const [finance, setFinance] = useState({ instructions: '', link: '' });
-  const [financeFreq, setFinanceFreq] = useState<'fortnightly' | 'monthly'>('fortnightly');
+  const [financeFreq, setFinanceFreq] = useState<'fortnightly' | 'monthly'>(prefill?.financeFrequency ?? 'fortnightly');
   const [afterPayment, setAfterPayment] = useState(DEFAULT_AFTER_PAYMENT);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(prefill?.message ?? '');
   const [validDays, setValidDays] = useState('14');
   const [subject, setSubject] = useState('');
   const [qr, setQr] = useState('');
@@ -113,6 +121,7 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
     message,
     validDays: num(validDays),
     subject: subject || undefined,
+    source: prefill ? (prefill.source.type === 'enquiry' ? { type: 'enquiry', id: prefill.source.id } : { type: prefill.source.type, token: prefill.source.token }) : undefined,
   });
 
   useEffect(() => {
@@ -220,8 +229,17 @@ export default function DocumentBuilder({ bankDefaults, prefill, initialKind }: 
       {/* ------------------------------------------------ Left: the form */}
       <div className="xl:col-span-2 space-y-5">
         {prefill && (
-          <section className="bg-[#1E2A12] border border-[#B8973F]/40 rounded-2xl p-4 text-xs text-[#E8D48F]">
-            Pre-filled from <strong>{prefill.source}</strong>. Check the client details and the items before you send.
+          <section className="bg-[#1E2A12] border border-[#B8973F]/40 rounded-2xl p-4 space-y-2 text-xs text-[#E8D48F]">
+            <p>
+              Filled in from <strong>{prefill.source.label}</strong>. The client details, products and prices are already here{prefill.paymentPreference ? `, and the payment method is set to what they chose (${paymentLabel(prefill.paymentPreference)})` : ''}. Add the payment details, check the preview and send.
+            </p>
+            {prefill.request && (prefill.request.model || prefill.request.delivery || prefill.request.message) && (
+              <dl className="border-t border-[#B8973F]/30 pt-2 space-y-1">
+                {prefill.request.model && <div className="flex justify-between gap-3"><dt className="text-[#E8D48F]/70">They asked about</dt><dd className="text-right">{prefill.request.model}</dd></div>}
+                {prefill.request.delivery && <div className="flex justify-between gap-3"><dt className="text-[#E8D48F]/70">Delivery</dt><dd className="text-right">{prefill.request.delivery}</dd></div>}
+                {prefill.request.message && <div><dt className="text-[#E8D48F]/70">Their notes</dt><dd className="whitespace-pre-line">{prefill.request.message}</dd></div>}
+              </dl>
+            )}
           </section>
         )}
 

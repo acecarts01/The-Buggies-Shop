@@ -48,7 +48,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const round2 = (n: number) => Math.round(n * 100) / 100;
 const s = (v: unknown, max: number) => String(v ?? '').trim().slice(0, max);
 
-export function buildDocument(raw: DocInput, opts: { strict: boolean }): { doc?: BuiltDocument; error?: string; incomplete?: string } {
+export function buildDocument(raw: DocInput, opts: { strict: boolean; ref?: string; createdAt?: string }): { doc?: BuiltDocument; error?: string; incomplete?: string } {
   const kind: DocKind = raw.kind === 'invoice' ? 'invoice' : 'quote';
   const problems: string[] = [];
   const bad = (m: string) => problems.push(m);
@@ -102,8 +102,9 @@ export function buildDocument(raw: DocInput, opts: { strict: boolean }): { doc?:
   if (opts.strict && problems.length) return { error: problems[0] };
 
   // --- assemble
-  const now = new Date();
-  const ref = opts.strict ? (kind === 'invoice' ? newOrderRef(now) : newQuoteRef(now)) : kind === 'invoice' ? 'BE-PREVIEW' : 'QT-PREVIEW';
+  const now = opts.createdAt && !Number.isNaN(Date.parse(opts.createdAt)) ? new Date(opts.createdAt) : new Date();
+  const issued = new Date();
+  const ref = opts.ref ? opts.ref : opts.strict ? (kind === 'invoice' ? newOrderRef(now) : newQuoteRef(now)) : kind === 'invoice' ? 'BE-PREVIEW' : 'QT-PREVIEW';
   const channel: PaymentChannel = payment?.method === 'crypto' ? 'crypto' : payment?.method === 'finance4' ? 'finance4' : 'standard';
   const financeFrequency = raw.financeFrequency === 'monthly' ? ('monthly' as const) : ('fortnightly' as const);
   const gst = round2(total / 11);
@@ -135,7 +136,7 @@ export function buildDocument(raw: DocInput, opts: { strict: boolean }): { doc?:
   let validUntil: string | undefined;
   if (kind === 'quote') {
     const days = Math.min(90, Math.max(1, Math.floor(Number(raw.validDays)) || 14));
-    validUntil = new Date(now.getTime() + days * 86_400_000).toISOString();
+    validUntil = new Date(issued.getTime() + days * 86_400_000).toISOString();
   }
 
   const subject = s(raw.subject, 200) || (kind === 'invoice' ? `Tax invoice ${ref} — ${aud(total)} — The Buggies Express` : `Your quote ${ref} — ${aud(total)} — The Buggies Express`);

@@ -80,6 +80,10 @@ export async function upsertOrder(order: Order, note?: string): Promise<void> {
           ${order.invoice ? JSON.stringify(order.invoice) : null}::jsonb, now())
         ON CONFLICT (ref) DO UPDATE SET
           status = EXCLUDED.status,
+          payment = EXCLUDED.payment,
+          customer = EXCLUDED.customer,
+          lines = EXCLUDED.lines,
+          totals = EXCLUDED.totals,
           invoice = EXCLUDED.invoice,
           updated_at = now()
       `;

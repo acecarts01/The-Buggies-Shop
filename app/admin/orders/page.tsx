@@ -44,6 +44,7 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
   const state = c.state ?? stateFromPostcode(c.postcode);
   const plan = orderPlan(order);
   const settle = `/admin/orders/settle/?o=${encodeURIComponent(o!)}`;
+  const build = `/admin/invoice/?o=${encodeURIComponent(o!)}`;
   const steps: OrderStatus[] = ['new', 'invoice_sent', 'paid', 'dispatched'];
   const current = steps.indexOf(order.status);
   const events = await getOrderEvents(order.ref).catch(() => []);
@@ -136,13 +137,14 @@ export default async function AdminOrderPage({ searchParams }: { searchParams: P
       <div className="mt-6 bg-gradient-to-r from-[#12294A] to-[#0B1F3A] border border-[#B8973F]/50 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <div className="font-serif font-bold text-lg">{order.status === 'invoice_sent' ? 'Invoice already sent' : 'Ready to invoice'}</div>
-          <p className="text-sm text-[#A9B4C6]">The settlement terminal opens with every field from this order already filled.</p>
+          <p className="text-sm text-[#A9B4C6]">The invoice builder opens with the client and every item from this order already filled; you add the payment details.</p>
+          <Link href={settle} className="text-[11px] font-bold text-[#D9C27A] underline">Use the classic settlement terminal instead</Link>
         </div>
         <Link
-          href={settle}
+          href={build}
           className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#B8973F] hover:bg-[#D9C27A] text-[#071527] font-bold text-sm transition-all hover:-translate-y-px shadow-lg shadow-black/30"
         >
-          View Order in Admin
+          {order.status === 'invoice_sent' ? 'Rebuild the invoice' : 'Build the invoice'}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
         </Link>
       </div>

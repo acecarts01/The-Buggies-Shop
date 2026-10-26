@@ -1,7 +1,7 @@
 // admin-new-order: the sales desk's copy. One link, straight into the pre-filled settlement terminal.
 import { E, FONT, SERIF, emailShell, table, td, row, statusBadge, esc, button } from './layout';
 import { financePlanBlock, financePlanText } from './finance-plan';
-import { type Order, aud, paymentLabel, siteUrl, stateFromPostcode, settleUrl, STATUS_LABEL } from '@/lib/orders';
+import { type Order, aud, paymentLabel, siteUrl, stateFromPostcode, settleUrl, builderUrl, STATUS_LABEL } from '@/lib/orders';
 import { ledgerRows, totalsRows } from './order-confirmation';
 
 const CHANNEL_LABEL = { invoice: 'Website - invoice request', whatsapp: 'Website - WhatsApp checkout', crypto: 'Website - on-site crypto invoice' } as const;
@@ -11,6 +11,7 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
   const state = c.state ?? stateFromPostcode(c.postcode);
   const site = siteUrl();
   const settle = settleUrl(token);
+  const build = builderUrl(token);
 
   const body = `
     ${row(
@@ -44,8 +45,10 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
     ${row(
       E.bone,
       'padding:6px 28px 24px 28px;',
-      `${button(settle, 'View Order in Admin', { full: true })}
-       <div style="padding-top:10px;text-align:center;font-family:${FONT};font-size:11px;color:${E.muted};">Opens with the payment details ready to fill in and send · requires the admin passphrase</div>`,
+      `${button(build, 'Build the invoice: just add payment details', { full: true })}
+       <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
+       ${button(settle, 'Open the classic settlement terminal', { full: true, bg: E.navy, color: E.white })}
+       <div style="padding-top:10px;text-align:center;font-family:${FONT};font-size:11px;color:${E.muted};">Opens with the client and every item already filled in; you add the payment details and send · requires the admin passphrase</div>`,
       'class="be-pad"'
     )}`;
 
@@ -66,7 +69,8 @@ export function renderAdminNewOrder(order: Order, token: string): { subject: str
     ...order.lines.map((l) => `- ${l.name} x${l.quantity} — ${aud(l.lineTotal)}`),
     `Total ${aud(order.totals.total)}`,
     ``,
-    `Settle: ${settle}`,
+    `Build the invoice: ${build}`,
+    `Classic settle: ${settle}`,
   ].join('\n');
 
   return { subject: `NEW ORDER ${order.ref} — ${c.name} — ${aud(order.totals.total)}`, html, text };
