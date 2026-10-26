@@ -34,7 +34,7 @@ export interface Order {
   status: OrderStatus;
   channel: OrderChannel;
   payment: PaymentChannel;
-  customer: { name: string; email: string; phone?: string; postcode?: string; state?: string };
+  customer: { name: string; email: string; phone?: string; postcode?: string; state?: string; company?: string; address?: string };
   lines: OrderLine[];
   totals: OrderTotals;
   /** Set by the settlement terminal when the invoice goes out. */
@@ -48,6 +48,8 @@ export interface InvoiceDetails {
   crypto?: { walletKey: string; asset: string; network: string; address: string };
   finance4?: { instructions: string; link?: string };
   notes?: string;
+  /** What the buyer does once they have paid (admin-built documents). */
+  afterPayment?: string;
 }
 
 export const STATUS_LABEL: Record<OrderStatus, string> = {
@@ -72,7 +74,7 @@ export function stateFromPostcode(postcode?: string): string | undefined {
   return AU_STATES[postcode[0]]?.split('/')[0];
 }
 
-export const aud = (n: number) => `$${n.toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} AUD`;
+export const aud = (n: number) => `${n < 0 ? '\u2212' : ''}$${Math.abs(n).toLocaleString('en-AU', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 })} AUD`;
 
 const PAYMENT_LABEL: Record<PaymentChannel, string> = {
   standard: 'PayID / Bank Transfer (EFT)',

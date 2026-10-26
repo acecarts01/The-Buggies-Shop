@@ -16,6 +16,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { PRODUCTS, CATEGORIES, ProductItem, isElectricBuggy } from '@/src/config/site';
+import RequestTypeToggle from '@/src/components/RequestTypeToggle';
 import { PAY_IN_4, fmtAud } from '@/lib/pay-in-4';
 import { paymentLabel } from '@/lib/orders-shared';
 import { AnimatedCounter, FadeUpText } from '@/src/components/AnimatedText';
@@ -194,7 +195,7 @@ const ProductCard = React.memo(function ProductCard({
             id={`quote-btn-${product.id}`}
           >
             <FileText className="w-3.5 h-3.5 text-[#A85640]" />
-            <span>Fast Quote</span>
+            <span>Quote / Invoice</span>
           </button>
         </div>
       </div>
@@ -232,6 +233,7 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart,
     email: '',
     phone: '',
     postcode: '',
+    requestType: 'quote' as 'quote' | 'invoice',
     deliveryType: 'Door-to-Door Enclosed Freight',
     paymentPreference: 'standard' as 'standard' | 'finance4' | 'crypto',
     notes: '',
@@ -326,6 +328,7 @@ export default function CatalogInterface({ initialCategory = 'all', onAddToCart,
           buggyModel: quoteProduct ? `${quoteProduct.name} (${quoteProduct.price_display} AUD)` : undefined,
           deliveryPreference: quoteForm.deliveryType,
           paymentPreference: quoteForm.paymentPreference,
+          requestType: quoteForm.requestType,
           notes: quoteForm.notes,
         }),
       });
@@ -631,6 +634,8 @@ Notes: ${quoteForm.notes || 'None'}`
                       </p>
                     </div>
 
+                    <RequestTypeToggle value={quoteForm.requestType} onChange={(v) => setQuoteForm({ ...quoteForm, requestType: v })} />
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label className="block font-semibold text-[#6B645E] mb-1">Full Name / Trading Entity</label>
@@ -723,7 +728,7 @@ Notes: ${quoteForm.notes || 'None'}`
                       className="w-full py-3 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs rounded transition-all shadow-sm mt-2 flex items-center justify-center gap-1.5 active:scale-95 hover:-translate-y-px duration-200 disabled:opacity-60 disabled:hover:translate-y-0"
                     >
                       <MessageSquare className="w-3.5 h-3.5" />
-                      <span>{quoteSubmitting ? 'Sending Quote to Sales Desk…' : 'Request Tax Quote via WhatsApp / Sales Desk'}</span>
+                      <span>{quoteSubmitting ? 'Sending Quote to Sales Desk…' : quoteForm.requestType === 'invoice' ? 'Request Tax Invoice via WhatsApp / Sales Desk' : 'Request Tax Quote via WhatsApp / Sales Desk'}</span>
                     </button>
 
                     <div className="text-[10px] text-[#6B645E] text-center">

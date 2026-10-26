@@ -60,6 +60,7 @@ await pool(urls, 8, async (u) => {
     robots: g(/<meta name="robots" content="([^"]*)"/),
     h1: (t.match(/<h1[\s>]/g) || []).length,
     h1text: decode(g(/<h1[^>]*>([\s\S]*?)<\/h1>/).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()),
+    hasQuoteCta: /Request Quote \/ Tax Invoice/.test(t),
     words: t.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
     ld: [...t.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]),
   };
@@ -108,6 +109,7 @@ for (const [u, p] of pages) {
       if (types.some((t) => ['Organization', 'LocalBusiness', 'Store'].includes(t)) && 'numberOfItems' in n) fail(`${id}: numberOfItems on ${types.join('/')} (not a valid property)`);
     }
   }
+  if (isProduct && !p.hasQuoteCta) fail(`${id}: no "Request Quote / Tax Invoice" button`);
   if (isProduct && !returnPolicy) fail(`${id}: Product offer has no hasMerchantReturnPolicy`);
   const inb = inbound.get(u)?.size ?? 0;
   if (id !== '/' && inb === 0) fail(`${id}: orphan (no internal links in)`);

@@ -25,6 +25,7 @@ import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import CartDrawer, { CartItem } from '@/src/components/CartDrawer';
 import ChatHub from '@/src/components/ChatHub';
+import RequestTypeToggle from '@/src/components/RequestTypeToggle';
 import PayIn4Calculator from '@/src/components/PayIn4Calculator';
 import { PAY_IN_4, fmtAud, isPayIn4Eligible } from '@/lib/pay-in-4';
 import ProductReviews from '@/src/components/ProductReviews';
@@ -79,6 +80,7 @@ export default function ProductClient({ product, details, descriptionSegs, brand
     email: '',
     phone: '',
     postcode: '',
+    requestType: 'quote' as 'quote' | 'invoice',
     deliveryPreference: 'Door-to-Door Enclosed Freight',
     paymentPreference: 'standard' as 'standard' | 'finance4' | 'crypto',
     notes: '',
@@ -174,6 +176,14 @@ export default function ProductClient({ product, details, descriptionSegs, brand
 
   const battery = getBatteryDetails();
 
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    if (q.has('quote') || q.has('invoice')) {
+      setQuoteForm((f) => ({ ...f, requestType: q.has('invoice') ? 'invoice' : 'quote' }));
+      setQuoteOpen(true);
+    }
+  }, []);
+
   const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setQuoteSubmitting(true);
@@ -194,6 +204,7 @@ export default function ProductClient({ product, details, descriptionSegs, brand
           buggyModel: `${product.name} (${product.price_display})`,
           deliveryPreference: quoteForm.deliveryPreference,
           paymentPreference: quoteForm.paymentPreference,
+          requestType: quoteForm.requestType,
           notes: quoteForm.notes,
         }),
       });
@@ -207,7 +218,7 @@ export default function ProductClient({ product, details, descriptionSegs, brand
     setQuoteSubmitted(true);
 
     const text = encodeURIComponent(
-      `Hello The Buggies Express team, I would like an official Australian Tax Quote & Freight Logistics estimate for:
+      `Hello The Buggies Express team, I would like an official Australian ${quoteForm.requestType === 'invoice' ? 'Tax Invoice' : 'Tax Quote'} & Freight Logistics estimate for:
 Model: ${product.name} (${product.price_display})
 Customer: ${quoteForm.name}
 Phone: ${quoteForm.phone}
@@ -501,7 +512,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     id="product-request-quote-cta"
                   >
                     <FileText className="w-4 h-4" />
-                    <span>Request Formal Tax Quote &amp; Freight Schedule</span>
+                    <span>Request Quote / Tax Invoice</span>
                   </button>
                 </div>
 
@@ -794,7 +805,7 @@ Notes: ${quoteForm.notes || 'None'}`
                     <span>Official Tax Invoice &amp; Freight Schedule</span>
                   </div>
                   <h3 className="text-xl font-serif font-bold text-[#ffffff] mt-1">
-                    Request Tax Quotation
+                    {quoteForm.requestType === 'invoice' ? 'Request Tax Invoice' : 'Request Tax Quotation'}
                   </h3>
                   <div className="text-xs text-[#A8A29E]">
                     Selected Model: <strong className="text-[#E2A17A]">{product.name}</strong> ({product.price_display})
@@ -813,6 +824,7 @@ Notes: ${quoteForm.notes || 'None'}`
                   </div>
                 ) : (
                   <form onSubmit={handleQuoteSubmit} className="space-y-3 text-xs">
+                    <RequestTypeToggle tone="dark" value={quoteForm.requestType} onChange={(v) => setQuoteForm({ ...quoteForm, requestType: v })} />
                     <div>
                       <label className="block font-semibold text-[#A8A29E] mb-1">Your Full Name</label>
                       <input

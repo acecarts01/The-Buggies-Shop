@@ -148,6 +148,14 @@ export default function PayInvoice({ order }: { order: Order | null }) {
             </div>
           )}
           {inv.notes && <p className="text-xs text-[#E7ECF3] border-t border-white/15 pt-3 leading-relaxed">{inv.notes}</p>}
+          {inv.afterPayment && (
+            <div className="border-t border-white/15 pt-3 space-y-2">
+              <h3 className="text-[11px] uppercase tracking-[0.18em] text-[#D9C27A] font-bold">After you have paid</h3>
+              <ol className="space-y-1.5 text-sm text-[#E7ECF3] leading-relaxed list-decimal pl-5">
+                {inv.afterPayment.split('\n').map((t) => t.trim().replace(/^\d+[.)]\s*/, '')).filter(Boolean).map((t) => <li key={t}>{t}</li>)}
+              </ol>
+            </div>
+          )}
           <div className="pt-2 space-y-2">
             <a href={wa} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-[#188741] hover:bg-[#1E9A4F] text-white font-bold text-sm transition-colors">
               <MessageSquare className="w-4 h-4" aria-hidden="true" /> Send payment receipt on WhatsApp

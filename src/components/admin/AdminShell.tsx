@@ -28,6 +28,7 @@ export default function AdminShell({ title, subtitle, children, wide = false }: 
           </Link>
           <nav className="flex items-center gap-4">
             <Link href="/admin/portal/" className="text-xs font-bold text-[#A9B4C6] hover:text-[#D9C27A] transition-colors hidden sm:inline">Portal</Link>
+            <Link href="/admin/invoice/" className="text-xs font-bold text-[#071527] bg-[#B8973F] hover:bg-[#D9C27A] rounded-lg px-3 py-1.5 transition-colors">New quote / invoice</Link>
             <AdminSignOut />
           </nav>
         </div>

@@ -26,6 +26,7 @@ import {
   AnimatedBadge 
 } from '@/src/components/AnimatedText';
 import { ABN_INFO, CONTACT, PRODUCTS, VEHICLE_COLORS } from '@/src/config/site';
+import RequestTypeToggle from '@/src/components/RequestTypeToggle';
 import { PAY_IN_4, fmtAud } from '@/lib/pay-in-4';
 import { paymentLabel } from '@/lib/orders-shared';
 import SmartImage from '@/src/components/SmartImage';
@@ -44,6 +45,7 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
     email: '',
     phone: '',
     postcode: '',
+    requestType: 'quote' as 'quote' | 'invoice',
     deliveryPreference: 'Door-to-Door Enclosed Transport',
     paymentPreference: 'standard' as 'standard' | 'finance4' | 'crypto',
     timeframe: 'Immediate Dispatch (Current Stock)',
@@ -67,6 +69,7 @@ export default function AtlasLandingPage({ onAddToCart }: AtlasLandingPageProps)
           buggyModel: 'Atlas 4-Passenger Lifted Lithium Buggy ($20,900 AUD)',
           deliveryPreference: quoteForm.deliveryPreference,
           paymentPreference: quoteForm.paymentPreference,
+          requestType: quoteForm.requestType,
           notes: `Timeframe: ${quoteForm.timeframe}`,
         }),
       });
@@ -148,7 +151,7 @@ Timeframe: ${quoteForm.timeframe}`
                 id="atlas-hero-quote-cta"
               >
                 <Zap className="w-4 h-4" />
-                <span>Request Tax Quote &amp; Freight Schedule</span>
+                <span>Request Quote / Tax Invoice</span>
               </a>
 
               <a
@@ -486,6 +489,7 @@ Timeframe: ${quoteForm.timeframe}`
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+              <RequestTypeToggle value={quoteForm.requestType} onChange={(v) => setQuoteForm({ ...quoteForm, requestType: v })} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-bold text-[#121417] mb-1">Full Name</label>

@@ -15,6 +15,8 @@ import { renderInvoice } from '@/lib/email/official-client-invoice';
 import { type QuoteRequest, signQuote } from '@/lib/quotes';
 import { renderQuoteRequest } from '@/lib/email/quote-request';
 import { renderQuoteReply } from '@/lib/email/quote-reply';
+import { renderDocument } from '@/lib/email/document';
+import { buildDocument, type DocInput } from '@/lib/document';
 
 const lines = priceLines([
   { id: 'BUG-001', quantity: 1 },
@@ -75,10 +77,29 @@ const quote: QuoteRequest = {
 const quoteToken = signQuote(quote);
 
 const token = signOrder(base);
+
+const docBase: DocInput = {
+  client: { name: 'Test Buyer', company: 'Fixture Golf Club', email: 'acecarts01@gmail.com', phone: '0400 000 000', address: '1 Test Street, Yatala', postcode: '4207' },
+  lines: [
+    { slug: 'atlas-4-passenger-lifted-lithium-buggy', quantity: 1, unitPrice: 20900 },
+    { name: 'Freight to 4207', description: 'Enclosed freight', quantity: 1, unitPrice: 650 },
+    { name: 'Discount', quantity: 1, unitPrice: -500 },
+  ],
+  payment: { method: 'bank', bank: { accountName: 'Golf Buggies Express Pty Ltd', bsb: '000-000', accountNumber: '00000000', payId: 'ABN 28 668 598 758' } },
+  message: 'Fixture note for template checks only.\n\nSecond paragraph.',
+};
+const docMail = (kind: 'quote' | 'invoice') => {
+  const built = buildDocument({ ...docBase, kind }, { strict: false });
+  if (!built.doc) throw new Error('fixture document failed to build: ' + built.error);
+  const o = built.doc.order;
+  return renderDocument({ ...built.doc, payToken: kind === 'invoice' ? signOrder(o) : undefined });
+};
 const renders: { name: string; html: string; subject: string }[] = [
   { name: 'order-confirmation', ...renderOrderConfirmation(base) },
   { name: 'order-confirmation-crypto', ...renderOrderConfirmation(cryptoOrder) },
   { name: 'order-confirmation-finance4', ...renderOrderConfirmation(financeOrder) },
+  { name: 'document-quote', ...docMail('quote') },
+  { name: 'document-invoice', ...docMail('invoice') },
   { name: 'admin-new-order', ...renderAdminNewOrder(base, token) },
   { name: 'admin-new-order-finance4', ...renderAdminNewOrder(financeOrder, signOrder(financeOrder)) },
   { name: 'official-client-invoice-bank', ...renderInvoice(bankInvoiced, payPageUrl(signOrder(bankInvoiced))) },

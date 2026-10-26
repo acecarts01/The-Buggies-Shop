@@ -2,7 +2,7 @@
 // quote. One link, straight into the pre-filled reply terminal - mirrors
 // admin-new-order.ts's "View Order in Admin" pattern.
 import { E, FONT, SERIF, emailShell, table, td, row, statusBadge, esc, button } from './layout';
-import { type QuoteRequest, adminQuoteReplyUrl } from '@/lib/quotes';
+import { type QuoteRequest, adminQuoteReplyUrl, adminDocumentUrl } from '@/lib/quotes';
 import { siteUrl, stateFromPostcode } from '@/lib/orders';
 import { paymentLabel } from '@/lib/orders-shared';
 
@@ -11,13 +11,16 @@ export function renderQuoteRequest(quote: QuoteRequest, token: string): { subjec
   const state = c.state ?? stateFromPostcode(c.postcode);
   const site = siteUrl();
   const reply = adminQuoteReplyUrl(token);
+  const build = adminDocumentUrl(token);
+  const isInvoice = quote.requestType === 'invoice';
+  const what = isInvoice ? 'Invoice' : 'Quote';
 
   const body = `
     ${row(
       E.navy,
       'padding:6px 28px 20px 28px;text-align:center;',
-      `${statusBadge('Quote requested')}
-       <h1 class="be-h1" style="margin:14px 0 4px 0;font-family:${SERIF};font-size:24px;line-height:30px;color:${E.white};">Quote request ${esc(quote.ref)}</h1>
+      `${statusBadge(`${what} requested`)}
+       <h1 class="be-h1" style="margin:14px 0 4px 0;font-family:${SERIF};font-size:24px;line-height:30px;color:${E.white};">${what} request ${esc(quote.ref)}</h1>
        <p style="margin:0;font-family:${FONT};font-size:13px;color:${E.mutedOnNavy};">${esc(quote.buggyModel || 'Model not specified')}</p>`,
       'class="be-pad"'
     )}
@@ -47,13 +50,15 @@ export function renderQuoteRequest(quote: QuoteRequest, token: string): { subjec
     ${row(
       E.bone,
       'padding:6px 28px 24px 28px;',
-      `${button(reply, 'Reply to Client', { full: true })}
+      `${button(build, `Build the ${what.toLowerCase()} and send`, { full: true })}
+       <div style="height:10px;line-height:10px;font-size:0;">&nbsp;</div>
+       ${button(reply, 'Reply to Client', { full: true, bg: E.navy, color: E.white })}
        <div style="padding-top:10px;text-align:center;font-family:${FONT};font-size:11px;color:${E.muted};">Opens with the client's details loaded, ready to type the answer and send · requires the admin passphrase</div>`,
       'class="be-pad"'
     )}`;
 
   const html = emailShell({
-    title: `Quote request ${quote.ref}`,
+    title: `${what} request ${quote.ref}`,
     preheader: `${c.name} · ${quote.buggyModel || 'Model not specified'} · postcode ${c.postcode || '-'}`,
     headerNote: 'Sales desk',
     body,
@@ -62,17 +67,18 @@ export function renderQuoteRequest(quote: QuoteRequest, token: string): { subjec
   });
 
   const text = [
-    `QUOTE REQUEST ${quote.ref}`,
+    `${what.toUpperCase()} REQUEST ${quote.ref}`,
     `${c.name} · ${c.email} · ${c.phone ?? '-'} · postcode ${c.postcode ?? '-'}`,
     quote.buggyModel ? `Model: ${quote.buggyModel}` : '',
     quote.deliveryPreference ? `Delivery preference: ${quote.deliveryPreference}` : '',
     quote.paymentPreference ? `Payment preference: ${paymentLabel(quote.paymentPreference)}` : '',
     quote.notes ? `Notes: ${quote.notes}` : '',
     ``,
+    `Build the ${what.toLowerCase()}: ${build}`,
     `Reply: ${reply}`,
   ]
     .filter(Boolean)
     .join('\n');
 
-  return { subject: `Quote request ${quote.ref} — ${c.name}`, html, text };
+  return { subject: `${what} request ${quote.ref} — ${c.name}`, html, text };
 }

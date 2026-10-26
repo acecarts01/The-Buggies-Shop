@@ -35,6 +35,7 @@ export async function POST(request: Request) {
   const deliveryPreference = String(body.deliveryPreference ?? '').trim().slice(0, 120) || undefined;
   const paymentPreference = PAYMENTS.includes(body.paymentPreference as PaymentChannel) ? (body.paymentPreference as PaymentChannel) : undefined;
   const notes = String(body.notes ?? '').trim().slice(0, 600) || undefined;
+  const requestType = body.requestType === 'invoice' ? ('invoice' as const) : ('quote' as const);
 
   if (!name) return NextResponse.json({ success: false, message: 'Please enter your full name.' }, { status: 400 });
   if (!EMAIL_RE.test(email)) return NextResponse.json({ success: false, message: 'A valid email address is required so we can send your official quote.' }, { status: 400 });
@@ -56,6 +57,7 @@ export async function POST(request: Request) {
     buggyModel,
     deliveryPreference,
     paymentPreference,
+    requestType,
     notes,
   };
 
@@ -67,7 +69,7 @@ export async function POST(request: Request) {
     email,
     phone,
     message: notes,
-    payload: { ref: quote.ref, buggyModel, postcode, state: quote.customer.state, deliveryPreference, paymentPreference, notes },
+    payload: { ref: quote.ref, buggyModel, postcode, state: quote.customer.state, deliveryPreference, paymentPreference, requestType, notes },
   });
 
   const token = signQuote(quote);

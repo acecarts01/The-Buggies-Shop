@@ -17,6 +17,8 @@ export interface QuoteRequest {
   deliveryPreference?: string;
   /** How the client intends to pay, if they said - same three options the cart offers. */
   paymentPreference?: PaymentChannel;
+  /** What the client asked the desk to prepare. Absent on older links = a quote. */
+  requestType?: 'quote' | 'invoice';
   notes?: string;
 }
 
@@ -68,4 +70,8 @@ export function verifyQuote(token: string | null | undefined): QuoteRequest | nu
 
 export function adminQuoteReplyUrl(token: string): string {
   return `${siteUrl()}/admin/quotes/reply/?q=${encodeURIComponent(token)}`;
+}
+
+export function adminDocumentUrl(token: string): string {
+  return `${siteUrl()}/admin/invoice/?q=${encodeURIComponent(token)}`;
 }

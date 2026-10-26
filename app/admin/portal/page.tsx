@@ -280,6 +280,11 @@ async function EnquiriesTab({ formType, q, unreplied }: { formType?: string; q: 
                 ) : (
                   <span className="text-[11px] text-[#A9B4C6]">No email on file: call or WhatsApp {e.phone ?? 'the client'}</span>
                 )}
+                {e.email && (
+                  <Link href={`/admin/invoice/?enquiry=${e.id}`} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[#B8973F]/60 text-[#D9C27A] hover:bg-[#12294A] text-xs font-bold transition-colors">
+                    Quote / invoice <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                  </Link>
+                )}
                 {e.repliedAt ? (
                   <span className="text-[11px] font-bold text-[#7FD09A]">Answered {new Date(e.repliedAt).toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' })}</span>
                 ) : (
