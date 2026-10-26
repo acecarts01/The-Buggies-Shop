@@ -41,9 +41,24 @@ function legacyRedirects() {
   return out;
 }
 
+// The earliest URL shape was /shop/<product-slug>/ with no category. Google
+// still holds some of them (Search Console reported two as 404), so every
+// product answers its category-less URL with a 301 to the canonical page.
+// Derived from PRODUCTS, so a new product is covered the moment it exists.
+function categorylessProductRedirects() {
+  const reserved = new Set(['brand', ...CATEGORIES.map((c) => c.slug)]);
+  const out: {source: string; destination: string; permanent: boolean}[] = [];
+  for (const p of PRODUCTS) {
+    const cat = CATEGORIES.find((c) => c.rawCategory === p.category);
+    if (!cat || reserved.has(p.slug)) continue;
+    out.push({source: `/shop/${p.slug}`, destination: `/shop/${cat.slug}/${p.slug}/`, permanent: true});
+  }
+  return out;
+}
+
 const nextConfig: NextConfig = {
   async redirects() {
-    return legacyRedirects();
+    return [...legacyRedirects(), ...categorylessProductRedirects()];
   },
   trailingSlash: true,
   reactStrictMode: true,

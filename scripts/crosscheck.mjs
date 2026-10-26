@@ -6,7 +6,7 @@
 //     entity email inside it, Product has image), og:image + twitter:image,
 //     canonical == og:url, title <= 62 (entity-decoded), description 110-160.
 //  2. Admin / pay / thank-you pages are noindex; robots.txt blocks them.
-//  3. Sitemap children exist in the build.
+//  3. Sitemap children exist in the build; /shop redirects land on built pages.
 //  4. Email templates pass scripts/email-lint.ts (bulletproof tables,
 //     color-scheme metas, inline CSS, size).
 //  5. No secrets in tracked files.
@@ -88,6 +88,23 @@ for (const id of [0, 1, 2, 3]) {
   const p = path.join(APP, 'sitemap', `${id}.xml.body`);
   const alt = path.join(APP, 'sitemap', `${id}.xml`);
   if (!fs.existsSync(p) && !fs.existsSync(alt)) fail(`sitemap/${id}.xml not in build output`);
+}
+
+// ---- 3b: redirects never land on a 404 (Search Console reported old URLs as
+// "Not found" when a URL shape was retired without a redirect).
+{
+  const built = new Set(files.map((f) => f.split(path.sep).join('/').replace(/^.*server\/app/, '').replace(/\.html$/, '')));
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, '.next', 'routes-manifest.json'), 'utf8'));
+  let n = 0;
+  for (const r of manifest.redirects || []) {
+    if (!r.source.startsWith('/shop/')) continue;
+    n++;
+    const dest = r.destination.replace(/\/$/, '');
+    if (!built.has(dest)) fail(`redirect ${r.source} -> ${r.destination}: destination is not a built page`);
+    if (!r.destination.endsWith('/')) fail(`redirect ${r.source}: destination lacks trailing slash (double redirect)`);
+  }
+  if (n < 100) fail(`only ${n} /shop redirects in routes-manifest; legacy URL redirects missing`);
+  notes.push(`${n} /shop redirects, all land on a built page`);
 }
 
 // ---- 4: email templates
