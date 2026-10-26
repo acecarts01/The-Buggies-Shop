@@ -35,6 +35,7 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Self-hosted fonts; no `@import url('https://fonts.googleapis.com/...')` inside CSS.
 - Emails entity-encoded (&#64;) in HTML. In JSON-LD `jsonLd()` writes `@` instead - `&#64;` is not decoded by JSON parsers.
 - Sitemap `lastmod` comes from `CONTENT_UPDATED` in site.ts: bump `.catalog` when products/categories change, `.pages` for static copy.
+- Before and after any SEO-affecting change run `node scripts/site-validate.mjs` (live) or `node scripts/site-validate.mjs http://localhost:3100` (after `next start`); it must print PASS. Never put keyword-stem prefixes ("keyword: ...") in meta descriptions, never put `numberOfItems` on Organization schema, and keep every new page linked from at least two others.
 - After a content deploy run `npm run indexnow` (Bing/Yandex). Full audit + GSC protocol: docs/seo-audit-2026-09-11.md.
 - Web3Forms CORS method: FormData with Accept header only, no Content-Type.
 - Framework Preset on Vercel must be "Next.js".
@@ -49,4 +50,6 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - No minimum order. No free-freight threshold. Freight is always quoted against the delivery
   postcode at checkout, and the cart total is shown excluding freight.
 - Crypto incentive: 10% discount on vehicle price for any crypto payment (owner decision, 2026-10-18).
+- Returns policy: the commercial terms live in `RETURNS` (site.ts); the /returns/ page, product `hasMerchantReturnPolicy`, FAQs and llms.txt all derive from it. Australian Consumer Law guarantees apply on top and are never contracted out.
+- Pay in 4: orders over `SHOP.financeIn4.minAmount`; `lib/pay-in-4.ts` is the only place the rule and schedule live.
 - High-ticket rule: complimentary on-farm trial demonstration for vehicles ≥ $15,000 AUD.
