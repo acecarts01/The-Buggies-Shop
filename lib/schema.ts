@@ -21,6 +21,8 @@ import {
   CATEGORIES,
   BRAND_PAGES,
   ProductItem,
+  RETURNS,
+  isAccessoryItem,
   isElectricBuggy,
 } from '@/src/config/site';
 import type { BlogPost } from '@/src/config/posts';
@@ -239,7 +241,32 @@ export function productSchema(product: ProductItem) {
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@id': ORG_ID },
       areaServed: { '@type': 'Country', name: 'Australia' },
+      hasMerchantReturnPolicy: returnPolicyFor(product),
     },
+  };
+}
+
+/**
+ * The policy on /returns/, in structured data. Parts and accessories carry the
+ * change-of-mind window; vehicles do not (Australian Consumer Law remedies for
+ * faults apply to both and are described on the page). Driven by RETURNS.
+ */
+export function returnPolicyFor(product: ProductItem) {
+  const base = {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: 'AU',
+    merchantReturnLink: `${ORIGIN}${RETURNS.path}`,
+  };
+  if (!isAccessoryItem(product.category, product.id, product.name)) {
+    return { ...base, returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted' };
+  }
+  return {
+    ...base,
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: RETURNS.accessoryChangeOfMindDays,
+    returnMethod: 'https://schema.org/ReturnByMail',
+    returnFees: 'https://schema.org/ReturnShippingFees',
+    refundType: 'https://schema.org/FullRefund',
   };
 }
 

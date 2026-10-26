@@ -9,6 +9,7 @@ import {
   BRAND_PAGES,
   FAQ,
   isElectricBuggy,
+  RETURNS,
 } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { DELIVERY_METROS } from '@/src/config/delivery';
@@ -84,6 +85,7 @@ export function GET() {
     ...DELIVERY_METROS.map((m) => `- [Delivery to ${m.city}](${base}/delivery/${m.slug}/): ${m.freightMode === 'same-corridor' ? 'same-corridor delivery' : 'enclosed interstate freight'}, about ${m.roadKm.toLocaleString('en-AU')} km from the depot`),
     `- [Crypto payment](${base}/crypto-payment/): ${SHOP.cryptoDiscount}% off the vehicle price when paid in crypto on the site (address and QR at checkout); every order is confirmed by sending the payment receipt on WhatsApp`,
     `- [Pay in 4](${base}/pay-in-4/): orders over $${SHOP.financeIn4.minAmount.toLocaleString("en-AU")} AUD split into ${SHOP.financeIn4.installments} equal ${SHOP.financeIn4.interestRate} interest payments, fortnightly or monthly; calculator on the page`,
+    `- [Returns, refunds & warranty](${base}/returns/): Australian Consumer Law guarantees apply; delivery damage reported within ${RETURNS.transitReportBusinessDays} business days is put right at our cost; parts and accessories can be returned within ${RETURNS.accessoryChangeOfMindDays} days; a buggy can be cancelled for a full refund before dispatch`,
     `- [Wholesale & fleet](${base}/wholesale/): golf clubs, resorts, farms and estates`,
     `- [Contact & demonstrations](${base}/contact/): complimentary on-farm trial for vehicles of $15,000 AUD or more`,
     `- [About the depot](${base}/about/): Yatala QLD workshop, warranty, servicing and custom builds`,

@@ -132,6 +132,21 @@ export const SHOP = {
   ],
 };
 
+// Returns, refunds and warranty. The ONLY source for the /returns/ page, the
+// product structured data and the FAQ copy. Written 2026-10-27 at the owner's
+// instruction ("give the best return policy"). Australian Consumer Law
+// guarantees apply on top of everything here and cannot be excluded; the
+// numbers below are the commercial extras, so change them here and nowhere else.
+export const RETURNS = {
+  /** Tell us about transit damage or a missing item within this many business days of delivery (note it on the delivery docket too). */
+  transitReportBusinessDays: 2,
+  /** Unused, unopened parts and accessories in original packaging: change-of-mind window in days. */
+  accessoryChangeOfMindDays: 14,
+  /** A buggy can be cancelled for a full refund until it is dispatched. */
+  cancelBeforeDispatch: true,
+  path: '/returns/',
+};
+
 // Crypto settlement. Buyers paying in crypto take SHOP.cryptoDiscount off
 // the vehicle price; freight and accessories are charged at full rate on top.
 //
@@ -2459,6 +2474,10 @@ export const FAQ = [
   {
     question: 'How does ordering and enclosed freight delivery work across Australia?',
     answer: 'You can order online, over the phone, or via WhatsApp with our team. We issue an official Australian Tax Invoice and coordinate enclosed direct delivery across Australia with comprehensive pre-delivery inspection (we deliver directly to your property, business, or club).',
+  },
+  {
+    question: 'What is your return and refund policy?',
+    answer: `Australian Consumer Law guarantees apply to everything we sell: faults are repaired, replaced or refunded. Delivery damage reported within ${RETURNS.transitReportBusinessDays} business days is put right at our cost, parts and accessories can be returned within ${RETURNS.accessoryChangeOfMindDays} days, and a buggy can be cancelled for a full refund before dispatch. Full details are on our Returns page.`,
   },
   {
     question: 'What warranty is provided by Golf Buggies Express PTY LTD?',

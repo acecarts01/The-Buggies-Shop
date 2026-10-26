@@ -59,6 +59,7 @@ await pool(urls, 8, async (u) => {
     canon: g(/<link rel="canonical" href="([^"]*)"/),
     robots: g(/<meta name="robots" content="([^"]*)"/),
     h1: (t.match(/<h1[\s>]/g) || []).length,
+    h1text: decode(g(/<h1[^>]*>([\s\S]*?)<\/h1>/).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()),
     words: t.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
     ld: [...t.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]),
   };
@@ -86,6 +87,7 @@ for (const [u, p] of pages) {
   if (p.h1 !== 1) fail(`${id}: ${p.h1} <h1>`);
   if (!p.title || p.title.length > 62) fail(`${id}: title ${p.title.length} chars`);
   if (p.desc.length < 110 || p.desc.length > 160) fail(`${id}: description ${p.desc.length} chars`);
+  if (p.h1text && p.h1text === p.title) fail(`${id}: title is identical to the H1`);
   if (p.words < 300) warn(`${id}: only ${p.words} words`);
   if (titles.has(p.title)) fail(`${id}: duplicate title with ${path(titles.get(p.title))}`); else titles.set(p.title, u);
   if (descs.has(p.desc)) fail(`${id}: duplicate description with ${path(descs.get(p.desc))}`); else descs.set(p.desc, u);
@@ -95,14 +97,18 @@ for (const [u, p] of pages) {
     const price = Number((p.desc.match(/\$([\d,]+)/) || [])[1]?.replace(/,/g, ''));
     if (price && price <= 3000) fail(`${id}: description promises Pay in 4 on a $${price} item`);
   }
+  const isProduct = /\/shop\/[^/]+\/[^/]+\/$/.test(id) && !id.startsWith('/shop/brand/');
+  let returnPolicy = false;
   for (const raw of p.ld) {
     let j;
     try { j = JSON.parse(raw); } catch { fail(`${id}: invalid JSON-LD`); continue; }
     for (const n of j['@graph'] || [j]) {
       const types = [].concat(n['@type'] || []);
+      if (types.includes('Product')) { const pol = [].concat(n.offers || [])[0]?.hasMerchantReturnPolicy; if (pol?.applicableCountry === 'AU' && pol.returnPolicyCategory) returnPolicy = true; }
       if (types.some((t) => ['Organization', 'LocalBusiness', 'Store'].includes(t)) && 'numberOfItems' in n) fail(`${id}: numberOfItems on ${types.join('/')} (not a valid property)`);
     }
   }
+  if (isProduct && !returnPolicy) fail(`${id}: Product offer has no hasMerchantReturnPolicy`);
   const inb = inbound.get(u)?.size ?? 0;
   if (id !== '/' && inb === 0) fail(`${id}: orphan (no internal links in)`);
   else if (id !== '/' && inb < 2) fail(`${id}: only ${inb} internal link in`);
@@ -147,6 +153,11 @@ const robots = await (await get(`${BASE}/robots.txt`)).text();
 const star = robots.split(/\n\s*\n/).find((b) => /User-agent:\s*\*/.test(b)) || '';
 if (!/Content-Signal:/.test(star)) fail('robots.txt: Content-Signal is not inside the User-agent: * group');
 if (!/Sitemap:\s*\S+/.test(robots)) fail('robots.txt: no Sitemap line');
+for (const line of robots.split('\n')) {
+  const l = line.trim();
+  if (l && !l.startsWith('#') && !/^(User-agent|Allow|Disallow|Sitemap|Content-Signal|Crawl-delay):/i.test(l)) fail(`robots.txt: unknown line "${l}"`);
+}
+if (!pages.has(BASE + '/returns/')) fail('/returns/ is not in the sitemap');
 
 // ---- report
 console.log(`Validated ${pages.size} pages on ${BASE}`);

@@ -11,8 +11,13 @@ import { buildTitle, buildDescription, TITLE_MAX } from '@/lib/seo';
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export function productMeta(product: ProductItem): { title: string; description: string } {
-  const withSale = buildTitle(`${product.name} for Sale`);
-  const title = withSale.length <= TITLE_MAX ? withSale : buildTitle(product.name);
+  // A title must differ from the H1 (the product name) and fit. Try, in order:
+  // name + "for Sale" with the brand suffix; the same without it (a bare title may
+  // run to 62); then the same with a trailing "(...)" qualifier dropped; and only
+  // then the bare name.
+  const trimmed = product.name.replace(/\s*\([^)]*\)\s*$/, '');
+  const candidates = [product.name, trimmed].filter((n, i, a) => n && a.indexOf(n) === i).flatMap((n) => [buildTitle(`${n} for Sale`), `${n} for Sale`]);
+  const title = candidates.find((t) => t.length <= TITLE_MAX) ?? candidates.find((t) => t.length <= TITLE_MAX + 2) ?? buildTitle(product.name);
 
   // Reads as a sentence a buyer would want to click: product, price, what it
   // is, where it ships from. The keyword lives in the title, H1 and body, not as

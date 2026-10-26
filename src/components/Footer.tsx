@@ -180,6 +180,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/returns/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Returns & Warranty
+              </Link>
+            </li>
+            <li>
               <a
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"

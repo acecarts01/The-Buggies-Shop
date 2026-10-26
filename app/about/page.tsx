@@ -185,7 +185,7 @@ export default function AboutPage() {
                 <span>Full Australian Consumer Law Guarantee</span>
               </div>
               <StaggeredParagraph delay={0.1} className="text-xs text-[#A8A29E] leading-relaxed">
-                As an accredited Queensland proprietary company, all transactions carry statutory guarantees under Australian Consumer Law. We provide comprehensive repair, replacement, or refund remedies managed directly by our Yatala engineering technicians, not outsourced international call centers.
+                As an accredited Queensland proprietary company, all transactions carry statutory guarantees under Australian Consumer Law. We provide comprehensive repair, replacement, or refund remedies managed directly by our Yatala engineering technicians, not outsourced international call centers. Read the full <Link href="/returns/" className="text-[#E2A17A] font-semibold hover:underline">returns, refunds and warranty policy</Link>.
               </StaggeredParagraph>
             </StaggerItem>
           </StaggerContainer>
