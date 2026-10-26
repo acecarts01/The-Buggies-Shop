@@ -17,6 +17,9 @@ export interface BuyerLink {
 }
 
 const MAP: Record<string, { t: string; a: string; i: 'T' | 'C' }[]> = {
+  "blog:lithium-vs-lead-acid-golf-buggy-batteries-australia": [
+    { t: "trojan-t-875-8v-deep-cycle-lead-acid-battery", a: "trojan t-875 deep cycle battery", i: "C" },
+  ],
   "blog:clicgear-rovic-push-buggies-guide": [
     { t: "clicgear-model-4-5-buggy-black", a: "clicgear 4.5 black for sale", i: "T" },
     { t: "clicgear-model-4-0-buggy-silver", a: "clicgear 4.0 for sale", i: "T" },

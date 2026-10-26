@@ -14,10 +14,9 @@ Disallow: /admin/
 Disallow: /pay/
 Disallow: /search/?
 Disallow: /*?q=
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://www.golfbuggiesexpress.com.au/sitemap.xml
-
-Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 # Search-mode crawlers (these fetch pages to answer live questions)
 User-agent: OAI-SearchBot

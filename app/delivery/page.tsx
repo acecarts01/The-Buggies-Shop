@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
+import GuideLinks from '@/src/components/GuideLinks';
 import ChatHub from '@/src/components/ChatHub';
 import { SITE, BRAND, ABN_INFO, CONTACT, SHOP, PRODUCTS } from '@/src/config/site';
 import { DELIVERY_METROS } from '@/src/config/delivery';
@@ -244,6 +245,16 @@ export default function DeliveryPage() {
               </StaggerItem>
             </StaggerContainer>
           </div>
+
+          <GuideLinks
+            tone="dark"
+            heading="Delivery guides"
+            guides={[
+              { slug: 'golf-buggies-for-sale-canberra-act', label: 'Golf buggies for sale in Canberra and the ACT' },
+              { slug: 'how-golf-buggy-ordering-invoicing-delivery-works', label: 'How ordering, invoicing and delivery work' },
+              { slug: 'transporting-towing-golf-buggy-australia-trailers-tie-downs', label: 'Transporting and towing a buggy' },
+            ]}
+          />
 
           {/* Where to next */}
           <AnimatedCard delay={0.1} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm metal-brushed-dark">

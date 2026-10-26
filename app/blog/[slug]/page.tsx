@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { SITE, BRAND_PAGES, PRODUCTS, CATEGORIES } from '@/src/config/site';
 import { buyerLinksFor } from '@/src/config/inbound-links';
 import { POSTS, toPostSummary } from '@/src/config/posts';
-import { buildTitle, clampDescription, socialImages, keywordLead } from '@/lib/seo';
+import { buildTitle, clampDescription, socialImages } from '@/lib/seo';
 import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
 import BlogPostClient from './BlogPostClient';
 import { createLinker } from '@/lib/autolink';
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // post.title is the H1 and runs long by design; seoTitle is the short form
   // for the <title> tag. buildTitle adds the brand only when it still fits.
   const title = buildTitle(post.seoTitle ?? post.title);
-  const description = clampDescription(keywordLead(post.excerpt, post.primaryKeyword));
+  const description = clampDescription(post.excerpt);
 
   return {
     title,
@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(article) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }} />
-      <BlogPostClient post={{ ...post, excerpt: keywordLead(post.excerpt, post.primaryKeyword) }} relatedPosts={relatedPosts} brands={brandLinks} references={resolveReferences(GUIDE_REFERENCES[post.slug])} buyerLinks={buyerLinksFor('blog', post.slug)} linkedBodies={linkedBodies} models={models} />
+      <BlogPostClient post={post} relatedPosts={relatedPosts} brands={brandLinks} references={resolveReferences(GUIDE_REFERENCES[post.slug])} buyerLinks={buyerLinksFor('blog', post.slug)} linkedBodies={linkedBodies} models={models} />
     </>
   );
 }

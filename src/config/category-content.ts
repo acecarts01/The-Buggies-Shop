@@ -178,6 +178,8 @@ function build(): Record<string, CategoryContent> {
         { slug: '4-seater-vs-6-seater-golf-buggies-australia', label: '4 seater vs 6 seater golf buggies' },
         { slug: 'golf-buggies-for-gated-communities-residential-estates', label: 'Golf buggies for gated communities and estates' },
         { slug: 'golf-buggy-registration-australia-conditional-road-access', label: 'Golf buggy registration and road access' },
+        { slug: 'golf-buggies-for-retirement-villages-australia', label: 'Golf buggies for retirement villages' },
+        { slug: 'parallel-import-golf-buggies-grey-import-risks-australia', label: 'Parallel and grey import buggies: the risks' },
       ],
       faqs: [
         {
@@ -238,6 +240,8 @@ function build(): Record<string, CategoryContent> {
         { slug: 'ac-vs-dc-golf-buggy-motors-torque-efficiency-australia', label: 'AC vs DC golf buggy motors' },
         { slug: 'lithium-vs-lead-acid-golf-buggy-batteries-australia', label: 'Lithium vs lead acid golf buggy batteries' },
         { slug: 'golf-buggy-maintenance-checklist-australian-climates', label: 'Golf buggy maintenance checklist for Australian climates' },
+        { slug: 'golf-buggy-top-speed-australia-what-to-know-before-you-change-it', label: 'Golf buggy top speed: what to know before you change it' },
+        { slug: 'golf-buggies-for-retirement-villages-australia', label: 'Golf buggies for retirement villages' },
       ],
       faqs: [
         {
@@ -298,6 +302,8 @@ function build(): Record<string, CategoryContent> {
         { slug: 'lifted-4x4-golf-carts-acreage-and-farm-performance', label: 'Lifted 4x4 buggies: acreage and farm performance' },
         { slug: 'golf-buggy-tyres-explained-australia', label: 'Golf buggy tyres explained' },
         { slug: 'golf-buggy-brakes-explained-australia', label: 'Golf buggy brakes explained' },
+        { slug: 'golf-buggy-top-speed-australia-what-to-know-before-you-change-it', label: 'Golf buggy top speed: what to know before you change it' },
+        { slug: 'buggy-vs-golf-cart-vs-side-by-side-utv-five-year-cost-australia', label: 'Buggy vs side-by-side: five-year cost' },
       ],
       faqs: [
         {
@@ -359,6 +365,7 @@ function build(): Record<string, CategoryContent> {
         { slug: 'golf-buggies-for-wineries-vineyards-australia', label: 'Buggies for wineries and vineyards' },
         { slug: 'golf-buggies-for-caravan-parks-holiday-resorts-australia', label: 'Buggies for caravan parks and holiday resorts' },
         { slug: 'transporting-towing-golf-buggy-australia-trailers-tie-downs', label: 'Transporting and towing a buggy' },
+        { slug: 'golf-buggy-instant-asset-write-off-business-australia', label: 'Instant asset write-off for business buggies' },
       ],
       faqs: [
         {
@@ -470,6 +477,7 @@ function build(): Record<string, CategoryContent> {
         { slug: 'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review', label: 'Push golf buggies compared: three-wheel vs four-wheel' },
         { slug: 'clicgear-vs-mgi-push-buggy-comparison-australia', label: 'Clicgear vs MGI: manual push or motorised?' },
         { slug: 'foldable-golf-buggy-buyers-guide-boot-space-weight', label: 'Foldable golf buggy guide: boot space and weight' },
+        { slug: 'golf-buggy-etiquette-course-rules-australia', label: 'Golf buggy etiquette and course rules' },
       ],
       faqs: [
         {
@@ -494,6 +502,15 @@ function build(): Record<string, CategoryContent> {
       h1: 'Golf Trolleys & Remote Control Golf Buggies for Sale',
       metaTitle: 'Golf Trolleys & Remote Control Buggies | Buggies Express',
       metaDescription: `Electric golf trolleys and remote control golf buggies for sale in Australia: ${walk.n} motorised models from ${aud(walk.lo)}, a lithium alternative to a golf push buggy.`,
+      guides: [
+        { slug: 'mgi-zip-x-series-explained', label: 'MGI Zip X-Series explained' },
+        { slug: 'mgi-ai-navigator-gps-explained', label: 'MGI Ai Navigator GPS+ and Ai 500 explained' },
+        { slug: 'mgi-zip-navigator-setup-guide', label: 'MGI Zip Navigator setup guide' },
+        { slug: 'mgi-remote-pairing-guide', label: 'MGI remote pairing guide' },
+        { slug: 'mgi-zip-navigator-troubleshooting', label: 'MGI Zip Navigator troubleshooting' },
+        { slug: 'mgi-golf-buggies-australia-guide', label: 'MGI golf buggies in Australia explained' },
+        { slug: 'electric-golf-buggy-that-follows-you-gps-follow-vs-remote-australia', label: 'Follow-me vs remote control buggies' },
+      ],
       faqs: [
         {
           q: 'What is the difference between a golf push buggy and a motorised golf buggy?',
@@ -522,6 +539,14 @@ function build(): Record<string, CategoryContent> {
     'batteries-chargers': {
       primaryKeyword: 'golf buggy battery',
       supportingKeywords: ['golf buggy battery lithium', 'golf buggy battery replacement', 'golf buggy charger', 'golf cart batteries'],
+      guides: [
+        { slug: 'lithium-vs-lead-acid-golf-buggy-batteries-australia', label: 'Lithium vs lead acid golf buggy batteries' },
+        { slug: 'golf-buggy-heat-summer-battery-storage-australia', label: 'Summer heat and battery storage' },
+        { slug: 'golf-buggy-bushfire-season-battery-charging-safety-australia', label: 'Bushfire season battery charging safety' },
+        { slug: 'golf-buggy-salt-air-coastal-care-australia', label: 'Salt air and coastal care' },
+        { slug: 'golf-buggy-winter-storage-battery-care-australia', label: 'Winter storage and battery care' },
+        { slug: 'mgi-battery-charger-guide', label: 'MGI battery and charger guide' },
+      ],
       faqs: [
         {
           q: 'How much does a lithium golf buggy battery cost?',
@@ -550,6 +575,12 @@ function build(): Record<string, CategoryContent> {
     'accessories-spare-parts': {
       primaryKeyword: 'golf buggy accessories',
       supportingKeywords: ['golf buggy accessories australia', 'golf buggy wheels', 'golf buggy tyres', 'golf cart accessories', 'golf buggy parts australia', 'golf cart parts australia', 'golf cart parts'],
+      guides: [
+        { slug: 'must-have-golf-buggy-accessories-and-spares-australia', label: '10 must-have golf buggy accessories' },
+        { slug: 'mgi-buggy-accessories-guide', label: 'MGI buggy accessories guide' },
+        { slug: 'mgi-parts-wheels-warranty-guide', label: 'MGI parts, wheels and warranty' },
+        { slug: 'golf-buggy-parts-and-spares-australia-guide', label: 'Golf buggy parts and spares guide' },
+      ],
       faqs: [
         {
           q: 'What golf buggy accessories do you sell?',

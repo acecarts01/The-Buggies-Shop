@@ -12,7 +12,7 @@ export default function AtlasProductPage() {
       faqs={details.faqs ?? []}
       tags={details.tags}
       references={resolveReferences(['nsw-golf-buggy', 'qld-golf-buggy', 'vic-noncompliant', 'sa-restricted'])}
-      guides={(resolveCategory('luxury-4-seater')?.guides ?? []).slice(0, 4)}
+      guides={(resolveCategory('luxury-4-seater')?.guides ?? []).slice(0, 6)}
     />
   );
 }

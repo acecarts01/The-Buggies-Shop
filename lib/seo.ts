@@ -165,9 +165,3 @@ const leadTokens = (t: string) =>
 export function mentionsKeyword(text: string, keyword: string): boolean {
   return (' ' + leadTokens(text) + ' ').includes(' ' + leadTokens(keyword) + ' ');
 }
-
-/** The excerpt, prefixed with the keyword ("Keyword: excerpt") only when it is missing. */
-export function keywordLead(excerpt: string, keyword?: string): string {
-  if (!keyword || mentionsKeyword(excerpt, keyword)) return excerpt;
-  return `${keyword.charAt(0).toUpperCase()}${keyword.slice(1)}: ${excerpt}`;
-}

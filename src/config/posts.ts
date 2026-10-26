@@ -881,7 +881,7 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'must-have-golf-buggy-accessories-and-spares-australia',
-    seoTitle: "Golf Buggy Accessories & Spare Parts Australia",
+    seoTitle: "10 Must-Have Golf Buggy Accessories in Australia",
     title: 'Must-Have Golf Buggy Accessories & Spare Parts in Australia: From Umbrella Mounts to Sand Buckets',
     excerpt: 'The top 10 essential golf buggy accessories and replacement spares for Australian courses. Sun protection, sand buckets, drink coolers, and spare wheels.',
     category: 'Accessories & Spares',

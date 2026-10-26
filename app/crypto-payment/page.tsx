@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
+import GuideLinks from '@/src/components/GuideLinks';
 import ChatHub from '@/src/components/ChatHub';
 import CryptoPortal from '@/src/components/CryptoPortal';
 import { SITE, CRYPTO, CONTACT } from '@/src/config/site';
@@ -76,6 +77,16 @@ export default function CryptoPaymentPage() {
           </header>
 
           <CryptoPortal />
+
+          <div className="mt-10">
+            <GuideLinks
+              heading="Related buying guides"
+              guides={[
+                { slug: 'paying-for-a-golf-buggy-in-crypto-btc-usdt-guide', label: 'Paying for a golf buggy in crypto: the guide' },
+                { slug: 'golf-cart-finance-options-pay-in-4-vs-crypto-discounts', label: 'Pay in 4 vs crypto discounts' },
+              ]}
+            />
+          </div>
 
           <p className="mt-8 text-xs text-[#78716C] leading-relaxed">
             Prefer to talk it through first? Call{' '}

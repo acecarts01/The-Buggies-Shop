@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
+import GuideLinks from '@/src/components/GuideLinks';
 import ChatHub from '@/src/components/ChatHub';
 import PayIn4Calculator from '@/src/components/PayIn4Calculator';
 import FaqSection from '@/src/components/FaqSection';
@@ -69,6 +70,17 @@ export default function PayIn4Page() {
 
           <div className="mt-10">
             <FaqSection items={PAY_IN_4_FAQS} heading="Pay in 4 questions" tone="light" />
+          </div>
+
+          <div className="mt-10">
+            <GuideLinks
+              heading="Related buying guides"
+              guides={[
+                { slug: 'golf-cart-finance-options-pay-in-4-vs-crypto-discounts', label: 'Golf buggy finance in Australia: Pay in 4 vs crypto discounts' },
+                { slug: 'eofy-golf-buggy-deals-australia-buying-guide', label: 'EOFY golf buggy buying guide' },
+                { slug: 'golf-buggy-instant-asset-write-off-business-australia', label: 'Instant asset write-off for business buggies' },
+              ]}
+            />
           </div>
 
           <p className="mt-8 text-xs text-[#6B645E] leading-relaxed">

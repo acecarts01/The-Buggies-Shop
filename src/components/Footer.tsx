@@ -194,6 +194,7 @@ export default function Footer() {
               <a
                 href={`https://${SITE.domain}/llms.txt`}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#A85640] hover:text-[#A85640] transition-colors"
               >
                 Agent Discovery (llms.txt)

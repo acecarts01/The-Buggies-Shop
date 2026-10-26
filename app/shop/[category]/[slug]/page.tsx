@@ -82,7 +82,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         })()}
         categoryLink={{ slug: category, name: CATEGORIES.find((c) => c.slug === category)?.name ?? product.category }}
         lead={productLead(product)}
-        guides={(resolveCategory(category)?.guides ?? []).slice(0, 4)}
+        guides={(resolveCategory(category)?.guides ?? []).slice(0, 6)}
         references={resolveReferences(productReferenceIds(product, isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies'))}
         buyerLinks={buyerLinksFor('product', product.slug)}
       />

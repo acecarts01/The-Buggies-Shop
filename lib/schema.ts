@@ -108,9 +108,8 @@ export function organizationSchema(opts: { full?: boolean } = {}) {
       },
     ],
     currenciesAccepted: 'AUD',
-    paymentAccepted: 'PayID, Osko, Bank Transfer, Finance in 4, Bitcoin, Tether',
+    paymentAccepted: 'PayID, Osko, Bank Transfer, Finance in 4, Cryptocurrency',
     priceRange: `$${LOW.toLocaleString('en-AU')}–$${HIGH.toLocaleString('en-AU')} AUD`,
-    numberOfItems: PRODUCTS.length,
     knowsAbout: [
       'Golf buggies',
       'Electric golf carts',

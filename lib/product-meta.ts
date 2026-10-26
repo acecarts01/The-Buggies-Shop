@@ -1,5 +1,6 @@
 import type { ProductItem } from '@/src/config/site';
 import { getProductDetails } from '@/src/config/product-details';
+import { isPayIn4Eligible } from '@/lib/pay-in-4';
 import { buildTitle, buildDescription, TITLE_MAX } from '@/lib/seo';
 
 // Title and description for a product page, shared by the templated route and
@@ -13,14 +14,14 @@ export function productMeta(product: ProductItem): { title: string; description:
   const withSale = buildTitle(`${product.name} for Sale`);
   const title = withSale.length <= TITLE_MAX ? withSale : buildTitle(product.name);
 
-  const { primaryKeyword } = getProductDetails(product.slug);
-  const lead = primaryKeyword
-    ? `${cap(primaryKeyword)}: ${product.name}, ${product.price_display} inc GST.`
-    : `${product.name}, ${product.price_display} inc GST.`;
+  // Reads as a sentence a buyer would want to click: product, price, what it
+  // is, where it ships from. The keyword lives in the title, H1 and body, not as
+  // a "keyword: " prefix. Finance in 4 is only mentioned where it applies.
+  const lead = `${product.name}, ${product.price_display} inc GST.`;
   const description = buildDescription(lead, product.key_specs, [
-    'Tested at our Yatala QLD depot.',
+    'In stock at our Yatala QLD depot.',
     'Enclosed freight Australia-wide.',
-    'Finance in 4 available.',
+    ...(isPayIn4Eligible(product.price_aud) ? ['Pay in 4 available.'] : []),
   ]);
   return { title, description };
 }
