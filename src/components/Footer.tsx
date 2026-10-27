@@ -150,6 +150,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/tag/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Collections by Need
+              </Link>
+            </li>
+            <li>
               <Link href="/delivery/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
                 Delivery: Gold Coast &amp; Australia-Wide
               </Link>

@@ -63,11 +63,12 @@ interface ProductClientProps {
   guides: { slug: string; label: string }[];
   /** Keyword-anchored links to related products (src/config/inbound-links.ts). */
   buyerLinks?: BuyerLinkItem[];
+  collections?: { slug: string; name: string }[];
   /** Vetted outbound sources (registration rules for vehicles, battery safety for batteries). */
   references: Reference[];
 }
 
-export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references, buyerLinks }: ProductClientProps) {
+export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references, buyerLinks, collections }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -681,6 +682,13 @@ Notes: ${quoteForm.notes || 'None'}`
             <ProductGuides guides={guides} />
 
             <BuyerLinks items={buyerLinks ?? []} heading="Compare and complete your setup" />
+            {collections && collections.length > 0 && (
+              <nav aria-label="Collections" className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold">
+                {collections.map((c) => (
+                  <Link key={c.slug} href={`/tag/${c.slug}/`} className="text-[#E2A17A] hover:underline">{c.name}</Link>
+                ))}
+              </nav>
+            )}
 
             <ExternalReferences
               refs={references}

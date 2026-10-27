@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { SITE, PRODUCTS, CATEGORIES, BRAND_PAGES, CONTENT_UPDATED } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { DELIVERY_METROS } from '@/src/config/delivery';
+import { INDEXABLE_TAGS } from '@/src/config/tags';
 
 // Split sitemaps, served at /sitemap/<id>.xml and indexed by
 // app/sitemap.xml/route.ts (which robots.txt and Search Console point at).
@@ -33,6 +34,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
         { url: `${base}/`, lastModified: catalogDate, changeFrequency: 'weekly', priority: 1.0 },
         { url: `${base}/shop/`, lastModified: catalogDate, changeFrequency: 'weekly', priority: 0.9 },
         { url: `${base}/shop/brand/`, lastModified: catalogDate, changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${base}/tag/`, lastModified: catalogDate, changeFrequency: 'weekly', priority: 0.7 },
         { url: `${base}/blog/`, lastModified: new Date(latestPostDate()), changeFrequency: 'weekly', priority: 0.8 },
         { url: `${base}/delivery/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.8 },
         { url: `${base}/contact/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.8 },
@@ -58,6 +60,12 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
           lastModified: catalogDate,
           changeFrequency: 'weekly' as const,
           priority: 0.8,
+        })),
+        ...INDEXABLE_TAGS.map((t) => ({
+          url: `${base}/tag/${t.slug}/`,
+          lastModified: catalogDate,
+          changeFrequency: 'weekly' as const,
+          priority: 0.7,
         })),
         ...DELIVERY_METROS.map((m) => ({
           url: `${base}/delivery/${m.slug}/`,

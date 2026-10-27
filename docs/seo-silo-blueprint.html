@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Architectural blueprint and URL audit | Golf Buggies Express</title>
+<style>
+  :root { --bg:#f7f6f2; --ink:#121417; --muted:#5b5650; --line:#e2dfd9; --navy:#0b1f3a; --gold:#b8973f; --rust:#8f4632; --ok:#1f7a45; --bad:#b3261e; --warn:#a15c00; --card:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0f1114; --ink:#eef0f2; --muted:#a9b0b8; --line:#2a2f35; --card:#171a1e; --navy:#d9c27a; --rust:#e2a17a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:28px 16px 80px; }
+  h1 { font:700 28px/1.2 Georgia,serif; margin:0 0 6px; }
+  h2 { font:700 21px/1.3 Georgia,serif; margin:38px 0 10px; padding-top:14px; border-top:1px solid var(--line); }
+  h3 { font-size:15px; margin:20px 0 6px; text-transform:uppercase; letter-spacing:.08em; color:var(--rust); }
+  p { margin:8px 0; }
+  .lede { color:var(--muted); }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:12px 0; }
+  .ok { border-left:4px solid var(--ok); } .bad { border-left:4px solid var(--bad); } .warn { border-left:4px solid var(--warn); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0; background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  th,td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+  th { background:rgba(184,151,63,.12); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+  code, pre { font-family:ui-monospace,Consolas,monospace; font-size:12.5px; }
+  pre { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; overflow:auto; line-height:1.5; }
+  .tbl { overflow-x:auto; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:99px; border:1px solid var(--line); }
+  .tag.keep { color:var(--ok); border-color:var(--ok); } .tag.new { color:var(--rust); border-color:var(--rust); } .tag.no { color:var(--bad); border-color:var(--bad); }
+  ul { padding-left:20px; } li { margin:3px 0; }
+  .q li { margin:8px 0; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Architectural blueprint and URL mapping audit</h1>
+<p class="lede">Golf Buggies Express · www.golfbuggiesexpress.com.au · prepared before any code, as your prompt requires. Everything below is measured from the live repository and site, not assumed. Nothing has been changed.</p>
+
+<div class="box warn">
+  <strong>Read this first: where I recommend departing from the prompt, and why.</strong>
+  <ol>
+    <li><strong>Do not move the catalogue to <code>/buggies/…</code>.</strong> The site already has a working, validated silo (<code>/shop/[category]/[slug]</code>, 10 categories, 102 product pages, 233 indexable URLs, all clean in Semrush and my crawler). Moving every URL means 233 redirects, a reset of Google's signals on pages that only just started indexing, and no ranking gain: "shop" versus "buggies" in a path is not a ranking factor. The prompt's goal (hierarchy, siloing, internal links) is met by extending what exists.</li>
+    <li><strong>Do not merge Brisbane and the Gold Coast into one URL.</strong> Both already exist as separate pages with different facts (distance, freight mode). One merged URL would delete a ranking page and make the survivor weaker for both searches.</li>
+    <li><strong>Do not create pages for products we do not sell.</strong> "Heavy-duty tipper cart" is not in the catalogue. A page for it would be a doorway page and a false claim.</li>
+    <li><strong>A "street legal" tag cannot list buggies as street legal.</strong> Registration depends on the state and the individual vehicle, and no product in the catalogue is documented as road-registrable. Calling products "street legal" would breach our no-fabricated-claims rule and Australian Consumer Law. I propose a factual "road access and lighting" collection instead (details in section 5).</li>
+    <li><strong>The URL words "golf carts" conflict with the brand rule</strong> ("buggies", not "carts") and with the owner-set primary keyword "buggies for sale". The site still ranks for "golf cart" queries through body copy, titles and the keyword map; the path should stay "buggies".</li>
+    <li><strong>I cannot promise "all Google Australia searches return to the site".</strong> Nobody can, and a plan built on that promise ends in doorway pages and a penalty. What is achievable is owning every search we genuinely satisfy, with no cannibalisation. That is what this plan does.</li>
+  </ol>
+</div>
+
+<h2>1. What already exists (audit)</h2>
+<div class="tbl"><table>
+<tr><th>Area</th><th>Today</th><th>Gap against the prompt</th></tr>
+<tr><td>Categories</td><td><code>/shop/[category]/</code>, 9 live categories + a coming-soon junior range. Products: luxury 4-seater 6, traditional 2-seater 6, off-road 6, commercial 6, petrol 6, walk-behind 13, push 7, batteries and chargers 18, accessories and parts 34.</td><td>None structural. Category copy, FAQs, ItemList schema already exist.</td></tr>
+<tr><td>Products</td><td><code>/shop/[category]/[slug]/</code>, 102 pages, 6 FAQs each, Product + offer + return-policy JSON-LD.</td><td>None.</td></tr>
+<tr><td>Brands</td><td><code>/shop/brand/[brand]/</code>, 13 brands. MGI 37 products; Club Car 8; Clicgear 6; E-Z-GO 5; Yamaha 4; Evolution 4; LVTONG 4; Tara 3; Rovic 3; Atlas 2; Cushman 2; PowaKaddy 1; Robera 1.</td><td>Brand intros are about 100 words, below the 150-250 target. Four brands have 1-2 products (thin).</td></tr>
+<tr><td>Regions</td><td><code>/delivery/[city]/</code>: Gold Coast, Brisbane, Sydney, Melbourne, Adelaide, Perth. Delivery-only copy, one depot, no transit promises, each with FAQs and a buyer's guide.</td><td>No Sunshine Coast, Cairns or Canberra page, though Cairns is in our stated service footprint and a Canberra guide exists.</td></tr>
+<tr><td>Tags</td><td>No tag routes. The product "tags" in the data are 887 distinct keyword strings (for example "buggy for sale yatala qld", on 31 products). They are search phrases, not a taxonomy.</td><td><strong>Biggest gap.</strong> Exposing 887 raw tags as URLs would be a textbook doorway-page and cannibalisation risk.</td></tr>
+<tr><td>Internal linking</td><td><code>lib/autolink.ts</code>: 520 rules, 131 destination pages, server-side, max links per page and per paragraph, never self-links, whole words only, never inside an existing link. Plus per-product buyer links and category guide lists.</td><td>Rules for the prompt's phrases are missing; a few hub phrases lack a rule.</td></tr>
+<tr><td>FAQ</td><td><code>FaqSection</code>: native <code>&lt;details&gt;</code> accordion (keyboard accessible, answers in the raw HTML) plus one <code>FAQPage</code> JSON-LD per page. On products, categories, brands, delivery.</td><td>None. Radix adds JavaScript for no benefit (see section 6).</td></tr>
+<tr><td>Schema</td><td>Organization (one <code>@id</code>), BreadcrumbList, Product, CollectionPage + ItemList, Service, FAQPage, MerchantReturnPolicy.</td><td>Delivery pages have no ItemList (they list no products).</td></tr>
+<tr><td>Rendering</td><td>All routes are server components, statically generated; the validator crawls raw HTML (JS off) and Semrush reads it the same way.</td><td>None.</td></tr>
+</table></div>
+
+<h2>2. URL mapping: your requested URLs against the real site</h2>
+<div class="tbl"><table>
+<tr><th>Requested</th><th>Real equivalent today</th><th>Decision</th></tr>
+<tr><td><code>/buggies/2-seater-golf-carts</code></td><td><code>/shop/traditional-2-seater/</code> (6 products)</td><td><span class="tag keep">KEEP</span> No migration. Strengthen copy and links.</td></tr>
+<tr><td><code>/buggies/4-seater-resort-shuttles</code></td><td><code>/shop/luxury-4-seater/</code> (6) plus the LVTONG "resort cruiser"</td><td><span class="tag keep">KEEP</span> Add a "resort and estate shuttles" tag hub for the resort angle.</td></tr>
+<tr><td><code>/buggies/commercial-utility</code></td><td><code>/shop/commercial-utility/</code> (6)</td><td><span class="tag keep">KEEP</span></td></tr>
+<tr><td><code>/buggies/lithium-batteries-upgrades</code></td><td><code>/shop/batteries-chargers/</code> (18)</td><td><span class="tag keep">KEEP</span> Tag hubs split lithium packs, chargers and lead-acid.</td></tr>
+<tr><td><code>/buggies/commercial-utility/heavy-duty-tipper-cart</code></td><td>Not a product we sell</td><td><span class="tag no">REFUSE</span> Doorway page and a false claim.</td></tr>
+<tr><td><code>/buggies/lithium-batteries-upgrades/72v-105ah-lithium-conversion-kit</code></td><td><code>/shop/batteries-chargers/roypow-72v-105ah-commercial-lithium-battery/</code></td><td><span class="tag keep">KEEP</span> Product exists; link to it from the lithium tag hub.</td></tr>
+<tr><td><code>/brands/club-car</code>, <code>/brands/ezgo</code>, …</td><td><code>/shop/brand/club-car/</code>, <code>/shop/brand/e-z-go/</code>, …</td><td><span class="tag keep">KEEP</span> Expand intros to 150-250 words. Brands with fewer than 3 products stay but are flagged for a merge into a parent hub instead of thin pages (decision 3).</td></tr>
+<tr><td><code>/delivery/brisbane-gold-coast</code></td><td><code>/delivery/brisbane/</code> and <code>/delivery/gold-coast/</code></td><td><span class="tag no">DO NOT MERGE</span> Two distinct pages already rank-worthy. Link them to each other.</td></tr>
+<tr><td><code>/delivery/sydney-nsw</code>, <code>/delivery/melbourne-vic</code></td><td><code>/delivery/sydney/</code>, <code>/delivery/melbourne/</code></td><td><span class="tag keep">KEEP</span> Slugs stay short; state is in the title and H1.</td></tr>
+<tr><td><code>/delivery/sunshine-coast</code></td><td>None</td><td><span class="tag new">NEW</span> Subject to sourced facts and your confirmation (decision 2).</td></tr>
+<tr><td><code>/tag/lithium-powered</code>, <code>/tag/off-road-lifted</code></td><td>None</td><td><span class="tag new">NEW</span> Curated taxonomy (section 5).</td></tr>
+<tr><td><code>/tag/street-legal-conditional-regn</code></td><td>None. A registration guide exists in the blog.</td><td><span class="tag no">REWORK</span> See "road access and lighting" in section 5.</td></tr>
+<tr><td><code>/tag/tow-hitch-equipped</code></td><td>4 products mention tow or hitch</td><td><span class="tag new">NEW</span> Passes the 4-item minimum only if it is hand-assigned.</td></tr>
+</table></div>
+
+<h2>3. Directory tree (this repository uses <code>app/</code>, not <code>src/app/</code>)</h2>
+<pre>app/
+├─ shop/
+│  ├─ page.tsx                                  (exists)  all-range hub
+│  ├─ [category]/page.tsx                       (exists)  9 live category silos
+│  ├─ [category]/[slug]/page.tsx                (exists)  102 product pages
+│  └─ brand/
+│     ├─ page.tsx                               (exists)
+│     └─ [brand]/page.tsx                       (exists)  upgrade: 150-250 word intro, FAQ
+├─ delivery/
+│  ├─ page.tsx                                  (exists)  hub, lists every region
+│  └─ [city]/page.tsx                           (exists)  + new regions via src/config/delivery.ts only
+├─ tag/                                         <span class="tag new">NEW</span>
+│  ├─ page.tsx                                  all tags index (crawl path, links every qualifying tag)
+│  └─ [tag]/page.tsx                            one page per curated tag
+└─ sitemap.xml/route.ts                         (exists)  tags join the sitemap only when they pass the gates</pre>
+<p>No new top-level silo is introduced. Categories, products and brands stay under <code>/shop/</code>; the only new route tree is <code>/tag/</code>.</p>
+
+<h2>4. Dynamic route handlers</h2>
+<div class="tbl"><table>
+<tr><th>Route</th><th>generateStaticParams</th><th>Behaviour</th></tr>
+<tr><td><code>[category]</code></td><td>every live category in <code>CATEGORIES</code></td><td>Exists. Unknown slugs return a real 404 (checked on the live site).</td></tr>
+<tr><td><code>[category]/[slug]</code></td><td>every product joined to its category</td><td>Exists. The build throws if a product is missing details.</td></tr>
+<tr><td><code>brand/[brand]</code></td><td>every <code>BRAND_PAGES</code> entry</td><td>Exists. Brands below the product minimum render but are <code>noindex</code> and left out of the sitemap until they qualify.</td></tr>
+<tr><td><code>delivery/[city]</code></td><td>every <code>DELIVERY_METROS</code> entry</td><td>Exists. New regions are config entries, never hand-written pages.</td></tr>
+<tr><td><code>tag/[tag]</code></td><td>every tag in <code>TAG_HUBS</code> that passes the gates in section 5</td><td>New. <code>dynamicParams = false</code>. A tag that fails a gate at build time is not generated, so it returns 404 instead of a thin page.</td></tr>
+</table></div>
+
+<h2>5. The tag taxonomy and the anti-thin-content gates</h2>
+<p>Tags are a <strong>hand-curated attribute taxonomy in <code>src/config/tags.ts</code></strong>, assigned explicitly per product slug and reviewed. They are never derived from the 887 keyword strings and never from regex over product text (my measurement shows regex matching is unreliable: "commercial cargo" matched 12 items that include lifted passenger buggies).</p>
+<h3>Proposed first set (counts are heuristic estimates; the real counts come from explicit assignment)</h3>
+<div class="tbl"><table>
+<tr><th>Tag URL</th><th>What it lists</th><th>Est. items</th><th>Primary search it serves</th></tr>
+<tr><td><code>/tag/lithium-powered</code></td><td>Lithium electric buggies</td><td>~35</td><td>electric golf buggies for sale</td></tr>
+<tr><td><code>/tag/lithium-batteries</code></td><td>Lithium packs and conversion/drop-in kits</td><td>~9</td><td>lithium golf buggy batteries</td></tr>
+<tr><td><code>/tag/chargers</code></td><td>Smart and on-board chargers</td><td>4</td><td>golf buggy chargers</td></tr>
+<tr><td><code>/tag/off-road-lifted</code></td><td>Lifted and 4x4 buggies</td><td>~9</td><td>off road golf buggy</td></tr>
+<tr><td><code>/tag/remote-control-follow</code></td><td>Remote, GPS and follow-me buggies</td><td>~8</td><td>remote control golf buggy</td></tr>
+<tr><td><code>/tag/petrol-efi</code></td><td>Petrol and EFI machines</td><td>8</td><td>petrol golf buggy for sale</td></tr>
+<tr><td><code>/tag/resort-estate-shuttles</code></td><td>4-plus seaters for resorts, estates, parks</td><td>~8</td><td>resort buggy / 4 seater golf buggy</td></tr>
+<tr><td><code>/tag/tow-hitch-equipped</code></td><td>Hitch-equipped utility buggies and hitch parts</td><td>4</td><td>golf buggy with tow bar</td></tr>
+<tr><td><code>/tag/road-access-lighting</code></td><td>Lighting, mirror and indicator kits, with the registration guide</td><td>3-4</td><td>golf buggy lights / road access</td></tr>
+<tr><td><code>/tag/weather-protection</code></td><td>Covers, enclosures, windshields, umbrellas</td><td>~9</td><td>golf buggy enclosure</td></tr>
+</table></div>
+<h3>Gates a tag must pass to be generated (all checked at build)</h3>
+<ol>
+<li><strong>At least 4 products</strong> (the validator fails the build otherwise; below that, the products stay in their category and the tag does not exist).</li>
+<li><strong>The tag must not equal a category or brand.</strong> "Walk-behind", "push", "Club Car" are already categories or brands, so they are excluded to stop two URLs competing for one search.</li>
+<li><strong>One owner per keyword.</strong> Each tag declares its primary keyword; the build fails if two pages claim the same one or if a tag's keyword is already a category or product primary keyword (the existing keyword map is the registry).</li>
+<li><strong>Unique 150-250 word intro</strong> written from real product facts (compatibility, battery chemistry, ranges from the spec data, Australian registration or terrain context). A similarity check against every sibling intro fails the build above a threshold, so intros cannot be templated clones.</li>
+<li><strong>At least 3 FAQs</strong>, 40-65 words each (the site's existing standard), each answerable from the catalogue or an official source, never invented.</li>
+<li><strong>Linked from at least 2 pages</strong> (the category and the product pages that carry it, plus the <code>/tag/</code> index) so none is an orphan.</li>
+</ol>
+<div class="box ok"><strong>Road access and lighting (replaces "street legal")</strong>: a factual collection of lighting, mirror and indicator products, with the registration guide and the official state references. It states that conditional registration depends on the state and the vehicle and that we do not sell vehicles as road-registered. It never labels a product "street legal".</div>
+
+<h2>6. Per-route metadata, OpenGraph and JSON-LD</h2>
+<div class="tbl"><table>
+<tr><th>Route</th><th>Title / description</th><th>JSON-LD (one script each, no duplicate FAQPage)</th></tr>
+<tr><td>Category</td><td>Exists, via <code>pageMetadata()</code>. Self-canonical, og:url and og:image never inherited.</td><td>CollectionPage + ItemList (each item linked to its canonical product URL), BreadcrumbList, FAQPage.</td></tr>
+<tr><td>Brand</td><td>"{Brand} golf buggies for sale in Australia | Buggies Express" style, 110-160 char description with AUD and Yatala QLD.</td><td>ItemList, BreadcrumbList, FAQPage, Brand.</td></tr>
+<tr><td>Region</td><td>Exists. Delivery-only copy (CLAUDE.md rule).</td><td>Service, Organization reference, BreadcrumbList, FAQPage. Adds an ItemList of the 3-4 best-selling categories the region ships.</td></tr>
+<tr><td>Tag</td><td>New builder in <code>lib/seo.ts</code>: natural sentence, primary keyword in the title once, AUD, "stocked at Yatala QLD, delivered Australia-wide", never a keyword-stem prefix (the validator already fails those).</td><td>CollectionPage + ItemList, BreadcrumbList, FAQPage.</td></tr>
+<tr><td>All</td><td>Self-referencing canonical, one H1, title 62 characters or fewer, description 110-160, sitemap lastmod from <code>CONTENT_UPDATED</code>.</td><td>Product price and stock in schema must match the visible page (validator checks this today).</td></tr>
+</table></div>
+
+<h2>7. Internal link automation</h2>
+<p><strong>Extend the engine we already have rather than build a second one.</strong> <code>lib/autolink.ts</code> already does what the prompt's <code>linkify.tsx</code> asks: server-side, whole-word, never inside an existing link, never self-linking, one link per destination per page, a per-paragraph cap, and a rule table generated from the keyword map. A second linker would double-link and fight the first.</p>
+<div class="tbl"><table>
+<tr><th>Phrase (matched case-insensitively, plural-safe)</th><th>Links to</th><th>Note</th></tr>
+<tr><td>lithium battery conversion, drop-in lithium</td><td><code>/shop/batteries-chargers/</code></td><td>Real hub.</td></tr>
+<tr><td>4 seater golf cart / buggy</td><td><code>/shop/luxury-4-seater/</code></td><td>Real hub.</td></tr>
+<tr><td>commercial utility vehicle / buggy</td><td><code>/shop/commercial-utility/</code></td><td>Real hub.</td></tr>
+<tr><td>conditional registration</td><td><code>/blog/golf-buggy-registration-australia-conditional-road-access/</code></td><td>The authoritative guide; "street legal" alone is not linked (it would over-promise).</td></tr>
+<tr><td>Gold Coast delivery / Brisbane delivery</td><td><code>/delivery/gold-coast/</code> and <code>/delivery/brisbane/</code> respectively</td><td>Each city to its own page.</td></tr>
+<tr><td>New: each tag's primary phrase</td><td><code>/tag/[tag]/</code></td><td>Added only when a tag passes its gates, and only where it does not collide with an existing rule.</td></tr>
+</table></div>
+<p>Limits kept exactly as the prompt asks: <strong>at most one automatic link per keyword per paragraph</strong>, plus a page-wide cap so a paragraph never reads as link spam. Link targets are verified at build: a rule that points at a URL that is not built fails the build, so a link can never 404.</p>
+
+<h2>8. FAQ accordions</h2>
+<ul>
+<li>Native <code>&lt;details&gt;/&lt;summary&gt;</code> (already shipped). It is keyboard operable with no JavaScript, and every answer is in the server-rendered HTML for crawlers, which Radix's collapsed panels are not guaranteed to be.</li>
+<li>One <code>FAQPage</code> per page, generated from the same items that are visible (Google's rule: marked-up content must be on the page).</li>
+<li>No standalone question URLs, as you specified.</li>
+<li>Where it appears: product, category, brand, delivery and the new tag pages.</li>
+</ul>
+
+<h2>9. How I will prove "server-rendered, zero errors"</h2>
+<ol>
+<li>Extend <code>scripts/site-validate.mjs</code> (already crawls raw HTML with JavaScript off): every internal link on every page must exist in the HTML, resolve with a 200 and no redirect; every tag, brand and region page must have a self-canonical, one H1, a unique title and description, BreadcrumbList, ItemList with canonical product URLs, FAQPage, and 150-250 words of intro.</li>
+<li>Cannibalisation check: no two indexable pages may share a primary keyword, and no tag's product set may be identical (or a subset within 90%) to a category's.</li>
+<li>Sibling-similarity check on intros and FAQ answers.</li>
+<li>Run the full set on a local production build, then on the live site after deploy, then Semrush and Search Console (sitemap resubmit, IndexNow) as before.</li>
+<li>Rollback: tags ship behind the sitemap gate, so a bad tag page can be dropped without touching any existing URL.</li>
+</ol>
+
+<h2>10. TypeScript interfaces (shape only; no code written yet)</h2>
+<pre>interface TagHub { slug: string; name: string; primaryKeyword: string; supporting: string[];
+  intro: string /* 150-250 words */; productSlugs: string[] /* hand-assigned, >= 4 */;
+  parentCategory?: string; faqs: { q: string; a: string /* 40-65 words */ }[]; guideSlugs: string[]; sources?: string[] }
+interface BrandHub { slug: string; name: string; match: string; intro: string; productCount: number; indexable: boolean }
+interface RegionHub { slug: string; city: string; state: string; roadKm: number /* sourced */; freightMode: 'same-corridor'|'interstate'; faqs: Faq[]; guide?: GuideRef }
+interface LinkRule { phrase: string; href: string; perParagraph: 1; owner: 'category'|'tag'|'region'|'guide' }
+interface Faq { q: string; a: string }</pre>
+
+<h2>11. Decisions I need from you before I write any code</h2>
+<ol class="q">
+<li><strong>URL structure.</strong> Keep <code>/shop/…</code> and add only <code>/tag/…</code> (recommended), or migrate to <code>/buggies/…</code> with 233 redirects (not recommended; temporary traffic loss, no gain)?</li>
+<li><strong>New delivery regions.</strong> Sunshine Coast, Cairns and Canberra? I will only add a region once its facts are sourced (road distance from Yatala, freight mode); I will not invent transit promises. Any others you genuinely deliver to?</li>
+<li><strong>Thin brands.</strong> PowaKaddy and Robera (1 product each), Atlas and Cushman (2 each): keep as noindex pages that qualify later, or fold into a "More brands" hub?</li>
+<li><strong>Tags.</strong> Approve the ten tags above (or edit the list). I will assign products by hand and show you each tag's product list before it ships.</li>
+<li><strong>"Street legal".</strong> Approve the factual "road access and lighting" replacement, with no product ever labelled street legal.</li>
+<li><strong>Wording.</strong> Keep "buggies" in URLs and headings, with "golf cart" kept in titles and body copy for search matching?</li>
+</ol>
+<p class="lede">When you answer these I will build in this order, validating after each step: tag config and gates, tag routes and schema, linker rules, brand and region upgrades, validator extensions, then deploy, verify live and resubmit to Google and Bing.</p>
+
+</main>
+</body>
+</html>

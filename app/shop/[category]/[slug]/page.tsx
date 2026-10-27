@@ -4,6 +4,7 @@ import { PRODUCTS, CATEGORIES, SITE, BRAND_PAGES } from '@/src/config/site';
 import { getProductDetails } from '@/src/config/product-details';
 import ProductClient from './ProductClient';
 import { resolveReferences, productReferenceIds } from '@/src/config/references';
+import { tagsForProduct } from '@/src/config/tags';
 import { buyerLinksFor } from '@/src/config/inbound-links';
 import { createLinker } from '@/lib/autolink';
 import { isBuggyItem } from '@/src/config/site';
@@ -85,6 +86,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         guides={(resolveCategory(category)?.guides ?? []).slice(0, 6)}
         references={resolveReferences(productReferenceIds(product, isBuggyItem(product.category, product.id, product.name) && product.category !== 'Motorised Walk-Behind Golf Buggies' && product.category !== 'Push Golf Buggies'))}
         buyerLinks={buyerLinksFor('product', product.slug)}
+        collections={tagsForProduct(product.slug).map((t) => ({ slug: t.slug, name: t.name }))}
       />
     </>
   );
