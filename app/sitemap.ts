@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { SITE, PRODUCTS, CATEGORIES, BRAND_PAGES, CONTENT_UPDATED } from '@/src/config/site';
 import { POSTS } from '@/src/config/posts';
 import { DELIVERY_METROS } from '@/src/config/delivery';
+import { brandIndexable } from '@/lib/brand-copy';
 import { INDEXABLE_TAGS } from '@/src/config/tags';
 
 // Split sitemaps, served at /sitemap/<id>.xml and indexed by
@@ -55,7 +56,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
           // A coming-soon category has copy but no catalogue yet.
           priority: cat.comingSoon ? 0.6 : 0.85,
         })),
-        ...BRAND_PAGES.map((b) => ({
+        ...BRAND_PAGES.filter(brandIndexable).map((b) => ({
           url: `${base}/shop/brand/${b.slug}/`,
           lastModified: catalogDate,
           changeFrequency: 'weekly' as const,

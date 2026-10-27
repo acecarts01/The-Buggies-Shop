@@ -17,6 +17,7 @@ import { createLinker } from '@/lib/autolink';
 import { BRAND_REFERENCES, BRAND_EXTRA_REFERENCES, REFERENCES } from '@/src/config/references';
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/schema';
+import { brandRangeParagraph, brandIndexable } from '@/lib/brand-copy';
 
 export async function generateStaticParams() {
   return BRAND_PAGES.map((b) => ({ brand: b.slug }));
@@ -73,6 +74,7 @@ export async function generateMetadata({ params }: PageProps) {
     description,
     ...(b.primaryKeyword ? { keywords: [b.primaryKeyword, ...b.supportingKeywords] } : {}),
     alternates: { canonical },
+    ...(brandIndexable(b) ? {} : { robots: { index: false, follow: true } }),
     openGraph: { title, description, url: canonical, type: 'website', siteName: SITE.name, images: socialImages(photo) },
     twitter: { card: 'summary_large_image', title, description, images: socialImages(photo) },
   };
@@ -205,6 +207,7 @@ export default async function BrandPage({ params }: PageProps) {
           <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark">
             <h2 className="text-lg sm:text-xl font-serif font-bold text-white mb-3">Why Buyers Choose {b.name}</h2>
             <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed"><LinkedText segs={bodySegs} /></p>
+            <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed mt-3">{brandRangeParagraph(b)}</p>
           </div>
 
           <section className="space-y-5">
