@@ -47,7 +47,7 @@ Never hand-write product pages. All routes, metadata, and JSON-LD derive from th
 - Registered Locality: Yatala QLD 4207.
 - All prices include 10% Australian GST.
 - Order rules live in `SHOP` (src/config/site.ts) — never restate the numbers here, or they drift.
-- No minimum order. No free-freight threshold. Freight is always quoted against the delivery
+- Minimum order $250 AUD (owner decision 2026-11-15; value lives in `SHOP.minOrder`): shown first in the homepage announcement bar, checkout disabled below it in the cart and rejected by `/api/orders`. Measured on goods after the accessory bundle discount, before the crypto discount, freight excluded. Admin-built invoices/quotes are not blocked. No free-freight threshold. Freight is always quoted against the delivery
   postcode at checkout, and the cart total is shown excluding freight.
 - Crypto incentive: 10% discount on vehicle price for any crypto payment (owner decision, 2026-10-18).
 - Returns policy: the commercial terms live in `RETURNS` (site.ts); the /returns/ page, product `hasMerchantReturnPolicy`, FAQs and llms.txt all derive from it. Australian Consumer Law guarantees apply on top and are never contracted out.

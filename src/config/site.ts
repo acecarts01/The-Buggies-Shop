@@ -110,7 +110,10 @@ export const CONTACT = {
 // postcode at checkout. The earlier $1,000 / $25,000 / $500 figures were
 // stale and are gone - do not reintroduce any of them.
 export const SHOP = {
-  minOrder: 0,                     // confirmed: no minimum order
+  // Owner decision 2026-11-15: minimum order $250 AUD (goods, GST incl., freight excluded).
+  // Measured on the cart after the accessory bundle discount and before any crypto discount.
+  // Enforced in the cart (checkout buttons disabled) and again in /api/orders.
+  minOrder: 250,
   freeShippingThreshold: null,     // confirmed: no free-freight offer; always quoted
   shippingNote: 'Calculated according to location/distance & pallet freight requirements',
   cryptoDiscount: 10, // 10% on any crypto payment

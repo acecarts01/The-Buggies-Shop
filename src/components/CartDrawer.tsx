@@ -91,6 +91,7 @@ export default function CartDrawer({
 
   const handleInvoiceOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (belowMinimum) return;
     if (!buyerName.trim()) {
       setOrderError('Please enter your full name.');
       return;
@@ -126,6 +127,7 @@ export default function CartDrawer({
   // customer's actual confirmation email/DB record end up different.
   const handleCryptoPay = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (belowMinimum) return;
     if (!buyerName.trim()) {
       setOrderError('Please enter your full name.');
       return;
@@ -152,7 +154,11 @@ export default function CartDrawer({
     setCryptoStage('pay');
   };
 
-  const handleWhatsAppOrderClick = () => {
+  const handleWhatsAppOrderClick = (e: React.MouseEvent) => {
+    if (belowMinimum) {
+      e.preventDefault();
+      return;
+    }
     sendOrderToSalesDesk('whatsapp');
   };
 
@@ -183,6 +189,10 @@ export default function CartDrawer({
 
   // Pay in 4 is for orders over SHOP.financeIn4.minAmount (checked on the pre-crypto subtotal).
   const payIn4Ok = isPayIn4Eligible(subtotalAfterAccessory);
+
+  // Minimum order (SHOP.minOrder): measured before the crypto discount, so choosing crypto never changes eligibility.
+  const belowMinimum = items.length > 0 && subtotalAfterAccessory < SHOP.minOrder;
+  const minShortfall = Math.max(0, SHOP.minOrder - subtotalAfterAccessory);
   useEffect(() => {
     if (paymentOption === 'finance4' && !payIn4Ok) setPaymentOption('standard');
   }, [paymentOption, payIn4Ok]);
@@ -570,7 +580,7 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                   <span>Included in prices (Official Tax Invoice provided)</span>
                 </div>
 
-                {/* There is no free-freight threshold and no minimum order.
+                {/* Minimum order is SHOP.minOrder; there is no free-freight threshold.
                     Freight is always quoted against the delivery postcode, so
                     the cart says so rather than leaving the buyer to read the
                     total as a delivered price. */}
@@ -641,11 +651,17 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 </div>
               )}
 
+              {belowMinimum && (
+                <div role="alert" id="cart-minimum-notice" className="text-[11px] leading-relaxed text-[#7A2E1B] bg-[#F7EFEA] border border-[#C86D51]/40 rounded-lg p-2.5">
+                  <strong>Minimum order ${SHOP.minOrder} AUD.</strong> Add ${minShortfall.toLocaleString('en-AU', { minimumFractionDigits: Number.isInteger(minShortfall) ? 0 : 2, maximumFractionDigits: 2 })} AUD more (GST included, freight excluded) to check out.
+                </div>
+              )}
+
               {/* Primary Order Action: invoice order, or the on-site crypto invoice */}
               <button
                 type="button"
                 onClick={paymentOption === 'crypto' ? handleCryptoPay : handleInvoiceOrderSubmit}
-                disabled={submittingOrder}
+                disabled={submittingOrder || belowMinimum}
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#B45A40] hover:bg-[#9A4C36] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-xs disabled:opacity-50 hover:-translate-y-px duration-200"
                 id="cart-submit-order-btn"
               >
@@ -653,6 +669,8 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 <span>
                   {submittingOrder
                     ? 'Submitting Order...'
+                    : belowMinimum
+                    ? `Minimum order $${SHOP.minOrder} AUD`
                     : paymentOption === 'crypto'
                     ? 'Pay with crypto'
                     : paymentOption === 'finance4'
@@ -671,7 +689,8 @@ The total above excludes freight. Please confirm stock availability at the Yatal
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppOrderClick}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#188741] hover:bg-[#147136] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm"
+                aria-disabled={belowMinimum}
+                className={`w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-[#188741] hover:bg-[#147136] text-white font-bold text-xs sm:text-sm rounded-lg transition-colors shadow-sm ${belowMinimum ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                 id="cart-whatsapp-order-btn"
               >
                 <MessageSquare className="w-4 h-4" />

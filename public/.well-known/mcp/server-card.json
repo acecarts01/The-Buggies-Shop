@@ -106,7 +106,7 @@
       "ordering": "human-assisted-whatsapp-or-form",
       "payment": ["PayID", "bank-transfer", "credit-card", "crypto-BTC", "crypto-USDT", "pay-in-4"],
       "currency": "AUD",
-      "minimumOrder": 0,
+      "minimumOrder": 250,
       "freeShipping": "GST inclusive and shown at checkout"
     }
   },

@@ -44,6 +44,11 @@ for (const c of children) {
 const sitemap = new Set(urls);
 if (urls.length !== sitemap.size) fail(`sitemap lists ${urls.length - sitemap.size} duplicate URLs`);
 
+// ---- minimum order: every page that states it must agree with llms.txt (built from SHOP.minOrder)
+const llmsText = await (await get(`${BASE}/llms.txt`)).text();
+const MIN_ORDER = (llmsText.match(/Minimum order: \$([\d,]+)/) || [])[1];
+if (!MIN_ORDER) fail("llms.txt does not state the minimum order");
+
 // ---- pages
 const pages = new Map();
 const inbound = new Map();
@@ -52,6 +57,8 @@ await pool(urls, 8, async (u) => {
   const r = await get(u);
   const t = r.status === 200 ? await r.text() : '';
   const g = (re) => (t.match(re) || [])[1] || '';
+  for (const m of t.matchAll(/minimum order (?:is |of )?\$([\d,]+)/gi)) if (MIN_ORDER && m[1] !== MIN_ORDER) fail(`${path(u)} states a minimum order of ${m[1]}, expected ${MIN_ORDER}`);
+  if (/no minimum order/i.test(t)) fail(`${path(u)} still says there is no minimum order`);
   const p = {
     status: r.status,
     title: decode(g(/<title>([^<]*)<\/title>/)),

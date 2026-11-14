@@ -130,7 +130,7 @@ export default async function DeliveryCityPage({ params }: PageProps) {
             {[
               { icon: MapPin, label: 'Dispatched from', value: `Yatala QLD 4207, our only depot` },
               { icon: Truck, label: 'How it travels', value: metro.freightMode === 'same-corridor' ? 'Enclosed transporter or tilt-tray down the M1' : 'Enclosed, weather-sealed transporter' },
-              { icon: Route, label: 'Freight', value: `Quoted against your ${metro.stateCode} postcode at checkout; no minimum order, no free-freight threshold` },
+              { icon: Route, label: 'Freight', value: `Quoted against your ${metro.stateCode} postcode at checkout; minimum order $${SHOP.minOrder} AUD, no free-freight threshold` },
             ].map((f) => (
               <li key={f.label} className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-5 space-y-1.5 metal-brushed-dark">
                 <div className="flex items-center gap-2 text-[#E2A17A] text-xs font-bold uppercase tracking-wider">

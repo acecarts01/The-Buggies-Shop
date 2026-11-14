@@ -77,7 +77,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'How much is delivery to a Gold Coast address?',
-        a: 'Freight is quoted against your delivery postcode at checkout and shown separately from the vehicle price. There is no minimum order and no free-freight threshold; the quote covers the actual leg from Yatala to your street.',
+        a: 'Freight is quoted against your delivery postcode at checkout and shown separately from the vehicle price. The minimum order is $250 AUD and there is no free-freight threshold; the quote covers the actual leg from Yatala to your street.',
       },
       {
         q: 'Can I see a golf buggy before I buy?',
@@ -132,7 +132,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         heading: 'How delivery to Brisbane works',
-        body: 'The buggy is tested and cleaned at Yatala, then delivered on an enclosed transporter or tilt-tray. Freight is quoted against your postcode at checkout and shown separately; there is no minimum order and no free-freight threshold. Vehicles priced at $15,000 AUD or more qualify for a complimentary on-site trial demonstration.',
+        body: 'The buggy is tested and cleaned at Yatala, then delivered on an enclosed transporter or tilt-tray. Freight is quoted against your postcode at checkout and shown separately; the minimum order is $250 AUD and there is no free-freight threshold. Vehicles priced at $15,000 AUD or more qualify for a complimentary on-site trial demonstration.',
       },
     ],
     faqs: [
@@ -194,7 +194,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         heading: 'How interstate delivery to Sydney works',
-        body: 'Every vehicle is charged, road-tested and cleaned at Yatala before it is loaded. It travels in an enclosed, weather-sealed transporter to your address; the freight leg is quoted against your delivery postcode at checkout and shown separately from the vehicle price. There is no minimum order and no free-freight threshold, and the price you see already includes GST.',
+        body: 'Every vehicle is charged, road-tested and cleaned at Yatala before it is loaded. It travels in an enclosed, weather-sealed transporter to your address; the freight leg is quoted against your delivery postcode at checkout and shown separately from the vehicle price. The minimum order is $250 AUD and there is no free-freight threshold, and the price you see already includes GST.',
       },
       {
         heading: 'Registration and warranty from interstate',
@@ -208,7 +208,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'How much does delivery from Queensland to Sydney cost?',
-        a: 'It depends on the vehicle and your postcode, so it is quoted per order and shown separately from the GST-inclusive vehicle price. There is no free-freight threshold and no minimum order.',
+        a: 'It depends on the vehicle and your postcode, so it is quoted per order and shown separately from the GST-inclusive vehicle price. The minimum order is $250 AUD and there is no free-freight threshold.',
       },
       {
         q: 'Is the buggy tested before it is shipped interstate?',
@@ -259,7 +259,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         heading: 'How interstate delivery to Melbourne works',
-        body: 'The vehicle is charged, road-tested and cleaned at Yatala, then travels enclosed and weather-sealed to your address. Freight is quoted against your delivery postcode at checkout and shown separately from the GST-inclusive vehicle price; there is no minimum order and no free-freight threshold. Batteries, chargers and accessories ordered with the vehicle travel on the same load at a 5% accessory discount.',
+        body: 'The vehicle is charged, road-tested and cleaned at Yatala, then travels enclosed and weather-sealed to your address. Freight is quoted against your delivery postcode at checkout and shown separately from the GST-inclusive vehicle price; the minimum order is $250 AUD and there is no free-freight threshold. Batteries, chargers and accessories ordered with the vehicle travel on the same load at a 5% accessory discount.',
       },
       {
         heading: 'Cold-climate battery notes',
@@ -273,7 +273,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'How much is golf buggy delivery from Queensland to Melbourne?',
-        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price. There is no free-freight threshold and no minimum order.',
+        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price. The minimum order is $250 AUD and there is no free-freight threshold.',
       },
       {
         q: 'Do you stock Yamaha golf carts for Melbourne buyers?',
@@ -325,7 +325,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         heading: 'How interstate delivery to Adelaide works',
-        body: 'The buggy is charged, road-tested and cleaned at Yatala, then travels enclosed and weather-sealed to your address. Freight is quoted against your delivery postcode at checkout and shown separately from the vehicle price; there is no minimum order and no free-freight threshold. Accessories ordered with the vehicle travel on the same load at a 5% discount.',
+        body: 'The buggy is charged, road-tested and cleaned at Yatala, then travels enclosed and weather-sealed to your address. Freight is quoted against your delivery postcode at checkout and shown separately from the vehicle price; the minimum order is $250 AUD and there is no free-freight threshold. Accessories ordered with the vehicle travel on the same load at a 5% discount.',
       },
       {
         heading: 'Heat, dust and batteries',
@@ -339,7 +339,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'How much is delivery from Queensland to Adelaide?',
-        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price. There is no free-freight threshold and no minimum order.',
+        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price. The minimum order is $250 AUD and there is no free-freight threshold.',
       },
       {
         q: 'Do you sell electric golf carts suitable for Adelaide heat?',
@@ -391,7 +391,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         heading: 'How delivery to Perth works',
-        body: 'The vehicle is charged, road-tested and cleaned at Yatala, then travels in an enclosed, weather-sealed transporter to your address. The freight leg is quoted against your delivery postcode at checkout and shown separately from the GST-inclusive vehicle price. There is no minimum order and no free-freight threshold; bundling batteries, chargers and accessories on the same load at the 5% accessory discount makes the leg work harder.',
+        body: 'The vehicle is charged, road-tested and cleaned at Yatala, then travels in an enclosed, weather-sealed transporter to your address. The freight leg is quoted against your delivery postcode at checkout and shown separately from the GST-inclusive vehicle price. The minimum order is $250 AUD and there is no free-freight threshold; bundling batteries, chargers and accessories on the same load at the 5% accessory discount makes the leg work harder.',
       },
       {
         heading: 'Choosing a buggy for WA conditions',
@@ -405,7 +405,7 @@ export const DELIVERY_METROS: DeliveryMetro[] = [
       },
       {
         q: 'How much is delivery from Queensland to Perth?',
-        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price, so you can compare the delivered figure before committing. There is no free-freight threshold and no minimum order.',
+        a: 'It is quoted per order against your postcode and shown separately from the GST-inclusive vehicle price, so you can compare the delivered figure before committing. The minimum order is $250 AUD and there is no free-freight threshold.',
       },
       {
         q: 'Do you sell electric golf buggies suitable for Perth heat?',

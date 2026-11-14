@@ -397,11 +397,11 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "What payment methods do you accept?",
-        a: "PayID and Osko, direct bank transfer, Finance in 4, and Bitcoin or Tether with the 10% vehicle discount. There is no minimum order and no card surcharge on bank settlement. Larger orders sometimes hit bank daily transfer limits, so check yours beforehand.",
+        a: "PayID and Osko, direct bank transfer, Finance in 4, and Bitcoin or Tether with the 10% vehicle discount. The minimum order is $250 AUD and there is no card surcharge on bank settlement. Larger orders sometimes hit bank daily transfer limits, so check yours beforehand.",
       },
       {
         q: "Is there a minimum order?",
-        a: "No. There is no minimum order and no free-freight threshold. Freight is always quoted against your delivery postcode rather than averaged into prices or waived above a spend, so you pay for the leg you actually use.",
+        a: "Yes. The minimum order is $250 AUD (GST included, freight excluded), and there is no free-freight threshold. Freight is always quoted against your delivery postcode rather than averaged into prices or waived above a spend, so you pay for the leg you actually use.",
       },
       {
         q: "Can a business claim GST on a golf buggy?",
@@ -4625,7 +4625,7 @@ export const POSTS: BlogPost[] = [
     image: '/images/atlas-4-passenger-lifted-lithium-buggy.webp',
     tags: ['Ordering Process', 'Delivery', 'Invoicing', 'Buying Guide'],
     keyTakeaways: [
-      'There is no minimum order and no free-freight threshold — freight is always calculated against your specific delivery postcode and shown before you commit, and the cart total is shown excluding freight.',
+      'The minimum order is $250 AUD and there is no free-freight threshold — freight is always calculated against your specific delivery postcode and shown before you commit, and the cart total is shown excluding freight.',
       'Payment methods are PayID/Osko, direct bank transfer, Finance in 4 (four interest-free instalments), or crypto (BTC/USDT) for a 10% discount on the vehicle price.',
       'Every order generates a formal tax invoice from GOLF BUGGIES EXPRESS PTY LTD (ABN 28 668 598 758), and a signed order reference lets you check status without creating an account.',
       'Delivery is by enclosed nationwide freight from our Yatala QLD depot; we quote against your postcode rather than promising a fixed transit time up front.',
@@ -4633,7 +4633,7 @@ export const POSTS: BlogPost[] = [
     content: [
       {
         heading: 'Step One: Choosing A Model And Getting A Real Price',
-        body: "Every model on the site is priced at one number, GST included, with no minimum order and no free-freight threshold to hit. Freight is calculated separately against your delivery postcode and shown before you're asked to pay anything, so the cart total you see is the vehicle price, and freight is quoted alongside it rather than buried in a final step.",
+        body: "Every model on the site is priced at one number, GST included, with a $250 AUD minimum order and no free-freight threshold to hit. Freight is calculated separately against your delivery postcode and shown before you're asked to pay anything, so the cart total you see is the vehicle price, and freight is quoted alongside it rather than buried in a final step.",
       },
       {
         heading: 'Step Two: Choosing How To Pay',
@@ -4663,7 +4663,7 @@ export const POSTS: BlogPost[] = [
       },
     ],
     faqs: [
-      { q: 'Is there a minimum order amount to buy from The Buggies Express?', a: 'No. There is no minimum order and no free-freight threshold. Freight is always calculated against your specific delivery postcode and shown before you pay, and the cart total is shown excluding freight so nothing is hidden.' },
+      { q: 'Is there a minimum order amount to buy from The Buggies Express?', a: 'Yes. The minimum order is $250 AUD (GST included, freight excluded), and there is no free-freight threshold. Freight is always calculated against your specific delivery postcode and shown before you pay, and the cart total is shown excluding freight so nothing is hidden.' },
       { q: 'How do I pay for a golf buggy online?', a: 'Four ways: PayID/Osko, direct bank transfer, Finance in 4 (four interest-free instalments), or crypto (Bitcoin or Tether) for a 10% discount on the vehicle price, paid on our own on-site checkout rather than through an exchange.' },
       { q: 'Do I get a formal tax invoice for my purchase?', a: 'Yes. Every confirmed order generates a formal tax invoice from GOLF BUGGIES EXPRESS PTY LTD (ABN 28 668 598 758), with GST itemised as required, along with a unique signed order reference so you can check its status at any time.' },
       { q: 'How is my golf buggy delivered?', a: 'By enclosed nationwide freight from our Yatala QLD depot, meaning the buggy travels inside a covered transporter rather than an open trailer. We quote a realistic delivery estimate against your specific postcode rather than a generic fixed transit time.' },
@@ -4806,7 +4806,7 @@ export const POSTS: BlogPost[] = [
       'Standard row spacing in most Australian vineyards is tight enough that overall buggy width — not just wheelbase — has to be checked against your specific rows before ordering.',
       'Grassed inter-row or loose, uneven ground between vines favours all-terrain tyres and genuine ground clearance over a standard golf-spec chassis.',
       'Wineries running cellar-door guest transport alongside vineyard work often find a resort-style 4-seater and a utility model serve those two jobs better than one vehicle trying to do both.',
-      'Freight to a rural or regional vineyard address is quoted the same way as anywhere else: against your specific postcode, with no minimum order.',
+      'Freight to a rural or regional vineyard address is quoted the same way as anywhere else: against your specific postcode, with a $250 AUD minimum order.',
     ],
     content: [
       {
@@ -4836,7 +4836,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: 'Ordering For A Rural Or Regional Winery Address',
-        body: "Freight to a vineyard or winery address, whether it's five minutes from a regional town or genuinely remote, is quoted the same way as any other delivery: against your specific postcode, with no minimum order to hit. For larger purchases — say a utility model and a guest 4-seater together — our wholesale and fleet desk can quote the freight as one combined job rather than two separate deliveries.",
+        body: "Freight to a vineyard or winery address, whether it's five minutes from a regional town or genuinely remote, is quoted the same way as any other delivery: against your specific postcode, with a $250 AUD minimum order. For larger purchases — say a utility model and a guest 4-seater together — our wholesale and fleet desk can quote the freight as one combined job rather than two separate deliveries.",
       },
       {
         heading: "Hauling loads between rows and cellar door",
@@ -4847,7 +4847,7 @@ export const POSTS: BlogPost[] = [
       { q: 'Will a standard golf buggy fit between vineyard rows?', a: "It depends on your specific row spacing and the buggy's full width including mirrors and guards, not just its stated wheelbase. Measure your actual rows and compare them against a model's width spec before ordering, since narrow rows rule out some models entirely." },
       { q: 'What tyres are best for vineyard row work?', a: 'All-terrain tyres, for grip on grassed, mulched or uneven inter-row ground that shifts with irrigation and season. A standard golf-course tyre is built for manicured turf and underperforms on the mixed surfaces typical between vine rows.' },
       { q: 'Should a winery buy one buggy for both fieldwork and guests?', a: "It's possible but usually a compromise. Wineries doing meaningful volumes of both jobs more often run two purpose-built vehicles: a commercial utility model for row work, and a presentable 4-seater kept specifically for cellar-door guest transport." },
-      { q: 'Do you deliver golf buggies to regional and rural vineyard addresses?', a: 'Yes. Freight is quoted against your specific postcode regardless of how rural the address is, with no minimum order. For multiple vehicles, our wholesale and fleet desk can quote combined freight as one job.' },
+      { q: 'Do you deliver golf buggies to regional and rural vineyard addresses?', a: 'Yes. Freight is quoted against your specific postcode regardless of how rural the address is, with a $250 AUD minimum order. For multiple vehicles, our wholesale and fleet desk can quote combined freight as one job.' },
       { q: 'What buggy suits carrying pruning waste and picking bins?', a: 'A commercial utility or flatbed cargo model built for load carrying, rather than a passenger-focused buggy. Our commercial utility range is built for exactly this kind of mixed farm and hospitality load work.' },
       { q: "Which buggy suits hauling loads on a vineyard?", a: "A utility buggy suits heavy jobs. The Club Car Carryall 700 lists a 680kg payload and a tow hitch at $22,900 AUD, and the E-Z-GO Cushman Hauler PRO lists 544kg towing capacity at $21,500 AUD, both including GST. Compare them on payload, terrain and running cost before you decide." },
     ],
@@ -5120,7 +5120,7 @@ export const POSTS: BlogPost[] = [
     keyTakeaways: [
       'We deliver to Canberra and the ACT by enclosed nationwide freight from our Yatala QLD depot; we do not operate a showroom or depot in the ACT, and freight is quoted against your specific postcode.',
       "Canberra's genuinely cold winters make battery care more relevant than in most of the markets we serve — cold reduces usable range and charge efficiency temporarily, more than it damages a modern lithium pack.",
-      'No minimum order and no free-freight threshold apply the same way to a Canberra delivery as anywhere else in Australia.',
+      'The $250 AUD minimum order applies to a Canberra delivery exactly as it does anywhere else in Australia, and there is no free-freight threshold.',
       'Finance in 4, PayID, bank transfer and the crypto discount are all available regardless of delivery location.',
     ],
     content: [
@@ -5130,7 +5130,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         heading: 'Freight Is Quoted Against Your Postcode, Not A Flat ACT Rate',
-        body: "Because the ACT is a genuine interstate delivery from Queensland, freight is quoted specifically against your delivery postcode at checkout rather than a flat regional rate, and there's no minimum order or free-freight threshold to hit first. The quote you see reflects the actual road distance and current carrier scheduling for enclosed transport to your address.",
+        body: "Because the ACT is a genuine interstate delivery from Queensland, freight is quoted specifically against your delivery postcode at checkout rather than a flat regional rate, and there's only a $250 AUD minimum order and no free-freight threshold to hit first. The quote you see reflects the actual road distance and current carrier scheduling for enclosed transport to your address.",
       },
       {
         heading: "Canberra's Cold Winters And What They Actually Mean For A Buggy",
@@ -5156,7 +5156,7 @@ export const POSTS: BlogPost[] = [
     ],
     faqs: [
       { q: 'Do you have a showroom or depot in Canberra or the ACT?', a: "No. We operate from a single depot in Yatala, Queensland, and deliver to Canberra and the ACT by enclosed nationwide freight. There is no local showroom, technician base or stock held in the ACT." },
-      { q: 'How is freight calculated for a golf buggy delivered to Canberra?', a: "Freight is quoted specifically against your delivery postcode at checkout, reflecting the actual road distance and current carrier scheduling for enclosed interstate transport — there's no flat regional rate and no minimum order to hit first." },
+      { q: 'How is freight calculated for a golf buggy delivered to Canberra?', a: "Freight is quoted specifically against your delivery postcode at checkout, reflecting the actual road distance and current carrier scheduling for enclosed interstate transport — there's no flat regional rate and the only threshold is the $250 AUD minimum order." },
       { q: "Does Canberra's cold winter climate damage golf buggy batteries?", a: 'No, not in the sense of lasting damage under normal use. Cold temporarily reduces usable range and charge efficiency in a lithium pack, which returns to normal as the battery warms — a genuine seasonal effect rather than a defect.' },
       { q: 'Should I buy a petrol or electric buggy for Canberra conditions?', a: "Cold affects charge behaviour temporarily rather than ruling electric out, so the choice should come down to the same factors as anywhere: your property's power access, typical trip distance and how the buggy will actually be used." },
       { q: 'What payment methods are available for a Canberra order?', a: 'The same as any Australian delivery: PayID/Osko, direct bank transfer, Finance in 4 at 0% interest, or crypto (Bitcoin or Tether) for a 10% discount on the vehicle price.' },

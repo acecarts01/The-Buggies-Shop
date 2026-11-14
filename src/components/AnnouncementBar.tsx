@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { SHOP } from '@/src/config/site';
 
 interface AnnouncementBarProps {
   announcements?: string[];
 }
 
 const defaultAnnouncements = [
+  `Minimum order $${SHOP.minOrder} AUD (GST included, freight quoted separately)`,
   'Enclosed trailer delivery direct to your acreage homestead or golf estate across Australia',
   'Official ASIC Registered Entity: Golf Buggies Express PTY LTD (ABN 28 668 598 758) • Yatala QLD',
   'Save 10% on your total vehicle order when you pay in crypto',

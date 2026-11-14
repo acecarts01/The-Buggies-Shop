@@ -159,7 +159,7 @@ export function draftReply(ctx: EnquiryContext): ReplyDraft {
       paras.push(`Accessories ordered with any buggy take ${SHOP.accessoryBundleDiscount}% off. All prices include GST, and freight is quoted separately against your delivery postcode.`);
     } else {
       paras.push(
-        `All prices include GST and there is no minimum order. Paying in crypto takes ${SHOP.cryptoDiscount}% off the vehicle price, which brings it to ${aud(Math.round(product.price_aud * (1 - SHOP.cryptoDiscount / 100)))}. Freight is quoted separately against your delivery postcode.`
+        `All prices include GST and the minimum order is ${aud(SHOP.minOrder)}. Paying in crypto takes ${SHOP.cryptoDiscount}% off the vehicle price, which brings it to ${aud(Math.round(product.price_aud * (1 - SHOP.cryptoDiscount / 100)))}. Freight is quoted separately against your delivery postcode.`
       );
     }
   }

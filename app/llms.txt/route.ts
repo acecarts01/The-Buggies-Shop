@@ -63,7 +63,7 @@ export function GET() {
     `- Service area: all Australian states and territories; overseas enquiries by arrangement`,
     `- Range: ${PRODUCTS.length} models, ${aud(Math.min(...prices))} – ${aud(Math.max(...prices))} AUD. All prices include 10% GST`,
     `- Brands stocked: ${BRAND_PAGES.map((b) => b.name).join(', ')}`,
-    `- Minimum order: none. Freight: always quoted against the delivery postcode at checkout; the cart total excludes freight`,
+    `- Minimum order: ${aud(SHOP.minOrder)} AUD (goods, GST included, freight excluded). Freight: always quoted against the delivery postcode at checkout; the cart total excludes freight`,
     `- Payment: ${SHOP.paymentMethods.join('; ')}`,
     `- Accessory bundle: ${SHOP.accessoryBundleDiscount}% off accessories purchased with any buggy`,
     ``,

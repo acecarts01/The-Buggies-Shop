@@ -16,6 +16,7 @@ import { sendMail, salesDeskAddress } from '@/lib/email/send';
 import { upsertOrder } from '@/lib/db';
 import { blockReasons, overRateLimit, logBlocked } from '@/lib/spam';
 import { isPayIn4Eligible } from '@/lib/pay-in-4';
+import { SHOP } from '@/src/config/site';
 
 // POST /api/orders/ - the cart's order submission.
 //
@@ -59,6 +60,11 @@ export async function POST(request: Request) {
 
   const lines = priceLines(rawItems.slice(0, 30));
   if (!lines.length) return NextResponse.json({ success: false, message: 'Your cart is empty.' }, { status: 400 });
+
+  // Minimum order (SHOP.minOrder), on the goods total after the bundle discount and before any crypto discount.
+  if (computeTotals(lines, 'standard').total < SHOP.minOrder) {
+    return NextResponse.json({ success: false, message: `The minimum order is $${SHOP.minOrder} AUD (GST included, freight excluded). Please add to your cart.` }, { status: 400 });
+  }
 
   // Pay in 4 only applies to orders over the minimum; the cart enforces it too, this stops a hand-built request.
   if (payment === 'finance4' && !isPayIn4Eligible(computeTotals(lines, 'standard').total)) payment = 'standard';

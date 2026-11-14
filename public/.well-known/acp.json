@@ -10,7 +10,7 @@
     "ordering": "human-assisted",
     "payment_methods": ["PayID", "bank-transfer", "credit-card", "crypto-BTC", "crypto-USDT", "pay-in-4"],
     "currency": "AUD",
-    "minimum_order_usd": 0,
+    "minimum_order_aud": 250,
     "free_shipping_threshold_usd": 500
   },
   "contact": {
