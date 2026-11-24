@@ -290,7 +290,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
                 
                 <StaggeredHeading
                   tag="h2"
-                  text="About Golf Buggies Express PTY LTD"
+                  text="Who Is Golf Buggies Express Pty Ltd?"
                   className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#121417] tracking-tight"
                 />
 
@@ -393,7 +393,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
 
               <StaggeredHeading
                 tag="h2"
-                text="Order Direct from Yatala QLD with Nationwide Freight"
+                text="How Do You Order Buggies for Sale from Yatala QLD?"
                 className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight"
               />
 
@@ -431,7 +431,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
                   
                   <StaggeredHeading
                     tag="h2"
-                    text="Latest Buggy Guides & Tech Advice"
+                    text="Not Sure Which Buggy to Buy? Read Our Guides"
                     className="text-2xl sm:text-3xl font-serif font-bold text-[#121417] tracking-tight"
                   />
 

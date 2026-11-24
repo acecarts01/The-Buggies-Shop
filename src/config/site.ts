@@ -53,9 +53,9 @@ export const SITE = {
 // cover actually changes; blog posts use their own `date`.
 export const CONTENT_UPDATED = {
   /** PRODUCTS, CATEGORIES or BRAND_PAGES changed (prices, specs, copy, new models). */
-  catalog: '2026-11-15',
+  catalog: '2026-11-24',
   /** Static pages: home, about, faq, delivery, contact, crypto-payment, wholesale. */
-  pages: '2026-11-15',
+  pages: '2026-11-24',
 };
 
 export function isAccessoryItem(category?: string, id?: string, name?: string): boolean {
@@ -343,7 +343,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United States',
     primaryKeyword: 'club car golf carts',
     supportingKeywords: ['club car golf carts for sale', 'club car golf carts australia', 'clubcar golf carts', 'club car electric cart', 'club car buggy', 'club car electric golf cart'],
-    intro: 'Club Car golf buggies for sale in Australia, stocked and serviced from our Yatala QLD depot with genuine parts held locally.',
+    intro: 'Club Car golf carts for sale in Australia: Onward, Tempo, Carryall and Transporter buggies, stocked and serviced from our Yatala QLD depot with genuine parts held locally.',
     body: 'Club Car is the brand buyers choose when resale value matters as much as the drive. The aircraft-grade aluminium frame is the reason: aluminium does not rust, so coastal salt air and irrigated fairways cannot eat the chassis out from under the bodywork the way they do with steel-framed imports. That single material decision is why a well-kept Club Car holds its price years after a cheaper buggy has become a liability. We carry the Onward, Tempo, Carryall and Transporter lines, spanning private golf, estate driving, grounds work and passenger shuttling, in both lithium and EFI petrol. Parts are held in Australia rather than ordered in when something fails.',
   },
   {
@@ -353,7 +353,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'Australia',
     primaryKeyword: 'mgi golf buggy',
     supportingKeywords: ['mgi golf cart', 'mgi golf buggy australia', 'mgi buggy', 'mgi electric golf buggy', 'mgi golf buggy for sale', 'mgi electric golf buggy australia'],
-    intro: 'MGI motorised and remote control golf buggies, the Australian-designed walk-behind range, in stock at Yatala QLD.',
+    intro: 'The MGI golf buggy range: Australian-designed motorised and remote control walk-behind buggies, in stock at Yatala QLD.',
     body: 'MGI is an Australian company and it shows in how the buggies are set up for local courses. The Zip and Ai Navigator ranges cover the whole walk-behind spectrum, from a simple speed dial for a first motorised buggy through to full directional remote control with gyroscope straight-tracking that holds a line across cambered fairways. Australian conditions were the design brief rather than an afterthought, which matters on kikuyu and couch turf and through a wet season. Genuine MGI batteries, remotes and accessories are held in Australian stock, so a worn consumable does not mean replacing an otherwise healthy buggy.',
   },
   {
@@ -383,7 +383,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United States',
     primaryKeyword: 'ezgo golf buggy',
     supportingKeywords: ['ezgo golf carts australia', 'ezgo golf cart', 'ezgo golf cart for sale', 'ezgo golf buggy for sale', 'ezgo golf carts for sale australia', 'ezgo electric cart'],
-    intro: 'E-Z-GO golf buggies and utility vehicles for sale in Australia, with ELiTE lithium models and EFI petrol, supported from Yatala QLD.',
+    intro: 'An ezgo golf buggy for sale in Australia: E-Z-GO golf and utility vehicles in ELiTE lithium and EFI petrol, supported from Yatala QLD.',
     body: 'E-Z-GO builds around safety and serviceability rather than headline specifications. The RXV ELiTE is the clearest example: its automatic electromagnetic brake holds the buggy the instant you lift off the throttle, so it will not creep on a steep fairway or a sloped village driveway. For retirement village residents and anyone parking on an incline, that behaviour is worth more than any number on a spec sheet. The range runs from two-seat golf models through the six-seat Express L6 to the Cushman Hauler commercial line. ELiTE lithium uses Samsung SDI cells, and parts are stocked in Australia.',
   },
   {
@@ -393,7 +393,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'Japan',
     primaryKeyword: 'yamaha golf carts for sale',
     supportingKeywords: ['yamaha golf cart', 'yamaha golf carts australia', 'yamaha golf buggy', 'yamaha golf cart prices australia', 'yamaha petrol golf cart', 'buy yamaha golf cart'],
-    intro: 'Yamaha golf buggies and UMAX utility vehicles for sale in Australia, including the QuietTech EFI petrol range, from our Yatala QLD depot.',
+    intro: 'Yamaha golf carts for sale in Australia, including the Drive2, the UMAX utility vehicles and the QuietTech EFI petrol range, from our Yatala QLD depot.',
     body: 'Yamaha brings its engine and chassis engineering to a category where most competitors buy both in. Two things stand out. Independent front and rear suspension on the Drive2 is rare at this level and it is why the buggy absorbs rough turf and unsealed tracks as a muted movement rather than a jolt through the seat frame. And QuietTech petrol answers the one real objection to combustion: it brings a petrol buggy close enough to electric in sound that conversation at speed stays comfortable, while keeping unlimited range and one-minute refuelling. The UMAX line covers livestock properties and large regional venues.',
   },
   {
@@ -403,7 +403,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United States',
     primaryKeyword: 'buy evolution golf cart',
     supportingKeywords: ['evolution golf carts', 'evolution golf carts australia', 'new evolution golf cart', 'evolution electric golf cart reviews'],
-    intro: 'Evolution electric golf buggies for sale in Australia, from the six-passenger D5 Ranger to the Classic 2 Plus, in stock at Yatala QLD.',
+    intro: 'Buy Evolution golf cart models in Australia: electric buggies from the six-passenger D5 Ranger to the Classic 2 Plus, in stock at Yatala QLD.',
     body: 'Evolution builds the most screen-forward buggies we stock, and for buyers coming across from a modern car that familiarity matters. The D5 Ranger 4+2 carries six passengers with forward-facing seating in both rows, a nine-inch touchscreen and a 110Ah lithium pack, which makes it the largest-capacity model in our luxury range. The Classic 2 Plus brings automotive-level instrumentation to a two-seat buggy: a 6.3-inch LCD, side mirrors with integrated turn signals and reverse camera compatibility, which is what buyers on shared estate roads actually ask for. The 700 heavy commercial utility covers facility and patrol work.',
   },
   {
@@ -413,7 +413,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'China',
     primaryKeyword: 'lvtong golf carts',
     supportingKeywords: ['lvtong golf cart reviews', 'lvtong golf cart for sale', 'lvtong golf cart price', 'lvtong golf buggy', 'lvtong buggy', 'lvtong carts', 'lvtong', 'lvtong price', 'best lvtong golf carts dealer in australia', 'lvtong electric golf carts with warranty', 'lvtong golf carts with lithium battery upgrade', 'lvtong golf cart reviews australia', 'lv tong utility vehicles'],
-    intro: 'LVTONG electric golf buggies for Australian resorts, caravan parks and commercial operators, supplied and supported from Yatala QLD.',
+    intro: 'LVTONG golf carts for Australian resorts, caravan parks and commercial operators, supplied and supported from Yatala QLD.',
     body: 'LVTONG is specified by operators who count running cost per year rather than features per brochure, and it has become a proven workhorse across Australian caravan parks and holiday resorts. The Resort Cruiser pairs a 4kW AC motor with a maintenance-free lithium pack and an on-board charger, so any standard outlet becomes a charging point without new infrastructure. Heavy-duty bumpers take the knocks that shared-use vehicles collect from bollards and gateposts. The commercial flatbed adds a low steel mesh deck that drains, turning awkward lifts into slides for nursery and grounds work.',
   },
   {
@@ -423,7 +423,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'Australia',
     primaryKeyword: 'tara golf buggy',
     supportingKeywords: ['tara ev golf cart', 'tara golf carts', 'tara golf cart reviews'],
-    intro: 'Tara golf buggies for sale in Australia, the value end of the lifted and two-seat lithium range, from our Yatala QLD depot.',
+    intro: 'A Tara golf buggy for sale in Australia: the value end of the lifted and two-seat lithium range, from our Yatala QLD depot.',
     body: 'Tara is where the range earns its value position with hardware rather than trim. The Roadster 2+2 Lifted is the clearest case: hydraulic disc brakes on a lifted chassis give genuine stopping control on sloped semi-rural driveways where drum brakes fade and feel vague under load, and the rear flip seat converts from passenger bench to flat cargo deck in seconds. The Roadster 4 Off-Road uses a high-torque gear reduction chosen specifically for sustained climbing rather than flat-ground speed. The Spirit Pro is a straightforward lithium two-seater for golfers stepping away from an ageing lead-acid buggy.',
   },
   {
@@ -433,7 +433,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United States',
     primaryKeyword: 'atlas golf carts',
     supportingKeywords: ['atlas golf carts australia', 'atlas golf buggy', 'atlas golf carts near me'],
-    intro: 'Atlas lifted lithium golf buggies for Australian estates and acreage, including the 350A heavy-duty model, in stock at Yatala QLD.',
+    intro: 'Atlas golf carts for Australian estates and acreage: lifted lithium buggies, including the 350A heavy-duty model, in stock at Yatala QLD.',
     body: 'Atlas is the range we point acreage owners at when a standard-height buggy has already disappointed them. Both models are built around ground clearance and hill capability rather than fairway manners. The 4-Passenger Lifted pairs a three-inch factory lift and 14-inch alloys with custom leather seating, so it clears rutted estate driveways without giving up cabin comfort. The Heavy-Duty Lifted 350A goes further, with a 350-amp controller and four-wheel hydraulic disc brakes: controller amperage is what decides whether a laden four-seater walks up a steep farm track or bogs down halfway, and the brakes are what get it back down.',
   },
   {
@@ -443,7 +443,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United States',
     primaryKeyword: 'cushman electric cart for sale',
     supportingKeywords: ['cushman golf buggy', 'cushman golf cart', 'cushman cart', 'cushman buggies', 'cushman gas golf cart'],
-    intro: 'Cushman Hauler utility vehicles for Australian turf, grounds and agricultural work, supplied from our Yatala QLD depot.',
+    intro: 'A Cushman electric cart for sale in Australia, plus the petrol Hauler: utility vehicles for turf, grounds and agricultural work, from our Yatala QLD depot.',
     body: 'Cushman is a work brand, and the specification reflects it. The Hauler PRO runs a 72V AC drive rather than the 48V systems common elsewhere in the range, and higher system voltage lets it move heavy loads at lower current, running cooler and holding performance through a full shift. Its optional electric dump bed turns tipping a load of sand or mulch into a button rather than a shovel. The petrol Hauler 1200 takes the opposite approach: a 13.5HP Kawasaki engine and a manual dump bed, with fewer systems to fail a long way from the shed. Both carry substantial rated loads.',
   },
   {
@@ -453,7 +453,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'United Kingdom',
     primaryKeyword: 'powakaddy golf buggy',
     supportingKeywords: ['powakaddy buggy', 'powakaddy golf carts', 'powakaddy trolley', 'best powakaddy trolley', 'electric golf trolley powakaddy'],
-    intro: 'PowaKaddy electric golf trolleys in Australia, including the FX7 GPS lithium, stocked and warranty-supported from Yatala QLD.',
+    intro: 'A PowaKaddy golf buggy in Australia: the FX7 GPS lithium electric trolley, stocked and warranty-supported from Yatala QLD.',
     body: 'PowaKaddy brings UK engineering and the most readable screen in the walk-behind category. The FX7 carries a 3.5-inch OCA full-colour touchscreen preloaded with over 40,000 courses worldwide, so it works on your home course and on holiday without hunting for a download before every round. OCA bonding is the reason it stays legible in Australian sunlight where cheaper laminated screens wash out. The 30V Plug and Play lithium system fits and removes without tools, which matters when the buggy lives in a car boot between rounds and the battery comes inside to charge.',
   },
   {
@@ -463,7 +463,7 @@ export const BRAND_PAGES: BrandPage[] = [
     origin: 'International',
     primaryKeyword: 'robera golf buggy',
     supportingKeywords: ['robera golf trolley', 'follow me golf cart reviews', 'follow golf cart reviews'],
-    intro: 'Robera hands-free follow golf buggies in Australia, the smart-tracking walk-behind option, stocked at our Yatala QLD depot.',
+    intro: 'The Robera golf buggy in Australia: a hands-free follow walk-behind buggy with smart tracking, stocked at our Yatala QLD depot.',
     body: 'Robera is the only buggy in our range that needs no input at all once you start walking. A smart tracking tag clips to your belt and the buggy follows your footsteps at a safe distance, so there is no remote to hold, no dial to adjust and nothing to think about between shots. Dual-mode remote control is still there when you want to send it ahead. All-terrain dual motors supply the independent drive that follow-mode needs to hold a line across slopes and around obstacles rather than cutting corners. For buyers who decided the point of walking is to walk unencumbered, this is the step up.',
   },
 ];
@@ -690,9 +690,9 @@ export const CATEGORIES = [
     // model or specification: none is final, and inventing one breaks the
     // no-fabricated-facts rule.
     comingSoon: true,
-    metaTitle: 'Junior & Kids Golf Buggies — Coming Soon | Buggies Express',
+    metaTitle: 'Junior Golf Buggies Coming Soon | Buggies Express',
     metaDescription:
-      'Junior and kids golf buggies are coming to The Buggies Express. Register your interest and we will email you the day the range, photos and pricing go live.',
+      'A junior golf buggy range is coming to The Buggies Express. Register your interest and we will email you the day the range, photos and pricing go live.',
     h1: 'Junior Golf Buggies in Australia — Coming Soon',
     primaryKeyword: 'junior golf buggy',
     supportingKeywords: [
@@ -720,7 +720,7 @@ export const CATEGORIES = [
       },
       {
         heading: 'Register Your Interest',
-        body: 'Leave your name, email and postcode and we will let you know as soon as the range is live. Like everything we sell, the range will ship Australia-wide in enclosed freight, with the cost quoted against your delivery postcode rather than added later.',
+        body: 'Leave your name, email and postcode and we will let you know as soon as the range is live. Registering costs nothing and commits you to nothing. Like everything we sell, the range will ship Australia-wide in enclosed freight, with the cost quoted against your delivery postcode rather than added later.',
       },
     ],
     guides: [

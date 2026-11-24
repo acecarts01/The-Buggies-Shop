@@ -1,3 +1,4 @@
+import { TAG_META, tagMore } from '@/src/config/tag-more';
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -35,8 +36,8 @@ export async function generateMetadata({ params }: PageProps) {
   const photo = first?.images?.[0] ? { url: absoluteUrl(first.images[0]), alt: first.name } : undefined;
   return {
     ...pageMetadata({
-      title: buildTitle(`${t.name} Australia`),
-      description: buildDescription(`${t.name} in Australia: ${items.length} products from ${money(prices[0])} to ${money(prices[prices.length - 1])} AUD inc GST.`, '', ['Supplied from our Yatala QLD depot.', 'Freight quoted to your postcode.']),
+      title: buildTitle(TAG_META[t.slug]?.title ?? `${t.name} Australia`),
+      description: buildDescription(`${TAG_META[t.slug]?.descLead ?? t.name + ' in Australia:'} ${items.length} products from ${money(prices[0])} to ${money(prices[prices.length - 1])} AUD inc GST.`, '', ['Supplied from our Yatala QLD depot.', 'Freight quoted to your postcode.']),
       path: `/tag/${t.slug}/`,
       image: photo,
     }),
@@ -88,11 +89,23 @@ export default async function TagPage({ params }: PageProps) {
 
           <div className="space-y-3">
             <span className="text-xs uppercase tracking-widest text-[#E2A17A] font-extrabold">{items.length} products · supplied from Yatala QLD</span>
-            <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight tracking-tight">{t.name} in Australia</h1>
+            <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight tracking-tight">{TAG_META[t.slug]?.h1 ?? `${t.name} in Australia`}</h1>
+            {TAG_META[t.slug]?.lead && <p className="text-sm sm:text-base text-[#D6D3D1] max-w-3xl leading-relaxed">{TAG_META[t.slug].lead}</p>}
             {t.intro.map((para, i) => (
               <p key={i} className="text-sm sm:text-base text-[#A8A29E] max-w-3xl leading-relaxed">{para}</p>
             ))}
           </div>
+
+          {tagMore(t.slug).length > 0 && (
+            <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark space-y-5">
+              {tagMore(t.slug).map((s) => (
+                <section key={s.heading}>
+                  <h2 className="text-lg sm:text-xl font-serif font-bold text-white mb-2">{s.heading}</h2>
+                  <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.body}</p>
+                </section>
+              ))}
+            </div>
+          )}
 
           <section className="space-y-5">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">Shop {t.name}</h2>

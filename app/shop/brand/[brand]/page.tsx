@@ -18,6 +18,7 @@ import { BRAND_REFERENCES, BRAND_EXTRA_REFERENCES, REFERENCES } from '@/src/conf
 import { buildTitle, buildDescription, socialImages } from '@/lib/seo';
 import { absoluteUrl } from '@/lib/schema';
 import { brandRangeParagraph, brandIndexable } from '@/lib/brand-copy';
+import { BRAND_META, brandMore } from '@/src/config/brand-more';
 
 export async function generateStaticParams() {
   return BRAND_PAGES.map((b) => ({ brand: b.slug }));
@@ -56,8 +57,9 @@ export async function generateMetadata({ params }: PageProps) {
       : `$${prices[0].toLocaleString()}–$${prices[prices.length - 1].toLocaleString()} AUD`
     : '';
 
-  const title = buildTitle(`${b.name} Golf Buggies for Sale Australia`);
-  const lead = b.primaryKeyword ? `${capKeyword(b.primaryKeyword, b.name)}: ${b.name} golf buggies in Australia.` : `${b.name} golf buggies for sale in Australia.`;
+  const meta = BRAND_META[b.slug];
+  const title = buildTitle(meta?.title ?? `${b.name} Golf Buggies for Sale Australia`);
+  const lead = meta ? (meta.lead.startsWith('Looking') ? `${meta.lead}?` : `${meta.lead} in Australia:`) : `${b.name} golf buggies for sale in Australia.`;
   const description = buildDescription(
     `${lead} ${items.length} ${items.length === 1 ? 'model' : 'models'} in stock${priceText ? ', ' + priceText : ''}.`,
     '',
@@ -198,7 +200,7 @@ export default async function BrandPage({ params }: PageProps) {
               {b.origin} · {items.length} {items.length === 1 ? 'model' : 'models'} in stock at Yatala QLD
             </span>
             <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight tracking-tight">
-              {b.name} Golf Buggies for Sale in Australia
+              {BRAND_META[b.slug]?.h1 ?? `${b.name} Golf Buggies for Sale in Australia`}
             </h1>
             <p className="text-sm sm:text-base text-[#A8A29E] max-w-3xl leading-relaxed">{b.intro}</p>
             {leadLine && <p className="text-sm text-[#D6D3D1] max-w-3xl leading-relaxed">{leadLine}</p>}
@@ -209,6 +211,17 @@ export default async function BrandPage({ params }: PageProps) {
             <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed"><LinkedText segs={bodySegs} /></p>
             <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed mt-3">{brandRangeParagraph(b)}</p>
           </div>
+
+          {brandMore(b.slug).length > 0 && (
+            <div className="bg-[#1A1D21] border border-[#2B2F34] rounded-2xl p-6 sm:p-8 shadow-xs metal-brushed-dark space-y-5">
+              {brandMore(b.slug).map((s) => (
+                <section key={s.heading}>
+                  <h2 className="text-lg sm:text-xl font-serif font-bold text-white mb-2">{s.heading}</h2>
+                  <p className="text-xs sm:text-sm text-[#A8A29E] leading-relaxed">{s.body}</p>
+                </section>
+              ))}
+            </div>
+          )}
 
           <section className="space-y-5">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight">

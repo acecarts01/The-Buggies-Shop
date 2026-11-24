@@ -8,6 +8,7 @@
 // be pulled into a 'use client' component.
 import { PRODUCTS, CATEGORIES } from './site';
 import { categoryContent } from './category-content';
+import { TAG_META, tagMore } from './tag-more';
 
 export interface TagFaq {
   q: string;
@@ -188,6 +189,9 @@ export function tagGate(tag: TagHub, all: TagHub[] = TAGS): string[] {
   if (new Set(tag.productSlugs).size !== tag.productSlugs.length) fails.push('duplicate productSlug');
   const intro = wordCount(tag.intro.join(' '));
   if (intro < 150 || intro > 250) fails.push(`intro is ${intro} words (150–250)`);
+  const meta = TAG_META[tag.slug];
+  const editorial = intro + wordCount(meta?.lead ?? '') + tagMore(tag.slug).reduce((a, s) => a + wordCount(s.body), 0);
+  if (editorial < 300) fails.push(`editorial copy is ${editorial} words (min 300)`);
   if (tag.faqs.length < 3) fails.push('fewer than 3 FAQs');
   tag.faqs.forEach((f, i) => {
     const n = wordCount(f.a);

@@ -85,7 +85,7 @@ function build(): Record<string, CategoryContent> {
       h1: 'Electric Golf Buggies for Sale in Australia',
       metaTitle: 'Electric Golf Buggies for Sale Australia | Buggies Express',
       metaDescription: `Electric golf buggies for sale in Australia: ${elec.length} lithium models from ${aud(elecStats.lo)}, from 4-seaters and 4x4 to remote control golf trolleys. GST included.`,
-      intro: `Every electric model we stock, in one place: ${elecRiding.length} lithium passenger and utility buggies from ${aud(elecRidingStats.lo)} to ${aud(elecRidingStats.hi)} AUD, plus ${walk.n} electric walk-behind models from ${aud(walk.lo)}. Prices include GST, and every model ships from our Yatala QLD depot.`,
+      intro: `Every electric golf buggy we stock, in one place: ${elecRiding.length} lithium passenger and utility buggies from ${aud(elecRidingStats.lo)} to ${aud(elecRidingStats.hi)} AUD, plus ${walk.n} electric walk-behind models from ${aud(walk.lo)}. Prices include GST, and every model ships from our Yatala QLD depot.`,
       sections: [
         {
           heading: 'Electric Golf Buggies in Australia: The Whole Range',
@@ -150,7 +150,7 @@ function build(): Record<string, CategoryContent> {
       h1: '4 Seater Golf Buggies for Sale in Australia',
       metaTitle: '4 Seater Golf Buggies for Sale Australia | Buggies Express',
       metaDescription: `${cap(word(lux.n))} 4 seater golf buggies for sale in Australia, including 4+2 six-passenger models, from ${aud(lux.lo)}. Lithium power, GST included, shipped from Yatala QLD.`,
-      intro: `${cap(word(lux.n))} lithium 4-seater and six-passenger golf buggies from ${aud(lux.lo)} to ${aud(lux.hi)} AUD, built for estates, acreage and resorts. Each is tested at our Yatala QLD depot and ships Australia-wide in enclosed freight.`,
+      intro: `Looking for a 4 seater golf buggy for sale? ${cap(word(lux.n))} lithium 4-seater and six-passenger golf buggies from ${aud(lux.lo)} to ${aud(lux.hi)} AUD, built for estates, acreage and resorts. Each is tested at our Yatala QLD depot and ships Australia-wide in enclosed freight.`,
       sections: [
         {
           heading: '4 Seater Golf Buggies for Sale: What We Stock',
@@ -212,7 +212,7 @@ function build(): Record<string, CategoryContent> {
       h1: '2 Seater Golf Buggies for Sale in Australia',
       metaTitle: '2 Seater Golf Buggies for Sale Australia | Buggies Express',
       metaDescription: `${cap(word(two.n))} 2 seater golf buggies for sale in Australia, from ${aud(two.lo)}: electric lithium models from Club Car, E-Z-GO, Yamaha and more. GST included.`,
-      intro: `${cap(word(two.n))} traditional 2-seater lithium golf buggies from ${aud(two.lo)} to ${aud(two.hi)} AUD, including Club Car, E-Z-GO and Yamaha, tested at our Yatala QLD depot and shipped Australia-wide in enclosed freight.`,
+      intro: `Looking for a 2 seater golf buggy for sale? ${cap(word(two.n))} traditional 2-seater lithium golf buggies from ${aud(two.lo)} to ${aud(two.hi)} AUD, including Club Car, E-Z-GO and Yamaha, tested at our Yatala QLD depot and shipped Australia-wide in enclosed freight.`,
       sections: [
         {
           heading: '2 Seater Golf Buggies for Sale: The Range',
@@ -274,7 +274,7 @@ function build(): Record<string, CategoryContent> {
       h1: 'Off Road Golf Buggies for Sale in Australia',
       metaTitle: 'Off Road Golf Buggies for Sale Australia | Lifted 4x4',
       metaDescription: `${cap(word(off.n))} lifted 4x4 off road golf buggies for sale in Australia, from ${aud(off.lo)}. Built for acreage and rough ground, GST included, from Yatala QLD.`,
-      intro: `${cap(word(off.n))} lifted and 4x4 off road buggies from ${aud(off.lo)} to ${aud(off.hi)} AUD for acreage, farms and rough ground. ${cap(word(offElectric))} are lithium electric and one is EFI petrol, all tested at our Yatala QLD depot.`,
+      intro: `${cap(word(off.n))} lifted and 4x4 off road golf buggies from ${aud(off.lo)} to ${aud(off.hi)} AUD for acreage, farms and rough ground. ${cap(word(offElectric))} are lithium electric and one is EFI petrol, all tested at our Yatala QLD depot.`,
       sections: [
         {
           heading: 'Off Road Golf Buggies for Sale: What to Expect',
@@ -336,7 +336,7 @@ function build(): Record<string, CategoryContent> {
       h1: 'Farm Buggies for Sale in Australia',
       metaTitle: 'Farm Buggies for Sale | Utility Buggies | Buggies Express',
       metaDescription: `${cap(word(com.n))} farm buggies for sale in Australia, from ${aud(com.lo)}: flatbed, cargo and utility models plus a 6-passenger transporter. Electric and petrol, GST included.`,
-      intro: `${cap(word(com.n))} commercial and farm utility buggies from ${aud(com.lo)} to ${aud(com.hi)} AUD: flatbed and cargo-box workhorses plus a 6-passenger transporter. ${cap(word(comElectric))} are electric and one is EFI petrol, tested at our Yatala QLD depot.`,
+      intro: `${cap(word(com.n))} farm buggies for sale, commercial and utility models, from ${aud(com.lo)} to ${aud(com.hi)} AUD: flatbed and cargo-box workhorses plus a 6-passenger transporter. ${cap(word(comElectric))} are electric and one is EFI petrol, tested at our Yatala QLD depot.`,
       sections: [
         {
           heading: 'Farm Buggies for Sale: Flatbed and Cargo Models',
@@ -397,8 +397,8 @@ function build(): Record<string, CategoryContent> {
       supportingKeywords: ['petrol golf buggy', 'petrol golf carts for sale', 'petrol golf cart', 'gas golf carts for sale', 'petrol powered golf cart'],
       h1: 'Petrol Golf Buggies for Sale in Australia',
       metaTitle: 'Petrol Golf Buggies for Sale Australia | Buggies Express',
-      metaDescription: `Petrol golf buggy for sale in Australia: ${word(pet.n)} EFI models from ${aud(pet.lo)}, plus petrol golf carts for sale. Club Car, Yamaha, E-Z-GO. GST included.`,
-      intro: `${cap(word(pet.n))} petrol and EFI golf buggies from ${aud(pet.lo)} to ${aud(pet.hi)} AUD for properties without charging, plus ${word(petrolCount - pet.n)} more petrol models in our off-road and utility ranges. Tested at our Yatala QLD depot and shipped Australia-wide.`,
+      metaDescription: `Shop a petrol golf buggy for sale in Australia: ${word(pet.n)} EFI models from ${aud(pet.lo)}, plus petrol golf carts for sale. Club Car, Yamaha, E-Z-GO. GST included.`,
+      intro: `Looking for a petrol golf buggy for sale? ${cap(word(pet.n))} petrol and EFI golf buggies from ${aud(pet.lo)} to ${aud(pet.hi)} AUD for properties without charging, plus ${word(petrolCount - pet.n)} more petrol models in our off-road and utility ranges. Tested at our Yatala QLD depot and shipped Australia-wide.`,
       sections: [
         {
           heading: 'Petrol Golf Buggies for Sale: When Petrol Makes Sense',
@@ -461,7 +461,7 @@ function build(): Record<string, CategoryContent> {
       h1: 'Push Golf Buggies for Sale in Australia',
       metaTitle: 'Push Golf Buggies for Sale Australia | Buggies Express',
       metaDescription: `Push golf buggies for sale in Australia: ${word(push.n)} Clicgear and Rovic manual models from ${aud(push.lo)} to ${aud(push.hi)} with no battery to charge. GST included.`,
-      intro: `${cap(word(push.n))} manual push golf buggies from ${aud(push.lo)} to ${aud(push.hi)} AUD, from Clicgear and Rovic. No battery, no motor and nothing to charge before a round, shipped from our Yatala QLD depot.`,
+      intro: `Looking for a push golf buggy for sale? ${cap(word(push.n))} manual push golf buggies from ${aud(push.lo)} to ${aud(push.hi)} AUD, from Clicgear and Rovic. No battery, no motor and nothing to charge before a round, shipped from our Yatala QLD depot.`,
       sections: [
         {
           heading: 'Clicgear and Rovic Push Buggies',
@@ -470,6 +470,14 @@ function build(): Record<string, CategoryContent> {
         {
           heading: 'Push Buggy or Motorised Trolley?',
           body: `A push buggy has no battery to charge or replace, which keeps running costs close to nothing. If hills or a long back nine are the problem, a motorised trolley or the MGI E-Boost, a pushcart with a boost button, may suit better. Our walk-behind range covers the motorised side, and the guides below compare the two.`,
+        },
+        {
+          heading: 'Clicgear Model 4.0 or 4.5: Which Push Buggy Suits You?',
+          body: `The Model 4.0 is the compact three-wheel buggy: an adjustable upper saddle, silicone straps, a lockable storage console and accessory tabs, from ${price('clicgear-model-4-0-buggy-teal')} in teal to ${price('clicgear-model-4-0-buggy-silver')} in silver, matte white or soft pink. The Model 4.5 (${price('clicgear-model-4-5-buggy-black')}) adds an aluminium frame, an adjustable handle height and improved storage with a cup holder. Choose the 4.0 for value and the 4.5 if you want the stronger frame and the adjustable handle.`,
+        },
+        {
+          heading: 'What Accessories Suit a Push Buggy?',
+          body: `A push buggy is easy to personalise. The Clicgear Soft Seat Cover (${price('clicgear-soft-seat-cover')}) adds padding to a Clicgear seat, and the Rovic RV1C/1S Seat (${price('rovic-rv1c-1s-seat')}) gives an RV1C or RV1S owner somewhere to rest. Clicgear accessory tabs also take umbrella, drink and storage fittings. Tell us your model and we will confirm what suits before you order. Prices include GST, with freight quoted to your postcode at checkout. Ask us about stock. We can help.`,
         },
       ],
       guides: [
@@ -487,6 +495,14 @@ function build(): Record<string, CategoryContent> {
         {
           q: 'Do your push golf buggies need a battery?',
           a: `No. Every model in this range is a manual push buggy with no battery, motor or charger.`,
+        },
+        {
+          q: 'What is the difference between the Clicgear 4.0 and 4.5?',
+          a: `The 4.0 is the compact three-wheel buggy with an adjustable saddle and lockable console. The 4.5 adds an aluminium frame, an adjustable handle height and improved storage with a cup holder.`,
+        },
+        {
+          q: 'Can I add a seat to a push buggy?',
+          a: `Yes. The Clicgear Soft Seat Cover fits standard Clicgear push buggies that have a seat, and the Rovic RV1C/1S Seat is made for those two models. Tell us your model and we will confirm.`,
         },
         {
           q: 'Which push golf buggy folds smallest?',
