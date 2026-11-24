@@ -2581,4 +2581,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Do you stock other Clicgear golf buggies?', a: 'Yes. We also list the Clicgear Model 4.0 in several colours.' },
     ],
   },
+
+  'rovic-rv1s-swivel-2-0-buggy-light-blue': {
+    primaryKeyword: 'rovic rv1s 2.0',
+    supportingKeywords: ['rovic golf buggy', 'rovic buggy', 'golf buggy rovic', 'rovic 2.0', 'golf trolley rovic'],
+    h1: 'Rovic RV1S 2.0 Swivel Push Buggy in Light Blue',
+    seoTitle: 'Rovic RV1S 2.0: Buy the Light Blue Swivel Push Buggy',
+    seoDescription: 'Buy the Rovic RV1S 2.0 swivel push buggy in light blue. 360-degree front wheel, swivel lock, dual-action footbrakes and patented fold, $429 inc GST.',
+    short: 'Rovic RV1S 2.0',
+    closingHeading: 'Where can I buy the Rovic RV1S 2.0?',
+    intro:
+      'The Rovic RV1S 2.0 is a push buggy for golfers who want easy turning. Its front wheel swivels through 360 degrees for light, tight steering, and a swivel lock fixes it straight when you want to hold a line on a slope. The light blue model is $429 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the 360-degree swivel wheel do?',
+        body: 'A swivelling front wheel lets the buggy follow you around tight corners, bunker edges and crowded tee areas with very little effort. When you reach a slope or a long straight, the swivel lock fixes the wheel in line so the buggy tracks where you point it. Having both options in one buggy is the main attraction of a rovic golf buggy with this design, and it suits golfers who play varied courses. Light steering reduces the effort of a full round and is kinder to wrists and shoulders.',
+      },
+      {
+        heading: 'How do the footbrakes and fold work?',
+        body: 'Dual-action footbrakes park the buggy securely, so it stays put on a slope while you play a shot. The patented folding action packs it down for the boot, and a full console and umbrella mount are included. Clicgear accessory tabs let you add more, and the 2.0 update brings silicone bag straps and an external ball clip for a fast reload. There is no battery or electronics to look after. Parking without bending down is a small comfort, and a secure brake gives you peace of mind on a slope. The external ball clip means you can reload quickly after a shot.',
+      },
+      {
+        heading: 'Is a golf trolley rovic style push buggy right for you?',
+        body: 'It suits golfers who want a manual buggy that is easy to turn and simple to park. If your course is hilly and you want motor help, look at an electric model instead. If you walk flat ground and value light steering, the swivel design is a strong choice. Colour is the only difference between versions, so choose the finish you prefer and tell us your postcode for a freight quote. We are an Australian stockist in Yatala QLD, so you can ask us about the Rovic range before you buy. Prices include GST, and delivery is quoted against your postcode.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Rovic RV1S 2.0 in light blue?', a: 'The Rovic RV1S Swivel 2.0 Buggy in light blue is $429 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What is new on the Rovic RV1S 2.0?', a: 'The 2.0 update brings silicone bag straps and an external ball clip for a fast reload.' },
+      { q: 'Is this a Rovic golf buggy with a battery?', a: 'No. It is a manual push buggy with no battery or electronics.' },
+      { q: 'Can I add accessories to the Rovic buggy?', a: 'Yes. Clicgear accessory tabs let you add more fittings.' },
+      { q: 'Does the swivel wheel lock for slopes?', a: 'Yes. A swivel lock fixes the front wheel straight when you want to hold a line.' },
+      { q: 'Is the Rovic 2.0 a good golf buggy rovic option for small boots?', a: 'The patented fold packs it down for the boot. Tell us your vehicle and we will advise.' },
+    ],
+  },
+
+  'rovic-rv1c-compact-2-0-buggy-silver-black': {
+    primaryKeyword: 'rovic rv1c compact',
+    supportingKeywords: ['rovic rv1c 2.0', 'rovic compact', 'rovic 1c', 'rovic rv1c golf push cart', 'rv1c rovic'],
+    h1: 'Rovic RV1C Compact 2.0 Push Buggy in Silver and Black',
+    seoTitle: 'Rovic RV1C Compact: Buy the Silver and Black Buggy',
+    seoDescription: 'Buy the Rovic RV1C Compact 2.0 push buggy. Ultra-compact fold, handle-mounted brake and adjustable front-wheel tracking in silver and black, $399 inc GST.',
+    short: 'Rovic RV1C Compact',
+    closingHeading: 'Where can I buy the Rovic RV1C Compact?',
+    intro:
+      'The Rovic RV1C Compact is built for golfers short on boot space. Its ultra-compact fold packs the buggy down small, and a patented folding action makes it quick to open and close. The silver and black Rovic RV1C 2.0 is $399 AUD including GST.',
+    sections: [
+      {
+        heading: 'How small does the Rovic RV1C 2.0 fold?',
+        body: 'Ultra-compact storage is the headline feature, and it matters if you drive a small car, share the boot with other gear or store the buggy in a tight cupboard. The patented folding action is quick, so setting up at the first tee and packing away after the round takes seconds. A rovic compact design like this one is aimed squarely at golfers who have found larger push buggies awkward to load. Golfers who travel with the buggy in a small hatchback or a crowded boot will appreciate how little space it needs. It is easier to carry up steps or into a clubhouse locker.',
+      },
+      {
+        heading: 'What does the handle-mounted brake add?',
+        body: 'A handle-mounted brake is convenient to use because you do not have to bend down to park the buggy. Adjustable front-wheel tracking lets you set the buggy to run straight, which saves effort across a full round. A full console and umbrella mount are included, Clicgear accessory tabs allow add-ons, and the 2.0 version adds silicone bag straps and an external ball clip. Setting the tracking correctly is a one-time job, and then the buggy follows a straight line without pulling to one side. That saves effort and keeps the push light across a full round.',
+      },
+      {
+        heading: 'Is a rovic 1c style buggy right for you?',
+        body: 'It suits golfers who want a manual buggy that folds as small as possible, and it is the lowest-priced Rovic push buggy we list at $399. It has no battery or electronics, so there is nothing to charge and little to go wrong. If you need a swivel front wheel instead, the RV1S is listed separately. Tell us your vehicle and we will advise on boot fit. The silver and black finish is understated and matches most bags. We are an Australian stockist, prices include GST and freight is quoted to your delivery postcode at checkout. Questions are welcome.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Rovic RV1C Compact 2.0?', a: 'The Rovic RV1C Compact 2.0 Buggy in silver and black is $399 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is the Rovic RV1C Compact easy to fit in a small boot?', a: 'It has an ultra-compact fold. Tell us your vehicle and we will advise on boot fit.' },
+      { q: 'Is the Rovic RV1C 2.0 an upgrade on the earlier model?', a: 'The 2.0 version adds silicone bag straps and an external ball clip.' },
+      { q: 'Does the rovic compact buggy have a battery?', a: 'No. It is a manual push buggy with no battery or electronics.' },
+      { q: 'Is rv1c rovic the same as the Rovic 1C?', a: 'Yes. They refer to the same Compact model.' },
+      { q: 'Can I add accessories to a Rovic RV1C golf push cart?', a: 'Yes. Clicgear accessory tabs let you add fittings.' },
+    ],
+  },
+
+  'mgi-lithium-24v-13ah-battery': {
+    primaryKeyword: 'mgi lithium battery',
+    supportingKeywords: ['mgi golf buggy battery', 'mgi golf cart battery', 'mgi golf buggy lithium battery', 'lithium battery for golf trolley', 'lithium battery golf trolley'],
+    h1: 'MGI Lithium Battery: Genuine 24V 13Ah Pack for the Navigator G800',
+    seoTitle: 'MGI Lithium Battery: Buy the Genuine 24V 13Ah Pack',
+    seoDescription: 'Buy a genuine MGI lithium battery. 24V 13Ah replacement pack for the Navigator G800, supplied with its lead and no bag required, $579 inc GST.',
+    short: 'MGI 13Ah battery',
+    closingHeading: 'Where can I buy the MGI 24V 13Ah battery?',
+    intro:
+      'A tired pack should not end a good buggy. This MGI lithium battery is a genuine 24V 13Ah replacement designed specifically for the Navigator G800. It comes with its lead and does not need a bag, so fitting is a matter of connecting and going. The price is $579 AUD including GST.',
+    sections: [
+      {
+        heading: 'When should you replace an MGI golf buggy battery?',
+        body: 'If your older MGI Navigator no longer holds a full round, a new battery is usually a far cheaper fix than a new buggy. Capacity falls slowly with age and use, and an mgi golf buggy battery that dies on the back nine is the usual sign. A genuine replacement restores the range the buggy was built to deliver and keeps a reliable walking buggy in service for many more seasons. Do not wait until the buggy fails on the course. A pack that is losing range is better replaced on your schedule than during a competition round.',
+      },
+      {
+        heading: 'Why does the model series matter?',
+        body: 'MGI batteries are specific to the model series they were designed for, so check your buggy against the compatibility note before ordering. This 24V 13Ah pack is made for the Navigator G800, and it is not a generic fit for every MGI. Using the correct pack protects the buggy electronics and keeps the charge behaving as intended, which is the main reason to buy a genuine part. If you are unsure of your series, send us a photo of the label or the model name and we will confirm. A wrong pack is an avoidable expense.',
+      },
+      {
+        heading: 'Is a lithium battery for golf trolley use worth it?',
+        body: 'A lithium battery golf trolley pack is lighter than the older lead-acid designs, which also makes the buggy easier to lift. The supplied lead means there is nothing extra to buy, and no bag is needed. We are an Australian stockist in Yatala QLD, so you are not waiting on an overseas order. Tell us your model and we will confirm the pack before you buy. Prices include GST, and freight is quoted to your delivery postcode at checkout so you know the full cost beforehand.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI lithium battery 24V 13Ah?', a: 'The MGI Lithium 24v 13Ah Battery is $579 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Which buggy does this MGI lithium battery fit?', a: 'It is designed specifically for the Navigator G800. Check compatibility before ordering.' },
+      { q: 'Is this a genuine mgi golf cart battery?', a: 'Yes. It is a genuine MGI replacement battery supplied with its lead.' },
+      { q: 'Does it need a bag?', a: 'No. It does not need a bag, so fitting is a matter of connecting and going.' },
+      { q: 'Is an mgi golf buggy lithium battery cheaper than a new buggy?', a: 'If your older MGI Navigator no longer holds a full round, a new battery is usually a far cheaper fix.' },
+      { q: 'Can I use any MGI battery?', a: 'No. MGI batteries are specific to the model series they were designed for.' },
+    ],
+  },
+
+  'mgi-2024-zip-24v-250wh-lithium-battery': {
+    primaryKeyword: 'mgi zip battery',
+    supportingKeywords: ['mgi zip navigator battery', 'mgi zip battery replacement', 'mgi zip navigator battery replacement', 'mgi zip navigator battery life', 'mgi zip navigator battery charging'],
+    h1: 'MGI Zip Battery: 2024 24V 250Wh Lithium Pack for Zip X1, X3 and X5',
+    seoTitle: 'MGI Zip Battery: Buy the 2024 24V 250Wh Lithium Pack',
+    seoDescription: 'Buy the MGI Zip battery. 2024 24V 250Wh lithium pack that fits the Zip X1, X3 and X5, charged with the MGI 24V lithium charger, $499 inc GST.',
+    short: 'MGI Zip battery',
+    closingHeading: 'Where can I buy this MGI Zip battery?',
+    intro:
+      'A spare MGI Zip battery means a full charge is always ready. The 2024 24V 250Wh lithium pack is the replacement or spare for the Zip X1, Zip X3 and Zip X5. It is $499 AUD including GST, and the charger is sold separately.',
+    sections: [
+      {
+        heading: 'Why carry a spare mgi zip navigator battery?',
+        body: 'A spare matters on a 36-hole day or when the first pack has lost capacity with age. You swap the packs and keep playing, rather than waiting for an overnight charge or cutting the round short. Keeping one pack on charge at home and one in the buggy means there is always a full battery to hand. It is a sensible and inexpensive way to protect a good day. It also gives you a back-up if you ever misplace the charger on a trip, since the second pack can carry the round while you sort it out.',
+      },
+      {
+        heading: 'How does mgi zip battery replacement work?',
+        body: 'This is the 2024 pack for the Zip X1, X3 and X5, so a replacement is a quick and simple swap rather than a technical workshop job. It uses a 24V 250Wh lithium design, which is lighter than older lead-acid packs. Because it fits three models, one spare can serve a household that owns more than one Zip buggy, which makes the purchase easy to justify. Fitting is straightforward, but if you are unsure, ask us before you order. We would rather confirm the model than have you buy the wrong part.',
+      },
+      {
+        heading: 'What do you need for mgi zip navigator battery charging?',
+        body: 'The battery can only be charged with the MGI Lithium 24V battery charger, model LC2323, which is sold separately and is not included. Do not use a charger from another product. If you do not already own the charger, add it to your order and we will confirm the right model for your buggy. Tell us your Zip model and we will check the fit. Prices include GST, and freight is quoted to your delivery postcode at checkout, so there are no surprises when you order. Our team can answer questions on delivery, parts and warranty before you commit.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Zip battery?', a: 'The MGI 2024 Zip 24V 250Wh Lithium Battery is $499 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Which buggies use this MGI Zip navigator battery?', a: 'It is compatible with the Zip X1, X3 and X5.' },
+      { q: 'Is the charger included for mgi zip navigator battery charging?', a: 'No. It can only be charged with the MGI Lithium 24V battery charger, model LC2323, which is sold separately.' },
+      { q: 'Is it a good mgi zip navigator battery replacement for an ageing pack?', a: 'Yes. It suits owners whose first pack has lost capacity with age.' },
+      { q: 'Does a spare improve mgi zip navigator battery life?', a: 'A spare lets you rotate packs and always have a full charge ready on a long day.' },
+      { q: 'Can I use it on another MGI model?', a: 'It is listed for the Zip X1, X3 and X5. Check with us before using it elsewhere.' },
+    ],
+  },
+
+  'mgi-lithium-24v-250wh-battery': {
+    primaryKeyword: 'mgi battery replacement',
+    supportingKeywords: ['battery powered golf buggy', 'battery operated golf buggy', 'mgi golf buggy battery', 'golf trolley lithium battery', 'mgi battery charger replacement'],
+    h1: 'MGI Battery Replacement: Standard 24V 250Wh Lithium Zip Pack',
+    seoTitle: 'MGI Battery Replacement: Buy the 24V 250Wh Zip Pack',
+    seoDescription: 'Buy an MGI battery replacement. Standard 24V 250Wh lithium pack for the Zip X-series, lighter than lead-acid and charged with MGI 24V, $499 inc GST.',
+    short: 'MGI 250Wh battery',
+    closingHeading: 'Where can I buy this MGI battery replacement?',
+    intro:
+      'This MGI battery replacement is the pack supplied as standard with the Zip X-series buggies. As a lithium battery it is lighter than the lead-acid packs older trolleys used. The MGI Lithium 24V 250Wh battery is $499 AUD including GST.',
+    sections: [
+      {
+        heading: 'What is the standard Zip pack?',
+        body: 'The 24V 250Wh lithium battery is the pack fitted as standard to the Zip X-series, so it is the natural choice for a replacement or a spare. A walking buggy depends on one component more than any other, and the pack is that component. Choosing the standard pack means the buggy keeps the performance it was designed to deliver, with no compromise on range or reliability. Reliability is the whole point of a replacement, and the standard pack is the one the buggy was tested with.',
+      },
+      {
+        heading: 'Why is a golf trolley lithium battery better than lead-acid?',
+        body: 'Lithium is noticeably lighter than the lead-acid packs older trolleys used, which makes a battery operated golf buggy easier to lift and handle. A lithium pack also holds its performance across the round rather than fading as the charge falls. It can only be charged with the MGI Lithium 24V battery charger, which is sold separately, so make sure you have one before you order. Lighter weight also reduces strain when you lift the buggy in and out of the boot.',
+      },
+      {
+        heading: 'Should you buy it as a spare?',
+        body: 'Yes, if you want a flat battery never to end a round early. Use it as a spare so a second full pack is always ready in the car or the garage. We hold MGI batteries and chargers in Australian stock at Yatala QLD, so an order does not mean a long overseas wait. Tell us your model and we will confirm the fit. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is this MGI battery replacement?', a: 'The MGI Lithium 24V 250Wh Battery is $499 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the standard pack for a battery powered golf buggy like the Zip X-series?', a: 'Yes. It is the pack supplied as standard with the Zip X-series buggies.' },
+      { q: 'Does it fit a battery operated golf buggy from another brand?', a: 'No. It is an MGI battery for the Zip series. Check with us before ordering.' },
+      { q: 'Is the charger included with the mgi golf buggy battery?', a: 'No. It can only be charged with the MGI Lithium 24V battery charger, which is sold separately.' },
+      { q: 'Is this a lithium golf trolley battery that is lighter than lead-acid?', a: 'Yes. As a lithium battery it is lighter than the lead-acid packs older trolleys used.' },
+      { q: 'Do I need an mgi battery charger replacement as well?', a: 'Only if your charger is damaged or missing. Ask us which charger suits your buggy.' },
+    ],
+  },
+
+  'mgi-lithium-24v-smart-charger-ai-and-zip-series': {
+    primaryKeyword: 'mgi battery charger',
+    supportingKeywords: ['mgi charger', 'mgi battery charger replacement', 'mgi zip navigator battery charger', 'mgi 24v lithium battery charger', 'electric golf trolley battery charger'],
+    h1: 'MGI Battery Charger: 24V Smart Digital Lithium Charger for Ai and Zip',
+    seoTitle: 'MGI Battery Charger: Buy the 24V Smart Lithium Charger',
+    seoDescription: 'Buy the MGI battery charger for Ai and Zip Series buggies. Digital charge indicator, overcharge protection, auto-shutoff and USB-C cable, $169 inc GST.',
+    short: 'MGI smart charger',
+    closingHeading: 'Where can I buy the MGI smart charger?',
+    intro:
+      'The MGI battery charger is the smart digital lithium charger made for the Ai and Zip Series. An on-board indicator shows where the battery is up to, and it includes overcharge protection and an auto-shutoff function. It is $169 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the digital indicator tell you?',
+        body: 'The on-board digital charge indicator shows the battery state, so you can see whether it is flat, charging or full without guessing. That is helpful before a morning round when you want to be sure the buggy is ready. Overcharge protection and auto-shutoff add a layer of safety, so the mgi charger can be left to finish its work rather than watched over until the lights change. A clear indicator also helps if the pack has not been used for a while, because you can see at a glance that charging has started properly.',
+      },
+      {
+        heading: 'Is a mgi zip navigator battery charger compatible with your buggy?',
+        body: 'It is made for the Ai and Zip Series. A built-in USB-C charging cable suits the Zip Navigator remote and mobile devices, but it is not compatible with the Ai Navigator GPS+ remote, so check your remote before you rely on that feature. If you own a Zip X-series buggy and a lithium pack, this charger is the correct match, and it is the one MGI lithium batteries are designed to use. The charger is lightweight and simple to store, and it replaces the guesswork that comes with a basic unit that offers no feedback.',
+      },
+      {
+        heading: 'Why buy a second electric golf trolley battery charger?',
+        body: 'If you want a spare so one can live in the garage and one in the boot, this is the model to order. A charger you can leave in the car means a quick top-up at the course, and it protects against a failed unit on the morning of a round. It is also a sensible replacement if your original charger has been lost or damaged. Tell us your model and we will confirm. Prices include GST, and freight is quoted to your delivery postcode at checkout, so the full cost is clear before you buy. Prices are in Australian dollars.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI battery charger?', a: 'The MGI Lithium 24v Smart Charger for the Ai and Zip Series is $169 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does this MGI charger fit the Ai Navigator GPS+ remote?', a: 'The built-in USB-C cable is not compatible with the Ai Navigator GPS+ remote. It suits the Zip Navigator remote and mobile devices.' },
+      { q: 'Is it an mgi battery charger replacement for a lost charger?', a: 'Yes. It is a suitable replacement for Ai and Zip Series owners.' },
+      { q: 'Does it work as an mgi 24v lithium battery charger for Zip packs?', a: 'Yes. It is made for the 24V lithium packs used on the Ai and Zip Series.' },
+      { q: 'What safety features does it have?', a: 'It has overcharge protection and an auto-shutoff function.' },
+      { q: 'Can I buy a spare electric golf trolley battery charger from you?', a: 'Yes. Order a second one so you have a unit for the garage and one for the boot.' },
+    ],
+  },
+
+  'mgi-fireproof-charging-box': {
+    primaryKeyword: 'mgi charging box',
+    supportingKeywords: ['mgi battery box', 'mgi zip navigator battery charging', 'mgi battery charging time', 'golf trolley accessories', 'mgi zip navigator battery life'],
+    h1: 'MGI Charging Box: Fireproof Storage and Charging for Zip and Ai Batteries',
+    seoTitle: 'MGI Charging Box: Buy the Fireproof Battery Safe',
+    seoDescription: 'Buy the MGI charging box. Fireproof box to store and charge a Zip or Ai Series lithium battery, designed to contain fire risk, safe indoors, $145 inc GST.',
+    short: 'MGI charging box',
+    closingHeading: 'Where can I buy the MGI fireproof charging box?',
+    intro:
+      'The MGI charging box is a safety accessory for storing and charging a Zip or Ai Series lithium battery. It is designed to significantly minimise fire risk and to contain a fire if one did start. It is made for use inside the home, and it costs $145 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why use an mgi battery box?',
+        body: 'Lithium batteries are very safe in normal use, and charging them in a purpose-built box simply adds a layer of protection. That is particularly sensible in a garage with a car or stored goods nearby. A fire-containing design means that, in the unlikely event of a fault, the problem stays inside the box. It is a modest cost for a considerable amount of peace of mind. Looking after the pack properly matters for mgi zip navigator battery life, and a tidy charging routine helps.',
+      },
+      {
+        heading: 'What happens during mgi zip navigator battery charging?',
+        body: 'The box stores and charges a Zip or Ai Series battery, so you can plug in the charger and leave the pack to finish inside it. Because it is safe for indoor use, the battery can charge where you actually keep your buggy rather than in an outbuilding. Mgi battery charging time depends on the pack and the charger, so use the correct MGI charger and follow its instructions. Place the box on a hard, level surface away from combustibles, and keep the charger and lead tidy.',
+      },
+      {
+        heading: 'Is it one of the golf trolley accessories worth buying?',
+        body: 'It is an optional extra, not a required one, and many owners will charge safely without it. It suits households that store the buggy in a garage, owners with more than one battery and anyone who wants extra protection. It does not change how the battery performs, so it is a safety choice rather than a performance upgrade. Tell us your battery model and we will confirm the fit. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. We would rather you ask first than order the wrong model.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI charging box?', a: 'The MGI Fireproof Charging Box is $145 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is the MGI charging box safe for indoor use?', a: 'Yes. It is made for use inside the home.' },
+      { q: 'Which batteries fit the mgi battery box?', a: 'It stores and charges a Zip or Ai Series lithium battery.' },
+      { q: 'Does it change mgi battery charging time?', a: 'It does not change how the battery performs. Use the correct MGI charger and follow its instructions.' },
+      { q: 'Is it a required part of mgi zip navigator battery charging?', a: 'No. Lithium batteries are very safe in normal use, and the box adds a layer of protection.' },
+      { q: 'What other golf trolley accessories do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk what suits your model.' },
+    ],
+  },
+
+  'mgi-halo-eye': {
+    primaryKeyword: 'golf buggy follow me',
+    supportingKeywords: ['mgi follow me buggy', 'follow me golf trolley', 'follow me electric golf caddy', 'electric golf cart follow me', 'best follow me golf trolley'],
+    h1: 'Golf Buggy Follow Me: MGI Halo Eye 2D LiDAR Sensor',
+    seoTitle: 'Golf Buggy Follow Me: Buy the MGI Halo Eye Sensor',
+    seoDescription: 'Buy the MGI Halo Eye for golf buggy follow me and return home on the Ai Navigator Halo. 2D LiDAR sensor with obstacle avoidance, $599 inc GST.',
+    short: 'Halo Eye',
+    closingHeading: 'Where can I buy the MGI Halo Eye?',
+    intro:
+      'Golf buggy follow me features turn a walking buggy into a hands-free one. The MGI Halo Eye is a 2D LiDAR sensor that adds follow me, return home, point-to-point and obstacle avoidance to the MGI Ai Navigator Halo. It is $599 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the Halo Eye support a follow me golf trolley?',
+        body: 'The Halo Eye captures precise spatial data from the environment to support real-time tracking, navigation and obstacle avoidance. Fitted to the Ai Navigator Halo, it lets the buggy trail you around the course while keeping its distance, which is how a follow me golf trolley behaves at its best. You walk, the buggy follows, and your hands stay free for the clubs. Walking with both hands free is a real change for golfers with sore wrists or shoulders, and it makes a round more relaxed.',
+      },
+      {
+        heading: 'What do return home and point-to-point do?',
+        body: 'Return home sends the buggy back to a set position, which is useful at the end of a round or when you want it waiting at the car. Point-to-point moves it between locations without you steering. Obstacle avoidance keeps it clear of obstacles on the way. Together these features reduce the effort of a round, and they are the reason to consider a follow me electric golf caddy. Set-up is part of the experience, so we recommend reading the instructions before your first round and practising in a quiet area.',
+      },
+      {
+        heading: 'Will the Halo Eye fit your buggy?',
+        body: 'It works only with the Ai Navigator Halo, and the rain cover is not suitable for use with it. It is not a universal accessory, so confirm that you own the Halo before you order. If you are choosing between this and a standard remote buggy, we can talk through the options. Tell us your model and we will confirm. Prices include GST, and freight is quoted to your delivery postcode at checkout, so the full cost is clear before you buy. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Halo Eye?', a: 'The MGI Halo Eye is $599 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does the Halo Eye give a golf buggy follow me function?', a: 'Yes. It adds follow me, return home, point-to-point and obstacle avoidance to the Ai Navigator Halo.' },
+      { q: 'Which buggy does the MGI follow me buggy sensor fit?', a: 'It works only with the MGI Ai Navigator Halo.' },
+      { q: 'Can I use the rain cover with it?', a: 'No. The rain cover is not suitable for use with the Halo Eye.' },
+      { q: 'Is it a best follow me golf trolley upgrade for other buggies?', a: 'No. It is made for the Ai Navigator Halo only.' },
+      { q: 'How is it different from an electric golf cart follow me system?', a: 'It is a LiDAR sensor for a walk-behind buggy, not a vehicle system. Ask us about your needs.' },
+    ],
+  },
+
+  'mgi-phone-holder': {
+    primaryKeyword: 'golf buggy phone holder',
+    supportingKeywords: ['mgi phone holder', 'phone holder golf cart', 'golf cart iphone holder', 'phone holders for golf buggies', 'best golf cart phone holder'],
+    h1: 'Golf Buggy Phone Holder: MGI Holder for Zip and Ai Top Boxes',
+    seoTitle: 'Golf Buggy Phone Holder: Buy the MGI Top Box Mount',
+    seoDescription: 'Buy the MGI golf buggy phone holder. Attaches to the top box of Zip and Ai Series buggies and adjusts to fit phones and GPS devices, $65 inc GST.',
+    short: 'phone holder',
+    closingHeading: 'Where can I buy the MGI phone holder?',
+    intro:
+      'A golf buggy phone holder keeps the course app where you can see it. The MGI Phone Holder attaches securely to the top box of an MGI buggy and keeps your phone or GPS device safe and in view. It is $65 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the MGI phone holder attach?',
+        body: 'The MGI phone holder fits to the top box of Zip and Ai Series buggies, so the phone sits at a convenient height without fiddling with straps or tape. An adjustable mechanism accommodates smartphones and GPS units, so there is no digging in a bag for the course app. It is a small accessory with a very practical purpose, and it keeps the phone off the ground and out of the rain. Keeping the phone mounted also reduces the chance of dropping it on a wet fairway or leaving it behind at a tee.',
+      },
+      {
+        heading: 'Will a phone holder golf cart style fit your device?',
+        body: 'The holder adjusts to suit smartphones and GPS devices. Owners often ask about size, and the adjustable design is the answer. If you use a thick case or a very large phone, tell us the model and we will help you check. A holder only works if the device stays put, and this one is designed to grip securely. Fitting is quick, and it removes the need for a separate stand or a clip on the handle.',
+      },
+      {
+        heading: 'Which MGI buggies suit these phone holders for golf buggies?',
+        body: 'It is compatible with both the Zip and Ai series electric buggies, and it is not suitable for the Quad series. That matters because the mounting differs between models, so check yours before ordering. Ordering one with a new buggy means the setup is complete on the first round. We hold stock at Yatala QLD, and prices include GST with freight quoted at checkout. Check your model before you order, and ask if you are unsure. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Enquiries are welcome from every state and territory.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI golf buggy phone holder?', a: 'The MGI Phone Holder is $65 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the best golf cart phone holder for an MGI?', a: 'It is made for the top box of MGI Zip and Ai Series buggies, which is why it fits securely.' },
+      { q: 'Will it hold a large phone?', a: 'The adjustable mechanism accommodates smartphones and GPS units. Tell us your phone model if unsure.' },
+      { q: 'Does it fit the Quad series?', a: 'No. It is not suitable for the Quad series.' },
+      { q: 'Is this a phone holder golf cart owners can use on any buggy?', a: 'No. It is made for the MGI Zip and Ai top box.' },
+      { q: 'Is this a good golf cart iphone holder alternative?', a: 'It holds iPhones and other smartphones, as well as GPS devices.' },
+    ],
+  },
+
+  'mgi-zip-series-gps-holder': {
+    primaryKeyword: 'golf buggy gps holder',
+    supportingKeywords: ['mgi zip navigator gps holder', 'mgi zip gps holder', 'golf cart gps holder', 'gps holder for golf cart', 'golf trolley gps holder'],
+    h1: 'Golf Buggy GPS Holder: MGI Zip Series Replacement Mount',
+    seoTitle: 'Golf Buggy GPS Holder: Buy the MGI Zip Series Mount',
+    seoDescription: 'Buy the MGI Zip Series golf buggy GPS holder. Replacement top box mount for Sureshot GPS devices and others up to 7.5cm wide, $36.95 inc GST.',
+    short: 'GPS holder',
+    closingHeading: 'Where can I buy the MGI Zip GPS holder?',
+    intro:
+      'A golf buggy gps holder keeps your distances where you can read them. The MGI Zip Series GPS Holder is a replacement mount for the top box of a Zip Series buggy. It is a simple, inexpensive fitting, priced at $36.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the MGI Zip GPS holder fit?',
+        body: 'The holder fits the top box of a Zip Series buggy and holds a GPS device securely through the round. It is compatible with all Sureshot GPS devices and with other devices up to 7.5cm wide. That makes the mgi zip gps holder a practical choice for golfers who already own a handheld GPS and want it mounted on the buggy rather than carried in a pocket. A secure mount also protects the device from drops, which matters because a damaged GPS is far more expensive than the holder.',
+      },
+      {
+        heading: 'Why replace a golf cart gps holder?',
+        body: 'Mounts get knocked, cracked or lost over time, and a loose gps holder for golf cart style fittings is a nuisance on a bumpy fairway. A replacement is an inexpensive fix that restores the secure fit the buggy was designed with. Because it is a simple part, fitting is quick, and the price is far lower than replacing the device or putting up with a mount that rattles through a round. If you have lost the original mount, a replacement is also a neat way to rebuild a complete top box without buying a new buggy.',
+      },
+      {
+        heading: 'Is a golf trolley gps holder suited to every device?',
+        body: 'It suits devices up to 7.5cm wide, which covers most handheld GPS units, including all Sureshot models. If your device is wider, measure it before ordering. A phone is better served by the MGI Phone Holder, which is listed separately and adjusts for larger screens. Tell us your device and your buggy model and we will confirm which holder suits you best. Prices include GST, and freight is quoted to your delivery postcode at checkout, so you can see the full cost before you order. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Zip Series GPS holder?', a: 'The MGI Zip Series GPS Holder is $36.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the right golf buggy gps holder for a Zip Series?', a: 'Yes. It is a replacement mount for the top box of a Zip Series buggy.' },
+      { q: 'Does it work as an mgi zip navigator gps holder?', a: 'Yes. It fits the Zip Series top box and holds compatible GPS devices up to 7.5cm wide.' },
+      { q: 'Does it suit Sureshot devices?', a: 'Yes. It is compatible with all Sureshot GPS devices.' },
+      { q: 'Can I use it as a golf cart gps holder for a phone?', a: 'It suits devices up to 7.5cm wide. For phones, see the MGI Phone Holder.' },
+      { q: 'Can I use it on a golf trolley gps holder mount from another brand?', a: 'It is made for the Zip Series top box. Ask us about other brands.' },
+    ],
+  },
 };
