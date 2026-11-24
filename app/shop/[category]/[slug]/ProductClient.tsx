@@ -59,6 +59,8 @@ interface ProductClientProps {
   categoryLink: { slug: string; name: string };
   /** The full description with contextual internal links applied on the server. */
   descriptionSegs: Seg[];
+  /** The H3 sections of a hand-written description, with contextual links. */
+  sectionSegs?: Seg[][];
   /** The category's buying guides, as descriptive links. */
   guides: { slug: string; label: string }[];
   /** Keyword-anchored links to related products (src/config/inbound-links.ts). */
@@ -68,7 +70,7 @@ interface ProductClientProps {
   references: Reference[];
 }
 
-export default function ProductClient({ product, details, descriptionSegs, brandLink, categoryLink, lead, guides, references, buyerLinks, collections }: ProductClientProps) {
+export default function ProductClient({ product, details, descriptionSegs, sectionSegs, brandLink, categoryLink, lead, guides, references, buyerLinks, collections }: ProductClientProps) {
   const [cartItems, setCartItems] = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [finish, setFinish] = useState(0);
@@ -591,10 +593,10 @@ Notes: ${quoteForm.notes || 'None'}`
                 <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
                   <LinkedText segs={descriptionSegs} />
                 </p>
-                {details.sections?.map((sec) => (
+                {details.sections?.map((sec, si) => (
                   <div key={sec.heading} className="space-y-2">
                     <h3 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] pt-2">{sec.heading}</h3>
-                    <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">{sec.body}</p>
+                    <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">{sectionSegs?.[si] ? <LinkedText segs={sectionSegs[si]} /> : sec.body}</p>
                   </div>
                 ))}
                 {product.shortDescription && details.fullDescription && product.shortDescription !== details.fullDescription && (

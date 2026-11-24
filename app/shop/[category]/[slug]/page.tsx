@@ -60,7 +60,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
   // every product page (including the bespoke Atlas route) emits the same
   // shape: image, brand, sku, seller by @id, GST-inclusive price.
   const details = getProductDetails(product.slug);
-  const descriptionSegs = createLinker(`/shop/${category}/${product.slug}/`, 3, 2).link(details.intro ?? (details.fullDescription || product.shortDescription));
+  // One linker for the intro and every section, so a target is linked once per page and the page-wide cap holds.
+  const linker = createLinker(`/shop/${category}/${product.slug}/`, details.sections ? 6 : 3, 2);
+  const descriptionSegs = linker.link(details.intro ?? (details.fullDescription || product.shortDescription));
+  const sectionSegs = details.sections?.map((s) => linker.link(s.body));
   const schema = productSchema(product);
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -77,6 +80,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         product={product}
         details={details}
         descriptionSegs={descriptionSegs}
+        sectionSegs={sectionSegs}
         brandLink={(() => {
           const b = BRAND_PAGES.find((x) => product.name.toLowerCase().includes(x.match.toLowerCase()));
           return b ? { slug: b.slug, name: b.name } : null;
