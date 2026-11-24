@@ -438,7 +438,7 @@ Notes: ${quoteForm.notes || 'None'}`
                 {/* Exactly One H1 */}
                 <StaggeredHeading
                   tag="h1"
-                  text={product.name}
+                  text={details.h1 ?? product.name}
                   className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#ffffff] mt-1 tracking-tight"
                 />
                 <FadeUpText delay={0.1} className="text-sm text-[#D6D3D1] mt-2 leading-relaxed">
@@ -591,6 +591,12 @@ Notes: ${quoteForm.notes || 'None'}`
                 <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
                   <LinkedText segs={descriptionSegs} />
                 </p>
+                {details.sections?.map((sec) => (
+                  <div key={sec.heading} className="space-y-2">
+                    <h3 className="text-base sm:text-lg font-serif font-bold text-[#ffffff] pt-2">{sec.heading}</h3>
+                    <p className="text-sm sm:text-base text-[#D6D3D1] leading-relaxed">{sec.body}</p>
+                  </div>
+                ))}
                 {product.shortDescription && details.fullDescription && product.shortDescription !== details.fullDescription && (
                   <StaggeredParagraph delay={0.2} className="text-xs text-[#A8A29E] italic">
                     {product.shortDescription}

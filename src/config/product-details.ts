@@ -16,6 +16,7 @@
 
 import { PRODUCTS, ProductItem } from './site';
 import { buildFaqs } from './product-faqs';
+import { PRODUCT_COPY } from './product-copy';
 
 export interface ProductDetails {
   fullDescription: string;
@@ -30,6 +31,12 @@ export interface ProductDetails {
   tags: string[];
   /** Optional hand-written FAQs. When absent they are built by buildFaqs(). */
   faqs?: { q: string; a: string }[];
+  /** Hand-written pages (product-copy.ts): the opening paragraph, the H3 sections, the H1 and the SEO title and description. */
+  intro?: string;
+  sections?: { heading: string; body: string }[];
+  h1?: string;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export type ProductFull = ProductItem & ProductDetails;
@@ -1896,8 +1903,23 @@ export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
 };
 
 export function getProductDetails(slug: string): ProductDetails {
-  const d = PRODUCT_DETAILS[slug];
+  let d = PRODUCT_DETAILS[slug];
   if (!d) throw new Error(`No product details for slug "${slug}"`);
+  const copy = PRODUCT_COPY[slug];
+  if (copy) {
+    d = {
+      ...d,
+      primaryKeyword: copy.primaryKeyword,
+      supportingKeywords: copy.supportingKeywords,
+      h1: copy.h1,
+      seoTitle: copy.seoTitle,
+      seoDescription: copy.seoDescription,
+      intro: copy.intro,
+      sections: copy.sections,
+      faqs: copy.faqs,
+      fullDescription: [copy.intro, ...copy.sections.map((s) => s.body)].join('\n\n'),
+    };
+  }
   if (d.faqs) return d;
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) throw new Error(`No product for slug "${slug}"`);

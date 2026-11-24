@@ -60,7 +60,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   // every product page (including the bespoke Atlas route) emits the same
   // shape: image, brand, sku, seller by @id, GST-inclusive price.
   const details = getProductDetails(product.slug);
-  const descriptionSegs = createLinker(`/shop/${category}/${product.slug}/`, 3, 2).link(details.fullDescription || product.shortDescription);
+  const descriptionSegs = createLinker(`/shop/${category}/${product.slug}/`, 3, 2).link(details.intro ?? (details.fullDescription || product.shortDescription));
   const schema = productSchema(product);
   const breadcrumbs = breadcrumbSchema([
     { name: 'Home', path: '/' },

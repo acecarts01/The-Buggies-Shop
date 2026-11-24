@@ -11,6 +11,10 @@ import { buildTitle, buildDescription, TITLE_MAX } from '@/lib/seo';
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export function productMeta(product: ProductItem): { title: string; description: string } {
+  // Hand-written pages (product-copy.ts) carry their own title and description.
+  const own = getProductDetails(product.slug);
+  if (own.seoTitle && own.seoDescription) return { title: own.seoTitle, description: own.seoDescription };
+
   // A title must differ from the H1 (the product name) and fit. Try, in order:
   // name + "for Sale" with the brand suffix; the same without it (a bare title may
   // run to 62); then the same with a trailing "(...)" qualifier dropped; and only
@@ -35,5 +39,8 @@ export function productMeta(product: ProductItem): { title: string; description:
 export function productLead(product: ProductItem): string {
   const { primaryKeyword } = getProductDetails(product.slug);
   const tail = `${product.price_display} inc GST, in stock at our Yatala QLD depot and shipped Australia-wide.`;
+  const { intro } = getProductDetails(product.slug);
+  // A hand-written intro already opens with the keyword; the lead then only states price and stock.
+  if (intro) return `The ${product.name} is ${tail}`;
   return primaryKeyword ? `${cap(primaryKeyword)}: the ${product.name} is ${tail}` : `The ${product.name} is ${tail}`;
 }
