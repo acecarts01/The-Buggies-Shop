@@ -258,8 +258,8 @@ export async function sendEmailThroughZoho(params: SendInquiryParams): Promise<{
     `Dispatched via The Buggies Express Zoho Mail Integration (sales@golfbuggiesexpress.com.au)`,
   ].filter(Boolean).join('\n');
 
-  try {
-    const info = await transporter.sendMail({
+  const attempt = () =>
+    transporter.sendMail({
       from: `"${fromName}" <${zohoUser}>`,
       to: receiverEmail,
       replyTo: params.email || zohoUser,
@@ -267,6 +267,18 @@ export async function sendEmailThroughZoho(params: SendInquiryParams): Promise<{
       text: textLines,
       html: htmlBody,
     });
+
+  try {
+    let info;
+    try {
+      info = await attempt();
+    } catch (firstError) {
+      // Port 465's implicit-TLS handshake drops occasionally; one immediate retry
+      // (same as lib/email/send.ts) saves the enquiry from a one-off blip.
+      console.warn('[Zoho Mail] send failed, retrying once:', (firstError as Error)?.message);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      info = await attempt();
+    }
 
     return {
       success: true,
