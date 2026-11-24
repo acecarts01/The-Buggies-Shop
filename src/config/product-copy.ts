@@ -1561,4 +1561,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Will it fit a Club Car golf cart I own?', a: 'It suits Club Car Precedent and Tempo models. Send us your model and year and we will confirm.' },
     ],
   },
+
+  'mgi-24v-lithium-battery-36-hole': {
+    primaryKeyword: 'mgi battery',
+    supportingKeywords: ['mgi battery replacement', 'mgi zip navigator battery', 'mgi golf cart battery', 'mgi battery charger', 'mgi battery charger replacement'],
+    h1: 'MGI Battery: 24V Lithium 36-Hole Replacement',
+    seoTitle: 'MGI Battery: Buy the 24V Lithium 36-Hole Replacement',
+    seoDescription: 'Buy the genuine MGI battery. 24V 380Wh lithium 36-hole replacement with advanced BMS for Zip Navigator and Ai Series, $450 inc GST.',
+    short: 'MGI 24V battery',
+    closingHeading: 'Where can I buy the MGI 24V 36-hole battery?',
+    intro:
+      'An mgi battery is a consumable, and a genuine replacement keeps the buggy working as designed. The MGI 24V Lithium Battery (24-Spindle / 36 Hole) is the factory 24V 380Wh unit for Zip Navigator and Ai Series buggies, with an advanced BMS and a Click and Go design. It is $450 AUD including GST.',
+    sections: [
+      {
+        heading: 'When does a walk-behind battery need replacing?',
+        body: 'Walk-behind batteries are consumables. After a few seasons of weekly rounds the pack no longer finishes eighteen holes with margin, and the honest fix is replacement rather than nursing it along. If your buggy is running short, or you are worried about being stranded on the back nine, a mgi battery replacement is the straightforward answer. The factory unit restores the range the buggy was designed to have. Weak range is usually the first sign, followed by a pack that does not hold charge between rounds.',
+      },
+      {
+        heading: 'Why does the advanced BMS matter on an MGI Zip Navigator battery?',
+        body: 'This is the factory 24V 380Wh unit with the correct advanced BMS, which matters because the BMS is what protects the cells and communicates correctly with the buggy electronics. A pack with the wrong management can charge badly or cut out unexpectedly. The Click and Go design also makes fitting tool-free, so you can swap the battery in minutes at home or at the club. Using the right battery also keeps the charger and the buggy electronics working together as intended.',
+      },
+      {
+        heading: 'Why buy a genuine mgi golf cart battery?',
+        body: 'Buying the genuine pack rather than an unbranded equivalent preserves both the buggy warranty position and its charging behaviour. It also means the pack matches the charger, which protects the cells over years of use. Genuine MGI parts are held in Australian stock at Yatala QLD. Tell us which MGI model you own and we will confirm this is the right pack. A new pack is a modest cost compared with replacing a buggy that is otherwise in good order. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an MGI battery like the 24V 36-hole lithium?', a: 'The MGI 24V Lithium Battery (24-Spindle / 36 Hole) is $450 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this an MGI battery replacement for my buggy?', a: 'It is the genuine replacement for Zip Navigator and Ai Series buggies. Tell us your model and we will confirm the fit.' },
+      { q: 'Is it the right MGI Zip Navigator battery?', a: 'Yes. It is the factory 24V 380Wh 36-hole unit for Zip Navigator and Ai Series buggies.' },
+      { q: 'Is this a genuine MGI golf cart battery with BMS?', a: 'Yes. It has the correct advanced BMS to protect the cells and communicate with the buggy.' },
+      { q: 'Does it need an MGI battery charger?', a: 'Use the matching MGI 24V lithium charger. We hold it in stock, and can supply both together.' },
+      { q: 'Can I get an MGI battery charger replacement too?', a: 'Yes. We hold MGI chargers in Australian stock. Tell us your model and we will confirm which one suits.' },
+    ],
+  },
+
+  'curtis-1268-400a-programmable-motor-controller': {
+    primaryKeyword: 'electric golf cart controller',
+    supportingKeywords: ['curtis controller golf cart', 'ezgo golf cart controller', 'club car golf cart controller', 'electric golf cart speed controller', 'golf buggy parts'],
+    h1: 'Electric Golf Buggy Controller: Curtis 1268 400A Programmable',
+    seoTitle: 'Electric Golf Cart Controller: Buy the Curtis 1268 400A',
+    seoDescription: 'Buy an electric golf cart controller. Curtis 1268 400A programmable motor controller with regen braking control, $890 inc GST, Yatala QLD.',
+    short: 'Curtis 1268',
+    closingHeading: 'Where can I buy the Curtis 1268 controller?',
+    intro:
+      'An electric golf cart controller decides how much current reaches the motor, which makes it the real limit on a lifted or high-torque conversion. The Curtis 1268 400A Programmable Motor Controller raises that ceiling to 400 amps peak, with programmable curves and regenerative braking control. It is $890 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does the controller limit a lifted conversion?',
+        body: 'Fitting larger tyres and a lift kit increases the load on every hill, and a factory controller current-limits or overheats long before the motor does. Raising the ceiling to 400 amps peak lets the motor do the work it was built for. If your buggy struggles on steep acreage after a conversion, the controller is the first place to look, whatever the badge on the body. That mismatch is common: owners add the hardware they can see, then find the electrical limit they cannot.',
+      },
+      {
+        heading: 'What do programmable curves change on a curtis controller golf cart?',
+        body: 'The Curtis 1268 adds programmable acceleration and speed curves, so the buggy can be tuned for torque on steep acreage rather than left with a flat factory map. Tuning is where the hardware pays off: the same motor can feel quite different with a controller map matched to your tyres, your load and your ground. It is a well-known unit with parts and programming knowledge widely available in Australia. Programming lets a technician set smooth take-off, a firm hill response and a sensible top speed for your use.',
+      },
+      {
+        heading: 'What does regenerative braking control add?',
+        body: 'Regenerative braking control recovers energy on descents and adds an engine-braking feel, which helps on long downhill runs and takes some strain off the brakes. It suits lifted cart builders and performance tuners who understand the limits of a factory controller. Tell us your motor, voltage and the changes you have made, and we will confirm the 1268 is the right part before you order. It is a serious component, so a clear plan for fitting and tuning is worth having before you buy. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Questions are welcome before you buy, not just after.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an electric golf cart controller like the Curtis 1268?', a: 'The Curtis 1268 400A Programmable Motor Controller is $890 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a Curtis controller for golf cart conversions?', a: 'Yes. It is a heavy-duty 400-amp programmable controller aimed at lifted and high-torque conversions.' },
+      { q: 'Will this EZGO golf cart controller upgrade fit my model?', a: 'Fit depends on your motor type and voltage. Send us the make, model and year and we will confirm.' },
+      { q: 'Does it suit a Club Car golf cart controller replacement?', a: 'It can, depending on the motor and system voltage. Tell us your model and we will check.' },
+      { q: 'Is it an electric golf cart speed controller I can tune?', a: 'Yes. It has programmable acceleration and speed curves and regenerative braking control.' },
+      { q: 'Do you stock golf buggy parts for fitting it?', a: 'We list parts and accessories across our range. Ask the Yatala desk what else suits your build.' },
+    ],
+  },
+
+  'navitas-600a-ac-controller-upgrade-kit': {
+    primaryKeyword: 'golf cart controllers for sale',
+    supportingKeywords: ['golf cart speed controller', 'electric golf cart speed controller', 'club car golf cart speed controller', 'golf buggy parts australia', 'yamaha golf cart speed controller'],
+    h1: 'Golf Buggy Controllers for Sale: Navitas 600A AC Upgrade Kit',
+    seoTitle: 'Golf Cart Controllers for Sale: Navitas 600A AC Upgrade',
+    seoDescription: 'Shop golf cart controllers for sale. Navitas 600A AC controller upgrade kit with Bluetooth on-the-fly lockout control, $1,450 inc GST.',
+    short: 'Navitas 600A kit',
+    closingHeading: 'Where can I buy the Navitas 600A upgrade kit?',
+    intro:
+      'Owners looking at golf cart controllers for sale who want a decisive change often choose the Navitas 600A AC Controller Upgrade Kit. It delivers substantially higher top speed and the hill torque that heavy lifted buggies demand, with Bluetooth on-the-fly lockout control. It is $1,450 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What does a 600-amp golf cart speed controller change?',
+        body: 'A 600-amp AC controller is for owners who want a decisive change rather than a marginal one, delivering both substantially higher top speed and the hill torque that heavy lifted buggies demand. AC drive also brings smoother power delivery and better regenerative braking than a DC system. It suits owners who have already upgraded tyres or suspension and want the drivetrain to match. Choose it when a small tweak will not do, because the controller is the part that sets the ceiling for everything else.',
+      },
+      {
+        heading: 'How does Bluetooth on-the-fly control work?',
+        body: 'The feature that sets it apart is Bluetooth on-the-fly control: performance modes can be changed from a dashboard dial or a phone, so the same vehicle can run a restricted profile when guests, children or staff are driving and full output when you are. That lockout is a genuine safety consideration on a family property, and it keeps a fast buggy manageable for any driver. A restricted mode also gives you peace of mind when the buggy is lent out or driven by staff.',
+      },
+      {
+        heading: 'Should I fit it myself?',
+        body: 'Fitting is best handled by an experienced technician, because a controller sits at the heart of the electrical system. Check your motor type and system voltage before you order, and remember that higher speeds change braking and handling needs, so a golf cart speed controller upgrade should be matched to the rest of the vehicle. Tell us your model and plans and we will advise. Brakes, tyres and suspension should be checked at the same time, because faster vehicles need more stopping power. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Questions are welcome before you buy, not just after.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart controllers for sale like the Navitas 600A kit?', a: 'The Navitas 600A AC Controller Upgrade Kit is $1,450 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a golf cart speed controller that raises top speed?', a: 'Yes. It delivers substantially higher top speed and hill torque. Check that your braking and tyres suit the extra performance.' },
+      { q: 'Is it an electric golf cart speed controller with modes?', a: 'Yes. Bluetooth on-the-fly control changes performance modes from a dashboard dial or a phone.' },
+      { q: 'Will it fit a Club Car golf cart speed controller position?', a: 'Fit depends on motor type and system voltage. Send us your model and we will confirm before you order.' },
+      { q: 'Where can I get golf buggy parts Australia wide?', a: 'We supply parts and accessories from our Yatala QLD depot, with freight quoted to your postcode.' },
+      { q: 'Does it suit a Yamaha golf cart speed controller upgrade?', a: 'It may, depending on your motor and voltage. Tell us your model and we will check.' },
+    ],
+  },
+
+  'universal-48v-to-12v-30a-voltage-reducer': {
+    primaryKeyword: 'golf cart dc converter',
+    supportingKeywords: ['golf cart voltage reducer', 'voltage reducer for golf cart', 'electric golf cart voltage', 'golf cart voltage', '48v to 12v golf cart converter'],
+    h1: 'Golf Buggy DC Converter: 48V to 12V 30A Voltage Reducer',
+    seoTitle: 'Golf Cart DC Converter: Buy the 48V to 12V 30A Reducer',
+    seoDescription: 'Buy a golf cart DC converter. Universal 48V/36V to 12V 30A voltage reducer, key-switch triggered, waterproof housing, $85 inc GST.',
+    short: '48V to 12V reducer',
+    closingHeading: 'Where can I buy the 48V to 12V voltage reducer?',
+    intro:
+      'Every accessory worth adding to a buggy runs on 12V, and the pack does not, which is why you need a golf cart dc converter. The Universal 48V/36V to 12V 30A Voltage Reducer steps the pack voltage down to a clean, regulated 12V supply. It is key-switch triggered, waterproof, and $85 AUD including GST.',
+    sections: [
+      {
+        heading: 'What can a golf cart voltage reducer run?',
+        body: 'It steps 48V down to a clean, regulated 12V supply at up to 30 amps, which is enough headroom for an LED light kit, a soundbar and USB charging together. That makes it the correct way to bridge the gap between a high-voltage pack and everyday accessories, and it suits anyone who searches for a golf cart voltage reducer to add lights, audio or a horn. Check the total current of your accessories against the 30 amp rating before you install.',
+      },
+      {
+        heading: 'Why not tap one battery in the bank?',
+        body: 'Tapping a single battery in the bank instead, which is the shortcut people take, unbalances the pack and shortens the life of every cell in it. A proper reducer draws from the whole pack, so the batteries age evenly. That is the reason to use a proper reducer rather than a quick wire to one battery. Even battery wear is the main benefit, and it is invisible until a pack fails early.',
+      },
+      {
+        heading: 'What do key-switch triggering and the housing do?',
+        body: 'Key-switch triggering means it powers down with the buggy rather than draining the pack overnight. The waterproof cast aluminium housing handles under-seat heat and moisture, so it can be mounted where wiring is neat and protected. It suits DIY builders adding lights, audio or horns. Check your pack voltage before ordering and tell us what accessories you plan to run. Mounting it under the seat keeps wiring short, tidy and away from the weather. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart DC converter like this voltage reducer?', a: 'The Universal 48V/36V to 12V 30A Voltage Reducer is $85 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a golf cart voltage reducer for lights and audio?', a: 'Yes. Up to 30 amps of regulated 12V is enough for an LED light kit, a soundbar and USB charging together.' },
+      { q: 'Is it a voltage reducer for golf cart packs of 48V or 36V?', a: 'Yes. It is a universal reducer for 48V or 36V packs. Check your pack voltage before ordering.' },
+      { q: 'What is the electric golf cart voltage it can handle?', a: 'It steps a 48V or 36V pack down to 12V. Send us your vehicle details if you are unsure.' },
+      { q: 'Will it drain the pack when parked?', a: 'No. It is key-switch triggered, so it powers down with the buggy rather than draining the pack overnight.' },
+      { q: 'Can I use it as a 48V to 12V golf cart converter for a soundbar?', a: 'Yes. It is designed to supply 12V accessories such as soundbars, lights and USB chargers.' },
+    ],
+  },
+
+  'madjax-alpha-lux-street-legal-led-light-kit': {
+    primaryKeyword: 'golf cart lights',
+    supportingKeywords: ['golf cart street legal kit', 'light kit for club car golf cart', 'yamaha golf cart light kit', 'golf buggy accessories australia', 'electric street legal golf cart'],
+    h1: 'Golf Buggy Lights: MadJax Alpha Lux LED Light Kit',
+    seoTitle: 'Golf Cart Lights: Buy the MadJax Alpha Lux LED Kit',
+    seoDescription: 'Buy golf cart lights. MadJax Alpha Lux LED kit with projector headlights, turn signals, hazards, horn and brake switch, $320 inc GST.',
+    short: 'Alpha Lux kit',
+    closingHeading: 'Where can I buy the MadJax Alpha Lux light kit?',
+    intro:
+      'Golf cart lights should be a complete package, not a pair of headlights. The MadJax Alpha Lux LED Light Kit includes LED projector headlights, sequential turn signals, hazard lights, a brake switch and a mechanical horn. It is $320 AUD including GST, supplied with mounting hardware from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why is a complete lighting package better?',
+        body: 'A complete lighting package matters if the buggy is used on private estate roads shared with vehicles. It includes automotive LED projector headlights, sequential turn signals, hazard lights, a brake switch and a mechanical horn, which together cover the signalling equipment normally expected for legitimate road use. Buying it as a kit means the parts are designed to work together. Buying a kit also saves chasing separate lamps, switches and relays, and it keeps the wiring consistent.',
+      },
+      {
+        heading: 'What do projector optics do?',
+        body: 'Projector optics put light where it is needed with a defined cut-off rather than scattering glare at oncoming drivers. That makes night driving safer for you and more considerate for everyone else. For gated estate drivers who use their buggy after dark, it is a major improvement over a basic lamp, and it works with many club car and yamaha light kit layouts. Better beam control matters most on narrow estate roads, where oncoming drivers are close.',
+      },
+      {
+        heading: 'Is a golf cart street legal kit enough to make a buggy road legal?',
+        body: 'No. Conditional registration requirements differ by state, so confirm what your state requires before assuming a kit alone makes a buggy road legal. We do not label any buggy road legal. Read our registration guide, check with your state authority and tell us your buggy so we can confirm the kit fits. Those steps matter more than the hardware. A kit is only part of the picture, because registration, insurance and equipment rules vary by state and council. We would rather you check first than fit parts you cannot use on the roads you drive. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart lights like the MadJax Alpha Lux kit?', a: 'The MadJax Alpha Lux LED Light Kit is $320 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a golf cart street legal kit?', a: 'It contains the signalling equipment normally expected, but we do not label any buggy road legal. Check your state rules.' },
+      { q: 'Is this a light kit for club car golf cart models?', a: 'Fit depends on your model. Send us the make, model and year and we will confirm before you order.' },
+      { q: 'Can it work as a Yamaha golf cart light kit?', a: 'It may, depending on your model. Tell us your buggy and we will check the fit.' },
+      { q: 'What golf buggy accessories Australia buyers add with it?', a: 'Many add mirrors and seatbelts. Ask the Yatala desk about our safety accessories.' },
+      { q: 'Does it make an electric street legal golf cart?', a: 'No kit alone does. Registration requirements differ by state, so confirm with your authority.' },
+    ],
+  },
+
+  'heavy-duty-4-wheel-hydraulic-disc-brake-kit': {
+    primaryKeyword: 'golf cart brake parts',
+    supportingKeywords: ['ezgo golf cart brakes', 'club car golf cart brakes', 'yamaha golf cart brakes', 'golf buggy parts', 'golf buggy parts australia'],
+    h1: 'Golf Buggy Brake Parts: Heavy Duty 4-Wheel Hydraulic Disc Kit',
+    seoTitle: 'Golf Cart Brake Parts: Heavy Duty 4-Wheel Hydraulic Kit',
+    seoDescription: 'Buy golf cart brake parts. Heavy duty 4-wheel hydraulic disc brake kit with dual-piston calipers and stainless lines, $750 inc GST.',
+    short: 'disc brake kit',
+    closingHeading: 'Where can I buy the 4-wheel disc brake kit?',
+    intro:
+      'Factory rear drum brakes are the weakest point on most buggies, which is why many owners look for golf cart brake parts. The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit replaces all four corners with dual-piston hydraulic calipers on stainless steel lines. It is a direct bolt-on, $750 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why do drum brakes become inadequate?',
+        body: 'Drum brakes become genuinely inadequate once a lift kit, larger tyres, extra seats or a loaded cargo tray increase the mass being stopped. Drums also fade when hot and hold water after wet grass, which is precisely when you need them. If you have modified the vehicle, the original brakes may not match the weight and speed you now have, and upgrading is a safety decision. Heavy loads, steep descents and wet ground are exactly the conditions where drums fade and stopping distances grow.',
+      },
+      {
+        heading: 'What do dual-piston calipers and stainless lines add over ezgo golf cart brakes?',
+        body: 'The kit replaces all four corners with dual-piston hydraulic calipers on stainless steel lines, giving consistent, repeatable stopping that does not deteriorate down a long descent. Stainless lines resist the corrosion that causes soft pedal feel over time. Whatever the make of the original system, a hydraulic disc setup is a notable step up in confidence. Consistent pedal feel is what gives a driver confidence on a long hill, and it is the main benefit of a hydraulic disc setup.',
+      },
+      {
+        heading: 'Is it a direct bolt-on?',
+        body: 'Direct bolt-on fitment means no fabrication, but brakes are a safety system, so have the work done by an experienced technician. If you have lifted a buggy, this is the upgrade to pair with it. Tell us your make, model and year and we will confirm the kit suits. Brakes are not a part to save money on, so use a competent installer and test carefully after fitting. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. You can ask us for current availability, because we hold stock at our Yatala QLD depot.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart brake parts like this hydraulic disc kit?', a: 'The Heavy Duty 4-Wheel Hydraulic Disc Brake Kit is $750 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it replace EZGO golf cart brakes?', a: 'It replaces all four corners with hydraulic discs. Send us your model and we will confirm the fit.' },
+      { q: 'Will it work on Club Car golf cart brakes?', a: 'Fit depends on the model. Tell us the make, model and year before you order.' },
+      { q: 'Is it suitable for Yamaha golf cart brakes?', a: 'It may be, depending on the model. Ask the Yatala desk to confirm.' },
+      { q: 'Do you stock other golf buggy parts for a lifted build?', a: 'Yes. We list parts and accessories across our range. Ask us what pairs with the kit.' },
+      { q: 'Do you supply golf buggy parts Australia wide?', a: 'Yes. We supply from our Yatala QLD depot and quote freight to your postcode.' },
+    ],
+  },
+
+  'all-weather-heavy-duty-pvc-enclosure': {
+    primaryKeyword: 'golf buggy enclosures for sale',
+    supportingKeywords: ['ezgo golf cart enclosure', 'golf buggy rain cover', 'yamaha golf cart enclosure', 'golf buggy accessories australia', 'ez go golf cart enclosure'],
+    h1: 'Golf Buggy Enclosures for Sale: All-Weather Heavy-Duty PVC',
+    seoTitle: 'Golf Buggy Enclosures for Sale: All-Weather PVC Enclosure',
+    seoDescription: 'Shop golf buggy enclosures for sale. All-weather heavy-duty PVC enclosure with roll-up windows and heavy-duty zippers, $290 inc GST.',
+    short: 'PVC enclosure',
+    closingHeading: 'Where can I buy the all-weather PVC enclosure?',
+    intro:
+      'Owners searching for golf buggy enclosures for sale want to use the buggy all year. The All-Weather Heavy-Duty PVC Enclosure is a four-sided enclosure with clear marine vinyl roll-up windows, heavy-duty zippers and reinforced brass eyelets. It is $290 AUD including GST, with universal fit options.',
+    sections: [
+      {
+        heading: 'Why does a four-sided enclosure help?',
+        body: 'A four-sided enclosure turns a buggy into a usable vehicle through winter mornings, wet season downpours and dusty afternoons, which for most owners is the difference between using it year round and leaving it in the shed. It works as a rain cover and a wind break in one, which matters for older drivers and anyone on a cold early round. On a cold morning round, the difference is obvious within the first few holes. It also protects clothing and clubs from rain, and it keeps wind off the driver, which makes the buggy useful in more weather.',
+      },
+      {
+        heading: 'Why does marine vinyl matter on a golf buggy rain cover?',
+        body: 'The clear marine-grade vinyl windows roll up individually, so ventilation can be adjusted rather than being an all-or-nothing choice. Marine vinyl is specified because standard clear PVC yellows and cracks under Australian UV within a season or two. That is why a good golf buggy rain cover or enclosure is judged by its vinyl first. Cheap vinyl hazes and cracks, so material choice shows up in the first year, not the fifth.',
+      },
+      {
+        heading: 'Will it fit my buggy?',
+        body: 'Heavy-duty zippers and reinforced brass eyelets are the components that usually fail first on cheap enclosures, which is exactly why they are upgraded here. Universal fit options cover most common two and four-seat models, but fit still depends on your roof and frame. Send us the make and model, for example an ezgo golf cart enclosure query, and we will confirm. A roof and frame that are in good condition give the best result, so tell us if yours has been modified. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf buggy enclosures for sale like this PVC enclosure?', a: 'The All-Weather Heavy-Duty PVC Enclosure is $290 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it fit an EZGO golf cart enclosure position?', a: 'It has universal fit options for most two and four-seat models. Send us your make and model to confirm.' },
+      { q: 'Is it a golf buggy rain cover for all weather?', a: 'Yes. It is a four-sided enclosure with roll-up clear vinyl windows for wind, rain and dust.' },
+      { q: 'Will it suit a Yamaha golf cart enclosure need?', a: 'It may. Tell us your Yamaha model and we will confirm the fit.' },
+      { q: 'What golf buggy accessories Australia buyers fit with it?', a: 'Many add a windshield or mirrors. Ask the Yatala desk what suits your buggy.' },
+      { q: 'Does it work as an EZ GO golf cart enclosure replacement?', a: 'It suits many E-Z-GO models. Send us the year and model and we will confirm.' },
+    ],
+  },
+
+  'all-terrain-23x10-5-12-wheel-tyre-combo': {
+    primaryKeyword: 'golf cart tyres',
+    supportingKeywords: ['golf cart wheels and tires', 'golf cart wheel and tire combo', 'tires for golf carts', 'wheels for golf cart', 'golf buggy wheels'],
+    h1: 'Golf Buggy Tyres: All-Terrain 23x10.5-12 Wheel and Tyre Combo',
+    seoTitle: 'Golf Cart Tyres: Buy the All-Terrain 23x10.5-12 Wheel Combo',
+    seoDescription: 'Buy golf cart tyres mounted on 12-inch alloy wheels. All-terrain 23x10.5-12 set of 4 with 6-ply tread and lug nuts, $850 inc GST.',
+    short: 'wheel and tyre set',
+    closingHeading: 'Where can I buy the 23x10.5-12 wheel and tyre set?',
+    intro:
+      'Rural owners searching for golf cart tyres usually want puncture resistance and clearance. The All-Terrain 23x10.5-12 Wheel and Tyre Combo is a set of four, supplied mounted on diamond-cut 12-inch alloy rims with 6-ply off-road tread and lug nuts included. It is $850 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does 6-ply construction matter on rural property?',
+        body: 'Standard golf tyres are built for turf and puncture readily on stubble, stones and stick, while a 6-ply carcass resists that. On a rural property that is the difference between a tyre that lasts and one that goes flat at the far paddock. It is the specification that matters most when choosing tires for golf carts that will leave the fairway. Fewer punctures mean fewer trips back to the shed and less time with a vehicle out of service.',
+      },
+      {
+        heading: 'What do the 23-inch diameter and tread add to golf cart wheels and tires?',
+        body: 'Twenty-three-inch diameter adds genuine ground clearance under the axle rather than just filling the arch, and the aggressive tread clears mud instead of packing with it. Diamond-cut 12-inch alloy rims handle the side loads of off-camber driving better than pressed steel. A matched golf cart wheels and tires package removes guesswork about whether the parts suit each other. A diamond-cut alloy rim also looks the part, which matters to owners who treat the buggy as a second vehicle. The tread pattern clears mud and loose gravel as the wheel turns.',
+      },
+      {
+        heading: 'Do I need a lift kit?',
+        body: 'The set is supplied mounted with lug nuts included, so there is no separate fitting exercise. Pair it with a lift kit for the intended geometry, and check clearance before fitting to an unlifted chassis, because taller tyres can rub. Tell us your buggy, its lift and its use, and we will confirm the combo suits before you order golf buggy wheels. Tell us your lift height and whether you carry heavy loads, so we can say whether this set suits. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart tyres like this 23x10.5-12 wheel combo?', a: 'The All-Terrain 23x10.5-12 Wheel and Tyre Combo (Set of 4) is $850 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Are these golf cart wheels and tires mounted?', a: 'Yes. They are supplied mounted on 12-inch alloy rims with lug nuts included.' },
+      { q: 'Is it a golf cart wheel and tire combo for lifted buggies?', a: 'Yes. It is aimed at lifted buggies and rural properties. Check clearance before fitting to an unlifted chassis.' },
+      { q: 'Are these tires for golf carts puncture resistant?', a: 'The 6-ply construction resists punctures from stubble, stones and sticks better than standard golf tyres.' },
+      { q: 'Are these wheels for golf cart fitment suitable for my model?', a: 'Send us the make, model and year and we will confirm the bolt pattern and clearance.' },
+      { q: 'Are these golf buggy wheels sold as a set?', a: 'Yes. The combo is a set of four wheels and tyres.' },
+    ],
+  },
+
+  'foldable-tinted-acrylic-windshield-system': {
+    primaryKeyword: 'golf cart windshield parts',
+    supportingKeywords: ['golf cart windshield clips', 'ezgo golf cart windshield', 'windshield hinge for golf cart', 'golf buggy accessories australia', 'ez go golf cart windshield'],
+    h1: 'Golf Buggy Windshield Parts: Foldable Tinted Acrylic System',
+    seoTitle: 'Golf Cart Windshield Parts: Foldable Tinted Acrylic',
+    seoDescription: 'Buy golf cart windshield parts. Foldable tinted high-impact acrylic windshield with UV protection and noise-reduction clips, $160 inc GST.',
+    short: 'windshield system',
+    closingHeading: 'Where can I buy the foldable tinted windshield?',
+    intro:
+      'A split windshield that folds down is the practical choice for Australian conditions, and these golf cart windshield parts make it easy. The Foldable Tinted Acrylic Windshield System has high-impact acrylic, UV protection and snug noise-reduction clips. It suits Club Car, EZGO and Yamaha owners and is $160 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does a folding windshield suit Australia?',
+        body: 'Up for cold mornings, insects and rain, down for airflow on hot afternoons. Fixed windshields force you to choose once and live with it. A split design lets you change with the weather without tools, which is why many owners prefer it. It is a comfort upgrade that is fitted in minutes. A tinted screen also reduces glare on bright days, which makes driving more comfortable.',
+      },
+      {
+        heading: 'What do acrylic and UV tint protect?',
+        body: 'High-impact acrylic resists the stone and stick strikes that shatter glass, and the smoke tint blocks UV, which matters as much for the driver as for the dashboard and seats that would otherwise fade and crack. Together they extend the life of the cabin as well as improving comfort. For many owners that is the main reason to fit an ezgo golf cart windshield style screen. Acrylic is lighter than glass and more shatter-resistant, which is a sensible safety choice on an open vehicle.',
+      },
+      {
+        heading: 'Why do golf cart windshield clips matter?',
+        body: 'Snug noise-reduction clips are a small detail that prevents the buzz and rattle that makes cheaper folding windshields irritating at speed. Good clips and a sound hinge decide whether a screen is pleasant or annoying. Tell us your make, model and year and we will confirm the fit before you order. Fitting is straightforward, but we confirm compatibility first so the screen sits properly on your frame. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart windshield parts like this foldable system?', a: 'The Foldable Tinted Acrylic Windshield System is $160 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it include golf cart windshield clips?', a: 'Yes. Snug noise-reduction clips prevent buzz and rattle at speed.' },
+      { q: 'Will it fit an EZGO golf cart windshield frame?', a: 'It suits Club Car, EZGO and Yamaha owners. Send us your model and we will confirm the fit.' },
+      { q: 'Is a windshield hinge for golf cart frames included?', a: 'It is a split windshield that folds down. Ask the Yatala desk about hinge and mounting details for your model.' },
+      { q: 'What golf buggy accessories Australia owners pair with it?', a: 'Many add an enclosure or mirrors. Ask us what suits your buggy.' },
+      { q: 'Will it suit an EZ GO golf cart windshield frame?', a: 'It suits Club Car, EZGO and Yamaha owners. Send us your model and we will confirm the fit.' },
+    ],
+  },
+
+  'heavy-duty-solenoid-albright-48vdc-200a': {
+    primaryKeyword: '48v golf cart solenoid',
+    supportingKeywords: ['golf buggy parts', 'golf buggy parts australia', 'yamaha golf cart solenoids', 'golf buggy accessories', 'electric golf cart voltage'],
+    h1: '48V Golf Buggy Solenoid: Albright 200A Heavy Duty',
+    seoTitle: '48V Golf Cart Solenoid: Buy the Albright 200A Heavy Duty',
+    seoDescription: 'Buy a 48V golf cart solenoid. Heavy duty Albright 48VDC 200A continuous duty solenoid with silver alloy contacts, $120 inc GST.',
+    short: 'Albright solenoid',
+    closingHeading: 'Where can I buy the Albright 200A solenoid?',
+    intro:
+      'A 48v golf cart solenoid is the high-current switch between the battery pack and the motor. The Heavy Duty Solenoid Albright 48VDC 200A has a continuous duty rating and silver alloy contacts. It is a common replacement when a buggy clicks but will not move, $120 AUD including GST, and stocked at our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why is the solenoid a common failure point?',
+        body: 'It is a common failure point on buggies that have been upgraded or worked hard. Every start draws a current spike through its contacts, and a lightweight solenoid pits and welds under that duty until it either sticks closed or stops passing current. Upgraded motors and controllers raise that current, which is why a stronger solenoid is often part of a performance upgrade. Replacing a weak solenoid early can prevent a roadside failure, which is more inconvenient than a planned repair.',
+      },
+      {
+        heading: 'What does continuous duty mean for golf buggy parts?',
+        body: 'The Albright unit uses silver alloy contacts with a continuous duty rating, meaning it is built to stay energised for extended periods without overheating, rather than for intermittent switching. That makes it a sturdy choice for vehicles that work all day. It is among the golf buggy parts Australia owners buy most often when diagnosing starting problems. That stability under load is why it suits vehicles with stronger controllers and motors.',
+      },
+      {
+        heading: 'When should I suspect the solenoid?',
+        body: 'If your buggy clicks but will not move, or has started intermittently cutting out, this is the part to suspect. Check the wiring and batteries first, because a low pack can mimic the same symptom. Send us the make, model, year and voltage and we will confirm the Albright suits before you order, rather than leaving you to guess at a fault. If the fault persists after replacement, the controller or wiring may need attention, and we can help you narrow it down. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Questions are welcome before you buy, not just after.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a 48v golf cart solenoid like the Albright 200A?', a: 'The Heavy Duty Solenoid Albright 48VDC 200A is $120 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it one of the golf buggy parts that cure a clicking fault?', a: 'It is a common cause when a buggy clicks but will not move. Check the batteries and wiring first and tell us the symptoms.' },
+      { q: 'Do you supply golf buggy parts Australia wide?', a: 'Yes. We supply from our Yatala QLD depot and quote freight to your postcode.' },
+      { q: 'Will it work as one of the Yamaha golf cart solenoids?', a: 'It may, depending on the model and voltage. Send us the details and we will confirm.' },
+      { q: 'Can I add other golf buggy accessories with it?', a: 'Yes. We list accessories across our range. Ask the Yatala desk about your order.' },
+      { q: 'What electric golf cart voltage does it handle?', a: 'It is a 48VDC unit rated 200A continuous duty. Check your system voltage before ordering.' },
+    ],
+  },
 };
