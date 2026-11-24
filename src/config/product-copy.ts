@@ -2921,4 +2921,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Can I use it on a golf trolley gps holder mount from another brand?', a: 'It is made for the Zip Series top box. Ask us about other brands.' },
     ],
   },
+
+  'mgi-umbrella-holder': {
+    primaryKeyword: 'mgi umbrella holder',
+    supportingKeywords: ['golf buggy umbrella holder', 'umbrella holder for golf buggy', 'mgi zip umbrella holder', 'mgi zip navigator umbrella holder', 'golf cart accessory'],
+    h1: 'MGI Umbrella Holder: Two-Way Adjustable, Tool-Free Fitting',
+    seoTitle: 'MGI Umbrella Holder: Buy the Two-Way Adjustable Mount',
+    seoDescription: 'Buy the MGI umbrella holder. Two-way adjustable fitting for carrying an umbrella on the buggy, handles up to 38mm, tool-free installation, $59.95 inc GST.',
+    short: 'umbrella holder',
+    closingHeading: 'Where can I buy the MGI umbrella holder?',
+    intro:
+      'An MGI umbrella holder keeps a brolly on the buggy and out of your hand. This two-way adjustable fitting carries an umbrella on the buggy, and the wide opening takes handles up to 38mm in diameter. It needs no tools to install and is $59.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does two-way adjustable mean?',
+        body: 'The holder adjusts in two directions, so you can set the umbrella at the angle and position that give the best cover. That matters because a brolly that points the wrong way protects the bag but not the golfer. A well-set golf buggy umbrella holder lets you walk and push in the rain with your hands free for the clubs, and it saves you balancing a wet umbrella under one arm. In a sudden Australian shower, being able to put the umbrella up without stopping is a real convenience.',
+      },
+      {
+        heading: 'Will an umbrella holder for golf buggy use fit my umbrella?',
+        body: 'The wide opening takes handles up to 38mm in diameter, which suits most umbrellas. Measure the handle on yours if it is unusually thick. Installation needs no tools, so you can fit it at the car before a round without a workshop. If your umbrella is tall or you are above average height, the separate extender adds extra height so the canopy sits where it covers you. Test the fit with your own umbrella as soon as it arrives, so you know it is secure before a wet round.',
+      },
+      {
+        heading: 'Which MGI buggy is it made for?',
+        body: 'Make sure you choose the holder made for your specific buggy series, because fittings differ between Zip, Ai and other MGI models. Tell us your model and we will confirm the correct part before you order. It is a practical, modest purchase that pairs well with the MGI rain cover, which keeps the clubs dry while the holder keeps you dry. It is also a handy shade on a sunny day, and many golfers use it for that as much as for rain. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our desk is based at Yatala QLD.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI umbrella holder?', a: 'The MGI Umbrella Holder is $59.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What size handle fits the MGI umbrella holder?', a: 'It accepts handles up to 38mm in diameter, which suits most umbrellas.' },
+      { q: 'Do I need tools to fit a golf buggy umbrella holder like this?', a: 'No. Installation needs no tools.' },
+      { q: 'Is this an mgi zip navigator umbrella holder for the Zip series?', a: 'It is made for MGI buggies. Choose the holder made for your series, and ask us if you are unsure.' },
+      { q: 'Can a mgi zip umbrella holder be raised for a tall golfer?', a: 'Yes. The MGI Umbrella Holder Extender adds 150mm of height.' },
+      { q: 'What other golf cart accessory items do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk what suits your model.' },
+    ],
+  },
+
+  'mgi-umbrella-holder-extender': {
+    primaryKeyword: 'mgi umbrella holder extender',
+    supportingKeywords: ['mgi zip umbrella holder extender', 'umbrella holder extender', 'umbrella holder extension', 'golf buggy umbrella holder', 'golf cart accessories australia'],
+    h1: 'MGI Umbrella Holder Extender: Adds 150mm of Height',
+    seoTitle: 'MGI Umbrella Holder Extender: Buy the 150mm Riser',
+    seoDescription: 'Buy the MGI umbrella holder extender. Adds 150mm of height so the umbrella covers taller golfers, fits all MGI umbrella holders, $41.50 inc GST.',
+    short: 'umbrella extender',
+    closingHeading: 'Where can I buy the MGI umbrella extender?',
+    intro:
+      'For the taller golfer, the MGI umbrella holder extender adds 150mm of height to your umbrella so it sits where it actually covers you. It fits into the MGI Umbrella Holder and is compatible with all MGI umbrella holders. The price is $41.50 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does umbrella height matter?',
+        body: 'A brolly mounted too low covers the bag but leaves your head and shoulders exposed, and it can catch your elbow as you swing. Adding 150mm lifts the canopy to a position where it protects the golfer as well as the clubs. Taller players notice this immediately, and it often turns a holder that was almost right into one that genuinely works for them. Because the extension raises the canopy, you can also stand closer to the buggy without brushing the umbrella.',
+      },
+      {
+        heading: 'How does an umbrella holder extension fit?',
+        body: 'An umbrella holder extension simply slots into the MGI Umbrella Holder, which means there is nothing to drill or modify. It is compatible with all MGI umbrella holders, so it works whichever model you already own. You get a comfortable, adjustable position for better protection on the course, and you can remove it if you want a lower profile on a dry day. It is a simple part, so there is nothing to maintain and nothing to wear out beyond the normal life of the fitting.',
+      },
+      {
+        heading: 'Do you need the extender or a new umbrella?',
+        body: 'If your umbrella is a standard size and you are above average height, the extender is the cheaper answer than buying a larger umbrella. It is an optional accessory and it is only useful with an MGI umbrella holder, so it makes sense to add it to the same order as the holder. Tell us your height and your model and we will say whether it will help. We are an Australian stockist, so you can ask about compatibility before you buy. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI umbrella holder extender?', a: 'The MGI Umbrella Holder Extender is $41.50 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'How much height does the extender add?', a: 'It adds 150mm of height to your umbrella.' },
+      { q: 'Is an umbrella holder extension compatible with every MGI holder?', a: 'Yes. It is compatible with all MGI umbrella holders.' },
+      { q: 'Can I use a mgi zip umbrella holder extender on another brand?', a: 'It is made for MGI umbrella holders. Ask us if you want to use it elsewhere.' },
+      { q: 'Does a golf buggy umbrella holder come with the extender?', a: 'No. The holder and the extender are listed separately.' },
+      { q: 'Do you stock other golf cart accessories Australia buyers need?', a: 'Yes. We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk what suits your model.' },
+    ],
+  },
+
+  'mgi-drink-bottle-holder': {
+    primaryKeyword: 'mgi drink holder',
+    supportingKeywords: ['golf buggy drink holder', 'golf cart drink holder', 'golf trolley bottle holder', 'golf trolley drinks holder', 'golf cart beverage holder'],
+    h1: 'MGI Drink Holder: Bottle Holder for Zip and Ai Buggies',
+    seoTitle: 'MGI Drink Holder: Buy the Buggy Drink Bottle Holder',
+    seoDescription: 'Buy the MGI drink holder. Attaches to the buggy and holds bottles up to 75mm in diameter so you stay hydrated on a hot Australian round, $35 inc GST.',
+    short: 'drink holder',
+    closingHeading: 'Where can I buy the MGI drink holder?',
+    intro:
+      'The MGI drink holder attaches to the buggy so your drink is within arm\'s reach and you stay hydrated on a hot Australian round. It holds bottles up to 75mm in diameter and costs $35 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does a golf buggy drink holder matter?',
+        body: 'A hot round demands regular drinks, and a bottle in the bag is a bottle you forget to drink. A holder on the buggy keeps it in sight and in reach, so sipping becomes a habit instead of a chore. It also keeps the bottle upright and out of the dirt when you set the buggy down, which is more hygienic than leaving it on the ground. On a hot Australian day, dehydration is a genuine risk, and regular drinks help keep concentration and energy up through the back nine.',
+      },
+      {
+        heading: 'What size bottle will it hold?',
+        body: 'It holds bottles up to 75mm in diameter, which covers most standard drink bottles and many larger sports bottles. If you carry an oversized insulated flask, measure it first. A golf trolley bottle holder only works when the bottle fits snugly, so check the diameter of your favourite bottle against the 75mm limit before you buy. A tight fit also stops the bottle rattling, which keeps the buggy quiet and your playing partners happy.',
+      },
+      {
+        heading: 'Which MGI buggy suits this holder?',
+        body: 'Choose the holder made for your respective buggy series, because attachment points differ between models. If you are not sure, tell us your buggy and we will confirm the match. It is an inexpensive accessory, and many golfers add it together with the phone holder and the scorecard holder so the buggy carries everything they need for the round. We are an Australian stockist in Yatala QLD, and prices include GST. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. You can ask us for current availability, because we hold stock at our Yatala QLD depot. We would rather you ask first than order the wrong model.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI drink holder?', a: 'The MGI Drink Bottle Holder is $35 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What bottle size does it hold?', a: 'It holds bottles up to 75mm in diameter.' },
+      { q: 'Is this a golf buggy drink holder for any brand?', a: 'It is made for MGI buggies. Choose the holder made for your series.' },
+      { q: 'Can a golf cart drink holder like this carry a can?', a: 'It is designed for bottles up to 75mm in diameter. Ask us about cans.' },
+      { q: 'Is it a golf trolley drinks holder for the Quad series?', a: 'Choose the holder made for your respective buggy series. Ask us if you are unsure.' },
+      { q: 'Do you stock another golf cart beverage holder for MGI?', a: 'We list the MGI drink bottle holder. Ask the Yatala desk about other options.' },
+    ],
+  },
+
+  'mgi-multipurpose-hook': {
+    primaryKeyword: 'mgi golf buggy accessories',
+    supportingKeywords: ['mgi golf buggies accessories', 'golf cart accessory', 'golf carts accessories', 'golf trolley accessories', 'golf cart accessories australia'],
+    h1: 'MGI Golf Buggy Accessories: Multipurpose Stainless-Steel Hook',
+    seoTitle: 'MGI Golf Buggy Accessories: Buy the Multipurpose Hook',
+    seoDescription: 'Buy MGI golf buggy accessories. The multipurpose hook has a stainless-steel spring-loaded closure and attaches to the accessory mount, $20.95 inc GST.',
+    short: 'multipurpose hook',
+    closingHeading: 'Where can I buy the MGI multipurpose hook?',
+    intro:
+      'MGI golf buggy accessories do not need to be expensive to be useful. The MGI Multipurpose Hook attaches to the accessory mount on the buggy and keeps a towel, glove or small bag within reach. It costs $20.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What can you hang on the MGI hook?',
+        body: 'It keeps your golfing essentials, such as a towel, glove or small bag, within reach, so they are not buried in the bag or left on a tee. The upper is high-density plastic for durability and the hook is stainless steel with a spring-loaded closure. That means items stay secured while you walk, instead of slipping off when the buggy hits a bump or a slope. A towel on a hook dries between uses and stays out of the dirt, which is better than wadding it into a pocket.',
+      },
+      {
+        heading: 'Why choose mgi golf buggies accessories like this one?',
+        body: 'It is a small, cheap fitting that earns its place, and it is a sensible add-on to a larger order of MGI accessories. Because it attaches to the accessory mount, there is nothing to drill or modify. If you already have a phone holder or drink holder fitted, check that the mount has room before you order, and tell us your model if you are unsure. Spring-loaded closure means the hook shuts on what you hang on it, so a glove does not fall off on a bump.',
+      },
+      {
+        heading: 'Is it right for your buggy?',
+        body: 'The hook attaches to the accessory mount on MGI buggies, so it suits models that have one. Choose the part made for your buggy series, and ask us if you want to confirm. We stock a range of golf trolley accessories at Yatala QLD, so you can add several fittings to one parcel and pay a single freight quote at checkout. Because the hook is inexpensive, many golfers add it to a larger order rather than buying it alone. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI multipurpose hook?', a: 'The MGI Multipurpose Hook is $20.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What is the hook made of?', a: 'It has a stainless-steel hook with a spring-loaded closure and a high-density plastic upper.' },
+      { q: 'Is it one of the mgi golf buggy accessories that needs tools?', a: 'It attaches to the accessory mount on the buggy. Ask us if you are unsure about fitting.' },
+      { q: 'Is this one of the mgi golf buggies accessories that fits every model?', a: 'Choose the part made for your buggy series. Tell us your model and we will confirm.' },
+      { q: 'Can I add a golf cart accessory or two to the same order?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk.' },
+      { q: 'Do you stock golf carts accessories and other golf cart accessories Australia wide?', a: 'Yes. We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk.' },
+    ],
+  },
+
+  'mgi-scorecard-holder': {
+    primaryKeyword: 'mgi zip navigator scorecard holder',
+    supportingKeywords: ['mgi zip scorecard holder', 'mgi golf buggies accessories', 'golf trolley accessories', 'golf cart accessory', 'golf carts accessories'],
+    h1: 'MGI Zip Navigator Scorecard Holder: Water-Resistant Cover and Tray',
+    seoTitle: 'MGI Zip Navigator Scorecard Holder: Buy the Tray Holder',
+    seoDescription: 'Buy the MGI Zip Navigator scorecard holder. Water-resistant cover, flat writing surface and a tray for a pencil, tees and balls, $44.95 inc GST.',
+    short: 'scorecard holder',
+    closingHeading: 'Where can I buy the MGI scorecard holder?',
+    intro:
+      'The MGI Zip Navigator scorecard holder protects your scorecard under a water-resistant cover and gives you a flat surface to write scores on as you walk. A storage tray holds a pencil, spare tees and balls. It costs $44.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why use a scorecard holder on the buggy?',
+        body: 'A card in a pocket gets crushed, wet or lost, and writing on a soft surface smears the numbers. The water-resistant cover protects the card from rain and splashes, and the flat writing surface makes scores easy to record without stopping. It keeps the round moving, which your playing partners will appreciate, and it saves a lot of crumpled cards. Dry scores are readable scores, and a clean card is easier to hand in at the end of a round.',
+      },
+      {
+        heading: 'What goes in the storage tray?',
+        body: 'The tray holds a pencil, spare tees and balls, so the small things stay organised and in one place. That means you are not searching the bag for a tee on the next hole or borrowing a pencil from a partner. It is a modest feature, but it is the kind of detail that makes a buggy feel complete and thoughtfully set up for the way people actually play. Spare tees and balls to hand also mean fewer pauses mid-round, and that helps pace of play.',
+      },
+      {
+        heading: 'How do you choose the right mgi zip scorecard holder?',
+        body: 'Choose the holder made for your respective buggy series, because mounting points differ between models. A mgi zip scorecard holder suits Zip owners, and other models have their own versions. Tell us your buggy and we will confirm the correct part. It pairs well with the phone holder and the drink holder if you want to set up the buggy fully in one order. We are an Australian stockist, so you can ask about fit before you order. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Call or message the Yatala desk and we will answer your questions in plain language. Send us your postcode and we will quote freight before you commit to the order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI scorecard holder?', a: 'The MGI Scorecard Holder is $44.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does the mgi zip navigator scorecard holder have a waterproof cover?', a: 'It has a water-resistant cover that protects the scorecard.' },
+      { q: 'What does the tray hold?', a: 'It holds a pencil, spare tees and balls.' },
+      { q: 'Is this a mgi zip scorecard holder only for Zip buggies?', a: 'Choose the holder made for your respective buggy series. Ask us if you are unsure.' },
+      { q: 'Can I add other golf trolley accessories or a golf cart accessory to the same order?', a: 'Yes. We list phone holders, drink holders, hooks and more. Freight is quoted once at checkout.' },
+      { q: 'Do you stock other mgi golf buggies accessories and golf carts accessories?', a: 'Yes. Ask the Yatala desk what suits your model.' },
+    ],
+  },
+
+  'mgi-seat': {
+    primaryKeyword: 'mgi seat',
+    supportingKeywords: ['golf buggy with seat', 'golf buggy seats', 'seat for golf buggy', 'single seat golf buggy', 'mgi zip seat'],
+    h1: 'MGI Seat: Padded Golf Buggy Seat with Lined Storage',
+    seoTitle: 'MGI Seat: Buy the Padded Buggy Seat with Storage',
+    seoDescription: 'Buy the MGI seat. Padded golf buggy seat with a lined storage compartment and a bracket to attach to the base frame, $187.50 inc GST.',
+    short: 'MGI seat',
+    closingHeading: 'Where can I buy the MGI seat?',
+    intro:
+      'The MGI seat is a padded seat for comfort and practicality. A lined storage compartment gives easy access to your golfing essentials, and a bracket is included to attach it to the base frame. It is $187.50 AUD including GST.',
+    sections: [
+      {
+        heading: 'When does a golf buggy with seat make sense?',
+        body: 'A seat lets you rest between shots, which matters on a slow round, for golfers with sore knees or backs, and on hot days. A golf buggy with seat support also means you can wait for the group ahead without standing. It is not a ride-on conversion, so you still walk the course, but it gives you somewhere comfortable to pause and recover. Resting between shots can also help with pace of play on a day when you walk a full eighteen holes.',
+      },
+      {
+        heading: 'What does the lined storage add?',
+        body: 'The lined storage compartment keeps a few items handy, such as a glove, a towel or snacks, under the seat where they are protected. The padded seat is built for comfort and practicality rather than extended use, so think of it as a place to sit for a few minutes at a time. The included bracket attaches it to the base frame without a separate purchase. Keep heavy loads off the seat, because it is intended for a golfer taking a short rest.',
+      },
+      {
+        heading: 'Is a seat for golf buggy use suited to every MGI?',
+        body: 'Choose the seat made for your respective buggy, because fitting differs between models. The Quad seat bracket is sold separately, so Quad owners need to add that part. If you are not sure which version you need, tell us your model and we will confirm before you order. It is a comfort upgrade, and we are happy to talk through the details. We are an Australian stockist at Yatala QLD, so ask us before you order if you are unsure. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Call or message the Yatala desk and we will answer your questions in plain language. Send us your postcode and we will quote freight before you commit to the order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI seat?', a: 'The MGI Seat is $187.50 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it include a bracket?', a: 'Yes. It includes a bracket to attach it to the base frame. The Quad seat bracket is sold separately.' },
+      { q: 'Is this one of the golf buggy seats that works on any brand?', a: 'No. It is made for MGI buggies. Choose the seat made for your respective buggy.' },
+      { q: 'Can I add a single seat golf buggy style seat to my Zip?', a: 'Yes, subject to the model. Tell us your buggy and we will confirm the correct seat.' },
+      { q: 'Is the MGI Zip seat the same as this one?', a: 'Choose the seat made for your series. Ask us if you are unsure.' },
+      { q: 'Does it have storage?', a: 'Yes. It has a lined storage compartment for your golfing essentials.' },
+    ],
+  },
+
+  'mgi-rain-cover': {
+    primaryKeyword: 'mgi rain cover',
+    supportingKeywords: ['golf buggy rain cover', 'mgi zip navigator rain cover', 'mgi zip rain cover', 'mgi golf rain cover', 'mgi rain cover instructions'],
+    h1: 'MGI Rain Cover: Water-Resistant Golf Bag Cover with Concertina Opening',
+    seoTitle: 'MGI Rain Cover: Buy the Water-Resistant Bag Cover',
+    seoDescription: 'Buy the MGI rain cover. Water-resistant golf bag cover with a concertina opening that attaches to the upper bag support of compatible buggies, $189 inc GST.',
+    short: 'rain cover',
+    closingHeading: 'Where can I buy the MGI rain cover?',
+    intro:
+      'The MGI rain cover keeps your clubs dry when the weather turns. The water-resistant, durable design has a concertina opening for easy access to your clubs. It costs $189 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the concertina opening work?',
+        body: 'The concertina opening lets you reach a club without taking the cover off, so you can play through a shower with the bag still protected. The cover is water-resistant and durable, designed to shed rain rather than let it soak into the grips and shafts. A golf buggy rain cover that is quick to use will actually stay on the buggy, which is the whole point. A dry bag also means dry grips, and dry grips are safer and more reliable in your hands.',
+      },
+      {
+        heading: 'How does it attach?',
+        body: 'It attaches using the existing holes in the upper bag support of compatible MGI buggies, so there is nothing to drill. That makes fitting a short job. Check the compatibility of your buggy before ordering, and follow the mgi rain cover instructions supplied with it. It is not suitable for use with the Halo Eye, so Halo owners with the sensor fitted should not use it. Fitting is quick, so you can leave it in place and fold it back when the weather clears.',
+      },
+      {
+        heading: 'Is a mgi zip navigator rain cover worth the cost?',
+        body: 'Wet grips make poor shots, and rain can damage a bag and club heads over time. If you play in all weathers, a cover is an inexpensive way to protect the clubs and keep the round enjoyable. In Australia a sudden shower is common, so it is a sensible item to keep fitted. Tell us your model and we will confirm the correct cover before you order. A cover is a modest cost compared with replacing a soaked bag or damaged grips. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI rain cover?', a: 'The MGI Rain Cover is $189 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is the MGI rain cover waterproof?', a: 'It is water-resistant and durable, designed to keep your clubs dry when the weather turns.' },
+      { q: 'Is this a golf buggy rain cover for the Halo?', a: 'No. It is not suitable for use with the Halo Eye.' },
+      { q: 'Does it fit a mgi zip rain cover position?', a: 'It attaches using the existing holes in the upper bag support of compatible MGI buggies.' },
+      { q: 'Where can I find mgi rain cover instructions?', a: 'Instructions are supplied with the cover. Ask us if you need help with fitting.' },
+      { q: 'Can I use it as a mgi golf rain cover on a different brand?', a: 'It is made for compatible MGI buggies. Ask us before using it on another brand.' },
+    ],
+  },
+
+  'mgi-wheel-covers': {
+    primaryKeyword: 'mgi spare parts',
+    supportingKeywords: ['golf cart wheels', 'golf trolleys', 'sale golf trolleys', 'electric trolleys golf', 'three wheel golf trolley'],
+    h1: 'MGI Spare Parts: Wheel Covers for Storage and Travel',
+    seoTitle: 'MGI Spare Parts: Buy Wheel Covers for Your Buggy',
+    seoDescription: 'Buy MGI spare parts online. Wheel covers protect the rear wheels and keep mud and grass off your car boot and clothes during storage and travel, $29.95 inc GST.',
+    short: 'wheel covers',
+    closingHeading: 'Where can I buy MGI wheel covers?',
+    intro:
+      'MGI spare parts include small items that make a large difference. MGI wheel covers protect the rear wheels of a buggy when it is not in use or when you are travelling with it. They keep mud and grass off your car boot and your clothes, and cost $29.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What do the wheel covers protect?',
+        body: 'They cover the rear wheels, which pick up the most mud and grass during a round. When the buggy goes into the boot, the covers keep that dirt on the wheel and off the carpet, the bag and your clothes. They are simple and inexpensive, and they pay for themselves quickly in cleaning time, especially after a wet round or a muddy course. Muddy wheels are the usual cause of a dirty boot, so a small cover has a disproportionate effect.',
+      },
+      {
+        heading: 'Why do golf trolleys need wheel covers?',
+        body: 'Golf trolleys spend time on damp fairways, then get lifted into cars, so wheels carry dirt where it is not wanted. Covers remove that problem. They also protect the wheel surface during storage, which matters if the buggy sits in a garage or shed between rounds. They are a useful accessory for owners of electric trolleys golf courses see every week. Storing the buggy with covers on also keeps cobwebs and garage dust off the tyres.',
+      },
+      {
+        heading: 'Which MGI buggy do they fit?',
+        body: 'Choose the covers made for your respective buggy series, because wheel sizes differ between models. If you are not sure, tell us your model and we will confirm the correct size. They are a low-cost way to look after the buggy and your car, and you can add them to an order for a battery, a charger or other accessories and pay one freight quote. If you buy new golf cart wheels later, check that the covers still fit. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are the MGI wheel covers?', a: 'MGI Wheel Covers are $29.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What do the covers protect?', a: 'They protect the rear wheels and keep mud and grass off your car boot and your clothes.' },
+      { q: 'Are these MGI spare parts for every buggy?', a: 'Choose the covers made for your respective buggy series. Tell us your model if you are unsure.' },
+      { q: 'Do they suit other golf trolleys?', a: 'They are made for MGI buggies. Ask us before using them on another brand.' },
+      { q: 'Are they a sale golf trolleys accessory worth buying?', a: 'They are a low-cost accessory that keeps the car clean and protects the wheels.' },
+      { q: 'Can I add them to a three wheel golf trolley order?', a: 'Yes. Add them to any order and freight is quoted once at checkout.' },
+    ],
+  },
+
+  'mgi-cooler-bag': {
+    primaryKeyword: 'mgi zip navigator cooler bag',
+    supportingKeywords: ['golf buggy cooler bag', 'mgi zip cooler bag', 'mgi zip cooler and storage bag', 'golf buggy bag', 'golf trolley bags'],
+    h1: 'MGI Zip Navigator Cooler Bag: Insulated Cooler and Storage Bag',
+    seoTitle: 'MGI Zip Navigator Cooler Bag: Buy the Insulated Bag',
+    seoDescription: 'Buy the MGI Zip Navigator cooler bag. Insulated storage bag with a spacious main compartment, two valuables pockets and a clip-on bracket, $92.95 inc GST.',
+    short: 'cooler bag',
+    closingHeading: 'Where can I buy the MGI cooler bag?',
+    intro:
+      'The MGI Zip Navigator cooler bag is a cooler and storage bag with a spacious main compartment and two pockets for valuables. The insulation keeps items hot, cold and dry through the round. It costs $92.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the insulation do in a golf buggy cooler bag?',
+        body: 'The insulated main compartment keeps drinks cold and food fresh through a long round, which counts on a warm Australian day. It also keeps items dry, so a sandwich does not turn soggy. A golf buggy cooler bag like this one saves you stopping at the clubhouse mid-round, and it keeps your refreshments with the buggy instead of in the car. Cold water on a hot hole is a small luxury that makes the round more enjoyable.',
+      },
+      {
+        heading: 'Where do you keep valuables?',
+        body: 'Two pockets hold valuables such as keys, a wallet or a phone, so they stay secure and out of the dirt. Having a dedicated place for them means you do not leave them in the bag or on a bench. The pockets sit separately from the main compartment, so valuables stay dry even if you open the cooler for a drink. Keep keys and cards in the valuables pockets and drinks in the main compartment.',
+      },
+      {
+        heading: 'How does the clip-on bracket suit a golf buggy bag?',
+        body: 'A simple bracket lets the bag clip on and off the buggy, so it moves easily between car and course. You can carry it into the clubhouse after the round and clip it back on next time. Choose the version made for your MGI series, and tell us your model if you are unsure. It is a convenient addition among the mgi zip cooler bag options. Among golf trolley bags, one that clips on and off is easy to take to the clubhouse. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit. Delivery is enclosed, so the buggy arrives protected from weather and road dirt.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI cooler bag?', a: 'The MGI Cooler Bag is $92.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does the mgi zip navigator cooler bag keep drinks cold?', a: 'The insulation keeps items hot, cold and dry through the round.' },
+      { q: 'Is it a golf buggy cooler bag with valuables pockets?', a: 'Yes. It has two pockets for valuables.' },
+      { q: 'How does it attach?', a: 'A simple bracket lets the bag clip on and off the buggy.' },
+      { q: 'Is it also called an mgi zip cooler and storage bag?', a: 'Yes. It is the MGI Cooler and Storage Bag.' },
+      { q: 'What other golf trolley accessories do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk.' },
+    ],
+  },
+
+  'mgi-travel-bag': {
+    primaryKeyword: 'mgi travel bag',
+    supportingKeywords: ['mgi zip travel bag', 'mgi zip navigator travel bag', 'golf buggy bag', 'golf trolley bags', 'golf cart accessories australia'],
+    h1: 'MGI Travel Bag: Protective Buggy Bag for Zip and Ai Series',
+    seoTitle: 'MGI Travel Bag: Buy the Protective Buggy Carry Bag',
+    seoDescription: 'Buy the MGI travel bag. Durable fabric bag keeps a Zip or Ai Series buggy secure in transit and has an internal pocket for the battery, $132.95 inc GST.',
+    short: 'travel bag',
+    closingHeading: 'Where can I buy the MGI travel bag?',
+    intro:
+      'The MGI travel bag keeps your buggy safe and secure in transit and keeps debris, dirt and moisture off your car. It is made from durable fabric and has an internal pocket for the battery. The price is $132.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the MGI travel bag protect?',
+        body: 'It protects the buggy from knocks and scuffs in the car and keeps debris, dirt and moisture off your boot and other luggage. After a wet round, the bag contains the mess, so the car stays clean. It also gives the buggy a tidy covering when you travel to a golf trip, a holiday or a competition away from home. A bag also reduces the chance of a scratch on the buggy or on the other things in your car.',
+      },
+      {
+        heading: 'Where does the battery go?',
+        body: 'An internal pocket holds the battery, so the buggy and its power pack travel together in one place. Keeping them together means you are less likely to leave the battery behind. Check airline and carrier rules for lithium batteries if you are flying, because they differ, and ask us if you want advice on a particular trip. Pack the battery according to the rules for your trip, and keep it in the pocket provided.',
+      },
+      {
+        heading: 'Which MGI models does the mgi zip travel bag suit?',
+        body: 'It is compatible with the Zip and Ai series and is not suitable for the Quad series. Check your model before ordering, and tell us if you are unsure. If you travel with the buggy regularly, it is a sensible purchase that protects an investment and keeps your car in good order, and it is a useful addition to any set of MGI accessories. We are an Australian stockist in Yatala QLD, and prices include GST. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI travel bag?', a: 'The MGI Travel Bag is $132.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does the MGI travel bag fit the Quad series?', a: 'No. It is compatible with the Zip and Ai series and is not suitable for the Quad series.' },
+      { q: 'Is it a mgi zip navigator travel bag with a battery pocket?', a: 'Yes. It has an internal pocket for the battery.' },
+      { q: 'What is the bag made of?', a: 'It is made from durable fabric.' },
+      { q: 'Is a golf buggy bag like this suitable for flying?', a: 'It protects the buggy in transit. Check carrier rules for batteries before flying.' },
+      { q: 'What other golf trolley bags and golf cart accessories Australia wide do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk.' },
+    ],
+  },
 };
