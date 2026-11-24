@@ -881,4 +881,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Are MGI electric golf buggies supported in Australia?', a: 'Yes. MGI batteries, remotes and accessories are held in Australian stock at our Yatala QLD depot.' },
     ],
   },
+
+  'evolution-classic-2-plus': {
+    primaryKeyword: 'evolution golf carts for sale',
+    supportingKeywords: ['evolution golf carts', 'evolution golf cart', '2 person electric golf carts', '2 seater golf cart', 'electric golf buggy for sale'],
+    h1: 'Evolution Golf Buggy for Sale: Classic 2 Plus Lithium',
+    seoTitle: 'Evolution Golf Carts for Sale: Buy the Classic 2 Plus',
+    seoDescription: 'Shop Evolution golf carts for sale. Classic 2 Plus lithium buggy with 6.3-inch LCD, mirrors and turn signals, $14,200 inc GST, Yatala QLD.',
+    short: 'Classic 2 Plus',
+    closingHeading: 'How is the Evolution Classic 2 Plus supplied?',
+    intro:
+      'Buyers moving across from a modern car are often searching for evolution golf carts for sale with real instrumentation. The Evolution Classic 2 Plus is a two-seat lithium buggy with a 6.3-inch LCD screen, side mirrors with integrated turn signals and two-tone seating. It is $14,200 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What does the 6.3-inch LCD screen add to a 2 seater golf cart?',
+        body: 'The Classic 2 Plus brings automotive-level instrumentation to a two-seat buggy, which is exactly what buyers moving across from a modern car expect and rarely find. The 6.3-inch LCD screen has reverse camera compatibility, so the cabin feels closer to a car than a course buggy. For anyone comparing a 2 seater golf cart with older analogue models, the screen is the clearest difference, and it gives you information at a glance.',
+      },
+      {
+        heading: 'Why do mirrors and turn signals matter?',
+        body: 'Side mirrors with integrated turn signals make the buggy road-aware in a way that matters on estate roads shared with vehicles, not just on the fairway. Turn signals and mirrors are also the features most often required when a buggy is used around traffic on private roads or a gated community internal network. We do not call any buggy road legal, so check the rules for your area before you drive it on a public road.',
+      },
+      {
+        heading: 'Is lithium-ion power quiet enough for conversation?',
+        body: 'Lithium-ion power keeps it quiet enough to hold a conversation at speed and removes the maintenance routine lead-acid demands, with no watering and no acid. Modern, tech-focused golfers and community residents are the typical owners. If you are weighing it against other electric golf buggies for sale, tell us how you drive, who rides with you and where, and we will confirm the Classic 2 Plus suits. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are Evolution golf carts for sale like the Classic 2 Plus?', a: 'The Evolution Classic 2 Plus is $14,200 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are Evolution golf carts in Australia supported locally?', a: 'Yes. We supply the Classic 2 Plus from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'What does this Evolution golf cart include?', a: 'A 6.3-inch LCD screen with reverse camera compatibility, lithium-ion power, two-tone seats and side mirrors with integrated turn signals.' },
+      { q: 'Is it one of the 2 person electric golf carts with mirrors?', a: 'Yes. It seats two and has side mirrors with integrated turn signals. We do not label any buggy road legal, so check your local rules.' },
+      { q: 'Is this a 2 seater golf cart with lithium power?', a: 'Yes. It uses lithium-ion power, which is quiet and removes watering and acid maintenance.' },
+      { q: 'Is this electric golf buggy for sale available with Finance in 4 or crypto, and how is it delivered?', a: 'Pay by PayID, bank transfer, Finance in 4 over $3,000 or crypto, which takes 10% off the vehicle price. Enclosed freight is quoted to your postcode.' },
+    ],
+  },
+
+  'atlas-4-seater-heavy-duty-lifted-350a': {
+    primaryKeyword: 'atlas golf carts price',
+    supportingKeywords: ['heavy duty golf cart', 'atlas golf cart accessories', 'golf buggy tire', 'tires for a golf cart', 'off road golf buggy'],
+    h1: 'Atlas Golf Buggy Price: 4-Seater Heavy Duty Lifted 350A',
+    seoTitle: 'Atlas Golf Carts Price: Buy the Heavy Duty Lifted 350A',
+    seoDescription: 'See Atlas golf carts price and buy the Heavy Duty Lifted 350A. 350-amp controller and hydraulic disc brakes, $21,990 inc GST.',
+    short: 'Atlas 350A',
+    closingHeading: 'Can I trial the Atlas 350A before I order?',
+    intro:
+      'Asking about atlas golf carts price for hilly country? The Atlas 4-Seater Heavy Duty Lifted has a 350-amp controller, four-wheel hydraulic brakes, rugged all-terrain tyres and a steel brush guard. It is built for acreage owners and farm tracks, $21,990 AUD including GST, and supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a 350-amp controller matter on a heavy duty golf cart?',
+        body: 'Controller amperage governs how much current the motor can draw under load, which is what decides whether a fully laden four-seater walks up a steep farm track or bogs down halfway and overheats. The 350-amp controller is the specification that matters on this buggy, and it is why a heavy duty golf cart like this one is the answer for hilly Australian properties. On a steep track the difference is obvious: a buggy with a weak controller slows and heats up, while this one keeps pulling at a steady pace.',
+      },
+      {
+        heading: 'How do four-wheel hydraulic brakes help on descents?',
+        body: 'Paired with four-wheel hydraulic disc brakes, it also means you can come back down that same hill under control rather than riding the brakes to the bottom. Rugged all-terrain tyres and a steel brush guard handle the scrub, stumps and gateposts that acreage driving involves. Any off road golf buggy used on slopes benefits from stopping power that matches its pulling power. Better stopping also protects the brakes and the driver, because a long descent no longer depends on one set of pads working flat out.',
+      },
+      {
+        heading: 'Who should choose the Atlas 350A?',
+        body: 'Acreage owners, hilly farm tracks and rural properties where a standard golf buggy has already disappointed you. This is the model built to answer that specific problem. If you need to replace wheels later, ask us about wheel and tyre options, and tell us your slopes and loads so we can confirm it suits before you order. It is a heavy-duty answer for properties with real slopes, not a styling exercise, and it is priced accordingly. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'What is the Atlas golf carts price for the Heavy Duty Lifted 350A?', a: 'The Atlas 4-Seater Heavy Duty Lifted (350A) is $21,990 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is this a heavy duty golf cart for steep hills?', a: 'Yes. The 350-amp controller supports heavy loads on steep farm tracks, and four-wheel hydraulic brakes keep descents under control.' },
+      { q: 'Can I buy Atlas golf cart accessories for it?', a: 'Ask the Yatala desk. We list accessories across our range and can confirm what suits the Atlas 350A.' },
+      { q: 'What tyres does it use, and what about a golf buggy tire replacement?', a: 'It runs rugged all-terrain tyres. For replacement golf buggy tire options and tires for a golf cart, ask the Yatala desk.' },
+      { q: 'Is it an off road golf buggy with a brush guard?', a: 'Yes. It has a steel brush guard and all-terrain tyres for scrub, stumps and gateposts.' },
+      { q: 'Can I trial it, and how do I pay?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial. Pay by PayID, bank transfer, Finance in 4 over $3,000 or crypto, which takes 10% off the vehicle price.' },
+    ],
+  },
+
+  'evolution-d-max-gt4-off-road': {
+    primaryKeyword: '4x4 buggy for sale',
+    supportingKeywords: ['off road buggies for sale', 'off road buggy for sale australia', 'evolution electric golf cart', '4x4 farm buggy for sale', 'electric farm buggy for sale australia'],
+    h1: '4x4 Buggy for Sale: Evolution D-MAX GT4 Off-Road',
+    seoTitle: '4x4 Buggy for Sale: Buy the Evolution D-MAX GT4',
+    seoDescription: 'Shop a 4x4 buggy for sale. Evolution D-MAX GT4 with roll cage, integrated winch and independent suspension, $23,800 inc GST.',
+    short: 'D-MAX GT4',
+    closingHeading: 'Can I trial the D-MAX GT4 before I order?',
+    intro:
+      'Hunters and property managers searching for a 4x4 buggy for sale want recovery capability, not comfort. The Evolution D-MAX GT4 has a heavy-duty roll cage, long-travel independent off-road suspension, an integrated winch and a high-power AC drivetrain. It is $23,800 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why is the GT4 built around recovery?',
+        body: 'The D-MAX GT4 is the only buggy in our range built around recovery rather than comfort. A heavy-duty roll cage and long-travel independent off-road suspension let it work genuine trail terrain instead of merely surviving a gravel driveway. The integrated winch means a bogged vehicle, a fallen limb or a stuck gate is a job you finish yourself rather than a call you make. On a bush or trail property a recovery winch can turn a stuck vehicle into a quick job rather than a long wait for help.',
+      },
+      {
+        heading: 'Who buys off road buggies for sale like the GT4?',
+        body: 'Hunters and large property managers choose it because the working day happens well away from the shed. The high-power AC drivetrain delivers torque quietly, which matters more than most buyers expect around livestock and wildlife. If you are comparing off road buggies for sale, this is a serious piece of equipment rather than a lifted golf buggy, and it is specified accordingly. Quiet torque also means less disturbance to animals, which matters when the work is done around stock or on hunting land.',
+      },
+      {
+        heading: 'Is it right for a farm or trail property?',
+        body: 'For trail enthusiasts and big properties it brings the roll cage, suspension and winch together in one vehicle, which a 4x4 farm buggy for sale at lower prices usually cannot. Tell us your terrain, your typical loads and how far you work from help, and we will confirm the GT4 is the right choice, or suggest a lighter lifted model if it is more than you need. The GT4 is heavier in spirit than a lifted golf buggy, and it is priced as equipment rather than as a convenience. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Ask us anything before you buy.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a 4x4 buggy for sale like the Evolution D-MAX GT4?', a: 'The Evolution D-MAX GT4 Off-Road is $23,800 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is the GT4 one of the off road buggies for sale with a winch?', a: 'Yes. It has an integrated heavy-duty recovery winch, a roll cage and long-travel independent suspension.' },
+      { q: 'Are off road buggy for sale Australia buyers supported locally?', a: 'Yes. We supply the GT4 from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is this an Evolution electric golf cart?', a: 'It is an electric Evolution off-road buggy with a high-power AC drivetrain, built for trails rather than fairways.' },
+      { q: 'Is it a 4x4 farm buggy for sale suited to livestock?', a: 'Yes. The quiet AC drivetrain is useful around livestock and wildlife, and the winch helps with recovery.' },
+      { q: 'Can I trial an electric farm buggy for sale Australia wide?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration. Ask the Yatala desk to arrange it.' },
+    ],
+  },
+
+  'ezgo-express-s4-lifted-high-torque': {
+    primaryKeyword: 'ezgo express s4 for sale',
+    supportingKeywords: ['ez go golf cart sales', 'ezgo golf carts for sale', 'e-z-go golf buggy', 'tires for a golf cart', 'ezgo golf buggies for sale'],
+    h1: 'EZGO Express S4 for Sale: Lifted High-Torque Buggy',
+    seoTitle: 'EZGO Express S4 for Sale: Buy the Lifted High-Torque',
+    seoDescription: 'Shop the EZGO Express S4 for sale. 4-inch lift, all-terrain tyres and a rear seat that converts to a cargo bed, $20,500 inc GST.',
+    short: 'Express S4',
+    closingHeading: 'Can I trial the Express S4 before I order?',
+    intro:
+      'Rural families searching for an ezgo express s4 for sale want seats in the morning and a tray in the afternoon. The E-Z-GO Express S4 Lifted has a four-inch factory lift, Desert Eagle all-terrain tyres and a rear seat that flips into a flatbed. It is $20,500 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'How does the rear seat become a cargo bed?',
+        body: 'The rear seat flips over into a flatbed utility platform, so the school-run configuration becomes the feed-and-tools configuration in seconds without unbolting anything. That solves the problem every rural family runs into: you need seats in the morning and a tray in the afternoon, and you do not want two vehicles. For farm transport it is the most flexible chassis we stock. Parents and farmers can swap layouts in seconds, so the vehicle fits the job instead of the job being shaped around the vehicle.',
+      },
+      {
+        heading: 'Why does a factory lift beat an aftermarket one?',
+        body: 'A four-inch factory lift on Desert Eagle all-terrain tyres gives it the clearance to cross paddock ruts, washouts and unsealed tracks that would ground a standard-height buggy. Because the lift is factory rather than aftermarket, the geometry, braking and warranty are engineered together rather than bolted on afterwards. When tires for a golf cart eventually need replacing, ask us what suits. Factory engineering means the lift, tyres and brakes are designed to work together as one package.',
+      },
+      {
+        heading: 'Who buys an e-z-go golf buggy like the Express S4?',
+        body: 'Rural families and farm transport users who want one flexible vehicle rather than two. Whether you are comparing ezgo golf carts for sale or other lifted models, the dual-purpose layout is what sets the S4 apart. Tell us how many passengers you carry, what you haul and what the tracks are like, and we will confirm it suits before you order. It is the sensible pick if one vehicle must cover the school run, the feed run and the paddock check. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an EZGO Express S4 for sale in Australia?', a: 'The E-Z-GO Express S4 Lifted High-Torque is $20,500 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What are the EZ GO golf cart sales terms in Australia?', a: 'Prices include GST and freight is quoted to your postcode. The minimum order is $250 AUD, and we supply the S4 from our Yatala QLD depot.' },
+      { q: 'Is this one of the ezgo golf carts for sale with a cargo option?', a: 'Yes. The rear seat converts to a flatbed utility platform in seconds.' },
+      { q: 'What does an E-Z-GO golf buggy lift do?', a: 'The four-inch factory lift gives clearance to cross paddock ruts and washouts that ground a standard-height buggy.' },
+      { q: 'What tyres does it use, and what about tires for a golf cart?', a: 'It runs Desert Eagle all-terrain tyres. Ask us about replacement tires for a golf cart when the time comes.' },
+      { q: 'Are ezgo golf buggies for sale like this available with a trial?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial. Finance in 4 is available over $3,000, and crypto takes 10% off.' },
+    ],
+  },
+
+  'lvtong-rough-terrain-lifted-buggy': {
+    primaryKeyword: 'all terrain golf cart for sale',
+    supportingKeywords: ['lvtong buggy', 'lvtong golf cart', 'golf buggy clearance', 'off road golf buggy', 'all terrain buggy for sale'],
+    h1: 'All Terrain Golf Buggy for Sale: LVTONG Rough-Terrain Lifted',
+    seoTitle: 'All Terrain Golf Cart for Sale: Buy the LVTONG Lifted',
+    seoDescription: 'Shop an all terrain golf cart for sale. LVTONG Rough-Terrain Lifted Buggy with steel subframe and LED light bar, $17,500 inc GST.',
+    short: 'LVTONG Rough-Terrain',
+    closingHeading: 'Can I trial the LVTONG Rough-Terrain before I order?',
+    intro:
+      'Farmers, orchard owners and bush properties asking for an all terrain golf cart for sale want strength, not styling. The LVTONG Rough-Terrain Lifted Buggy has high ground clearance, a reinforced steel subframe, a front bash guard and an LED light bar. It is $17,500 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a reinforced steel subframe matter?',
+        body: 'A reinforced steel subframe carries the twisting loads that rough ground puts through a chassis, and the front bash guard takes the low-speed impacts that orchard rows, stumps and undergrowth inevitably deliver. This lvtong buggy is built for farmers, orchard owners and bush properties where the terrain is the job rather than the obstacle, and it is specified for work rather than presentation. That strength is invisible on a good day and valuable on a bad one, which is why working buyers put it first.',
+      },
+      {
+        heading: 'How does golf buggy clearance help on rough ground?',
+        body: 'High ground clearance keeps the underbody clear of the ruts and irrigation lines that catch out standard buggies. For anyone comparing golf buggy clearance across models, that extra height is the practical difference on a working property. It is a straightforward lifted electric buggy with reinforced hardware, and it reaches places a standard-height buggy would struggle to cross. A higher body also keeps electrical components further from mud and water crossings.',
+      },
+      {
+        heading: 'Why do owners value the LED light bar?',
+        body: 'The front LED light bar is the feature owners end up valuing most: stock work, harvest and property checks do not stop at sunset, and a high-intensity bar turns a dark row into a working one. If you are comparing an all terrain buggy for sale for night work, tell us your tasks and terrain and we will confirm the LVTONG suits, or suggest a more heavily equipped model. Night work is a real part of farming, and a good light bar makes it safer as well as faster. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an all terrain golf cart for sale like the LVTONG Rough-Terrain?', a: 'The LVTONG Rough-Terrain Lifted Buggy is $17,500 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is this an LVTONG buggy suited to orchards and bush?', a: 'Yes. It is built for farmers, orchard owners and bush properties, with a reinforced subframe and front bash guard.' },
+      { q: 'Are LVTONG golf cart models supported in Australia?', a: 'Yes. We supply them from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'What golf buggy clearance does it offer?', a: 'High ground clearance keeps the underbody clear of ruts and irrigation lines. Ask the Yatala desk for the figure for your use.' },
+      { q: 'Is it an off road golf buggy with lighting?', a: 'Yes. It has a front LED light bar for stock work, harvest and property checks after dark.' },
+      { q: 'Can I trial an all terrain buggy for sale before ordering?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'club-car-onward-lifted-efi-petrol': {
+    primaryKeyword: 'club car onward lifted',
+    supportingKeywords: ['petrol golf car', 'club car lifted golf carts', 'lifted golf carts', 'club car golf car', 'club car golf carts'],
+    h1: 'Club Car Onward Lifted EFI Petrol Golf Buggy for Sale',
+    seoTitle: 'Club Car Onward Lifted: Buy the EFI Petrol Buggy',
+    seoDescription: 'Shop the Club Car Onward Lifted. Kohler 14HP EFI petrol engine, lifted suspension and all-terrain tread, $19,800 inc GST, from Yatala QLD.',
+    short: 'Onward Lifted EFI',
+    closingHeading: 'Can I trial the Onward Lifted before I order?',
+    intro:
+      'Properties without reliable grid power often look at a club car onward lifted. The Club Car Onward Lifted EFI Petrol carries a Kohler 14HP EFI petrol engine with lifted suspension and all-terrain tread, so range is limited by the jerry can rather than the battery pack. It is $19,800 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does electronic fuel injection change petrol ownership?',
+        body: 'Electronic fuel injection means it starts cleanly cold, meters fuel accurately at altitude and across temperature swings, and avoids the carburettor tuning that older petrol buggies demanded every season. For remote properties or runs too long to plan around a charge cycle, that changes the maths, and it is why a modern petrol golf car is still the honest answer for long distances. Cold starts, hot days and altitude are handled by the engine management rather than by you adjusting a choke.',
+      },
+      {
+        heading: 'How quickly can you refuel a petrol golf car?',
+        body: 'Refuelling takes a minute rather than a night, so the buggy is ready whenever you are. Range is limited by the jerry can rather than the battery pack, which suits long-distance farm use and anywhere without dependable power. Club Car lifted golf carts like this one pair that practical range with the clearance of a lifted chassis for working ground. The tank can be topped up at a farm drum or a roadside bowser, so a long day is never ended by a flat battery.',
+      },
+      {
+        heading: 'What do lifted suspension and all-terrain tread add?',
+        body: 'Lifted suspension and all-terrain tread give it the clearance to work the same ground as our electric lifted models. It suits buyers without grid power access and long-distance farm users who want a refined version of petrol. Tell us your daily distance and terrain and we will confirm the Onward Lifted EFI is the right choice, or compare it with the electric alternatives. For many remote buyers it simply removes the question of where the next charge is coming from. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our desk replies to enquiries from all states and territories.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Club Car Onward Lifted EFI Petrol?', a: 'The Club Car Onward Lifted EFI Petrol is $19,800 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Why choose a petrol golf car over electric for lifted use?', a: 'Petrol gives range limited only by the jerry can and refuels in a minute, which suits properties without grid power and very long runs.' },
+      { q: 'Are Club Car lifted golf carts supported in Australia?', a: 'Yes. We supply the Onward Lifted from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is this one of the lifted golf carts suited to farm tracks?', a: 'Yes. Lifted suspension and all-terrain tread give it clearance on farm tracks and rough ground.' },
+      { q: 'Can I see a Club Car golf car before I buy?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration. Ask the Yatala desk to arrange it.' },
+      { q: 'Can I pay for Club Car golf carts with Finance in 4 or crypto?', a: 'Yes. Finance in 4 is available over $3,000, and paying in crypto takes 10% off the vehicle price.' },
+    ],
+  },
+
+  'tara-roadster-4-off-road': {
+    primaryKeyword: 'roadster golf cart for sale',
+    supportingKeywords: ['rims for a golf cart', 'golf cart wheels and rims', 'roadster golf carts', 'tara ev golf cart', 'golf cart with rims'],
+    h1: 'Roadster Golf Buggy for Sale: Tara Roadster 4 Off-Road',
+    seoTitle: 'Roadster Golf Cart for Sale: Buy the Tara Roadster 4',
+    seoDescription: 'Shop a roadster golf cart for sale. Tara Roadster 4 Off-Road with high-torque gearing and 12-inch rims, $19,500 inc GST, from Yatala QLD.',
+    short: 'Roadster 4',
+    closingHeading: 'Can I trial the Tara Roadster 4 before I order?',
+    intro:
+      'Property owners whose current buggy cannot climb often search for a roadster golf cart for sale. The Tara Roadster 4 Off-Road is built around a high-torque gear reduction ratio, with 12-inch off-road rims and an optional rear cargo tray. It is $19,500 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does gearing matter more than power on hills?',
+        body: 'Gearing, not power, is what gets a loaded buggy up a steep incline, and the Roadster 4 is built around a high-torque gear reduction ratio chosen for exactly that. Lower gearing multiplies motor torque at the wheel, so sustained climbs happen at a steady pace instead of a struggle that heats the motor and drains the pack. It is the feature that makes the difference for hill-climbing owners. On a steep run that reduces strain on the motor and the battery, which is why gearing is the first thing to check.',
+      },
+      {
+        heading: 'What do rims for a golf cart need to survive off-road?',
+        body: 'Twelve-inch off-road rims put more sidewall and tread between the rim and the rock than a standard golf wheel, which is what prevents pinch damage on rutted acreage trails. Anyone shopping for rims for a golf cart or golf cart wheels and rims will recognise that wheel choice matters as much as motor choice on rough ground, and this model starts with the right wheel. Pinched tyres and bent rims are common repair jobs on rough tracks, and a taller sidewall helps avoid them.',
+      },
+      {
+        heading: 'Is the rear cargo tray worth adding?',
+        body: 'An optional rear cargo tray adds working capacity when the buggy is not carrying passengers. For property owners whose main complaint is that their current buggy cannot climb, this is the direct fix. Tell us your slope, your usual load and whether you need the tray, and we will confirm the Roadster 4 suits the way you use the property. The tray is an option, so you can add working capacity only if you need it. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a roadster golf cart for sale like the Tara Roadster 4?', a: 'The Tara Roadster 4 Off-Road is $19,500 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What do rims for a golf cart like these offer off-road?', a: 'The 12-inch off-road rims put more sidewall and tread between rim and rock, which prevents pinch damage on rutted trails.' },
+      { q: 'Are golf cart wheels and rims replaceable?', a: 'Ask the Yatala desk. We list wheel and tyre products across our range and can confirm what suits the Roadster 4.' },
+      { q: 'Is this one of the roadster golf carts for steep hills?', a: 'Yes. A high-torque gear reduction ratio is chosen for heavy incline climbing on acreage trails.' },
+      { q: 'Is it a Tara EV golf cart with a cargo option?', a: 'It is an electric Tara buggy with an optional rear cargo tray for working capacity.' },
+      { q: 'Can I trial a golf cart with rims suited to rough ground?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'club-car-carryall-700-electric-utility': {
+    primaryKeyword: 'club car carryall 700 for sale',
+    supportingKeywords: ['utility golf cart', 'heavy duty golf cart', 'electric utility buggy', 'electric golf cart utility vehicle', 'club car golf cars for sale'],
+    h1: 'Club Car Carryall 700 for Sale: Electric Utility Buggy',
+    seoTitle: 'Club Car Carryall 700 for Sale: Buy the Electric Utility',
+    seoDescription: 'Shop the Club Car Carryall 700 for sale. 680kg payload, 6-foot aluminium box and tow hitch, $22,900 inc GST, from Yatala QLD.',
+    short: 'Carryall 700',
+    closingHeading: 'Can I trial the Carryall 700 before I order?',
+    intro:
+      'Councils, maintenance teams and commercial farms asking for a club car carryall 700 for sale want genuine work-vehicle capacity. The Club Car Carryall 700 Electric Utility has a 6-foot aluminium cargo box, a 680kg payload and an integrated heavy-duty tow hitch. It is $22,900 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a 680kg payload change the vehicle?',
+        body: 'A 680kg payload puts the Carryall 700 in genuine work-vehicle territory rather than utility-buggy territory. The six-foot cargo box keeps unladen weight down, so more of the payload rating is available for cargo. For anyone comparing a heavy duty golf cart with lighter models, payload is the figure that separates a real work vehicle from a tray bolted onto a passenger buggy. Payload is also what separates tools you can rely on from toys, because overloading a light chassis shortens its life.',
+      },
+      {
+        heading: 'Why is an aluminium cargo box the right material?',
+        body: 'Aluminium will not rust out from wet turf, fertiliser, sand or salt air the way a steel tray does. An integrated heavy-duty tow hitch extends capacity to trailers, spreaders and turf equipment. For maintenance teams that wash down daily, that means a cargo box that looks and works the same after years of use as an electric golf cart utility vehicle. Washing it down after fertiliser or salt exposure is simple, and the box stays corrosion-free.',
+      },
+      {
+        heading: 'Why do councils choose an electric utility buggy?',
+        body: 'Councils, maintenance teams and commercial farms specify it because lithium removes fuel handling, engine servicing and exhaust from shared work areas entirely. That is the practical case for lithium on a busy site. Tell us the loads, the trailers and the surfaces and we will confirm the Carryall 700 is the right size, or suggest a lighter model if it is more than you need. Quiet running also means maintenance teams can work early or late without noise complaints. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our desk replies to enquiries from all states and territories.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Club Car Carryall 700 for sale in Australia?', a: 'The Club Car Carryall 700 Electric Utility is $22,900 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are Club Car golf cars for sale here supported with parts?', a: 'Yes. We supply the Carryall 700 from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it an electric utility buggy with lithium power?', a: 'Yes. It is a lithium electric utility vehicle with no fuel handling, engine servicing or exhaust.' },
+      { q: 'What does this utility golf cart tow?', a: 'It has an integrated heavy-duty tow hitch for trailers, spreaders and turf equipment. Check the figure for your equipment with the Yatala desk.' },
+      { q: 'Is it a heavy duty golf cart for councils?', a: 'Yes. A 680kg payload and a 6-foot aluminium cargo box suit councils, maintenance teams and commercial farms.' },
+      { q: 'Can I trial an electric utility buggy before ordering?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'ezgo-cushman-hauler-pro-lithium': {
+    primaryKeyword: 'cushman utility cart for sale',
+    supportingKeywords: ['cushman electric utility cart', 'e-z-go golf cart for sale', 'e-z-go golf cart accessories', 'electric utility buggy', 'heavy duty golf cart'],
+    h1: 'Cushman Utility Buggy for Sale: E-Z-GO Hauler PRO Lithium',
+    seoTitle: 'Cushman Utility Cart for Sale: Buy the Hauler PRO Lithium',
+    seoDescription: 'Shop a Cushman utility cart for sale. E-Z-GO Hauler PRO Lithium with 72V AC drive and 544kg towing, $21,500 inc GST, Yatala QLD.',
+    short: 'Hauler PRO',
+    closingHeading: 'Can I trial the Hauler PRO before I order?',
+    intro:
+      'Turf managers, schools and campuses searching for a cushman utility cart for sale want capacity with quiet running. The E-Z-GO Cushman Hauler PRO Lithium has a 72V AC drive, a 544kg towing capacity and an optional electric dump bed. It is $21,500 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a 72V AC drive matter?',
+        body: 'The Hauler PRO runs a 72V AC drive rather than the 48V systems common elsewhere in the range, and higher system voltage is what lets it move heavy loads at lower current, running cooler and holding performance through a full working shift. A 544kg towing capacity covers turf equipment, trailers and grounds machinery, so this cushman electric utility cart suits a hard working day. Cooler running matters over a long shift, because a drivetrain that is not working hard keeps its performance late in the day.',
+      },
+      {
+        heading: 'What does the optional electric dump bed change?',
+        body: 'The optional electric dump bed is the feature that changes the working day: tipping a load of sand, mulch or clippings becomes a button rather than a shovel, which is the difference between one trip and one trip plus twenty minutes. For grounds teams moving material all day, that saves real time and effort across a week of work. That saves time on every trip and spares the operator a repetitive, tiring task.',
+      },
+      {
+        heading: 'Who chooses an electric utility buggy like the Hauler PRO?',
+        body: 'Turf managers, schools and university campuses choose it for the combination of capacity and quiet, fume-free operation around students and public areas. It has a commercial drivetrain rather than a passenger-buggy one. Ask the Yatala desk about e-z-go golf cart accessories, and tell us your loads so we can confirm the right configuration. Students, staff and the public share these spaces, and an electric vehicle keeps noise and fumes out of them. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Cushman utility cart for sale like the Hauler PRO?', a: 'The E-Z-GO Cushman Hauler PRO Lithium is $21,500 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is the Hauler PRO a Cushman electric utility cart?', a: 'Yes. It is an electric lithium utility vehicle with a 72V AC drive, built for turf, schools and campuses.' },
+      { q: 'Can I buy an E-Z-GO golf cart for sale with Australian support?', a: 'Yes. We supply the Hauler PRO from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Are E-Z-GO golf cart accessories available for it?', a: 'Ask the Yatala desk. We list accessories across our range and can confirm what suits the Hauler PRO.' },
+      { q: 'Is this an electric utility buggy that can tow?', a: 'Yes. It has a 544kg towing capacity for turf equipment, trailers and grounds machinery.' },
+      { q: 'Can I trial a heavy duty golf cart before buying?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'yamaha-umax-rally-efi-petrol': {
+    primaryKeyword: 'golf buggy petrol for sale',
+    supportingKeywords: ['yamaha golf cart for sale', 'yamaha golf cart australia', 'side by side farm buggy', 'petrol golf carts for sale', 'golf cart petrol for sale'],
+    h1: 'Golf Buggy Petrol for Sale: Yamaha UMAX Rally EFI',
+    seoTitle: 'Golf Buggy Petrol for Sale: Buy the Yamaha UMAX Rally',
+    seoDescription: 'Shop a golf buggy petrol for sale. Yamaha UMAX Rally with 402cc EFI engine and under-hood storage, $18,900 inc GST, from Yatala QLD.',
+    short: 'UMAX Rally',
+    closingHeading: 'Can I trial the UMAX Rally before I order?',
+    intro:
+      'Livestock properties and regional venues looking for a golf buggy petrol for sale want a workhorse. The Yamaha UMAX Rally EFI Petrol has a 402cc EFI engine sized for sustained duty, a side-filling fuel tank, bucket seats and under-hood dry storage. It is $18,900 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a 402cc engine matter for sustained work?',
+        body: 'The UMAX Rally is Yamaha commercial workhorse, powered by a 402cc EFI engine sized for sustained duty rather than short bursts. Livestock properties and large regional venues run these hard for long days. Electronic fuel injection keeps starting reliable through cold mornings and hot afternoons alike, which matters when the vehicle is part of the day routine and you do not want to nurse it. Large engines are not stressed by long days, which helps reliability when a vehicle is in use from first light.',
+      },
+      {
+        heading: 'What do the side-filling tank and under-hood storage do?',
+        body: 'A side-filling fuel tank means refuelling without climbing over the bed or unloading first, and substantial under-hood dry storage keeps tools, medications, tags and paperwork out of the weather rather than sliding loose in an open tray. Details like these are what separate a petrol golf cart for sale built for farm work from a passenger model with a tray added. Fewer stops to unload and reload means more time on the actual job.',
+      },
+      {
+        heading: 'Is it a good side by side farm buggy alternative?',
+        body: 'Bucket seats hold you in place across paddock ground instead of letting you slide with every camber change. If you are comparing a side by side farm buggy with a Yamaha golf cart for sale, remember this model is built for paddock duty with a golf-cart footprint. Tell us your terrain and loads and we will confirm the Rally suits. Paddock ground is rough and uneven, and good seating is part of keeping a driver alert. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf buggy petrol for sale like the Yamaha UMAX Rally?', a: 'The Yamaha UMAX Rally EFI Petrol is $18,900 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is this a Yamaha golf cart for sale with a big engine?', a: 'Yes. It has a 402cc Yamaha EFI engine sized for sustained duty on livestock properties and large venues.' },
+      { q: 'Are Yamaha golf cart Australia buyers supported locally?', a: 'Yes. We supply the UMAX Rally from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it a side by side farm buggy?', a: 'It is a petrol utility buggy with a golf-cart footprint, bucket seats and under-hood dry storage, built for paddock work.' },
+      { q: 'Are petrol golf carts for sale like this available with a trial?', a: 'Yes. Vehicles over $15,000 include a complimentary on-farm trial demonstration.' },
+      { q: 'Why choose a golf cart petrol for sale over electric?', a: 'Petrol gives range and quick refuelling for long days away from power. Tell us your use and we will advise.' },
+    ],
+  },
 };

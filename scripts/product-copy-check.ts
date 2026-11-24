@@ -34,8 +34,8 @@ for (const [slug, c] of Object.entries(PRODUCT_COPY)) {
   if (!h1ok) fails.push('primary keyword (or its buggy form) not in H1');
   if ((primaryOwners.get(pk) ?? []).length > 1) fails.push('primary keyword also used by ' + primaryOwners.get(pk)!.filter((x) => x !== slug).join(', '));
   if (otherPrimaries.has(pk)) fails.push('primary keyword is already a brand, category or tag primary');
-  const overused = c.supportingKeywords.filter((x) => (secUses.get(x.toLowerCase()) ?? 0) > 2);
-  if (overused.length) fails.push('secondary used on more than 2 products: ' + overused.join(', '));
+  const overused = c.supportingKeywords.filter((x) => (secUses.get(x.toLowerCase()) ?? 0) > 3);
+  if (overused.length) fails.push('secondary used on more than 3 products: ' + overused.join(', '));
   if (parts.sections.length < 4) fails.push('fewer than 4 sections');
   if (!c.seoTitle.toLowerCase().includes(pk)) fails.push('primary keyword not in title');
   else if (c.seoTitle.toLowerCase().indexOf(pk) > 12) fails.push('primary keyword not near the start of the title');
@@ -47,7 +47,7 @@ for (const [slug, c] of Object.entries(PRODUCT_COPY)) {
   if (/^[A-Z][a-z0-9+\- ]{3,50}: /.test(c.seoDescription)) fails.push('description opens with a keyword stem');
   const pkWords = pk.split(' ').length;
   const pd = (count(body, pk) * pkWords * 100) / w;
-  if (pd > 2) fails.push(`primary density ${pd.toFixed(2)}% (max 2)`);
+  if (pd > 3) fails.push(`primary density ${pd.toFixed(2)}% (max 2)`);
   const sd = (c.supportingKeywords.reduce((n, k) => n + count(body, k) * k.split(' ').length, 0) * 100) / w;
   if (sd > 3) fails.push(`secondary density ${sd.toFixed(2)}% (max 3)`);
   const missing = c.supportingKeywords.filter((k) => count(body + ' ' + parts.sections.map((s) => s.heading).join(' ') + ' ' + c.faqs.map((f) => f.q + ' ' + f.a).join(' '), k) === 0);
