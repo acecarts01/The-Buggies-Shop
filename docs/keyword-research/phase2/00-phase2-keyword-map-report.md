@@ -36,10 +36,10 @@ Changes versus the September mapping: 8 primaries replaced, 3 new. `/tag/charger
 Products: `heavy-duty-tow-hitch-ball-assembly`, `lockable-dash-glove-box-storage-system`. Category: `/shop/junior-golf-buggies/` (coming soon; keywords stay owner-initiated). Blog: finance (Pay in 4 vs crypto), buying second hand, winter storage, Canberra. Utility pages: About, Contact, FAQ, Returns, Crypto payment, Collections index, Blog index (little or no search demand; branded targets recommended). Utility pages also get no automatic secondaries; decide in Phase 6.
 
 ## 6. Still to research when Semrush works (seeds not yet read)
-`golf trolley`, `electric golf trolley`, `golf buggy battery`, `lithium golf buggy battery`, `golf buggy charger`, `golf buggy accessories`, `remote control golf buggy`, `lifted golf buggy`, `golf buggy tow hitch`, `golf buggy lights`, `golf buggy enclosure`, `golf buggy controller`, the 13 brand seeds, `golf cart` terms, and the city seeds. These will mainly fill the 22 product and 15 blog shortfalls and replace tier-B terms.
+`electric golf trolley`, `lithium golf buggy battery`, `golf buggy charger`, `golf buggy accessories`, `remote control golf buggy`, `lifted golf buggy`, `golf buggy tow hitch`, `golf buggy lights`, `golf buggy enclosure`, `golf buggy controller`, the 13 brand seeds, `golf cart` terms, and the city seeds. These will mainly fill the 22 product and 15 blog shortfalls and replace tier-B terms.
 
 ## 7. How the map is used
 Phase 4 (products), 5 (hubs, brands, tags) and 6 (blog and trust pages) read this CSV: primary in H1, title, description, first paragraph, FAQ and image alt; secondaries in headings, body and FAQ.
 
 ## 8. Rebuild note (second pass)
-Adding the battery, trolley and farm buggy seeds moved 10 pages up a tier (tier-B 92 to 82) and changed 2 primaries. The new data mostly confirmed existing terms rather than adding new ones. A merge bug (fresh KD "n/a" overwriting a known KD) was fixed in .
+Adding the battery, trolley and farm buggy seeds moved 10 pages up a tier (tier-B 92 to 82) and changed 2 primaries. The new data mostly confirmed existing terms rather than adding new ones. A merge bug (fresh KD "n/a" overwriting a known KD) was fixed in `scripts/keyword-map.ts`.
