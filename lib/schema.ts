@@ -333,12 +333,14 @@ export function blogPostingSchema(post: BlogPost) {
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    author: {
-      '@type': 'Person',
-      name: post.author.name,
-      jobTitle: post.author.role,
-      worksFor: { '@id': ORG_ID },
-    },
+    author: /\b(team|division|desk|department)\b/i.test(post.author.name)
+      ? { '@type': 'Organization', '@id': ORG_ID, name: SITE.name }
+      : {
+          '@type': 'Person',
+          name: post.author.name,
+          jobTitle: post.author.role,
+          worksFor: { '@id': ORG_ID },
+        },
     publisher: { '@id': ORG_ID },
     isPartOf: { '@id': WEBSITE_ID },
   };

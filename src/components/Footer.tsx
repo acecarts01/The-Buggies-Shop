@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import ContactEmail from '@/src/components/ContactEmail';
 import { ExternalLink, ShieldCheck, Phone, Mail, MapPin, Truck, CheckCircle2 } from 'lucide-react';
-import { ABN_INFO, CONTACT, CATEGORIES, SITE } from '@/src/config/site';
+import { ABN_INFO, CONTACT, CATEGORIES, SITE, CONTENT_UPDATED } from '@/src/config/site';
 import BrandMark from './BrandMark';
 
 const POPULAR: { href: string; label: string }[] = [
@@ -24,7 +24,11 @@ const POPULAR: { href: string; label: string }[] = [
   { href: '/delivery/perth/', label: 'Golf buggy for sale Perth' },
 ];
 
-export default function Footer() {
+const updatedLabel = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+/** `updated`: which CONTENT_UPDATED date this page shows ("pages" or "catalog"), or an ISO date for a page with its own (a blog post). Omit it on pages with no content of their own. */
+export default function Footer({ updated }: { updated?: 'pages' | 'catalog' | (string & {}) } = {}) {
+  const iso = updated ? (updated === 'pages' || updated === 'catalog' ? CONTENT_UPDATED[updated as 'pages' | 'catalog'] : updated) : '';
   return (
     <footer className="bg-[#F7F6F2] text-[#121417] border-t border-[#E7E5E4]">
       {/* Trust & Guarantee Banner */}
@@ -265,6 +269,11 @@ export default function Footer() {
             <div className="text-[11px] text-[#6B645E] mt-1">
               Product imagery supplied under manufacturer licence.
             </div>
+            {iso && (
+              <div className="text-[11px] text-[#6B645E] mt-1">
+                <time dateTime={iso}>Last updated: {updatedLabel(iso)}</time>
+              </div>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <span className="text-[#A85640]">Australian Tour Precision</span>

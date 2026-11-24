@@ -242,7 +242,7 @@ export default function AboutPage() {
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="pages" />
         <ChatHub />
       </div>
     </>

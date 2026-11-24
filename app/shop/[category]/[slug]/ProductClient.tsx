@@ -774,7 +774,7 @@ Notes: ${quoteForm.notes || 'None'}`
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
 
         <CartDrawer
           isOpen={cartOpen}

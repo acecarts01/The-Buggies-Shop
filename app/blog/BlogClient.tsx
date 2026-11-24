@@ -448,7 +448,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
         </section>
       </main>
 
-      <Footer />
+      <Footer updated="pages" />
       <ChatHub />
       <CartDrawer
         isOpen={cartOpen}

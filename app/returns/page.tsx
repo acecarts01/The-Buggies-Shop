@@ -141,7 +141,7 @@ export default function ReturnsPage() {
         </div>
       </main>
       <ChatHub />
-      <Footer />
+      <Footer updated="pages" />
     </>
   );
 }

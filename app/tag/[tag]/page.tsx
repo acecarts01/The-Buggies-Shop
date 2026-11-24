@@ -139,7 +139,7 @@ export default async function TagPage({ params }: PageProps) {
             <Link href="/contact/" className="text-[#E2A17A] hover:underline">Ask the Yatala desk</Link>
           </div>
         </main>
-        <Footer />
+        <Footer updated="catalog" />
         <ChatHub />
       </div>
     </>

@@ -46,40 +46,83 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-# Index-building crawlers
+# AI TRAINING crawlers: blocked (owner policy). These collect pages to train models.
+# Search and answer crawlers above stay allowed so the site can be found and cited.
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
 
 User-agent: Claude-Web
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot
-Allow: /
+Disallow: /
 
 User-agent: Applebot-Extended
-Allow: /
+Disallow: /
 
 User-agent: Amazonbot
-Allow: /
+Disallow: /
 
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 User-agent: CCBot
-Allow: /
+Disallow: /
 
 User-agent: Meta-ExternalAgent
-Allow: /
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
 
 User-agent: cohere-ai
-Allow: /
+Disallow: /
 
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: ICC-Crawler
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Ai2Bot-Dolma
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+User-agent: VelenPublicWebCrawler
+Disallow: /
+
+# Search-index crawlers that are not used for model training
+User-agent: Applebot
+Allow: /
 # Agent-readable resources
 # llms.txt: https://www.golfbuggiesexpress.com.au/llms.txt
 # API Catalog: https://www.golfbuggiesexpress.com.au/.well-known/api-catalog

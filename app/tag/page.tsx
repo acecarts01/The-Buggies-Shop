@@ -48,7 +48,7 @@ export default function TagIndexPage() {
             ))}
           </div>
         </main>
-        <Footer />
+        <Footer updated="catalog" />
         <ChatHub />
       </div>
     </>

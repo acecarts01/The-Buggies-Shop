@@ -413,7 +413,7 @@ export default function BlogPostClient({ post, relatedPosts, brands, references,
         </article>
       </main>
 
-      <Footer />
+      <Footer updated={post.date} />
       <ChatHub />
       <CartDrawer
         isOpen={cartOpen}

@@ -161,7 +161,7 @@ export default function ShopClient({ hub }: { hub: HubView }) {
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
 
         <CartDrawer
           isOpen={cartOpen}

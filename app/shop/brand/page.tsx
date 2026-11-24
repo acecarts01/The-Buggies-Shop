@@ -109,7 +109,7 @@ export default function BrandIndexPage() {
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
         <ChatHub />
       </div>
     </>

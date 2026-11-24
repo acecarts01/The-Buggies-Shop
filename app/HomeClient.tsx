@@ -550,7 +550,7 @@ export default function HomeClient({ posts, postCount }: HomeClientProps) {
         </main>
 
         {/* Global Footer */}
-        <Footer />
+        <Footer updated="pages" />
 
         {/* Slide-over Cart Drawer */}
         <CartDrawer

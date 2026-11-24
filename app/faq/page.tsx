@@ -146,7 +146,7 @@ export default function FAQPage() {
           </AnimatedCard>
         </main>
 
-        <Footer />
+        <Footer updated="pages" />
         <ChatHub />
       </div>
     </>

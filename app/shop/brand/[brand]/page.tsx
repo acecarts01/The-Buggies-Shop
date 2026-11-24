@@ -273,7 +273,7 @@ export default async function BrandPage({ params }: PageProps) {
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
         <ChatHub />
       </div>
     </>

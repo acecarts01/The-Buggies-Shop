@@ -257,7 +257,7 @@ export default async function DeliveryCityPage({ params }: PageProps) {
           </nav>
         </main>
 
-        <Footer />
+        <Footer updated="pages" />
         <ChatHub />
       </div>
     </>

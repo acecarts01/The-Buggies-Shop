@@ -92,7 +92,7 @@ export default function PayIn4Page() {
         </div>
       </main>
       <ChatHub />
-      <Footer />
+      <Footer updated="pages" />
     </>
   );
 }

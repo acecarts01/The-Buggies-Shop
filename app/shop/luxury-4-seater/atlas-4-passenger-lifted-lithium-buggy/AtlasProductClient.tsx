@@ -112,7 +112,7 @@ export default function AtlasProductClient({ faqs, tags, guides, references }: A
           </div>
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
 
         <CartDrawer
           isOpen={cartOpen}

@@ -275,7 +275,7 @@ export default function CategoryClient({ categorySlug, categoryName, content }: 
           )}
         </main>
 
-        <Footer />
+        <Footer updated="catalog" />
 
         <CartDrawer
           isOpen={cartOpen}

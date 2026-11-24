@@ -345,7 +345,7 @@ export default function WholesalePage() {
         </AnimatedCard>
       </main>
 
-      <Footer />
+      <Footer updated="pages" />
       <ChatHub />
     </div>
   );

@@ -71,6 +71,7 @@ await pool(urls, 8, async (u) => {
     robots: g(/<meta name="robots" content="([^"]*)"/),
     h1: (t.match(/<h1[\s>]/g) || []).length,
     h1text: decode(g(/<h1[^>]*>([\s\S]*?)<\/h1>/).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()),
+    hasUpdated: /<time[^>]*>Last updated: (<!-- -->)?\d{1,2} \w+ \d{4}/.test(t),
     hasQuoteCta: /Request Quote \/ Tax Invoice/.test(t),
     words: t.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
     ld: [...t.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]),
@@ -111,16 +112,20 @@ for (const [u, p] of pages) {
   }
   const isProduct = /\/shop\/[^/]+\/[^/]+\/$/.test(id) && !id.startsWith('/shop/brand/');
   let returnPolicy = false;
+  let productOk = true;
+  const needsUpdated = id === '/' || /^\/(about|contact|faq|returns|pay-in-4|crypto-payment|wholesale|delivery|shop|tag)\//.test(id) || id.startsWith('/blog/') && id !== '/blog/';
+  if (needsUpdated && !p.hasUpdated) fail(id + ': no visible "Last updated" date');
   for (const raw of p.ld) {
     let j;
     try { j = JSON.parse(raw); } catch { fail(`${id}: invalid JSON-LD`); continue; }
     for (const n of j['@graph'] || [j]) {
       const types = [].concat(n['@type'] || []);
-      if (types.includes('Product')) { const pol = [].concat(n.offers || [])[0]?.hasMerchantReturnPolicy; if (pol?.applicableCountry === 'AU' && pol.returnPolicyCategory) returnPolicy = true; }
+      if (types.includes('Product')) { const of = [].concat(n.offers || [])[0] || {}; if (!n.sku || !of.price || !of.availability) productOk = false; const pol = [].concat(n.offers || [])[0]?.hasMerchantReturnPolicy; if (pol?.applicableCountry === 'AU' && pol.returnPolicyCategory) returnPolicy = true; }
       if (types.some((t) => ['Organization', 'LocalBusiness', 'Store'].includes(t)) && 'numberOfItems' in n) fail(`${id}: numberOfItems on ${types.join('/')} (not a valid property)`);
     }
   }
   if (isProduct && !p.hasQuoteCta) fail(`${id}: no "Request Quote / Tax Invoice" button`);
+  if (isProduct && !productOk) fail(`${id}: Product schema is missing sku, price or availability`);
   if (isProduct && !returnPolicy) fail(`${id}: Product offer has no hasMerchantReturnPolicy`);
   const inb = inbound.get(u)?.size ?? 0;
   if (id !== '/' && inb === 0) fail(`${id}: orphan (no internal links in)`);
@@ -170,6 +175,13 @@ for (const line of robots.split('\n')) {
   const l = line.trim();
   if (l && !l.startsWith('#') && !/^(User-agent|Allow|Disallow|Sitemap|Content-Signal|Crawl-delay):/i.test(l)) fail(`robots.txt: unknown line "${l}"`);
 }
+// AI crawler policy (owner standing rule): training bots blocked, search and citation bots allowed.
+const groups = robots.split(/\n\s*\n/).map((b) => b.split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#')));
+const groupFor = (bot) => groups.find((g) => g.some((l) => l.toLowerCase() === 'user-agent: ' + bot.toLowerCase()));
+const TRAINING = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Claude-Web', 'Google-Extended', 'Applebot-Extended', 'Amazonbot', 'Bytespider', 'CCBot', 'Meta-ExternalAgent', 'cohere-ai'];
+const SEARCH = ['OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Perplexity-User', 'Claude-SearchBot', 'Claude-User'];
+for (const b of TRAINING) { const g = groupFor(b); if (!g || !g.includes('Disallow: /')) fail('robots.txt: training bot ' + b + ' is not blocked'); }
+for (const b of SEARCH) { const g = groupFor(b); if (!g || g.includes('Disallow: /')) fail('robots.txt: search/citation bot ' + b + ' is blocked or missing'); }
 if (!pages.has(BASE + '/returns/')) fail('/returns/ is not in the sitemap');
 
 // ---- report

@@ -108,7 +108,7 @@ export default function CryptoPaymentPage() {
         </div>
       </main>
       <ChatHub />
-      <Footer />
+      <Footer updated="pages" />
     </>
   );
 }

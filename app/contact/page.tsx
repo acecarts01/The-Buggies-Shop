@@ -342,7 +342,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <Footer />
+      <Footer updated="pages" />
       <ChatHub />
     </div>
   );

@@ -53,9 +53,9 @@ export const SITE = {
 // cover actually changes; blog posts use their own `date`.
 export const CONTENT_UPDATED = {
   /** PRODUCTS, CATEGORIES or BRAND_PAGES changed (prices, specs, copy, new models). */
-  catalog: '2026-10-27',
+  catalog: '2026-11-15',
   /** Static pages: home, about, faq, delivery, contact, crypto-payment, wholesale. */
-  pages: '2026-10-27',
+  pages: '2026-11-15',
 };
 
 export function isAccessoryItem(category?: string, id?: string, name?: string): boolean {

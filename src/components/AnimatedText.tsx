@@ -98,10 +98,15 @@ export function RotatingWords({ words, intervalMs = 2800, className = '' }: Rota
     return () => clearInterval(timer);
   }, [words.length, intervalMs]);
   return (
-    <span className={`inline-flex items-center overflow-hidden py-0.5 ${className}`}>
-      <span key={words[index]} className="word-swap inline-block font-bold text-[#A85640]">
-        {words[index]}
-      </span>
+    // Every word sits in the same grid cell and only the active one is visible, so the box always
+    // has the size of the longest word: a shorter or wrapping word can no longer move the page
+    // (a 31px layout shift on every swap in the hero).
+    <span className={`inline-grid items-center overflow-hidden py-0.5 ${className}`}>
+      {words.map((w, i) => (
+        <span key={w} aria-hidden={i !== index} className={`[grid-area:1/1] inline-block font-bold text-[#A85640] ${i === index ? 'word-swap' : 'invisible'}`}>
+          {w}
+        </span>
+      ))}
     </span>
   );
 }
