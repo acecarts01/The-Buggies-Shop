@@ -60,8 +60,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
   // every product page (including the bespoke Atlas route) emits the same
   // shape: image, brand, sku, seller by @id, GST-inclusive price.
   const details = getProductDetails(product.slug);
-  // One linker for the intro and every section, so a target is linked once per page and the page-wide cap holds.
-  const linker = createLinker(`/shop/${category}/${product.slug}/`, details.sections ? 6 : 3, 2);
+  // One linker for the intro and every section, so a target is linked once per page and the page-wide cap holds: 4 contextual links in a product description, on every product (owner rule).
+  const linker = createLinker(`/shop/${category}/${product.slug}/`, 4, 2);
   const descriptionSegs = linker.link(details.intro ?? (details.fullDescription || product.shortDescription));
   const sectionSegs = details.sections?.map((s) => linker.link(s.body));
   const schema = productSchema(product);
