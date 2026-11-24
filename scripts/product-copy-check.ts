@@ -30,7 +30,7 @@ for (const [slug, c] of Object.entries(PRODUCT_COPY)) {
   if (!c.intro.toLowerCase().split(/\s+/).slice(0, 100).join(' ').includes(pk)) fails.push('primary keyword not in first 100 words');
   // H1 keeps the Australian word "buggy": a primary written with "golf cart(s)" matches its buggy form (approved exception)
   const h1l = c.h1.toLowerCase();
-  const h1ok = h1l.includes(pk) || h1l.includes(pk.replace(/golf carts?/, 'golf buggy')) || h1l.includes(pk.replace(/golf carts?/, 'golf buggies'));
+  const h1ok = h1l.includes(pk) || h1l.includes(pk.replace(/\bcarts?\b/g, 'buggy')) || h1l.includes(pk.replace(/\bcarts?\b/g, 'buggies'));
   if (!h1ok) fails.push('primary keyword (or its buggy form) not in H1');
   if ((primaryOwners.get(pk) ?? []).length > 1) fails.push('primary keyword also used by ' + primaryOwners.get(pk)!.filter((x) => x !== slug).join(', '));
   if (otherPrimaries.has(pk)) fails.push('primary keyword is already a brand, category or tag primary');

@@ -541,4 +541,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'How do I pay and how is it delivered?', a: 'Pay by PayID, bank transfer, Finance in 4 over $3,000 or crypto, with enclosed freight quoted to your postcode.' },
     ],
   },
+
+  'evolution-700-heavy-commercial-utility': {
+    primaryKeyword: 'utility buggy for sale',
+    supportingKeywords: ['electric utility buggy', 'golf utility cart', 'evolution golf carts', 'electric golf cart utility vehicle', 'farm buggy for sale'],
+    h1: 'Utility Buggy for Sale: Evolution 700 Heavy Commercial',
+    seoTitle: 'Utility Buggy for Sale: Buy the Evolution 700 Commercial',
+    seoDescription: 'Shop a utility buggy for sale. Evolution 700 Heavy Commercial with drop-side flatbed, lithium-ion power and tow bar, $19,200 inc GST.',
+    short: 'Evolution 700',
+    closingHeading: 'Can I trial the Evolution 700 utility buggy before I order?',
+    intro:
+      'Looking for a utility buggy for sale to work a site all day? The Evolution 700 Heavy Commercial Utility has a drop-side flatbed tray, lithium-ion power, high-output headlights and a fitted tow bar. It is specified for facility management and security patrol work, $19,200 AUD including GST, and supported from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a drop-side tray help on a working site?',
+        body: 'Dropping a side lets you load and unload from any angle, including with a trolley or by sliding long items on, instead of lifting everything up and over a fixed wall. On a site where the vehicle works continuously, that saves effort on every load. The tray is the practical distinction between this model and a passenger buggy with a bed added, and it is why facility teams choose it for daily cartage. Staff also handle heavy items more safely when they can slide them on at tray height.',
+      },
+      {
+        heading: 'Why is an electric utility buggy suited to patrols?',
+        body: 'Lithium-ion power keeps patrol runs quiet enough not to disturb residents, guests or wildlife on night rounds, and it removes refuelling from a shift pattern entirely. High-output automotive headlights make it useful after dark, and the fitted tow bar lets it pull a trailer behind. Security teams and facility managers value a vehicle that starts a shift fully charged and finishes it without a fuel stop, and daily running costs stay predictable across a defined site.',
+      },
+      {
+        heading: 'Who uses the Evolution 700?',
+        body: 'It is a straightforward industrial platform for facility management, security patrols and similar work across a defined site rather than open country. If you are comparing it with other utility vehicles or a farm buggy for sale, think about the tray first: the drop-side design and the tow bar are what set it apart. Tell us the loads you carry, the distances you cover and the surfaces you cross, and we will then confirm the 700 is the right size for the job. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a utility buggy for sale like the Evolution 700?', a: 'The Evolution 700 Heavy Commercial Utility is $19,200 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What makes it an electric utility buggy for patrol work?', a: 'Lithium-ion power keeps it quiet on night rounds and removes refuelling from the shift, and the high-output headlights and tow bar suit security and facility work.' },
+      { q: 'Are Evolution golf carts like this supported in Australia?', a: 'Yes. We supply the Evolution 700 from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is this a golf utility cart with a flatbed?', a: 'Yes. It has a drop-side flatbed tray, so you can load and unload from any angle instead of lifting over a fixed wall.' },
+      { q: 'Is it an electric golf cart utility vehicle or a farm buggy?', a: 'It is an electric utility vehicle specified for facility management and security patrols. For rural work, compare it with the other models in our commercial and farm range.' },
+      { q: 'How do I pay and how is it delivered?', a: 'Pay by PayID, bank transfer, Finance in 4 over $3,000 or crypto, which takes 10% off the vehicle price. Enclosed freight is quoted to your postcode.' },
+    ],
+  },
+
+  'lvtong-commercial-flatbed-cargo-buggy': {
+    primaryKeyword: 'commercial golf carts for sale',
+    supportingKeywords: ['electric golf carts for commercial use', 'flatbed golf cart for sale', 'utility golf carts', 'lvtong golf carts', 'cargo buggy for sale'],
+    h1: 'Commercial Golf Buggy for Sale: LVTONG Flatbed Cargo',
+    seoTitle: 'Commercial Golf Carts for Sale: Buy the LVTONG Flatbed',
+    seoDescription: 'Shop commercial golf carts for sale. LVTONG Flatbed Cargo Buggy with low steel mesh deck and regenerative braking, $15,900 inc GST.',
+    short: 'LVTONG Flatbed',
+    closingHeading: 'How is the LVTONG flatbed cargo buggy supplied?',
+    intro:
+      'Warehouses, nurseries and groundskeeping teams searching for commercial golf carts for sale want a load carrier, not a passenger buggy with a tray. The LVTONG Commercial Flatbed has a low steel mesh deck, regenerative braking and electric lithium power. It is $15,900 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does a low loader height matter for cargo?',
+        body: 'Low loader height is the reason this model exists. Every centimetre of deck height is a lift your staff perform on every item, all day, and a low steel mesh deck turns awkward lifts into slides. Across a shift that adds up to less strain and faster handling. It is why warehouses, nurseries and eco-resort groundskeepers choose it as a load-carrying platform rather than a passenger vehicle with a tray attached. In a warehouse, the same item may be handled dozens of times a shift, so a small saving on each lift adds up across the team.',
+      },
+      {
+        heading: 'What does the mesh deck do on electric golf carts for commercial use?',
+        body: 'The mesh itself drains, so wet nursery stock, hosed-down bins and rain do not pool in the tray. That keeps loads cleaner and the deck lighter to clean. For electric golf carts used for commercial work, a deck that drains is a practical detail that saves time every week, particularly in nurseries and on sites that are washed down regularly with hoses. Cleaning is also quicker, because water and debris run straight through instead of sitting on a solid floor.',
+      },
+      {
+        heading: 'How does regenerative braking help indoors?',
+        body: 'Regenerative braking recovers energy on the descents and, more usefully indoors, gives controlled slowing without riding the brake pedal through a warehouse aisle. The buggy is quiet and low-slung, and specified for repetitive handling work across sealed and semi-sealed surfaces. If you are comparing it with other utility golf carts or a flatbed golf cart for sale, tell us your surfaces and loads and we will confirm it suits. Quiet running also suits indoor aisles and nurseries, where noise and fumes from a petrol vehicle would be unwelcome. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are commercial golf carts for sale like the LVTONG Flatbed?', a: 'The LVTONG Commercial Flatbed / Cargo Buggy is $15,900 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are these electric golf carts for commercial use?', a: 'Yes. The LVTONG Flatbed is electric with a low steel mesh deck and regenerative braking, specified for warehouses, nurseries and eco-resort groundskeeping.' },
+      { q: 'What is the flatbed golf cart for sale like to load?', a: 'The deck is low, which turns awkward lifts into slides, and the mesh drains so wet stock and rain do not pool in the tray.' },
+      { q: 'Are LVTONG golf carts supported in Australia?', a: 'Yes. We supply LVTONG vehicles from our Yatala QLD depot and quote freight per delivery postcode. Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is this a cargo buggy for sale or a passenger buggy?', a: 'It is a load-carrying platform first. Warehouses, nurseries and eco-resort groundskeepers choose it for repetitive handling work.' },
+      { q: 'How do I pay for it?', a: 'Pay by PayID, bank transfer, Finance in 4 over $3,000 or crypto, which takes 10% off the vehicle price, with enclosed freight quoted to your postcode.' },
+    ],
+  },
+
+  'club-car-transporter-6-commercial': {
+    primaryKeyword: 'shuttle buggy for sale',
+    supportingKeywords: ['golf cart club car for sale', '6 seater golf buggy', 'shuttle buggy price', 'electric golf car', 'club car golf cars for sale'],
+    h1: 'Shuttle Buggy for Sale: Club Car Transporter 6 Commercial',
+    seoTitle: 'Shuttle Buggy for Sale: Buy the Club Car Transporter 6',
+    seoDescription: 'Shop a shuttle buggy for sale. Club Car Transporter 6 seats six with ArmorFlex body and heavy-duty axles, $26,400 inc GST.',
+    short: 'Transporter 6',
+    closingHeading: 'How is the Transporter 6 shuttle supplied?',
+    intro:
+      'Operators looking for a shuttle buggy for sale at an airport, mine site or large resort want durability first. The Club Car Transporter 6 carries six passengers in forward-facing seats, with ArmorFlex bodywork and heavy-duty axles. It is $26,400 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why are forward-facing seats important on a 6 seater golf buggy?',
+        body: 'Six forward-facing seats keep every passenger travelling in the direction of movement, which matters on longer transfers and with luggage. Where the Carryall carries loads, the Transporter 6 carries people, and it is built for shuttle duty at airports, mine sites and large resorts. A 6 seater golf buggy with this layout lets one vehicle move a full group without a second trip. Facing forward also lets passengers see where they are going, which makes longer transfers more comfortable.',
+      },
+      {
+        heading: 'What does ArmorFlex bodywork protect against?',
+        body: 'ArmorFlex bodywork resists the dents and scuffs that shared shuttle vehicles collect from trolleys, cases, bollards and inattentive drivers, so the fleet still looks presentable after a season rather than a fortnight. For any operator whose vehicle is the first impression a guest receives, that durability specification pays for itself. Fewer repairs also means fewer days with a vehicle out of service. A shuttle that arrives looking tidy supports your brand, and one that needs panel repairs every few weeks does the opposite.',
+      },
+      {
+        heading: 'Why do heavy-duty axles matter for a full load?',
+        body: 'Heavy-duty axles carry a full load of adults and bags without the sag that shortens component life. That is the difference between a shuttle that stays in service and one that needs attention early. If you are comparing a golf cart club car for sale with other commercial options, tell us your passenger numbers, luggage and route and we will confirm the Transporter 6 is the right fit. That reliability matters most where the shuttle runs from first arrival to last departure, with little time between trips for attention. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a shuttle buggy for sale like the Club Car Transporter 6?', a: 'The Club Car Transporter 6 Commercial is $26,400 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What is the shuttle buggy price if I need several?', a: 'The single-unit price is $26,400. For several units, ask our wholesale and fleet desk, which can quote combined freight and pricing.' },
+      { q: 'How many passengers does this 6 seater golf buggy carry?', a: 'Six, all in forward-facing seats, so every passenger travels in the direction of movement.' },
+      { q: 'Can I buy a golf cart Club Car for sale for airport or resort use?', a: 'Yes. The Transporter 6 is built for shuttle duty at airports, mine sites and large resorts, with ArmorFlex bodywork and heavy-duty axles.' },
+      { q: 'Is it an electric golf car with lithium power?', a: 'Yes. It is an electric lithium-powered vehicle, so there is no fuel handling for the operator.' },
+      { q: 'Are Club Car golf cars for sale here supported with parts?', a: 'Yes. We supply them from our Yatala QLD depot with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+    ],
+  },
+
+  'club-car-tempo-efi-petrol': {
+    primaryKeyword: 'club car petrol golf buggy',
+    supportingKeywords: ['golf carts for sale petrol', 'golf cart petrol for sale', 'gas golf carts for sale', 'golf buggy petrol', 'golf cart club car for sale'],
+    h1: 'Club Car Petrol Golf Buggy for Sale: Tempo EFI',
+    seoTitle: 'Club Car Petrol Golf Buggy: Buy the Tempo EFI Petrol',
+    seoDescription: 'Shop the Club Car petrol golf buggy. Tempo EFI with 14HP overhead-cam engine and 25.4L tank, $14,250 inc GST, from Yatala QLD.',
+    short: 'Tempo EFI',
+    closingHeading: 'How is the Tempo EFI Petrol supplied?',
+    intro:
+      'A club car petrol golf buggy suits properties where the nearest bowser is a genuine drive away. The Club Car Tempo EFI Petrol has a 14HP single-cylinder overhead-cam engine and a 25.4-litre fuel tank. It is $14,250 AUD including GST, supplied from our Yatala QLD depot with nationwide enclosed freight quoted per postcode.',
+    sections: [
+      {
+        heading: 'Why does a 25.4-litre tank matter for remote properties?',
+        body: 'The 25.4-litre fuel tank is the headline for remote users, and the reason is simple arithmetic: a larger tank means fewer trips to town, fewer jerry cans and longer stretches between refuelling on properties where the nearest bowser is a long way off. For anyone searching golf carts for sale petrol, tank size is the figure that decides how often the buggy is tied up with fuel runs. In practice that can mean far fewer refuelling runs, which is welcome when town is far away or the weather is poor.',
+      },
+      {
+        heading: 'Is a 14HP overhead-cam engine easy to service?',
+        body: 'The 14HP overhead-cam single-cylinder engine is a conventional, proven layout that rural mechanics understand and that does not require specialist tooling to service. That makes ownership straightforward a long way from a dealer. Traditional rural users and remote property caretakers tend to prefer exactly this: mechanical simplicity, long range and parts availability over touchscreens and app connectivity. Because it uses a conventional layout, a local mechanic or a capable owner can usually handle routine servicing without special equipment.',
+      },
+      {
+        heading: 'Who buys a golf cart petrol for sale like the Tempo?',
+        body: 'Rural users and property caretakers who want a dependable workhorse rather than a gadget. Club Car build quality underpins it, and the whole vehicle is supported from our Yatala QLD depot. If you are weighing petrol against electric, tell us how far you drive each day and whether you have power at the shed, and we will advise which suits your property better. It is not the buggy for someone who wants a touchscreen or an app, and that is exactly why traditional buyers like it. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Club Car petrol golf buggy like the Tempo EFI?', a: 'The Club Car Tempo EFI Petrol is $14,250 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What fuel tank size do golf carts for sale petrol buyers get here?', a: 'The Tempo EFI has a 25.4-litre tank, which means fewer refuelling trips and longer stretches between fills on remote properties.' },
+      { q: 'Is the Tempo a golf cart petrol for sale with a simple engine?', a: 'Yes. It has a 14HP overhead-cam single-cylinder engine, a conventional layout that does not need specialist tooling to service.' },
+      { q: 'Are gas golf carts for sale here supported in Australia?', a: 'Yes. We supply the Tempo EFI from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Why choose a golf buggy petrol model over electric?', a: 'Petrol suits long distances and properties without convenient power. Tell us your daily distance and we will advise.' },
+      { q: 'Can I buy a golf cart Club Car for sale with Finance in 4?', a: 'Yes. At $14,250 it is over the $3,000 minimum, so you can split it into four interest-free instalments, or pay by PayID, bank transfer or crypto.' },
+    ],
+  },
+
+  'ezgo-freedom-rxv-gas': {
+    primaryKeyword: 'ezgo freedom rxv for sale',
+    supportingKeywords: ['gas golf carts for sale', 'golf carts for sale petrol', 'ez go golf cart accessories', 'ezgo golf buggy for sale', 'for sale ezgo golf cart'],
+    h1: 'EZGO Freedom RXV for Sale: Low-Maintenance Gas Buggy',
+    seoTitle: 'EZGO Freedom RXV for Sale: Buy the Low-Maintenance Gas',
+    seoDescription: 'Shop the EZGO Freedom RXV for sale. EX1 closed-loop EFI petrol engine built for fewer oil changes, $13,900 inc GST, from Yatala QLD.',
+    short: 'Freedom RXV',
+    closingHeading: 'How is the Freedom RXV supplied?',
+    intro:
+      'Want an ezgo freedom rxv for sale that does not feel like a maintenance commitment? The E-Z-GO Freedom RXV Gas has the EX1 closed-loop EFI petrol engine, designed around a maintenance problem rather than a power target. It is $13,900 AUD including GST, dispatched from our Yatala QLD depot with Australian warranty support.',
+    sections: [
+      {
+        heading: 'What does closed-loop fuel injection do?',
+        body: 'Its closed-loop electronic fuel injection continuously adjusts the fuel mixture based on live exhaust readings, which keeps combustion clean, reduces the fuel dilution and carbon build-up that contaminate oil, and lengthens the interval between oil changes. For anyone comparing petrol buggies, that is the feature that cuts the time spent on the workshop bench. Cleaner combustion also means less carbon in the oil, so the engine runs closer to its best for longer between services.',
+      },
+      {
+        heading: 'Why does low maintenance matter on a farm?',
+        body: 'For farmers and acreage owners that translates into fewer hours spent servicing and more spent using the vehicle. Closed-loop metering also means the engine adapts automatically to temperature and altitude instead of needing seasonal adjustment. If your previous petrol buggy felt like a maintenance commitment, the Freedom RXV is the direct answer to that experience, and it suits golf carts for sale petrol buyers who want simplicity. Time saved on servicing is time spent mustering, hauling or fencing, which is why working owners value it.',
+      },
+      {
+        heading: 'Who buys ezgo golf buggy for sale models like the Freedom RXV?',
+        body: 'Farmers and acreage owners who want petrol range without constant tinkering. It is an E-Z-GO, so it carries the brand reputation for serviceability. Ask the Yatala desk about ez go golf cart accessories if you want to add to it, and tell us your daily distance and terrain so we can confirm petrol is the right choice for your property before you order. It suits buyers who want proven petrol power but have been put off by the upkeep of older carburetted machines. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Enquiries are welcome from every state and territory.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an EZGO Freedom RXV for sale in Australia?', a: 'The E-Z-GO Freedom RXV Gas is $13,900 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Why choose one of the gas golf carts for sale with the EX1 engine?', a: 'The EX1 closed-loop EFI engine reduces fuel dilution and carbon build-up, which lengthens the interval between oil changes.' },
+      { q: 'Does it suit golf carts for sale petrol buyers on large properties?', a: 'Yes. It is aimed at farmers and acreage owners who want petrol range with less maintenance.' },
+      { q: 'Can I buy EZ GO golf cart accessories for it?', a: 'Ask the Yatala desk. We list accessories across our range and can confirm what suits the Freedom RXV.' },
+      { q: 'Is it an ezgo golf buggy for sale with fuel injection?', a: 'Yes. It uses closed-loop electronic fuel injection that adapts to temperature and altitude automatically.' },
+      { q: 'Is there a for sale ezgo golf cart warranty in Australia?', a: 'Yes. It is dispatched from Yatala QLD with Australian warranty support, and Australian Consumer Law guarantees apply on top.' },
+    ],
+  },
+
+  'cushman-hauler-1200-gas-utility': {
+    primaryKeyword: 'cushman golf cart for sale',
+    supportingKeywords: ['utility golf carts', 'cushman carts for sale', 'petrol golf buggies for sale', 'golf buggy petrol', 'farm buggy for sale'],
+    h1: 'Cushman Golf Buggy for Sale: Hauler 1200 Gas Utility',
+    seoTitle: 'Cushman Golf Cart for Sale: Buy the Hauler 1200 Gas',
+    seoDescription: 'Shop the Cushman golf cart for sale. Hauler 1200 with 13.5HP Kawasaki engine and manual dump bed, $16,800 inc GST, from Yatala QLD.',
+    short: 'Hauler 1200',
+    closingHeading: 'Can I trial the Cushman Hauler 1200 before I order?',
+    intro:
+      'Looking for a cushman golf cart for sale that carries real loads? The Cushman Hauler 1200 Gas Utility has a 13.5HP Kawasaki engine, a manual dump bed and a 544kg total load capacity. It is built for heavy agricultural property work, $16,800 AUD including GST, and supported from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does the Kawasaki engine matter on utility golf carts?',
+        body: 'The 13.5HP Kawasaki engine is the reason this model has the reputation it does. Kawasaki small industrial engines are a known quantity on Australian properties, which means parts, service knowledge and reliability are all readily available rather than dependent on a single importer. For a petrol golf buggy used hard, that familiarity makes servicing quicker and cheaper across the years of ownership. That is a practical advantage on a working property, where a breakdown costs a whole day and a long walk back.',
+      },
+      {
+        heading: 'What can a manual dump bed carry?',
+        body: 'A manual dump bed handles 544kg of sand, gravel, feed or spoil and tips it without hydraulics to fail or maintain, which on heavy agricultural work is a feature rather than a compromise. Fewer systems means fewer things to go wrong a long way from the shed, and that is why utility golf carts like this one are popular on working farms. Without hydraulics there are no hoses to split or pumps to fail, and the bed works the same way every time.',
+      },
+      {
+        heading: 'Who should buy the Hauler 1200?',
+        body: 'Properties that need a genuinely rugged load carrier and value mechanical simplicity over convenience features. If you are comparing it with a farm buggy for sale or other petrol golf buggies for sale, think about how heavy your loads are and how far from help you work, and the straightforward Hauler 1200 will usually make sense. Tell us your loads and we will confirm it suits. Heavy loads, rough tracks and long days are what it is built for, and it asks little of you in return. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. We would rather you ask first than order the wrong model.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Cushman golf cart for sale like the Hauler 1200?', a: 'The Cushman Hauler 1200 Gas Utility is $16,800 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What load can the Hauler carry?', a: 'It has a 544kg total load capacity and a manual dump bed that tips sand, gravel, feed or spoil without hydraulics.' },
+      { q: 'Are utility golf carts like this available in Australia with support?', a: 'Yes. We supply the Hauler 1200 from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it one of the Cushman carts for sale with a petrol engine?', a: 'Yes. It has a 13.5HP Kawasaki petrol engine, a known quantity on Australian properties.' },
+      { q: 'Is it a good petrol golf buggy for sale for a farm?', a: 'It is specified for heavy agricultural property work, with a rugged load carrier and few systems to go wrong.' },
+      { q: 'Is it a golf buggy petrol model with a trial?', a: 'Yes. Vehicles priced at $15,000 AUD or more include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'yamaha-umax-one-efi-utility': {
+    primaryKeyword: 'yamaha umax golf cart for sale',
+    supportingKeywords: ['yamaha efi golf cart for sale', 'yamaha efi golf cart price', 'yamaha fuel injected golf cart', 'yamaha golf buggies', 'golf carts petrol'],
+    h1: 'Yamaha UMAX Golf Buggy for Sale: One EFI Utility',
+    seoTitle: 'Yamaha UMAX Golf Cart for Sale: Buy the One EFI Utility',
+    seoDescription: 'Shop the Yamaha UMAX golf cart for sale. One EFI Utility with one-hand tailgate latch and compact bed, $15,500 inc GST, from Yatala QLD.',
+    short: 'UMAX One',
+    closingHeading: 'Can I trial the UMAX One before I order?',
+    intro:
+      'A yamaha umax golf cart for sale in the compact size suits small farms, lifestyle blocks and sport venues. The Yamaha UMAX One EFI Utility has a compact utility bed, a one-hand tailgate latch and high-comfort bucket seats. It is $15,500 AUD including GST, and supported from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why choose a compact utility buggy?',
+        body: 'The UMAX One is the compact end of the commercial range, sized for sites where a full-size utility vehicle is more machine than the site needs. The compact utility bed carries a genuine load without the length that makes manoeuvring awkward around sheds, gates and spectator areas. That is why yamaha golf buggies in this size are popular on sport grounds and lifestyle blocks. Compact also means easier turning around buildings, gates and crowds, which is where a larger machine becomes a nuisance.',
+      },
+      {
+        heading: 'What does the one-hand latch change on yamaha golf buggies?',
+        body: 'A one-hand tailgate latch sounds minor until you are carrying something in the other arm, which on a working vehicle is most of the time. Wide contoured bucket seats keep the driver comfortable across a long day rather than merely seated. Small details like these are what separate a vehicle people enjoy using from one they simply tolerate each shift. Comfort matters on a vehicle that is used for hours at a time, because tired drivers work less safely and enjoy it less.',
+      },
+      {
+        heading: 'Does Yamaha fuel injection help starting?',
+        body: 'Yamaha EFI keeps starting and running reliable across the temperature range Australian sites actually experience. For anyone searching a yamaha efi golf cart for sale, fuel injection is the feature that removes choke and flooding worries. Tell us how heavy your loads are and how often you start it, and we will confirm the UMAX One suits before you order. It is a compact utility buggy with a golf-cart footprint, so it suits places a full-size utility cannot comfortably go. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Yamaha UMAX golf cart for sale in Australia?', a: 'The Yamaha UMAX One EFI Utility is $15,500 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What is the Yamaha EFI golf cart price compared with other petrol utilities?', a: 'At $15,500 the UMAX One sits in the middle of our petrol range. Compare it with the Cushman Hauler and Club Car Carryall before you decide.' },
+      { q: 'Is this a Yamaha fuel injected golf cart?', a: 'Yes. It uses Yamaha EFI, which keeps starting and running reliable across the temperature range Australian sites experience.' },
+      { q: 'What does the compact bed carry?', a: 'The compact utility bed carries a genuine load without the length that makes manoeuvring awkward around sheds and gates.' },
+      { q: 'Are Yamaha golf buggies like this supported in Australia?', a: 'Yes. We supply the UMAX One from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Are golf carts petrol models like this available with a trial?', a: 'Yes. Vehicles priced at $15,000 AUD or more include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'club-car-carryall-300-petrol': {
+    primaryKeyword: 'club car carryall for sale',
+    supportingKeywords: ['club car golf cars for sale', 'utility golf cart', 'golf carts petrol', 'golf cart for sale club car', 'petrol golf car'],
+    h1: 'Club Car Carryall for Sale: 300 Petrol Utility Buggy',
+    seoTitle: 'Club Car Carryall for Sale: Buy the 300 Petrol Utility',
+    seoDescription: 'Shop the Club Car Carryall for sale. Carryall 300 petrol utility with tight turning radius and aluminium bed, $16,200 inc GST.',
+    short: 'Carryall 300',
+    closingHeading: 'Can I trial the Carryall 300 before I order?',
+    intro:
+      'Schools, grounds teams and light commercial sites asking for a club car carryall for sale want a tight turning circle. The Club Car Carryall 300 Petrol has a 14HP engine, a rustproof aircraft-grade aluminium frame and a compact turning radius. It is $16,200 AUD including GST, supported from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does turning radius decide a utility golf cart?',
+        body: 'A tight turning circle is the specification that decides whether a utility vehicle is useful around buildings. Schools, grounds teams and light commercial sites work between structures, walkways, garden beds and parked cars, where a large turning radius means three-point turns all day. The Carryall 300 is built for exactly that environment, and that is why a utility golf cart this agile is popular on campuses. A smaller turning circle also means less damage to lawns and garden beds, because the vehicle does not need extra room to swing.',
+      },
+      {
+        heading: 'Why does an aluminium bed last longer?',
+        body: 'The rustproof aircraft-grade aluminium bed is the durability argument: grounds work means wet clippings, fertiliser and sand, all of which corrode a steel tray from the inside out over a few seasons. Aluminium simply does not. For schools and grounds teams that wash down the bed regularly, that means the vehicle looks and works the same after years of use. Wash it down at the end of the day and it is ready for the next shift, with no corrosion to chase.',
+      },
+      {
+        heading: 'What does the 14HP petrol engine suit?',
+        body: 'A 14HP engine provides adequate power for the loads this class carries without the running costs of a larger unit. Petrol means no charging schedule for shared vehicles. If you are comparing golf carts petrol models with electric options, tell us the loads, the distances and whether you have power available, and we will advise whether the Carryall 300 is the right choice. Petrol also means no charging routine, so shared vehicles are always ready for whoever needs them. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Club Car Carryall for sale in Australia?', a: 'The Club Car Carryall 300 Petrol is $16,200 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are Club Car golf cars for sale here supported with Australian parts?', a: 'Yes. We supply the Carryall 300 from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it a utility golf cart for schools and grounds teams?', a: 'Yes. The tight turning radius and aluminium bed are aimed at schools, grounds teams and light commercial sites.' },
+      { q: 'What does this petrol golf car get with the 14HP engine?', a: 'A 14HP engine with adequate power for the loads this class carries and no charging schedule for shared vehicles.' },
+      { q: 'Does it rust like a steel bed?', a: 'No. The bed and frame are rustproof aircraft-grade aluminium, which does not corrode from wet clippings, fertiliser or sand.' },
+      { q: 'Can I trial a golf cart for sale club car utility like this?', a: 'Yes. Vehicles priced at $15,000 AUD or more include a complimentary on-farm trial demonstration.' },
+    ],
+  },
+
+  'mgi-ai-navigator-gps-remote-buggy': {
+    primaryKeyword: 'mgi remote golf buggy',
+    supportingKeywords: ['remote control electric golf buggy', 'mgi remote control', 'gps golf trolley', 'gps electric golf trolley', 'golf buggy gps'],
+    h1: 'MGI Remote Golf Buggy: Ai Navigator GPS Remote Buggy',
+    seoTitle: 'MGI Remote Golf Buggy: Buy the Ai Navigator GPS',
+    seoDescription: 'Buy the MGI remote golf buggy. Ai Navigator with touchscreen GPS and gyroscope straight tracker, $2,849 inc GST, from Yatala QLD.',
+    short: 'Ai Navigator',
+    closingHeading: 'Where can I buy the MGI Ai Navigator?',
+    intro:
+      'Looking for an mgi remote golf buggy? The MGI Ai Navigator GPS Remote Buggy is the flagship of the MGI range for golfers who walk the course, with full directional remote control, an integrated touchscreen GPS and a Patented Gyroscope Straight Tracker. It is $2,849 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does the gyroscope straight tracker matter?',
+        body: 'The gyroscope straight tracker is what separates a good remote buggy from a frustrating one. Without it, any motorised buggy drifts off line on a cambered fairway and you spend the walk correcting it. The gyroscope holds the chosen heading across slopes so the buggy tracks where you pointed it, which is why a remote control electric golf buggy with this feature feels effortless to use. It also means the buggy follows the line you intended rather than the slope of the ground, which saves you steering corrections.',
+      },
+      {
+        heading: 'What does full remote control add on the course?',
+        body: 'Full directional remote control means you can send it ahead to the next tee or around a bunker while you play. You keep both hands for your clubs and your attention on your shot. For private golfers who walk the course, the MGI remote control makes the buggy one less thing to manage during a round, and that is the model to choose if you want it to require no attention at all. Because you are not pushing or pulling, your energy stays for the round, and you can walk at your own pace.',
+      },
+      {
+        heading: 'Is a GPS golf trolley worth having?',
+        body: 'The integrated touchscreen GPS puts distances in front of you without reaching for a phone or a separate rangefinder. If you are comparing a gps golf trolley with a standard remote model, the Ai Navigator builds the GPS into the same buggy, so there is nothing extra to buy or mount. It is the flagship of the MGI range for golfers who want the most complete package. Everything is in one buggy, so there is no phone holder, bracket or extra device to add and keep charged. Tell us how you will use it and we will confirm it suits before you order. Prices are in Australian dollars.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an MGI remote golf buggy like the Ai Navigator?', a: 'The MGI Ai Navigator GPS Remote Buggy is $2,849 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What makes this a remote control electric golf buggy for hilly courses?', a: 'The Patented Gyroscope Straight Tracker holds the chosen heading across slopes, so the buggy tracks where you pointed it.' },
+      { q: 'Does the MGI remote control need to be charged?', a: 'Ask the Yatala desk. We hold MGI remotes and batteries in Australian stock and can explain charging for the model you choose.' },
+      { q: 'Is this a gps golf trolley with a touchscreen?', a: 'Yes. It has an integrated touchscreen GPS that puts distances in front of you without a phone or separate rangefinder.' },
+      { q: 'Is it a gps electric golf trolley I can steer remotely?', a: 'Yes. Full directional remote control lets you send it ahead to the next tee or around a bunker.' },
+      { q: 'Can I add a golf buggy GPS later?', a: 'This model has GPS built in. For other MGI models, ask us what suits.' },
+    ],
+  },
+
+  'mgi-zip-navigator-all-terrain': {
+    primaryKeyword: 'mgi navigator all terrain',
+    supportingKeywords: ['mgi all terrain', 'mgi zip navigator all terrain best price', 'remote control golf buggy for sale', 'motorised golf buggy for sale', 'mgi electric golf buggies'],
+    h1: 'MGI Navigator All Terrain: Zip Navigator Remote Buggy',
+    seoTitle: 'MGI Navigator All Terrain: Buy the Zip Navigator Buggy',
+    seoDescription: 'Buy the MGI Navigator All Terrain. Zip Navigator with twin 230W motors and anti-tip fifth wheel, $2,209 inc GST, from Yatala QLD.',
+    short: 'Zip Navigator All-Terrain',
+    closingHeading: 'Where can I buy the MGI Zip Navigator All-Terrain?',
+    intro:
+      'The MGI Zip Navigator All-Terrain is the stability choice for walk-behind golfers whose home course has real elevation. This mgi navigator all terrain model has twin 230W motors, a 24V 380Wh lithium battery and a rear fold-out fifth wheel. It is $2,209 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What do twin 230W motors do on an mgi all terrain buggy?',
+        body: 'Twin 230W motors drive the wheels independently, which is what gives the Zip Navigator its footing on wet slopes and cambered lies where a single-motor buggy scrabbles and slides sideways. That independence is the main reason golfers choose an mgi all terrain model for hilly or damp courses, where grip matters more than outright speed on a straight fairway. Wet grass, damp clay and sloping fairways are where the difference shows, because each wheel can hold the ground independently. Steeper contours put more load on a buggy, which is where independent drive helps most.',
+      },
+      {
+        heading: 'How does the fifth wheel stop tipping?',
+        body: 'The rear fold-out fifth wheel sits behind the main axle and stops the buggy tipping backwards when climbing steep contours, a genuine risk on undulating Australian courses when a full bag sits high on the frame. A 24V 380Wh lithium pack supplies the sustained power both motors need, so the buggy keeps its pace across a full round of climbing. That stability also keeps the bag balanced, which matters when a heavy bag sits high on the frame.',
+      },
+      {
+        heading: 'Is this the best price for a remote motorised buggy?',
+        body: 'For walk-behind golfers whose home course has real elevation rather than gentle undulation, this is the stability specification worth paying for. If you are comparing a motorised golf buggy for sale against a standard Zip model, tell us your course and your bag and we will confirm the all-terrain version is the right choice, or whether the standard model will do. Other Zip models suit flatter courses, and we are happy to say honestly when the standard buggy is enough. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our desk is based at Yatala QLD.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Navigator All Terrain in Australia?', a: 'The MGI Zip Navigator All-Terrain is $2,209 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What does MGI all terrain mean for the Zip Navigator?', a: 'Twin 230W motors drive the wheels independently, and a rear fold-out fifth wheel stops the buggy tipping backwards on steep contours.' },
+      { q: 'Is the MGI Zip Navigator All Terrain best price better than the standard model?', a: 'It costs more than the standard Zip Navigator, and it is worth it if your course has real elevation. Tell us your course and we will advise.' },
+      { q: 'Is it a remote control golf buggy for sale with lithium power?', a: 'Yes. It is a remote Zip-series buggy with a 24V 380Wh lithium battery pack.' },
+      { q: 'Is it one of the motorised golf buggies for sale that suit hills?', a: 'Yes. The twin motors and anti-tip fifth wheel are aimed at wet slopes and undulating courses.' },
+      { q: 'Are MGI electric golf buggies supported in Australia?', a: 'Yes. MGI batteries, remotes and accessories are held in Australian stock at our Yatala QLD depot.' },
+    ],
+  },
 };
