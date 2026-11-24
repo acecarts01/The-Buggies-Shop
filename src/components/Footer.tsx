@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import ContactEmail from '@/src/components/ContactEmail';
 import { ExternalLink, ShieldCheck, Phone, Mail, MapPin, Truck, CheckCircle2 } from 'lucide-react';
 import { ABN_INFO, CONTACT, CATEGORIES, SITE } from '@/src/config/site';
 import BrandMark from './BrandMark';
@@ -232,7 +233,7 @@ export default function Footer() {
             <Mail className="w-4 h-4 text-[#A85640] shrink-0" />
             {/* Entity-encoded email as mandated by WebForge SEO standards */}
             <a href={`mailto:${CONTACT.emailRaw}`} className="hover:text-[#A85640]">
-              {CONTACT.email}
+              <ContactEmail />
             </a>
           </div>
           <div className="pt-2 text-[11px] text-[#6B645E]">

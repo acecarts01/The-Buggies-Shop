@@ -33,7 +33,7 @@ export async function GET() {
         },
       ],
       contact: {
-        email: CONTACT.email,
+        email: CONTACT.emailRaw,
         phone: CONTACT.phone,
         location: CONTACT.hq,
       },

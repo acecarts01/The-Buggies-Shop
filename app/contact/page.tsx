@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ChatHub from '@/src/components/ChatHub';
+import ContactEmail from '@/src/components/ContactEmail';
 import { SITE, CONTACT, ABN_INFO, FORMS } from '@/src/config/site';
 import { Phone, Mail, MapPin, MessageSquare, ShieldCheck, Clock, CheckCircle2 } from 'lucide-react';
 import {
@@ -150,7 +151,7 @@ export default function ContactPage() {
                       href={`mailto:${CONTACT.emailRaw}`}
                       className="text-[#E7E5E4] hover:text-[#E2A17A] text-xs font-mono"
                     >
-                      {CONTACT.email}
+                      <ContactEmail />
                     </a>
                   </div>
                 </div>

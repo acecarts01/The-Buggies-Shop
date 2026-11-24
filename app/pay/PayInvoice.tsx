@@ -1,5 +1,6 @@
 'use client';
 
+import ContactEmail from '@/src/components/ContactEmail';
 import { reservationPhrase } from '@/lib/order-kind';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -161,7 +162,7 @@ export default function PayInvoice({ order }: { order: Order | null }) {
             <a href={wa} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-[#188741] hover:bg-[#1E9A4F] text-white font-bold text-sm transition-colors">
               <MessageSquare className="w-4 h-4" aria-hidden="true" /> Send payment receipt on WhatsApp
             </a>
-            <p className="text-[11px] text-[#A9B4C6] text-center">Once paid, send the receipt or a screenshot and we confirm your order. Questions: <a href={`mailto:${CONTACT.emailRaw}`} className="text-[#D9C27A] hover:underline inline-flex items-center gap-1"><Mail className="w-3 h-3" aria-hidden="true" />{CONTACT.email}</a></p>
+            <p className="text-[11px] text-[#A9B4C6] text-center">Once paid, send the receipt or a screenshot and we confirm your order. Questions: <a href={`mailto:${CONTACT.emailRaw}`} className="text-[#D9C27A] hover:underline inline-flex items-center gap-1"><Mail className="w-3 h-3" aria-hidden="true" /><ContactEmail /></a></p>
           </div>
         </section>
 

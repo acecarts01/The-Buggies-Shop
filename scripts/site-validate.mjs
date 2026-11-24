@@ -59,6 +59,10 @@ await pool(urls, 8, async (u) => {
   const g = (re) => (t.match(re) || [])[1] || '';
   for (const m of t.matchAll(/minimum order (?:is |of )?\$([\d,]+)/gi)) if (MIN_ORDER && m[1] !== MIN_ORDER) fail(`${path(u)} states a minimum order of ${m[1]}, expected ${MIN_ORDER}`);
   if (/no minimum order/i.test(t)) fail(`${path(u)} still says there is no minimum order`);
+  // An entity-encoded address rendered as React text prints literally ("sales&#64;..."): the escaped
+  // ampersand shows as &amp;#64; in the HTML. Also catch a mailto: with an encoded or wrong address.
+  if (/&amp;#64;|&amp;#x40;/i.test(t)) fail(`${path(u)} prints the email with a literal &#64; (double-encoded)`);
+  for (const m of t.matchAll(/href="mailto:([^"?]+)/gi)) { const addr = decode(m[1]).toLowerCase(); if (addr.includes('golfbuggiesexpress') && addr !== 'sales@golfbuggiesexpress.com.au') fail(`${path(u)} has mailto:${addr}, expected sales@golfbuggiesexpress.com.au`); }
   const p = {
     status: r.status,
     title: decode(g(/<title>([^<]*)<\/title>/)),
