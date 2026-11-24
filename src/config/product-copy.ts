@@ -2241,4 +2241,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Are there MGI Zip Navigator accessories that also fit?', a: 'Some accessories are shared across the Zip range. Ask the Yatala desk to confirm for your model.' },
     ],
   },
+
+  'mgi-ai-500-electric-buggy': {
+    primaryKeyword: 'mgi ai 500',
+    supportingKeywords: ['golf motorised caddy', 'best motorised golf buggy', 'gps golf buggy', 'gps golf trolley', 'mgi golf bag'],
+    h1: 'MGI Ai 500 Electric Buggy: 4-Inch GPS Motorised Walk-Behind',
+    seoTitle: 'MGI Ai 500: Buy the GPS Electric Buggy in Australia',
+    seoDescription: 'Buy the MGI Ai 500 electric buggy. 4-inch colour GPS touchscreen, 40,000+ courses, downhill speed control and park brake, $2,199 inc GST.',
+    short: 'MGI Ai 500',
+    closingHeading: 'Where can I buy the MGI Ai 500?',
+    intro:
+      'The MGI Ai 500 puts a GPS on the buggy itself, so there is nothing extra to carry. Its four-inch colour, all-weather touchscreen covers more than 40,000 courses worldwide. It is a non-remote lithium walk-behind model with downhill speed control and an electronic park brake, priced at $2,199 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the four-inch GPS screen show on the MGI Ai 500?',
+        body: 'The colour touchscreen shows accurate distances to every part of the hole, using a library of more than 40,000 courses. That removes the need for a separate rangefinder or a phone app running in your pocket. The screen is all-weather, so a shower does not end the round. Over Bluetooth it can also show phone notifications, and the free MGI App adds interactive maps and scoring. Anyone comparing a gps golf buggy against a rangefinder plus a basic buggy will find the integrated screen simpler on the course.',
+      },
+      {
+        heading: 'How does it stay controlled on slopes?',
+        body: 'Downhill speed control stops the buggy running away from you on a descent, and the electronic park brake holds it still when you stop to play a shot. Both matter on hilly Australian courses, where a loose buggy is a nuisance and a hazard. You walk with it and set the pace yourself, because this is a non-remote model. That keeps the experience close to a traditional round, with the motor doing the carrying so your energy goes into the golf.',
+      },
+      {
+        heading: 'Is a golf motorised caddy like this worth $2,199?',
+        body: 'It suits golfers who want GPS and a motor in one package, without paying for remote control. A golf motorised caddy replaces the bag carry entirely, and the built-in screen replaces a rangefinder. Compare the cost of both and the Ai 500 is a sensible middle step in the MGI range. If you want remote control as well, the Ai Navigator models sit above it. Tell us how you play and we will say which suits. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Call or message the Yatala desk and we will answer your questions in plain language. Send us your postcode and we will quote freight before you commit to the order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Ai 500?', a: 'The MGI Ai 500 Electric Buggy is $2,199 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the best motorised golf buggy for GPS?', a: 'It is a non-remote lithium walk-behind buggy with built-in GPS, aimed at golfers who want a motor and course data in one unit.' },
+      { q: 'Is the MGI Ai 500 a gps golf buggy with notifications?', a: 'Yes. The four-inch screen has Bluetooth connectivity and can show phone notifications such as messages, emails and calls.' },
+      { q: 'How many courses does the gps golf trolley screen cover?', a: 'The MGI Ai 500 covers more than 40,000 courses worldwide, and the free MGI App adds interactive maps and scoring.' },
+      { q: 'Does the MGI Ai 500 have remote control?', a: 'No. It is a non-remote model. You walk with it and control the pace yourself.' },
+      { q: 'Can I add an MGI golf bag or accessories?', a: 'Yes. We stock MGI accessories, and you can ask the Yatala desk what suits the Ai 500.' },
+    ],
+  },
+
+  'mgi-ai-navigator-halo': {
+    primaryKeyword: 'mgi navigator halo',
+    supportingKeywords: ['mgi ai navigator halo', 'folding golf buggies', 'remote control golf buggy', 'remote electric golf cart', 'follow me golf buggy'],
+    h1: 'MGI Navigator Halo: The Ai Navigator Halo Remote GPS Buggy',
+    seoTitle: 'MGI Navigator Halo: Buy the Top-Range Remote Buggy',
+    seoDescription: 'Buy the MGI Navigator Halo. Top-range remote-control GPS buggy with Geo Protect hazard mapping, in-hub motors and a compact fold, $3,249 inc GST.',
+    short: 'MGI Navigator Halo',
+    closingHeading: 'Where can I buy the MGI Navigator Halo?',
+    intro:
+      'The MGI Navigator Halo is the most advanced remote-controlled buggy in the MGI range. It combines GPS, a next-generation remote, Geo Protect hazard mapping, brushless in-hub motors and a new compact fold. The Ai Navigator Halo is $3,249 AUD including GST, with freight quoted to your postcode at checkout.',
+    sections: [
+      {
+        heading: 'What does Geo Protect hazard mapping do?',
+        body: 'Geo Protect uses mapped hazards to keep the buggy out of trouble, which matters when you are steering by remote around bunkers and water. GPS and the next-generation remote help you make decisions on every hole, so the buggy supports your game rather than just carrying the bag. Gyroscope Straight Tracker technology holds a line across slopes, and downhill speed control keeps descents in check. Together they make the Halo the most capable remote control golf buggy in the MGI line-up.',
+      },
+      {
+        heading: 'Why do brushless in-hub motors matter?',
+        body: 'Brushless in-hub motors drive each wheel independently, which gives smooth, responsive performance and fine control. The improved fifth wheel adds stability on any terrain, so the buggy stays composed on uneven ground. Independent drive also helps it hold a straight line on slopes without constant correction. For golfers who play hilly or soft courses, that combination is a real step up from entry-level motorised buggies, and it is part of what the higher price pays for.',
+      },
+      {
+        heading: 'What do the compact fold and Halo Eye add to folding golf buggies?',
+        body: 'The new compact fold makes the Halo easier to store and load than earlier Ai models, which helps if the boot is small. The optional Halo Eye adds follow me, return home, point-to-point and obstacle avoidance, and the buggy can pair with the MGI SureShot SlimPRO laser rangefinder. Folding golf buggies are only useful if they genuinely fit the car, so tell us your vehicle and we will talk it through. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit. Delivery is enclosed, so the buggy arrives protected from weather and road dirt.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Navigator Halo?', a: 'The MGI Ai Navigator Halo is $3,249 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is the MGI Ai Navigator Halo the top MGI model?', a: 'Yes. It is MGI most advanced remote-controlled buggy, with GPS, Geo Protect and independent in-hub motors.' },
+      { q: 'Is it a remote control golf buggy?', a: 'Yes. It has a next-generation remote and GPS. The optional Halo Eye adds follow me and obstacle avoidance.' },
+      { q: 'Does it work as a follow me golf buggy?', a: 'With the optional Halo Eye it adds follow me, return home, point-to-point and obstacle avoidance.' },
+      { q: 'Is it one of the folding golf buggies that fits a small boot?', a: 'The new compact fold is easier to store and load than earlier Ai models. Tell us your vehicle and we will advise.' },
+      { q: 'How does it compare with a remote electric golf cart style buggy?', a: 'It is a walk-behind buggy you steer by remote, with GPS and hazard mapping that basic models do not have.' },
+    ],
+  },
+
+  'mgi-e-boost-black': {
+    primaryKeyword: 'mgi e boost golf buggy',
+    supportingKeywords: ['best motorized golf push cart', 'push golf buggies for sale', 'golf buggies push', 'motorized golf push cart', 'best push golf buggy australia'],
+    h1: 'MGI E Boost Golf Buggy in Black: Push Buggy with Boost Mode',
+    seoTitle: 'MGI E Boost Golf Buggy: Buy the Black Push Buggy',
+    seoDescription: 'Buy the black MGI E Boost golf buggy. Lightweight pushcart with a hidden motor, Push and Boost modes and a 24V 225Wh lithium battery, $899 inc GST.',
+    short: 'black E-Boost',
+    closingHeading: 'Where can I buy the black MGI E-Boost?',
+    intro:
+      'The MGI E Boost golf buggy is a push buggy with a kick. It looks and handles like a classic lightweight pushcart, but a hidden motor gives you an extra boost at the press of a button. This black model is $899 AUD including GST, with a 24V 225Wh lithium battery.',
+    sections: [
+      {
+        heading: 'How do Push and Boost modes work?',
+        body: 'Switch between Push and Boost as the round demands. Use Push for the flat holes and normal walking, then press the button for Boost on steep holes or when you are tired late in the round. The motor is hidden in the frame, so the buggy keeps the clean look of a traditional pushcart. That makes it feel familiar from the first hole, which helps golfers who do not want to learn a complicated machine. You push the buggy as you always have, and the motor is there only when you ask for it.',
+      },
+      {
+        heading: 'Who suits a motorized golf push cart?',
+        body: 'It suits golfers who like the feel of a traditional pushcart and do not want the weight, size or price of a full motorised buggy. At $899 it sits between a manual push model and the larger MGI walk-behind range. The lithium battery is a 24V 225Wh pack, and the matching E Series charger is made for the E-Boost battery only, so do not substitute a charger from another MGI model. Because the motor is small and the frame is light, the buggy is easier to lift into a boot than a full motorised model, which matters if you load it yourself every week.',
+      },
+      {
+        heading: 'Is this the best push golf buggy australia golfers can pick?',
+        body: 'Only you can judge that, but the E-Boost answers a common problem: golfers who want help on hills without giving up a light, simple buggy. If you play a flat course, a manual push buggy costs less. If your course climbs, the boost earns its price quickly. This is the black model, and navy and white are listed separately if you prefer another colour. Colour is the only difference between the three E-Boost models, so choose the finish you like and tell us your delivery postcode for a freight quote. Ask us before you order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the black MGI E-Boost?', a: 'The MGI E-Boost in black is $899 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the best motorized golf push cart for hills?', a: 'It is a lightweight pushcart with a hidden boost motor, designed to help on steep holes and late in a round.' },
+      { q: 'Do you list push golf buggies for sale in other colours?', a: 'Yes. The E-Boost is also listed in navy and white at the same price.' },
+      { q: 'What battery does the MGI E Boost golf buggy use?', a: 'It uses a 24V 225Wh lithium battery, and the E Series charger is for the E-Boost battery only.' },
+      { q: 'Is it one of the golf buggies push models that needs charging?', a: 'Yes. The boost motor runs from the lithium battery, so charge it before the round.' },
+      { q: 'Is it a good best push golf buggy australia choice for beginners?', a: 'It suits golfers who want a familiar pushcart with a little electric help. Ask the Yatala desk if you are unsure.' },
+    ],
+  },
+
+  'mgi-e-boost-navy': {
+    primaryKeyword: 'golf push buggy australia',
+    supportingKeywords: ['push golf buggy for sale', 'best push golf buggy australia', 'push golf buggy', 'golf buggies push', 'push buggies golf'],
+    h1: 'Golf Push Buggy Australia: MGI E-Boost in Navy with Boost Mode',
+    seoTitle: 'Golf Push Buggy Australia: Shop the Navy MGI E-Boost',
+    seoDescription: 'Shop the navy MGI E-Boost, a golf push buggy australia wide: hidden boost motor, Push and Boost modes, 24V lithium battery, $899 inc GST.',
+    short: 'navy E-Boost',
+    closingHeading: 'Where can I buy the navy MGI E-Boost?',
+    intro:
+      'Looking for a golf push buggy australia golfers can order online, with a little electric help? The MGI E-Boost in navy is the same lightweight pushcart with a boost motor hidden in the frame. A button press gives extra drive when the course climbs or your legs tire. It is $899 AUD including GST.',
+    sections: [
+      {
+        heading: 'What makes the navy E-Boost different from a normal push buggy?',
+        body: 'It handles like a classic push buggy, but the hidden motor adds drive on demand. Use Push mode for normal walking and Boost mode on steep holes, and switch between them as you go. That flexibility is the whole point: you keep the lightness and simplicity of a traditional buggy, and you gain help only when you need it, rather than carrying a heavier machine all round. On a flat course you may never press the button, and on a hilly one you may use it often. It suits older golfers and anyone who wants to keep walking.',
+      },
+      {
+        heading: 'Is it a good golf push buggy australia golfers can rely on?',
+        body: 'A buggy for Australian courses should handle hills, fold small and not demand much care. The E-Boost is light and simple to handle, and the battery is a 24V 225Wh lithium pack with a matching E Series charger. Compared with a full motorised buggy it is smaller, easier to lift and less costly. Compared with a manual model it gives real help on climbs. The charger is made for this pack only, so keep it with the buggy. Charge before a round, as you would a phone, and the lithium battery is ready when you are.',
+      },
+      {
+        heading: 'Which colour should push buggies golf players choose?',
+        body: 'Navy is a practical colour that sits well with most bags. Black and white versions are listed separately at the same price, so the choice is purely about looks. The mechanics, battery and charger are identical across all three. If you are weighing an electric golf push cart against a standard push model, tell us how hilly your course is and we will give you honest advice. We list all three colours at the same price and ship across Australia from Yatala QLD, with freight quoted to your postcode at checkout. Ask us anything you like.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the navy MGI E-Boost?', a: 'The MGI E-Boost in navy is $899 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this a push golf buggy for sale with a motor?', a: 'Yes. A hidden motor gives a boost at the press of a button, and Push mode works as a classic pushcart.' },
+      { q: 'Is it the best push golf buggy australia golfers can buy for hills?', a: 'It is built to help on steep holes and late in the round, with Push and Boost modes you can switch between.' },
+      { q: 'Is it an electric golf push cart that needs charging?', a: 'Yes. It runs from a 24V 225Wh lithium battery and uses the E Series charger made for it.' },
+      { q: 'Do you have other golf buggies push models in other colours?', a: 'Yes. The E-Boost is also listed in black and white at the same price.' },
+      { q: 'Do you deliver this golf push buggy australia wide?', a: 'Yes. We ship across Australia from Yatala QLD, with freight quoted to your postcode at checkout.' },
+    ],
+  },
+
+  'mgi-e-boost-white': {
+    primaryKeyword: 'electric golf push cart',
+    supportingKeywords: ['best cheap golf push cart', 'push buggies golf', 'golf buggies push', 'push golf buggies for sale', 'electric push cart golf'],
+    h1: 'Electric Golf Push Buggy: MGI E-Boost in White with Boost Mode',
+    seoTitle: 'Electric Golf Push Cart: Buy the White MGI E-Boost',
+    seoDescription: 'Buy the white MGI E-Boost electric golf push cart. Classic pushcart look with a hidden boost motor, Push and Boost modes, 24V lithium, $899 inc GST.',
+    short: 'white E-Boost',
+    closingHeading: 'Where can I buy the white MGI E-Boost?',
+    intro:
+      'An electric golf push cart should feel like a push buggy, not a machine. The white MGI E-Boost gives you the classic pushcart look with a hidden boost motor behind it. Press the button when a hill or a long round calls for it. It is $899 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the boost help on a long round?',
+        body: 'Press the button when a hill or a long round calls for it, and go back to Push mode when the ground flattens out. The hidden motor adds drive without changing how the buggy looks or handles. Late in a round, when legs tire and the last holes climb, that extra drive keeps your pace steady and your energy for the golf. It is a small feature that makes a noticeable difference. There is no need to learn a new routine, because it still folds and lifts like a pushcart.',
+      },
+      {
+        heading: 'Is it a best cheap golf push cart alternative?',
+        body: 'It is not the cheapest push buggy, and we would not pretend otherwise. Manual models cost less. The E-Boost costs more because it adds a motor and lithium battery, and it still costs far less than a full motorised buggy. Push buggies golf players choose for flat courses do not need the boost. If your course has climbs, the extra cost buys real help and a lighter day. Many owners buy it for one reason: they want to keep walking the course, but not at the cost of tired legs by the sixteenth hole.',
+      },
+      {
+        heading: 'What battery and charger does it use?',
+        body: 'The battery is a 24V 225Wh lithium pack, and the E Series charger is made for it. Do not use a charger from another MGI model with this battery. The white finish looks clean and modern, and black and navy versions are listed separately at the same price if you prefer another colour. Light and simple to handle, it suits golfers who do not want a large motorised buggy but would like help on the climbs. Keep the charger with the buggy and top up the battery before each round, and the boost will be there when the hills arrive. Our team is happy to help. Ask us about stock.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the white MGI E-Boost?', a: 'The MGI E-Boost in white is $899 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this an electric golf push cart with a real motor?', a: 'Yes. A boost motor is hidden in the frame and switches on at the press of a button.' },
+      { q: 'Is it a best cheap golf push cart?', a: 'It costs more than a manual push buggy because it adds a motor and lithium battery, and less than a full motorised buggy.' },
+      { q: 'Do you have push golf buggies for sale in other colours?', a: 'Yes. The E-Boost is also listed in black and navy at the same price.' },
+      { q: 'Are these golf buggies push models heavy?', a: 'It is described as a lightweight pushcart. Ask the Yatala desk about weight and boot fit for your vehicle.' },
+      { q: 'What charger does the electric push cart golf model need?', a: 'The E Series charger, which is made for the E-Boost battery only.' },
+    ],
+  },
+
+  'clicgear-model-4-0-buggy-silver': {
+    primaryKeyword: 'push buggy',
+    supportingKeywords: ['clicgear 4.0 australia', 'buy clicgear 4.0', 'clicgear 4.0 best price', 'clicgear golf buggy', 'clicgear buggies'],
+    h1: 'Silver Clicgear Model 4.0 Push Buggy: Compact Three-Wheel Fold',
+    seoTitle: 'Push Buggy: Buy the Silver Clicgear Model 4.0',
+    seoDescription: 'Buy the silver Clicgear Model 4.0 push buggy. Compact three-wheel fold, adjustable bag saddle, silicone straps and lockable storage console, $489 inc GST.',
+    short: 'silver Clicgear 4.0',
+    closingHeading: 'Where can I buy the silver Clicgear 4.0?',
+    intro:
+      'A good push buggy is stable, folds small and keeps your bag where you put it. The Clicgear Model 4.0 in silver is a compact three-wheel design built around stability and durability. It has no battery and no electronics, and it is $489 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the clicgear golf buggy saddle keep the bag secure?',
+        body: 'An adjustable upper saddle fits your bag properly, and a lower saddle gives the front wheel more clearance. Silicone straps and an umbrella tube strap hold the bag firmly, so it does not shift on slopes or bumps. A bag that sits right makes the buggy easier to push and steer, and it protects both the bag and the clubs. It is a simple design detail, but it makes a push buggy feel solid. The adjustable design also helps if you swap between bags, because you can change the fit in seconds without tools. Straps that grip properly mean you can stop worrying about the bag mid-round.',
+      },
+      {
+        heading: 'What storage does the Clicgear 4.0 include?',
+        body: 'A lockable storage console, a silicone scorecard and pencil holder and a drink holder keep the essentials to hand. It comes supplied with an umbrella holder, storage net, drink holder, storage console and several accessory tabs for adding more. That means you can buy clicgear 4.0 as a complete package rather than assembling extras. With nothing to charge, it is ready whenever you are, and there is little to go wrong. Everything is supplied in the box, so there are no extra shopping trips for the basics. The accessory tabs mean you can still personalise the buggy later without any modification.',
+      },
+      {
+        heading: 'Is the Clicgear Model 4.0 the right push buggy for you?',
+        body: 'The Model 4.0 is a compact design built around stability and durability. It suits golfers who want a durable buggy at a fair price without a motor. If you are weighing it against a motorised model, tell us how you play. This is the silver finish, and other colours are listed separately at the same specification. We are an Australian stockist in Yatala QLD, so you can ask questions about the clicgear golf buggy range before you order. Prices include GST, and freight is quoted at checkout. Ask us.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the silver Clicgear Model 4.0?', a: 'The Clicgear Model 4.0 in silver is $489 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Where can I buy clicgear 4.0 in Australia?', a: 'We stock it at our Yatala QLD depot and deliver across Australia, with freight quoted at checkout.' },
+      { q: 'Is it one of the clicgear buggies that folds for small boots?', a: 'It folds compactly. Tell us your vehicle and we will advise on boot fit.' },
+      { q: 'Is this a clicgear 4.0 australia stocked model with a battery?', a: 'We stock it in Australia. It is a manual push buggy with no battery or electronics.' },
+      { q: 'What accessories come with the Clicgear golf buggy?', a: 'It comes with an umbrella holder, storage net, drink holder, storage console and accessory tabs.' },
+      { q: 'Is it the clicgear 4.0 best price in Australia?', a: 'The silver model is $489 and the teal is $399, both including GST. Freight is quoted at checkout.' },
+    ],
+  },
+
+  'clicgear-model-4-0-buggy-matte-white': {
+    primaryKeyword: 'clicgear model 4.0',
+    supportingKeywords: ['clicgear model 4 buggy', 'clicgear 4.0 golf trolley', 'clicgear 4.0 push cart', 'clicgear 4.0 accessories', 'three wheel golf buggies'],
+    h1: 'Clicgear Model 4.0 Buggy in Matte White: Compact Push Buggy',
+    seoTitle: 'Clicgear Model 4.0: Buy the Matte White Push Buggy',
+    seoDescription: 'Buy the Clicgear Model 4.0 in matte white. Compact three-wheel push buggy with adjustable saddle, silicone straps and storage console, $489 inc GST.',
+    short: 'matte white Clicgear 4.0',
+    closingHeading: 'Where can I buy the matte white Clicgear 4.0?',
+    intro:
+      'The Clicgear Model 4.0 in matte white is the same stable, compact push buggy in a lighter finish. An adjustable upper saddle fits the bag, a lower saddle clears the front wheel, and silicone straps keep everything in place. It is $489 AUD including GST.',
+    sections: [
+      {
+        heading: 'What makes the Clicgear Model 4.0 stable?',
+        body: 'Three-wheel designs are stable because the load sits low and the wheels track predictably. The upper saddle adjusts to fit your bag, the lower saddle gives the front wheel clearance, and silicone straps with an umbrella tube strap hold the bag firmly. A stable buggy follows you without tipping on slopes, which is the main thing a golfer wants from a clicgear 4.0 golf trolley style design. This is a design that keeps things simple. Nothing needs charging, and nothing needs programming.',
+      },
+      {
+        heading: 'What storage and clicgear 4.0 accessories are included?',
+        body: 'The storage console locks, there is a silicone scorecard and pencil holder, and the buggy comes with an umbrella holder, storage net, drink holder and multiple accessory tabs. Those tabs let you add clicgear 4.0 accessories later, so the buggy can grow with your needs. It has no battery and no electronics, which means nothing to charge and very little to maintain. Three wheel golf buggies of this kind also suit golfers who like to keep gear to a minimum, because the console holds keys and a phone safely. A buggy that holds your valuables also removes a worry on the course. Prices include GST, and freight is quoted to your postcode at checkout. Ask us about our colours.',
+      },
+      {
+        heading: 'Which colour should you pick?',
+        body: 'Matte white is a clean, modern finish that stands out in a car park. Silver, soft pink and teal versions are listed separately, and the specification is the same across all four. The teal is currently the lowest priced at $399. If you are choosing between a push cart and a motorised buggy, tell us how you play and we will advise honestly. It is built around stability and durability, and the lower price than a motorised buggy leaves budget for other accessories. If you are buying for a gift, the finish is a talking point.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Clicgear Model 4.0 in matte white?', a: 'It is $489 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is the Clicgear Model 4 buggy the same in every colour?', a: 'Yes. The specification is the same across silver, matte white, soft pink and teal. Only the finish differs.' },
+      { q: 'Is it a good clicgear 4.0 golf trolley for beginners?', a: 'It is a compact, stable design with no electronics, which suits golfers of all levels.' },
+      { q: 'Is the Clicgear 4.0 push cart foldable?', a: 'Yes. It has a compact three-wheel fold for the boot.' },
+      { q: 'What clicgear 4.0 accessories can I add?', a: 'Accessory tabs let you add extras. Ask the Yatala desk what we stock.' },
+      { q: 'Does the Clicgear Model 4.0 have a battery?', a: 'No. It is a manual push buggy.' },
+    ],
+  },
+
+  'clicgear-model-4-0-buggy-soft-pink': {
+    primaryKeyword: 'golf three wheel trolley',
+    supportingKeywords: ['three wheel golf trolley', 'clicgear 4.0 price', '3 wheel golf buggy', 'best three wheel golf push cart', 'clicgear 4.0 golf trolley'],
+    h1: 'Golf Three Wheel Trolley: Clicgear Model 4.0 in Soft Pink',
+    seoTitle: 'Golf Three Wheel Trolley: Buy the Soft Pink Clicgear',
+    seoDescription: 'Buy the soft pink Clicgear Model 4.0 golf three wheel trolley. Compact fold, adjustable saddle, silicone straps and lockable console, $489 inc GST.',
+    short: 'soft pink Clicgear 4.0',
+    closingHeading: 'Where can I buy the soft pink Clicgear 4.0?',
+    intro:
+      'A golf three wheel trolley is popular because it is stable, light and simple. The Clicgear Model 4.0 in soft pink adds some colour to a well-regarded compact push buggy. The clicgear 4.0 price is $489 AUD including GST, and there is no battery to charge.',
+    sections: [
+      {
+        heading: 'Why choose a three wheel golf trolley?',
+        body: 'This design is easy to steer and light to push, and it folds smaller than many four-wheel designs. The adjustable upper saddle gives a better bag fit, and the lower saddle adds front-wheel clearance. Silicone straps and the umbrella tube strap grip firmly, so the bag stays put on slopes. That combination is why this design is so popular with golfers who walk their rounds every week. A stable base means the buggy rolls straight when you let go, which helps on gentle slopes and when you stop to play shots. A stable base means the buggy rolls straight when you let go, which helps on gentle slopes and when you stop to play a shot.',
+      },
+      {
+        heading: 'What is included at the clicgear 4.0 price?',
+        body: 'A lockable storage console, scorecard and pencil holder and drink holder are built in, and the buggy comes with an umbrella holder, storage net and accessory tabs. That means the clicgear 4.0 price of $489 buys a complete setup, not a bare frame. With no battery to charge, it is ready whenever you are, and running costs are close to nothing across the life of the buggy. It costs less than any motorised option, and has no battery to replace. It also costs less than any motorised option, and there is no battery to replace down the track.',
+      },
+      {
+        heading: 'Is soft pink a good choice?',
+        body: 'Soft pink makes the buggy easy to spot in a crowded car park or on a busy course. The specification matches the other colours, which are listed separately. If you are comparing a 3 wheel golf buggy against a four-wheel design, tell us what you play and we will give you honest advice. Colour aside, it performs the same as the other versions, so choose the finish that you enjoy. We deliver across Australia from Yatala QLD, with freight quoted at checkout.',
+      },
+    ],
+    faqs: [
+      { q: 'What is the clicgear 4.0 price in soft pink?', a: 'The Clicgear Model 4.0 in soft pink is $489 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this a good golf three wheel trolley for walking golfers?', a: 'It is a compact, stable design with a lockable console and adjustable saddle, and it has no battery to look after.' },
+      { q: 'What is the best three wheel golf push cart in your range?', a: 'The Clicgear Model 4.0 and the upgraded 4.5 are our three-wheel push models. Ask us which suits your game.' },
+      { q: 'Does it have a battery?', a: 'No. It is a manual push buggy with no electronics.' },
+      { q: 'Is it the same as the other Clicgear 4.0 golf trolley colours?', a: 'Yes. Silver, matte white and teal share the same specification.' },
+      { q: 'What accessories come with the 3 wheel golf buggy?', a: 'It comes with an umbrella holder, storage net, drink holder, storage console and accessory tabs.' },
+    ],
+  },
+
+  'clicgear-model-4-0-buggy-teal': {
+    primaryKeyword: 'clicgear 4.0 for sale',
+    supportingKeywords: ['clicgear 4.0 price', 'clicgear 4.0 golf cart', 'best 3 wheel golf push cart', 'three wheel golf buggy', 'clicgear buggies'],
+    h1: 'Clicgear 4.0 for Sale: Teal Model 4.0 Push Buggy, $399',
+    seoTitle: 'Clicgear 4.0 for Sale: Buy the Teal Push Buggy, $399',
+    seoDescription: 'Buy the teal Clicgear 4.0 push buggy for $399 inc GST. Compact three-wheel fold, adjustable saddle, silicone straps and lockable storage console.',
+    short: 'teal Clicgear 4.0',
+    closingHeading: 'Where can I buy the teal Clicgear 4.0?',
+    intro:
+      'Looking for a Clicgear 4.0 for sale at the lowest price in the range? The teal Model 4.0 is the same compact three-wheel push buggy in a bolder colour, at $399 AUD including GST. It is the most affordable way into the Model 4.0 line.',
+    sections: [
+      {
+        heading: 'What is the clicgear 4.0 price for the teal model?',
+        body: 'The teal model is $399 AUD including GST, which is $90 less than the other colours at $489. The specification is the same: an adjustable upper saddle, a lower saddle for front-wheel clearance, and silicone straps with an umbrella tube strap. We would rather be clear about this than hide it: if colour does not matter to you, teal is the budget route into the Clicgear 4.0 range. That gap is considerable, and it is money you can put towards a bag, balls or a day of golf. The only trade-off is the finish, so check you like teal before you order. Prices include GST. Freight is quoted separately.',
+      },
+      {
+        heading: 'What does the buggy include?',
+        body: 'The storage console locks, there is a silicone scorecard and pencil holder, and the buggy comes with an umbrella holder, storage net, drink holder and accessory tabs. There is no battery, so there is nothing to charge and little to go wrong. Clicgear buggies are valued for stability and durability. The adjustable upper saddle and silicone straps matter more than the colour, because they decide how well the bag rides. A secure bag also protects your clubs from knocks on the way round.',
+      },
+      {
+        heading: 'Is it a best 3 wheel golf push cart for the money?',
+        body: 'For golfers who walk and want a stable, compact buggy at a sharp price, it is a strong option. Compare it with the 4.5 if you want an aluminium frame and adjustable handle, or with an electric model if you want motor help. Tell us what you play and what you carry, and we will say whether the teal Model 4.0 is the right buy. We are an Australian stockist and answer questions before you order, including delivery postcode quotes. If you would prefer a different colour, the other finishes are listed separately. A buggy with no battery also has no replacement cost down the track.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the teal Clicgear 4.0?', a: 'The teal Clicgear Model 4.0 is $399 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Why is the teal Clicgear 4.0 for sale at a lower price?', a: 'It is priced at $399 while the other colours are $489. The specification is listed as the same.' },
+      { q: 'Is the Clicgear 4.0 golf cart style buggy electric?', a: 'No. It is a manual push buggy with no battery.' },
+      { q: 'Is it a best 3 wheel golf push cart?', a: 'It is a compact, stable three-wheel design with a lockable console and adjustable saddle.' },
+      { q: 'Is this a three wheel golf buggy that folds?', a: 'Yes. It has a compact three-wheel fold for the boot.' },
+      { q: 'Do you stock other Clicgear buggies?', a: 'Yes. We also list the Model 4.0 in other colours and the upgraded Model 4.5.' },
+    ],
+  },
+
+  'clicgear-model-4-5-buggy-black': {
+    primaryKeyword: 'clicgear 4.5',
+    supportingKeywords: ['clicgear 3.5 cup holder', 'clicgear golf push cart', '3 vs 4 wheel golf push cart', '3 wheel vs 4 wheel golf push cart', 'clicgear golf buggies'],
+    h1: 'Clicgear 4.5 Buggy in Black: Upgraded Aluminium Push Buggy',
+    seoTitle: 'Clicgear 4.5: Buy the Black Aluminium Push Buggy',
+    seoDescription: 'Buy the black Clicgear 4.5 push buggy. Aluminium frame, stable three-wheel platform, adjustable handle height, console and cup holder, $549.99 inc GST.',
+    short: 'Clicgear 4.5',
+    closingHeading: 'Where can I buy the Clicgear 4.5?',
+    intro:
+      'The Clicgear 4.5 is the upgraded Clicgear push buggy, with a stronger frame and better storage than earlier models. It has an aluminium frame, a stable three-wheel platform and an adjustable handle. The black model is $549.99 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the aluminium frame change?',
+        body: 'The aluminium frame is built for long life, and it keeps weight down while adding strength. The three-wheel platform keeps the buggy balanced and easy to steer, and it folds compactly for the boot. Those are the qualities to look for if you walk every week and want a buggy that lasts. Because it is aluminium, it resists the rust that can affect cheaper frames, which is useful if you store the buggy in a damp garage or boot. A good push buggy should still look right after a few seasons.',
+      },
+      {
+        heading: 'Why does adjustable handle height matter?',
+        body: 'The handle height adjusts so the buggy suits golfers of different heights. A handle at the wrong height strains the back and shoulders on a long round, so this is a comfort feature as well as a convenience. Storage includes a console and a cup holder, with a built-in phone holder, so the essentials are within reach. A phone holder is a modern touch that many golfers use for music, scoring or GPS apps. Keeping the phone mounted also keeps it off the ground and out of pockets that can squash it.',
+      },
+      {
+        heading: '3 vs 4 wheel golf push cart: which suits the Clicgear 4.5?',
+        body: 'In the 3 vs 4 wheel golf push cart debate, three wheels give easier steering and a smaller fold, while four wheels can feel more planted on very rough ground. The 4.5 is a three-wheel design, so it suits golfers who value manoeuvrability and a compact boot footprint. As a push buggy it has no battery, motor or electronics, so running costs are close to nothing. If you are weighing the 4.5 against the Model 4.0, the difference is the frame, handle and storage. Tell us your budget and how often you play, and we will say whether the extra cost is worthwhile. We are an Australian stockist and quote freight to your postcode at checkout. Ask us about current stock.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Clicgear 4.5 in black?', a: 'The Clicgear Model 4.5 Buggy in black is $549.99 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What is different about the Clicgear 4.5?', a: 'It has an aluminium frame, an adjustable handle height and improved storage with a console, cup holder and phone holder.' },
+      { q: 'Does it have a Clicgear 3.5 cup holder style drink holder?', a: 'It has a console and a cup holder, plus a built-in phone holder.' },
+      { q: 'Is it a good Clicgear golf push cart for tall golfers?', a: 'Yes. The handle height adjusts, so it suits golfers of different heights.' },
+      { q: 'Is a 3 wheel vs 4 wheel golf push cart choice important?', a: 'Three wheels give easier steering and a compact fold. Tell us your course and we will advise.' },
+      { q: 'Do you stock other Clicgear golf buggies?', a: 'Yes. We also list the Clicgear Model 4.0 in several colours.' },
+    ],
+  },
 };
