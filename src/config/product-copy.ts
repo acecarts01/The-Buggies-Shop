@@ -3261,4 +3261,276 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'What other golf trolley bags and golf cart accessories Australia wide do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk.' },
     ],
   },
+
+  'mgi-accessories-bag': {
+    primaryKeyword: 'mgi accessories',
+    supportingKeywords: ['mgi golf buggy accessories', 'mgi golf buggies accessories', 'electric golf trolley accessories', 'golf buggy bag', 'golf trolley bags'],
+    h1: 'MGI Accessories Bag: Secure Zip Bag That Clips onto the Buggy Frame',
+    seoTitle: 'MGI Accessories Bag: Buy the Clip-On Valuables Bag',
+    seoDescription: 'Buy the MGI accessories bag. Secure zip closure and a clip-on bracket keep keys, wallet and phone on the buggy frame and out of your pockets, $65 inc GST.',
+    short: 'accessories bag',
+    closingHeading: 'Where can I buy the MGI accessories bag?',
+    intro:
+      'The MGI Accessories Bag keeps valuables such as keys, wallet and phone secure and out of your pockets while you play. It is made from durable fabric with a secure zip closure, and a simple bracket lets it clip on and off the MGI frame. The price is $65 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the MGI accessories bag hold?',
+        body: 'It holds the things you do not want to lose or crush: keys, a wallet and a phone. Pockets full of valuables are uncomfortable on a long walk and easy to forget on a bench, so a dedicated bag on the buggy is a practical answer. The secure zip closure keeps everything inside, even if the buggy tips over or is pushed across rough ground. Keeping valuables on the buggy also leaves your hands free for the clubs.',
+      },
+      {
+        heading: 'How does the clip-on bracket work as a golf buggy bag?',
+        body: 'A simple bracket mechanism lets the bag clip on and off the MGI frame. That means you can leave it on the buggy during the round and take it into the clubhouse afterwards. Durable fabric stands up to the knocks of regular use. As a golf buggy bag it is small, tidy and easy to reach, so you do not have to stop and open the main bag. It is small enough to avoid getting in the way of the main bag and easy to unclip when you finish.',
+      },
+      {
+        heading: 'Which MGI accessories pair well with it?',
+        body: 'It is a low-cost addition to a buggy that already has a phone holder, drink holder and scorecard holder, and together they leave the pockets empty. Choose the bag made for your buggy series and ask us if you are unsure. We hold mgi golf buggy accessories in Australian stock at Yatala QLD, so you can order them together and pay a single freight quote. A low-cost bag is one of the easiest accessories to add to an existing buggy. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI accessories bag?', a: 'The MGI Accessories Bag is $65 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this one of the mgi accessories that fits every buggy?', a: 'It clips onto the MGI frame. Tell us your model and we will confirm.' },
+      { q: 'What can I carry in a golf buggy bag like this?', a: 'Keys, a wallet and a phone fit, and the zip closure keeps them secure.' },
+      { q: 'How does it attach?', a: 'A simple bracket mechanism lets it clip on and off the frame.' },
+      { q: 'Do you stock other golf trolley bags and mgi golf buggies accessories?', a: 'Yes. We stock cooler bags, travel bags, holders, covers, batteries and chargers. Ask the Yatala desk.' },
+      { q: 'Do you list electric golf trolley accessories for MGI?', a: 'Yes. Ask us what suits your model and we will confirm before you order.' },
+    ],
+  },
+
+  'clicgear-soft-seat-cover': {
+    primaryKeyword: 'clicgear seat',
+    supportingKeywords: ['clicgear 4.0 seat', 'clicgear 3.5 seat', 'clicgear golf buggy', 'golf buggy seat', 'golf push cart seat'],
+    h1: 'Clicgear Seat Cover: Soft Padded Cover for Clicgear Push Buggies',
+    seoTitle: 'Clicgear Seat: Buy the Soft Padded Seat Cover',
+    seoDescription: 'Buy a Clicgear seat cover. Plush padding, snap-on fit, weather-resistant fabric that rolls up for storage, fits standard Clicgear push buggies, $39.95 inc GST.',
+    short: 'Clicgear seat cover',
+    closingHeading: 'Where can I buy the Clicgear soft seat cover?',
+    intro:
+      'The Clicgear Soft Seat Cover adds padded comfort to a Clicgear seat. It snaps on and off quickly, the fabric is weather-resistant and easy to clean, and it rolls up neatly for storage. It fits standard Clicgear push buggies and costs $39.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the soft padding help a golf buggy seat?',
+        body: 'A hard seat is tolerable for a minute but not for a long wait on a busy tee. Plush padding spreads the load and makes a short rest much more comfortable. For golfers who use the seat regularly, a padded cover turns a basic perch into a place to genuinely relax between shots. It is a simple upgrade at a modest price. On a hot or cold day, padding also insulates a little between you and the metal.',
+      },
+      {
+        heading: 'How quick is the snap-on fit?',
+        body: 'It snaps on and off, so you can fit it before the round and remove it afterwards without tools. The fabric is weather-resistant and easy to clean, which suits a seat that sits outdoors, and a wipe usually removes mud or rain. When you are not using it, the cover rolls up neatly for storage, so it takes almost no space in the bag or the boot. Weather-resistant fabric means a shower will not leave it soaked for the rest of the round.',
+      },
+      {
+        heading: 'Will it fit a clicgear 4.0 seat?',
+        body: 'It fits standard Clicgear push buggies, and it is made for a Clicgear push buggy that has a seat. If you own a Model 4.0 or 4.5 and you are not sure the cover will suit your seat, tell us your model and we will confirm. It is a straightforward comfort upgrade that adds very little weight or bulk to the setup. It is a small purchase, and one that many golfers who walk every week find worthwhile. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Clicgear soft seat cover?', a: 'The Clicgear Soft Seat Cover is $39.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does the Clicgear seat cover fit every model?', a: 'It fits standard Clicgear push buggies. Tell us your model and we will confirm.' },
+      { q: 'Will it suit a clicgear 4.0 seat?', a: 'It fits standard Clicgear push buggies that have a seat. Ask us if you are unsure.' },
+      { q: 'Does it suit a clicgear 3.5 seat as well?', a: 'It is made for standard Clicgear push buggies with a seat. Check with us before ordering.' },
+      { q: 'Is it a golf buggy seat on its own?', a: 'No. It is a padded cover that fits over the existing Clicgear seat. It is not a seat by itself.' },
+      { q: 'Can I add it to an order with a clicgear golf buggy, a golf push cart seat or other accessories?', a: 'Yes. Add it to any order and freight is quoted once at checkout.' },
+    ],
+  },
+
+  'rovic-rv1c-1s-seat': {
+    primaryKeyword: 'rovic golf buggy seat',
+    supportingKeywords: ['rovic rv1c seat', 'rovic seat', 'rovic golf buggy parts', 'rovic replacement parts', 'rovic accessories'],
+    h1: 'Rovic Golf Buggy Seat: Aluminium Seat for the RV1C and RV1S',
+    seoTitle: 'Rovic Golf Buggy Seat: Buy the RV1C and RV1S Seat',
+    seoDescription: 'Buy the Rovic golf buggy seat. Durable aluminium seat made for the Rovic RV1C and RV1S push buggies, a stable place to rest between shots, $89.95 inc GST.',
+    short: 'Rovic seat',
+    closingHeading: 'Where can I buy the Rovic RV1C/1S seat?',
+    intro:
+      'A Rovic golf buggy seat gives you a stable place to rest between shots. The Rovic RV1C/1S Seat is made of durable aluminium and designed specifically for the Rovic RV1C and RV1S push buggies. It costs $89.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does an aluminium rovic seat matter?',
+        body: 'Aluminium is strong for its weight, so the seat can support a golfer without adding much bulk to the buggy. The construction is durable and the design is stable, which is what you want when you sit down between shots. A flimsy seat is more annoying than none at all, so the material and the build are the main reasons to choose this one. A stable seat also means you can sit without worrying that the buggy will shift under you.',
+      },
+      {
+        heading: 'Is the rovic rv1c seat made for your model?',
+        body: 'The seat is designed specifically for the Rovic RV1C and RV1S, so it fits securely and keeps the buggy working as normal. That means the fold and the handling are not compromised by an ill-fitting part. If you own a different Rovic model, tell us before ordering so we can confirm that the seat is compatible with your buggy. Fitting a part made for the model also keeps the buggy working as normal.',
+      },
+      {
+        heading: 'Who should buy a seat for a push buggy?',
+        body: 'It suits golfers who want to rest during a slow round, play with an injury or wait on a long par three without standing. It does not turn the buggy into a ride-on, and it is intended for short rests. We stock Rovic accessories in Australia, so you can add the seat to an order for a buggy and pay one freight quote. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language. Send us your postcode and we will quote freight before you commit to the order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the Rovic RV1C/1S seat?', a: 'The Rovic RV1C/1S Seat is $89.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this a Rovic golf buggy seat for any model?', a: 'It is designed specifically for the Rovic RV1C and RV1S push buggies.' },
+      { q: 'Is the rovic rv1c seat made of metal?', a: 'Yes. The construction is durable aluminium.' },
+      { q: 'Is it the same as a rovic seat for other models?', a: 'It is made for the RV1C and RV1S. Tell us your model if you own another Rovic.' },
+      { q: 'Do you stock rovic replacement parts and rovic golf buggy parts?', a: 'Ask the Yatala desk what we hold for your Rovic model.' },
+      { q: 'What other Rovic accessories do you stock?', a: 'Ask the Yatala desk what suits your Rovic buggy.' },
+    ],
+  },
+
+  'mgi-2024-zip-24v-299wh-lithium-battery': {
+    primaryKeyword: 'mgi lithium batteries',
+    supportingKeywords: ['mgi zip high performance lithium', 'mgi golf buggy lithium battery', 'mgi zip navigator battery', 'mgi zip navigator at battery', 'mgi golf cart battery'],
+    h1: 'MGI Lithium Batteries: 2024 Zip 24V 299Wh 36-Hole Pack',
+    seoTitle: 'MGI Lithium Batteries: Buy the 24V 299Wh 36-Hole Pack',
+    seoDescription: 'Buy MGI lithium batteries: the 24V 299Wh Zip pack is rated for 36 holes and fits the Zip X1, X3, X5 and Zip Navigator, charged with MGI 24V, $539 inc GST.',
+    short: '299Wh battery',
+    closingHeading: 'Where can I buy the MGI 299Wh battery?',
+    intro:
+      'MGI lithium batteries come in several capacities, and the 2024 Zip 24V 299Wh pack is the larger-capacity pack for the Zip range, rated by MGI for 36 holes under normal playing conditions. It is $539 AUD including GST, and the charger is sold separately.',
+    sections: [
+      {
+        heading: 'Why choose the 299Wh over the 250Wh pack?',
+        body: 'It fits the Zip X1, X3 and X5 as an upgrade over the 250Wh pack, and it is the standard battery on the Zip Navigator and Zip Navigator All-Terrain. The extra capacity is aimed at golfers who play 36 holes in a day or who want more margin on a single round. If you only play nine or eighteen holes, the smaller pack may be enough. Check the 250Wh pack first if you are unsure, because it may already meet your needs.',
+      },
+      {
+        heading: 'What affects how far one charge goes?',
+        body: 'MGI notes that the time between rounds, the age and care of the battery and the playing conditions all affect how far one charge goes. That is honest and useful: the 36-hole rating applies under normal playing conditions, not in every circumstance. Treat the rating as a guide rather than a guarantee. Looking after the pack, charging it correctly and storing it sensibly all help it last.',
+      },
+      {
+        heading: 'What charger does an mgi zip navigator battery need?',
+        body: 'It can only be charged with the MGI Lithium 24V battery charger, model LC2323, which is sold separately and is not included. Do not use a charger from another product. If you do not already own the charger, add it to your order. Tell us your buggy model and we will confirm that this pack suits it before you buy. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the 299Wh pack among MGI lithium batteries?', a: 'The MGI 2024 Zip 24V 299Wh Lithium Battery is $539 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Which buggies does this mgi zip navigator battery fit?', a: 'It fits the Zip X1, X3, X5 and Zip Navigator buggies.' },
+      { q: 'Is it a mgi zip high performance lithium pack rated for 36 holes?', a: 'MGI rates it for 36 holes under normal playing conditions. Conditions and battery care affect range.' },
+      { q: 'Is it the standard mgi zip navigator at battery?', a: 'It is the standard battery on the Zip Navigator and Zip Navigator All-Terrain.' },
+      { q: 'Is it a good mgi golf buggy lithium battery upgrade?', a: 'It is an upgrade over the 250Wh pack for the Zip X1, X3 and X5.' },
+      { q: 'Does this mgi golf cart battery come with a charger?', a: 'No. It must be charged with the MGI Lithium 24V charger, model LC2323, which is sold separately.' },
+    ],
+  },
+
+  'mgi-lithium-12v-299wh-battery': {
+    primaryKeyword: '12v golf buggy battery',
+    supportingKeywords: ['12 volt golf buggy batteries', '12v golf trolley battery', 'golf trolley battery 12v', 'mgi 12v lithium battery charger', 'mgi lithium battery charger'],
+    h1: '12V Golf Buggy Battery: MGI Lithium 299Wh Pack for Quad Series',
+    seoTitle: '12V Golf Buggy Battery: Buy the MGI 299Wh Lithium Pack',
+    seoDescription: 'Buy the MGI 12V golf buggy battery. 299Wh lithium pack for Quad Series buggies with a lifting strap and battery leads, charged with MGI 12V, $539 inc GST.',
+    short: '12V 299Wh battery',
+    closingHeading: 'Where can I buy the MGI 12V battery?',
+    intro:
+      'This 12V golf buggy battery is the MGI Lithium 12V 299Wh pack, designed for the MGI Quad Series and usable on older MGI models. It comes with a lifting strap for easy carrying and battery leads to suit the Quad Series. The price is $539 AUD including GST.',
+    sections: [
+      {
+        heading: 'What do 12 volt golf buggy batteries need to match?',
+        body: 'Check your buggy model before ordering, because MGI batteries are matched to the series and voltage. A 12V pack is not interchangeable with a 24V pack, and using the wrong one can damage the buggy. This battery is designed for the Quad Series and can be used on older MGI models, so confirm your model first. We are happy to check it for you. Do not use a mgi lithium battery charger from another series, because the voltages do not match.',
+      },
+      {
+        heading: 'What comes with it?',
+        body: 'It comes with a lifting strap for easy carrying and battery leads to suit the Quad Series. The strap matters because a lithium pack is still a substantial item to lift in and out of a buggy or a car. The leads mean you can connect the battery without hunting for the right cables, which makes the installation simple on the day it arrives. Lifting a pack by the strap is safer than lifting it by the leads, so use the strap each time.',
+      },
+      {
+        heading: 'What charger does a 12v golf trolley battery like this need?',
+        body: 'It can only be charged with the MGI Lithium 12V battery charger, model LC2322, which is sold separately and is not included. Do not use a charger from another product. If you do not already own the correct charger, add it to your order. Tell us your Quad model and we will confirm the fit before you buy. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI 12V 299Wh battery?', a: 'The MGI Lithium 12v 299Wh Battery is $539 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Which buggies use this 12v golf buggy battery?', a: 'It is designed for the MGI Quad Series and can be used on older MGI models.' },
+      { q: 'Is this a 12v golf trolley battery with a charger?', a: 'No. It must be charged with the MGI Lithium 12V battery charger, model LC2322, which is sold separately.' },
+      { q: 'What comes in the box with a golf trolley battery 12v pack?', a: 'A lifting strap and battery leads to suit the Quad Series.' },
+      { q: 'Can I use it on a 24V Zip buggy?', a: 'No. MGI batteries are matched to the series and voltage. Check your model before ordering.' },
+      { q: 'Do you stock the mgi 12v lithium battery charger?', a: 'Yes. Ask the Yatala desk and we will confirm the correct MGI charger for your battery.' },
+    ],
+  },
+
+  'mgi-e-series-charger': {
+    primaryKeyword: 'mgi 24v lithium battery charger',
+    supportingKeywords: ['mgi golf buggy battery charger', 'mgi lithium battery charger', 'mgi zip battery charger', 'mgi charger', 'electric golf trolley battery charger'],
+    h1: 'MGI 24V Lithium Battery Charger: E Series Replacement for E-Boost',
+    seoTitle: 'MGI 24V Lithium Battery Charger: Buy the E Series',
+    seoDescription: 'Buy the MGI 24V lithium battery charger for the E-Boost. E Series replacement for the 225Wh battery only, not for Ai or Zip batteries, $119.95 inc GST.',
+    short: 'E Series charger',
+    closingHeading: 'Where can I buy the MGI E Series charger?',
+    intro:
+      'The MGI E Series Charger is the replacement mgi 24v lithium battery charger for the MGI E-Boost 24V 225Wh lithium battery. Use it only with the E-Boost battery. It costs $119.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'Which battery does the E Series charger suit?',
+        body: 'It is made for the MGI E-Boost 24V 225Wh lithium battery and nothing else. It is not compatible with other MGI batteries, and the Ai and Zip chargers are not for the E-Boost. That sounds restrictive, but it is a safeguard: each MGI battery has its own charger, so owners should never mix them. Check the model before you order, and tell us if you are unsure. Keep the charger with the E-Boost, so it does not get mixed up with another MGI charger.',
+      },
+      {
+        heading: 'Why match the charger to the battery?',
+        body: 'MGI general guidance is to match the charger to the battery, so check the voltage and model before charging. A mismatched charger can fail to charge or damage the battery, and neither outcome is cheap. If your original E-Boost charger is lost or damaged, this is the correct replacement. Do not substitute a mgi lithium battery charger from another series. A correct charger also protects the battery from avoidable damage.',
+      },
+      {
+        heading: 'Is this an mgi zip battery charger?',
+        body: 'No. The Zip series uses a different charger, and this one is for the E-Boost only. If you own both a Zip and an E-Boost, you need two chargers and should keep them labelled. We stock both types in Australian stock at Yatala QLD, so you can order the right one together with a battery and pay a single freight quote. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI E Series charger?', a: 'The MGI E Series Charger is $119.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it the right mgi 24v lithium battery charger for my E-Boost?', a: 'Yes. It is the replacement charger for the MGI E-Boost 24V 225Wh lithium battery.' },
+      { q: 'Can I charge a Zip battery with it?', a: 'No. It is not compatible with other MGI batteries. Zip batteries use the MGI Lithium 24V charger.' },
+      { q: 'Is it an mgi golf buggy battery charger for Ai models?', a: 'No. The Ai and Zip chargers are not for the E-Boost, and this one is for the E-Boost only.' },
+      { q: 'Is it a replacement for a lost charger?', a: 'Yes, if your E-Boost charger is lost or damaged.' },
+      { q: 'Do you stock a standard electric golf trolley battery charger for Zip and Ai?', a: 'Yes. Ask the Yatala desk which charger suits your buggy.' },
+    ],
+  },
+
+  'mgi-telescopic-umbrella': {
+    primaryKeyword: 'mgi telescopic umbrella',
+    supportingKeywords: ['mgi umbrella', 'mgi golf umbrella', 'mg umbrella', 'golf buggy umbrella holder', 'umbrella holder for golf buggy'],
+    h1: 'MGI Telescopic Umbrella: Silver Anti-Flip UV Umbrella',
+    seoTitle: 'MGI Telescopic Umbrella: Buy the Silver Anti-Flip Brolly',
+    seoDescription: 'Buy the MGI telescopic umbrella in silver. Anti-flip, wind-resistant, UV-protective canopy and an auto-extending handle, fits any holder, $89.95 inc GST.',
+    short: 'telescopic umbrella',
+    closingHeading: 'Where can I buy the MGI telescopic umbrella?',
+    intro:
+      'The MGI telescopic umbrella is made for comfort and protection on the course. The anti-flip design, built-in UV protection and wind-resistant canopy cope with sun and showers. It is available in silver and costs $89.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'What makes the anti-flip canopy useful?',
+        body: 'Umbrellas on a golf course meet gusts, and a cheap canopy flips inside out and fails. The anti-flip design and wind-resistant build are meant to resist that, so the umbrella stays up when the weather turns. Built-in UV protection also makes it useful on sunny days, so it works as shade as well as rain cover. A good umbrella earns its price the first time a squall arrives. Wind is the main enemy of any golf umbrella, so a canopy designed to resist it is the feature that matters most. A mount frees both hands.',
+      },
+      {
+        heading: 'How does the automatic handle work?',
+        body: 'A slip-resistant ergonomic handle extends automatically, so it opens to the length you need without fiddling. The handle is designed to stay secure in a wet hand, which matters in a downpour. Telescopic design also means it is compact when stored, so it takes little room in the bag or the car, and it is easy to carry in and out of the clubhouse. Compact storage also means you can keep a spare in the car. It is compact when closed and quick to open, so it does not slow the round when the weather changes. A grip that does not slip is a real advantage when your hands are wet.',
+      },
+      {
+        heading: 'Does it fit the MGI umbrella holder?',
+        body: 'It fits any umbrella holder, including the MGI Umbrella Holder, so a mgi umbrella and a golf buggy umbrella holder make a matched pair. If you are tall, the separate extender adds height so the canopy covers you. Tell us your buggy model and we will confirm the correct holder to pair with the umbrella before you order. Prices include GST, and freight is quoted to your delivery postcode at checkout. We are an Australian stockist at Yatala QLD, so you can ask us about fit before you order.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI telescopic umbrella?', a: 'The MGI Telescopic Umbrella is $89.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What colour is the MGI golf umbrella?', a: 'It is available in silver.' },
+      { q: 'Does the MGI telescopic umbrella protect from UV?', a: 'Yes. It has built-in UV protection and an anti-flip, wind-resistant canopy.' },
+      { q: 'Is it the same as an mg umbrella?', a: 'It is the MGI Telescopic Umbrella, listed under its full name.' },
+      { q: 'Will it fit an umbrella holder for golf buggy use?', a: 'Yes. It fits any umbrella holder, including the MGI Umbrella Holder.' },
+      { q: 'Can I buy the holder as well?', a: 'Yes. The MGI Umbrella Holder is listed separately.' },
+    ],
+  },
+
+  'mgi-rear-wheels': {
+    primaryKeyword: 'mgi buggy wheels',
+    supportingKeywords: ['mgi golf buggy wheels', 'mgi zip navigator wheels', 'mgi zip navigator rear wheel', 'mgi wheel replacement', 'mgi navigator wheels'],
+    h1: 'MGI Buggy Wheels: Zip Rear Wheels in Pink, Gold or Black',
+    seoTitle: 'MGI Buggy Wheels: Buy Zip Rear Wheels in Pink or Gold',
+    seoDescription: 'Buy MGI buggy wheels. Zip rear wheels in pink, gold or black for 2023 or newer Ai and 2019 or newer Zip models with 15mm axles, $179.95 inc GST.',
+    short: 'rear wheels',
+    closingHeading: 'Where can I buy MGI rear wheels?',
+    intro:
+      'Customise your MGI buggy with Zip rear wheels in pink, gold or black, and mix and match to suit your style. These MGI buggy wheels suit 2023 or newer MGI Ai Series models and 2019 or newer MGI Zip Series models with 15mm axles. The price is $179.95 AUD including GST.',
+    sections: [
+      {
+        heading: 'Which MGI models fit these wheels?',
+        body: 'They suit 2023 or newer MGI Ai Series models and 2019 or newer MGI Zip Series models with 15mm axles. They do not suit the Zip X1 or Zip X3, so check your model and year before ordering. This matters because wheel fitments differ across the range, and a wrong wheel is an avoidable expense. Tell us your buggy and we will confirm before you buy. Fit is the main thing to get right, and the model and year are the key details.',
+      },
+      {
+        heading: 'What colours can you mix?',
+        body: 'The wheels come in pink, gold or black, and you can mix and match to suit your style. That means a black buggy can carry gold accents, or a plain setup can become a statement. It is a cosmetic upgrade rather than a performance change, but many golfers enjoy a buggy that looks like their own. Choose the colour when you order. Colour combinations are a matter of taste, and there is no wrong answer.',
+      },
+      {
+        heading: 'Is it a mgi wheel replacement or an upgrade?',
+        body: 'It can be either. If your original wheel is worn or damaged, the wheels are a practical mgi wheel replacement. If you simply want a different look, they are a quick way to change the buggy without buying a new one. We hold MGI parts and accessories in Australian stock at Yatala QLD, so you are not waiting on an overseas order. Prices include GST, and freight is quoted to your delivery postcode at checkout. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. You can ask us for current availability, because we hold stock at our Yatala QLD depot.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are the MGI rear wheels?', a: 'The MGI Rear Wheels are $179.95 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Do these mgi buggy wheels fit the Zip X1 or X3?', a: 'No. They do not suit the Zip X1 or Zip X3.' },
+      { q: 'Are they mgi zip navigator wheels for older models?', a: 'They suit 2023 or newer Ai Series and 2019 or newer Zip Series models with 15mm axles.' },
+      { q: 'What colours does the mgi zip navigator rear wheel come in?', a: 'Pink, gold or black. You can mix and match.' },
+      { q: 'Are they an mgi golf buggy wheels replacement for worn wheels?', a: 'They can be used as a replacement if your model is compatible. Check your model and year.' },
+      { q: 'Do these mgi navigator wheels include the front wheel?', a: 'No. They are rear wheels. Ask us about the front wheel.' },
+    ],
+  },
 };
