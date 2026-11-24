@@ -1221,4 +1221,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'Why choose a golf cart petrol for sale over electric?', a: 'Petrol gives range and quick refuelling for long days away from power. Tell us your use and we will advise.' },
     ],
   },
+
+  'mgi-2024-zip-x5-36-hole-lithium': {
+    primaryKeyword: 'mgi x5',
+    supportingKeywords: ['mgi accessories', 'mgi spare parts', 'mgi golf buggy sale', 'motorised golf buggy for sale', 'mgi golf buggy for sale'],
+    h1: 'MGI X5 Golf Buggy: 2024 Zip X5 36-Hole Lithium',
+    seoTitle: 'MGI X5 Golf Buggy: Buy the 2024 Zip X5 36-Hole Lithium',
+    seoDescription: 'Buy the MGI X5 golf buggy. 2024 Zip X5 with 36-hole lithium battery, downhill speed control and electronic park brake, $1,875 inc GST.',
+    short: 'Zip X5',
+    closingHeading: 'Where can I buy the MGI Zip X5 in Australia?',
+    intro:
+      'The mgi x5 is built for golfers who play long days. The 2024 MGI Zip X5 carries a 36-hole lithium battery, so a second round does not become a range calculation. It adds downhill speed control, an electronic park brake and a distance control function. It is $1,875 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What does downhill speed control do?',
+        body: 'Downhill speed control is the feature that earns its keep on hilly courses. Rather than running away from you and forcing a jog, the buggy holds a steady walking pace on descents automatically. That means you walk at your own speed down a slope, with the bag following calmly behind, instead of chasing it or holding it back by hand. It is one of the main reasons golfers choose a motorised buggy at all.',
+      },
+      {
+        heading: 'How do the park brake and distance control help?',
+        body: 'An electronic park brake holds the buggy in place on a slope while you play your shot, instead of chocking a wheel or angling it across the hill. Distance control lets you send it forward a set distance and have it stop on its own. Together they take the small, repeated chores out of a round and let you concentrate on the next shot, which suits mgi accessories buyers who like a tidy setup.',
+      },
+      {
+        heading: 'Who buys an mgi golf buggy for sale like the Zip X5?',
+        body: 'It is for golfers who play volume golf rather than occasional rounds, including 36-hole days and weekly competitions. It is straightforward and well-sorted, and the 36-hole battery means you are not planning around a charge between rounds. If you are comparing a motorised golf buggy for sale across the MGI range, tell us how often you play and how hilly the course is, and we will confirm the X5 suits. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. You can ask us for current availability, because we hold stock at our Yatala QLD depot. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI X5 in Australia?', a: 'The MGI 2024 Zip X5 36-Hole Lithium is $1,875 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are MGI spare parts and accessories available?', a: 'Yes. MGI batteries, chargers, remotes and accessories are held in Australian stock at our Yatala QLD depot, so a worn consumable does not mean replacing the buggy.' },
+      { q: 'Is this an MGI golf buggy for sale with a 36-hole battery?', a: 'Yes. The Zip X5 carries a 36-hole lithium battery, so a second round is not a range calculation.' },
+      { q: 'What do MGI accessories add to the Zip X5?', a: 'We list MGI accessories across our range, such as holders, covers and bags. Tell us your model and we will confirm what suits.' },
+      { q: 'Is the Zip X5 one of the motorised golf buggies for sale with a park brake?', a: 'Yes. An electronic park brake holds it on a slope while you play your shot.' },
+      { q: 'Is it a good MGI golf buggy sale pick for hilly courses?', a: 'Yes. Downhill speed control holds a steady walking pace on descents automatically.' },
+    ],
+  },
+
+  'powakaddy-fx7-gps-lithium': {
+    primaryKeyword: 'powakaddy electric golf trolley',
+    supportingKeywords: ['gps electric golf trolley', 'gps golf trolley', 'golf buggy gps', 'golf gps trolley', 'golf cart gps screen'],
+    h1: 'PowaKaddy Electric Golf Trolley: FX7 GPS Lithium',
+    seoTitle: 'PowaKaddy Electric Golf Trolley: Buy the FX7 GPS Lithium',
+    seoDescription: 'Buy a PowaKaddy electric golf trolley. FX7 GPS Lithium with 3.5-inch colour touchscreen and 30V plug-and-play battery, $2,099 inc GST.',
+    short: 'FX7',
+    closingHeading: 'Where can I buy the PowaKaddy FX7 in Australia?',
+    intro:
+      'A powakaddy electric golf trolley brings UK engineering to the walk-behind category. The PowaKaddy FX7 GPS Lithium has a 3.5-inch OCA full colour touchscreen preloaded with over 40,000 courses worldwide and a high-power 30V plug-and-play lithium system. It is $2,099 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does the 3.5-inch OCA screen matter on a gps electric golf trolley?',
+        body: 'The screen comes preloaded with over 40,000 courses worldwide, so it works on your home course and on holiday without a subscription hunt or a manual download before every round. OCA bonding is the reason it stays readable in Australian sunlight where cheaper laminated screens wash out. For golfers comparing a gps electric golf trolley, a screen you can read at noon is worth more than extra features you cannot see. Readable data is the whole point of a screen, and a display that fades in the sun is no help on a long afternoon.',
+      },
+      {
+        heading: 'What does the plug-and-play lithium system change?',
+        body: 'The high-power 30V plug-and-play lithium system fits and removes without tools. That matters when the buggy lives in a car boot between rounds and the battery comes inside to charge. There is no cabling to fiddle with at the club car park, and no heavy lead-acid block to lift. It keeps the routine simple, which is what most golfers want from a gps golf trolley. It also means one person can set up the buggy quickly at the car, without waiting for a battery to be cabled in.',
+      },
+      {
+        heading: 'Who should choose the FX7?',
+        body: 'Tech-focused golfers who want the data on the buggy rather than the wrist. If you already carry a watch or a rangefinder, the FX7 puts distances on a bigger screen where you can read them without stopping. Tell us how you play, whether you travel with your equipment and which courses you use, and we will confirm the FX7 suits you before you order. The FX7 is aimed at players who like numbers on the course and want them in one clear place. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a PowaKaddy electric golf trolley like the FX7?', a: 'The PowaKaddy FX7 GPS Lithium is $2,099 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is the FX7 a GPS electric golf trolley with course maps?', a: 'Yes. Its 3.5-inch colour touchscreen is preloaded with over 40,000 courses worldwide.' },
+      { q: 'Does this GPS golf trolley work in bright sunlight?', a: 'OCA bonding keeps the screen readable in Australian sunlight where cheaper laminated screens wash out.' },
+      { q: 'Does it include golf buggy GPS without a subscription?', a: 'The courses are preloaded, so there is no download hunt before each round. Ask the Yatala desk about updates.' },
+      { q: 'Is it a golf GPS trolley with a removable battery?', a: 'Yes. The 30V plug-and-play lithium system fits and removes without tools.' },
+      { q: 'Does the golf cart GPS screen fold away?', a: 'Ask the Yatala desk about the fold and carry details for the FX7. We confirm before you order.' },
+    ],
+  },
+
+  'robera-pro-follow-remote-golf-buggy': {
+    primaryKeyword: 'electric follow golf cart',
+    supportingKeywords: ['remote control electric golf buggy', 'golf buggy with remote', 'golf cart with remote', 'remote controlled golf buggy', 'follow electric golf cart'],
+    h1: 'Electric Follow Golf Buggy: Robera Pro Follow Remote',
+    seoTitle: 'Electric Follow Golf Cart: Buy the Robera Pro Follow Remote',
+    seoDescription: 'Buy an electric follow golf cart. Robera Pro with smart follow tag, dual-mode remote and all-terrain dual motors, $2,799 inc GST.',
+    short: 'Robera Pro',
+    closingHeading: 'Where can I buy the Robera Pro in Australia?',
+    intro:
+      'An electric follow golf cart removes the last bit of effort from a round. The Robera Pro Follow Remote Golf Buggy is the only buggy in our range that needs no input once you start walking. A smart tracking tag clips to your belt and the buggy follows at a safe distance. It is $2,799 AUD including GST.',
+    sections: [
+      {
+        heading: 'How does the smart follow tag work on a follow electric golf cart?',
+        body: 'The tag clips to your belt and the buggy follows your footsteps at a safe distance, so there is no remote to hold, no dial to adjust and nothing to think about between shots. That is the point of a follow buggy: you walk unencumbered. When you do want direct control, dual-mode remote operation is still there, which makes it a flexible golf buggy with remote as well. That freedom is most noticeable on long holes, where a remote in the hand would otherwise be one more thing to carry.',
+      },
+      {
+        heading: 'Why do dual motors matter for following?',
+        body: 'All-terrain dual motors supply the independent drive that follow mode needs to hold a line across slopes and around obstacles rather than cutting corners. A follower that drifts or slips is annoying, so the drivetrain matters as much as the tag. If you are comparing a remote controlled golf buggy with a follower, the dual motors are the reason the Robera Pro can do both well. A buggy that follows well also needs to stop and start smoothly, and the drive system has to be capable of both.',
+      },
+      {
+        heading: 'Who is the Robera Pro for?',
+        body: 'Premium buyers who have decided the point of walking is to walk unencumbered. Hands-free follow technology is the feature worth the step up from a standard remote model. If you are weighing it against a standard remote model, tell us about your course, your pace and how much you value hands-free play, and we will confirm the Robera Pro is the right choice. The extra cost buys convenience, and only you can judge how much hands-free play is worth. Tell us how you will use it and we will confirm it suits before you order. Our team can answer questions on delivery, parts and warranty before you commit.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an electric follow golf cart like the Robera Pro?', a: 'The Robera Pro Follow Remote Golf Buggy is $2,799 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is it a remote control electric golf buggy as well?', a: 'Yes. Dual-mode remote operation is still available when you want direct control.' },
+      { q: 'Is this a golf buggy with remote and follow mode?', a: 'Yes. A smart tracking tag clips to your belt and the buggy follows your footsteps at a safe distance.' },
+      { q: 'Can I buy a golf cart with remote that follows me?', a: 'Yes. The Robera Pro follows you automatically and can also be steered by remote.' },
+      { q: 'Is it a remote controlled golf buggy for hilly courses?', a: 'All-terrain dual motors give the independent drive needed to hold a line across slopes and around obstacles.' },
+      { q: 'Is a follow electric golf cart worth the extra cost?', a: 'It is for buyers who want no input at all. Tell us how you play and we will advise whether a standard remote model is enough.' },
+    ],
+  },
+
+  'mgi-zip-x1-lithium-buggy': {
+    primaryKeyword: 'mgi golf buggy for sale',
+    supportingKeywords: ['mgi accessories', 'mgi spare parts', 'motorised golf buggy for sale', 'cheap golf buggy', 'electric golf buggy for sale'],
+    h1: 'MGI Golf Buggy for Sale: Zip X1 Lithium Entry Buggy',
+    seoTitle: 'MGI Golf Buggy for Sale: Buy the Zip X1 Lithium Buggy',
+    seoDescription: 'Shop an MGI golf buggy for sale. Zip X1 Lithium with simple speed dial, Click and Go battery and compact fold, $1,299 inc GST.',
+    short: 'Zip X1',
+    closingHeading: 'Where can I buy the MGI Zip X1 in Australia?',
+    intro:
+      'Most Australians who move from pushing to motorised start with an mgi golf buggy for sale like this. The MGI Zip X1 Lithium has a single variable speed dial, a Click and Go lithium battery and a compact fold. It is deliberately uncomplicated, $1,299 AUD including GST, and supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why is a single speed dial an advantage?',
+        body: 'A single variable speed dial is the entire control interface, so there is no menu, no pairing and nothing to learn before your first round. For first-time motorised buyers, that is the reassurance they need. The real question is not what the buggy can do but whether it will be simple enough to use every week, and the Zip X1 answers that with one dial. Simplicity also means fewer things to go wrong, and fewer questions for a new owner to ask before the first round.',
+      },
+      {
+        heading: 'How do the Click and Go battery and fold help?',
+        body: 'The Click and Go lithium system drops the battery in and out without tools or cables, and the compact fold mechanism collapses the frame quickly for a standard car boot. Measure your boot before ordering and the rest takes care of itself. Spare batteries, chargers and mgi accessories are held in Australian stock, so ownership stays simple. Folding in seconds is helpful after a wet round, when you want the buggy in the boot and out of the rain.',
+      },
+      {
+        heading: 'Who should buy a motorised golf buggy for sale like the Zip X1?',
+        body: 'First-time motorised buyers who want an affordable step up from a push buggy. If you are searching for a cheap golf buggy that still uses lithium power and folds for the boot, the Zip X1 is the entry point in the MGI range. Tell us your boot size and how hilly your course is, and we will confirm it suits, or point you to a more capable model. The X1 is deliberately modest, and we will say so honestly if your course or bag needs more. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an MGI golf buggy for sale like the Zip X1?', a: 'The MGI Zip X1 Lithium Buggy is $1,299 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Are MGI accessories and spare parts available for it?', a: 'Yes. MGI batteries, chargers, remotes and accessories are held in Australian stock at our Yatala QLD depot.' },
+      { q: 'Is the Zip X1 a motorised golf buggy for sale with a simple control?', a: 'Yes. A single variable speed dial is the entire control interface.' },
+      { q: 'Is it a cheap golf buggy that still uses lithium?', a: 'It is our entry electric model, with a Click and Go lithium battery system and a compact fold.' },
+      { q: 'Is this an electric golf buggy for sale that fits a car boot?', a: 'The compact fold collapses the frame for a standard boot. Measure your boot before ordering.' },
+      { q: 'Does it have MGI spare parts support?', a: 'Yes. Spare MGI parts are held in Australian stock, so a worn consumable does not mean replacing the buggy.' },
+    ],
+  },
+
+  'eco-battery-48v-105ah-lithium-conversion-kit': {
+    primaryKeyword: 'golf cart electric conversion kit',
+    supportingKeywords: ['golf buggy battery replacement', 'golf buggy battery lithium', 'lithium battery for golf buggy', 'battery for golf buggy', 'golf buggy battery'],
+    h1: 'Golf Buggy Electric Conversion Kit: Eco Battery 48V 105Ah Lithium',
+    seoTitle: 'Golf Cart Electric Conversion Kit: Buy Eco Battery 48V',
+    seoDescription: 'Buy a golf cart electric conversion kit. Eco Battery 48V 105Ah lithium with CAN-bus charger, digital gauge and 8-year warranty, $3,850 inc GST.',
+    short: 'Eco Battery kit',
+    closingHeading: 'Where can I buy the Eco Battery 48V conversion kit?',
+    intro:
+      'A golf cart electric conversion kit is the single upgrade that most transforms an ageing but sound buggy. The Eco Battery 48V 105Ah Lithium Conversion Kit is a complete drop-in conversion with a CAN-bus charger, digital gauge, mounting bracket and universal harness. It carries an 8-year warranty and is $3,850 AUD including GST.',
+    sections: [
+      {
+        heading: 'What does the kit remove and what do you gain?',
+        body: 'It removes roughly 140kg of lead-acid weight from an existing buggy and replaces it with a single lithium pack. That reduction is felt immediately in acceleration, hill climbing and range, because the motor is no longer hauling the battery bank around as dead mass. It also ends acid spills, terminal corrosion and the fortnightly water topping that lead-acid maintenance demands. Less weight also means less strain on the suspension and tyres, which helps an ageing buggy stay comfortable.',
+      },
+      {
+        heading: 'Is it a complete golf buggy battery replacement?',
+        body: 'The kit is genuinely complete: CAN-bus charger, digital gauge, mounting bracket and universal harness are all included, so there is no parts-chasing partway through the job. That makes it a straightforward replacement for owners who want one box and one invoice. Check that your buggy is a 48V system before you order, and send us the make, model and year. Having the charger and gauge in the box means the finished conversion works as a system from the first charge.',
+      },
+      {
+        heading: 'Is the 8-year warranty a reason to choose lithium?',
+        body: 'An 8-year warranty is a strong statement about confidence in the pack. For owners weighing lithium against another lead-acid replacement, the longer cover helps balance the higher upfront price. The kit suits buyers upgrading from lead-acid to lithium, and we are happy to talk through the job and whether it suits your buggy. Tell us your buggy\'s voltage and battery tray size and we will check the kit before you buy. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Enquiries are welcome from every state and territory.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart electric conversion kit like the Eco Battery?', a: 'The Eco Battery 48V 105Ah Lithium Conversion Kit is $3,850 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'What comes in the conversion kit?', a: 'A 48V 105Ah lithium pack with a CAN-bus charger, digital gauge, mounting bracket and universal harness.' },
+      { q: 'Is it a good golf buggy battery lithium upgrade?', a: 'Yes. It removes roughly 140kg of lead-acid weight and ends acid spills, terminal corrosion and water topping.' },
+      { q: 'Does it work as a golf buggy battery replacement for my model?', a: 'Send us the make, model and year of your buggy. We confirm the fit from Yatala before you order.' },
+      { q: 'Is it a lithium battery for golf buggy owners with a warranty?', a: 'Yes. The kit carries an 8-year warranty, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Can I pay for this battery for golf buggy upgrades with Finance in 4?', a: 'Yes. At $3,850 it is over the $3,000 minimum, so you can split it into four interest-free instalments.' },
+    ],
+  },
+
+  'roypow-72v-105ah-commercial-lithium-battery': {
+    primaryKeyword: 'golf buggy battery replacement',
+    supportingKeywords: ['lithium battery for golf buggy', 'golf buggy battery lithium', 'battery for golf buggy', 'golf buggy battery', 'electric golf buggy lithium battery'],
+    h1: 'Golf Buggy Battery Replacement: RoyPow 72V 105Ah Commercial Lithium',
+    seoTitle: 'Golf Buggy Battery Replacement: RoyPow 72V Commercial',
+    seoDescription: 'Shop a golf buggy battery replacement. RoyPow 72V 105Ah commercial lithium pack with smart BMS and 5-year warranty, $4,700 inc GST.',
+    short: 'RoyPow 72V pack',
+    closingHeading: 'Where can I buy the RoyPow 72V commercial battery?',
+    intro:
+      'A golf buggy battery replacement for a 72V fleet needs commercial-duty cells. The RoyPow 72V 105Ah Commercial Lithium Battery Pack is a drop-in pack specified for resort fleets, security patrols and grounds teams. It has a smart BMS, thermal protection and a 5-year warranty, and is $4,700 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does 72V suit commercial duty?',
+        body: 'Higher system voltage moves the same load at lower current, so the pack and cabling run cooler and hold performance through a full working shift instead of fading toward the end of it. That is why resort fleets, security patrols and grounds teams end up on a 72V pack rather than 48V. Check that your vehicles are 72V systems before you order, and tell us the make and model. Fleet managers also benefit from fewer charging interruptions, because a pack that holds up through the shift keeps vehicles on the road.',
+      },
+      {
+        heading: 'What does the smart BMS report on a lithium battery for golf buggy fleets?',
+        body: 'Automotive-grade LiFePO4 cells and a smart BMS report state of charge and pack health rather than leaving you to infer them from how the vehicle feels. For a fleet manager, that visibility reduces surprises and unplanned downtime, and helps schedule charging. It is a major reason lithium fleets of this size pay back over time. Knowing the condition of every pack helps plan replacement before a failure ends a shift.',
+      },
+      {
+        heading: 'How is the pack protected in the cold?',
+        body: 'Integrated thermal protection guards against charging in freezing conditions, which matters for inland and alpine sites. The pack is a drop-in replacement, with a 5-year warranty and dispatch from our Yatala QLD depot. If you manage several vehicles, ask us about fleet pricing and combined freight, and tell us your duty cycle so we can confirm it suits. A drop-in design keeps installation straightforward, and our team can talk you through the fit. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf buggy battery replacement like the RoyPow 72V pack?', a: 'The RoyPow 72V 105Ah Commercial Lithium Battery Pack is $4,700 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is it a lithium battery for golf buggy fleets?', a: 'Yes. It is specified for resort fleets, security patrols and grounds teams running 72V vehicles.' },
+      { q: 'Is this a golf buggy battery lithium pack with a BMS?', a: 'Yes. A smart BMS reports state of charge and pack health.' },
+      { q: 'Will this battery for golf buggy use fit my vehicle?', a: 'It is a 72V drop-in pack. Send us the make, model and year and we will confirm the fit before you order.' },
+      { q: 'Is this a golf buggy battery with a warranty?', a: 'Yes. It carries a 5-year warranty, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it an electric golf buggy lithium battery I can pay for with Finance in 4?', a: 'Yes. At $4,700 it is over the $3,000 minimum, so you can split it into four interest-free instalments.' },
+    ],
+  },
+
+  'invicta-48v-50ah-lithium-drop-in-module': {
+    primaryKeyword: 'electric golf trolley lithium battery',
+    supportingKeywords: ['golf trolley battery', 'golf trolley battery replacement', 'lithium golf buggy', 'electric lithium golf trolley', 'lithium golf trolley'],
+    h1: 'Electric Golf Trolley Lithium Battery: Invicta 48V 50Ah Module',
+    seoTitle: 'Electric Golf Trolley Lithium Battery: Invicta 48V 50Ah',
+    seoDescription: 'Shop an electric golf trolley lithium battery. Invicta 48V 50Ah drop-in module with parallel expansion and Bluetooth monitoring, $1,850 inc GST.',
+    short: 'Invicta module',
+    closingHeading: 'Where can I buy the Invicta 48V module?',
+    intro:
+      'An electric golf trolley lithium battery should fit the job, not oversize it. The Invicta 48V 50Ah Lithium Drop-in Module is a compact module designed to be linked rather than bought oversized, with parallel expansion and integrated Bluetooth monitoring. It is $1,850 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why is parallel expansion useful on a golf trolley battery replacement?',
+        body: 'Parallel expansion capability means you can start with the capacity a light vehicle actually needs and add a second module later if the duty changes, instead of paying upfront for range you may never use. That keeps the first purchase modest and leaves a clear upgrade path. For buyers of a golf trolley lithium battery, that flexibility is the main appeal of the Invicta. A modular approach also reduces risk: you can test the system with one module before committing to more.',
+      },
+      {
+        heading: 'Does a compact module help where space is tight?',
+        body: 'That modularity also helps where physical space is tight and one large pack simply will not fit the existing battery tray. Two compact modules can be placed where one big pack cannot. Integrated Bluetooth monitoring reports state of charge and pack health to a phone, so you can see how a golf trolley battery is performing without opening anything. Bluetooth data makes it easier to spot an underperforming module early.',
+      },
+      {
+        heading: 'Who should buy the Invicta module?',
+        body: 'It suits walk-behind buggies, light utility vehicles and custom builds where a standard 105Ah pack is more battery than the application warrants. It is the sensible building block for compact or light-duty owners. If you are replacing a golf trolley battery or building a lithium golf buggy, tell us the vehicle, the voltage and the duty, and we will confirm the module suits. A modest first purchase can still grow into a larger system later. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. If you are replacing an older buggy, tell us what you drive now and we will compare it. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an electric golf trolley lithium battery like the Invicta module?', a: 'The Invicta 48V 50Ah Lithium Drop-in Module is $1,850 AUD including GST. Freight is quoted separately against your delivery postcode at checkout, and the cart total is shown excluding freight.' },
+      { q: 'Is it a golf trolley lithium battery I can expand later?', a: 'Yes. Parallel expansion capability lets you add a second module if the duty changes.' },
+      { q: 'Does this golf trolley battery have monitoring?', a: 'Yes. Integrated Bluetooth monitoring reports state of charge and pack health to a phone.' },
+      { q: 'Can it be a golf trolley battery replacement?', a: 'It is a 48V module for light vehicles. Send us the make, model and voltage and we will confirm the fit before you order.' },
+      { q: 'Is it suitable for a lithium golf buggy build?', a: 'Yes. It is designed for walk-behind buggies, light utility vehicles and custom builds.' },
+      { q: 'Is this an electric lithium golf trolley module with a warranty?', a: 'Australian Consumer Law guarantees apply. Ask the Yatala desk for the warranty details on this module.' },
+    ],
+  },
+
+  'trojan-t-875-8v-deep-cycle-lead-acid-battery': {
+    primaryKeyword: 'trojan golf buggy batteries',
+    supportingKeywords: ['golf buggy battery replacement', 'battery for golf buggy', 'ezgo golf cart batteries', 'lead acid battery for golf trolley', 'golf trolley battery'],
+    h1: 'Trojan Golf Buggy Batteries: T-875 8V Deep Cycle Lead Acid',
+    seoTitle: 'Trojan Golf Buggy Batteries: Buy the T-875 8V Deep Cycle',
+    seoDescription: 'Buy Trojan golf buggy batteries. Genuine T-875 8V deep cycle lead acid battery with Alpha Plus paste, $340 inc GST, held in stock at Yatala QLD.',
+    short: 'T-875',
+    closingHeading: 'Where can I buy the Trojan T-875 in Australia?',
+    intro:
+      'Fleet operators who have deliberately stayed with lead-acid look for trojan golf buggy batteries. The genuine Trojan T-875 8V Deep Cycle battery has Alpha Plus paste, T2 Technology and a high-capacity grid design. It is $340 AUD including GST and held in stock at our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why do fleets stay with lead-acid for a battery for golf buggy use?',
+        body: 'The reasoning is sound: low upfront cost per vehicle, familiar charging infrastructure and batteries that any technician can test and replace individually rather than as a sealed pack. Clubs running larger fleets on established charging banks often find the economics still favour these. For a battery for golf buggy fleets with that setup, the T-875 remains the benchmark. Standardising on one battery type also simplifies spares, because the same replacement fits every vehicle in the fleet. Reliability matters most when vehicles are booked back to back.',
+      },
+      {
+        heading: 'What do Alpha Plus paste and T2 Technology do for a golf trolley battery?',
+        body: 'Trojan Alpha Plus paste formulation and T2 Technology target the plate degradation that ends most deep-cycle battery lives, delivering more usable cycles from the same footprint. The high-capacity grid design supports the deep discharge and recharge pattern that golf duty imposes daily. Together they are why a golf buggy battery replacement from Trojan is a familiar choice. More usable cycles from the same battery footprint lowers the cost per round over the life of the fleet.',
+      },
+      {
+        heading: 'Is the T-875 right for my fleet?',
+        body: 'It suits standard golf carts and fleets that want to keep lead-acid. Tell us the make, model and year, such as an ezgo golf cart batteries set, and how many batteries your vehicles take, and we will confirm the T-875 fits. If you would rather move to lithium, we can explain the conversion kits and drop-in packs we also supply. A technician can test and replace one battery at a time, which keeps repair costs predictable. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are Trojan golf buggy batteries like the T-875?', a: 'The Trojan T-875 8V Deep Cycle Lead Acid Battery is $340 AUD including GST each. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Are these genuine Trojan batteries?', a: 'Yes. These are genuine Trojan T-875s, held in stock at our Yatala QLD depot.' },
+      { q: 'Is it a golf buggy battery replacement for fleets?', a: 'Yes. Fleet operators who stay with lead-acid use the T-875 as a benchmark replacement battery.' },
+      { q: 'Will this battery for golf buggy models fit mine?', a: 'It is an 8V battery. Send us the make, model and year and we will confirm how many you need and that they fit.' },
+      { q: 'Does it suit ezgo golf cart batteries replacement?', a: 'Many E-Z-GO vehicles use 8V batteries. Send us your model and we will confirm.' },
+      { q: 'Why choose a lead acid battery for golf trolley and buggy fleets?', a: 'Low upfront cost, familiar charging and individual replacement. Ask us if lithium would suit your fleet better.' },
+    ],
+  },
+
+  'delta-q-quiq-48v-smart-on-board-charger': {
+    primaryKeyword: 'on board golf cart charger',
+    supportingKeywords: ['golf buggy charger', 'golf cart charger', 'ezgo golf cart charger', 'golf cart charger for sale', 'e-z-go golf cart charger'],
+    h1: 'On Board Golf Buggy Charger: Delta-Q QuiQ 48V Smart',
+    seoTitle: 'On Board Golf Cart Charger: Buy the Delta-Q QuiQ 48V',
+    seoDescription: 'Buy an on board golf cart charger. Delta-Q QuiQ 48V smart charger with IP66 sealed enclosure and multi-profile algorithms, $680 inc GST.',
+    short: 'Delta-Q QuiQ',
+    closingHeading: 'Where can I buy the Delta-Q QuiQ in Australia?',
+    intro:
+      'An on board golf cart charger lives on the vehicle, so it has to be tough. The Delta-Q QuiQ 48V Smart On-Board Charger has an IP66 sealed weatherproof enclosure and multiple pre-loaded charging algorithms. It suits E-Z-GO RXV and TXT owners replacing a charger, and is $680 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does an IP66 sealed enclosure matter?',
+        body: 'An IP66 sealed enclosure is the specification that matters for an on-board charger in Australia. On-board means the charger lives on the vehicle, so it endures wash-downs, rain, dust and the vibration of rough ground rather than sitting safe on a shelf. IP66 rates it against powerful water jets and total dust ingress, which is what a working golf buggy charger needs. That durability is what you pay for in an on-board unit, because a charger that fails stops the vehicle completely.',
+      },
+      {
+        heading: 'What do multi-profile algorithms do in an ezgo golf cart charger?',
+        body: 'The QuiQ carries multiple pre-loaded charging algorithms, which lets one charger serve lead-acid, AGM and lithium packs correctly as a mixed fleet transitions rather than forcing a matched charger for each chemistry. Selecting the right profile matters: charging a battery on the wrong algorithm is the fastest way to shorten its life. This is useful for any charger bought as a long-term replacement. Fleets in transition can keep one charger type while batteries change, which simplifies stock.',
+      },
+      {
+        heading: 'Who should buy the Delta-Q QuiQ?',
+        body: 'E-Z-GO RXV and TXT owners needing a charger replacement, and fleets moving between battery types. If you are searching for a replacement, tell us the model, the battery type and the voltage, and we will confirm the QuiQ suits before you order. It is built for the conditions, not for a shelf. Tell us the battery type, voltage and model and we will confirm before you order. If you are replacing an older buggy, tell us what you drive now and we will compare it. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is an on board golf cart charger like the Delta-Q QuiQ?', a: 'The Delta-Q QuiQ 48V Smart On-Board Charger is $680 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a golf buggy charger for lithium and lead-acid?', a: 'Yes. Multiple pre-loaded algorithms let it charge lead-acid, AGM and lithium packs correctly.' },
+      { q: 'Is it a good golf cart charger for wet conditions?', a: 'Yes. An IP66 sealed enclosure rates it against powerful water jets and total dust ingress.' },
+      { q: 'Will it work as an ezgo golf cart charger?', a: 'It suits E-Z-GO RXV and TXT owners. Send us your model and we will confirm the fit.' },
+      { q: 'Is this a golf cart charger for sale in Australia with support?', a: 'Yes. We supply it from our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Is it an E-Z-GO golf cart charger replacement?', a: 'It is a 48V smart charger for E-Z-GO RXV and TXT owners needing a replacement.' },
+    ],
+  },
+
+  'club-car-eric-48v-high-frequency-charger': {
+    primaryKeyword: 'club car golf cart charger',
+    supportingKeywords: ['club car golf cart battery charger', 'golf cart charger', 'golf buggy charger', 'golf cart charger for sale', 'club car golf cart'],
+    h1: 'Club Car Golf Buggy Charger: ERIC 48V High-Frequency',
+    seoTitle: 'Club Car Golf Cart Charger: Buy the ERIC 48V High-Frequency',
+    seoDescription: 'Buy a Club Car golf cart charger. Genuine OEM ERIC 48V high-frequency charger with automatic voltage compensation, $590 inc GST.',
+    short: 'ERIC charger',
+    closingHeading: 'Where can I buy the Club Car ERIC charger?',
+    intro:
+      'A club car golf cart charger should speak to the vehicle natively. The genuine Club Car ERIC 48V High-Frequency Charger is built around high-frequency switching rather than the older transformer design. It has automatic voltage compensation and global AC input compatibility, and is $590 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why is a high-frequency design lighter?',
+        body: 'High-frequency switching is why it weighs a fraction of a conventional charger of the same output, which matters if it is carried between vehicles or lifted onto a bench regularly. For workshops and clubs that move chargers around, a lighter unit is a practical advantage. It is also why a charger of this type is easy to store. Lighter equipment is also easier on a workshop bench and on the people lifting it.',
+      },
+      {
+        heading: 'What does automatic voltage compensation do on a club car golf cart battery charger?',
+        body: 'Automatic voltage compensation adjusts for the supply it is given, so it charges correctly on a long extension lead or a rural supply that sags under load, situations where a fixed-output charger delivers an incomplete charge and slowly ruins the pack. Global AC input compatibility handles varying mains conditions. That reliability suits any charger used outside a tidy workshop. A charge that completes properly protects the battery pack and the money invested in it.',
+      },
+      {
+        heading: 'Who should buy the ERIC?',
+        body: 'Club Car Precedent and Tempo owners, as OEM equipment that speaks to Club Car onboard systems natively. If you need a replacement, send us the model and year and we will confirm the ERIC suits before you order. It is stocked at our Yatala QLD depot, so buying here means local stock rather than a long import wait. As an OEM part it matches the vehicle\'s own expectations, which removes guesswork. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a Club Car golf cart charger like the ERIC?', a: 'The Club Car ERIC 48V High-Frequency Charger is $590 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a genuine Club Car golf cart battery charger?', a: 'Yes. It is the genuine OEM ERIC charger for Club Car Precedent and Tempo owners.' },
+      { q: 'Is it a good golf cart charger on a long extension lead?', a: 'Yes. Automatic voltage compensation adjusts for a long lead or a supply that sags under load.' },
+      { q: 'Is it a golf buggy charger that works worldwide?', a: 'Global AC input compatibility handles varying mains conditions. Ask us if you need it for a specific supply.' },
+      { q: 'Can I find a golf cart charger for sale with local support?', a: 'Yes. We stock it at our Yatala QLD depot, and Australian Consumer Law guarantees apply on top.' },
+      { q: 'Will it fit a Club Car golf cart I own?', a: 'It suits Club Car Precedent and Tempo models. Send us your model and year and we will confirm.' },
+    ],
+  },
 };
