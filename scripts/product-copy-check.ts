@@ -47,7 +47,7 @@ for (const [slug, c] of Object.entries(PRODUCT_COPY)) {
   if (/^[A-Z][a-z0-9+\- ]{3,50}: /.test(c.seoDescription)) fails.push('description opens with a keyword stem');
   const pkWords = pk.split(' ').length;
   const pd = (count(body, pk) * pkWords * 100) / w;
-  if (pd > 3) fails.push(`primary density ${pd.toFixed(2)}% (max 2)`);
+  if (pd > 2) fails.push(`primary density ${pd.toFixed(2)}% (max 2)`);
   const sd = (c.supportingKeywords.reduce((n, k) => n + count(body, k) * k.split(' ').length, 0) * 100) / w;
   if (sd > 3) fails.push(`secondary density ${sd.toFixed(2)}% (max 3)`);
   const missing = c.supportingKeywords.filter((k) => count(body + ' ' + parts.sections.map((s) => s.heading).join(' ') + ' ' + c.faqs.map((f) => f.q + ' ' + f.a).join(' '), k) === 0);

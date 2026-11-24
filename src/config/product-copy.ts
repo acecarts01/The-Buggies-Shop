@@ -1901,4 +1901,344 @@ export const PRODUCT_COPY: Record<string, ProductCopy> = {
       { q: 'What electric golf cart voltage does it handle?', a: 'It is a 48VDC unit rated 200A continuous duty. Check your system voltage before ordering.' },
     ],
   },
+
+  'replacement-mgi-ai-zip-remote-controller': {
+    primaryKeyword: 'mgi remote',
+    supportingKeywords: ['mgi remote control', 'mgi remote replacement', 'mgi remote control replacement', 'mgi zip navigator accessories', 'mgi spare parts'],
+    h1: 'MGI Remote: Replacement Ai and Zip Remote Controller Unit',
+    seoTitle: 'MGI Remote: Buy the Replacement Ai and Zip Controller',
+    seoDescription: 'Buy a replacement MGI remote. Official handheld controller for Zip Navigator and Ai Series buggies, pre-programmed pairing, USB-C, $190 inc GST.',
+    short: 'MGI remote',
+    closingHeading: 'Where can I buy a replacement MGI remote?',
+    intro:
+      'A lost or damaged mgi remote should not mean replacing a healthy buggy. The Replacement MGI Ai and Zip Remote Controller Unit is the official handheld directional remote for Zip Navigator and Ai Series buggies. It has pre-programmed pairing capability and USB-C charging, and is $190 AUD including GST.',
+    sections: [
+      {
+        heading: 'When should you replace an MGI remote control?',
+        body: 'Remotes lead a hard life clipped to a bag or a belt through every round. A cracked case, a failed button or a dead internal battery does not justify replacing an otherwise healthy buggy. If your mgi remote control no longer pairs, responds slowly or will not hold a charge, a genuine replacement is the simple and economical answer, and it brings the buggy back to full use. Remotes are also easy to lose or leave in a bag, so a spare is a sensible thing to have on hand.',
+      },
+      {
+        heading: 'How does pre-programmed pairing work?',
+        body: 'This is the genuine unit with pre-programmed pairing capability, so it links to your buggy without a service visit. That removes a common frustration: a replacement that needs a technician to set up. You fit it, follow the pairing steps and get back on the course. Check that your buggy is a Zip Navigator or Ai Series model before you order. Keep the original packaging and instructions, because they make pairing straightforward.',
+      },
+      {
+        heading: 'Why choose the official remote?',
+        body: 'Using the official remote rather than a generic substitute preserves correct pairing behaviour and directional response. USB-C charging means it takes the same cable as everything else rather than a proprietary lead you will lose. MGI batteries, remotes and mgi zip navigator accessories are held in Australian stock, so you are not waiting on an overseas order. Tell us your model and we will confirm. A genuine part also means you are dealing with an Australian stockist who can answer questions about your buggy. If you are replacing an older buggy, tell us what you drive now and we will compare it. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a replacement MGI remote?', a: 'The Replacement MGI Ai and Zip Remote Controller Unit is $190 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is this the right MGI remote control for my Zip Navigator?', a: 'It is the official replacement for Zip Navigator and Ai Series buggies. Tell us your model and we will confirm.' },
+      { q: 'Is it an MGI remote replacement that pairs automatically?', a: 'It has pre-programmed pairing capability, so it links to your buggy without a service visit.' },
+      { q: 'Is this an MGI remote control replacement with USB-C?', a: 'Yes. It charges by USB-C, the same cable as most modern devices.' },
+      { q: 'What other MGI Zip Navigator accessories do you stock?', a: 'We stock holders, covers, bags, batteries and chargers. Ask the Yatala desk what suits your model.' },
+      { q: 'Do you hold MGI spare parts in Australia?', a: 'Yes. MGI spare parts and accessories are held in Australian stock at our Yatala QLD depot.' },
+    ],
+  },
+
+  'golf-cart-side-mirrors-integrated-led-indicators': {
+    primaryKeyword: 'golf cart mirrors',
+    supportingKeywords: ['golf cart mirrors near me', 'yamaha golf cart mirrors', 'ezgo golf cart mirrors', 'golf cart mirrors club car', 'golf cart accessories'],
+    h1: 'Golf Buggy Mirrors: Side Mirrors with Integrated LED Indicators',
+    seoTitle: 'Golf Cart Mirrors: Buy Side Mirrors with LED Indicators',
+    seoDescription: 'Buy golf cart mirrors. Wide-angle convex side mirrors with built-in amber LED turn signal indicators, supplied as a pair, $95 inc GST.',
+    short: 'side mirrors',
+    closingHeading: 'Where can I buy these side mirrors with LED indicators?',
+    intro:
+      'Golf cart mirrors matter more than most owners expect, because a buggy has no rear window. The Golf Cart Side Mirrors with Integrated LED Indicators have wide-angle convex glass and amber LED turn signals built into the mirror face. They are supplied as a pair with mounting hardware for $95 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does convex glass matter on a buggy?',
+        body: 'Convex glass gives a genuinely wide field of view, which matters more on a buggy than a car because there is no rear window, no pillar geometry to work around and passengers or cargo frequently block the view directly behind. Seeing what is behind you before you turn or reverse is a basic safety habit, and a wide-angle mirror makes it easy. A good mirror lets you check the rear before reversing, which matters around pedestrians and parked cars.',
+      },
+      {
+        heading: 'What do the integrated amber indicators add?',
+        body: 'Integrated amber LED indicators built into the mirror face put the turn signal where following drivers already look, rather than requiring separate indicator pods elsewhere on the body. That keeps the wiring and the appearance simple. If you shop for buggy mirrors near me today, check that the product includes the signalling you need, rather than adding it separately later. Combining mirror and signal in one unit also leaves the body panels free of extra fittings.',
+      },
+      {
+        heading: 'Will they fit yamaha golf cart mirrors positions?',
+        body: 'They are straightforward to fit to standard strut positions and supplied as a pair with mounting hardware. Fit still depends on your frame, so tell us your make and model, whether an ezgo golf cart mirrors setup or another, and we will confirm. They pair sensibly with a lighting kit if the buggy shares estate roads with vehicles, though we do not label any buggy road legal. A pair of mirrors is a modest cost for better awareness every time you drive. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our desk replies to enquiries from all states and territories.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart mirrors like these LED indicator mirrors?', a: 'The Golf Cart Side Mirrors with Integrated LED Indicators are $95 AUD including GST, supplied as a pair. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Where can I buy golf cart mirrors near me in Australia?', a: 'We supply from our Yatala QLD depot and freight Australia-wide, with the cost quoted to your postcode.' },
+      { q: 'Do these work as Yamaha golf cart mirrors?', a: 'They fit standard strut positions. Send us your Yamaha model and we will confirm the fit.' },
+      { q: 'Do they suit EZGO golf cart mirrors positions?', a: 'They may, depending on the frame. Tell us your E-Z-GO model and we will check.' },
+      { q: 'Do these suit golf cart mirrors club car frames?', a: 'They fit standard strut positions on many Club Car models. Send us your model and year.' },
+      { q: 'What other golf cart accessories pair with them?', a: 'Many owners add a light kit and seatbelts. Ask the Yatala desk. We do not label any buggy road legal, so check your state rules.' },
+    ],
+  },
+
+  'heavy-duty-rear-flip-seat-kit-2-to-4': {
+    primaryKeyword: 'golf cart rear flip seat',
+    supportingKeywords: ['ezgo golf cart rear seat kit', 'ezgo golf cart rear seat', '4 seater golf buggy for sale', 'rear seat for ezgo golf cart', 'golf buggy accessories'],
+    h1: 'Golf Buggy Rear Flip Seat Kit: Converts 2 to 4 Seater',
+    seoTitle: 'Golf Cart Rear Flip Seat: Buy the 2 to 4 Seater Kit',
+    seoDescription: 'Buy a golf cart rear flip seat. Heavy duty kit converts a 2-seater to 4 passengers or a flatbed cargo tray, powder-coated steel, $650 inc GST.',
+    short: 'rear flip seat kit',
+    closingHeading: 'Where can I buy the rear flip seat kit?',
+    intro:
+      'A golf cart rear flip seat is the most cost-effective way to add capacity to a buggy you already own. The Heavy Duty Rear Flip Seat Kit converts a standard two-seater into a four-passenger cruiser or a flatbed cargo hauler. It has a powder-coated steel frame and is $650 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why convert instead of trading up?',
+        body: 'Rather than trading a two-seater for a four-seater, this kit converts it: rear-facing seating for two more passengers that folds flat into a cargo tray when you need to carry rather than seat. That is usually cheaper than buying another vehicle, and it keeps a buggy you already know. For owners who searched 4 seater golf buggy for sale and found the price steep, it is a practical alternative. It also keeps the investment in a vehicle you know, with no need to learn a new buggy.',
+      },
+      {
+        heading: 'How does the dual-purpose design work?',
+        body: 'That dual purpose is why it suits property owners as much as families, since the same vehicle handles the school gate and the feed run. Folded up it seats passengers; folded flat it becomes a cargo deck. It is a kit that earns its place in different seasons and different weeks, and it saves buying a separate utility vehicle for light loads. Folding it flat in seconds means you can switch between people and cargo as the day demands.',
+      },
+      {
+        heading: 'Will an ezgo golf cart rear seat kit fit my model?',
+        body: 'The powder-coated steel frame resists the corrosion that would otherwise start at every weld and bolt hole in coastal or irrigated conditions. Fit depends on your make, model and year, so tell us before you order, whether you need a kit for another style. Consider pairing it with a seatbelt set and upgraded brakes, since added passengers mean added mass to stop. Added passengers need proper restraints and stopping power, so plan the upgrade as a package. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart rear flip seat like this kit?', a: 'The Heavy Duty Rear Flip Seat Kit (Converts 2 to 4 Seater) is $650 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Will this EZGO golf cart rear seat kit fit my buggy?', a: 'Fit depends on the make, model and year. Send us your details and we will confirm before you order.' },
+      { q: 'Is it an EZGO golf cart rear seat that folds flat?', a: 'The kit folds flat into a flatbed cargo tray when you need to carry rather than seat.' },
+      { q: 'Can it turn a 2-seater into a 4 seater golf buggy for sale alternative?', a: 'Yes. It adds rear seating for two more passengers on a standard two-seater.' },
+      { q: 'Is it a rear seat for EZGO golf cart owners with a steel frame?', a: 'Yes. It has a powder-coated steel frame that resists corrosion at welds and bolt holes.' },
+      { q: 'What golf buggy accessories should I add with it?', a: 'Consider a seatbelt set and upgraded brakes, since added passengers mean added mass to stop.' },
+    ],
+  },
+
+  'heavy-duty-tow-hitch-ball-assembly': {
+    primaryKeyword: 'golf cart tow hitch',
+    supportingKeywords: ['ezgo golf cart tow bar', 'yamaha golf cart hitch', 'golf buggy trailers for sale', 'golf buggy and trailer for sale', 'electric buggy with trailer'],
+    h1: 'Golf Buggy Tow Hitch: Heavy Duty 2-Inch Receiver and Ball',
+    seoTitle: 'Golf Cart Tow Hitch: Buy the Heavy Duty 2-Inch Receiver',
+    seoDescription: 'Buy a golf cart tow hitch. Heavy duty 2-inch receiver with 50mm chrome tow ball, powder-coated steel, hardware included, $110 inc GST.',
+    short: 'tow hitch',
+    closingHeading: 'Where can I buy the heavy duty tow hitch?',
+    intro:
+      'A golf cart tow hitch turns a buggy into a working vehicle for garden trailers and sprayers. The Heavy Duty Tow Hitch and Ball Assembly is a standard 2-inch receiver with a 50mm chrome ball, in powder-coated steel with mounting hardware included. It is $110 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why do the 2-inch receiver and 50mm ball matter for golf buggy trailers for sale?',
+        body: 'These are the common Australian sizes, so the hitch accepts the garden trailers, box trailers and sprayers most properties already own rather than requiring anything bespoke. That means you can use equipment you have, instead of buying specific attachments. If you have been looking at golf buggy trailers for sale, a standard hitch also keeps your options open. Standard sizes also mean spare balls and couplings are easy to find if you ever need them.',
+      },
+      {
+        heading: 'What does the receiver format allow?',
+        body: 'The receiver format also means the ball mount can be swapped for a different height or a pin-style attachment as needs change. That flexibility matters on a working property, where the same buggy might tow a mower one day and a trailer the next. It is a simple, adaptable part that suits farm owners pulling trailers or mowers. Swapping a mount takes little time, and it keeps a single hitch useful for many tasks.',
+      },
+      {
+        heading: 'Should I check the brakes before towing?',
+        body: 'Yes. Towing adds substantially to stopping distance, so it is worth reviewing brake condition before putting a loaded trailer behind a buggy. Powder-coated steel handles the wet grass, fertiliser and mud that would rust bare steel quickly at the rear of a working vehicle. Check the towing capacity for your own buggy, because the hitch does not set the limit. Tell us your model and we will advise. Load the trailer sensibly and drive slowly on slopes, because a buggy is not built to stop like a truck. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Questions are welcome before you buy, not just after.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart tow hitch like this 2-inch receiver?', a: 'The Heavy Duty Tow Hitch and Ball Assembly is $110 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it work as an EZGO golf cart tow bar?', a: 'It is a standard 2-inch receiver with a 50mm ball. Fit depends on the rear frame, so send us your model.' },
+      { q: 'Will it fit as a Yamaha golf cart hitch?', a: 'It may, depending on the rear structure. Tell us your Yamaha model and we will confirm.' },
+      { q: 'Do you sell golf buggy trailers for sale as well?', a: 'We supply the hitch and accessories. Ask the Yatala desk about trailers and what suits your buggy.' },
+      { q: 'Can I use it with a golf buggy and trailer for sale package?', a: 'It accepts garden trailers, box trailers and sprayers that use a 50mm ball. Check your trailer coupling.' },
+      { q: 'Can I tow with an electric buggy with trailer fitted?', a: 'Yes, within your buggy towing capacity. Check the figure for your model and review the brakes first.' },
+    ],
+  },
+
+  'golf-cart-solar-charging-panel-expansion-kit': {
+    primaryKeyword: 'solar charging golf cart',
+    supportingKeywords: ['solar golf cart', 'solar for golf carts', 'solar powered golf buggy', 'solar golf carts for sale', 'solar charge golf cart'],
+    h1: 'Solar Charging Golf Buggy Kit: 175W Flexible Rooftop Panel',
+    seoTitle: 'Solar Charging Golf Cart: Buy the 175W Rooftop Panel Kit',
+    seoDescription: 'Buy a solar charging golf cart kit. 175W flexible rooftop panel with MPPT controller for 36V and 48V systems, $520 inc GST.',
+    short: 'solar kit',
+    closingHeading: 'Where can I buy the golf cart solar kit?',
+    intro:
+      'A solar charging golf cart kit trickle charges the battery whenever the buggy is parked in the sun. The Golf Cart Solar Charging Panel Expansion Kit (175W) has a flexible rooftop panel and an MPPT charge controller, and extends daily range by around 20%. It is $520 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does MPPT matter on a solar golf cart?',
+        body: 'MPPT is the important part of that specification: it continuously finds the panel maximum power point rather than passing raw output through, which is what allows a modest rooftop panel to contribute usefully instead of marginally. For anyone considering a solar golf cart conversion, the controller matters as much as the panel, because it decides how much of the available sun reaches the batteries. A modest panel adds up over a week of sunny days, especially when the buggy is used for short trips.',
+      },
+      {
+        heading: 'Who benefits most from solar for golf carts?',
+        body: 'The practical benefit is greatest for vehicles that sit outdoors between short trips, which describes most resort, farm and estate duty. Acreage owners parked away from power are the main buyers. If you use solar for golf carts that sit in the sun most of the day, the panel keeps topping up the pack and reduces your reliance on the charger. Resorts and farms often park buggies outdoors for hours, which is when a panel does most of its work.',
+      },
+      {
+        heading: 'Is it compatible with my system?',
+        body: 'The flexible panel follows the roof contour and adds negligible weight or wind noise. It is compatible with 36V and 48V systems, so check your pack voltage before ordering. Tell us your make, model and roof type and we will confirm the kit suits. A solar powered golf buggy conversion is simple when the parts are matched to the vehicle. A technician can fit the controller and wiring safely, and we can talk through the parts. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Our desk replies to enquiries from all states and territories.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a solar charging golf cart kit like this 175W panel?', a: 'The Golf Cart Solar Charging Panel Expansion Kit (175W) is $520 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does a solar golf cart panel replace the charger?', a: 'No. It trickle charges the pack whenever parked in sun and extends daily range by around 20%, but you will still charge normally when needed.' },
+      { q: 'Is it solar for golf carts with 36V or 48V packs?', a: 'Yes. The MPPT controller is compatible with 36V and 48V systems.' },
+      { q: 'Does it make a solar powered golf buggy?', a: 'It adds solar charging to an electric buggy. It supports the battery rather than powering the vehicle directly.' },
+      { q: 'Can I find solar golf carts for sale with the kit fitted?', a: 'We supply the kit for fitting to your buggy. Ask the Yatala desk about your model.' },
+      { q: 'Will the panel help me solar charge golf cart batteries on cloudy days?', a: 'Output falls on cloudy days. The kit is best where the buggy sits in sun between trips.' },
+    ],
+  },
+
+  'waterproof-marine-grade-bluetooth-soundbar': {
+    primaryKeyword: 'golf cart bluetooth speaker',
+    supportingKeywords: ['yamaha golf cart speakers', 'yamaha golf cart stereo', 'club car golf cart stereo', 'golf cart with speakers and lights', 'golf cart soundbar'],
+    h1: 'Golf Buggy Bluetooth Speaker: Waterproof Marine Grade 26-Inch Soundbar',
+    seoTitle: 'Golf Cart Bluetooth Speaker: Waterproof Marine Soundbar',
+    seoDescription: 'Buy a golf cart Bluetooth speaker. 26-inch IP67 waterproof marine soundbar with RGB lighting and direct clamp mounting, $420 inc GST.',
+    short: 'soundbar',
+    closingHeading: 'Where can I buy the marine Bluetooth soundbar?',
+    intro:
+      'A golf cart bluetooth speaker has to survive weather, washing and vibration. The Waterproof Marine Grade Bluetooth Soundbar (26-inch) has IP67 construction, bass radiators, integrated RGB accent lighting and a direct clamp mount for roll cages and roof struts. It is $420 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does IP67 suit a golf buggy?',
+        body: 'Marine-grade IP67 construction is the right specification for a golf buggy, because the vehicle lives outdoors and gets rained on, hosed down and covered in dust regardless of intent. IP67 means fully protected against dust and capable of surviving temporary immersion, which comfortably covers weather and washing. A household speaker would not last a season in those conditions. That durability means you can wash the buggy down without worrying about the audio.',
+      },
+      {
+        heading: 'How does a soundbar compare with yamaha golf cart speakers?',
+        body: 'Bass radiators produce genuine low end from a compact enclosure without the ported bulk that would not survive the vibration of rough ground. Integrated RGB accent lighting is customisable, and the direct clamp mount fits roll cages and roof struts without drilling. That makes it a simple alternative to built-in yamaha golf cart speakers or a club car golf cart stereo. Clamp mounting also means no drilling, so the roll cage stays as the manufacturer left it. RGB lighting is optional atmosphere, and it can be set to suit the moment.',
+      },
+      {
+        heading: 'What should I power it with?',
+        body: 'Pair it with a voltage reducer rather than tapping a single battery, which unbalances the pack. A proper 12V supply keeps the batteries wearing evenly and protects the soundbar. Tell us your make and model and how you plan to power it, and we will confirm the soundbar suits your roll cage or roof struts, and suggest the right reducer. A clean 12V supply protects the soundbar electronics as well as the battery pack. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Many buyers confirm the details with us on WhatsApp before ordering, and we are happy to do the same.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart bluetooth speaker like this soundbar?', a: 'The Waterproof Marine Grade Bluetooth Soundbar (26-inch) is $420 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a good substitute for Yamaha golf cart speakers?', a: 'It clamps to roll cages and roof struts without drilling, so it suits many buggies. Tell us your model.' },
+      { q: 'Does it work as a Yamaha golf cart stereo?', a: 'It is a Bluetooth soundbar, so you play audio from your phone. It does not replace a head unit.' },
+      { q: 'Is it a Club Car golf cart stereo alternative?', a: 'It is a self-contained marine soundbar that clamps on. Ask the Yatala desk about your Club Car model.' },
+      { q: 'Is it a golf cart with speakers and lights option?', a: 'Yes. It has integrated customisable RGB accent lighting as well as audio.' },
+      { q: 'What do I need to power the golf cart soundbar?', a: 'A 12V supply. We suggest a voltage reducer rather than tapping one battery in the bank.' },
+    ],
+  },
+
+  'retractable-seatbelt-system-set': {
+    primaryKeyword: 'golf cart seat belts',
+    supportingKeywords: ['golf cart seat belt kit', 'seat belts for golf carts', 'golf carts with seat belts', 'yamaha golf cart seat belts', 'seat belts on golf carts'],
+    h1: 'Golf Buggy Seat Belts: Retractable 3-Point Set (Front and Rear)',
+    seoTitle: 'Golf Cart Seat Belts: Buy the E-Mark 3-Point Retractable Set',
+    seoDescription: 'Buy golf cart seat belts. E-Mark certified retractable 3-point lap and shoulder set, front and rear, steel brackets included, $145 inc GST.',
+    short: 'seatbelt set',
+    closingHeading: 'Where can I buy the retractable seatbelt set?',
+    intro:
+      'Families carrying children often ask about golf cart seat belts. The Retractable Seatbelt System Set (Front and Rear) is an E-Mark certified automatic 3-point lap and shoulder harness with heavy-duty steel mounting brackets. It is $145 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'Why does E-Mark certification matter?',
+        body: 'E-Mark certification is the meaningful detail: it means the harness has been tested and approved against a recognised international standard rather than simply resembling a seatbelt. For anyone carrying children, elderly passengers or driving on sloped or uneven ground, that distinction is worth insisting on. It is the difference between a real restraint and a decoration. A tested harness gives parents confidence when children ride, and it is a sensible choice for older passengers too.',
+      },
+      {
+        heading: 'Why are seat belts for golf carts better with three points?',
+        body: 'The three-point lap and shoulder configuration restrains the torso as well as the hips, which is what prevents the forward pitch that causes most buggy injuries. That is why a proper kit uses three points rather than a simple lap strap. Seat belts on golf carts only help if they are worn, and design details decide whether they are. Torso support matters on slopes, where a sudden stop or a bump can throw passengers forward.',
+      },
+      {
+        heading: 'How does a golf cart seat belt kit stay usable?',
+        body: 'Automatic retraction keeps the belts out of the door aperture and off the ground when unused, so they stay clean and actually get worn. Heavy-duty steel mounting brackets are included, and the kit should be anchored to structural frame points, so have it fitted by a competent installer. Tell us your make and model and we will confirm the set suits, including when you are retrofitting. A belt anchored to a weak point is no protection, so mounting quality matters as much as the belt. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Every price on this page includes GST, so the figure you see is the figure you pay for the item.',
+      },
+    ],
+    faqs: [
+      { q: 'How much are golf cart seat belts like this retractable set?', a: 'The Retractable Seatbelt System Set (Front and Rear) is $145 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it a complete golf cart seat belt kit?', a: 'Yes. It includes front and rear retractable belts and heavy-duty steel mounting brackets.' },
+      { q: 'Are these seat belts for golf carts E-Mark certified?', a: 'Yes. E-Mark certification means the harness has been tested and approved against a recognised international standard.' },
+      { q: 'Can I fit them to make golf carts with seat belts of my own?', a: 'Yes. Anchor the kit to structural frame points and use a competent installer.' },
+      { q: 'Do these fit as Yamaha golf cart seat belts?', a: 'They may, depending on the frame and seat design. Send us your Yamaha model and we will check.' },
+      { q: 'Are seat belts on golf carts a road-legal requirement?', a: 'Rules vary by state. We do not label any buggy road legal, so check with your authority.' },
+    ],
+  },
+
+  'lockable-dash-glove-box-storage-system': {
+    primaryKeyword: 'golf cart glove box',
+    supportingKeywords: ['golf cart dash storage', 'golf cart locking storage', 'golf cart accessories', 'golf cart storage compartment', 'golf cart phone storage'],
+    h1: 'Golf Buggy Glove Box: Lockable Dash Storage System',
+    seoTitle: 'Golf Cart Glove Box: Buy the Lockable Dash Storage',
+    seoDescription: 'Buy a golf cart glove box. Lockable dual dash compartments with carbon fibre finish, two keys and custom moulded fit, $185 inc GST.',
+    short: 'glove box',
+    closingHeading: 'Where can I buy the lockable glove box?',
+    intro:
+      'A golf cart glove box solves a simple problem: a buggy has no doors and no boot. The Lockable Dash Glove Box Storage System has dual lockable compartments, a carbon fibre textured finish, two keys and custom moulded fitting for popular models. It is $185 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why do you need golf cart locking storage?',
+        body: 'A golf buggy has no doors and no boot, so a phone, wallet or keys left on the seat are visible and available to anyone walking past while you play a hole or step into the clubhouse. A lockable compartment turns that from a risk into a non-issue. Golfers leaving valuables at the club or resort are the typical buyers, and they appreciate the peace of mind. Leaving valuables in a shared bay or an open car park invites trouble, and the compartment removes the temptation.',
+      },
+      {
+        heading: 'Why custom moulding and two keys?',
+        body: 'The compartments are custom moulded to fit popular models rather than fixed on as a universal box, so they sit neatly into the dash. Two keys are supplied, which is worth noting since single-key accessories become a problem the moment the key is lost. A golf cart dash storage solution that looks factory-fitted also adds to the feel of the buggy. A moulded fit also means no rattles, which matters for a buggy that crosses rough ground.',
+      },
+      {
+        heading: 'Does it do anything besides security?',
+        body: 'It also stops loose items sliding off the dash through turns, so scorecards, tees and sunglasses stay put. Check that your model is one of the popular models the moulding suits, and tell us your make and year before you order. If you are choosing golf cart accessories for a club or resort fleet, ask about several units for one order. A tidy dash also helps drivers find what they need quickly, without hunting through a bag. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Our team can answer questions on delivery, parts and warranty before you commit. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart glove box like this lockable system?', a: 'The Lockable Dash Glove Box Storage System is $185 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Is it golf cart dash storage that locks?', a: 'Yes. It has dual lockable compartments, and two keys are supplied.' },
+      { q: 'Does it work as golf cart locking storage for a phone?', a: 'Yes. It is designed to keep smartphones, keys and wallets secure while you play.' },
+      { q: 'Which golf cart accessories fit my model?', a: 'The glove box is custom moulded for popular models. Send us your make, model and year and we will confirm.' },
+      { q: 'Is it a golf cart storage compartment that looks factory-fitted?', a: 'It has a carbon fibre textured finish and a moulded fit, so it sits neatly in the dash.' },
+      { q: 'Is it good golf cart phone storage on the course?', a: 'Yes. It keeps a phone secure and stops loose items sliding off the dash through turns.' },
+    ],
+  },
+
+  'heavy-duty-sand-bottle-assembly-dual-set': {
+    primaryKeyword: 'golf cart sand bottle',
+    supportingKeywords: ['golf cart divot repair', 'golf cart sand bottles', 'golf buggy sand bottle', 'golf cart accessories', 'sand bottle holder'],
+    h1: 'Golf Buggy Sand Bottles: Heavy Duty Dual Set with Rattle-Free Mounts',
+    seoTitle: 'Golf Cart Sand Bottle: Buy the Heavy Duty Dual Set',
+    seoDescription: 'Buy a golf cart sand bottle set. Dual divot bottles with curved easy-pour necks and rattle-free bracket mounts, $75 inc GST.',
+    short: 'sand bottle set',
+    closingHeading: 'Where can I buy the dual sand bottle set?',
+    intro:
+      'Repairing divots is basic course etiquette, and a golf cart sand bottle set makes it easy. The Heavy Duty Sand Bottle Assembly (Dual Set) has curved easy-pour necks and rattle-free bracket mounts. It is supplied as a pair with side-frame mounting hardware for $75 AUD including GST.',
+    sections: [
+      {
+        heading: 'Why does rattle-free mounting matter on golf cart sand bottles?',
+        body: 'Factory bottle mounts are notorious for rattling loose over a round until they are removed and left in the shed. The rattle-free bracket design is the entire point of upgrading: mounts that stay quiet and stay put get used, while ones that buzz constantly do not. A buggy that is quiet on the course is pleasant for you and for the players around you. A quiet buggy is a courteous one, and players notice when a buggy rattles through a quiet fairway.',
+      },
+      {
+        heading: 'How does the curved neck help with divot repair?',
+        body: 'The curved neck pours accurately into the divot rather than scattering sand across the surrounding turf, which is what makes the repair actually take. Good golf cart divot repair is about putting the right amount of sand in the right place, and an easy-pour bottle makes that simple. Most clubs expect players to repair divots, so it is a small upgrade with a visible result. Less spillage also means less sand wasted, which keeps the bottles useful for longer between refills.',
+      },
+      {
+        heading: 'Who should buy a sand bottle set?',
+        body: 'Private owners and course operators who want a tidy, practical setup. It is supplied as a pair with side-frame mounting hardware, so you can fit it yourself in minutes. Tell us your make and model and we will confirm the brackets suit your side frame, and ask us about golf cart accessories for fleet orders if you equip several buggies at once. A matched pair lets you carry two bottles, so a long round does not run out of sand. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Questions are welcome before you buy, not just after.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is a golf cart sand bottle set like this dual pair?', a: 'The Heavy Duty Sand Bottle Assembly (Dual Set) is $75 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'Does it help with golf cart divot repair?', a: 'Yes. The curved neck pours accurately into the divot rather than scattering sand across the turf.' },
+      { q: 'Are these golf cart sand bottles rattle-free?', a: 'Yes. The bracket design is rattle-free, so the bottles stay quiet and stay put.' },
+      { q: 'Is it a golf buggy sand bottle set for the side frame?', a: 'Yes. It is supplied as a pair with side-frame mounting hardware.' },
+      { q: 'What other golf cart accessories suit a course buggy?', a: 'Many owners add a windshield, a rain cover or bag holders. Ask the Yatala desk.' },
+      { q: 'Does the sand bottle holder fit my model?', a: 'Send us the make and model of your buggy and we will confirm the brackets suit.' },
+    ],
+  },
+
+  'mgi-zip-x3': {
+    primaryKeyword: 'mgi zip x3',
+    supportingKeywords: ['mgi accessories', 'mgi golf buggy sale', 'mgi x3', 'motorised golf caddy', 'mgi zip navigator accessories'],
+    h1: 'MGI Zip X3: Motorised Walk-Behind Golf Buggy',
+    seoTitle: 'MGI Zip X3: Buy the Motorised Walk-Behind Golf Buggy',
+    seoDescription: 'Buy the MGI Zip X3 motorised walk-behind golf buggy. Controlled distance function, lockable swivel front wheel and all-terrain treads, $1,549 inc GST.',
+    short: 'Zip X3',
+    closingHeading: 'Where can I buy the MGI Zip X3 in Australia?',
+    intro:
+      'The mgi zip x3 sits in the middle of the MGI Zip range, more capable than the entry X1 without the remote-control price of the Navigator. It has a Controlled Distance Function, a lockable swivel front wheel and all-terrain treads. It is $1,549 AUD including GST, supplied from our Yatala QLD depot.',
+    sections: [
+      {
+        heading: 'What does the mgi x3 add over the entry model?',
+        body: 'A Controlled Distance Function, a swivelling front wheel that locks for straight running and a digital readout that tracks stats such as distance walked and longest drive round out the feature list. It is more capable than the X1 and a sensible step for golfers stepping up from a push buggy to a motorised one, without paying for remote control they may not need. A digital readout also adds a little fun, because you can see how far you have walked in a round.',
+      },
+      {
+        heading: 'Are all-terrain treads useful on Australian courses?',
+        body: 'The all-terrain treads are made for the mix of fairway, rough and cart path an Australian round throws at a buggy. A matte black finish with a gloss top box gives it a clean look on the course. If you compare a motorised golf caddy of this class with a push buggy, the treads and the controlled distance function are what make walking noticeably easier. Good tread improves grip on damp grass and on slopes, which makes the buggy easier to control.',
+      },
+      {
+        heading: 'Is the Zip X3 remote controlled?',
+        body: 'No. It is a non-remote model, so you walk with it rather than steering by remote. The Zip range suits cart bags; stand and carry bags are not all compatible, so check yours before ordering. If you want remote control, look at the Zip Navigator instead. Tell us your bag and your course and we will confirm the X3 suits, and which mgi accessories pair with it. Several Zip models share a battery type, which keeps spares simple. Ask the Yatala desk if you would like a side-by-side comparison with another model before you decide. Tell us how you will use it and we will confirm it suits before you order. Call or message the Yatala desk and we will answer your questions in plain language.',
+      },
+    ],
+    faqs: [
+      { q: 'How much is the MGI Zip X3 in Australia?', a: 'The MGI ZIP X3 is $1,549 AUD including GST. Freight is quoted separately against your delivery postcode at checkout.' },
+      { q: 'What MGI accessories suit the Zip X3?', a: 'MGI holders, covers, bags and batteries are held in Australian stock. Tell us your model and we will confirm what suits.' },
+      { q: 'Is it an MGI golf buggy sale pick for beginners?', a: 'It suits golfers stepping up from a push buggy who want a motorised model without remote control.' },
+      { q: 'What does the MGI X3 control distance function do?', a: 'The Controlled Distance Function lets the buggy move a set distance, which makes shot-to-shot moves easier.' },
+      { q: 'Is it a motorised golf caddy that suits my bag?', a: 'The Zip range suits cart bags. Stand and carry bags are not all compatible, so check yours before ordering.' },
+      { q: 'Are there MGI Zip Navigator accessories that also fit?', a: 'Some accessories are shared across the Zip range. Ask the Yatala desk to confirm for your model.' },
+    ],
+  },
 };
