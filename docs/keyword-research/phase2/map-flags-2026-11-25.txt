@@ -1,6 +1,5 @@
-/shop/luxury-4-seater/ primary tier-B: "4 seater golf buggy for sale" is kd-n/a
+/shop/luxury-4-seater/ primary KD-unscored: "4 seater golf buggy for sale" vol 40
 /shop/traditional-2-seater/ primary tier-B: "2 seater golf buggy for sale" is kd-n/a
-/shop/mechanical-petrol/ primary tier-B: "petrol golf buggy for sale" is kd-n/a
 /shop/junior-golf-buggies/ primary: FLAG: no keyword
 /shop/brand/evolution/ primary tier-B: "buy evolution golf cart" is below-volume
 /shop/brand/tara/ primary tier-B: "tara golf buggy" is below-volume
@@ -13,8 +12,7 @@
 /tag/road-access-lighting/ primary tier-B: "golf buggy lights and indicators" is no-data
 /tag/weather-protection/ primary tier-B: "golf buggy rain cover and enclosure" is no-data
 /tag/controllers-electrical/ primary tier-B: "golf buggy motor controller" is no-data
-/delivery/melbourne/ primary tier-B: "golf buggy for sale melbourne" is kd-n/a
-/delivery/adelaide/ primary tier-B: "golf buggy for sale adelaide" is kd-n/a
+/delivery/adelaide/ primary KD-unscored: "golf buggy for sale adelaide" vol 40
 /about/ primary: no qualifying keyword with search demand
 /contact/ primary: no qualifying keyword with search demand
 /faq/ primary: no qualifying keyword with search demand
@@ -30,7 +28,7 @@
 /blog/motorised-vs-push-golf-buggy-health-stamina-benefits/ primary KD-unscored: "push or electric golf trolley" vol 10
 /blog/buying-second-hand-golf-carts-in-australia-checklist/ primary: FLAG: no keyword
 /blog/heavy-duty-off-road-golf-buggy-rural-acreage-guide/ primary KD-unscored: "electric off road golf cart" vol 20
-/blog/electric-utility-buggy-price-guide-australia/ primary tier-B: "electric farm buggy australia" is kd-n/a
+/blog/electric-utility-buggy-price-guide-australia/ primary KD-unscored: "electric farm buggy australia" vol 20
 /blog/electric-golf-buggy-troubleshooting-and-replacement-parts/ primary KD-unscored: "electric golf cart has power but won t move" vol 20
 /blog/how-to-choose-the-right-electric-golf-buggy-in-australia/ primary KD-unscored: "which golf cart is best" vol 10
 /blog/golf-buggy-registration-australia-conditional-road-access/ primary KD-unscored: "street legal golf cart" vol 20
@@ -53,7 +51,7 @@
 /blog/mgi-vs-motocaddy-electric-golf-trolley-australia/ primary: FLAG: kept "mgi vs motocaddy" (no-data)
 /blog/clicgear-vs-mgi-push-buggy-comparison-australia/ primary tier-B: "clicgear buggy" is no-data
 /blog/powakaddy-vs-mgi-electric-golf-trolley-australia/ primary KD-unscored: "compare electric golf trolleys" vol 20
-/blog/best-electric-golf-trolley-brands-australia/ primary KD-unscored: "best electric golf trolley" vol 30
+/blog/best-electric-golf-trolley-brands-australia/ primary KD-unscored: "best electric golf trolley" vol 40
 /blog/junior-golf-buggy-australia-guide/ primary: FLAG: kept "junior golf trolley" (no-data)
 /blog/golf-buggy-fleet-purchase-guide-australia/ primary tier-B: "golf buggy fleet australia" is no-data
 /blog/eofy-golf-buggy-deals-australia-buying-guide/ primary tier-B: "golf buggy eofy deals" is no-data
@@ -80,7 +78,7 @@
 /blog/mgi-battery-charger-guide/ primary tier-B: "how long to charge mgi battery" is kd-n/a
 /blog/mgi-parts-wheels-warranty-guide/ primary tier-B: "mgi parts" is kd-n/a
 /blog/mgi-zip-navigator-troubleshooting/ primary tier-B: "mgi zip navigator no power" is kd-n/a
-/blog/electric-golf-buggy-that-follows-you-gps-follow-vs-remote-australia/ primary tier-B: "electric golf buggy that follows you" is kd-n/a
+/blog/electric-golf-buggy-that-follows-you-gps-follow-vs-remote-australia/ primary KD-unscored: "electric golf buggy that follows you" vol 20
 /blog/golf-buggy-top-speed-australia-what-to-know-before-you-change-it/ primary KD-unscored: "golf buggy top speed" vol 20
 /blog/buggy-vs-golf-cart-vs-side-by-side-utv-five-year-cost-australia/ primary KD-unscored: "buggy vs golf cart" vol 20
 /blog/golf-buggy-bushfire-season-battery-charging-safety-australia/ primary tier-B: "golf buggy bushfire season safety" is no-data
@@ -111,8 +109,8 @@
 /shop/commercial-utility/evolution-700-heavy-commercial-utility/ primary KD-unscored: "evolution golf cart price" vol 20
 /shop/commercial-utility/lvtong-commercial-flatbed-cargo-buggy/ primary tier-B: "flatbed golf cart for sale" is below-volume
 /shop/commercial-utility/club-car-transporter-6-commercial/ primary tier-B: "club car transporter golf carts for sale" is below-volume
-/shop/mechanical-petrol/yamaha-drive2-quiettech-efi-petrol/ primary tier-B: "yamaha petrol golf buggy for sale" is kd-n/a
-/shop/mechanical-petrol/club-car-tempo-efi-petrol/ primary tier-B: "club car petrol golf buggy" is kd-n/a
+/shop/mechanical-petrol/yamaha-drive2-quiettech-efi-petrol/ primary KD-unscored: "yamaha petrol golf buggy for sale" vol 20
+/shop/mechanical-petrol/club-car-tempo-efi-petrol/ primary KD-unscored: "club car petrol golf buggy" vol 20
 /shop/mechanical-petrol/ezgo-freedom-rxv-gas/ primary KD-unscored: "ezgo freedom rxv for sale" vol 20
 /shop/mechanical-petrol/cushman-hauler-1200-gas-utility/ primary KD-unscored: "cushman golf cart for sale" vol 20
 /shop/mechanical-petrol/yamaha-umax-one-efi-utility/ primary KD-unscored: "yamaha umax golf cart for sale" vol 10
@@ -124,7 +122,7 @@
 /shop/walk-behind-buggies/robera-pro-follow-remote-golf-buggy/ primary KD-unscored: "follow me remote control golf trolley" vol 10
 /shop/walk-behind-buggies/mgi-zip-x1-lithium-buggy/ primary KD-unscored: "mgi zip x1 motorised golf buggy" vol 20
 /shop/batteries-chargers/eco-battery-48v-105ah-lithium-conversion-kit/ primary KD-unscored: "golf cart electric conversion kit" vol 20
-/shop/batteries-chargers/roypow-48v-105ah-lithium-battery-pack/ primary tier-B: "electric golf buggy lithium battery" is kd-n/a
+/shop/batteries-chargers/roypow-48v-105ah-lithium-battery-pack/ primary KD-unscored: "electric golf buggy lithium battery" vol 20
 /shop/batteries-chargers/invicta-48v-50ah-lithium-drop-in-module/ primary KD-unscored: "electric buggy 48v" vol 20
 /shop/batteries-chargers/trojan-t-875-8v-deep-cycle-lead-acid-battery/ primary KD-unscored: "lead acid battery for golf trolley" vol 10
 /shop/batteries-chargers/delta-q-quiq-48v-smart-on-board-charger/ primary KD-unscored: "on board golf cart charger" vol 20
@@ -150,7 +148,7 @@
 /shop/walk-behind-buggies/mgi-e-boost-black/ primary tier-B: "mgi e boost golf buggy" is kd-n/a
 /shop/walk-behind-buggies/mgi-e-boost-navy/ primary tier-B: "buy mgi e-boost navy" is no-data
 /shop/walk-behind-buggies/mgi-e-boost-white/ primary tier-B: "buy mgi e-boost white" is no-data
-/shop/push-golf-buggies/clicgear-model-4-0-buggy-teal/ primary tier-B: "three wheel electric golf buggy" is kd-n/a
+/shop/push-golf-buggies/clicgear-model-4-0-buggy-teal/ primary KD-unscored: "three wheel electric golf buggy" vol 20
 /shop/batteries-chargers/mgi-lithium-24v-13ah-battery/ primary tier-B: "buy mgi lithium 24v 13ah battery" is no-data
 /shop/batteries-chargers/mgi-2024-zip-24v-250wh-lithium-battery/ primary KD-unscored: "mgi zip navigator at battery" vol 50
 /shop/batteries-chargers/mgi-fireproof-charging-box/ primary KD-unscored: "mgi charging box" vol 20
@@ -198,7 +196,6 @@
 /blog/commercial-utility-golf-buggies-resorts-and-industrial-parks/ secondary tier-B (2): golf cart utility vehicle; golf buggy utility vehicle
 /blog/commercial-utility-golf-buggies-resorts-and-industrial-parks/ secondary: only 2 (need 10+)
 /blog/electric-golf-buggy-maintenance-schedule-australia/ secondary: only 6 (need 10+)
-/blog/used-golf-carts-for-sale-australia-what-we-check/ secondary: only 9 (need 10+)
 /blog/second-hand-golf-buggy-value-guide-australia/ secondary tier-B (1): 2nd hand golf carts
 /blog/second-hand-golf-buggy-value-guide-australia/ secondary: only 7 (need 10+)
 /blog/reconditioned-vs-new-golf-buggy-cost-comparison/ secondary tier-B (2): reconditioned golf buggy; refurbished golf cart australia
@@ -210,9 +207,8 @@
 /blog/golf-carts-for-sale-adelaide-sa-buyers-guide/ secondary tier-B (3): motorised golf buggies adelaide; electric golf buggies south australia; golf trolley adelaide
 /blog/golf-carts-for-sale-adelaide-sa-buyers-guide/ secondary: only 3 (need 10+)
 /blog/electric-buggy-australia-what-it-means/ secondary tier-B (3): electric golf buggy price; electric buggy for sale; electric buggy prices
-/blog/electric-buggy-australia-what-it-means/ secondary: only 6 (need 10+)
+/blog/electric-buggy-australia-what-it-means/ secondary: only 7 (need 10+)
 /blog/electric-golf-buggy-australia-complete-guide/ secondary: only 1 (need 10+)
-/blog/junior-golf-buggy-australia-guide/ secondary tier-B (1): youth golf trolley
 /blog/how-much-does-a-golf-cart-cost-australia/ secondary tier-B (1): how much does an electric golf cart cost
 /blog/how-much-does-a-golf-cart-cost-australia/ secondary: only 7 (need 10+)
 /blog/golf-buggy-fleet-purchase-guide-australia/ secondary tier-B (4): golf cart fleet; commercial golf buggies australia; golf club buggy fleet; resort golf buggies
@@ -223,7 +219,7 @@
 /blog/golf-buggy-tyres-explained-australia/ secondary tier-B (1): all terrain golf cart tyres
 /blog/golf-buggy-brakes-explained-australia/ secondary tier-B (4): golf cart disc brake kit australia; electromagnetic brake golf buggy; golf buggy drum brakes; golf cart brake upgrade
 /blog/golf-buggy-brakes-explained-australia/ secondary: only 9 (need 10+)
-/blog/golf-buggy-chargers-explained-australia/ secondary tier-B (3): golf cart charger amperage; lithium golf buggy charger australia; golf buggy charge time
+/blog/golf-buggy-chargers-explained-australia/ secondary tier-B (2): golf cart charger amperage; lithium golf buggy charger australia
 /blog/how-golf-buggy-ordering-invoicing-delivery-works/ secondary tier-B (3): golf buggy invoice australia; golf cart delivery australia; golf buggy order tracking
 /blog/how-golf-buggy-ordering-invoicing-delivery-works/ secondary: only 5 (need 10+)
 /blog/paying-for-a-golf-buggy-in-crypto-btc-usdt-guide/ secondary tier-B (5): golf buggy usdt payment; crypto discount golf cart australia; bitcoin golf buggy australia; golf buggy tether payment; buy golf cart with crypto
@@ -235,11 +231,11 @@
 /blog/golf-buggies-for-caravan-parks-holiday-resorts-australia/ secondary tier-B (4): holiday resort golf buggy fleet australia; caravan park utility buggy; commercial golf cart resort australia; resort fleet golf buggy pricing
 /blog/golf-buggies-for-caravan-parks-holiday-resorts-australia/ secondary: only 4 (need 10+)
 /blog/petrol-vs-electric-golf-buggy-running-costs-australia/ secondary tier-B (3): golf cart running costs australia; electric vs petrol golf cart comparison; quiettech petrol golf buggy
-/blog/petrol-vs-electric-golf-buggy-running-costs-australia/ secondary: only 8 (need 10+)
 /blog/golf-buggies-for-gated-communities-residential-estates/ secondary tier-B (2): golf cart for residential estate; estate road golf cart australia
 /blog/golf-buggies-for-gated-communities-residential-estates/ secondary: only 4 (need 10+)
 /blog/golf-buggies-for-sale-canberra-act/ secondary: only 0 (need 10+)
 /blog/golf-buggy-lighting-street-legal-kits-australia/ secondary tier-B (2): golf cart led light kit australia; street legal golf buggy rules
+/blog/golf-buggy-lighting-street-legal-kits-australia/ secondary: only 9 (need 10+)
 /blog/golf-buggy-insurance-australia-explained/ secondary tier-B (1): insure electric golf cart australia
 /blog/golf-buggy-insurance-australia-explained/ secondary: only 2 (need 10+)
 /blog/golf-buggy-etiquette-course-rules-australia/ secondary tier-B (3): golf buggy course rules australia; golf cart etiquette guide; driving golf buggy near green rules
@@ -248,7 +244,7 @@
 /blog/trading-in-old-golf-cart-australia/ secondary: only 3 (need 10+)
 /blog/golf-buggies-for-schools-campuses-large-venues-australia/ secondary tier-B (3): golf cart fleet for schools australia; event venue golf buggy fleet; institutional golf buggy tender australia
 /blog/golf-buggies-for-schools-campuses-large-venues-australia/ secondary: only 3 (need 10+)
-/blog/golf-buggy-top-speed-australia-what-to-know-before-you-change-it/ secondary tier-B (3): electric golf cart top speed; golf cart top speed; average top speed of a golf cart
+/blog/golf-buggy-top-speed-australia-what-to-know-before-you-change-it/ secondary tier-B (2): electric golf cart top speed; golf cart top speed
 /blog/buggy-vs-golf-cart-vs-side-by-side-utv-five-year-cost-australia/ secondary: only 4 (need 10+)
 /blog/golf-buggy-bushfire-season-battery-charging-safety-australia/ secondary: only 2 (need 10+)
 /blog/golf-buggy-salt-air-coastal-care-australia/ secondary: only 0 (need 10+)
@@ -260,16 +256,14 @@
 /shop/commercial-utility/ezgo-cushman-hauler-pro-lithium/ secondary tier-B (1): cushman electric utility cart
 /shop/commercial-utility/evolution-700-heavy-commercial-utility/ secondary tier-B (1): evolution golf cart dealers
 /shop/commercial-utility/lvtong-commercial-flatbed-cargo-buggy/ secondary tier-B (5): electric flatbed golf cart; electric cargo golf cart; cargo golf cart for sale; cargo buggy for sale; electric buggy with tray
-/shop/mechanical-petrol/cushman-hauler-1200-gas-utility/ secondary tier-B (3): cushman carts for sale; cushman buggy for sale; cushman cart models
+/shop/mechanical-petrol/cushman-hauler-1200-gas-utility/ secondary tier-B (1): cushman carts for sale
 /shop/batteries-chargers/eco-battery-48v-105ah-lithium-conversion-kit/ secondary tier-B (2): electric golf cart conversion; golf push cart electric conversion kit
 /shop/batteries-chargers/eco-battery-48v-105ah-lithium-conversion-kit/ secondary: only 4 (need 5+)
-/shop/batteries-chargers/roypow-48v-105ah-lithium-battery-pack/ secondary: only 1 (need 5+)
+/shop/batteries-chargers/roypow-48v-105ah-lithium-battery-pack/ secondary: only 2 (need 5+)
 /shop/batteries-chargers/roypow-72v-105ah-commercial-lithium-battery/ secondary: only 0 (need 5+)
 /shop/batteries-chargers/invicta-48v-50ah-lithium-drop-in-module/ secondary: only 0 (need 5+)
-/shop/batteries-chargers/trojan-t-875-8v-deep-cycle-lead-acid-battery/ secondary: only 4 (need 5+)
 /shop/batteries-chargers/delta-q-quiq-48v-smart-on-board-charger/ secondary tier-B (2): golf cart charger; golf cart charger for sale
 /shop/batteries-chargers/delta-q-quiq-48v-smart-on-board-charger/ secondary: only 3 (need 5+)
-/shop/accessories-spare-parts/navitas-600a-ac-controller-upgrade-kit/ secondary tier-B (1): best golf cart controller
 /shop/batteries-chargers/universal-48v-to-12v-30a-voltage-reducer/ secondary tier-B (2): 12v accessories for golf cart; golf cart dc converter
 /shop/batteries-chargers/universal-48v-to-12v-30a-voltage-reducer/ secondary: only 2 (need 5+)
 /shop/accessories-spare-parts/all-weather-heavy-duty-pvc-enclosure/ secondary tier-B (1): golf buggy enclosures
@@ -277,16 +271,14 @@
 /shop/accessories-spare-parts/heavy-duty-solenoid-albright-48vdc-200a/ secondary tier-B (1): golf cart solenoid replacement
 /shop/accessories-spare-parts/heavy-duty-solenoid-albright-48vdc-200a/ secondary: only 3 (need 5+)
 /shop/accessories-spare-parts/golf-cart-side-mirrors-integrated-led-indicators/ secondary: only 2 (need 5+)
-/shop/accessories-spare-parts/heavy-duty-tow-hitch-ball-assembly/ secondary: only 1 (need 5+)
+/shop/accessories-spare-parts/heavy-duty-tow-hitch-ball-assembly/ secondary: only 2 (need 5+)
 /shop/batteries-chargers/golf-cart-solar-charging-panel-expansion-kit/ secondary tier-B (4): solar golf cart; solar powered golf buggy; solar charge golf cart; golf cart solar power
 /shop/accessories-spare-parts/waterproof-marine-grade-bluetooth-soundbar/ secondary tier-B (2): bluetooth golf cart; golf cart with stereo
 /shop/accessories-spare-parts/waterproof-marine-grade-bluetooth-soundbar/ secondary: only 2 (need 5+)
 /shop/accessories-spare-parts/retractable-seatbelt-system-set/ secondary tier-B (2): golf cart seat belt kit; golf cart retractable seat belts
 /shop/accessories-spare-parts/lockable-dash-glove-box-storage-system/ secondary: only 1 (need 5+)
 /shop/accessories-spare-parts/heavy-duty-sand-bottle-assembly-dual-set/ secondary: only 0 (need 5+)
-/shop/walk-behind-buggies/mgi-zip-navigator/ secondary tier-B (1): mgi zip navigator remote control
-/shop/walk-behind-buggies/mgi-ai-500-electric-buggy/ secondary tier-B (3): mgi ai series; mgi ai 500 gps; mgi ai 500 price
-/shop/batteries-chargers/mgi-lithium-24v-13ah-battery/ secondary tier-B (3): mgi lithium 24v 13ah battery for sale; mgi lithium 24v 13ah battery price australia; best price mgi lithium 24v 13ah battery
+/shop/batteries-chargers/mgi-lithium-24v-13ah-battery/ secondary tier-B (2): mgi lithium 24v 13ah battery for sale; mgi lithium 24v 13ah battery price australia
 /shop/batteries-chargers/mgi-2024-zip-24v-250wh-lithium-battery/ secondary tier-B (3): mgi zip navigator battery charging; mgi zip navigator battery replacement; mgi zip battery replacement
 /shop/batteries-chargers/mgi-2024-zip-24v-250wh-lithium-battery/ secondary: only 3 (need 5+)
 /shop/batteries-chargers/mgi-lithium-24v-250wh-battery/ secondary tier-B (4): mgi battery replacement; mgi battery box; battery powered golf buggy; battery operated golf buggy
@@ -301,7 +293,7 @@
 /shop/accessories-spare-parts/mgi-multipurpose-hook/ secondary tier-B (5): mgi multipurpose hook for sale; mgi multipurpose hook price australia; best price mgi multipurpose hook; mgi multipurpose hook online; order mgi multipurpose hook
 /shop/accessories-spare-parts/mgi-scorecard-holder/ secondary: only 2 (need 5+)
 /shop/accessories-spare-parts/mgi-seat/ secondary tier-B (4): push golf buggy with seat; electric golf buggy with seat; single seat golf buggies; single seat golf buggy for sale
-/shop/accessories-spare-parts/mgi-rain-cover/ secondary tier-B (4): rain cover for golf buggy top; buy mgi rain cover; mgi rain cover for sale; mgi rain cover price australia
+/shop/accessories-spare-parts/mgi-rain-cover/ secondary tier-B (3): rain cover for golf buggy top; buy mgi rain cover; mgi rain cover for sale
 /shop/accessories-spare-parts/mgi-cooler-bag/ secondary tier-B (5): buy mgi cooler bag; mgi cooler bag for sale; mgi cooler bag price australia; best price mgi cooler bag; mgi cooler bag online
 /shop/accessories-spare-parts/mgi-travel-bag/ secondary tier-B (5): mgi travel bag for sale; mgi travel bag price australia; best price mgi travel bag; mgi travel bag online; order mgi travel bag
 /shop/accessories-spare-parts/mgi-accessories-bag/ secondary tier-B (5): mgi golf buggy accessories; golf trolley accessories; electric golf trolley accessories; golf push buggy accessories; mgi golf buggy accessories australia

@@ -14,15 +14,15 @@ Deliverable: `keyword-map-2026-11-25.csv` (one row per page and keyword; role = 
 - Blog posts: 4 product primary keywords listed per post, each with its product URL for the embedded link (Phase 6).
 - Home primary stays "buggies for sale" (owner-set).
 
-## 3. Results (242 pages)
+## 3. Results (242 pages; rebuilt after adding the golf buggy battery, golf trolley and farm buggy seeds)
 | Primary keyword status | Pages |
 |---|---:|
-| Meets every criterion (volume 10+, KD 1–28) | 68 |
-| Volume 10+ but KD not scored by Semrush ("n/a") | 68 |
-| Existing on-topic term outside the criteria (volume under 10, or no Semrush data) | 92 |
+| Meets every criterion (volume 10+, KD 1–28) | 70 |
+| Volume 10+ but KD not scored by Semrush ("n/a") | 76 |
+| Existing on-topic term outside the criteria (volume under 10, or no Semrush data) | 82 |
 | No keyword with search demand (see section 5) | 14 |
 
-Secondary coverage: product 80 of 102 pages at 5+ (avg 4.4), category 10 of 11, brand 9 of 13, tag 7 of 8, delivery 6 of 6, blog 53 of 89 at 10+ (avg 8.5), home 12. The shortfalls are data limits: Semrush has fewer than 5 distinct, relevant, qualifying queries for many niche parts and models.
+Secondary coverage: product 81 of 102 pages at 5+ (avg 4.4), category 10 of 11, brand 9 of 13, tag 7 of 8, delivery 6 of 6, blog 54 of 89 at 10+ (avg 8.5), home 12. The shortfalls are data limits: Semrush has fewer than 5 distinct, relevant, qualifying queries for many niche parts and models.
 Blog product links: 80 of 89 posts have 4 relevant product primaries; 9 have fewer.
 
 Changes versus the September mapping: 8 primaries replaced, 3 new. `/tag/chargers/` re-keyed to "golf buggy charger" (70 searches, KD 4), leaving "golf buggy charger australia" with the blog post. Everything else kept, because replacing a specific term with a generic qualifying one (tested and rejected) would pull model and city pages onto head terms and cannibalise the brand and shop pages.
@@ -40,3 +40,6 @@ Products: `heavy-duty-tow-hitch-ball-assembly`, `lockable-dash-glove-box-storage
 
 ## 7. How the map is used
 Phase 4 (products), 5 (hubs, brands, tags) and 6 (blog and trust pages) read this CSV: primary in H1, title, description, first paragraph, FAQ and image alt; secondaries in headings, body and FAQ.
+
+## 8. Rebuild note (second pass)
+Adding the battery, trolley and farm buggy seeds moved 10 pages up a tier (tier-B 92 to 82) and changed 2 primaries. The new data mostly confirmed existing terms rather than adding new ones. A merge bug (fresh KD "n/a" overwriting a known KD) was fixed in .
