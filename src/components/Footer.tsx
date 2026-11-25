@@ -195,6 +195,11 @@ export default function Footer({ updated }: { updated?: 'pages' | 'catalog' | (s
               </Link>
             </li>
             <li>
+              <Link href="/privacy/" className="text-[#6B645E] hover:text-[#A85640] transition-colors">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
               <a
                 href={ABN_INFO.officialAbrLink}
                 target="_blank"

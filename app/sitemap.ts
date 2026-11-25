@@ -42,6 +42,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
         { url: `${base}/crypto-payment/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.7 },
         { url: `${base}/pay-in-4/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.7 },
         { url: `${base}/returns/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.6 },
+        { url: `${base}/privacy/`, lastModified: pagesDate, changeFrequency: 'yearly', priority: 0.3 },
         { url: `${base}/about/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.7 },
         { url: `${base}/faq/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.7 },
         { url: `${base}/wholesale/`, lastModified: pagesDate, changeFrequency: 'monthly', priority: 0.6 },

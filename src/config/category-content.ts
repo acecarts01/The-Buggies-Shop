@@ -8,6 +8,7 @@
 // from docs/keyword-research/phase0/keyword-bank-clean.csv: one primary per
 // page, supporting terms from other clusters, buggy vocabulary in headings,
 // cart vocabulary in metadata and a few body mentions only.
+import { CATEGORY_EXTRA_GUIDES } from './category-extra-guides';
 import { CATEGORIES, PRODUCTS, SHOP, isBuggyItem, isElectricBuggy, type ProductItem } from './site';
 
 export interface CategoryContent {
@@ -639,7 +640,14 @@ export function categoryContent(slug: string): CategoryContent {
 export function resolveCategory(slug: string) {
   const base = CATEGORIES.find((c) => c.slug === slug);
   if (!base) return undefined;
-  return { ...base, ...categoryContent(slug) } as (typeof CATEGORIES)[number] & CategoryContent;
+  const merged = { ...base, ...categoryContent(slug) } as (typeof CATEGORIES)[number] & CategoryContent;
+  const extra = CATEGORY_EXTRA_GUIDES[slug];
+  if (extra) {
+    const own = merged.guides ?? [];
+    const seen = new Set(own.map((g) => g.slug));
+    merged.guides = [...own, ...extra.filter((g) => !seen.has(g.slug))];
+  }
+  return merged;
 }
 
 // ------------------------------------------------------------------ the hub

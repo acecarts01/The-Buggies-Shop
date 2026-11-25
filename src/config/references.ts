@@ -76,6 +76,32 @@ export const REFERENCES = {
   // Owner-approved exceptions to rule 1 (reference and editorial sources), used sparingly.
   'wiki-golf-trolley': { title: 'Golf trolley', publisher: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Golf_trolley' },
   'golf-digest-mgi': { title: 'MGI Golf: 2026 equipment guide', publisher: 'Australian Golf Digest', url: 'https://www.australiangolfdigest.com.au/2026-equipment-guide-mgi-golf/' },
+  // YouTube videos from official brand channels, government bodies and respected reviewers. Each was confirmed public
+  // with YouTube oEmbed (title and channel read back) in November 2026. Never link a retailer's channel.
+  'yt-mgi-zip': { title: "MGI Golf | Zip Series (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=zU88SD9rHRk' },
+  'yt-mgi-ai': { title: "MGI Golf | Ai Series (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=LOdjuJ1E8c0' },
+  'yt-mgi-zip-navigator': { title: "MGI Zip Navigator Product Video (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=7djk8Qrt9WE' },
+  'yt-mgi-fold': { title: "How to Unfold and Fold | Ai Series (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=xV2ZAs1P3xU' },
+  'yt-mgi-battery': { title: "How to Best Care for Your Lithium Battery (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=hKNgNvFBwkI' },
+  'yt-mgi-charge': { title: "How to Charge Your Battery | Zip Series (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=lrjpFRotpl4' },
+  'yt-mgi-seat': { title: "How to Attach the Seat | Ai Navigator Halo (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=AurvDREdpv8' },
+  'yt-mgi-service': { title: "MGI Service | Replace the Motor | Ai Nav GPS+ (video)", publisher: "MGI Golf", url: 'https://www.youtube.com/watch?v=-u6fe92ZK8M' },
+  'yt-clubcar-onward': { title: "Onward HP LI-ION 2 Passenger Personal Transportation Vehicle (video)", publisher: "Club Car", url: 'https://www.youtube.com/watch?v=jKO_zgJtExw' },
+  'yt-clubcar-resorts': { title: "Club Car Connect on Resorts (video)", publisher: "Club Car", url: 'https://www.youtube.com/watch?v=8ob2-7bvxjE' },
+  'yt-clubcar-campgrounds': { title: "Club Car Connect on Campgrounds (video)", publisher: "Club Car", url: 'https://www.youtube.com/watch?v=RuLpAodj7FA' },
+  'yt-clubcar-industrial': { title: "Club Car Connect: Industrial (video)", publisher: "Club Car", url: 'https://www.youtube.com/watch?v=ZR00b7c15T4' },
+  'yt-yamaha-quietech': { title: "Yamaha QuieTech EFI Gas Golf Car (video)", publisher: "Yamaha Golf-Car Company", url: 'https://www.youtube.com/watch?v=USc6pnUcYzU' },
+  'yt-yamaha-powertech': { title: "Introducing Yamaha's All-New Drive2 PowerTech Lithium with IRS (video)", publisher: "Yamaha Golf-Car Company", url: 'https://www.youtube.com/watch?v=gatKiw3iJ10' },
+  'yt-yamaha-umax': { title: "Introducing.. the UMAX Rally™ (video)", publisher: "Yamaha Golf-Car Company", url: 'https://www.youtube.com/watch?v=3s_rE7LEI5c' },
+  'yt-clicgear-4': { title: "Introducing the Clicgear Model 4.0 (video)", publisher: "Clicgear", url: 'https://www.youtube.com/watch?v=YEb_xNM5YRg' },
+  'yt-clicgear-fold': { title: "Clicgear Model 4.0 Unfolding & Folding Instructions (video)", publisher: "Clicgear", url: 'https://www.youtube.com/watch?v=pJXxE9gnMSA' },
+  'yt-usga-etiquette': { title: "Fore the Golfer: Golf Cart and Pull Cart Etiquette (video)", publisher: "United States Golf Association (USGA)", url: 'https://www.youtube.com/watch?v=m2PKDVsHqiE' },
+  'yt-accc-basics': { title: "Consumer guarantees: the basics (video)", publisher: "ACCC", url: 'https://www.youtube.com/watch?v=H1a1ojlgyJQ' },
+  'yt-accc-detail': { title: "Consumer guarantees: in detail (video)", publisher: "ACCC", url: 'https://www.youtube.com/watch?v=niRakzWL_9k' },
+  'yt-frnsw-lithium': { title: "Safeguard your homes from Lithium-ion battery risks (video)", publisher: "Fire and Rescue NSW", url: 'https://www.youtube.com/watch?v=vgEG0shJExI' },
+  'yt-moneysmart-bnpl': { title: "How Buy Now Pay Later Works (video)", publisher: "Moneysmart", url: 'https://www.youtube.com/watch?v=uuNSAQldaMA' },
+  'yt-moneysmart-scam': { title: "How to Spot an Investment Scam (video)", publisher: "Moneysmart", url: 'https://www.youtube.com/watch?v=6xbfeTANaQc' },
+  'yt-golfalot-trolley': { title: "Electric Golf Trolley BUYING GUIDE! (video)", publisher: "Golfalot", url: 'https://www.youtube.com/watch?v=g_yxd5V07BU' },
 } satisfies Record<string, Reference>;
 
 export type ReferenceId = keyof typeof REFERENCES;
@@ -172,6 +198,313 @@ export const GUIDE_REFERENCES: Record<string, ReferenceId[]> = {
   'golf-buggy-etiquette-course-rules-australia': ['rules-of-golf'],
   'golf-car-vs-golf-buggy-vs-golf-cart-australia': ['wiki-golf-cart'],
 };
+
+/** Guides rewritten in Phase 6: 2-4 sources each, at least one verified YouTube video. Overrides the entries above. */
+const PHASE6_GUIDE_REFERENCES: Record<string, ReferenceId[]> = {
+  'lithium-vs-lead-acid-golf-buggy-batteries-australia': [
+    'wiki-lfp',
+    'accc-lithium',
+    'yt-frnsw-lithium'
+  ],
+  'buying-a-4-seater-golf-buggy-in-australia-rules-and-guide': [
+    'nsw-golf-buggy',
+    'qld-golf-buggy',
+    'yt-clubcar-onward'
+  ],
+  'lifted-4x4-golf-carts-acreage-and-farm-performance': [
+    'maker-club-car',
+    'yt-clubcar-industrial'
+  ],
+  'golf-buggy-maintenance-checklist-australian-climates': [
+    'qfd-lithium',
+    'accc-lithium',
+    'yt-mgi-battery'
+  ],
+  'golf-cart-finance-options-pay-in-4-vs-crypto-discounts': [
+    'moneysmart-bnpl',
+    'ato-crypto',
+    'yt-moneysmart-bnpl'
+  ],
+  'commercial-utility-golf-buggies-resorts-and-industrial-parks': [
+    'maker-club-car',
+    'yt-clubcar-resorts'
+  ],
+  'remote-control-golf-buggy-australia-buyers-guide': [
+    'mgi-ai-faq',
+    'yt-mgi-zip-navigator'
+  ],
+  'best-push-golf-buggy-australia-3-wheel-vs-4-wheel-review': [
+    'maker-clicgear',
+    'yt-clicgear-4'
+  ],
+  'foldable-golf-buggy-buyers-guide-boot-space-weight': [
+    'maker-mgi',
+    'yt-mgi-fold',
+    'yt-clicgear-fold'
+  ],
+  'motorised-vs-push-golf-buggy-health-stamina-benefits': [
+    'wiki-golf-trolley',
+    'yt-golfalot-trolley'
+  ],
+  'must-have-golf-buggy-accessories-and-spares-australia': [
+    'mgi-accessories',
+    'yt-mgi-seat'
+  ],
+  'buying-second-hand-golf-carts-in-australia-checklist': [
+    'accc-guarantees',
+    'yt-accc-basics'
+  ],
+  'heavy-duty-off-road-golf-buggy-rural-acreage-guide': [
+    'maker-club-car',
+    'yt-yamaha-umax'
+  ],
+  'electric-utility-buggy-price-guide-australia': [
+    'maker-club-car',
+    'yt-clubcar-industrial'
+  ],
+  'electric-golf-buggy-troubleshooting-and-replacement-parts': [
+    'mgi-zip-faq',
+    'mgi-manuals',
+    'yt-mgi-service'
+  ],
+  'how-to-choose-the-right-electric-golf-buggy-in-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggy-registration-australia-conditional-road-access': [
+    'qld-golf-buggy',
+    'nsw-golf-buggy',
+    'vic-noncompliant',
+    'yt-clubcar-onward'
+  ],
+  'lithium-battery-conversion-guide-cost-australia': [
+    'accc-lithium',
+    'wiki-lfp',
+    'yt-frnsw-lithium'
+  ],
+  'electric-golf-buggy-maintenance-schedule-australia': [
+    'accc-lithium',
+    'yt-mgi-battery'
+  ],
+  'electric-golf-buggy-range-test-one-charge-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'best-golf-trolley-australia-push-motorized-remote-comparison': [
+    'wiki-golf-trolley',
+    'maker-mgi',
+    'yt-golfalot-trolley'
+  ],
+  'transporting-towing-golf-buggy-australia-trailers-tie-downs': [
+    'nhvr-load',
+    'yt-mgi-fold'
+  ],
+  'golf-buggy-winter-storage-battery-care-australia': [
+    'accc-lithium',
+    'yt-mgi-battery'
+  ],
+  'ac-vs-dc-golf-buggy-motors-torque-efficiency-australia': [
+    'maker-yamaha',
+    'yt-yamaha-powertech'
+  ],
+  'mgi-golf-buggy-accessories-guide-australia': [
+    'mgi-accessories',
+    'mgi-manuals',
+    'yt-mgi-seat'
+  ],
+  'solar-panels-on-golf-buggies-australia-feasibility-guide': [
+    'accc-lithium',
+    'yt-frnsw-lithium'
+  ],
+  'used-golf-carts-for-sale-australia-what-we-check': [
+    'accc-guarantees',
+    'yt-accc-basics'
+  ],
+  'second-hand-golf-buggy-value-guide-australia': [
+    'accc-guarantees',
+    'yt-accc-detail'
+  ],
+  'used-petrol-golf-buggy-prices-australia': [
+    'accc-guarantees',
+    'yt-yamaha-quietech'
+  ],
+  'reconditioned-vs-new-golf-buggy-cost-comparison': [
+    'accc-guarantees',
+    'yt-accc-basics'
+  ],
+  'golf-caddy-australia-buyers-guide': [
+    'wiki-golf-trolley',
+    'maker-mgi',
+    'yt-golfalot-trolley'
+  ],
+  'golf-carts-for-sale-brisbane-buyers-guide': [
+    'qld-golf-buggy',
+    'qld-conditional',
+    'yt-clubcar-onward'
+  ],
+  'golf-carts-for-sale-melbourne-buyers-guide': [
+    'vic-noncompliant',
+    'yt-mgi-zip-navigator'
+  ],
+  'golf-carts-for-sale-perth-wa-buyers-guide': [
+    'wa-registration',
+    'yt-clubcar-onward'
+  ],
+  'golf-carts-for-sale-sydney-nsw-buyers-guide': [
+    'nsw-golf-buggy',
+    'yt-clubcar-onward'
+  ],
+  'golf-carts-for-sale-adelaide-sa-buyers-guide': [
+    'sa-restricted',
+    'yt-clubcar-industrial'
+  ],
+  'electric-buggy-australia-what-it-means': [
+    'wiki-golf-cart',
+    'yt-golfalot-trolley'
+  ],
+  'golf-push-cart-vs-electric-trolley-australia': [
+    'wiki-golf-trolley',
+    'yt-clicgear-4',
+    'yt-golfalot-trolley'
+  ],
+  'golf-cart-with-remote-control-australia-guide': [
+    'mgi-ai-faq',
+    'yt-mgi-zip-navigator'
+  ],
+  'electric-golf-buggy-australia-complete-guide': [
+    'wiki-lfp',
+    'accc-lithium',
+    'yt-clubcar-onward'
+  ],
+  'golf-car-vs-golf-buggy-vs-golf-cart-australia': [
+    'wiki-golf-cart',
+    'yt-clubcar-onward'
+  ],
+  'mgi-vs-motocaddy-electric-golf-trolley-australia': [
+    'maker-mgi',
+    'yt-mgi-zip-navigator',
+    'yt-golfalot-trolley'
+  ],
+  'clicgear-vs-mgi-push-buggy-comparison-australia': [
+    'maker-clicgear',
+    'maker-mgi',
+    'yt-clicgear-4',
+    'yt-mgi-zip-navigator'
+  ],
+  'powakaddy-vs-mgi-electric-golf-trolley-australia': [
+    'maker-powakaddy',
+    'maker-mgi',
+    'yt-golfalot-trolley'
+  ],
+  'best-electric-golf-trolley-brands-australia': [
+    'maker-mgi',
+    'maker-powakaddy',
+    'yt-golfalot-trolley'
+  ],
+  'junior-golf-buggy-australia-guide': [
+    'maker-clicgear',
+    'yt-clicgear-fold'
+  ],
+  'how-much-does-a-golf-cart-cost-australia': [
+    'accc-guarantees',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggy-parts-and-spares-australia-guide': [
+    'accc-guarantees',
+    'yt-mgi-service'
+  ],
+  'golf-buggy-seat-covers-and-upholstery-australia': [
+    'mgi-accessories',
+    'yt-mgi-seat'
+  ],
+  'golf-buggy-with-seat-options-explained-australia': [
+    'mgi-accessories',
+    'yt-mgi-seat'
+  ],
+  'golf-buggy-fleet-purchase-guide-australia': [
+    'maker-club-car',
+    'yt-clubcar-industrial'
+  ],
+  'eofy-golf-buggy-deals-australia-buying-guide': [
+    'ato-iawo',
+    'yt-moneysmart-bnpl'
+  ],
+  'golf-buggies-for-retirement-villages-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggy-tyres-explained-australia': [
+    'maker-yamaha',
+    'yt-yamaha-powertech'
+  ],
+  'golf-buggy-brakes-explained-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggy-chargers-explained-australia': [
+    'accc-lithium',
+    'qfd-lithium',
+    'yt-mgi-charge'
+  ],
+  'how-golf-buggy-ordering-invoicing-delivery-works': [
+    'abr',
+    'accc-guarantees',
+    'yt-accc-basics'
+  ],
+  'paying-for-a-golf-buggy-in-crypto-btc-usdt-guide': [
+    'ato-crypto',
+    'yt-moneysmart-scam'
+  ],
+  'golf-buggy-warranty-australia-explained': [
+    'accc-guarantees',
+    'accc-warranties',
+    'yt-accc-detail'
+  ],
+  'golf-buggies-for-wineries-vineyards-australia': [
+    'maker-club-car',
+    'yt-clubcar-industrial'
+  ],
+  'golf-buggies-for-caravan-parks-holiday-resorts-australia': [
+    'maker-club-car',
+    'yt-clubcar-campgrounds',
+    'yt-clubcar-resorts'
+  ],
+  'petrol-vs-electric-golf-buggy-running-costs-australia': [
+    'maker-yamaha',
+    'yt-yamaha-quietech'
+  ],
+  '4-seater-vs-6-seater-golf-buggies-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggies-for-gated-communities-residential-estates': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggies-for-sale-canberra-act': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'golf-buggy-windscreens-weather-enclosures-australia': [
+    'maker-club-car',
+    'yt-clubcar-onward'
+  ],
+  'electric-golf-buggy-that-follows-you-gps-follow-vs-remote-australia': [
+    'mgi-ai-faq',
+    'golf-digest-mgi',
+    'yt-mgi-ai'
+  ],
+  'golf-buggy-top-speed-australia-what-to-know-before-you-change-it': [
+    'qld-golf-buggy',
+    'nsw-golf-buggy',
+    'yt-yamaha-powertech'
+  ],
+  'buggy-vs-golf-cart-vs-side-by-side-utv-five-year-cost-australia': [
+    'accc-guarantees',
+    'yt-clubcar-industrial'
+  ]
+};
+Object.assign(GUIDE_REFERENCES, PHASE6_GUIDE_REFERENCES);
 
 /** Resolve ids to links, dropping any id that does not exist (a typo cannot ship a dead link). */
 export function resolveReferences(ids: ReferenceId[] | undefined): Reference[] {
