@@ -118,7 +118,7 @@ for (const slug of slugs) {
     if (!PRODUCTS.some((x) => x.slug === l.slug)) f.push(`unknown product slug ${l.slug}`);
     if (!sec.some((k) => kwKey(k) === kwKey(l.keyword))) f.push(`product keyword not a secondary: ${l.keyword}`);
     const hay = ' ' + bodyText.toLowerCase().replace(/[^a-z0-9 -]/g, ' ').replace(/\s+/g, ' ') + ' ';
-    const needle = ' ' + l.keyword.toLowerCase().replace(/\s+/g, ' ') + ' ';
+    const needle = ' ' + l.keyword.toLowerCase().replace(/[^a-z0-9 -]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
     if (!hay.includes(needle)) f.push(`product keyword not verbatim in body: ${l.keyword}`);
   }
 
