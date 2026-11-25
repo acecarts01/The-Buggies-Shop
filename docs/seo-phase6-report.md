@@ -1,6 +1,6 @@
 # Phase 6 report: blog rewrite, outbound sources, inbound links, trust pages
 
-Status: complete except for 20 guides deferred by the owner. Awaiting owner approval to close.
+Status: CLOSED. Owner approved Phase 6 and the Privacy wording. 20 guides remain deferred by the owner until vetted keywords exist.
 
 ## 1. Blog rewrite
 
