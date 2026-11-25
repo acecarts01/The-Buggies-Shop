@@ -8,6 +8,8 @@ import { buildTitle, clampDescription, socialImages } from '@/lib/seo';
 import { jsonLd, blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
 import BlogPostClient from './BlogPostClient';
 import { createLinker } from '@/lib/autolink';
+import { relatedSlugs } from '@/src/config/post-related';
+import type { Seg } from '@/src/components/LinkedText';
 import { GUIDE_REFERENCES, resolveReferences } from '@/src/config/references';
 
 export async function generateStaticParams() {
@@ -86,7 +88,36 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   // Contextual internal links: first natural mention of a target keyword, in reading order.
   const linker = createLinker(`/blog/${post.slug}/`, 10, 3);
-  const linkedBodies = post.content.map((sec) => linker.link(sec.body));
+  // The four product primary keywords are linked once each, on the keyword itself, before the generic linker runs.
+  const catOf = (raw: string) => CATEGORIES.find((c) => c.rawCategory === raw)?.slug ?? 'fleet';
+  const escapeRe = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const explicit = (post.productLinks ?? []).flatMap((l) => {
+    const p = PRODUCTS.find((x) => x.slug === l.slug);
+    if (!p) return [];
+    const parts = l.keyword.trim().split(/\s+/).map(escapeRe);
+    return [{ re: new RegExp('(?<![\\w-])(' + parts.join('[\\s-]+') + ')(?![\\w-])', 'i'), href: `/shop/${catOf(p.category)}/${p.slug}/`, done: false }];
+  });
+  const withExplicit = (text: string): Seg[] => {
+    const segs: Seg[] = [text];
+    for (const e of explicit) {
+      if (e.done) continue;
+      for (let i = 0; i < segs.length; i++) {
+        const sg = segs[i];
+        if (typeof sg !== 'string') continue;
+        const m = e.re.exec(sg);
+        if (!m) continue;
+        const before = sg.slice(0, m.index);
+        const after = sg.slice(m.index + m[0].length);
+        segs.splice(i, 1, ...([before, { text: m[0], href: e.href }, after].filter((x) => x !== '') as Seg[]));
+        e.done = true;
+        break;
+      }
+    }
+    return segs;
+  };
+  const linkedBodies = post.content.map((sec) =>
+    sec.body.split(/\n\n+/).map((par) => withExplicit(par).flatMap((sg) => (typeof sg === 'string' ? linker.link(sg) : [sg])))
+  );
 
   // Models this guide helps you choose between: its featured product plus the
   // nearest others in the same range, so every guide links down to real models.
@@ -110,15 +141,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   // Three other posts for the footer strip. Summaries only, so the client
   // component does not pull every article body into its bundle.
-  // Ranked by shared tags, then category, so a guide links to guides on its own
-  // topic rather than to the same three newest posts every time.
-  const tagSet = new Set(post.tags);
-  const score = (p: (typeof POSTS)[number]) => p.tags.filter((t) => tagSet.has(t)).length * 2 + (p.category === post.category ? 1 : 0);
-  const relatedPosts = POSTS.filter((p) => p.slug !== post.slug)
-    .map((p, i) => ({ p, i, sc: score(p) }))
-    .sort((a, b) => b.sc - a.sc || a.i - b.i)
-    .slice(0, 3)
-    .map((x) => toPostSummary(x.p));
+  // The three next posts in the category ring (src/config/post-related.ts): on topic, and every
+  // post receives exactly three inbound links, so none is an orphan.
+  const relatedPosts = relatedSlugs(post.slug)
+    .map((sl) => POSTS.find((p) => p.slug === sl))
+    .filter((p): p is (typeof POSTS)[number] => Boolean(p))
+    .map(toPostSummary);
 
   return (
     <>

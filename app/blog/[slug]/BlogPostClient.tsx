@@ -36,7 +36,7 @@ interface BlogPostClientProps {
   /** Models from the range this guide covers. */
   models: { name: string; price: string; href: string }[];
   /** Each section body with contextual internal links applied on the server. */
-  linkedBodies: Seg[][];
+  linkedBodies: Seg[][][];
   /** Vetted outbound sources for this guide (src/config/references.ts). */
   references: Reference[];
   /** Keyword-anchored links to the products this guide covers. */
@@ -125,6 +125,9 @@ export default function BlogPostClient({ post, relatedPosts, brands, references,
                 <Calendar className="w-3.5 h-3.5 text-[#E2A17A]" />
                 {post.date}
               </span>
+              {post.updated && post.updated !== post.date && (
+                <span className="flex items-center gap-1">Last updated: <time dateTime={post.updated}>{post.updated}</time></span>
+              )}
               <span className="flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-[#AEB4B8]" />
                 {post.readTime}
@@ -192,16 +195,30 @@ export default function BlogPostClient({ post, relatedPosts, brands, references,
             </ul>
           </div>
 
+          {/* Table of contents: every H2 */}
+          <nav aria-label="Table of contents" className="my-8 p-5 sm:p-6 bg-[#1A1D21] border border-[#2B2F34] rounded-2xl">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[#E2A17A] mb-3">In this guide</h2>
+            <ol className="space-y-1.5 list-decimal pl-5 text-xs sm:text-sm text-[#D6D3D1]">
+              {post.content.map((sec, idx) => (
+                <li key={idx}>
+                  <a href={`#section-${idx + 1}`} className="hover:text-[#E2A17A] hover:underline">{sec.heading}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
           {/* Body Content Sections */}
           <div className="space-y-8 text-sm sm:text-base text-[#D6D3D1] leading-relaxed">
             {post.content.map((sec, idx) => (
-              <section key={idx} className="space-y-3">
+              <section key={idx} id={`section-${idx + 1}`} className="space-y-3 scroll-mt-24">
                 <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#ffffff] tracking-tight pt-3">
                   {sec.heading}
                 </h2>
-                <p className="text-[#A8A29E] leading-relaxed">
-                  <LinkedText segs={linkedBodies[idx] ?? [sec.body]} />
-                </p>
+                {(linkedBodies[idx] ?? sec.body.split(/\n\n+/).map((t) => [t])).map((segs, pIdx) => (
+                  <p key={pIdx} className="text-[#A8A29E] leading-relaxed">
+                    <LinkedText segs={segs} />
+                  </p>
+                ))}
 
                 {sec.bulletPoints && sec.bulletPoints.length > 0 && (
                   <ul className="mt-3 space-y-2 pl-2">

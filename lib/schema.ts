@@ -315,7 +315,8 @@ function isPlaceholderImage(src?: string): boolean {
 /** Blog article. Falls back to the brand image while a post has no real photo. */
 export function blogPostingSchema(post: BlogPost) {
   const url = `${ORIGIN}/blog/${post.slug}/`;
-  const wordCount = post.content.reduce((n, s) => n + s.body.split(/\s+/).length + (s.bulletPoints || []).join(' ').split(/\s+/).length, 0);
+  const countWords = (t: string) => t.split(/\s+/).filter(Boolean).length;
+  const wordCount = post.content.reduce((n, s) => n + countWords(s.body) + countWords((s.bulletPoints || []).join(' ')), 0);
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -331,7 +332,7 @@ export function blogPostingSchema(post: BlogPost) {
       ? { keywords: [post.primaryKeyword, ...(post.supportingKeywords || []), ...(post.tags || [])].join(', ') }
       : { keywords: (post.tags || []).join(', ') }),
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     author: /\b(team|division|desk|department)\b/i.test(post.author.name)
       ? { '@type': 'Organization', '@id': ORG_ID, name: SITE.name }

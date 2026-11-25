@@ -6,6 +6,8 @@
 // this file must only ever be imported from server components and route
 // handlers. Client components receive `PostSummary` objects as props.
 
+import { POST_REFRESH } from './post-refresh';
+
 export interface BlogPost {
   slug: string;
   /** Full headline, used as the on-page H1. Free to be long and descriptive. */
@@ -32,6 +34,12 @@ export interface BlogPost {
   }[];
   relatedProductCategory?: string;
   relatedProductSlug?: string;
+  /** Date of the last real content edit (schema dateModified and the visible "Updated" line). */
+  updated?: string;
+  /** The four product primary keywords used as secondaries; each is linked once in the body to its product page. */
+  productLinks?: { keyword: string; slug: string }[];
+  /** Two related posts (slugs) linked from this post; guarantees every post has inbound links. */
+  related?: string[];
   /** The single term this article is written to win. */
   primaryKeyword?: string;
   /** Six secondary terms, assigned to this post and no other page. */
@@ -40,7 +48,7 @@ export interface BlogPost {
   faqs?: { q: string; a: string }[];
 }
 
-export const POSTS: BlogPost[] = [
+const BASE_POSTS: BlogPost[] = [
   {
     slug: 'lithium-vs-lead-acid-golf-buggy-batteries-australia',
     seoTitle: "Lithium vs Lead-Acid Golf Buggy Batteries Australia",
@@ -6613,6 +6621,9 @@ export const POSTS: BlogPost[] = [
     supportingKeywords: [],
   },
 ];
+
+/** Phase 6 refresh: posts rewritten to the SEO ruleset override the base entry field by field. */
+export const POSTS: BlogPost[] = BASE_POSTS.map((p) => (POST_REFRESH[p.slug] ? { ...p, ...POST_REFRESH[p.slug] } : p));
 
 /** The fields a listing or teaser needs. Never includes `content` or `faqs`. */
 export type PostSummary = Omit<BlogPost, 'content' | 'faqs'>;
